@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+   type="WEB"
+   name="greensheets"
+   id="myeclipse.1107458149400"
+   context-root="/greensheets"
+   j2ee-spec="1.3"
+   archive="greensheets.war">
+   <attributes>
+      <attribute name="webrootdir" value="WebRoot" />
+   </attributes>
+</project-module>
+

@@ -1,4 +1,7 @@
 * text=auto !eol
+Implementation/GsApp/trunk/.classpath -text
+Implementation/GsApp/trunk/.mymetadata -text
+Implementation/GsApp/trunk/.project -text
 Implementation/GsApp/trunk/WebRoot/META-INF/MANIFEST.MF -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/classes/ApplicationResources.properties -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/classes/displaytag.properties -text
@@ -125,6 +128,15 @@ Implementation/GsApp/trunk/appconfig/greensheetconfig.properties -text
 Implementation/GsApp/trunk/appconfig/ldap.properties -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormToFoTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormXmlTranslator.xslt -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PC_Questions.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PNC_Questions.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PNC_Questions_orig.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SC_Questions.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SNC_Questions.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SamplDefsSNQ.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SampleDefs.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SamplesPNQ.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/TEST_Questions.xml -text
 Implementation/GsApp/trunk/build/build.xml -text
 Implementation/GsApp/trunk/build/testing/ApplyXSL.xml -text
 Implementation/GsApp/trunk/build/testing/CheckTest.xml -text
@@ -185,6 +197,8 @@ Implementation/GsApp/trunk/build/testing/results.xml -text
 Implementation/GsApp/trunk/build/testing/webtestTaskdefs.properties -text
 Implementation/GsApp/trunk/build/user.properties -text
 Implementation/GsApp/trunk/dist/Install.txt -text
+Implementation/GsApp/trunk/dist/greensheets.war -text
+Implementation/GsApp/trunk/dist/greensheetsAppConfig.zip -text
 Implementation/GsApp/trunk/model/ArchitectureModel.mdx -text
 Implementation/GsApp/trunk/model/ImplementationModel.mdx -text
 Implementation/GsApp/trunk/src/ApplicationResources.properties -text
