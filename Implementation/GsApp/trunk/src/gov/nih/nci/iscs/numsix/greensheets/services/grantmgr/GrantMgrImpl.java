@@ -11,6 +11,9 @@ import gov.nih.nci.iscs.i2e.oracle.grantretrieverimpl.*;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.*;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*;
 import gov.nih.nci.iscs.numsix.greensheets.utils.*;
+
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.*;
 
 import org.apache.log4j.*;
@@ -61,7 +64,43 @@ public class GrantMgrImpl implements GrantMgr {
 		}
 
 		return g;
-	} /**
+	} 
+	
+	RangeToken getLatestBudgetStartDateCriteria() {
+	    int fiscalStartingYear = this.getFiscalStartingYear();
+	    int fiscalEndingYear = this.getFiscalEndingYear();
+	    
+	    String startingDateString = "October 1, " + fiscalStartingYear;
+	    String endingDateString = "September 30, " + fiscalEndingYear;
+	    
+	    DateFormat df = DateFormat.getDateInstance();
+	    Date startingDate = null;
+	    Date endingDate = null;
+	    
+	    try {
+	        startingDate = df.parse(startingDateString);
+         }
+         catch(ParseException e) {
+            System.out.println("Unable to parse starting date- " + startingDateString);
+         }
+	    
+         try {
+             endingDate = df.parse(endingDateString);
+          }
+          catch(ParseException e) {
+             System.out.println("Unable to parse ending date- " + endingDateString);
+          }
+	    
+        RangeToken rtps = new RangeToken();
+        rtps.setColumnKey("latestBudgetStartDate");
+        rtps.setMinValue(startingDate);
+        rtps.setMaxValue(endingDate);
+        rtps.setInclusive(true);
+        
+        return rtps;
+	}
+	
+	/**
 	           * @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr#getGrantsListForUser(GsUser, boolean)
 	           */
 	public Map getGrantsListForUser(
@@ -76,10 +115,12 @@ public class GrantMgrImpl implements GrantMgr {
 			ViewGrantRetrieverImpl vgr = new ViewGrantRetrieverImpl();
 			vgr.setView("FORM_GRANT_VW");
 
-			Properties p =
+			Properties p = 
 				(Properties) AppConfigProperties.getInstance().getProperty(
 					GreensheetsKeys.KEY_CONFIG_PROPERTIES);
-
+            
+            // Add the condition for Latest Budget Start Date.
+			vgr.addCondition(this.getLatestBudgetStartDateCriteria());
             
             // Query Rules for Program users
 			if (user.getRole().equals(GsUserRole.PGM_DIR)
@@ -110,6 +151,10 @@ public class GrantMgrImpl implements GrantMgr {
 				// Now need to get the non-competing grants
 				vgr.clearConditions();
 				this.setBaseProgramGrantsListTokens(user, vgr, p);
+				
+				//Add the condition for Latest Budget Start Date.
+				vgr.addCondition(this.getLatestBudgetStartDateCriteria());
+				
 				LikeToken lt4 = new LikeToken();
 				lt4.setColumnKey("councilMeetingDate");
 				lt4.setValue("%00");
@@ -315,19 +360,21 @@ public class GrantMgrImpl implements GrantMgr {
 		cal.setTime(new Date());
 		int iy = cal.get(Calendar.YEAR);
 		int im = cal.get(Calendar.MONTH);
-		if (im == 10) {
-			iy += 1;
+		// Returns the current fiscal year
+		if (im > 9) {
+		    iy += 1;
 		}
-
-		if (im == 11) {
-			iy += 1;
-		}
-
-		if (im == 12) {
-			iy += 1;
-		}
-
+		
 		return iy;
 	}
-
+	
+	private int getFiscalStartingYear() {
+	    int currentFiscalYear = this.getCurrentFiscalYear();
+	    return (currentFiscalYear -1);
+	}
+	
+	private int getFiscalEndingYear() {
+	    int currentFiscalYear = this.getCurrentFiscalYear();   
+		return currentFiscalYear;
+	}
 }
