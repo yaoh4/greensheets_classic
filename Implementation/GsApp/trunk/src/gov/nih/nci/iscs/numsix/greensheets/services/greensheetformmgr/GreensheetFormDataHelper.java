@@ -12,6 +12,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*;
 import gov.nih.nci.iscs.numsix.greensheets.utils.*;
 import java.sql.*;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.text.*;
 
 import org.apache.commons.lang.*;
@@ -383,7 +384,7 @@ public class GreensheetFormDataHelper {
                         qrd = new QuestionResponseData(fqaId);
                         String value = rs.getString("text_value");
                         qrd.setInputResponseData(questionDefId, respDefId,
-                                QuestionResponseData.TEXT, value);
+                                QuestionResponseData.TEXT, DbUtils.removeDupQuotes(value));
 
                     } else if (respDefId.indexOf("_NU_") > -1) {
                         qrd = new QuestionResponseData(fqaId);
@@ -395,7 +396,7 @@ public class GreensheetFormDataHelper {
                         qrd = new QuestionResponseData(fqaId);
                         String value = rs.getString("string_value");
                         qrd.setInputResponseData(questionDefId, respDefId,
-                                QuestionResponseData.STRING, value);
+                                QuestionResponseData.STRING, DbUtils.removeDupQuotes(value));
 
                     } else if (respDefId.indexOf("_DT_") > -1) {
                         qrd = new QuestionResponseData(fqaId);
@@ -429,8 +430,7 @@ public class GreensheetFormDataHelper {
                         qrd = new QuestionResponseData(fqaId);
                         String value = rs.getString("comment_value");
                         qrd.setInputResponseData(questionDefId, respDefId,
-                                QuestionResponseData.COMMENT, value);
-
+                                QuestionResponseData.COMMENT, DbUtils.removeDupQuotes(value));
                     }
                 } else {
 
