@@ -6486,7 +6486,6 @@
 							<TypeMech type="3" mech="U01"/>
 							<TypeMech type="3" mech="U13"/>
 							<TypeMech type="3" mech="U19"/>
-							<TypeMech type="3" mech="U54"/>
 							<TypeMech type="3" mech="U24"/>
 							<TypeMech type="3" mech="U41"/>
 							<TypeMech type="3" mech="U42"/>
@@ -6498,8 +6497,6 @@
 							<TypeMech type="3" mech="R42"/>
 							<TypeMech type="3" mech="R43"/>
 							<TypeMech type="3" mech="R44"/>
-							<TypeMech type="3" mech="U24"/>
-							<TypeMech type="3" mech="U56"/>
 						</GrantTypeMechs>
 						<QText>Are Special Terms and Conditions of Award available in the Special Requirements section of the RFA published in the NIH Guide?</QText>
 						<QInstructions/>
@@ -7063,11 +7060,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -7216,11 +7208,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="6" mech="P01"/>
@@ -7384,11 +7371,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="6" mech="P01"/>
@@ -7915,11 +7897,6 @@
 			<TypeMech type="6" mech="P01"/>
 			<TypeMech type="7" mech="P01"/>
 			<TypeMech type="9" mech="P01"/>
-			<TypeMech type="1" mech="P01"/>
-			<TypeMech type="2" mech="P01"/>
-			<TypeMech type="6" mech="P01"/>
-			<TypeMech type="7" mech="P01"/>
-			<TypeMech type="9" mech="P01"/>
 			<TypeMech type="1" mech="R03"/>
 			<TypeMech type="2" mech="R03"/>
 			<TypeMech type="6" mech="R03"/>
@@ -8330,11 +8307,6 @@
 			<TypeMech type="6" mech="P01"/>
 			<TypeMech type="7" mech="P01"/>
 			<TypeMech type="9" mech="P01"/>
-			<TypeMech type="1" mech="P01"/>
-			<TypeMech type="2" mech="P01"/>
-			<TypeMech type="6" mech="P01"/>
-			<TypeMech type="7" mech="P01"/>
-			<TypeMech type="9" mech="P01"/>
 			<TypeMech type="1" mech="R03"/>
 			<TypeMech type="2" mech="R03"/>
 			<TypeMech type="6" mech="R03"/>
@@ -8573,11 +8545,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -8803,11 +8770,6 @@
 									<QuestionDef id="PCQ_10">
 										<GrantTypeMechs>
 											<TypeMech type="1" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -9489,11 +9451,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="6" mech="P01"/>
@@ -10380,11 +10337,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -10595,11 +10547,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -11271,11 +11218,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -11486,11 +11428,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -11707,11 +11644,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -12169,11 +12101,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -12415,11 +12342,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="6" mech="P01"/>
@@ -15346,11 +15268,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="6" mech="R03"/>
@@ -15547,11 +15464,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -15846,11 +15758,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="6" mech="R03"/>
@@ -16056,11 +15963,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -16936,12 +16838,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="3" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="3" mech="R03"/>
@@ -17178,12 +17074,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="3" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="3" mech="R03"/>
@@ -17407,12 +17297,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="3" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="3" mech="P01"/>
@@ -17645,12 +17529,6 @@
 																			<TypeMech type="6" mech="R01"/>
 																			<TypeMech type="7" mech="R01"/>
 																			<TypeMech type="9" mech="R01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="3" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="P01"/>
 																			<TypeMech type="2" mech="P01"/>
 																			<TypeMech type="3" mech="P01"/>
@@ -18069,12 +17947,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="3" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="3" mech="R03"/>
@@ -18304,12 +18176,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="3" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="3" mech="P01"/>
@@ -18548,12 +18414,6 @@
 																			<TypeMech type="6" mech="R01"/>
 																			<TypeMech type="7" mech="R01"/>
 																			<TypeMech type="9" mech="R01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="3" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="P01"/>
 																			<TypeMech type="2" mech="P01"/>
 																			<TypeMech type="3" mech="P01"/>
@@ -19010,11 +18870,6 @@
 			<TypeMech type="6" mech="P01"/>
 			<TypeMech type="7" mech="P01"/>
 			<TypeMech type="9" mech="P01"/>
-			<TypeMech type="1" mech="P01"/>
-			<TypeMech type="2" mech="P01"/>
-			<TypeMech type="6" mech="P01"/>
-			<TypeMech type="7" mech="P01"/>
-			<TypeMech type="9" mech="P01"/>
 			<TypeMech type="1" mech="R03"/>
 			<TypeMech type="2" mech="R03"/>
 			<TypeMech type="6" mech="R03"/>
@@ -19248,12 +19103,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="3" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="3" mech="P01"/>
@@ -19534,12 +19383,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="3" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="3" mech="R03"/>
@@ -19806,12 +19649,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="3" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="3" mech="P01"/>
@@ -20098,12 +19935,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="3" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="3" mech="R03"/>
@@ -20369,12 +20200,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="3" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="3" mech="P01"/>
@@ -20657,12 +20482,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="3" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="3" mech="R03"/>
@@ -20939,11 +20758,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -21172,11 +20986,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -21417,11 +21226,6 @@
 															<TypeMech type="6" mech="P01"/>
 															<TypeMech type="7" mech="P01"/>
 															<TypeMech type="9" mech="P01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="R03"/>
 															<TypeMech type="2" mech="R03"/>
 															<TypeMech type="6" mech="R03"/>
@@ -21649,11 +21453,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -21893,11 +21692,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -22153,11 +21947,6 @@
 			<TypeMech type="6" mech="P01"/>
 			<TypeMech type="7" mech="P01"/>
 			<TypeMech type="9" mech="P01"/>
-			<TypeMech type="1" mech="P01"/>
-			<TypeMech type="2" mech="P01"/>
-			<TypeMech type="6" mech="P01"/>
-			<TypeMech type="7" mech="P01"/>
-			<TypeMech type="9" mech="P01"/>
 			<TypeMech type="1" mech="R03"/>
 			<TypeMech type="2" mech="R03"/>
 			<TypeMech type="6" mech="R03"/>
@@ -22392,11 +22181,6 @@
 			<TypeMech type="6" mech="P01"/>
 			<TypeMech type="7" mech="P01"/>
 			<TypeMech type="9" mech="P01"/>
-			<TypeMech type="1" mech="P01"/>
-			<TypeMech type="2" mech="P01"/>
-			<TypeMech type="6" mech="P01"/>
-			<TypeMech type="7" mech="P01"/>
-			<TypeMech type="9" mech="P01"/>
 			<TypeMech type="1" mech="R03"/>
 			<TypeMech type="2" mech="R03"/>
 			<TypeMech type="6" mech="R03"/>
@@ -22614,11 +22398,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -22826,11 +22605,6 @@
 			<TypeMech type="6" mech="R01"/>
 			<TypeMech type="7" mech="R01"/>
 			<TypeMech type="9" mech="R01"/>
-			<TypeMech type="1" mech="P01"/>
-			<TypeMech type="2" mech="P01"/>
-			<TypeMech type="6" mech="P01"/>
-			<TypeMech type="7" mech="P01"/>
-			<TypeMech type="9" mech="P01"/>
 			<TypeMech type="1" mech="P01"/>
 			<TypeMech type="2" mech="P01"/>
 			<TypeMech type="6" mech="P01"/>
@@ -23066,11 +22840,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="6" mech="P01"/>
@@ -23322,11 +23091,6 @@
 			<TypeMech type="6" mech="P01"/>
 			<TypeMech type="7" mech="P01"/>
 			<TypeMech type="9" mech="P01"/>
-			<TypeMech type="1" mech="P01"/>
-			<TypeMech type="2" mech="P01"/>
-			<TypeMech type="6" mech="P01"/>
-			<TypeMech type="7" mech="P01"/>
-			<TypeMech type="9" mech="P01"/>
 			<TypeMech type="1" mech="R03"/>
 			<TypeMech type="2" mech="R03"/>
 			<TypeMech type="6" mech="R03"/>
@@ -23564,11 +23328,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -23797,11 +23556,6 @@
 									<QuestionDef id="PCQ_60">
 										<GrantTypeMechs>
 											<TypeMech type="1" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -24061,11 +23815,6 @@
 			<TypeMech type="6" mech="P01"/>
 			<TypeMech type="7" mech="P01"/>
 			<TypeMech type="9" mech="P01"/>
-			<TypeMech type="1" mech="P01"/>
-			<TypeMech type="2" mech="P01"/>
-			<TypeMech type="6" mech="P01"/>
-			<TypeMech type="7" mech="P01"/>
-			<TypeMech type="9" mech="P01"/>
 			<TypeMech type="1" mech="R03"/>
 			<TypeMech type="2" mech="R03"/>
 			<TypeMech type="6" mech="R03"/>
@@ -24275,11 +24024,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -24481,11 +24225,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="6" mech="P01"/>
@@ -24713,11 +24452,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -24919,11 +24653,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="6" mech="P01"/>
@@ -25315,11 +25044,6 @@
 											<TypeMech type="6" mech="TU2"/>
 											<TypeMech type="7" mech="TU2"/>
 											<TypeMech type="9" mech="TU2"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="U10"/>
 											<TypeMech type="2" mech="U10"/>
 											<TypeMech type="6" mech="U10"/>
@@ -25341,11 +25065,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -25566,11 +25285,6 @@
 															<TypeMech type="6" mech="P01"/>
 															<TypeMech type="7" mech="P01"/>
 															<TypeMech type="9" mech="P01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="R03"/>
 															<TypeMech type="2" mech="R03"/>
 															<TypeMech type="6" mech="R03"/>
@@ -25772,11 +25486,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -26018,11 +25727,6 @@
 							<TypeMech type="6" mech="P01"/>
 							<TypeMech type="7" mech="P01"/>
 							<TypeMech type="9" mech="P01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="R03"/>
 							<TypeMech type="2" mech="R03"/>
 							<TypeMech type="6" mech="R03"/>
@@ -26235,11 +25939,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="6" mech="R03"/>
@@ -26441,11 +26140,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -26837,11 +26531,6 @@
 															<TypeMech type="6" mech="TU2"/>
 															<TypeMech type="7" mech="TU2"/>
 															<TypeMech type="9" mech="TU2"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="U10"/>
 															<TypeMech type="2" mech="U10"/>
 															<TypeMech type="6" mech="U10"/>
@@ -26863,11 +26552,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -27088,11 +26772,6 @@
 																			<TypeMech type="6" mech="P01"/>
 																			<TypeMech type="7" mech="P01"/>
 																			<TypeMech type="9" mech="P01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="R03"/>
 																			<TypeMech type="2" mech="R03"/>
 																			<TypeMech type="6" mech="R03"/>
@@ -27294,11 +26973,6 @@
 																			<TypeMech type="6" mech="R01"/>
 																			<TypeMech type="7" mech="R01"/>
 																			<TypeMech type="9" mech="R01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="P01"/>
 																			<TypeMech type="2" mech="P01"/>
 																			<TypeMech type="6" mech="P01"/>
@@ -27543,11 +27217,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="6" mech="R03"/>
@@ -27749,11 +27418,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -28145,11 +27809,6 @@
 															<TypeMech type="6" mech="TU2"/>
 															<TypeMech type="7" mech="TU2"/>
 															<TypeMech type="9" mech="TU2"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="U10"/>
 															<TypeMech type="2" mech="U10"/>
 															<TypeMech type="6" mech="U10"/>
@@ -28171,11 +27830,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -28396,11 +28050,6 @@
 																			<TypeMech type="6" mech="P01"/>
 																			<TypeMech type="7" mech="P01"/>
 																			<TypeMech type="9" mech="P01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="R03"/>
 																			<TypeMech type="2" mech="R03"/>
 																			<TypeMech type="6" mech="R03"/>
@@ -28602,11 +28251,6 @@
 																			<TypeMech type="6" mech="R01"/>
 																			<TypeMech type="7" mech="R01"/>
 																			<TypeMech type="9" mech="R01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="P01"/>
 																			<TypeMech type="2" mech="P01"/>
 																			<TypeMech type="6" mech="P01"/>
@@ -28848,11 +28492,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="6" mech="R03"/>
@@ -29054,11 +28693,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -29450,11 +29084,6 @@
 															<TypeMech type="6" mech="TU2"/>
 															<TypeMech type="7" mech="TU2"/>
 															<TypeMech type="9" mech="TU2"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="U10"/>
 															<TypeMech type="2" mech="U10"/>
 															<TypeMech type="6" mech="U10"/>
@@ -29476,11 +29105,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -29701,11 +29325,6 @@
 																			<TypeMech type="6" mech="P01"/>
 																			<TypeMech type="7" mech="P01"/>
 																			<TypeMech type="9" mech="P01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="R03"/>
 																			<TypeMech type="2" mech="R03"/>
 																			<TypeMech type="6" mech="R03"/>
@@ -29907,11 +29526,6 @@
 																			<TypeMech type="6" mech="R01"/>
 																			<TypeMech type="7" mech="R01"/>
 																			<TypeMech type="9" mech="R01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="P01"/>
 																			<TypeMech type="2" mech="P01"/>
 																			<TypeMech type="6" mech="P01"/>
@@ -30156,11 +29770,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="6" mech="R03"/>
@@ -30362,11 +29971,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -30758,11 +30362,6 @@
 															<TypeMech type="6" mech="TU2"/>
 															<TypeMech type="7" mech="TU2"/>
 															<TypeMech type="9" mech="TU2"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="U10"/>
 															<TypeMech type="2" mech="U10"/>
 															<TypeMech type="6" mech="U10"/>
@@ -30784,11 +30383,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -30989,13 +30583,13 @@
 																<SelectionDef id="SEL_X_88">
 																	<Value>--Select an option--</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_980">
+																<SelectionDef id="SEL_1041">
 																	<Value>Yes, attached</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_981">
+																<SelectionDef id="SEL_1042">
 																	<Value>Yes, sent to GAB</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_982">
+																<SelectionDef id="SEL_1043">
 																	<Value>No</Value>
 																	<QuestionDef id="PCQ_661">
 																		<GrantTypeMechs>
@@ -31004,11 +30598,6 @@
 																			<TypeMech type="6" mech="R01"/>
 																			<TypeMech type="7" mech="R01"/>
 																			<TypeMech type="9" mech="R01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="P01"/>
 																			<TypeMech type="2" mech="P01"/>
 																			<TypeMech type="6" mech="P01"/>
@@ -31220,11 +30809,6 @@
 																			<TypeMech type="6" mech="P01"/>
 																			<TypeMech type="7" mech="P01"/>
 																			<TypeMech type="9" mech="P01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="R03"/>
 																			<TypeMech type="2" mech="R03"/>
 																			<TypeMech type="6" mech="R03"/>
@@ -31417,10 +31001,10 @@
 																			<ResponseDef id="PCQ_662_RD_CM_1692" type="COMMENT"/>
 																			<ResponseDef id="PCQ_662_RD_FL_1693" type="FILE"/>
 																			<ResponseDef id="PCQ_662_RD_RB_1694" type="RADIO">
-																				<SelectionDef id="SEL_983">
+																				<SelectionDef id="SEL_1044">
 																					<Value>Yes</Value>
 																				</SelectionDef>
-																				<SelectionDef id="SEL_984">
+																				<SelectionDef id="SEL_1045">
 																					<Value>No</Value>
 																				</SelectionDef>
 																			</ResponseDef>
@@ -31431,7 +31015,7 @@
 														</ResponseDefsList>
 													</QuestionDef>
 												</SelectionDef>
-												<SelectionDef id="SEL_979">
+												<SelectionDef id="SEL_1040">
 													<Value>No</Value>
 													<QuestionDef id="PCQ_663">
 														<GrantTypeMechs>
@@ -31456,11 +31040,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -31672,11 +31251,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="6" mech="R03"/>
@@ -31869,7 +31443,7 @@
 											<ResponseDef id="PCQ_656_RD_CM_1701" type="COMMENT"/>
 											<ResponseDef id="PCQ_656_RD_FL_1702" type="FILE"/>
 											<ResponseDef id="PCQ_656_RD_RB_1703" type="RADIO">
-												<SelectionDef id="SEL_985">
+												<SelectionDef id="SEL_1046">
 													<Value>Yes</Value>
 													<QuestionDef id="PCQ_664">
 														<GrantTypeMechs>
@@ -32063,11 +31637,6 @@
 															<TypeMech type="6" mech="TU2"/>
 															<TypeMech type="7" mech="TU2"/>
 															<TypeMech type="9" mech="TU2"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="U10"/>
 															<TypeMech type="2" mech="U10"/>
 															<TypeMech type="6" mech="U10"/>
@@ -32089,11 +31658,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -32294,13 +31858,13 @@
 																<SelectionDef id="SEL_X_89">
 																	<Value>--Select an option--</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_987">
+																<SelectionDef id="SEL_1048">
 																	<Value>Yes, attached</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_988">
+																<SelectionDef id="SEL_1049">
 																	<Value>Yes, sent to GAB</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_989">
+																<SelectionDef id="SEL_1050">
 																	<Value>No</Value>
 																	<QuestionDef id="PCQ_666">
 																		<GrantTypeMechs>
@@ -32309,11 +31873,6 @@
 																			<TypeMech type="6" mech="R01"/>
 																			<TypeMech type="7" mech="R01"/>
 																			<TypeMech type="9" mech="R01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="P01"/>
 																			<TypeMech type="2" mech="P01"/>
 																			<TypeMech type="6" mech="P01"/>
@@ -32525,11 +32084,6 @@
 																			<TypeMech type="6" mech="P01"/>
 																			<TypeMech type="7" mech="P01"/>
 																			<TypeMech type="9" mech="P01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="R03"/>
 																			<TypeMech type="2" mech="R03"/>
 																			<TypeMech type="6" mech="R03"/>
@@ -32722,10 +32276,10 @@
 																			<ResponseDef id="PCQ_667_RD_CM_1713" type="COMMENT"/>
 																			<ResponseDef id="PCQ_667_RD_FL_1714" type="FILE"/>
 																			<ResponseDef id="PCQ_667_RD_RB_1715" type="RADIO">
-																				<SelectionDef id="SEL_990">
+																				<SelectionDef id="SEL_1051">
 																					<Value>Yes</Value>
 																				</SelectionDef>
-																				<SelectionDef id="SEL_991">
+																				<SelectionDef id="SEL_1052">
 																					<Value>No</Value>
 																				</SelectionDef>
 																			</ResponseDef>
@@ -32736,7 +32290,7 @@
 														</ResponseDefsList>
 													</QuestionDef>
 												</SelectionDef>
-												<SelectionDef id="SEL_986">
+												<SelectionDef id="SEL_1047">
 													<Value>No</Value>
 													<QuestionDef id="PCQ_668">
 														<GrantTypeMechs>
@@ -32761,11 +32315,6 @@
 											<TypeMech type="6" mech="R01"/>
 											<TypeMech type="7" mech="R01"/>
 											<TypeMech type="9" mech="R01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="P01"/>
 											<TypeMech type="2" mech="P01"/>
 											<TypeMech type="6" mech="P01"/>
@@ -32977,11 +32526,6 @@
 											<TypeMech type="6" mech="P01"/>
 											<TypeMech type="7" mech="P01"/>
 											<TypeMech type="9" mech="P01"/>
-											<TypeMech type="1" mech="P01"/>
-											<TypeMech type="2" mech="P01"/>
-											<TypeMech type="6" mech="P01"/>
-											<TypeMech type="7" mech="P01"/>
-											<TypeMech type="9" mech="P01"/>
 											<TypeMech type="1" mech="R03"/>
 											<TypeMech type="2" mech="R03"/>
 											<TypeMech type="6" mech="R03"/>
@@ -33174,7 +32718,7 @@
 											<ResponseDef id="PCQ_658_RD_CM_1722" type="COMMENT"/>
 											<ResponseDef id="PCQ_658_RD_FL_1723" type="FILE"/>
 											<ResponseDef id="PCQ_658_RD_RB_1724" type="RADIO">
-												<SelectionDef id="SEL_992">
+												<SelectionDef id="SEL_1053">
 													<Value>Yes</Value>
 													<QuestionDef id="PCQ_669">
 														<GrantTypeMechs>
@@ -33368,11 +32912,6 @@
 															<TypeMech type="6" mech="TU2"/>
 															<TypeMech type="7" mech="TU2"/>
 															<TypeMech type="9" mech="TU2"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="U10"/>
 															<TypeMech type="2" mech="U10"/>
 															<TypeMech type="6" mech="U10"/>
@@ -33394,11 +32933,6 @@
 															<TypeMech type="6" mech="R01"/>
 															<TypeMech type="7" mech="R01"/>
 															<TypeMech type="9" mech="R01"/>
-															<TypeMech type="1" mech="P01"/>
-															<TypeMech type="2" mech="P01"/>
-															<TypeMech type="6" mech="P01"/>
-															<TypeMech type="7" mech="P01"/>
-															<TypeMech type="9" mech="P01"/>
 															<TypeMech type="1" mech="P01"/>
 															<TypeMech type="2" mech="P01"/>
 															<TypeMech type="6" mech="P01"/>
@@ -33599,13 +33133,13 @@
 																<SelectionDef id="SEL_X_90">
 																	<Value>--Select an option--</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_994">
+																<SelectionDef id="SEL_1055">
 																	<Value>Yes, attached</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_995">
+																<SelectionDef id="SEL_1056">
 																	<Value>Yes, sent to GAB</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_996">
+																<SelectionDef id="SEL_1057">
 																	<Value>No</Value>
 																	<QuestionDef id="PCQ_671">
 																		<GrantTypeMechs>
@@ -33614,11 +33148,6 @@
 																			<TypeMech type="6" mech="R01"/>
 																			<TypeMech type="7" mech="R01"/>
 																			<TypeMech type="9" mech="R01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="P01"/>
 																			<TypeMech type="2" mech="P01"/>
 																			<TypeMech type="6" mech="P01"/>
@@ -33830,11 +33359,6 @@
 																			<TypeMech type="6" mech="P01"/>
 																			<TypeMech type="7" mech="P01"/>
 																			<TypeMech type="9" mech="P01"/>
-																			<TypeMech type="1" mech="P01"/>
-																			<TypeMech type="2" mech="P01"/>
-																			<TypeMech type="6" mech="P01"/>
-																			<TypeMech type="7" mech="P01"/>
-																			<TypeMech type="9" mech="P01"/>
 																			<TypeMech type="1" mech="R03"/>
 																			<TypeMech type="2" mech="R03"/>
 																			<TypeMech type="6" mech="R03"/>
@@ -34027,7 +33551,7 @@
 																			<ResponseDef id="PCQ_672_RD_CM_1734" type="COMMENT"/>
 																			<ResponseDef id="PCQ_672_RD_FL_1735" type="FILE"/>
 																			<ResponseDef id="PCQ_672_RD_RB_1736" type="RADIO">
-																				<SelectionDef id="SEL_997">
+																				<SelectionDef id="SEL_1058">
 																					<Value>Yes</Value>
 																				</SelectionDef>
 																				<SelectionDef id="SEL_998">
@@ -34041,7 +33565,7 @@
 														</ResponseDefsList>
 													</QuestionDef>
 												</SelectionDef>
-												<SelectionDef id="SEL_993">
+												<SelectionDef id="SEL_1054">
 													<Value>No</Value>
 													<QuestionDef id="PCQ_673">
 														<GrantTypeMechs>
@@ -34160,7 +33684,7 @@
 											<ResponseDef id="PCQ_297_RD_CM_350" type="COMMENT"/>
 											<ResponseDef id="PCQ_297_RD_FL_351" type="FILE"/>
 											<ResponseDef id="PCQ_297_RD_RB_352" type="RADIO">
-												<SelectionDef id="SEL_977">
+												<SelectionDef id="SEL_1038">
 													<Value>Yes</Value>
 													<QuestionDef id="PCQ_114">
 														<GrantTypeMechs>
@@ -34222,7 +33746,7 @@
 														</ResponseDefsList>
 													</QuestionDef>
 												</SelectionDef>
-												<SelectionDef id="SEL_978">
+												<SelectionDef id="SEL_1039">
 													<Value>No</Value>
 												</SelectionDef>
 											</ResponseDef>
@@ -34483,11 +34007,6 @@
 							<TypeMech type="6" mech="R01"/>
 							<TypeMech type="7" mech="R01"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="1" mech="P01"/>
-							<TypeMech type="2" mech="P01"/>
-							<TypeMech type="6" mech="P01"/>
-							<TypeMech type="7" mech="P01"/>
-							<TypeMech type="9" mech="P01"/>
 							<TypeMech type="1" mech="P01"/>
 							<TypeMech type="2" mech="P01"/>
 							<TypeMech type="6" mech="P01"/>
@@ -35382,7 +34901,7 @@
 							<TypeMech type="1" mech="TU2"/>
 							<TypeMech type="2" mech="TU2"/>
 							<TypeMech type="3" mech="TU2"/>
-							<TypeMech type="6" mech="T32"/>
+							<TypeMech type="6" mech="TU2"/>
 							<TypeMech type="7" mech="TU2"/>
 							<TypeMech type="9" mech="TU2"/>
 							<TypeMech type="1" mech="T15"/>
@@ -35397,13 +34916,13 @@
 								<SelectionDef id="SEL_X_82">
 									<Value>--Select an option--</Value>
 								</SelectionDef>
-								<SelectionDef id="SEL_974">
+								<SelectionDef id="SEL_1035">
 									<Value>Approved as requested</Value>
 								</SelectionDef>
-								<SelectionDef id="SEL_975">
+								<SelectionDef id="SEL_1036">
 									<Value>Not approved</Value>
 								</SelectionDef>
-								<SelectionDef id="SEL_976">
+								<SelectionDef id="SEL_1037">
 									<Value>Other</Value>
 									<QuestionDef id="PCQ_296">
 										<GrantTypeMechs>
@@ -35416,7 +34935,7 @@
 											<TypeMech type="1" mech="TU2"/>
 											<TypeMech type="2" mech="TU2"/>
 											<TypeMech type="3" mech="TU2"/>
-											<TypeMech type="6" mech="T32"/>
+											<TypeMech type="6" mech="TU2"/>
 											<TypeMech type="7" mech="TU2"/>
 											<TypeMech type="9" mech="TU2"/>
 											<TypeMech type="1" mech="T15"/>
