@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="D:\NCIProjectsSVN\Greensheets\Implementation\GsQuestions\trunk\xslt\GsFormTranslator.xslt"?>
-<GreensheetQuestions id="PGM_C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\NCIProjectsSVN\Greensheets\Implementation\GsQuestions\trunk\schema\GsForm.xsd">
+<GreensheetQuestions id="PGM_C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:/NCIProjectsSVN/Greensheets/Implementation/GsQuestions/trunk/schema/GsForm.xsd">
 	<QuestionDef id="PCQ_74">
 		<GrantTypeMechs>
 			<TypeMech type="3" mech="P01"/>
