@@ -64,10 +64,10 @@ public class AppConfigLoader {
         AppConfigProperties.getInstance().addProperty("SC_QUESTIONS_SRC", new File(path + "xmlxsltsrc/SC_Questions.xml"));
         AppConfigProperties.getInstance().addProperty("SNC_QUESTIONS_SRC", new File(path + "xmlxsltsrc/SNC_Questions.xml"));
         
-        AppConfigProperties.getInstance().addProperty("PC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/PC_Questions_3.23.05.xml"));
-        AppConfigProperties.getInstance().addProperty("PNC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/PNC_Questions_3.23.05.xml"));
-        AppConfigProperties.getInstance().addProperty("SC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/SC_Questions_3.23.05.xml"));
-        AppConfigProperties.getInstance().addProperty("SNC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/SNC_Questions_3.23.05.xml"));
+        AppConfigProperties.getInstance().addProperty("PC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/PC_Questions.3.23.05.xml"));
+        AppConfigProperties.getInstance().addProperty("PNC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/PNC_Questions.3.23.05.xml"));
+        AppConfigProperties.getInstance().addProperty("SC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/SC_Questions.3.23.05.xml"));
+        AppConfigProperties.getInstance().addProperty("SNC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/SNC_Questions.3.23.05.xml"));
         
         
         
