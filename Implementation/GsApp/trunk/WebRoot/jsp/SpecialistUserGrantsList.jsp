@@ -18,15 +18,15 @@ String userName = gus.getUser().getDisplayUserName();
 	<title>Greensheets</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
-</head>
+</head>  
 <body>
 <%@ include file="/jsp/common/GlobalHeader.jsp"%>
 <h1>Specialist Grants List for <%=userName%></h1>
-<display:table name="sessionScope.GRANT_LIST" 
+<display:table name="sessionScope.GRANT_LIST"  
 	requestURI="/greensheets/no_op.do" 
 	class="data" id="row" 
-	defaultsort="3"
-	sort="list" pagesize="50" cellspacing="0">
+	sort="list" defaultsort="8" defaultorder="descending"
+	pagesize="50" cellspacing="0">
 		<display:column sortable="true" property="grantNumberSort" title="Grant Number" />
 		<display:column sortable="true" property="cancerActivity" title="CA"/>
 		<display:column sortable="true" property="budgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
@@ -35,6 +35,8 @@ String userName = gus.getUser().getDisplayUserName();
         <display:column sortable="true" property="pd" title="PD"/>	
 		<display:column sortable="true" property="pi" title="PI"/>
 		<display:column sortable="true" property="programStatus" title="Pgm GS Status"/>
+		<display:column sortable="true" property="pgmFormSubmittedDate" title="Pgm GS Submitted Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
+
 		<display:column property="programGreensheet" title=""/>
         <display:column property="programLockIcon" title="Pgm GS Lock"/>
 
