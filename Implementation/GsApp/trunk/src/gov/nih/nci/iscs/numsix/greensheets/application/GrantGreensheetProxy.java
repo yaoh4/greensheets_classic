@@ -83,6 +83,10 @@ public class GrantGreensheetProxy{
     public Date getBudgetStartDate() {
         return grant.getBudgetStartDate();
     }
+    
+    public Date getPgmFormSubmittedDate() {
+        return grant.getPgmFormSubmittedDate();
+    }
 
     public String getCouncilMeetingDate() {
         return grant.getCouncilMeetingDate();
