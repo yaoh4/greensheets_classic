@@ -1,0 +1,358 @@
+/* 
+Greensheets StyleSheet
+*/
+
+/* 
+Default Page Settings.  This includes the page background color and margin settings.
+*/
+
+body
+{
+	BACKGROUND-COLOR: #FFFFFF;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/* 
+Default Text settings.  Since the site is layed out in tables, we can apply the general style 
+at the table and td level.  This doesn't work for form elements, so they are listed separately.
+
+However--if this style doesn't automatically take to some page elements,
+they can be applied manually using the class DefaultText.
+*/
+
+TABLE,td,input,select,textarea
+{
+ 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	COLOR: #000000;
+}
+
+
+.DefaultText
+{
+ 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	COLOR: #000000;
+}
+
+.BoldText
+{
+	font-weight: bold;
+}
+
+
+
+/* 
+Default Links.  Note that hover doesn't work in older Netscape browsers.
+*/
+
+a:link
+{
+	color: #239950; 
+}
+
+a:visited
+{
+	color: #239950;
+}
+
+a:active 
+{
+	color: #7EC722;
+}
+
+a:hover 
+{
+	color: #7EC722;
+}
+
+
+
+
+
+/* 
+Titles and other text formatting:
+
+	1. TitlePrimary--style for Primary titles
+	2. TitleSecondary--style for secondary titles
+	3. TitleTertiary--style for tertiary titles
+*/
+
+.TitlePrimary 
+{ 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 12pt; 
+	font-weight: bold; 
+	color: #666666;
+}
+
+.TitleSecondary
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #666666;
+}
+
+.TitleTertiary 
+{ 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 8pt; 
+	font-weight: bold; 
+	color: #666666;
+}
+
+
+
+/* 
+Navigation Bar Styles
+*/
+
+.NavBar
+{
+ 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	COLOR: #FFFFFF;
+}
+
+.GreenBlock 
+{
+	BACKGROUND-COLOR: #7EC722;
+}
+
+.GrayBlock 
+{
+	BACKGROUND-COLOR: #666666;
+}
+
+.WhiteBlock 
+{
+	BACKGROUND-COLOR: #FFFFFF;
+}
+
+.GreenBlock2 
+{
+	BACKGROUND-COLOR: #7EC722;
+	BORDER-TOP: #FFFFFF 1px solid;
+	BORDER-RIGHT: #FFFFFF 1px solid;
+}
+
+.GrayBlock2 
+{
+	BACKGROUND-COLOR: #666666;
+	BORDER-TOP: #FFFFFF 1px solid;
+}
+
+.WhiteLine 
+{
+	height: 1px;
+}
+
+a.NavBar:link
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+a.NavBar:visited
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+a.NavBar:active
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	text-decoration: none;
+	color: #7EC722;
+}
+
+a.NavBar:hover
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	text-decoration: none;
+	color: #7EC722;
+}
+
+
+/* 
+List Cell Styles.  These are the styles applied to "List" Tables such as 
+the Grants List and the Greensheets List for each Grant:
+
+	1. listCellHead--styles used for the Headers of List Tables.
+	2. listCell--styles used for the Data Cells (i.e. records returned) of List Tables.
+	3. anchorListCellHead--styles used for the anchors WITHIN THE HEADERS of List Tables.
+*/
+
+.listCellHead 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #7EC722; 
+	BORDER-BOTTOM: white 2px outset; 
+	BORDER-LEFT: white 2px outset; 
+	BORDER-RIGHT: white 2px outset; 
+	BORDER-TOP: white 2px outset;
+}
+
+.listCell 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #FFFFFF; 
+	BORDER-BOTTOM: #999999 1px solid;  
+	BORDER-LEFT: #999999 1px solid;
+}
+
+.highlightedListCell 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #D4D0C8; 
+	BORDER-BOTTOM: #999999 1px solid;  
+	BORDER-LEFT: #999999 1px solid;
+}
+
+.highlightedListCell2 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #D4D0C8; 
+	BORDER-BOTTOM: #999999 1px solid;  
+	BORDER-LEFT: #999999 1px solid;
+}
+
+.listCell2 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #FFFFFF; 
+	BORDER-BOTTOM: #999999 1px solid;  
+	BORDER-LEFT: #999999 1px solid;
+	BORDER-RIGHT: #999999 1px solid;
+}
+
+/* 
+The following styles are for testing only and should be removed from this style sheet.
+*/
+
+.listCellTest 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #DDDDDD; 
+	border-color: #000000;
+	border-style: solid;
+	border-width: 1px;
+}
+
+td.listCellTest2 
+{
+	BACKGROUND-COLOR: #DDDDDD; 
+	border-color: #000000;
+	border-style: solid;
+	border-width: 1px;
+}
+
+form.GlobalHeaderForm
+{
+	display: inline;
+}
+
+.unnamed1 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 16px;
+}
+
+.GreenBlock2Original 
+{
+	BACKGROUND-COLOR: #7EC722;
+	BORDER-TOP: #FFFFFF 1px solid;
+	BORDER-RIGHT: #FFFFFF 1px solid;
+}
+
+.GrayBlock2Original
+{
+	BACKGROUND-COLOR: #666666;
+	BORDER-TOP: #FFFFFF 1px solid;
+}
+
+/* 
+End Test styles.
+*/
+
+a.anchorListCellHead:link
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+
+a.anchorListCellHead:visited
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+
+a.anchorListCellHead:active
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt; 
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+
+
+/* 
+Greensheet Form Styles
+*/
+
+
+.Greensheet 
+{  
+	border: #999999; 
+	border-style: solid; 
+	BORDER-BOTTOM: #999999 1px solid; 
+	BORDER-TOP: #999999 1px solid; 
+	BORDER-LEFT: #999999 1px solid;
+	BORDER-RIGHT: #999999 1px solid;
+}
+
+.GreensheetCell1 
+{
+	BORDER-BOTTOM: #999999 1px solid;
+	BORDER-RIGHT: #999999 1px solid;
+}
+
+.GreensheetCell2 
+{
+	BORDER-BOTTOM: #999999 1px solid;
+}
+
+
+/* 
+Miscellaneous Specialty Styles
+*/
+
+.FooterLine 
+{
+	BACKGROUND-COLOR: #B3B3B3;
+}

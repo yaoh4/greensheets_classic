@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="CHANGE HERE" basedir="." default="main">
+    <taskdef file="./webtestTaskdefs.properties">
+        <classpath>
+            <fileset dir="./lib" includes="**/*.jar"/>
+        </classpath>
+    </taskdef>
+    <target name="main">
+        <property name="webtest.connectioninitializer" value="com.canoo.webtest.security.SunJsseBaseConnectionInitializer"/>
+        <property name="webtest.truststore.file" value="C:\dev\jdks\jdk1.4.2_05\jre\lib\security\cacerts"/>
+        <property name="reports.dir" value="./reports"/>
+        <delete file="results.txt"/>
+        <delete>
+            <fileset dir="." includes="*.html"/>
+            <fileset dir="." includes="results.xml"/>
+        </delete>
+        <testSpec name="MY-SCENARIO-NAME-HERE">
+            <!-- set the default test configuration -->
+            <config host="i2e-test.nci.nih.gov" protocol="https" port="443" basepath="greensheets"
+                summary="true" resultfile="results.xml"/>
+            <steps>
+                <!-- recorded with Click-O-Mat  by kpuscas at Tue Jan 04 11:56:32 EST 2005
+     using https with Client Certificate <absolutefilename>.epf
+-->
+                <invoke url="/" stepid="" username="puscask" password="bflat0"/>
+                <verifytitle text="Welcome To Greensheets"/>
+                <invoke url="retrievegrants.do" stepid="" username="puscask" password="bflat0"/>
+                <setinputfield name="searchText" value=" Smith"/>
+                <setinputfield name="searchType" value="SEARCH_GS_NAME"/>
+                <clicklink name="Go" stepid="Search for Smith"/>
+                <verifytitle text="Greensheets"/>
+                <invoke
+                    url="retrievegreensheet.do?GRANT_ID=1F31CA113287-01&amp;APPL_ID=6892212&amp;GS_GROUP_TYPE=PGM&amp;ORACLE_ID=PuscasK" stepid=""/>
+                <verifytitle text="Greensheets : 1F31CA113287-01"/>
+            </steps>
+        </testSpec>
+    </target>
+</project>

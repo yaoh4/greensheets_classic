@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir=".." default="build" name="greensheets">
+
+<!--
+
+File: build.xml
+Description: This ant file contains targets for building a java web
+             application. Change the following properties values
+             for your project
+             
+             - app.name:        is the base name of the app
+             - package.root:    is the root package for javadoc and metrics     
+             - test.suite.file  is the name of the CanooWebTest test suite ant file.
+             
+Author: Kevin A. Puscas - Number Six Software 2003
+
+-->
+
+
+<!--
+########### Standard Properties Settings - DO NOT EDIT ###########
+-->
+
+    <!-- make environment variables available to build script -->
+    <property environment="env"/>       
+    
+    <!-- set location of user build properties file -->
+    <property file="${basedir}/build/user.properties"/>  
+   
+    
+    
+<!--
+########### App project Properties Settings - Edit as Needed ###########
+-->    
+    
+    <!-- change for to specific project values -->
+    <property name="app.name"               value="greensheets"/>
+    <property name="package.root"           value="gov"/>   
+    <property name="test.suite.file"        value="GsTestSuite.xml"/>    
+    
+    
+    
+    
+    <!-- default properties -->
+    <property name="distribution.dir"       value="./dist"/>
+    <property name="web.root.dir"           value="./WebRoot"/>
+    <property name="app.config.dir"         value="./appconfig"/>
+    <property name="src.java.dir"           value="./src"/>
+    <property name="doc.dir"		    value="./docs"/>
+    <property name="web.inf.dir"            value="${web.root.dir}/WEB-INF"/>
+    <property name="lib.dir"                value="${web.inf.dir}/lib"/>
+    <property name="java.classes.dir"       value="${web.inf.dir}/classes"/>
+    <property name="app.name.war"           value="${app.name}.war"/>
+    <property name="app.config.zip"         value="${app.name}AppConfig.zip"/>
+
+
+
+    <!-- database properties -->
+
+
+    <property name="database.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
+    <property name="dev.database.url" value="jdbc:oracle:thin:@cii-server7.nci.nih.gov:1526:ciid" />
+    <property name="test.database.url" value="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = app1-cm1.nci.nih.gov)(PORT = 1610)))  (CONNECT_DATA = (SERVICE_NAME = a1d2_at.nci.nih.gov)))" />
+    <property name="database.userid" value="nci_app_user"/>
+    <property name="database.password" value="orac1e"/>
+       
+
+
+
+<!--
+########### Project.Classpath Settings - Edit as Needed ###########
+-->
+
+    <path id="project.classpath">
+        <pathelement path="${classpath}"/>
+        <pathelement path="${env.LOG4J_JAR}"/>   	
+        <pathelement path="${env.J2EE_JAR}"/>
+		<fileset dir="${lib.dir}">
+		    <include name="*.jar"/>
+		</fileset>
+    </path>
+    <property name="project.classpath" refid="project.classpath"/>
+    
+    <taskdef file="${env.ANT_HOME}/lib/svntask.properties"/>
+    
+    
+<!--
+########### Targets - Edit as Needed ###########
+-->    
+
+<!-- ***************************************************************
+                            set_dev_structure
+
+this target creates the default directory structure with all the standard directories for building
+a typical web applicaiton.
+********************************************************************-->
+
+<target name="set_dev_structure"
+        description="sets up a default directory structure for building applications">
+    <mkdir dir="${distribution.dir}"/>
+    <mkdir dir="${doc.dir}"/>
+    <mkdir dir="${app.config.dir}"/>
+    <mkdir dir="${src.java.dir}"/>
+    <mkdir dir="${web.root.dir}"/>   
+    <mkdir dir="${web.root.dir}/html"/>
+    <mkdir dir="${web.root.dir}/images"/>
+    <mkdir dir="${web.root.dir}/jsp"/>
+    <mkdir dir="${web.root.dir}/scripts"/>
+    <mkdir dir="${web.root.dir}/stylesheets"/>
+    <mkdir dir="${web.inf.dir}"/> 
+    <mkdir dir="${lib.dir}"/> 
+    <mkdir dir="${java.classes.dir}"/>     
+</target>
+
+
+    
+    
+<!-- ***************************************************************
+                            clean
+
+this target cleans all build files including .class, .jar, .war,
+and javadocs
+********************************************************************-->
+<target name="clean"
+        description="cleans all build files including .class, .jar, .war, and javadocs">
+    <delete includeEmptyDirs="true">
+        <fileset dir="${java.classes.dir}" includes="**/*"/>
+    </delete>
+    <delete includeEmptyDirs="true">
+        <fileset dir="${distribution.dir}" includes="**/*"/>
+    </delete>
+</target>
+
+    
+<!-- ***************************************************************
+                            compile
+
+compiles the java source files using the classpath specified
+also copies any resource files that are in the java source
+directories.
+********************************************************************-->
+<target name="compile" 
+        description="compiles the java source files using the classpath specified" >
+    <!-- compile the java source -->
+    <javac 
+        classpath="${project.classpath}" 
+        srcdir="${src.java.dir}"
+        destdir="${java.classes.dir}" />
+        
+    <copy todir="${java.classes.dir}">
+        <fileset dir="${src.java.dir}" excludes="**/*.java"/>
+    </copy>     
+</target>
+    
+
+
+
+<!-- Project Targets
+    
+    Targets needed for the project
+    
+-->
+
+	
+	<target name="get_xmlsrc_svn">
+		<delete includeEmptyDirs="true">
+			<fileset dir="${app.config.dir}/xmlxsltsrc" includes="**/*.xml"/>
+		</delete>
+
+		<svn username="puscask" password="bflat0">
+			<export srcUrl="https://subversion.nci.nih.gov/svn/iscs/i2e/greensheets/Implementation/GsQuestions/trunk/xml" 
+			destPath="./delete_me/xmlxsltsrc" />
+
+		</svn>
+		<copy todir="${app.config.dir}/xmlxsltsrc">
+			    <fileset dir="./delete_me/xmlxsltsrc"/>
+		</copy>
+
+		<delete includeEmptyDirs="true">
+			<fileset dir="./delete_me"/>
+		</delete>
+
+	</target>
+	
+	
+    <!-- build -->
+    <target name="build" depends="compile,get_xmlsrc_svn"   
+            description="create distribution elements (war and jar)">
+                                            
+         <!-- create zip file for config information -->   
+        <zip destfile="${distribution.dir}/${app.config.zip}" update="true">
+                <fileset dir="${app.config.dir}"/>
+        </zip> 
+    
+    
+        <!-- create war file -->
+        <war warfile="${distribution.dir}/${app.name.war}" webxml="${web.inf.dir}/web.xml">
+            <fileset dir="${web.root.dir}">
+                <exclude name="${web.inf.dir}/web.xml" />
+            </fileset>
+
+
+        </war>
+                
+    </target>
+ 
+	
+<!-- No longer needed for Subversion Repository 
+
+    <target name="get_xmlsrc">
+       <cvs cvsroot="${cvs.root}"
+        passfile="./build/.cvspass"
+        package="nciprojects/greensheets/Implementation2/gsrepository/development/xml"
+        dest="${cvs.local.dir.root}"
+        command="update" />
+    </target>       
+    
+-->
+
+    <!-- Deploy Local: deploy distribution files to local app server -->
+    <target name="deploy" depends="build">        
+        <unzip src="${distribution.dir}/${app.config.zip}" dest="${deploy.local.jrun.conf.dir}/${app.name}" overwrite="true"/>            
+        <copy file="${distribution.dir}/${app.name.war}" tofile="${deploy.local.jrun.dir}/${app.name.war}"/>
+    </target>
+    
+
+    <!--  convertTabToSpaces --> 
+    <target name="convertTabToSpaces" 
+        description="utility to convert tabs to spaces in java source file">
+        
+        <fixcrlf srcdir="${src.java.dir}"
+            tab="remove"
+            tablength="4"
+            javafiles="yes"
+            includes="**/*.java"
+        />
+    </target>
+
+
+    <!-- Clear Database tables of worked up forms -->
+    <target name="clear_data">
+    
+        <sql
+            classpathref="project.classpath"
+            driver="${database.jdbc.driver}"
+            url="${test.database.url}"
+            userid="${database.userid}"
+            password="${database.password}" 
+            >
+            
+                delete form_answer_attachments_t;
+                delete form_question_answers_t;
+                delete appl_forms_t;
+                delete forms_t;
+
+        </sql>
+    </target>
+
+
+    <!-- Clear Database tables of worked up forms -->
+    <target name="blast_all_data">
+    
+        <sql
+            classpathref="project.classpath"
+            driver="${database.jdbc.driver}"
+            url="${test.database.url}"
+            userid="${database.userid}"
+            password="${database.password}" 
+            >
+            
+                delete appl_forms_t;
+                delete form_answer_attachments_t;
+                delete form_question_answers_t;
+                delete forms_t;
+                delete form_grant_matrix_t;
+                delete form_templates_t;
+        </sql>
+    </target>
+
+
+
+</project>

@@ -1,0 +1,173 @@
+<GreensheetQuestions>
+    <QuestionDef id="TESTQ_1">
+        <GrantTypeMechs>
+            <TypeMech type="1" mech="R01"/>
+        </GrantTypeMechs>
+        <QText>Question with a Drop Down: </QText>
+        <QInstructions/>
+        <ResponseDefsList>
+            <ResponseDef id="TESTQ_1_RD_CM_1" type="COMMENT"/>
+            <ResponseDef id="TESTQ_1_RD_FL_2" type="FILE"/>
+            <ResponseDef id="TESTQ_1_RD_DD_3" type="DROP_DOWN">
+                <SelectionDef id="SEL_0">
+                    <Value>--Select an option--</Value>
+                </SelectionDef>
+                <SelectionDef id="SEL_1">
+                    <Value>Red</Value>
+                    <QuestionDef id="TESTQ_2">
+                        <GrantTypeMechs>
+                            <TypeMech type="1" mech="R01"/>
+                        </GrantTypeMechs>
+                        <QText>Question with a Number Response </QText>
+                        <QInstructions/>
+                        <ResponseDefsList>
+                            <ResponseDef id="TESTQ_2_RD_CM_4" type="COMMENT"/>
+                            <ResponseDef id="TESTQ_2_RD_FL_5" type="FILE"/>
+                            <ResponseDef id="TESTQ_2_RD_NU_6" type="NUMBER"/>
+                        </ResponseDefsList>
+                    </QuestionDef>
+                </SelectionDef>
+                <SelectionDef id="SEL_2">
+                    <Value>Blue</Value>
+                    <QuestionDef id="TESTQ_3">
+                        <GrantTypeMechs>
+                            <TypeMech type="1" mech="R01"/>
+                        </GrantTypeMechs>
+                        <QText>Question with a Date Response </QText>
+                        <QInstructions/>
+                        <ResponseDefsList>
+                            <ResponseDef id="TESTQ_3_RD_CM_7" type="COMMENT"/>
+                            <ResponseDef id="TESTQ_3_RD_FL_8" type="FILE"/>
+                            <ResponseDef id="TESTQ_3_RD_DT_9" type="DATE"/>
+                        </ResponseDefsList>
+                    </QuestionDef>
+                    <QuestionDef id="TESTQ_4">
+                        <GrantTypeMechs>
+                            <TypeMech type="1" mech="R01"/>
+                        </GrantTypeMechs>
+                        <QText>Question with a Text Response </QText>
+                        <QInstructions/>
+                        <ResponseDefsList>
+                            <ResponseDef id="TESTQ_4_RD_CM_10" type="COMMENT"/>
+                            <ResponseDef id="TESTQ_4_RD_FL_11" type="FILE"/>
+                            <ResponseDef id="TESTQ_4_RD_TX_12" type="TEXT"/>
+                        </ResponseDefsList>
+                    </QuestionDef>
+                </SelectionDef>
+                <SelectionDef id="SEL_3">
+                    <Value>Green</Value>
+                    <QuestionDef id="TESTQ_5">
+                        <GrantTypeMechs>
+                            <TypeMech type="1" mech="R01"/>
+                        </GrantTypeMechs>
+                        <QText>Nested Level 2 </QText>
+                        <QInstructions/>
+                        <ResponseDefsList>
+                            <ResponseDef id="TESTQ_5_RD_CM_13" type="COMMENT"/>
+                            <ResponseDef id="TESTQ_5_RD_FL_14" type="FILE"/>
+                            <ResponseDef id="TESTQ_5_RD_RB_15" type="RADIO">
+                                <SelectionDef id="SEL_4">
+                                    <Value>Yes</Value>
+                                    <QuestionDef id="TESTQ_6">
+                                        <GrantTypeMechs>
+                                            <TypeMech type="1" mech="R01"/>
+                                        </GrantTypeMechs>
+                                        <QText>Nested Level 3 - Yes </QText>
+                                        <QInstructions/>
+                                        <ResponseDefsList>
+                                            <ResponseDef id="TESTQ_6_RD_CM_16" type="COMMENT"/>
+                                            <ResponseDef id="TESTQ_6_RD_FL_17" type="FILE"/>
+                                            <ResponseDef id="TESTQ_6_RD_RB_18" type="RADIO">
+                                                <SelectionDef id="SEL_5">
+                                                    <Value>Yes</Value>
+                                                    <QuestionDef id="TESTQ_7">
+                                                        <GrantTypeMechs>
+                                                            <TypeMech type="1" mech="R01"/>
+                                                        </GrantTypeMechs>
+                                                        <QText>Nested Level 4  - Yes</QText>
+                                                        <QInstructions/>
+                                                        <ResponseDefsList>
+                                                            <ResponseDef id="TESTQ_7_RD_CM_19" type="COMMENT"/>
+                                                            <ResponseDef id="TESTQ_7_RD_FL_20" type="FILE"/>
+                                                            <ResponseDef id="TESTQ_7_RD_RB_21" type="RADIO">
+                                                                <SelectionDef id="SEL_6">
+                                                                    <Value>Yes</Value>
+                                                                </SelectionDef>
+                                                                <SelectionDef id="SEL_7">
+                                                                    <Value>No</Value>
+                                                                </SelectionDef>
+                                                            </ResponseDef>
+                                                        </ResponseDefsList>
+                                                    </QuestionDef>
+                                                </SelectionDef>
+                                                <SelectionDef id="SEL_8">
+                                                    <Value>No</Value>
+                                                </SelectionDef>
+                                            </ResponseDef>
+                                        </ResponseDefsList>
+                                    </QuestionDef>
+                                </SelectionDef>
+                                <SelectionDef id="SEL_9">
+                                    <Value>No</Value>
+                                    <QuestionDef id="TESTQ_8">
+                                        <GrantTypeMechs>
+                                            <TypeMech type="1" mech="R01"/>
+                                        </GrantTypeMechs>
+                                        <QText>Nested Level 3 - No </QText>
+                                        <QInstructions/>
+                                        <ResponseDefsList>
+                                            <ResponseDef id="TESTQ_8_RD_CM_22" type="COMMENT"/>
+                                            <ResponseDef id="TESTQ_8_RD_FL_23" type="FILE"/>
+                                            <ResponseDef id="TESTQ_8_RD_RB_24" type="RADIO">
+                                                <SelectionDef id="SEL_10">
+                                                    <Value>Yes</Value>
+                                                </SelectionDef>
+                                                <SelectionDef id="SEL_11">
+                                                    <Value>No</Value>
+                                                </SelectionDef>
+                                            </ResponseDef>
+                                        </ResponseDefsList>
+                                    </QuestionDef>
+                                </SelectionDef>
+                            </ResponseDef>
+                        </ResponseDefsList>
+                    </QuestionDef>
+                </SelectionDef>
+            </ResponseDef>
+        </ResponseDefsList>
+    </QuestionDef>
+    <QuestionDef id="TESTQ_9">
+        <GrantTypeMechs>
+            <TypeMech type="1" mech="R01"/>
+        </GrantTypeMechs>
+        <QText>Question with a Check Boxs </QText>
+        <QInstructions/>
+        <ResponseDefsList>
+            <ResponseDef id="TESTQ_9_RD_CM_25" type="COMMENT"/>
+            <ResponseDef id="TESTQ_9_RD_FL_26" type="FILE"/>
+            <ResponseDef id="TESTQ_9_RD_CB_27" type="CHECK_BOX">
+                <SelectionDef id="SEL_12">
+                    <Value>Dog</Value>
+                </SelectionDef>
+                <SelectionDef id="SEL_13">
+                    <Value>Cat</Value>
+                </SelectionDef>
+                <SelectionDef id="SEL_14">
+                    <Value>Bird</Value>
+                </SelectionDef>
+            </ResponseDef>
+        </ResponseDefsList>
+    </QuestionDef>
+    <QuestionDef id="TESTQ_10">
+        <GrantTypeMechs>
+            <TypeMech type="1" mech="R01"/>
+        </GrantTypeMechs>
+        <QText>Question with a StringResponse </QText>
+        <QInstructions/>
+        <ResponseDefsList>
+            <ResponseDef id="TESTQ_10_RD_CM_27" type="COMMENT"/>
+            <ResponseDef id="TESTQ_10_RD_FL_28" type="FILE"/>
+            <ResponseDef id="TESTQ_10_RD_ST_29" type="STRING"/>
+        </ResponseDefsList>
+    </QuestionDef>
+</GreensheetQuestions>
