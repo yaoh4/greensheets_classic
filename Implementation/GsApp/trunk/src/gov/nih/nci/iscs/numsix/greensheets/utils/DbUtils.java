@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * Database Utilities
  * 
@@ -20,6 +22,19 @@ public class DbUtils {
     private DbUtils(){
     }
     
+    
+    /**
+     * removes duplicate single quotes used by the commons.lang.StringUtils.escapeSql 
+     * method.
+     * @param s
+     * @return
+     */
+    public static String removeDupQuotes(String s){
+        while(StringUtils.contains(s, "''")){
+        	s = s.replaceAll("''","'");
+        }
+        return s;
+    }
     
 	/**
 	 * Returns the next unique id from the provided sequence.
