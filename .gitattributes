@@ -266,6 +266,7 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/velocity/tools/view/servlet/Velo
 Implementation/GsQuestions/trunk/GenerateGs.bat -text
 Implementation/GsQuestions/trunk/checkfile.vm -text
 Implementation/GsQuestions/trunk/css/GreensheetsStyleSheet.css -text
+Implementation/GsQuestions/trunk/generateGsApp/.project -text
 Implementation/GsQuestions/trunk/generateGsApp/GsForm.xsd -text
 Implementation/GsQuestions/trunk/generateGsApp/bin/build.xml -text
 Implementation/GsQuestions/trunk/generateGsApp/bin/jarDescription.jardesc -text
