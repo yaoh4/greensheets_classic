@@ -41,7 +41,7 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
 
         if (req.getSession().isNew()) {
             forward = "sessionTimeOut";
-
+ 
         } else {
 
             GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
