@@ -66,7 +66,7 @@ public class GreensheetMgrFactory {
             return new GreensheetUserMgrImpl();
         }
         
-        
+         
     }    
     
     public static GreensheetResourceManager createGreenSheetResourceMgr(int type) {
