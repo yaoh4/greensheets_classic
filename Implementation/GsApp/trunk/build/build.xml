@@ -168,7 +168,7 @@ directories.
 		</delete>
 
 		<svn username="puscask" password="bflat0">
-			<export srcUrl="https://subversion.nci.nih.gov/svn/iscs/i2e/greensheets/Implementation/GsQuestions/trunk/xml" 
+			<export srcUrl="https://subversion.nci.nih.gov/svn/iscs/greensheets/Implementation/GsQuestions/trunk/xml" 
 			destPath="./delete_me/xmlxsltsrc" />
 
 		</svn>
