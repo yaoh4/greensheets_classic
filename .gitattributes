@@ -16,12 +16,10 @@ Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-logging.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-validator.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dataretriever.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dispenser.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/displaytag-1.0-b2.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/displaytag-1.0-b3.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dom4j-1.4.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/fop.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/jakarta-oro.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/listManager.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/listManager.jar-old -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/struts-legacy.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/struts.jar -text
