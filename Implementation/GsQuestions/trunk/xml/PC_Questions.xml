@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="D:\NCIProjectsSVN\Greensheets\Implementation\GsQuestions\trunk\xslt\GsFormTranslator.xslt"?>
-<GreensheetQuestions id="PGM_C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:/NCIProjectsSVN/Greensheets/Implementation/GsQuestions/trunk/schema/GsForm.xsd">
+<GreensheetQuestions id="PGM_C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\NCIProjects\greensheets\Implementation\GSQuestions\trunk\schema\GsForm.xsd">
 	<QuestionDef id="PCQ_74">
 		<GrantTypeMechs>
 			<TypeMech type="3" mech="P01"/>
@@ -1697,7 +1697,7 @@
 											<TypeMech type="3" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Research exempt from regulations (45 CFR 46)?  </QText>
-										<QInstructions>(Enter exemption number or not exempt) http://grants.nih.gov/grants/funding/phs398/section_1.html#exemption_cat</QInstructions>
+										<QInstructions>(Enter exemption number or not exempt) http://grants2.nih.gov/grants/funding/phs398/instructions2/p2_question2_exempt_research.htm</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="PCQ_426_RD_CM_985" type="COMMENT"/>
 											<ResponseDef id="PCQ_426_RD_FL_986" type="FILE"/>
@@ -2511,7 +2511,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Does performance site(s) have approved assurance(s)?</QText>
-																										<QInstructions>http://phrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																										<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_579_RD_CM_1447" type="COMMENT"/>
 																											<ResponseDef id="PCQ_579_RD_FL_1448" type="FILE"/>
@@ -3792,7 +3792,7 @@
 																			<TypeMech type="3" mech="U10"/>
 																		</GrantTypeMechs>
 																		<QText>Does performance site(s) have approved assurance(s)?</QText>
-																		<QInstructions>http://phrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																		<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																		<ResponseDefsList>
 																			<ResponseDef id="PCQ_433_RD_CM_1006" type="COMMENT"/>
 																			<ResponseDef id="PCQ_433_RD_FL_1007" type="FILE"/>
@@ -4702,7 +4702,7 @@
 											<TypeMech type="3" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Summary Statement review of animal welfare:</QText>
-										<QInstructions>http://oderdb2.od.noh.gov/oer/offices/olaw/4206_codes.htm</QInstructions>
+										<QInstructions>http://odoerdb2.od.nih.gov/oer/offices/olaw/4206_codes.htm</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="PCQ_460_RD_CM_1090" type="COMMENT"/>
 											<ResponseDef id="PCQ_460_RD_FL_1091" type="FILE"/>
@@ -4939,7 +4939,7 @@
 											<TypeMech type="3" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Does awardee have approved assurance? </QText>
-										<QInstructions>(Award will be held until all sites have assurance or OLAW approval received for restricted award. Grantee must have an assurance even if all research involving live vertebrate animals is at other performance sites.) http://grants.nih.gov/grants/olaw/assuraces/300index.htm</QInstructions>
+										<QInstructions>(Award will be held until all sites have assurance or OLAW approval received for restricted award. Grantee must have an assurance even if all research involving live vertebrate animals is at other performance sites.) http://grants2.nih.gov/grants/olaw/assurance/300index.htm</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="PCQ_464_RD_CM_1102" type="COMMENT"/>
 											<ResponseDef id="PCQ_464_RD_FL_1103" type="FILE"/>
@@ -5099,7 +5099,7 @@
 															<TypeMech type="3" mech="U10"/>
 														</GrantTypeMechs>
 														<QText>Does performance site(s) have approved assurance(s)? </QText>
-														<QInstructions>{http://grants.nih.gov/grants/olaw/assurance/300index.htm}</QInstructions>
+														<QInstructions>http://grants2.nih.gov/grants/olaw/assurance/300index.htm</QInstructions>
 														<ResponseDefsList>
 															<ResponseDef id="PCQ_467_RD_CM_1112" type="COMMENT"/>
 															<ResponseDef id="PCQ_467_RD_FL_1113" type="FILE"/>
@@ -12505,7 +12505,7 @@
 							<TypeMech type="9" mech="U10"/>
 						</GrantTypeMechs>
 						<QText>Research exempt from regulations (45 CFR 46)?  </QText>
-						<QInstructions>(Enter exemption number or not exempt) http://grants.nih.gov/grants/funding/phs398/section_1.html#exemption_cat</QInstructions>
+						<QInstructions>(Enter exemption number or not exempt) http://grants2.nih.gov/grants/funding/phs398/instructions2/p2_question2_exempt_research.htm</QInstructions>
 						<ResponseDefsList>
 							<ResponseDef id="PCQ_26_RD_CM_76" type="COMMENT"/>
 							<ResponseDef id="PCQ_26_RD_FL_77" type="FILE"/>
@@ -13660,7 +13660,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Does performance site(s) have approved assurance(s)?</QText>
-																						<QInstructions>http://phrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																						<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_256_RD_CM_772" type="COMMENT"/>
 																							<ResponseDef id="PCQ_256_RD_FL_773" type="FILE"/>
@@ -16121,7 +16121,7 @@
 															<TypeMech type="9" mech="F33"/>
 														</GrantTypeMechs>
 														<QText>Does performance site(s) have approved assurance(s)?</QText>
-														<QInstructions>http://phrp.cit.nih.gov/search/asearch.asp</QInstructions>
+														<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 														<ResponseDefsList>
 															<ResponseDef id="PCQ_30_RD_CM_98" type="COMMENT"/>
 															<ResponseDef id="PCQ_30_RD_FL_99" type="FILE"/>
@@ -19323,7 +19323,7 @@
 							<TypeMech type="9" mech="U10"/>
 						</GrantTypeMechs>
 						<QText>Summary Statement review of animal welfare:</QText>
-						<QInstructions>http://oderdb2.od.noh.gov/oer/offices/olaw/4206_codes.htm</QInstructions>
+						<QInstructions>http://odoerdb2.od.nih.gov/oer/offices/olaw/4206_codes.htm</QInstructions>
 						<ResponseDefsList>
 							<ResponseDef id="PCQ_42_RD_CM_132" type="COMMENT"/>
 							<ResponseDef id="PCQ_42_RD_FL_133" type="FILE"/>
@@ -20420,7 +20420,7 @@
 							<TypeMech type="9" mech="U10"/>
 						</GrantTypeMechs>
 						<QText>Does awardee have approved assurance? </QText>
-						<QInstructions>(Award will be held until all sites have assurance or OLAW approval received for restricted award. Grantee must have an assurance even if all research involving live vertebrate animals is at other performance sites.) http://grants.nih.gov/grants/olaw/assuraces/300index.htm</QInstructions>
+						<QInstructions>(Award will be held until all sites have assurance or OLAW approval received for restricted award. Grantee must have an assurance even if all research involving live vertebrate animals is at other performance sites.) http://grants2.nih.gov/grants/olaw/assurance/300index.htm</QInstructions>
 						<ResponseDefsList>
 							<ResponseDef id="PCQ_46_RD_CM_138" type="COMMENT"/>
 							<ResponseDef id="PCQ_46_RD_FL_139" type="FILE"/>
@@ -21166,7 +21166,7 @@
 											<TypeMech type="9" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Does performance site(s) have approved assurance(s)? </QText>
-										<QInstructions>{http://grants.nih.gov/grants/olaw/assurance/300index.htm}</QInstructions>
+										<QInstructions>http://grants2.nih.gov/grants/olaw/assurance/300index.htm</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="PCQ_49_RD_CM_151" type="COMMENT"/>
 											<ResponseDef id="PCQ_49_RD_FL_152" type="FILE"/>
