@@ -95,6 +95,8 @@ public class GsPdfRenderer {
 					srcKey = "SC_QUESTIONS_SRC";
 				}
 			}
+			
+			logger.debug("\n\n*************** SRC " + srcKey);
 
 			File questSrc = (File) AppConfigProperties.getInstance()
 					.getProperty(srcKey);
@@ -238,9 +240,6 @@ public class GsPdfRenderer {
 			String respDefId = respDefElm.valueOf("@id");
 			String respDefType = respDefElm.valueOf("@type");
 
-			logger.debug("respDefId " + respDefId + "respDefType "
-					+ respDefType);
-
 			QuestionResponseData qrd = form
 					.getQuestionResponseDataByRespId(respDefId);
 			Element userElm = null;
@@ -256,7 +255,6 @@ public class GsPdfRenderer {
 					if (inVal != null) {
 						userElm = respDefElm.addElement("UserInput");
 						userElm.addText(inVal);
-						logger.debug("Add Input Value " + inVal);
 					}
 
 				}
@@ -266,12 +264,9 @@ public class GsPdfRenderer {
 
 				List selList = respDefElm.selectNodes("./SelectionDef");
 
-				logger.debug("Size " + selList.size());
-
 				for (Iterator iter2 = selList.iterator(); iter2.hasNext();) {
 					Element selDefElm = (Element) iter2.next();
 					String selDefId = selDefElm.valueOf("@id");
-					logger.debug("Sel Id " + selDefId);
 					userElm = selDefElm.addElement("UserSelected");
 					if (qrd != null) {
 						String selVal = qrd.getUserSelectId();
