@@ -81,7 +81,7 @@
 <TypeMech type=“8” mech=“S06”/>
 <TypeMech type=“3” mech=“U09”/>
 <TypeMech type=“5” mech=“U09”/>
-<TypeMech type=“7” mech=“U09”/>
+<TypeMech type=“8” mech=“U09”/>
 <TypeMech type=“5” mech=“U10”/>
 <TypeMech type=“5” mech=“U13”/>
 <TypeMech type=“8” mech=“U13”/>
