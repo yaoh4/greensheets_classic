@@ -102,6 +102,7 @@ Implementation/GsApp/trunk/WebRoot/jsp/SessionTimeOut.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/SpecialistSubmitStatus.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/SpecialistUserGrantsList.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/TemplateNotFound.jsp -text
+Implementation/GsApp/trunk/WebRoot/jsp/common/AppInfo.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/DialogHeader.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalFooter.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalHeader.jsp -text

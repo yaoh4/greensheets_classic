@@ -59,7 +59,7 @@ function getMyPortfolio(){
 	<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
 </head>
 <body>
-<%@ include file="/jsp/common/GlobalHeader.jsp"%>
+<%@ include file="/jsp/common/GlobalHeader.jsp"%> 
 <h1>Program Grants List for <%=userName%></h1>
 
 <%if (request.getAttribute("SEARCH_RESULTS") == null) {%>
@@ -83,7 +83,7 @@ function getMyPortfolio(){
 
 		<display:column property="programGreensheet" title=""/>
 		<display:column sortable="true" property="grantNumberSort" title="Grant Number" />
-		<display:column sortable="true" property="budgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
+		<display:column sortable="true" property="latestBudgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
 		<display:column sortable="true" property="pd" title="PD"/>
 		<display:column sortable="true" property="pi" title="PI"/>
 		<display:column sortable="true" property="cancerActivity" title="CA"/>

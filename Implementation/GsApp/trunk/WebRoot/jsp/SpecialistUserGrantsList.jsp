@@ -29,7 +29,7 @@ String userName = gus.getUser().getDisplayUserName();
 	pagesize="50" cellspacing="0">
 		<display:column sortable="true" property="grantNumberSort" title="Grant Number" />
 		<display:column sortable="true" property="cancerActivity" title="CA"/>
-		<display:column sortable="true" property="budgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
+		<display:column sortable="true" property="latestBudgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
         <display:column sortable="true" property="specialist" title="Spec"/>
         <display:column sortable="true" property="backUpSpecialist" title="Bkup Spec"/>
         <display:column sortable="true" property="pd" title="PD"/>	

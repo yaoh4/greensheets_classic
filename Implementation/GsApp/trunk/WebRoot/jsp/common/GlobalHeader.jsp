@@ -24,10 +24,7 @@ function openHelp(){
 
 <table cellspacing="0" width="100%" class="header">
 	<tr class="topRow">
-		<td class="logo"><a href="#"><img src="./images/LogoGreensheets.gif" title="Info <%=((Properties)AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_DB_PROPERTIES)).getProperty("oracle.url")%> <%=application.getInitParameter("buildinfo")%>" border="0" /></a></td>
-		<td class="align1 align4">&nbsp;<%=application.getInitParameter("buildinfo")%>
-		ENV: <%=DbConnectionHelper.getDbEnvironment()%>
-		</td>
+		<td class="logo" colspan="2"><a href="#"><img src="./images/LogoGreensheets.gif"  border="0" /></a></td>
 	</tr>
 	<tr class="bottomRow">
 		<td class="globalNav">
