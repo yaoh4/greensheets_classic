@@ -7,12 +7,12 @@
         Parameter Name: paramType
         Purpose: Defines the Type of the Form being generated
     -->
-    <xsl:param name="paramType">1</xsl:param>
+    <xsl:param name="paramType"></xsl:param>
     <!--
         Parameter Name: paramMech
         Purpose: Defines the 'mech' of the Form being generated
     -->
-    <xsl:param name="paramMech">R01</xsl:param>
+    <xsl:param name="paramMech"></xsl:param>
     <!--
         Parameter Name: paramValidation
         Purpose: Sets if validation should be required for questions
