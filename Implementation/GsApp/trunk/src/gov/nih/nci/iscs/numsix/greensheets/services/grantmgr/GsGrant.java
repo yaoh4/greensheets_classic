@@ -281,6 +281,20 @@ public class GsGrant {
         }
     }
 
+    /**
+     * Returns the getPgmFormSubmittedDate.
+     * @return Date
+     */
+    public java.util.Date getPgmFormSubmittedDate() {
+
+        if (formGrant.getPgmFormSubmittedDate()== null) {
+            return null;
+        } else {
+
+            return formGrant.getPgmFormSubmittedDate();
+        }
+    }
+    
     public String getCouncilMeetingDate() {
         String councilMeetingDate = formGrant.getCouncilMeetingDate();
         String dateString = null;
