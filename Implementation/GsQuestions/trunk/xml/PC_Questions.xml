@@ -6256,46 +6256,8 @@
 					</QuestionDef>
 					<QuestionDef id="PCQ_489">
 						<GrantTypeMechs>
-							<TypeMech type="3" mech="R01"/>
-							<TypeMech type="3" mech="P01"/>
-							<TypeMech type="3" mech="R03"/>
-							<TypeMech type="3" mech="R21"/>
-							<TypeMech type="3" mech="R30"/>
-							<TypeMech type="3" mech="R33"/>
-							<TypeMech type="3" mech="R37"/>
-							<TypeMech type="3" mech="R41"/>
-							<TypeMech type="3" mech="R42"/>
-							<TypeMech type="3" mech="R43"/>
-							<TypeMech type="3" mech="R44"/>
-							<TypeMech type="3" mech="R56"/>
-							<TypeMech type="3" mech="U01"/>
-							<TypeMech type="3" mech="U19"/>
-							<TypeMech type="3" mech="U41"/>
-							<TypeMech type="3" mech="U42"/>
-							<TypeMech type="3" mech="U43"/>
-							<TypeMech type="3" mech="U44"/>
-							<TypeMech type="3" mech="P20"/>
-							<TypeMech type="3" mech="P30"/>
-							<TypeMech type="3" mech="P50"/>
-							<TypeMech type="3" mech="U54"/>
-							<TypeMech type="3" mech="R15"/>
-							<TypeMech type="3" mech="R18"/>
-							<TypeMech type="3" mech="R24"/>
-							<TypeMech type="3" mech="U24"/>
-							<TypeMech type="3" mech="U56"/>
 							<TypeMech type="3" mech="T32"/>
 							<TypeMech type="3" mech="TU2"/>
-							<TypeMech type="3" mech="K01"/>
-							<TypeMech type="3" mech="K05"/>
-							<TypeMech type="3" mech="K07"/>
-							<TypeMech type="3" mech="K08"/>
-							<TypeMech type="3" mech="K12"/>
-							<TypeMech type="3" mech="K22"/>
-							<TypeMech type="3" mech="K23"/>
-							<TypeMech type="3" mech="K24"/>
-							<TypeMech type="3" mech="K25"/>
-							<TypeMech type="3" mech="R25"/>
-							<TypeMech type="3" mech="U10"/>
 						</GrantTypeMechs>
 						<QText>Is the 'Minority Recruitment Plan' approved by IRG?</QText>
 						<QInstructions>If No, award must be issued provisionally with restrictive terms</QInstructions>
@@ -34246,10 +34208,6 @@
 	</QuestionDef>
 	<QuestionDef id="PCQ_73">
 		<GrantTypeMechs>
-			<TypeMech type="1" mech="R41"/>
-			<TypeMech type="6" mech="R41"/>
-			<TypeMech type="7" mech="R41"/>
-			<TypeMech type="9" mech="R41"/>
 			<TypeMech type="1" mech="R42"/>
 			<TypeMech type="6" mech="R42"/>
 			<TypeMech type="7" mech="R42"/>
