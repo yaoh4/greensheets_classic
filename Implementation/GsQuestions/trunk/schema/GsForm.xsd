@@ -135,12 +135,18 @@
 	</xs:complexType>
 	<xs:complexType name="GrantTypeMechsElement">
 		<xs:sequence>
-			<xs:element name="TypeMech" type="TypeMechElement" maxOccurs="unbounded"/>
+			<xs:element name="TypeMech" type="TypeMechElement" maxOccurs="unbounded"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="QuestionDefElement">
 		<xs:sequence>
-			<xs:element name="GrantTypeMechs" type="GrantTypeMechsElement"/>
+			<xs:element name="GrantTypeMechs" type="GrantTypeMechsElement">
+				<xs:key name="keyTypeMech">
+					<xs:selector xpath="./TypeMech"></xs:selector>
+					<xs:field xpath="@type"></xs:field>
+					<xs:field xpath="@mech"></xs:field>				
+				</xs:key>
+			</xs:element>
 			<xs:element name="QText" type="QuestionText"/>
 			<xs:element name="QInstructions" type="QuestionInstructions"/>
 			<xs:element name="ResponseDefsList" type="ResponseDefsListElement"/>
@@ -169,6 +175,6 @@
 		<xs:key name="keySelectionDefId">
 			<xs:selector xpath=".//SelectionDef"/>
 			<xs:field xpath="@id"/>
-		</xs:key>
+		</xs:key>		
 	</xs:element>
 </xs:schema>
