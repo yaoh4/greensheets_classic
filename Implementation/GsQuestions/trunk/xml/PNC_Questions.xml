@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GreensheetQuestions id="PGM_NC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\NCIProjectsSVN\Greensheets\Implementation\GsQuestions\trunk\schema\GsForm.xsd">
+<GreensheetQuestions id="PGM_NC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\NCIProjects\greensheets\Implementation\GSQuestions\trunk\schema\GsForm.xsd">
 	<QuestionDef id="PNCQ_1">
 		<GrantTypeMechs>
 			<TypeMech type="5" mech="R01"/>
@@ -768,7 +768,7 @@
 							<TypeMech type="5" mech="R35"/>
 						</GrantTypeMechs>
 						<QText>Research exempt from regulations under E4 (45 CFR 46)?</QText>
-						<QInstructions>http://grants.nih.gov/grants/funding/phs398/section_1.html#exemption_cat</QInstructions>
+						<QInstructions>http://grants2.nih.gov/grants/funding/phs398/instructions2/p2_question2_exempt_research.htm</QInstructions>
 						<ResponseDefsList>
 							<ResponseDef id="PNCQ_6_RD_RB_16" type="RADIO">
 								<SelectionDef id="SEL_9">
@@ -7157,7 +7157,7 @@
 			<ResponseDef id="PNCQ_44_RD_FL_135" type="FILE"/>
 		</ResponseDefsList>
 	</QuestionDef>
-	<QuestionDef id="PNCQ_304">
+	<QuestionDef id="PNCQ_46">
 		<GrantTypeMechs>
 			<TypeMech type="5" mech="R01"/>
 			<TypeMech type="5" mech="P01"/>
@@ -7245,9 +7245,9 @@
 		<QText>Has substantial foreign involvement been added since last award? </QText>
 		<QInstructions>http://www3.od.nih.gov/oma/manualchapters/grants/4104/</QInstructions>
 		<ResponseDefsList>
-			<ResponseDef id="PNCQ_304_RD_CM_371" type="COMMENT"/>
-			<ResponseDef id="PNCQ_304_RD_FL_372" type="FILE"/>
-			<ResponseDef id="PNCQ_304_RD_RB_373" type="RADIO">
+			<ResponseDef id="PNCQ_46_RD_CM_371" type="COMMENT"/>
+			<ResponseDef id="PNCQ_46_RD_FL_372" type="FILE"/>
+			<ResponseDef id="PNCQ_46_RD_RB_373" type="RADIO">
 				<SelectionDef id="SEL_505">
 					<Value>Yes</Value>
 					<QuestionDef id="PNCQ_305">
