@@ -143,27 +143,28 @@ Greensheet Form Styles
 .GreensheetCell2 
 {
 	BORDER-BOTTOM: #999999 1px solid;
-}  
+}
 
 .GreensheetLevel1
 {
-	background-color:#8080C0	
+	background-color:#CCCC99	
 }
   
 .GreensheetLevel2
 {
-	background-color:#808080	
+	background-color:#FFFF99	
 }
 
 .GreensheetLevel3
 {
-	background-color:#408080	
+	background-color:#CCCCCC	
 }
 
 .GreensheetLevel4
 {
-	background-color:#FF8000	
+	background-color:#BBBBBB	
 }
+
 /* 
 Miscellaneous Specialty Styles
 */
@@ -248,6 +249,38 @@ table.data th.order2 {background-image: url("../images/sort_up.gif");
 	background-position: center left; 
 	background-repeat: no-repeat;}
 
+span.pagebanner {
+	padding: 2px 4px 2px 4px;
+	margin-top: 2px;
+	display:block;
+	border-bottom: none;
+}
+
+span.pagelinks {
+	padding: 2px 4px 2px 4px;
+	display:block;
+	border-top: none;
+	margin-bottom: 5px;
+}
+
+/*
+span.export {
+	padding: 0 4px 1px 20px;
+	display:inline; display:inline-block;
+	cursor: pointer;
+}
+
+span.excel {
+	background-image: url(../images/ico_file_excel.png);
+}
+
+span.csv {
+	background-image: url(../img/ico_file_csv.png);
+}
+span.xml {
+	background-image: url(../img/ico_file_xml.png);
+}
+*/
 /* buttons */
 a:link.button {background-color: #7EC722; 
 	border: 1px solid gray; 
