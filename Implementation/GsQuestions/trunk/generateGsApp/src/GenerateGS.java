@@ -32,9 +32,11 @@ public class GenerateGS {
         
         Component htmlPanel = GenerateHtmlPanel.createHtmlPanel(srcMap);
         Component velocityPanel = GenerateVelocityPanel.createVelocityPanel(srcMap);
+        Component validationPanel = GenerateValidationPanel.createValidationPanel(srcMap);
 
         tabbedPane.addTab("Generate HTML", htmlPanel);
-        tabbedPane.add("Generate Velocity", velocityPanel);        
+        tabbedPane.add("Generate Velocity", velocityPanel);    
+        tabbedPane.addTab("Validate XML", validationPanel);
 
 
         GenerateGS app = new GenerateGS();

@@ -278,6 +278,7 @@ Implementation/GsQuestions/trunk/generateGsApp/lib/xercesImpl.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/lib/xml-apis.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/src/GenerateGS.java -text
 Implementation/GsQuestions/trunk/generateGsApp/src/GenerateHtmlPanel.java -text
+Implementation/GsQuestions/trunk/generateGsApp/src/GenerateValidationPanel.java -text
 Implementation/GsQuestions/trunk/generateGsApp/src/GenerateVelocityPanel.java -text
 Implementation/GsQuestions/trunk/generateGsApp/src/TemplateLoader.java -text
 Implementation/GsQuestions/trunk/gengsapp.properties -text
