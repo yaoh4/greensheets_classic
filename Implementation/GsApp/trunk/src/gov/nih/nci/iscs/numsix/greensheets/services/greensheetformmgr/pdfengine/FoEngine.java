@@ -16,6 +16,8 @@ import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamSource;
 import org.dom4j.*;
 import org.dom4j.io.*;
+
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.utils.*;
 /**
  *
@@ -32,7 +34,7 @@ public class FoEngine {
     FoEngine() {
     }
 
-    byte[] renderFormAsPDF(Document srcDoc) {
+    byte[] renderFormAsPDF(Document srcDoc) throws GreensheetBaseException {
 
         byte[] result = null;
 
@@ -58,12 +60,12 @@ public class FoEngine {
             result = outputStream.toByteArray();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new GreensheetBaseException("error rendering PDF",e);
         } finally {
             try {
                 inputStream.close();
             } catch (Exception e) {
-                e.printStackTrace();
+            	throw new GreensheetBaseException("error rendering PDF",e);
             }
         }
         return result;
