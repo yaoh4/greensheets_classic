@@ -8,11 +8,11 @@
 
   <context-param>
     <param-name>appVersion</param-name>  
-    <param-value>v1.0.6</param-value>
+    <param-value>v1.1</param-value>
   </context-param>
   <context-param>
     <param-name>appBuild</param-name>  
-    <param-value>b03.17.05</param-value>
+    <param-value>b03.30.05</param-value>
   </context-param>
   <context-param>
     <param-name>showDebugOnError</param-name>   
