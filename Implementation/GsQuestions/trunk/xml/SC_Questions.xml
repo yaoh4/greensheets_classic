@@ -22893,7 +22893,7 @@
 									<QuestionDef id="SCQ_245">
 										<GrantTypeMechs>
 											<TypeMech type="1" mech="R42"/>
-											<TypeMech type="2" mech="R42"/>
+											<TypeMech type="1" mech="R44"/>
 										</GrantTypeMechs>
 										<QText>Is Fasttrack Term placed on award?</QText>
 										<QInstructions/>
