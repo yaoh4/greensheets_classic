@@ -21,20 +21,19 @@ import org.apache.log4j.*;
 import org.apache.commons.lang.*;
 
 /**
- *  Production Implementation of GrantMgr interface
+ * Production Implementation of GrantMgr interface
  * 
- *  @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr
+ * @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 
 public class GrantMgrImpl implements GrantMgr {
 
 	private static final Logger logger = Logger.getLogger(GrantMgrImpl.class);
 
-
 	public GsGrant findGrantById(String applId, String grantNumber)
-		throws GreensheetBaseException {
+			throws GreensheetBaseException {
 		List l = null;
 		GsGrant g = null;
 		try {
@@ -64,50 +63,48 @@ public class GrantMgrImpl implements GrantMgr {
 		}
 
 		return g;
-	} 
-	
-	RangeToken getLatestBudgetStartDateCriteria() {
-	    int fiscalStartingYear = this.getFiscalStartingYear();
-	    int fiscalEndingYear = this.getFiscalEndingYear();
-	    
-	    String startingDateString = "October 1, " + fiscalStartingYear;
-	    String endingDateString = "September 30, " + fiscalEndingYear;
-	    
-	    DateFormat df = DateFormat.getDateInstance();
-	    Date startingDate = null;
-	    Date endingDate = null;
-	    
-	    try {
-	        startingDate = df.parse(startingDateString);
-         }
-         catch(ParseException e) {
-            System.out.println("Unable to parse starting date- " + startingDateString);
-         }
-	    
-         try {
-             endingDate = df.parse(endingDateString);
-          }
-          catch(ParseException e) {
-             System.out.println("Unable to parse ending date- " + endingDateString);
-          }
-	    
-        RangeToken rtps = new RangeToken();
-        rtps.setColumnKey("latestBudgetStartDate");
-        rtps.setMinValue(startingDate);
-        rtps.setMaxValue(endingDate);
-        rtps.setInclusive(true);
-        
-        return rtps;
 	}
-	
+
+	RangeToken getLatestBudgetStartDateCriteria() {
+		int fiscalStartingYear = this.getFiscalStartingYear();
+		int fiscalEndingYear = this.getFiscalEndingYear();
+
+		String startingDateString = "October 1, " + fiscalStartingYear;
+		String endingDateString = "September 30, " + fiscalEndingYear;
+
+		DateFormat df = DateFormat.getDateInstance();
+		Date startingDate = null;
+		Date endingDate = null;
+
+		try {
+			startingDate = df.parse(startingDateString);
+		} catch (ParseException e) {
+			System.out.println("Unable to parse starting date- "
+					+ startingDateString);
+		}
+
+		try {
+			endingDate = df.parse(endingDateString);
+		} catch (ParseException e) {
+			System.out.println("Unable to parse ending date- "
+					+ endingDateString);
+		}
+
+		RangeToken rtps = new RangeToken();
+		rtps.setColumnKey("latestBudgetStartDate");
+		rtps.setMinValue(startingDate);
+		rtps.setMaxValue(endingDate);
+		rtps.setInclusive(true);
+
+		return rtps;
+	}
+
 	/**
-	           * @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr#getGrantsListForUser(GsUser, boolean)
-	           */
-	public Map getGrantsListForUser(
-		GsUser user,
-		boolean paylineOnly,
-		boolean myPortfolio)
-		throws GreensheetBaseException {
+	 * @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr#getGrantsListForUser(GsUser,
+	 *      boolean)
+	 */
+	public Map getGrantsListForUser(GsUser user, boolean paylineOnly,
+			boolean myPortfolio) throws GreensheetBaseException {
 
 		Map map = new HashMap();
 		List l;
@@ -115,22 +112,22 @@ public class GrantMgrImpl implements GrantMgr {
 			ViewGrantRetrieverImpl vgr = new ViewGrantRetrieverImpl();
 			vgr.setView("FORM_GRANT_VW");
 
-			Properties p = 
-				(Properties) AppConfigProperties.getInstance().getProperty(
-					GreensheetsKeys.KEY_CONFIG_PROPERTIES);
-            
-            // Add the condition for Latest Budget Start Date.
-			vgr.addCondition(this.getLatestBudgetStartDateCriteria());
-            
-            // Query Rules for Program users
-			if (user.getRole().equals(GsUserRole.PGM_DIR)
-				|| user.getRole().equals(GsUserRole.PGM_ANL)) {
+			Properties p = (Properties) AppConfigProperties.getInstance()
+					.getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
 
-				logger.debug(
-					"Start Program Grant List Query " + new Date().toString());
+			// Add the condition for Latest Budget Start Date.
+			vgr.addCondition(this.getLatestBudgetStartDateCriteria());
+
+			// Query Rules for Program users
+			if (user.getRole().equals(GsUserRole.PGM_DIR)
+					|| user.getRole().equals(GsUserRole.PGM_ANL)) {
+
+				logger.debug("Start Program Grant List Query "
+						+ new Date().toString());
 				setBaseProgramGrantsListTokens(user, vgr, p);
-                
-                // Check if the payline and or My portfolio options were selected
+
+				// Check if the payline and or My portfolio options were
+				// selected
 				if (paylineOnly) {
 					ValueToken vtps = new ValueToken();
 					vtps.setColumnKey("withinPaylineFlag");
@@ -146,20 +143,19 @@ public class GrantMgrImpl implements GrantMgr {
 				}
 
 				l = vgr.getGrantList();
-                
-                
+
 				// Now need to get the non-competing grants
 				vgr.clearConditions();
 				this.setBaseProgramGrantsListTokens(user, vgr, p);
-				
+
 				//Add the condition for Latest Budget Start Date.
 				vgr.addCondition(this.getLatestBudgetStartDateCriteria());
-				
+
 				LikeToken lt4 = new LikeToken();
 				lt4.setColumnKey("councilMeetingDate");
 				lt4.setValue("%00");
 				vgr.addCondition(lt4);
-                // Get the non-competes is My Portfolio restriction enabled
+				// Get the non-competes is My Portfolio restriction enabled
 				if (myPortfolio && (user.getMyPortfolioIds() != null)) {
 					ListToken lt = new ListToken();
 					lt.setColumnKey("pdNpeId");
@@ -169,8 +165,8 @@ public class GrantMgrImpl implements GrantMgr {
 
 				List nonCompetingList = vgr.getGrantList();
 				l.addAll(nonCompetingList);
-				logger.debug(
-					"End Program Grant List Query " + new Date().toString());
+				logger.debug("End Program Grant List Query "
+						+ new Date().toString());
 			} else {
 
 				ValueToken vt1 = new ValueToken();
@@ -210,16 +206,11 @@ public class GrantMgrImpl implements GrantMgr {
 		return map;
 	}
 
-	private void setBaseProgramGrantsListTokens(
-		GsUser user,
-		ViewGrantRetrieverImpl vgr,
-		Properties p)
-		throws GrantRetrieverException {
+	private void setBaseProgramGrantsListTokens(GsUser user,
+			ViewGrantRetrieverImpl vgr, Properties p)
+			throws GrantRetrieverException {
 
-		ListToken lt = new ListToken();
-		lt.setColumnKey("cayCode");
-		lt.setValue(user.getCancerActivities());
-		vgr.addCondition(lt);
+
 		ValueToken vt = new ValueToken();
 		vt.setColumnKey("pgmFormStatus");
 		vt.setValue("SUBMITTED");
@@ -232,34 +223,38 @@ public class GrantMgrImpl implements GrantMgr {
 		vt2.setComparison(ValueToken.EQUALS);
 		vt2.setNegative(true);
 		vgr.addCondition(vt2);
-		int lookahead =
-			Integer.parseInt(p.getProperty("budgetstartdate.lookahead.months"));
-		Calendar now = Calendar.getInstance();
-		now.setTime(new Date());
-		now.add(Calendar.MONTH, lookahead);
-		ValueToken vt3 = new ValueToken();
-		vt3.setColumnKey("budgetStartDate");
-		vt3.setValue(now.getTime());
-		vt3.setComparison(ValueToken.LESS_THAN_EQUAL_TO);
-		vgr.addCondition(vt3);
-        ValueToken vt4 = new ValueToken();
-        vt4.setColumnKey("applStatusGroupCode");
-        vt4.setValue("A");
-        vt4.setComparison(ValueToken.EQUALS);
-        vt4.setNegative(true);
-        vgr.addCondition(vt4);
+		ValueToken vt4 = new ValueToken();
+		vt4.setColumnKey("applStatusGroupCode");
+		vt4.setValue("A");
+		vt4.setComparison(ValueToken.EQUALS);
+		vt4.setNegative(true);
+		vgr.addCondition(vt4);
+
+		String minNames = p.getProperty("minoritysupplements.userids");
+		
+		if (StringUtils.contains(minNames, user.getOracleId())) {
+			ValueToken vt5 = new ValueToken();
+			vt5.setColumnKey("mbMinorityFlag");
+			vt5.setValue("Y");
+			vgr.addCondition(vt5);
+		}else{
+			ListToken lt = new ListToken();
+			lt.setColumnKey("cayCode");
+			lt.setValue(user.getCancerActivities());
+			vgr.addCondition(lt);
+		}
+
 		OrderByToken obt = new OrderByToken();
 		obt.setFieldName("budgetStartDate");
 		obt.setSortOrder("ASC");
 	}
+
 	/**
-	        * @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr#searchForGrant(String, String)
-	        */
-	public Map searchForGrant(
-		String searchType,
-		String searchText,
-		GsUser user)
-		throws GreensheetBaseException {
+	 * @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr#searchForGrant(String,
+	 *      String)
+	 */
+	public Map searchForGrant(String searchType, String searchText, GsUser user)
+			throws GreensheetBaseException {
 
 		Map map = new HashMap();
 		List l;
@@ -271,19 +266,18 @@ public class GrantMgrImpl implements GrantMgr {
 			} else {
 
 				if (user.getRole().equals(GsUserRole.PGM_DIR)
-					|| user.getRole().equals(GsUserRole.PGM_ANL)) {
-					if (searchType
-						.trim()
-						.equalsIgnoreCase(GreensheetsKeys.SEARCH_GS_NUMBER)) {
+						|| user.getRole().equals(GsUserRole.PGM_ANL)) {
+					if (searchType.trim().equalsIgnoreCase(
+							GreensheetsKeys.SEARCH_GS_NUMBER)) {
 
 						LikeToken lt = new LikeToken();
 						logger.debug("searched on a grant number");
 						lt.setColumnKey("fullGrantNum");
-						lt.setValue(
-							"%" + searchText.trim().toUpperCase() + "%");
+						lt
+								.setValue("%" + searchText.trim().toUpperCase()
+										+ "%");
 						vgr.addCondition(lt);
-					} else if (
-						searchType.trim().equalsIgnoreCase(
+					} else if (searchType.trim().equalsIgnoreCase(
 							GreensheetsKeys.SEARCH_GS_NAME)) {
 
 						LikeToken lt = new LikeToken();
@@ -311,18 +305,17 @@ public class GrantMgrImpl implements GrantMgr {
 
 				} else {
 
-					if (searchType
-						.trim()
-						.equalsIgnoreCase(GreensheetsKeys.SEARCH_GS_NUMBER)) {
+					if (searchType.trim().equalsIgnoreCase(
+							GreensheetsKeys.SEARCH_GS_NUMBER)) {
 
 						LikeToken lt = new LikeToken();
 						logger.debug("searched on a grant number");
 						lt.setColumnKey("fullGrantNum");
-						lt.setValue(
-							"%" + searchText.trim().toUpperCase() + "%");
+						lt
+								.setValue("%" + searchText.trim().toUpperCase()
+										+ "%");
 						vgr.addCondition(lt);
-					} else if (
-						searchType.trim().equalsIgnoreCase(
+					} else if (searchType.trim().equalsIgnoreCase(
 							GreensheetsKeys.SEARCH_GS_NAME)) {
 
 						LikeToken lt = new LikeToken();
@@ -362,19 +355,19 @@ public class GrantMgrImpl implements GrantMgr {
 		int im = cal.get(Calendar.MONTH);
 		// Returns the current fiscal year
 		if (im > 9) {
-		    iy += 1;
+			iy += 1;
 		}
-		
+
 		return iy;
 	}
-	
+
 	private int getFiscalStartingYear() {
-	    int currentFiscalYear = this.getCurrentFiscalYear();
-	    return (currentFiscalYear -1);
+		int currentFiscalYear = this.getCurrentFiscalYear();
+		return (currentFiscalYear - 1);
 	}
-	
+
 	private int getFiscalEndingYear() {
-	    int currentFiscalYear = this.getCurrentFiscalYear();   
+		int currentFiscalYear = this.getCurrentFiscalYear();
 		return currentFiscalYear;
 	}
 }
