@@ -103,7 +103,7 @@
 			<TypeMech type="8" mech="TU2"/>
 			<TypeMech type="5" mech="U10"/>
 		</GrantTypeMechs>
-		<QText>Human Subjects involved?</QText>
+		<QText>Human Subjects Involved?</QText>
 		<QInstructions/>
 		<ResponseDefsList>
 			<ResponseDef id="PNCQ_1_RD_RB_1" type="RADIO">
