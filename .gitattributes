@@ -128,6 +128,14 @@ Implementation/GsApp/trunk/appconfig/greensheetconfig.properties -text
 Implementation/GsApp/trunk/appconfig/ldap.properties -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormToFoTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormXmlTranslator.xslt -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PC_Questions.3.23.05.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PC_Questions.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PNC_Questions.3.23.05.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PNC_Questions.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SC_Questions.3.23.05.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SC_Questions.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SNC_Questions.3.23.05.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SNC_Questions.xml -text
 Implementation/GsApp/trunk/build/build.xml -text
 Implementation/GsApp/trunk/build/testing/ApplyXSL.xml -text
 Implementation/GsApp/trunk/build/testing/CheckTest.xml -text
