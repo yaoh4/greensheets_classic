@@ -19,7 +19,7 @@ import java.util.Date;
  *  @author kpuscas, Number Six Software
  */
 
-public class GsGrant {
+public class GsGrant { 
 
     private String pi;
     private String pdName;
@@ -262,7 +262,7 @@ public class GsGrant {
      */
     public String getSpecialistFormStatus() {
         return formGrant.getSpecFormStatus();
-    }
+    }      
 
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
