@@ -161,8 +161,9 @@ directories.
     
 -->
 
-	
+	<!--	
 	<target name="get_xmlsrc_svn">
+	
 		<delete includeEmptyDirs="true">
 			<fileset dir="${app.config.dir}/xmlxsltsrc" includes="**/*.xml"/>
 		</delete>
@@ -180,11 +181,12 @@ directories.
 			<fileset dir="./delete_me"/>
 		</delete>
 
+
 	</target>
-	
+		-->	
 	
     <!-- build -->
-    <target name="build" depends="compile,get_xmlsrc_svn"   
+    <target name="build" depends="compile"   
             description="create distribution elements (war and jar)">
                                             
          <!-- create zip file for config information -->   
