@@ -34,6 +34,7 @@ public class GsGrant {
     private String type;
     private String mech;
     private String budgetStartDate;
+    private String latestBudgetStartDate;
     private float percentileNumber;
     private int priorityScore;
     private boolean grantOnControl;
@@ -278,6 +279,20 @@ public class GsGrant {
         } else {
 
             return formGrant.getBudgetStartDate();
+        }
+    }
+    
+    /**
+     * Returns the latestBudgetStartDate.
+     * @return Date
+     */
+    public java.util.Date getLatestBudgetStartDate() {
+
+        if (formGrant.getLatestBudgetStartDate() == null) {
+            return null;
+        } else {
+
+            return formGrant.getLatestBudgetStartDate();
         }
     }
 
