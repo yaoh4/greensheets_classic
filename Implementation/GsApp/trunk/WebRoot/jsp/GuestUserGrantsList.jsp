@@ -23,7 +23,7 @@ String userName = gus.getUser().getDisplayUserName();
 <%@ include file="/jsp/common/GlobalHeader.jsp"%>
 <h1>Grants List for <%=userName%></h1>
 <display:table name="sessionScope.GRANT_LIST" 
-	requestURI="/greensheets/no_op.do" 
+	requestURI="" 
 	class="data" id="row" 
 	defaultsort="3"
 	sort="list" pagesize="50" cellspacing="0">

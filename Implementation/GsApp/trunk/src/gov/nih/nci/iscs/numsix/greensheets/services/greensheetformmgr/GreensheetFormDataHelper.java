@@ -104,6 +104,7 @@ public class GreensheetFormDataHelper {
 
                 } else if (status.equalsIgnoreCase(GreensheetStatus.SUBMITTED.getName())) {
                     form.setStatus(GreensheetStatus.SUBMITTED);
+                    form.setTemplateId(rs.getInt(6));
 
                 } else if (status.equalsIgnoreCase(GreensheetStatus.UNSUBMITTED.getName())) {
                     form.setStatus(GreensheetStatus.UNSUBMITTED);
