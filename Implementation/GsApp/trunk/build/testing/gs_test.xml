@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="CHANGE HERE" basedir="." default="main">
+
+    <property environment="env"/>
+
     <taskdef file="./webtestTaskdefs.properties">
         <classpath>
             <fileset dir="./lib" includes="**/*.jar"/>
@@ -7,32 +10,44 @@
     </taskdef>
     <target name="main">
         <property name="webtest.connectioninitializer" value="com.canoo.webtest.security.SunJsseBaseConnectionInitializer"/>
-        <property name="webtest.truststore.file" value="C:\dev\jdks\jdk1.4.2_05\jre\lib\security\cacerts"/>
+        <property name="webtest.truststore.file" value="${env.JAVA_HOME}\jre\lib\security\cacerts"/>
         <property name="reports.dir" value="./reports"/>
         <delete file="results.txt"/>
         <delete>
             <fileset dir="." includes="*.html"/>
             <fileset dir="." includes="results.xml"/>
         </delete>
-        <testSpec name="MY-SCENARIO-NAME-HERE">
+        <testSpec name="Greensheets Basic Test">
             <!-- set the default test configuration -->
             <config host="i2e-test.nci.nih.gov" protocol="https" port="443" basepath="greensheets"
                 summary="true" resultfile="results.xml"/>
             <steps>
-                <!-- recorded with Click-O-Mat  by kpuscas at Tue Jan 04 11:56:32 EST 2005
-     using https with Client Certificate <absolutefilename>.epf
--->
-                <invoke url="/" stepid="" username="puscask" password="bflat0"/>
+                <invoke url="/" stepid="Start" username="gs_pd" password="number6"/>
                 <verifytitle text="Welcome To Greensheets"/>
-                <invoke url="retrievegrants.do" stepid="" username="puscask" password="bflat0"/>
-                <setinputfield name="searchText" value=" Smith"/>
-                <setinputfield name="searchType" value="SEARCH_GS_NAME"/>
-                <clicklink name="Go" stepid="Search for Smith"/>
-                <verifytitle text="Greensheets"/>
-                <invoke
-                    url="retrievegreensheet.do?GRANT_ID=1F31CA113287-01&amp;APPL_ID=6892212&amp;GS_GROUP_TYPE=PGM&amp;ORACLE_ID=PuscasK" stepid=""/>
-                <verifytitle text="Greensheets : 1F31CA113287-01"/>
+                <invoke url="retrievegrants.do" stepid="" username="gs_pd" password="number6"/>
+                <verifytext stepid="Verify First Page" text="Greensheets"/>
+                
+                <storexpath
+                	stepid="find first grant"
+                	xpath="//a[contains(@href,'javascript:retreieveGreensheet')]/@href"
+                	property="url"/>
+                
+             	<clicklink stepid="open greensheet" href="#{url}"/>
+                <verifytext text="Print"/>
+                <clicklink stepid="click print" label="Print"/>
+                <verifytext text="Print Preview"/>
+                <clicklink stepid="click print preview" label="Print Preview"/>   
             </steps>
         </testSpec>
+        
+        <antcall target="genReport"/>
+        
     </target>
+    
+        <target name="genReport">
+             <ant antfile="ApplyXSL.xml" target="applySingle">
+                 <property name="reports.dir" value="./reports"/>
+            </ant>       
+    </target>
+    
 </project>
