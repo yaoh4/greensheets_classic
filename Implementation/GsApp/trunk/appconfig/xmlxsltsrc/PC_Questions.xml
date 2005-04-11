@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="D:\NCIProjectsSVN\Greensheets\Implementation\GsQuestions\trunk\xslt\GsFormTranslator.xslt"?>
-<GreensheetQuestions id="PGM_C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\NCIProjects\greensheets\Implementation\GSQuestions\trunk\schema\GsForm.xsd">
+<GreensheetQuestions id="PGM_C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\NCIProjectsSVN\Greensheets\Implementation\GsQuestions\trunk\schema\GsForm.xsd">
 	<QuestionDef id="PCQ_74">
 		<GrantTypeMechs>
 			<TypeMech type="3" mech="P01"/>
@@ -5965,7 +5965,7 @@
 											<ResponseDef id="PCQ_483_RD_FL_1165" type="FILE"/>
 										</ResponseDefsList>
 									</QuestionDef>
-									<QuestionDef id="PCQ_485">
+									<QuestionDef id="PCQ_723">
 										<GrantTypeMechs>
 											<TypeMech type="3" mech="R01"/>
 											<TypeMech type="3" mech="P01"/>
@@ -6008,75 +6008,15 @@
 											<TypeMech type="3" mech="R25"/>
 											<TypeMech type="3" mech="U10"/>
 										</GrantTypeMechs>
-										<QText>Date NIH Form 1820 sent to Fogarty Center. </QText>
+										<QText>Is State Department approval required?</QText>
 										<QInstructions/>
 										<ResponseDefsList>
-											<ResponseDef id="PCQ_485_RD_CM_1169" type="COMMENT"/>
-											<ResponseDef id="PCQ_485_RD_FL_1170" type="FILE"/>
-											<ResponseDef id="PCQ_485_RD_DT_1171" type="DATE"/>
-										</ResponseDefsList>
-									</QuestionDef>
-									<QuestionDef id="PCQ_486">
-										<GrantTypeMechs>
-											<TypeMech type="3" mech="R01"/>
-											<TypeMech type="3" mech="P01"/>
-											<TypeMech type="3" mech="R03"/>
-											<TypeMech type="3" mech="R21"/>
-											<TypeMech type="3" mech="R30"/>
-											<TypeMech type="3" mech="R33"/>
-											<TypeMech type="3" mech="R37"/>
-											<TypeMech type="3" mech="R41"/>
-											<TypeMech type="3" mech="R42"/>
-											<TypeMech type="3" mech="R43"/>
-											<TypeMech type="3" mech="R44"/>
-											<TypeMech type="3" mech="R56"/>
-											<TypeMech type="3" mech="U01"/>
-											<TypeMech type="3" mech="U19"/>
-											<TypeMech type="3" mech="U41"/>
-											<TypeMech type="3" mech="U42"/>
-											<TypeMech type="3" mech="U43"/>
-											<TypeMech type="3" mech="U44"/>
-											<TypeMech type="3" mech="P20"/>
-											<TypeMech type="3" mech="P30"/>
-											<TypeMech type="3" mech="P50"/>
-											<TypeMech type="3" mech="U54"/>
-											<TypeMech type="3" mech="R15"/>
-											<TypeMech type="3" mech="R18"/>
-											<TypeMech type="3" mech="R24"/>
-											<TypeMech type="3" mech="U24"/>
-											<TypeMech type="3" mech="U56"/>
-											<TypeMech type="3" mech="T32"/>
-											<TypeMech type="3" mech="TU2"/>
-											<TypeMech type="3" mech="K01"/>
-											<TypeMech type="3" mech="K05"/>
-											<TypeMech type="3" mech="K07"/>
-											<TypeMech type="3" mech="K08"/>
-											<TypeMech type="3" mech="K12"/>
-											<TypeMech type="3" mech="K22"/>
-											<TypeMech type="3" mech="K23"/>
-											<TypeMech type="3" mech="K24"/>
-											<TypeMech type="3" mech="K25"/>
-											<TypeMech type="3" mech="R25"/>
-											<TypeMech type="3" mech="U10"/>
-										</GrantTypeMechs>
-										<QText>Has State Department concurrence been received?</QText>
-										<QInstructions/>
-										<ResponseDefsList>
-											<ResponseDef id="PCQ_486_RD_CM_1172" type="COMMENT"/>
-											<ResponseDef id="PCQ_486_RD_FL_1173" type="FILE"/>
-											<ResponseDef id="PCQ_486_RD_DD_1174" type="DROP_DOWN">
-												<SelectionDef id="SEL_X_57">
-													<Value>--Select an option--</Value>
-												</SelectionDef>
-												<SelectionDef id="SEL_774">
-													<Value>Yes, attached</Value>
-												</SelectionDef>
-												<SelectionDef id="SEL_775">
-													<Value>Yes, sent to GAB</Value>
-												</SelectionDef>
-												<SelectionDef id="SEL_776">
-													<Value>No</Value>
-													<QuestionDef id="PCQ_484">
+											<ResponseDef id="PCQ_723_RD_CM_1869" type="COMMENT"/>
+											<ResponseDef id="PCQ_723_RD_FL_1870" type="FILE"/>
+											<ResponseDef id="PCQ_723_RD_RB_1871" type="RADIO">
+												<SelectionDef id="SEL_1105">
+													<Value>Yes</Value>
+													<QuestionDef id="PCQ_718">
 														<GrantTypeMechs>
 															<TypeMech type="3" mech="R01"/>
 															<TypeMech type="3" mech="P01"/>
@@ -6119,17 +6059,2608 @@
 															<TypeMech type="3" mech="R25"/>
 															<TypeMech type="3" mech="U10"/>
 														</GrantTypeMechs>
-														<QText>Is Project viable without site(s) needing State Department concurrence? </QText>
-														<QInstructions>(If No, award must be held.)</QInstructions>
+														<QText>Date NIH Form 1820 sent to Fogarty Center. </QText>
+														<QInstructions/>
 														<ResponseDefsList>
-															<ResponseDef id="PCQ_484_RD_CM_1166" type="COMMENT"/>
-															<ResponseDef id="PCQ_484_RD_FL_1167" type="FILE"/>
-															<ResponseDef id="PCQ_484_RD_RB_1168" type="RADIO">
-																<SelectionDef id="SEL_772">
-																	<Value>Yes</Value>
+															<ResponseDef id="PCQ_718_RD_CM_1872" type="COMMENT"/>
+															<ResponseDef id="PCQ_718_RD_FL_1873" type="FILE"/>
+															<ResponseDef id="PCQ_718_RD_DT_1874" type="DATE"/>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_719">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Has State Department concurrence been received?</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_719_RD_CM_1875" type="COMMENT"/>
+															<ResponseDef id="PCQ_719_RD_FL_1876" type="FILE"/>
+															<ResponseDef id="PCQ_719_RD_DD_1877" type="DROP_DOWN">
+																<SelectionDef id="SEL_X_98">
+																	<Value>--Select an option--</Value>
 																</SelectionDef>
-																<SelectionDef id="SEL_773">
+																<SelectionDef id="SEL_1107">
+																	<Value>Yes, attached</Value>
+																</SelectionDef>
+																<SelectionDef id="SEL_1108">
+																	<Value>Yes, sent to GAB</Value>
+																</SelectionDef>
+																<SelectionDef id="SEL_1109">
 																	<Value>No</Value>
+																	<QuestionDef id="PCQ_720">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Explanation required:</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_720_RD_CM_1878" type="COMMENT"/>
+																			<ResponseDef id="PCQ_720_RD_FL_1879" type="FILE"/>
+																			<ResponseDef id="PCQ_720_RD_TX_1880" type="TEXT"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																	<QuestionDef id="PCQ_721">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Is project viable without State Department concurrence?</QText>
+																		<QInstructions>(If No, award must be held. If Yes, send or attach any appropriate documentation to GAB.)</QInstructions>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_721_RD_CM_1881" type="COMMENT"/>
+																			<ResponseDef id="PCQ_721_RD_FL_1882" type="FILE"/>
+																			<ResponseDef id="PCQ_721_RD_RB_1883" type="RADIO">
+																				<SelectionDef id="SEL_1110">
+																					<Value>Yes</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1111">
+																					<Value>No</Value>
+																				</SelectionDef>
+																			</ResponseDef>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+															</ResponseDef>
+														</ResponseDefsList>
+													</QuestionDef>
+												</SelectionDef>
+												<SelectionDef id="SEL_1106">
+													<Value>No</Value>
+													<QuestionDef id="PCQ_722">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Explanation required:</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_722_RD_CM_1884" type="COMMENT"/>
+															<ResponseDef id="PCQ_722_RD_FL_1885" type="FILE"/>
+															<ResponseDef id="PCQ_722_RD_TX_1886" type="TEXT"/>
+														</ResponseDefsList>
+													</QuestionDef>
+												</SelectionDef>
+											</ResponseDef>
+										</ResponseDefsList>
+									</QuestionDef>
+									<QuestionDef id="PCQ_675">
+										<GrantTypeMechs>
+											<TypeMech type="3" mech="R01"/>
+											<TypeMech type="3" mech="P01"/>
+											<TypeMech type="3" mech="R03"/>
+											<TypeMech type="3" mech="R21"/>
+											<TypeMech type="3" mech="R30"/>
+											<TypeMech type="3" mech="R33"/>
+											<TypeMech type="3" mech="R37"/>
+											<TypeMech type="3" mech="R41"/>
+											<TypeMech type="3" mech="R42"/>
+											<TypeMech type="3" mech="R43"/>
+											<TypeMech type="3" mech="R44"/>
+											<TypeMech type="3" mech="R56"/>
+											<TypeMech type="3" mech="U01"/>
+											<TypeMech type="3" mech="U19"/>
+											<TypeMech type="3" mech="U41"/>
+											<TypeMech type="3" mech="U42"/>
+											<TypeMech type="3" mech="U43"/>
+											<TypeMech type="3" mech="U44"/>
+											<TypeMech type="3" mech="P20"/>
+											<TypeMech type="3" mech="P30"/>
+											<TypeMech type="3" mech="P50"/>
+											<TypeMech type="3" mech="U54"/>
+											<TypeMech type="3" mech="R15"/>
+											<TypeMech type="3" mech="R18"/>
+											<TypeMech type="3" mech="R24"/>
+											<TypeMech type="3" mech="U24"/>
+											<TypeMech type="3" mech="U56"/>
+											<TypeMech type="3" mech="T32"/>
+											<TypeMech type="3" mech="TU2"/>
+											<TypeMech type="3" mech="K01"/>
+											<TypeMech type="3" mech="K05"/>
+											<TypeMech type="3" mech="K07"/>
+											<TypeMech type="3" mech="K08"/>
+											<TypeMech type="3" mech="K12"/>
+											<TypeMech type="3" mech="K22"/>
+											<TypeMech type="3" mech="K23"/>
+											<TypeMech type="3" mech="K24"/>
+											<TypeMech type="3" mech="K25"/>
+											<TypeMech type="3" mech="R25"/>
+											<TypeMech type="3" mech="U10"/>
+										</GrantTypeMechs>
+										<QText>Are any other countries involved?</QText>
+										<QInstructions/>
+										<ResponseDefsList>
+											<ResponseDef id="PCQ_675_RD_CM_1740" type="COMMENT"/>
+											<ResponseDef id="PCQ_675_RD_FL_1741" type="FILE"/>
+											<ResponseDef id="PCQ_675_RD_DD_1742" type="DROP_DOWN">
+												<SelectionDef id="SEL_X_91">
+													<Value>--Select an option--</Value>
+												</SelectionDef>
+												<SelectionDef id="SEL_1059">
+													<Value>No</Value>
+												</SelectionDef>
+												<SelectionDef id="SEL_1060">
+													<Value>Yes, 1 more</Value>
+													<QuestionDef id="PCQ_676">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Name of foreign site (Country):</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_676_RD_TX_1743" type="TEXT"/>
+															<ResponseDef id="PCQ_676_RD_CM_1744" type="COMMENT"/>
+															<ResponseDef id="PCQ_676_RD_FL_1745" type="FILE"/>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_677">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Is State Department approval required?</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_677_RD_CM_1746" type="COMMENT"/>
+															<ResponseDef id="PCQ_677_RD_FL_1747" type="FILE"/>
+															<ResponseDef id="PCQ_677_RD_RB_1748" type="RADIO">
+																<SelectionDef id="SEL_1061">
+																	<Value>Yes</Value>
+																	<QuestionDef id="PCQ_678">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Date NIH Form 1820 sent to Fogarty Center. </QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_678_RD_CM_1749" type="COMMENT"/>
+																			<ResponseDef id="PCQ_678_RD_FL_1750" type="FILE"/>
+																			<ResponseDef id="PCQ_678_RD_DT_1751" type="DATE"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																	<QuestionDef id="PCQ_679">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Has State Department concurrence been received?</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_679_RD_CM_1752" type="COMMENT"/>
+																			<ResponseDef id="PCQ_679_RD_FL_1753" type="FILE"/>
+																			<ResponseDef id="PCQ_679_RD_DD_1754" type="DROP_DOWN">
+																				<SelectionDef id="SEL_X_92">
+																					<Value>--Select an option--</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1103">
+																					<Value>Yes, attached</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1104">
+																					<Value>Yes, sent to GAB</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1063">
+																					<Value>No</Value>
+																					<QuestionDef id="PCQ_680">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Explanation required:</QText>
+																						<QInstructions/>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_680_RD_CM_1755" type="COMMENT"/>
+																							<ResponseDef id="PCQ_680_RD_FL_1756" type="FILE"/>
+																							<ResponseDef id="PCQ_680_RD_TX_1757" type="TEXT"/>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																					<QuestionDef id="PCQ_681">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Is project viable without State Department concurrence?</QText>
+																						<QInstructions>(If No, award must be held. If Yes, send or attach any appropriate documentation to GAB.)</QInstructions>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_681_RD_CM_1758" type="COMMENT"/>
+																							<ResponseDef id="PCQ_681_RD_FL_1759" type="FILE"/>
+																							<ResponseDef id="PCQ_681_RD_RB_1760" type="RADIO">
+																								<SelectionDef id="SEL_1064">
+																									<Value>Yes</Value>
+																								</SelectionDef>
+																								<SelectionDef id="SEL_1065">
+																									<Value>No</Value>
+																								</SelectionDef>
+																							</ResponseDef>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																				</SelectionDef>
+																			</ResponseDef>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+																<SelectionDef id="SEL_1062">
+																	<Value>No</Value>
+																	<QuestionDef id="PCQ_682">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Explanation required:</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_682_RD_CM_1761" type="COMMENT"/>
+																			<ResponseDef id="PCQ_682_RD_FL_1762" type="FILE"/>
+																			<ResponseDef id="PCQ_682_RD_TX_1763" type="TEXT"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+															</ResponseDef>
+														</ResponseDefsList>
+													</QuestionDef>
+												</SelectionDef>
+												<SelectionDef id="SEL_1066">
+													<Value>Yes, 2 more</Value>
+													<QuestionDef id="PCQ_683">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Name of foreign site (Country):</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_683_RD_TX_1764" type="TEXT"/>
+															<ResponseDef id="PCQ_683_RD_CM_1765" type="COMMENT"/>
+															<ResponseDef id="PCQ_683_RD_FL_1766" type="FILE"/>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_684">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Is State Department approval required?</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_684_RD_CM_1767" type="COMMENT"/>
+															<ResponseDef id="PCQ_684_RD_FL_1768" type="FILE"/>
+															<ResponseDef id="PCQ_684_RD_RB_1769" type="RADIO">
+																<SelectionDef id="SEL_1075">
+																	<Value>Yes</Value>
+																	<QuestionDef id="PCQ_692">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Date NIH Form 1820 sent to Fogarty Center. </QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_692_RD_CM_1791" type="COMMENT"/>
+																			<ResponseDef id="PCQ_692_RD_FL_1792" type="FILE"/>
+																			<ResponseDef id="PCQ_692_RD_DT_1793" type="DATE"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																	<QuestionDef id="PCQ_693">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Has State Department concurrence been received?</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_693_RD_CM_1794" type="COMMENT"/>
+																			<ResponseDef id="PCQ_693_RD_FL_1795" type="FILE"/>
+																			<ResponseDef id="PCQ_693_RD_DD_1796" type="DROP_DOWN">
+																				<SelectionDef id="SEL_X_94">
+																					<Value>--Select an option--</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1077">
+																					<Value>Yes, attached</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1078">
+																					<Value>Yes, sent to GAB</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1079">
+																					<Value>No</Value>
+																					<QuestionDef id="PCQ_694">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Explanation required:</QText>
+																						<QInstructions/>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_694_RD_CM_1797" type="COMMENT"/>
+																							<ResponseDef id="PCQ_694_RD_FL_1798" type="FILE"/>
+																							<ResponseDef id="PCQ_694_RD_TX_1799" type="TEXT"/>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																					<QuestionDef id="PCQ_695">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Is project viable without State Department concurrence?</QText>
+																						<QInstructions>(If No, award must be held. If Yes, send or attach any appropriate documentation to GAB.)</QInstructions>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_695_RD_CM_1800" type="COMMENT"/>
+																							<ResponseDef id="PCQ_695_RD_FL_1801" type="FILE"/>
+																							<ResponseDef id="PCQ_695_RD_RB_1802" type="RADIO">
+																								<SelectionDef id="SEL_1080">
+																									<Value>Yes</Value>
+																								</SelectionDef>
+																								<SelectionDef id="SEL_1081">
+																									<Value>No</Value>
+																								</SelectionDef>
+																							</ResponseDef>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																				</SelectionDef>
+																			</ResponseDef>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+																<SelectionDef id="SEL_1076">
+																	<Value>No</Value>
+																	<QuestionDef id="PCQ_696">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Explanation required:</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_696_RD_CM_1803" type="COMMENT"/>
+																			<ResponseDef id="PCQ_696_RD_FL_1804" type="FILE"/>
+																			<ResponseDef id="PCQ_696_RD_TX_1805" type="TEXT"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+															</ResponseDef>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_685">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Name of foreign site (Country):</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_685_RD_TX_1770" type="TEXT"/>
+															<ResponseDef id="PCQ_685_RD_CM_1771" type="COMMENT"/>
+															<ResponseDef id="PCQ_685_RD_FL_1772" type="FILE"/>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_686">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Is State Department approval required?</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_686_RD_CM_1773" type="COMMENT"/>
+															<ResponseDef id="PCQ_686_RD_FL_1774" type="FILE"/>
+															<ResponseDef id="PCQ_686_RD_RB_1775" type="RADIO">
+																<SelectionDef id="SEL_1068">
+																	<Value>Yes</Value>
+																	<QuestionDef id="PCQ_687">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Date NIH Form 1820 sent to Fogarty Center. </QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_687_RD_CM_1776" type="COMMENT"/>
+																			<ResponseDef id="PCQ_687_RD_FL_1777" type="FILE"/>
+																			<ResponseDef id="PCQ_687_RD_DT_1778" type="DATE"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																	<QuestionDef id="PCQ_688">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Has State Department concurrence been received?</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_688_RD_CM_1779" type="COMMENT"/>
+																			<ResponseDef id="PCQ_688_RD_FL_1780" type="FILE"/>
+																			<ResponseDef id="PCQ_688_RD_DD_1781" type="DROP_DOWN">
+																				<SelectionDef id="SEL_X_93">
+																					<Value>--Select an option--</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1070">
+																					<Value>Yes, attached</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1071">
+																					<Value>Yes, sent to GAB</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1072">
+																					<Value>No</Value>
+																					<QuestionDef id="PCQ_689">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Explanation required:</QText>
+																						<QInstructions/>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_689_RD_CM_1782" type="COMMENT"/>
+																							<ResponseDef id="PCQ_689_RD_FL_1783" type="FILE"/>
+																							<ResponseDef id="PCQ_689_RD_TX_1784" type="TEXT"/>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																					<QuestionDef id="PCQ_690">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Is project viable without State Department concurrence?</QText>
+																						<QInstructions>(If No, award must be held. If Yes, send or attach any appropriate documentation to GAB.)</QInstructions>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_690_RD_CM_1785" type="COMMENT"/>
+																							<ResponseDef id="PCQ_690_RD_FL_1786" type="FILE"/>
+																							<ResponseDef id="PCQ_690_RD_RB_1787" type="RADIO">
+																								<SelectionDef id="SEL_1073">
+																									<Value>Yes</Value>
+																								</SelectionDef>
+																								<SelectionDef id="SEL_1074">
+																									<Value>No</Value>
+																								</SelectionDef>
+																							</ResponseDef>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																				</SelectionDef>
+																			</ResponseDef>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+																<SelectionDef id="SEL_1069">
+																	<Value>No</Value>
+																	<QuestionDef id="PCQ_691">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Explanation required:</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_691_RD_CM_1788" type="COMMENT"/>
+																			<ResponseDef id="PCQ_691_RD_FL_1789" type="FILE"/>
+																			<ResponseDef id="PCQ_691_RD_TX_1790" type="TEXT"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+															</ResponseDef>
+														</ResponseDefsList>
+													</QuestionDef>
+												</SelectionDef>
+												<SelectionDef id="SEL_1067">
+													<Value>Yes, 3 more</Value>
+													<QuestionDef id="PCQ_697">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Name of foreign site (Country):</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_697_RD_TX_1806" type="TEXT"/>
+															<ResponseDef id="PCQ_697_RD_CM_1807" type="COMMENT"/>
+															<ResponseDef id="PCQ_697_RD_FL_1808" type="FILE"/>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_698">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Is State Department approval required?</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_698_RD_CM_1809" type="COMMENT"/>
+															<ResponseDef id="PCQ_698_RD_FL_1810" type="FILE"/>
+															<ResponseDef id="PCQ_698_RD_RB_1811" type="RADIO">
+																<SelectionDef id="SEL_1082">
+																	<Value>Yes</Value>
+																	<QuestionDef id="PCQ_703">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Date NIH Form 1820 sent to Fogarty Center. </QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_703_RD_CM_1812" type="COMMENT"/>
+																			<ResponseDef id="PCQ_703_RD_FL_1813" type="FILE"/>
+																			<ResponseDef id="PCQ_703_RD_DT_1814" type="DATE"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																	<QuestionDef id="PCQ_704">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Has State Department concurrence been received?</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_704_RD_CM_1815" type="COMMENT"/>
+																			<ResponseDef id="PCQ_704_RD_FL_1816" type="FILE"/>
+																			<ResponseDef id="PCQ_704_RD_DD_1817" type="DROP_DOWN">
+																				<SelectionDef id="SEL_X_95">
+																					<Value>--Select an option--</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1084">
+																					<Value>Yes, attached</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1085">
+																					<Value>Yes, sent to GAB</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1086">
+																					<Value>No</Value>
+																					<QuestionDef id="PCQ_705">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Explanation required:</QText>
+																						<QInstructions/>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_705_RD_CM_1818" type="COMMENT"/>
+																							<ResponseDef id="PCQ_705_RD_FL_1819" type="FILE"/>
+																							<ResponseDef id="PCQ_705_RD_TX_1820" type="TEXT"/>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																					<QuestionDef id="PCQ_706">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Is project viable without State Department concurrence?</QText>
+																						<QInstructions>(If No, award must be held. If Yes, send or attach any appropriate documentation to GAB.)</QInstructions>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_706_RD_CM_1821" type="COMMENT"/>
+																							<ResponseDef id="PCQ_706_RD_FL_1822" type="FILE"/>
+																							<ResponseDef id="PCQ_706_RD_RB_1823" type="RADIO">
+																								<SelectionDef id="SEL_1087">
+																									<Value>Yes</Value>
+																								</SelectionDef>
+																								<SelectionDef id="SEL_1088">
+																									<Value>No</Value>
+																								</SelectionDef>
+																							</ResponseDef>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																				</SelectionDef>
+																			</ResponseDef>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+																<SelectionDef id="SEL_1083">
+																	<Value>No</Value>
+																	<QuestionDef id="PCQ_707">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Explanation required:</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_707_RD_CM_1824" type="COMMENT"/>
+																			<ResponseDef id="PCQ_707_RD_FL_1825" type="FILE"/>
+																			<ResponseDef id="PCQ_707_RD_TX_1826" type="TEXT"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+															</ResponseDef>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_699">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Name of foreign site (Country):</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_699_RD_TX_1827" type="TEXT"/>
+															<ResponseDef id="PCQ_699_RD_CM_1828" type="COMMENT"/>
+															<ResponseDef id="PCQ_699_RD_FL_1829" type="FILE"/>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_700">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Is State Department approval required?</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_700_RD_CM_1830" type="COMMENT"/>
+															<ResponseDef id="PCQ_700_RD_FL_1831" type="FILE"/>
+															<ResponseDef id="PCQ_700_RD_RB_1832" type="RADIO">
+																<SelectionDef id="SEL_1089">
+																	<Value>Yes</Value>
+																	<QuestionDef id="PCQ_708">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Date NIH Form 1820 sent to Fogarty Center. </QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_708_RD_CM_1833" type="COMMENT"/>
+																			<ResponseDef id="PCQ_708_RD_FL_1834" type="FILE"/>
+																			<ResponseDef id="PCQ_708_RD_DT_1835" type="DATE"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																	<QuestionDef id="PCQ_709">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Has State Department concurrence been received?</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_709_RD_CM_1836" type="COMMENT"/>
+																			<ResponseDef id="PCQ_709_RD_FL_1837" type="FILE"/>
+																			<ResponseDef id="PCQ_709_RD_DD_1838" type="DROP_DOWN">
+																				<SelectionDef id="SEL_X_96">
+																					<Value>--Select an option--</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1091">
+																					<Value>Yes, attached</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1092">
+																					<Value>Yes, sent to GAB</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1093">
+																					<Value>No</Value>
+																					<QuestionDef id="PCQ_710">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Explanation required:</QText>
+																						<QInstructions/>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_710_RD_CM_1839" type="COMMENT"/>
+																							<ResponseDef id="PCQ_710_RD_FL_1840" type="FILE"/>
+																							<ResponseDef id="PCQ_710_RD_TX_1841" type="TEXT"/>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																					<QuestionDef id="PCQ_711">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Is project viable without State Department concurrence?</QText>
+																						<QInstructions>(If No, award must be held. If Yes, send or attach any appropriate documentation to GAB.)</QInstructions>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_711_RD_CM_1842" type="COMMENT"/>
+																							<ResponseDef id="PCQ_711_RD_FL_1843" type="FILE"/>
+																							<ResponseDef id="PCQ_711_RD_RB_1844" type="RADIO">
+																								<SelectionDef id="SEL_1094">
+																									<Value>Yes</Value>
+																								</SelectionDef>
+																								<SelectionDef id="SEL_1095">
+																									<Value>No</Value>
+																								</SelectionDef>
+																							</ResponseDef>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																				</SelectionDef>
+																			</ResponseDef>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+																<SelectionDef id="SEL_1090">
+																	<Value>No</Value>
+																	<QuestionDef id="PCQ_712">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Explanation required:</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_712_RD_CM_1845" type="COMMENT"/>
+																			<ResponseDef id="PCQ_712_RD_FL_1846" type="FILE"/>
+																			<ResponseDef id="PCQ_712_RD_TX_1847" type="TEXT"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+															</ResponseDef>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_701">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Name of foreign site (Country):</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_701_RD_TX_1848" type="TEXT"/>
+															<ResponseDef id="PCQ_701_RD_CM_1849" type="COMMENT"/>
+															<ResponseDef id="PCQ_701_RD_FL_1850" type="FILE"/>
+														</ResponseDefsList>
+													</QuestionDef>
+													<QuestionDef id="PCQ_702">
+														<GrantTypeMechs>
+															<TypeMech type="3" mech="R01"/>
+															<TypeMech type="3" mech="P01"/>
+															<TypeMech type="3" mech="R03"/>
+															<TypeMech type="3" mech="R21"/>
+															<TypeMech type="3" mech="R30"/>
+															<TypeMech type="3" mech="R33"/>
+															<TypeMech type="3" mech="R37"/>
+															<TypeMech type="3" mech="R41"/>
+															<TypeMech type="3" mech="R42"/>
+															<TypeMech type="3" mech="R43"/>
+															<TypeMech type="3" mech="R44"/>
+															<TypeMech type="3" mech="R56"/>
+															<TypeMech type="3" mech="U01"/>
+															<TypeMech type="3" mech="U19"/>
+															<TypeMech type="3" mech="U41"/>
+															<TypeMech type="3" mech="U42"/>
+															<TypeMech type="3" mech="U43"/>
+															<TypeMech type="3" mech="U44"/>
+															<TypeMech type="3" mech="P20"/>
+															<TypeMech type="3" mech="P30"/>
+															<TypeMech type="3" mech="P50"/>
+															<TypeMech type="3" mech="U54"/>
+															<TypeMech type="3" mech="R15"/>
+															<TypeMech type="3" mech="R18"/>
+															<TypeMech type="3" mech="R24"/>
+															<TypeMech type="3" mech="U24"/>
+															<TypeMech type="3" mech="U56"/>
+															<TypeMech type="3" mech="T32"/>
+															<TypeMech type="3" mech="TU2"/>
+															<TypeMech type="3" mech="K01"/>
+															<TypeMech type="3" mech="K05"/>
+															<TypeMech type="3" mech="K07"/>
+															<TypeMech type="3" mech="K08"/>
+															<TypeMech type="3" mech="K12"/>
+															<TypeMech type="3" mech="K22"/>
+															<TypeMech type="3" mech="K23"/>
+															<TypeMech type="3" mech="K24"/>
+															<TypeMech type="3" mech="K25"/>
+															<TypeMech type="3" mech="R25"/>
+															<TypeMech type="3" mech="U10"/>
+														</GrantTypeMechs>
+														<QText>Is State Department approval required?</QText>
+														<QInstructions/>
+														<ResponseDefsList>
+															<ResponseDef id="PCQ_702_RD_CM_1851" type="COMMENT"/>
+															<ResponseDef id="PCQ_702_RD_FL_1852" type="FILE"/>
+															<ResponseDef id="PCQ_702_RD_RB_1853" type="RADIO">
+																<SelectionDef id="SEL_1096">
+																	<Value>Yes</Value>
+																	<QuestionDef id="PCQ_713">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Date NIH Form 1820 sent to Fogarty Center. </QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_713_RD_CM_1854" type="COMMENT"/>
+																			<ResponseDef id="PCQ_713_RD_FL_1855" type="FILE"/>
+																			<ResponseDef id="PCQ_713_RD_DT_1856" type="DATE"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																	<QuestionDef id="PCQ_714">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Has State Department concurrence been received?</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_714_RD_CM_1857" type="COMMENT"/>
+																			<ResponseDef id="PCQ_714_RD_FL_1858" type="FILE"/>
+																			<ResponseDef id="PCQ_714_RD_DD_1859" type="DROP_DOWN">
+																				<SelectionDef id="SEL_X_97">
+																					<Value>--Select an option--</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1098">
+																					<Value>Yes, attached</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1099">
+																					<Value>Yes, sent to GAB</Value>
+																				</SelectionDef>
+																				<SelectionDef id="SEL_1100">
+																					<Value>No</Value>
+																					<QuestionDef id="PCQ_715">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Explanation required:</QText>
+																						<QInstructions/>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_715_RD_CM_1860" type="COMMENT"/>
+																							<ResponseDef id="PCQ_715_RD_FL_1861" type="FILE"/>
+																							<ResponseDef id="PCQ_715_RD_TX_1862" type="TEXT"/>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																					<QuestionDef id="PCQ_716">
+																						<GrantTypeMechs>
+																							<TypeMech type="3" mech="R01"/>
+																							<TypeMech type="3" mech="P01"/>
+																							<TypeMech type="3" mech="R03"/>
+																							<TypeMech type="3" mech="R21"/>
+																							<TypeMech type="3" mech="R30"/>
+																							<TypeMech type="3" mech="R33"/>
+																							<TypeMech type="3" mech="R37"/>
+																							<TypeMech type="3" mech="R41"/>
+																							<TypeMech type="3" mech="R42"/>
+																							<TypeMech type="3" mech="R43"/>
+																							<TypeMech type="3" mech="R44"/>
+																							<TypeMech type="3" mech="R56"/>
+																							<TypeMech type="3" mech="U01"/>
+																							<TypeMech type="3" mech="U19"/>
+																							<TypeMech type="3" mech="U41"/>
+																							<TypeMech type="3" mech="U42"/>
+																							<TypeMech type="3" mech="U43"/>
+																							<TypeMech type="3" mech="U44"/>
+																							<TypeMech type="3" mech="P20"/>
+																							<TypeMech type="3" mech="P30"/>
+																							<TypeMech type="3" mech="P50"/>
+																							<TypeMech type="3" mech="U54"/>
+																							<TypeMech type="3" mech="R15"/>
+																							<TypeMech type="3" mech="R18"/>
+																							<TypeMech type="3" mech="R24"/>
+																							<TypeMech type="3" mech="U24"/>
+																							<TypeMech type="3" mech="U56"/>
+																							<TypeMech type="3" mech="T32"/>
+																							<TypeMech type="3" mech="TU2"/>
+																							<TypeMech type="3" mech="K01"/>
+																							<TypeMech type="3" mech="K05"/>
+																							<TypeMech type="3" mech="K07"/>
+																							<TypeMech type="3" mech="K08"/>
+																							<TypeMech type="3" mech="K12"/>
+																							<TypeMech type="3" mech="K22"/>
+																							<TypeMech type="3" mech="K23"/>
+																							<TypeMech type="3" mech="K24"/>
+																							<TypeMech type="3" mech="K25"/>
+																							<TypeMech type="3" mech="R25"/>
+																							<TypeMech type="3" mech="U10"/>
+																						</GrantTypeMechs>
+																						<QText>Is project viable without State Department concurrence?</QText>
+																						<QInstructions>(If No, award must be held. If Yes, send or attach any appropriate documentation to GAB.)</QInstructions>
+																						<ResponseDefsList>
+																							<ResponseDef id="PCQ_716_RD_CM_1863" type="COMMENT"/>
+																							<ResponseDef id="PCQ_716_RD_FL_1864" type="FILE"/>
+																							<ResponseDef id="PCQ_716_RD_RB_1865" type="RADIO">
+																								<SelectionDef id="SEL_1101">
+																									<Value>Yes</Value>
+																								</SelectionDef>
+																								<SelectionDef id="SEL_1102">
+																									<Value>No</Value>
+																								</SelectionDef>
+																							</ResponseDef>
+																						</ResponseDefsList>
+																					</QuestionDef>
+																				</SelectionDef>
+																			</ResponseDef>
+																		</ResponseDefsList>
+																	</QuestionDef>
+																</SelectionDef>
+																<SelectionDef id="SEL_1097">
+																	<Value>No</Value>
+																	<QuestionDef id="PCQ_717">
+																		<GrantTypeMechs>
+																			<TypeMech type="3" mech="R01"/>
+																			<TypeMech type="3" mech="P01"/>
+																			<TypeMech type="3" mech="R03"/>
+																			<TypeMech type="3" mech="R21"/>
+																			<TypeMech type="3" mech="R30"/>
+																			<TypeMech type="3" mech="R33"/>
+																			<TypeMech type="3" mech="R37"/>
+																			<TypeMech type="3" mech="R41"/>
+																			<TypeMech type="3" mech="R42"/>
+																			<TypeMech type="3" mech="R43"/>
+																			<TypeMech type="3" mech="R44"/>
+																			<TypeMech type="3" mech="R56"/>
+																			<TypeMech type="3" mech="U01"/>
+																			<TypeMech type="3" mech="U19"/>
+																			<TypeMech type="3" mech="U41"/>
+																			<TypeMech type="3" mech="U42"/>
+																			<TypeMech type="3" mech="U43"/>
+																			<TypeMech type="3" mech="U44"/>
+																			<TypeMech type="3" mech="P20"/>
+																			<TypeMech type="3" mech="P30"/>
+																			<TypeMech type="3" mech="P50"/>
+																			<TypeMech type="3" mech="U54"/>
+																			<TypeMech type="3" mech="R15"/>
+																			<TypeMech type="3" mech="R18"/>
+																			<TypeMech type="3" mech="R24"/>
+																			<TypeMech type="3" mech="U24"/>
+																			<TypeMech type="3" mech="U56"/>
+																			<TypeMech type="3" mech="T32"/>
+																			<TypeMech type="3" mech="TU2"/>
+																			<TypeMech type="3" mech="K01"/>
+																			<TypeMech type="3" mech="K05"/>
+																			<TypeMech type="3" mech="K07"/>
+																			<TypeMech type="3" mech="K08"/>
+																			<TypeMech type="3" mech="K12"/>
+																			<TypeMech type="3" mech="K22"/>
+																			<TypeMech type="3" mech="K23"/>
+																			<TypeMech type="3" mech="K24"/>
+																			<TypeMech type="3" mech="K25"/>
+																			<TypeMech type="3" mech="R25"/>
+																			<TypeMech type="3" mech="U10"/>
+																		</GrantTypeMechs>
+																		<QText>Explanation required:</QText>
+																		<QInstructions/>
+																		<ResponseDefsList>
+																			<ResponseDef id="PCQ_717_RD_CM_1866" type="COMMENT"/>
+																			<ResponseDef id="PCQ_717_RD_FL_1867" type="FILE"/>
+																			<ResponseDef id="PCQ_717_RD_TX_1868" type="TEXT"/>
+																		</ResponseDefsList>
+																	</QuestionDef>
 																</SelectionDef>
 															</ResponseDef>
 														</ResponseDefsList>
