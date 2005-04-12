@@ -5662,7 +5662,7 @@
 											<TypeMech type="3" mech="R25"/>
 											<TypeMech type="3" mech="U10"/>
 										</GrantTypeMechs>
-										<QText>Has amended application been reviewed by IRG? AMY WAS HERE  </QText>
+										<QText>Has amended application been reviewed by IRG?</QText>
 										<QInstructions>(If No, award will be held.)</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="PCQ_478_RD_CM_1148" type="COMMENT"/>
