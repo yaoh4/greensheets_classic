@@ -1,7 +1,4 @@
 * text=auto !eol
-Implementation/GsApp/trunk/.classpath -text
-Implementation/GsApp/trunk/.mymetadata -text
-Implementation/GsApp/trunk/.project -text
 Implementation/GsApp/trunk/WebRoot/META-INF/MANIFEST.MF -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/classes/ApplicationResources.properties -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/classes/displaytag.properties -text
