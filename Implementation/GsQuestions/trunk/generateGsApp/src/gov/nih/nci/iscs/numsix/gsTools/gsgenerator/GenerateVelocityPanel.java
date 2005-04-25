@@ -1,3 +1,5 @@
+package gov.nih.nci.iscs.numsix.gsTools.gsgenerator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,6 +13,7 @@ import org.w3c.dom.Node;
 import org.xml.sax.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.dom.DOMResult;
+import javax.xml.transform.stream.StreamSource;
 
 import org.xml.sax.helpers.*;
 
@@ -196,6 +199,7 @@ public class GenerateVelocityPanel {
         System.out.println("User.Dir " + root);
         
         String fileName = root + "/vm/" + selected + "_" + type + "_" + mech + ".vm";
+        String qSrcFileName = root + "/vm/" + selected + "_" + type + "_" + mech + "_qSrc.xml";
 
         // Check the the xml file to make sure everything is ok.
 
@@ -254,9 +258,17 @@ public class GenerateVelocityPanel {
                     new javax.xml.transform.stream.StreamResult(new java.io.FileOutputStream(
                             fileName)));
 
+        	transformer = tFactory.newTransformer(new StreamSource(root + "/xslt/GsFormXmlTranslator.xslt"));
+            transformer.setParameter("paramType", type);
+            transformer.setParameter("paramMech", mech);
+            transformer.transform(new javax.xml.transform.stream.StreamSource(questionsSrcXml),
+                    new javax.xml.transform.stream.StreamResult(new java.io.FileOutputStream(
+                    		qSrcFileName)));             
+            
             if (loadClob) {
-
-                TemplateLoader tl = new TemplateLoader(fileName, type, mech, selected, p
+            	
+               
+                TemplateLoader tl = new TemplateLoader(fileName, qSrcFileName, type, mech, selected, p
                         .getProperty(dbProperties));
 
                 if (replace) {

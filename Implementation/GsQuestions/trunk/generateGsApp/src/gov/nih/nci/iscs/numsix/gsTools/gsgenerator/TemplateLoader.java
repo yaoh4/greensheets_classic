@@ -1,4 +1,8 @@
+package gov.nih.nci.iscs.numsix.gsTools.gsgenerator;
+
+
 import java.util.*;
+import java.util.logging.Logger;
 import java.sql.*;
 import oracle.jdbc.*;
 import oracle.sql.*;
@@ -7,6 +11,7 @@ import java.io.*;
 public class TemplateLoader {
 
     private String fileName;
+    private String qSrcFileName;
     private String type;
     private String mech;
     private String group;
@@ -14,8 +19,9 @@ public class TemplateLoader {
     private String userName;
     private String password;
 
-    public TemplateLoader(String fileName, String type, String mech, String group, String dbProperties) {
+    public TemplateLoader(String fileName, String qSrcFileName, String type, String mech, String group, String dbProperties) {
         this.fileName = fileName;
+        this.qSrcFileName = qSrcFileName;
         this.type = type;
         this.mech = mech;
 
@@ -44,7 +50,8 @@ public class TemplateLoader {
 
             conn.setAutoCommit(false);
 
-            String template = readFile();
+            String template = readFile(this.fileName);
+            String xmlTemplate = readFile(this.qSrcFileName);
 
             String id = null;
             Statement stmt = conn.createStatement();
@@ -65,24 +72,33 @@ public class TemplateLoader {
 
             // Insert a new Template CLOB
 
-            String insertSql = "INSERT INTO FORM_TEMPLATES_T (ID,TEMPLATE_HTML,REVISION_NUM) VALUES(?,EMPTY_CLOB(),?)";
+            String insertSql = "INSERT INTO FORM_TEMPLATES_T (ID,TEMPLATE_HTML,TEMPLATE_XML,REVISION_NUM) VALUES(?,EMPTY_CLOB(),EMPTY_CLOB(),?)";
 
             OraclePreparedStatement ops = (OraclePreparedStatement) conn.prepareStatement(insertSql);
             ops.setString(1, id);
             ops.setString(2, "1");
             ops.executeUpdate();
 
-            String selectSql = "SELECT TEMPLATE_HTML FROM FORM_TEMPLATES_T  WHERE ID=" + id;
+            String selectSql = "SELECT TEMPLATE_HTML, EMPTY_CLOB(), FROM FORM_TEMPLATES_T  WHERE ID=" + id;
             ops = (OraclePreparedStatement) conn.prepareStatement(selectSql);
             res = ops.executeQuery();
-            CLOB clob = null;
-            if (res.next()) {
-                clob = (oracle.sql.CLOB) res.getClob("TEMPLATE_HTML");
-            }
-            java.io.Writer writer = ((oracle.sql.CLOB) clob).getCharacterOutputStream();
-            writer.write(template);
-            writer.flush();
-            writer.close();
+            this.insertTemplates(res,template,xmlTemplate);
+//            CLOB clobHtml = null;
+//            CLOB clobXml = null;
+//            if (res.next()) {
+//            	clobHtml = (oracle.sql.CLOB) res.getClob("TEMPLATE_HTML");
+//            	clobXml = (oracle.sql.CLOB) res.getClob("TEMPLATE_XML");
+//            }
+//            java.io.Writer writer = ((oracle.sql.CLOB) clobHtml).getCharacterOutputStream();
+//            writer.write(template);
+//            writer.flush();
+//            writer.close();
+//            
+//            writer = ((oracle.sql.CLOB) clobXml).getCharacterOutputStream();
+//            writer.write(xmlTemplate);
+//            writer.flush();
+//            writer.close();
+            
             ops.close();
             res.close();
 
@@ -122,7 +138,8 @@ public class TemplateLoader {
 
             conn = getConnection();
 
-            String template = readFile();
+            String template = readFile(this.fileName);
+            String xmlTemplate = readFile(this.qSrcFileName);
 
             String id = null;
             Statement stmt = conn.createStatement();
@@ -139,7 +156,7 @@ public class TemplateLoader {
 
             conn.setAutoCommit(false);
 
-            String insertSql = "INSERT INTO FORM_TEMPLATES_T (ID,TEMPLATE_HTML,REVISION_NUM) VALUES(?,EMPTY_CLOB(),?)";
+            String insertSql = "INSERT INTO FORM_TEMPLATES_T (ID,TEMPLATE_HTML,TEMPLATE_XML,REVISION_NUM) VALUES(?,EMPTY_CLOB(),EMPTY_CLOB(),?)";
 
             OraclePreparedStatement ops = (OraclePreparedStatement) conn.prepareStatement(insertSql);
             ops.setString(1, id);
@@ -149,16 +166,18 @@ public class TemplateLoader {
             String selectSql = "SELECT TEMPLATE_HTML FROM FORM_TEMPLATES_T  WHERE ID=" + id;
             ops = (OraclePreparedStatement) conn.prepareStatement(selectSql);
             res = ops.executeQuery();
-            CLOB clob = null;
-            if (res.next()) {
-                clob = (oracle.sql.CLOB) res.getClob("TEMPLATE_HTML");
-            }
-            java.io.Writer writer = ((oracle.sql.CLOB) clob).getCharacterOutputStream();
-            writer.write(template);
-            writer.flush();
-            writer.close();
-            ops.close();
-            res.close();
+            this.insertTemplates(res,template,xmlTemplate);
+            
+//            CLOB clob = null;
+//            if (res.next()) {
+//                clob = (oracle.sql.CLOB) res.getClob("TEMPLATE_HTML");
+//            }
+//            java.io.Writer writer = ((oracle.sql.CLOB) clob).getCharacterOutputStream();
+//            writer.write(template);
+//            writer.flush();
+//            writer.close();
+//            ops.close();
+//            res.close();
 
             String insertSql2 =
                 "INSERT INTO FORM_GRANT_MATRIX_T "
@@ -185,7 +204,28 @@ public class TemplateLoader {
 
     }
 
-    private String readFile() throws Exception {
+    private void insertTemplates(ResultSet res, String template, String xmlTemplate) throws SQLException, IOException{
+
+    	CLOB clobHtml = null;
+        CLOB clobXml = null;
+        if (res.next()) {
+        	clobHtml = (oracle.sql.CLOB) res.getClob("TEMPLATE_HTML");
+        	clobXml = (oracle.sql.CLOB) res.getClob("TEMPLATE_XML");
+        }
+        java.io.Writer writer = ((oracle.sql.CLOB) clobHtml).getCharacterOutputStream();
+        writer.write(template);
+        writer.flush();
+        writer.close();
+        
+        writer = ((oracle.sql.CLOB) clobXml).getCharacterOutputStream();
+        writer.write(xmlTemplate);
+        writer.flush();
+        writer.close();
+            	
+    	
+    }
+    
+    private String readFile(String fileName) throws Exception {
 
         File f = new File(fileName);
         long length = f.length();
@@ -210,6 +250,7 @@ public class TemplateLoader {
 
     private Connection getConnection() throws Exception {
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+        Logger.global.info(url);
         return DriverManager.getConnection(url, userName, password);
     }
 

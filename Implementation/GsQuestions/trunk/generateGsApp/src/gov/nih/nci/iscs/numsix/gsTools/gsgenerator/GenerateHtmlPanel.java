@@ -1,3 +1,5 @@
+package gov.nih.nci.iscs.numsix.gsTools.gsgenerator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

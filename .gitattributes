@@ -273,11 +273,11 @@ Implementation/GsQuestions/trunk/generateGsApp/lib/nls_charset12.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/lib/xalan.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/lib/xercesImpl.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/lib/xml-apis.jar -text
-Implementation/GsQuestions/trunk/generateGsApp/src/GenerateGS.java -text
-Implementation/GsQuestions/trunk/generateGsApp/src/GenerateHtmlPanel.java -text
-Implementation/GsQuestions/trunk/generateGsApp/src/GenerateValidationPanel.java -text
-Implementation/GsQuestions/trunk/generateGsApp/src/GenerateVelocityPanel.java -text
-Implementation/GsQuestions/trunk/generateGsApp/src/TemplateLoader.java -text
+Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateGS.java -text
+Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateHtmlPanel.java -text
+Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateValidationPanel.java -text
+Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateVelocityPanel.java -text
+Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/TemplateLoader.java -text
 Implementation/GsQuestions/trunk/gengsapp.properties -text
 Implementation/GsQuestions/trunk/html/PC_1_F31.html -text
 Implementation/GsQuestions/trunk/html/PC_1_F32.html -text
