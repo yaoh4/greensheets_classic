@@ -190,7 +190,7 @@ public class NciPersonBuilder {
                         groupList.add((String) enum.next());
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    throw new GreensheetBaseException("error.ldap",e);
                 }
 
                 person.setGroupMembership(groupList);

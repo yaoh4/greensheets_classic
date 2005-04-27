@@ -57,6 +57,7 @@ public class GreensheetsInitPlugIn implements PlugIn {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw new ServletException(e);
         }
 
     }
