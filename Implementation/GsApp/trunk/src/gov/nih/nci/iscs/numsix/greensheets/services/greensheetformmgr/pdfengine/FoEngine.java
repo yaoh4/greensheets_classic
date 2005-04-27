@@ -20,7 +20,7 @@ import org.dom4j.io.*;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.utils.*;
 /**
- *
+ * Class that generates the PDF file using Apache FO
  * 
  * 
  *  @author kpuscas, Number Six Software
@@ -34,6 +34,13 @@ public class FoEngine {
     FoEngine() {
     }
 
+    /**
+     * Given an FO formatted XML document returns a byte[] containing the
+     * PDF representation of the document
+     * @param srcDoc
+     * @return byte[]
+     * @throws GreensheetBaseException
+     */
     byte[] renderFormAsPDF(Document srcDoc) throws GreensheetBaseException {
 
         byte[] result = null;
