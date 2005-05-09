@@ -35,15 +35,15 @@ public class GreensheetsInitPlugIn implements PlugIn {
         String root = System.getProperty("conf.dir");
 
         String configPath = root + "/" + serv.getServletContext().getInitParameter("CONFIG_PATH") + "/";
-
+        
         try {
  
             
-            AppConfigLoader.initErrorMessages(configPath);
+            AppConfigLoader.initErrorMessages(serv.getServletContext().getRealPath("WEB-INF"));
             AppConfigLoader.initAppConfigProperties(configPath);
             AppConfigLoader.initDbProperties(configPath);
             AppConfigLoader.initLdapProperties(configPath);
-            AppConfigLoader.loadQuestionsXmlSrc(configPath);
+            AppConfigLoader.loadQuestionsXmlSrc(serv.getServletContext().getRealPath("WEB-INF"));
 
             System.out.println("\n<<<<<<<<< AppConfig Init Complete >>>>>>>>\n");
 

@@ -769,23 +769,6 @@ public class GreensheetFormDataHelper {
                     pstmt.execute();
                     logger.debug("Inserted recored into FQA " + fqaId + " " + form.getFormId());
                 }
-
-                //                if (!respDefType.equalsIgnoreCase(QuestionResponseData.FILE)
-                //                        &&
-                // !respDefType.equalsIgnoreCase(QuestionResponseData.COMMENT)
-                //                        && delete) {
-                //                    logger.debug("\n\n Delete associated files");
-                //                    Object[] list =
-                // qrd.getQuestionAttachments().values().toArray();
-                //                    int size = list.length;
-                //                    for (int i = 0; i < size; i++) {
-                //                        QuestionAttachment qa = (QuestionAttachment) list[i];
-                //                        qa.setToBeDeleted(true);
-                //                    }
-                //                    AttachmentHelper ah = new AttachmentHelper();
-                //                    ah.saveAttachments(qrd, grant, form, conn);
-                //                }
-
             }
 
             conn.commit();

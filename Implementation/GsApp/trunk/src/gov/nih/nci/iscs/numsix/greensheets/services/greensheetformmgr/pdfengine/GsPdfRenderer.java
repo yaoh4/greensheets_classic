@@ -151,6 +151,10 @@ public class GsPdfRenderer {
              while (rs.next()) {
                  int tempId = rs.getInt(1);
                  java.sql.Clob clob = (java.sql.Clob) rs.getObject(2);
+                 
+                 if(clob == null){
+                 	throw new GreensheetBaseException("Error finding questions source");
+                 }
 
                  ByteArrayOutputStream out = new ByteArrayOutputStream();
 
@@ -167,8 +171,6 @@ public class GsPdfRenderer {
                  template.trim();                
                  out.close();
                  doc = DocumentHelper.parseText(template);
-
-
              }
 		} catch (DocumentException de){
 			throw new GreensheetBaseException("Error parsing questions source", de);
