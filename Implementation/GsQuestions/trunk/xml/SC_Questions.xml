@@ -24024,6 +24024,30 @@
 							</ResponseDef>
 						</ResponseDefsList>
 					</QuestionDef>
+					<QuestionDef id="SCQ_246">
+						<GrantTypeMechs>
+							<TypeMech type="1" mech="R01"/>
+							<TypeMech type="2" mech="R01"/>
+							<TypeMech type="3" mech="R01"/>
+							<TypeMech type="6" mech="R01"/>
+							<TypeMech type="7" mech="R01"/>
+							<TypeMech type="9" mech="R01"/>
+						</GrantTypeMechs>
+						<QText>Has this grant been recycled?</QText>
+						<QInstructions/>
+						<ResponseDefsList>
+							<ResponseDef id="SCQ_246_RD_CM_470" type="COMMENT"/>
+							<ResponseDef id="SCQ_246_RD_FL_471" type="FILE"/>
+							<ResponseDef id="SCQ_246_RD_RB_472" type="RADIO">
+								<SelectionDef id="SEL_501">
+									<Value>Yes</Value>
+								</SelectionDef>
+								<SelectionDef id="SEL_502">
+									<Value>No</Value>
+								</SelectionDef>
+							</ResponseDef>
+						</ResponseDefsList>
+					</QuestionDef>
 				</SelectionDef>
 			</ResponseDef>
 		</ResponseDefsList>
