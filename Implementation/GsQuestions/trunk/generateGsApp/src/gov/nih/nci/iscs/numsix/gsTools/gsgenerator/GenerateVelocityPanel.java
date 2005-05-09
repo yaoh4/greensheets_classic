@@ -266,8 +266,7 @@ public class GenerateVelocityPanel {
                     		qSrcFileName)));             
             
             if (loadClob) {
-            	
-               
+            	            	
                 TemplateLoader tl = new TemplateLoader(fileName, qSrcFileName, type, mech, selected, p
                         .getProperty(dbProperties));
 

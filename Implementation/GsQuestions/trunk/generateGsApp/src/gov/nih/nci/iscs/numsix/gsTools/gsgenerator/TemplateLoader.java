@@ -19,8 +19,23 @@ public class TemplateLoader {
     private String userName;
     private String password;
 
-    public TemplateLoader(String fileName, String qSrcFileName, String type, String mech, String group, String dbProperties) {
-        this.fileName = fileName;
+    public TemplateLoader(String fileName, String qSrcFileName, String type, String mech, String group, String dbProperties)throws Exception {
+ 
+    	File f = new File(fileName);
+    	if(f.length() <=0.0 ){
+    		throw new IllegalStateException("Error with VM File. Size is" + f.length());
+    	}
+    	
+    	f = new File(qSrcFileName);
+    	Logger.global.info(f.exists() + "  " + (f.length()<= 0));
+    	
+    	if(f.length() <= 0){
+    		throw new IllegalStateException("Error with question XML File." 
+    				+ f.getCanonicalPath() 
+					+ "  Size is " + f.length());
+    	}    	
+    	
+    	this.fileName = fileName;
         this.qSrcFileName = qSrcFileName;
         this.type = type;
         this.mech = mech;
@@ -44,64 +59,12 @@ public class TemplateLoader {
         Connection conn = null;
         try {
 
-            System.out.println("REPLACE TEMPLATE");
+            Logger.global.info("REPLACE TEMPLATE");
 
             conn = getConnection();
 
             conn.setAutoCommit(false);
-
-            String template = readFile(this.fileName);
-            String xmlTemplate = readFile(this.qSrcFileName);
-
-            String id = null;
-            Statement stmt = conn.createStatement();
-
-            // Get a new id
-
-            ResultSet res = stmt.executeQuery("select frm_seq.nextval from dual");
-            if (res.next()) {
-                id = res.getString(1);
-
-                System.out.println("ID " + id);
-            }
-            res.close();
-
-            System.out.println("LOADING CLOB ......");
-
-            conn.setAutoCommit(false);
-
-            // Insert a new Template CLOB
-
-            String insertSql = "INSERT INTO FORM_TEMPLATES_T (ID,TEMPLATE_HTML,TEMPLATE_XML,REVISION_NUM) VALUES(?,EMPTY_CLOB(),EMPTY_CLOB(),?)";
-
-            OraclePreparedStatement ops = (OraclePreparedStatement) conn.prepareStatement(insertSql);
-            ops.setString(1, id);
-            ops.setString(2, "1");
-            ops.executeUpdate();
-
-            String selectSql = "SELECT TEMPLATE_HTML, EMPTY_CLOB(), FROM FORM_TEMPLATES_T  WHERE ID=" + id;
-            ops = (OraclePreparedStatement) conn.prepareStatement(selectSql);
-            res = ops.executeQuery();
-            this.insertTemplates(res,template,xmlTemplate);
-//            CLOB clobHtml = null;
-//            CLOB clobXml = null;
-//            if (res.next()) {
-//            	clobHtml = (oracle.sql.CLOB) res.getClob("TEMPLATE_HTML");
-//            	clobXml = (oracle.sql.CLOB) res.getClob("TEMPLATE_XML");
-//            }
-//            java.io.Writer writer = ((oracle.sql.CLOB) clobHtml).getCharacterOutputStream();
-//            writer.write(template);
-//            writer.flush();
-//            writer.close();
-//            
-//            writer = ((oracle.sql.CLOB) clobXml).getCharacterOutputStream();
-//            writer.write(xmlTemplate);
-//            writer.flush();
-//            writer.close();
-            
-            ops.close();
-            res.close();
-
+            String id = this.insertTemplates(conn);
             // Change the FTM_ID on the Form Grant Matrix
 
             String sql =
@@ -116,6 +79,7 @@ public class TemplateLoader {
                     + mech
                     + "'";
 
+            Statement stmt = conn.createStatement();
             stmt.executeUpdate(sql);
 
             conn.commit();
@@ -137,54 +101,15 @@ public class TemplateLoader {
         try {
 
             conn = getConnection();
-
-            String template = readFile(this.fileName);
-            String xmlTemplate = readFile(this.qSrcFileName);
-
-            String id = null;
-            Statement stmt = conn.createStatement();
-            ResultSet res = stmt.executeQuery("select frm_seq.nextval from dual");
-            if (res.next()) {
-                id = res.getString(1);
-
-                System.out.println("ID " + id);
-            }
-            stmt.close();
-            res.close();
-
-            System.out.println("LOADING CLOB ......");
-
             conn.setAutoCommit(false);
-
-            String insertSql = "INSERT INTO FORM_TEMPLATES_T (ID,TEMPLATE_HTML,TEMPLATE_XML,REVISION_NUM) VALUES(?,EMPTY_CLOB(),EMPTY_CLOB(),?)";
-
-            OraclePreparedStatement ops = (OraclePreparedStatement) conn.prepareStatement(insertSql);
-            ops.setString(1, id);
-            ops.setString(2, "1");
-            ops.executeUpdate();
-
-            String selectSql = "SELECT TEMPLATE_HTML FROM FORM_TEMPLATES_T  WHERE ID=" + id;
-            ops = (OraclePreparedStatement) conn.prepareStatement(selectSql);
-            res = ops.executeQuery();
-            this.insertTemplates(res,template,xmlTemplate);
+            String id = this.insertTemplates(conn);
             
-//            CLOB clob = null;
-//            if (res.next()) {
-//                clob = (oracle.sql.CLOB) res.getClob("TEMPLATE_HTML");
-//            }
-//            java.io.Writer writer = ((oracle.sql.CLOB) clob).getCharacterOutputStream();
-//            writer.write(template);
-//            writer.flush();
-//            writer.close();
-//            ops.close();
-//            res.close();
-
             String insertSql2 =
                 "INSERT INTO FORM_GRANT_MATRIX_T "
                     + "(FTM_ID,FORM_ROLE_CODE,APPL_TYPE_CODE,MAJOR_ACTIVITY_CODE,ACTIVITY_CODE)"
                     + "VALUES(?,?,?,?,?)";
 
-            ops = (OraclePreparedStatement) conn.prepareStatement(insertSql2);
+            OraclePreparedStatement ops = (OraclePreparedStatement) conn.prepareStatement(insertSql2);
             ops.setString(1, id);
             ops.setString(2, group);
             ops.setString(3, type);
@@ -194,7 +119,7 @@ public class TemplateLoader {
 
             conn.commit();
 
-            System.out.println("CLOB LOADING COMPLETE");
+            Logger.global.info("CLOB LOADING COMPLETE");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -204,8 +129,39 @@ public class TemplateLoader {
 
     }
 
-    private void insertTemplates(ResultSet res, String template, String xmlTemplate) throws SQLException, IOException{
+    private String insertTemplates(Connection conn) throws Exception {
 
+    	
+        String template = readFile(this.fileName);
+        String xmlTemplate = readFile(this.qSrcFileName);
+
+        String id = null;
+        Statement stmt = conn.createStatement();
+
+        // Get a new id
+
+        ResultSet res = stmt.executeQuery("select frm_seq.nextval from dual");
+        if (res.next()) {
+            id = res.getString(1);
+
+            System.out.println("ID " + id);
+        }
+        res.close();
+
+        Logger.global.info("LOADING CLOB ......");    	
+    	
+    	
+        String insertSql = "INSERT INTO FORM_TEMPLATES_T (ID,TEMPLATE_HTML,TEMPLATE_XML,REVISION_NUM) VALUES(?,EMPTY_CLOB(),EMPTY_CLOB(),?)";
+
+        OraclePreparedStatement ops = (OraclePreparedStatement) conn.prepareStatement(insertSql);
+        ops.setString(1, id);
+        ops.setString(2, "1");
+        ops.executeUpdate();
+
+        String selectSql = "SELECT TEMPLATE_HTML, TEMPLATE_XML FROM FORM_TEMPLATES_T  WHERE ID=" + id;
+        ops = (OraclePreparedStatement) conn.prepareStatement(selectSql);
+        res = ops.executeQuery();    	
+    	
     	CLOB clobHtml = null;
         CLOB clobXml = null;
         if (res.next()) {
@@ -221,8 +177,11 @@ public class TemplateLoader {
         writer.write(xmlTemplate);
         writer.flush();
         writer.close();
-            	
+        
+        stmt.close();
+        ops.close();
     	
+        return id;
     }
     
     private String readFile(String fileName) throws Exception {
