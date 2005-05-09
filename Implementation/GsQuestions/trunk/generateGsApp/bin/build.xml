@@ -18,7 +18,7 @@
     <target name="makeJar" depends="compile">
         <jar destfile="generateGs.jar" basedir="./classes">
             <manifest>
-                <attribute name="Main-Class" value="GenerateGS"/>
+                <attribute name="Main-Class" value="gov.nih.nci.iscs.numsix.gsTools.gsgenerator.GenerateGS"/>
                 <attribute name="Class-Path" value="./lib/xml-apis.jar ./lib/dom4j-1.4.jar ./lib/xalan.jar ./lib/xercesImpl.jar ./lib/classes12.jar"/>
             </manifest>
         </jar>
