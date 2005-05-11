@@ -172,12 +172,12 @@ public class TemplateLoader {
         writer.write(template);
         writer.flush();
         writer.close();
-        
+        Logger.global.info("\n\nLOADED Velocity Source");
         writer = ((oracle.sql.CLOB) clobXml).getCharacterOutputStream();
         writer.write(xmlTemplate);
         writer.flush();
         writer.close();
-        
+        Logger.global.info("\n\nLOADED Question Source");
         stmt.close();
         ops.close();
     	
