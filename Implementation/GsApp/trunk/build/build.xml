@@ -73,15 +73,16 @@ Author: Kevin A. Puscas - Number Six Software 2003
  
     <path id="project.classpath">
         <pathelement path="${classpath}"/>
-        <pathelement path="${env.LOG4J_JAR}"/>   	
-        <pathelement path="${env.J2EE_JAR}"/>
+        <pathelement path="./build/build_libs/log4j-1.2.8.jar"/>   	
+        <pathelement path="./build/build_libs/servlet-api.jar"/>
+        <pathelement path="./build/build_libs/jsp-api.jar"/>
 		<fileset dir="${lib.dir}">
 		    <include name="*.jar"/>
 		</fileset>
     </path>
     <property name="project.classpath" refid="project.classpath"/>
     
-    <taskdef file="${env.ANT_HOME}/lib/svntask.properties"/>
+    
     
     
 <!--
