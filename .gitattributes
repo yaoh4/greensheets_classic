@@ -145,6 +145,9 @@ Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SC_Questions.xml -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SNC_Questions.3.23.05.xml -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/SNC_Questions.xml -text
 Implementation/GsApp/trunk/build/build.xml -text
+Implementation/GsApp/trunk/build/build_libs/jsp-api.jar -text
+Implementation/GsApp/trunk/build/build_libs/log4j-1.2.8.jar -text
+Implementation/GsApp/trunk/build/build_libs/servlet-api.jar -text
 Implementation/GsApp/trunk/build/testing/ApplyXSL.xml -text
 Implementation/GsApp/trunk/build/testing/CheckTest.xml -text
 Implementation/GsApp/trunk/build/testing/gs_test.xml -text
