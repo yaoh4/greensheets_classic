@@ -50,12 +50,8 @@ public class LdapConnectionHelper {
         if(dirCtxDispenser == null) {
             logger.info("Constructing LdapConnection from dispenser!!! ");
             dirCtxDispenser = new DirCtxDispenser();
-            try {
-                logger.info("configName = " + configParameters.getProperty("configname"));
-                logger.info("password = " + configParameters.getProperty("password"));
-
-                List list = DirCtxDispenserConfigurator.getConfig((String)configParameters.getProperty("configname"),
-                                                                  (String)configParameters.getProperty("password"));
+            try {                
+                List list = DirCtxDispenserConfigurator.getConfig();                
                 dirCtxDispenser.init(list);
             } catch(DirCtxDispenserException e) {
                 throw new Exception(" Error when getting a context in - getContext() ");
