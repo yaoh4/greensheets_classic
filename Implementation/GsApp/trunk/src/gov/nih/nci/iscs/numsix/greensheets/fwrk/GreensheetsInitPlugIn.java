@@ -42,7 +42,6 @@ public class GreensheetsInitPlugIn implements PlugIn {
             AppConfigLoader.initErrorMessages(serv.getServletContext().getRealPath("WEB-INF"));
             AppConfigLoader.initAppConfigProperties(configPath);
             AppConfigLoader.initDbProperties(configPath);
-            AppConfigLoader.initLdapProperties(configPath);
             AppConfigLoader.loadQuestionsXmlSrc(serv.getServletContext().getRealPath("WEB-INF"));
 
             System.out.println("\n<<<<<<<<< AppConfig Init Complete >>>>>>>>\n");
@@ -56,7 +55,6 @@ public class GreensheetsInitPlugIn implements PlugIn {
 
 
         } catch (Exception e) {
-            e.printStackTrace();
             throw new ServletException(e);
         }
 
