@@ -35,21 +35,12 @@ public class AppConfigLoader {
     }        
         
     
-
     public static void initErrorMessages(String path) throws Exception {
         Properties p = new Properties();
         p.load(new FileInputStream(path + "errormessages.properties"));
         AppConfigProperties.getInstance().addProperty(GreensheetsKeys.KEY_ERROR_MESSAGES, p);
 
     }
-
-    public static void initLdapProperties(String path) throws Exception {
-        Properties p = new Properties();
-        p.load(new FileInputStream(path + "ldap.properties"));
-        AppConfigProperties.getInstance().addProperty(GreensheetsKeys.KEY_LDAP_PROPERTIES, p);
-
-    }
-
 
 
     public static void loadQuestionsXmlSrc(String path) throws Exception {
