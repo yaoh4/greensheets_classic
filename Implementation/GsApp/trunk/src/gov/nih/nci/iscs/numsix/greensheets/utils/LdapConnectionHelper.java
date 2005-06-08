@@ -5,7 +5,9 @@
  */
 package gov.nih.nci.iscs.numsix.greensheets.utils;
 
-import gov.nih.nci.iscs.util.*;
+import gov.nih.nci.iscs.infra.ctxdispenser.DirCtxDispenser;
+import gov.nih.nci.iscs.infra.ctxdispenser.DirCtxDispenserConfigurator;
+import gov.nih.nci.iscs.infra.ctxdispenser.DirCtxDispenserException;
 import java.util.*;
 
 import javax.naming.directory.*;
