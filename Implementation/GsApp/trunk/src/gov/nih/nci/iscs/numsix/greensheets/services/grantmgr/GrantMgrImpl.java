@@ -190,7 +190,6 @@ public class GrantMgrImpl implements GrantMgr {
 			}
 
 		} catch (GrantRetrieverException e) {
-			e.printStackTrace();
 			throw new GreensheetBaseException("error.usergrantlist", e);
 		}
 
@@ -340,7 +339,6 @@ public class GrantMgrImpl implements GrantMgr {
 			}
 
 		} catch (GrantRetrieverException e) {
-			e.printStackTrace();
 			throw new GreensheetBaseException("error.usergrantlist", e);
 		}
 
