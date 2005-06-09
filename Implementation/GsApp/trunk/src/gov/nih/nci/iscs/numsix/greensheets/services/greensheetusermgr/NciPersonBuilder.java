@@ -106,7 +106,6 @@ public class NciPersonBuilder {
 
             populatePersonDetails(person, attributes);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new GreensheetBaseException("error.ldap",e);
         } finally {
             try {
