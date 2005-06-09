@@ -49,7 +49,6 @@ public class SpecialistStatusDAO {
             r.close();
             s.close();
         } catch (SQLException se) {
-            se.printStackTrace();
             throw new GreensheetBaseException("Error retrieving Specialist Status Info", se);
 
         } finally {
