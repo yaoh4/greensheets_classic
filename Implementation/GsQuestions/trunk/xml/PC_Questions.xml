@@ -9010,7 +9010,7 @@
 						<GrantTypeMechs>
 							<TypeMech type="3" mech="P30"/>
 						</GrantTypeMechs>
-						<QText>Is this application from an NCI-designated Cancer Center? </QText>
+						<QText>Is this application from an NCI-designated Comprehensive Cancer Center? </QText>
 						<QInstructions/>
 						<ResponseDefsList>
 							<ResponseDef id="PCQ_543_RD_CM_1340" type="COMMENT"/>
@@ -36961,7 +36961,7 @@
 			<TypeMech type="7" mech="P30"/>
 			<TypeMech type="9" mech="P30"/>
 		</GrantTypeMechs>
-		<QText>Is this application from an NCI-designated Cancer Center? </QText>
+		<QText>Is this application from an NCI-designated Comprehensive Cancer Center? </QText>
 		<QInstructions/>
 		<ResponseDefsList>
 			<ResponseDef id="PCQ_83_RD_CM_247" type="COMMENT"/>
@@ -37579,6 +37579,834 @@
 				</SelectionDef>
 				<SelectionDef id="SEL_946">
 					<Value>Other</Value>
+				</SelectionDef>
+			</ResponseDef>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_724">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="P01"/>
+			<TypeMech type="2" mech="P01"/>
+			<TypeMech type="3" mech="P01"/>
+			<TypeMech type="6" mech="P01"/>
+			<TypeMech type="7" mech="P01"/>
+			<TypeMech type="9" mech="P01"/>
+			<TypeMech type="1" mech="R01"/>
+			<TypeMech type="2" mech="R01"/>
+			<TypeMech type="3" mech="R01"/>
+			<TypeMech type="6" mech="R01"/>
+			<TypeMech type="7" mech="R01"/>
+			<TypeMech type="9" mech="R01"/>
+			<TypeMech type="1" mech="R03"/>
+			<TypeMech type="2" mech="R03"/>
+			<TypeMech type="3" mech="R03"/>
+			<TypeMech type="6" mech="R03"/>
+			<TypeMech type="7" mech="R03"/>
+			<TypeMech type="9" mech="R03"/>
+			<TypeMech type="1" mech="R21"/>
+			<TypeMech type="3" mech="R21"/>
+			<TypeMech type="6" mech="R21"/>
+			<TypeMech type="7" mech="R21"/>
+			<TypeMech type="9" mech="R21"/>
+			<TypeMech type="3" mech="R29"/>
+			<TypeMech type="7" mech="R29"/>
+			<TypeMech type="1" mech="R30"/>
+			<TypeMech type="2" mech="R30"/>
+			<TypeMech type="3" mech="R30"/>
+			<TypeMech type="6" mech="R30"/>
+			<TypeMech type="7" mech="R30"/>
+			<TypeMech type="9" mech="R30"/>
+			<TypeMech type="1" mech="R33"/>
+			<TypeMech type="2" mech="R33"/>
+			<TypeMech type="3" mech="R33"/>
+			<TypeMech type="6" mech="R33"/>
+			<TypeMech type="7" mech="R33"/>
+			<TypeMech type="9" mech="R33"/>
+			<TypeMech type="3" mech="R35"/>
+			<TypeMech type="7" mech="R35"/>
+			<TypeMech type="1" mech="R37"/>
+			<TypeMech type="2" mech="R37"/>
+			<TypeMech type="3" mech="R37"/>
+			<TypeMech type="6" mech="R37"/>
+			<TypeMech type="7" mech="R37"/>
+			<TypeMech type="1" mech="R41"/>
+			<TypeMech type="3" mech="R41"/>
+			<TypeMech type="6" mech="R41"/>
+			<TypeMech type="7" mech="R41"/>
+			<TypeMech type="9" mech="R41"/>
+			<TypeMech type="1" mech="R42"/>
+			<TypeMech type="2" mech="R42"/>
+			<TypeMech type="3" mech="R42"/>
+			<TypeMech type="6" mech="R42"/>
+			<TypeMech type="7" mech="R42"/>
+			<TypeMech type="9" mech="R42"/>
+			<TypeMech type="1" mech="R43"/>
+			<TypeMech type="3" mech="R43"/>
+			<TypeMech type="6" mech="R43"/>
+			<TypeMech type="7" mech="R43"/>
+			<TypeMech type="9" mech="R43"/>
+			<TypeMech type="1" mech="R44"/>
+			<TypeMech type="2" mech="R44"/>
+			<TypeMech type="3" mech="R44"/>
+			<TypeMech type="6" mech="R44"/>
+			<TypeMech type="7" mech="R44"/>
+			<TypeMech type="9" mech="R44"/>
+			<TypeMech type="1" mech="R55"/>
+			<TypeMech type="2" mech="R55"/>
+			<TypeMech type="1" mech="R56"/>
+			<TypeMech type="2" mech="R56"/>
+			<TypeMech type="3" mech="R56"/>
+			<TypeMech type="6" mech="R56"/>
+			<TypeMech type="7" mech="R56"/>
+			<TypeMech type="9" mech="R56"/>
+			<TypeMech type="1" mech="U01"/>
+			<TypeMech type="2" mech="U01"/>
+			<TypeMech type="3" mech="U01"/>
+			<TypeMech type="6" mech="U01"/>
+			<TypeMech type="7" mech="U01"/>
+			<TypeMech type="9" mech="U01"/>
+			<TypeMech type="1" mech="U19"/>
+			<TypeMech type="2" mech="U19"/>
+			<TypeMech type="3" mech="U19"/>
+			<TypeMech type="6" mech="U19"/>
+			<TypeMech type="7" mech="U19"/>
+			<TypeMech type="9" mech="U19"/>
+			<TypeMech type="1" mech="U41"/>
+			<TypeMech type="3" mech="U41"/>
+			<TypeMech type="6" mech="U41"/>
+			<TypeMech type="7" mech="U41"/>
+			<TypeMech type="9" mech="U41"/>
+			<TypeMech type="2" mech="U42"/>
+			<TypeMech type="3" mech="U42"/>
+			<TypeMech type="6" mech="U42"/>
+			<TypeMech type="7" mech="U42"/>
+			<TypeMech type="9" mech="U42"/>
+			<TypeMech type="1" mech="U43"/>
+			<TypeMech type="3" mech="U43"/>
+			<TypeMech type="6" mech="U43"/>
+			<TypeMech type="7" mech="U43"/>
+			<TypeMech type="9" mech="U43"/>
+			<TypeMech type="2" mech="U44"/>
+			<TypeMech type="3" mech="U44"/>
+			<TypeMech type="6" mech="U44"/>
+			<TypeMech type="7" mech="U44"/>
+			<TypeMech type="9" mech="U44"/>
+			<TypeMech type="1" mech="P20"/>
+			<TypeMech type="2" mech="P20"/>
+			<TypeMech type="3" mech="P20"/>
+			<TypeMech type="6" mech="P20"/>
+			<TypeMech type="7" mech="P20"/>
+			<TypeMech type="9" mech="P20"/>
+			<TypeMech type="1" mech="P30"/>
+			<TypeMech type="2" mech="P30"/>
+			<TypeMech type="3" mech="P30"/>
+			<TypeMech type="6" mech="P30"/>
+			<TypeMech type="7" mech="P30"/>
+			<TypeMech type="9" mech="P30"/>
+			<TypeMech type="1" mech="P50"/>
+			<TypeMech type="2" mech="P50"/>
+			<TypeMech type="3" mech="P50"/>
+			<TypeMech type="6" mech="P50"/>
+			<TypeMech type="7" mech="P50"/>
+			<TypeMech type="9" mech="P50"/>
+			<TypeMech type="1" mech="U54"/>
+			<TypeMech type="2" mech="U54"/>
+			<TypeMech type="3" mech="U54"/>
+			<TypeMech type="6" mech="U54"/>
+			<TypeMech type="7" mech="U54"/>
+			<TypeMech type="9" mech="U54"/>
+			<TypeMech type="1" mech="R15"/>
+			<TypeMech type="2" mech="R15"/>
+			<TypeMech type="3" mech="R15"/>
+			<TypeMech type="6" mech="R15"/>
+			<TypeMech type="7" mech="R15"/>
+			<TypeMech type="9" mech="R15"/>
+			<TypeMech type="1" mech="R18"/>
+			<TypeMech type="2" mech="R18"/>
+			<TypeMech type="3" mech="R18"/>
+			<TypeMech type="6" mech="R18"/>
+			<TypeMech type="7" mech="R18"/>
+			<TypeMech type="9" mech="R18"/>
+			<TypeMech type="1" mech="R24"/>
+			<TypeMech type="2" mech="R24"/>
+			<TypeMech type="3" mech="R24"/>
+			<TypeMech type="6" mech="R24"/>
+			<TypeMech type="7" mech="R24"/>
+			<TypeMech type="9" mech="R24"/>
+			<TypeMech type="1" mech="R25"/>
+			<TypeMech type="2" mech="R25"/>
+			<TypeMech type="3" mech="R25"/>
+			<TypeMech type="6" mech="R25"/>
+			<TypeMech type="7" mech="R25"/>
+			<TypeMech type="9" mech="R25"/>
+			<TypeMech type="1" mech="S06"/>
+			<TypeMech type="2" mech="S06"/>
+			<TypeMech type="3" mech="S06"/>
+			<TypeMech type="6" mech="S06"/>
+			<TypeMech type="7" mech="S06"/>
+			<TypeMech type="9" mech="S06"/>
+			<TypeMech type="1" mech="U10"/>
+			<TypeMech type="2" mech="U10"/>
+			<TypeMech type="3" mech="U10"/>
+			<TypeMech type="6" mech="U10"/>
+			<TypeMech type="7" mech="U10"/>
+			<TypeMech type="1" mech="U13"/>
+			<TypeMech type="2" mech="U13"/>
+			<TypeMech type="3" mech="U13"/>
+			<TypeMech type="6" mech="U13"/>
+			<TypeMech type="7" mech="U13"/>
+			<TypeMech type="9" mech="U13"/>
+			<TypeMech type="1" mech="U24"/>
+			<TypeMech type="2" mech="U24"/>
+			<TypeMech type="3" mech="U24"/>
+			<TypeMech type="6" mech="U24"/>
+			<TypeMech type="7" mech="U24"/>
+			<TypeMech type="9" mech="U24"/>
+			<TypeMech type="1" mech="U56"/>
+			<TypeMech type="2" mech="U56"/>
+			<TypeMech type="3" mech="U56"/>
+			<TypeMech type="6" mech="U56"/>
+			<TypeMech type="7" mech="U56"/>
+			<TypeMech type="9" mech="U56"/>
+			<TypeMech type="1" mech="C06"/>
+			<TypeMech type="6" mech="C06"/>
+			<TypeMech type="9" mech="C06"/>
+		</GrantTypeMechs>
+		<QText>Does this application require a data sharing plan?</QText>
+		<QInstructions>(Research grants over $500,000 direct costs require a data sharing plan)</QInstructions>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_724_RD_CM_1879" type="COMMENT"/>
+			<ResponseDef id="PCQ_724_RD_FL_1880" type="FILE"/>
+			<ResponseDef id="PCQ_724_RD_RB_1881" type="RADIO">
+				<SelectionDef id="SEL_1112">
+					<Value>Yes</Value>
+					<QuestionDef id="PCQ_725">
+						<GrantTypeMechs>
+							<TypeMech type="1" mech="P01"/>
+							<TypeMech type="2" mech="P01"/>
+							<TypeMech type="3" mech="P01"/>
+							<TypeMech type="6" mech="P01"/>
+							<TypeMech type="7" mech="P01"/>
+							<TypeMech type="9" mech="P01"/>
+							<TypeMech type="1" mech="R01"/>
+							<TypeMech type="2" mech="R01"/>
+							<TypeMech type="3" mech="R01"/>
+							<TypeMech type="6" mech="R01"/>
+							<TypeMech type="7" mech="R01"/>
+							<TypeMech type="9" mech="R01"/>
+							<TypeMech type="1" mech="R03"/>
+							<TypeMech type="2" mech="R03"/>
+							<TypeMech type="3" mech="R03"/>
+							<TypeMech type="6" mech="R03"/>
+							<TypeMech type="7" mech="R03"/>
+							<TypeMech type="9" mech="R03"/>
+							<TypeMech type="1" mech="R21"/>
+							<TypeMech type="3" mech="R21"/>
+							<TypeMech type="6" mech="R21"/>
+							<TypeMech type="7" mech="R21"/>
+							<TypeMech type="9" mech="R21"/>
+							<TypeMech type="3" mech="R29"/>
+							<TypeMech type="7" mech="R29"/>
+							<TypeMech type="1" mech="R30"/>
+							<TypeMech type="2" mech="R30"/>
+							<TypeMech type="3" mech="R30"/>
+							<TypeMech type="6" mech="R30"/>
+							<TypeMech type="7" mech="R30"/>
+							<TypeMech type="9" mech="R30"/>
+							<TypeMech type="1" mech="R33"/>
+							<TypeMech type="2" mech="R33"/>
+							<TypeMech type="3" mech="R33"/>
+							<TypeMech type="6" mech="R33"/>
+							<TypeMech type="7" mech="R33"/>
+							<TypeMech type="9" mech="R33"/>
+							<TypeMech type="3" mech="R35"/>
+							<TypeMech type="7" mech="R35"/>
+							<TypeMech type="1" mech="R37"/>
+							<TypeMech type="2" mech="R37"/>
+							<TypeMech type="3" mech="R37"/>
+							<TypeMech type="6" mech="R37"/>
+							<TypeMech type="7" mech="R37"/>
+							<TypeMech type="1" mech="R41"/>
+							<TypeMech type="3" mech="R41"/>
+							<TypeMech type="6" mech="R41"/>
+							<TypeMech type="7" mech="R41"/>
+							<TypeMech type="9" mech="R41"/>
+							<TypeMech type="1" mech="R42"/>
+							<TypeMech type="2" mech="R42"/>
+							<TypeMech type="3" mech="R42"/>
+							<TypeMech type="6" mech="R42"/>
+							<TypeMech type="7" mech="R42"/>
+							<TypeMech type="9" mech="R42"/>
+							<TypeMech type="1" mech="R43"/>
+							<TypeMech type="3" mech="R43"/>
+							<TypeMech type="6" mech="R43"/>
+							<TypeMech type="7" mech="R43"/>
+							<TypeMech type="9" mech="R43"/>
+							<TypeMech type="1" mech="R44"/>
+							<TypeMech type="2" mech="R44"/>
+							<TypeMech type="3" mech="R44"/>
+							<TypeMech type="6" mech="R44"/>
+							<TypeMech type="7" mech="R44"/>
+							<TypeMech type="9" mech="R44"/>
+							<TypeMech type="1" mech="R55"/>
+							<TypeMech type="2" mech="R55"/>
+							<TypeMech type="1" mech="R56"/>
+							<TypeMech type="2" mech="R56"/>
+							<TypeMech type="3" mech="R56"/>
+							<TypeMech type="6" mech="R56"/>
+							<TypeMech type="7" mech="R56"/>
+							<TypeMech type="9" mech="R56"/>
+							<TypeMech type="1" mech="U01"/>
+							<TypeMech type="2" mech="U01"/>
+							<TypeMech type="3" mech="U01"/>
+							<TypeMech type="6" mech="U01"/>
+							<TypeMech type="7" mech="U01"/>
+							<TypeMech type="9" mech="U01"/>
+							<TypeMech type="1" mech="U19"/>
+							<TypeMech type="2" mech="U19"/>
+							<TypeMech type="3" mech="U19"/>
+							<TypeMech type="6" mech="U19"/>
+							<TypeMech type="7" mech="U19"/>
+							<TypeMech type="9" mech="U19"/>
+							<TypeMech type="1" mech="U41"/>
+							<TypeMech type="3" mech="U41"/>
+							<TypeMech type="6" mech="U41"/>
+							<TypeMech type="7" mech="U41"/>
+							<TypeMech type="9" mech="U41"/>
+							<TypeMech type="2" mech="U42"/>
+							<TypeMech type="3" mech="U42"/>
+							<TypeMech type="6" mech="U42"/>
+							<TypeMech type="7" mech="U42"/>
+							<TypeMech type="9" mech="U42"/>
+							<TypeMech type="1" mech="U43"/>
+							<TypeMech type="3" mech="U43"/>
+							<TypeMech type="6" mech="U43"/>
+							<TypeMech type="7" mech="U43"/>
+							<TypeMech type="9" mech="U43"/>
+							<TypeMech type="2" mech="U44"/>
+							<TypeMech type="3" mech="U44"/>
+							<TypeMech type="6" mech="U44"/>
+							<TypeMech type="7" mech="U44"/>
+							<TypeMech type="9" mech="U44"/>
+							<TypeMech type="1" mech="P20"/>
+							<TypeMech type="2" mech="P20"/>
+							<TypeMech type="3" mech="P20"/>
+							<TypeMech type="6" mech="P20"/>
+							<TypeMech type="7" mech="P20"/>
+							<TypeMech type="9" mech="P20"/>
+							<TypeMech type="1" mech="P30"/>
+							<TypeMech type="2" mech="P30"/>
+							<TypeMech type="3" mech="P30"/>
+							<TypeMech type="6" mech="P30"/>
+							<TypeMech type="7" mech="P30"/>
+							<TypeMech type="9" mech="P30"/>
+							<TypeMech type="1" mech="P50"/>
+							<TypeMech type="2" mech="P50"/>
+							<TypeMech type="3" mech="P50"/>
+							<TypeMech type="6" mech="P50"/>
+							<TypeMech type="7" mech="P50"/>
+							<TypeMech type="9" mech="P50"/>
+							<TypeMech type="1" mech="U54"/>
+							<TypeMech type="2" mech="U54"/>
+							<TypeMech type="3" mech="U54"/>
+							<TypeMech type="6" mech="U54"/>
+							<TypeMech type="7" mech="U54"/>
+							<TypeMech type="9" mech="U54"/>
+							<TypeMech type="1" mech="R15"/>
+							<TypeMech type="2" mech="R15"/>
+							<TypeMech type="3" mech="R15"/>
+							<TypeMech type="6" mech="R15"/>
+							<TypeMech type="7" mech="R15"/>
+							<TypeMech type="9" mech="R15"/>
+							<TypeMech type="1" mech="R18"/>
+							<TypeMech type="2" mech="R18"/>
+							<TypeMech type="3" mech="R18"/>
+							<TypeMech type="6" mech="R18"/>
+							<TypeMech type="7" mech="R18"/>
+							<TypeMech type="9" mech="R18"/>
+							<TypeMech type="1" mech="R24"/>
+							<TypeMech type="2" mech="R24"/>
+							<TypeMech type="3" mech="R24"/>
+							<TypeMech type="6" mech="R24"/>
+							<TypeMech type="7" mech="R24"/>
+							<TypeMech type="9" mech="R24"/>
+							<TypeMech type="1" mech="R25"/>
+							<TypeMech type="2" mech="R25"/>
+							<TypeMech type="3" mech="R25"/>
+							<TypeMech type="6" mech="R25"/>
+							<TypeMech type="7" mech="R25"/>
+							<TypeMech type="9" mech="R25"/>
+							<TypeMech type="1" mech="S06"/>
+							<TypeMech type="2" mech="S06"/>
+							<TypeMech type="3" mech="S06"/>
+							<TypeMech type="6" mech="S06"/>
+							<TypeMech type="7" mech="S06"/>
+							<TypeMech type="9" mech="S06"/>
+							<TypeMech type="1" mech="U10"/>
+							<TypeMech type="2" mech="U10"/>
+							<TypeMech type="3" mech="U10"/>
+							<TypeMech type="6" mech="U10"/>
+							<TypeMech type="7" mech="U10"/>
+							<TypeMech type="1" mech="U13"/>
+							<TypeMech type="2" mech="U13"/>
+							<TypeMech type="3" mech="U13"/>
+							<TypeMech type="6" mech="U13"/>
+							<TypeMech type="7" mech="U13"/>
+							<TypeMech type="9" mech="U13"/>
+							<TypeMech type="1" mech="U24"/>
+							<TypeMech type="2" mech="U24"/>
+							<TypeMech type="3" mech="U24"/>
+							<TypeMech type="6" mech="U24"/>
+							<TypeMech type="7" mech="U24"/>
+							<TypeMech type="9" mech="U24"/>
+							<TypeMech type="1" mech="U56"/>
+							<TypeMech type="2" mech="U56"/>
+							<TypeMech type="3" mech="U56"/>
+							<TypeMech type="6" mech="U56"/>
+							<TypeMech type="7" mech="U56"/>
+							<TypeMech type="9" mech="U56"/>
+							<TypeMech type="1" mech="C06"/>
+							<TypeMech type="6" mech="C06"/>
+							<TypeMech type="9" mech="C06"/>
+						</GrantTypeMechs>
+						<QText>Is Data Sharing Plan approved by NCI?</QText>
+						<QInstructions/>
+						<ResponseDefsList>
+							<ResponseDef id="PCQ_725_RD_CM_1882" type="COMMENT"/>
+							<ResponseDef id="PCQ_725_RD_FL_1883" type="FILE"/>
+							<ResponseDef id="PCQ_725_RD_DD_1884" type="DROP_DOWN">
+								<SelectionDef id="SEL_X_100">
+									<Value>--Select an option--</Value>
+								</SelectionDef>
+								<SelectionDef id="SEL_1114">
+									<Value>Yes, plan included in application</Value>
+								</SelectionDef>
+								<SelectionDef id="SEL_1115">
+									<Value>Yes, Revised plan sent to GAB</Value>
+								</SelectionDef>
+								<SelectionDef id="SEL_1116">
+									<Value>No, plan requested by Program; issue provisional award</Value>
+								</SelectionDef>
+							</ResponseDef>
+						</ResponseDefsList>
+					</QuestionDef>
+				</SelectionDef>
+				<SelectionDef id="SEL_1113">
+					<Value>No</Value>
+				</SelectionDef>
+			</ResponseDef>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_726">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="P01"/>
+			<TypeMech type="2" mech="P01"/>
+			<TypeMech type="3" mech="P01"/>
+			<TypeMech type="6" mech="P01"/>
+			<TypeMech type="7" mech="P01"/>
+			<TypeMech type="9" mech="P01"/>
+			<TypeMech type="1" mech="R01"/>
+			<TypeMech type="2" mech="R01"/>
+			<TypeMech type="3" mech="R01"/>
+			<TypeMech type="6" mech="R01"/>
+			<TypeMech type="7" mech="R01"/>
+			<TypeMech type="9" mech="R01"/>
+			<TypeMech type="1" mech="R03"/>
+			<TypeMech type="2" mech="R03"/>
+			<TypeMech type="3" mech="R03"/>
+			<TypeMech type="6" mech="R03"/>
+			<TypeMech type="7" mech="R03"/>
+			<TypeMech type="9" mech="R03"/>
+			<TypeMech type="1" mech="R21"/>
+			<TypeMech type="3" mech="R21"/>
+			<TypeMech type="6" mech="R21"/>
+			<TypeMech type="7" mech="R21"/>
+			<TypeMech type="9" mech="R21"/>
+			<TypeMech type="3" mech="R29"/>
+			<TypeMech type="7" mech="R29"/>
+			<TypeMech type="1" mech="R30"/>
+			<TypeMech type="2" mech="R30"/>
+			<TypeMech type="3" mech="R30"/>
+			<TypeMech type="6" mech="R30"/>
+			<TypeMech type="7" mech="R30"/>
+			<TypeMech type="9" mech="R30"/>
+			<TypeMech type="1" mech="R33"/>
+			<TypeMech type="2" mech="R33"/>
+			<TypeMech type="3" mech="R33"/>
+			<TypeMech type="6" mech="R33"/>
+			<TypeMech type="7" mech="R33"/>
+			<TypeMech type="9" mech="R33"/>
+			<TypeMech type="3" mech="R35"/>
+			<TypeMech type="7" mech="R35"/>
+			<TypeMech type="1" mech="R37"/>
+			<TypeMech type="2" mech="R37"/>
+			<TypeMech type="3" mech="R37"/>
+			<TypeMech type="6" mech="R37"/>
+			<TypeMech type="7" mech="R37"/>
+			<TypeMech type="1" mech="R41"/>
+			<TypeMech type="3" mech="R41"/>
+			<TypeMech type="6" mech="R41"/>
+			<TypeMech type="7" mech="R41"/>
+			<TypeMech type="9" mech="R41"/>
+			<TypeMech type="1" mech="R42"/>
+			<TypeMech type="2" mech="R42"/>
+			<TypeMech type="3" mech="R42"/>
+			<TypeMech type="6" mech="R42"/>
+			<TypeMech type="7" mech="R42"/>
+			<TypeMech type="9" mech="R42"/>
+			<TypeMech type="1" mech="R43"/>
+			<TypeMech type="3" mech="R43"/>
+			<TypeMech type="6" mech="R43"/>
+			<TypeMech type="7" mech="R43"/>
+			<TypeMech type="9" mech="R43"/>
+			<TypeMech type="1" mech="R44"/>
+			<TypeMech type="2" mech="R44"/>
+			<TypeMech type="3" mech="R44"/>
+			<TypeMech type="6" mech="R44"/>
+			<TypeMech type="7" mech="R44"/>
+			<TypeMech type="9" mech="R44"/>
+			<TypeMech type="1" mech="R55"/>
+			<TypeMech type="2" mech="R55"/>
+			<TypeMech type="1" mech="R56"/>
+			<TypeMech type="2" mech="R56"/>
+			<TypeMech type="3" mech="R56"/>
+			<TypeMech type="6" mech="R56"/>
+			<TypeMech type="7" mech="R56"/>
+			<TypeMech type="9" mech="R56"/>
+			<TypeMech type="1" mech="U01"/>
+			<TypeMech type="2" mech="U01"/>
+			<TypeMech type="3" mech="U01"/>
+			<TypeMech type="6" mech="U01"/>
+			<TypeMech type="7" mech="U01"/>
+			<TypeMech type="9" mech="U01"/>
+			<TypeMech type="1" mech="U19"/>
+			<TypeMech type="2" mech="U19"/>
+			<TypeMech type="3" mech="U19"/>
+			<TypeMech type="6" mech="U19"/>
+			<TypeMech type="7" mech="U19"/>
+			<TypeMech type="9" mech="U19"/>
+			<TypeMech type="1" mech="U41"/>
+			<TypeMech type="3" mech="U41"/>
+			<TypeMech type="6" mech="U41"/>
+			<TypeMech type="7" mech="U41"/>
+			<TypeMech type="9" mech="U41"/>
+			<TypeMech type="2" mech="U42"/>
+			<TypeMech type="3" mech="U42"/>
+			<TypeMech type="6" mech="U42"/>
+			<TypeMech type="7" mech="U42"/>
+			<TypeMech type="9" mech="U42"/>
+			<TypeMech type="1" mech="U43"/>
+			<TypeMech type="3" mech="U43"/>
+			<TypeMech type="6" mech="U43"/>
+			<TypeMech type="7" mech="U43"/>
+			<TypeMech type="9" mech="U43"/>
+			<TypeMech type="2" mech="U44"/>
+			<TypeMech type="3" mech="U44"/>
+			<TypeMech type="6" mech="U44"/>
+			<TypeMech type="7" mech="U44"/>
+			<TypeMech type="9" mech="U44"/>
+			<TypeMech type="1" mech="P20"/>
+			<TypeMech type="2" mech="P20"/>
+			<TypeMech type="3" mech="P20"/>
+			<TypeMech type="6" mech="P20"/>
+			<TypeMech type="7" mech="P20"/>
+			<TypeMech type="9" mech="P20"/>
+			<TypeMech type="1" mech="P30"/>
+			<TypeMech type="2" mech="P30"/>
+			<TypeMech type="3" mech="P30"/>
+			<TypeMech type="6" mech="P30"/>
+			<TypeMech type="7" mech="P30"/>
+			<TypeMech type="9" mech="P30"/>
+			<TypeMech type="1" mech="P50"/>
+			<TypeMech type="2" mech="P50"/>
+			<TypeMech type="3" mech="P50"/>
+			<TypeMech type="6" mech="P50"/>
+			<TypeMech type="7" mech="P50"/>
+			<TypeMech type="9" mech="P50"/>
+			<TypeMech type="1" mech="U54"/>
+			<TypeMech type="2" mech="U54"/>
+			<TypeMech type="3" mech="U54"/>
+			<TypeMech type="6" mech="U54"/>
+			<TypeMech type="7" mech="U54"/>
+			<TypeMech type="9" mech="U54"/>
+			<TypeMech type="1" mech="R15"/>
+			<TypeMech type="2" mech="R15"/>
+			<TypeMech type="3" mech="R15"/>
+			<TypeMech type="6" mech="R15"/>
+			<TypeMech type="7" mech="R15"/>
+			<TypeMech type="9" mech="R15"/>
+			<TypeMech type="1" mech="R18"/>
+			<TypeMech type="2" mech="R18"/>
+			<TypeMech type="3" mech="R18"/>
+			<TypeMech type="6" mech="R18"/>
+			<TypeMech type="7" mech="R18"/>
+			<TypeMech type="9" mech="R18"/>
+			<TypeMech type="1" mech="R24"/>
+			<TypeMech type="2" mech="R24"/>
+			<TypeMech type="3" mech="R24"/>
+			<TypeMech type="6" mech="R24"/>
+			<TypeMech type="7" mech="R24"/>
+			<TypeMech type="9" mech="R24"/>
+			<TypeMech type="1" mech="R25"/>
+			<TypeMech type="2" mech="R25"/>
+			<TypeMech type="3" mech="R25"/>
+			<TypeMech type="6" mech="R25"/>
+			<TypeMech type="7" mech="R25"/>
+			<TypeMech type="9" mech="R25"/>
+			<TypeMech type="1" mech="S06"/>
+			<TypeMech type="2" mech="S06"/>
+			<TypeMech type="3" mech="S06"/>
+			<TypeMech type="6" mech="S06"/>
+			<TypeMech type="7" mech="S06"/>
+			<TypeMech type="9" mech="S06"/>
+			<TypeMech type="1" mech="U10"/>
+			<TypeMech type="2" mech="U10"/>
+			<TypeMech type="3" mech="U10"/>
+			<TypeMech type="6" mech="U10"/>
+			<TypeMech type="7" mech="U10"/>
+			<TypeMech type="1" mech="U13"/>
+			<TypeMech type="2" mech="U13"/>
+			<TypeMech type="3" mech="U13"/>
+			<TypeMech type="6" mech="U13"/>
+			<TypeMech type="7" mech="U13"/>
+			<TypeMech type="9" mech="U13"/>
+			<TypeMech type="1" mech="U24"/>
+			<TypeMech type="2" mech="U24"/>
+			<TypeMech type="3" mech="U24"/>
+			<TypeMech type="6" mech="U24"/>
+			<TypeMech type="7" mech="U24"/>
+			<TypeMech type="9" mech="U24"/>
+			<TypeMech type="1" mech="U56"/>
+			<TypeMech type="2" mech="U56"/>
+			<TypeMech type="3" mech="U56"/>
+			<TypeMech type="6" mech="U56"/>
+			<TypeMech type="7" mech="U56"/>
+			<TypeMech type="9" mech="U56"/>
+			<TypeMech type="1" mech="C06"/>
+			<TypeMech type="6" mech="C06"/>
+			<TypeMech type="9" mech="C06"/>
+		</GrantTypeMechs>
+		<QText>Does this application require a data model sharing plan?</QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_726_RD_CM_1882" type="COMMENT"/>
+			<ResponseDef id="PCQ_726_RD_FL_1883" type="FILE"/>
+			<ResponseDef id="PCQ_726_RD_RB_1884" type="RADIO">
+				<SelectionDef id="SEL_1117">
+					<Value>Yes</Value>
+					<QuestionDef id="PCQ_727">
+						<GrantTypeMechs>
+							<TypeMech type="1" mech="P01"/>
+							<TypeMech type="2" mech="P01"/>
+							<TypeMech type="3" mech="P01"/>
+							<TypeMech type="6" mech="P01"/>
+							<TypeMech type="7" mech="P01"/>
+							<TypeMech type="9" mech="P01"/>
+							<TypeMech type="1" mech="R01"/>
+							<TypeMech type="2" mech="R01"/>
+							<TypeMech type="3" mech="R01"/>
+							<TypeMech type="6" mech="R01"/>
+							<TypeMech type="7" mech="R01"/>
+							<TypeMech type="9" mech="R01"/>
+							<TypeMech type="1" mech="R03"/>
+							<TypeMech type="2" mech="R03"/>
+							<TypeMech type="3" mech="R03"/>
+							<TypeMech type="6" mech="R03"/>
+							<TypeMech type="7" mech="R03"/>
+							<TypeMech type="9" mech="R03"/>
+							<TypeMech type="1" mech="R21"/>
+							<TypeMech type="3" mech="R21"/>
+							<TypeMech type="6" mech="R21"/>
+							<TypeMech type="7" mech="R21"/>
+							<TypeMech type="9" mech="R21"/>
+							<TypeMech type="3" mech="R29"/>
+							<TypeMech type="7" mech="R29"/>
+							<TypeMech type="1" mech="R30"/>
+							<TypeMech type="2" mech="R30"/>
+							<TypeMech type="3" mech="R30"/>
+							<TypeMech type="6" mech="R30"/>
+							<TypeMech type="7" mech="R30"/>
+							<TypeMech type="9" mech="R30"/>
+							<TypeMech type="1" mech="R33"/>
+							<TypeMech type="2" mech="R33"/>
+							<TypeMech type="3" mech="R33"/>
+							<TypeMech type="6" mech="R33"/>
+							<TypeMech type="7" mech="R33"/>
+							<TypeMech type="9" mech="R33"/>
+							<TypeMech type="3" mech="R35"/>
+							<TypeMech type="7" mech="R35"/>
+							<TypeMech type="1" mech="R37"/>
+							<TypeMech type="2" mech="R37"/>
+							<TypeMech type="3" mech="R37"/>
+							<TypeMech type="6" mech="R37"/>
+							<TypeMech type="7" mech="R37"/>
+							<TypeMech type="1" mech="R41"/>
+							<TypeMech type="3" mech="R41"/>
+							<TypeMech type="6" mech="R41"/>
+							<TypeMech type="7" mech="R41"/>
+							<TypeMech type="9" mech="R41"/>
+							<TypeMech type="1" mech="R42"/>
+							<TypeMech type="2" mech="R42"/>
+							<TypeMech type="3" mech="R42"/>
+							<TypeMech type="6" mech="R42"/>
+							<TypeMech type="7" mech="R42"/>
+							<TypeMech type="9" mech="R42"/>
+							<TypeMech type="1" mech="R43"/>
+							<TypeMech type="3" mech="R43"/>
+							<TypeMech type="6" mech="R43"/>
+							<TypeMech type="7" mech="R43"/>
+							<TypeMech type="9" mech="R43"/>
+							<TypeMech type="1" mech="R44"/>
+							<TypeMech type="2" mech="R44"/>
+							<TypeMech type="3" mech="R44"/>
+							<TypeMech type="6" mech="R44"/>
+							<TypeMech type="7" mech="R44"/>
+							<TypeMech type="9" mech="R44"/>
+							<TypeMech type="1" mech="R55"/>
+							<TypeMech type="2" mech="R55"/>
+							<TypeMech type="1" mech="R56"/>
+							<TypeMech type="2" mech="R56"/>
+							<TypeMech type="3" mech="R56"/>
+							<TypeMech type="6" mech="R56"/>
+							<TypeMech type="7" mech="R56"/>
+							<TypeMech type="9" mech="R56"/>
+							<TypeMech type="1" mech="U01"/>
+							<TypeMech type="2" mech="U01"/>
+							<TypeMech type="3" mech="U01"/>
+							<TypeMech type="6" mech="U01"/>
+							<TypeMech type="7" mech="U01"/>
+							<TypeMech type="9" mech="U01"/>
+							<TypeMech type="1" mech="U19"/>
+							<TypeMech type="2" mech="U19"/>
+							<TypeMech type="3" mech="U19"/>
+							<TypeMech type="6" mech="U19"/>
+							<TypeMech type="7" mech="U19"/>
+							<TypeMech type="9" mech="U19"/>
+							<TypeMech type="1" mech="U41"/>
+							<TypeMech type="3" mech="U41"/>
+							<TypeMech type="6" mech="U41"/>
+							<TypeMech type="7" mech="U41"/>
+							<TypeMech type="9" mech="U41"/>
+							<TypeMech type="2" mech="U42"/>
+							<TypeMech type="3" mech="U42"/>
+							<TypeMech type="6" mech="U42"/>
+							<TypeMech type="7" mech="U42"/>
+							<TypeMech type="9" mech="U42"/>
+							<TypeMech type="1" mech="U43"/>
+							<TypeMech type="3" mech="U43"/>
+							<TypeMech type="6" mech="U43"/>
+							<TypeMech type="7" mech="U43"/>
+							<TypeMech type="9" mech="U43"/>
+							<TypeMech type="2" mech="U44"/>
+							<TypeMech type="3" mech="U44"/>
+							<TypeMech type="6" mech="U44"/>
+							<TypeMech type="7" mech="U44"/>
+							<TypeMech type="9" mech="U44"/>
+							<TypeMech type="1" mech="P20"/>
+							<TypeMech type="2" mech="P20"/>
+							<TypeMech type="3" mech="P20"/>
+							<TypeMech type="6" mech="P20"/>
+							<TypeMech type="7" mech="P20"/>
+							<TypeMech type="9" mech="P20"/>
+							<TypeMech type="1" mech="P30"/>
+							<TypeMech type="2" mech="P30"/>
+							<TypeMech type="3" mech="P30"/>
+							<TypeMech type="6" mech="P30"/>
+							<TypeMech type="7" mech="P30"/>
+							<TypeMech type="9" mech="P30"/>
+							<TypeMech type="1" mech="P50"/>
+							<TypeMech type="2" mech="P50"/>
+							<TypeMech type="3" mech="P50"/>
+							<TypeMech type="6" mech="P50"/>
+							<TypeMech type="7" mech="P50"/>
+							<TypeMech type="9" mech="P50"/>
+							<TypeMech type="1" mech="U54"/>
+							<TypeMech type="2" mech="U54"/>
+							<TypeMech type="3" mech="U54"/>
+							<TypeMech type="6" mech="U54"/>
+							<TypeMech type="7" mech="U54"/>
+							<TypeMech type="9" mech="U54"/>
+							<TypeMech type="1" mech="R15"/>
+							<TypeMech type="2" mech="R15"/>
+							<TypeMech type="3" mech="R15"/>
+							<TypeMech type="6" mech="R15"/>
+							<TypeMech type="7" mech="R15"/>
+							<TypeMech type="9" mech="R15"/>
+							<TypeMech type="1" mech="R18"/>
+							<TypeMech type="2" mech="R18"/>
+							<TypeMech type="3" mech="R18"/>
+							<TypeMech type="6" mech="R18"/>
+							<TypeMech type="7" mech="R18"/>
+							<TypeMech type="9" mech="R18"/>
+							<TypeMech type="1" mech="R24"/>
+							<TypeMech type="2" mech="R24"/>
+							<TypeMech type="3" mech="R24"/>
+							<TypeMech type="6" mech="R24"/>
+							<TypeMech type="7" mech="R24"/>
+							<TypeMech type="9" mech="R24"/>
+							<TypeMech type="1" mech="R25"/>
+							<TypeMech type="2" mech="R25"/>
+							<TypeMech type="3" mech="R25"/>
+							<TypeMech type="6" mech="R25"/>
+							<TypeMech type="7" mech="R25"/>
+							<TypeMech type="9" mech="R25"/>
+							<TypeMech type="1" mech="S06"/>
+							<TypeMech type="2" mech="S06"/>
+							<TypeMech type="3" mech="S06"/>
+							<TypeMech type="6" mech="S06"/>
+							<TypeMech type="7" mech="S06"/>
+							<TypeMech type="9" mech="S06"/>
+							<TypeMech type="1" mech="U10"/>
+							<TypeMech type="2" mech="U10"/>
+							<TypeMech type="3" mech="U10"/>
+							<TypeMech type="6" mech="U10"/>
+							<TypeMech type="7" mech="U10"/>
+							<TypeMech type="1" mech="U13"/>
+							<TypeMech type="2" mech="U13"/>
+							<TypeMech type="3" mech="U13"/>
+							<TypeMech type="6" mech="U13"/>
+							<TypeMech type="7" mech="U13"/>
+							<TypeMech type="9" mech="U13"/>
+							<TypeMech type="1" mech="U24"/>
+							<TypeMech type="2" mech="U24"/>
+							<TypeMech type="3" mech="U24"/>
+							<TypeMech type="6" mech="U24"/>
+							<TypeMech type="7" mech="U24"/>
+							<TypeMech type="9" mech="U24"/>
+							<TypeMech type="1" mech="U56"/>
+							<TypeMech type="2" mech="U56"/>
+							<TypeMech type="3" mech="U56"/>
+							<TypeMech type="6" mech="U56"/>
+							<TypeMech type="7" mech="U56"/>
+							<TypeMech type="9" mech="U56"/>
+							<TypeMech type="1" mech="C06"/>
+							<TypeMech type="6" mech="C06"/>
+							<TypeMech type="9" mech="C06"/>
+						</GrantTypeMechs>
+						<QText>Is Model Sharing Plan approved by NCI?</QText>
+						<QInstructions/>
+						<ResponseDefsList>
+							<ResponseDef id="PCQ_727_RD_CM_1885" type="COMMENT"/>
+							<ResponseDef id="PCQ_727_RD_FL_1886" type="FILE"/>
+							<ResponseDef id="PCQ_727_RD_DD_1887" type="DROP_DOWN">
+								<SelectionDef id="SEL_X_101">
+									<Value>--Select an option--</Value>
+								</SelectionDef>
+								<SelectionDef id="SEL_11119">
+									<Value>Yes, plan included in application</Value>
+								</SelectionDef>
+								<SelectionDef id="SEL_1120">
+									<Value>Yes, Revised plan sent to GAB</Value>
+								</SelectionDef>
+								<SelectionDef id="SEL_1121">
+									<Value>No, plan requested by Program; issue provisional award</Value>
+								</SelectionDef>
+							</ResponseDef>
+						</ResponseDefsList>
+					</QuestionDef>
+				</SelectionDef>
+				<SelectionDef id="SEL_1118">
+					<Value>No</Value>
 				</SelectionDef>
 			</ResponseDef>
 		</ResponseDefsList>
