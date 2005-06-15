@@ -743,5 +743,6 @@ Implementation/GsQuestions/trunk/xml/TEST_Questions.xml -text
 Implementation/GsQuestions/trunk/xslt/FormToNewForm.xslt -text
 Implementation/GsQuestions/trunk/xslt/GsFormTranslator.xslt -text
 Implementation/GsQuestions/trunk/xslt/GsFormXmlTranslator.xslt -text
+Implementation/GsQuestions/trunk/xslt/MergeXmlFiles.xslt -text
 Implementation/GsQuestions/trunk/xslt/checks.xslt -text
 Implementation/GsQuestions/trunk/xslt/metrics.xslt -text
