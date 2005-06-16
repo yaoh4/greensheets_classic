@@ -46,7 +46,7 @@ public class LdapConnectionHelper {
      * @throws Exception
      */
     public synchronized DirContext getConnection() throws Exception {
-
+    	System.setProperty("ctxdispenser.configfile","C:/dev/JRun4/servers/ctxdispenserconfig.xml");
 
         DirContext context = null;
         if(dirCtxDispenser == null) {
