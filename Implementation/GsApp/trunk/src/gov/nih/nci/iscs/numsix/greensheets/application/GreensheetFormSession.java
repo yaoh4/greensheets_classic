@@ -122,9 +122,10 @@ public class GreensheetFormSession {
         QuestionAttachmentsProxy qap = this.getQuestionAttachmentProxy(respDefId);
         QuestionResponseData qrd = form.getQuestionResponseDataByRespId(respDefId);
 
+        
         // there is a current qrd for attachments to this question
         if (qrd != null) {
-
+        	
             Iterator iter = qrd.getQuestionAttachments().values().iterator();
 
             while (iter.hasNext()) {
@@ -137,7 +138,14 @@ public class GreensheetFormSession {
                     while (delIter.hasNext()) {
                         String delFileName = (String) delIter.next();
                         if (qa.getFilename().equalsIgnoreCase(delFileName)) {
+                        	logger.debug("2");
                             qa.setToBeDeleted(true);
+                            // delete any qa that have been added to the form but have not been saved
+                            // previously. ie the qrd does not have an id in the db.
+                            if(qrd.getId() == 0){
+                            	form.getQuestionResponsDataMap().remove(respDefId);
+                            	logger.debug("remove " + respDefId + " fileName " + delFileName);
+                            }
                         }
 
                     }
@@ -152,7 +160,6 @@ public class GreensheetFormSession {
                 QuestionAttachment tmpQa = (QuestionAttachment) iter2.next();
                 //if tmpQa is not in the form qa list add it   
                 if (!qrd.getQuestionAttachments().containsKey(tmpQa.getFilename())) {
-
                     qrd.addQuestionAttachment(tmpQa);
                 }
             }
@@ -162,9 +169,7 @@ public class GreensheetFormSession {
             List qapList = qap.getTmpQuestionAttachmentList();
             Iterator iter = qapList.iterator();
             while (iter.hasNext()) {
-
                 QuestionAttachment tmpQa = (QuestionAttachment) iter.next();
-
                 newQrd.setFileResponseData(qap.getQuestionDefId(), respDefId, QuestionResponseData.FILE, tmpQa);
                 form.addQuestionResposeData(respDefId, newQrd);
                 logger.debug("\n added one " + tmpQa.getFilename());
