@@ -38186,7 +38186,7 @@
 			<TypeMech type="6" mech="C06"/>
 			<TypeMech type="9" mech="C06"/>
 		</GrantTypeMechs>
-		<QText>Does this application require a data model sharing plan?</QText>
+		<QText>Does this application require a model sharing plan?</QText>
 		<QInstructions/>
 		<ResponseDefsList>
 			<ResponseDef id="PCQ_726_RD_CM_1882" type="COMMENT"/>
