@@ -20,21 +20,23 @@ public class TemplateLoader {
     private String password;
 
     public TemplateLoader(String fileName, String qSrcFileName, String type, String mech, String group, String dbProperties)throws Exception {
- 
-    	File f = new File(fileName);
+
+ 	
+/*    	File f = new File(fileName);
     	if(f.length() <=0.0 ){
     		throw new IllegalStateException("Error with VM File. Size is" + f.length());
     	}
-    	
+
     	f = new File(qSrcFileName);
     	Logger.global.info(f.exists() + "  " + (f.length()<= 0));
-    	
+
     	if(f.length() <= 0){
-    		throw new IllegalStateException("Error with question XML File." 
-    				+ f.getCanonicalPath() 
+    		throw new IllegalStateException("Error with question XML File."
+    				+ f.getCanonicalPath()
 					+ "  Size is " + f.length());
-    	}    	
+    	}*/
     	
+
     	this.fileName = fileName;
         this.qSrcFileName = qSrcFileName;
         this.type = type;
@@ -103,7 +105,7 @@ public class TemplateLoader {
             conn = getConnection();
             conn.setAutoCommit(false);
             String id = this.insertTemplates(conn);
-            
+
             String insertSql2 =
                 "INSERT INTO FORM_GRANT_MATRIX_T "
                     + "(FTM_ID,FORM_ROLE_CODE,APPL_TYPE_CODE,MAJOR_ACTIVITY_CODE,ACTIVITY_CODE)"
@@ -131,7 +133,7 @@ public class TemplateLoader {
 
     private String insertTemplates(Connection conn) throws Exception {
 
-    	
+
         String template = readFile(this.fileName);
         String xmlTemplate = readFile(this.qSrcFileName);
 
@@ -148,9 +150,9 @@ public class TemplateLoader {
         }
         res.close();
 
-        Logger.global.info("LOADING CLOB ......");    	
-    	
-    	
+        Logger.global.info("LOADING CLOB ......");
+
+
         String insertSql = "INSERT INTO FORM_TEMPLATES_T (ID,TEMPLATE_HTML,TEMPLATE_XML,REVISION_NUM) VALUES(?,EMPTY_CLOB(),EMPTY_CLOB(),?)";
 
         OraclePreparedStatement ops = (OraclePreparedStatement) conn.prepareStatement(insertSql);
@@ -160,8 +162,8 @@ public class TemplateLoader {
 
         String selectSql = "SELECT TEMPLATE_HTML, TEMPLATE_XML FROM FORM_TEMPLATES_T  WHERE ID=" + id;
         ops = (OraclePreparedStatement) conn.prepareStatement(selectSql);
-        res = ops.executeQuery();    	
-    	
+        res = ops.executeQuery();
+
     	CLOB clobHtml = null;
         CLOB clobXml = null;
         if (res.next()) {
@@ -180,10 +182,10 @@ public class TemplateLoader {
         Logger.global.info("\n\nLOADED Question Source");
         stmt.close();
         ops.close();
-    	
+
         return id;
     }
-    
+
     private String readFile(String fileName) throws Exception {
 
         File f = new File(fileName);
