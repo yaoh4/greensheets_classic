@@ -36,8 +36,8 @@ public class QuestionResponseData {
     private String answerValue;
     private String inputValue;
     private String questionDefId;
-    private Map questionAttachments = new HashMap();
-    private boolean dirty = true;
+    private HashMap questionAttachments = new HashMap();
+    // kk private boolean dirty = true;
     private int id;
 
 
@@ -93,7 +93,7 @@ public class QuestionResponseData {
         this.questionDefId = questionDefId;
         this.responseDefId = responseDefId;
         this.responseDefType = responseDefType;
-        this.questionAttachments.put(qa.getFilename(), qa);
+        this.questionAttachments.put(qa.getMemId(), qa);
     }
 
     /**
@@ -101,8 +101,8 @@ public class QuestionResponseData {
      * @param qa
      */
     public void addQuestionAttachment(QuestionAttachment qa) {
-        questionAttachments.put(qa.getFilename(), qa);
-        this.dirty = true;
+        qa.setAttachmentStatusToNew();
+        questionAttachments.put(qa.getMemId(), qa);        
     }
 
     /**
@@ -110,14 +110,25 @@ public class QuestionResponseData {
      * @param fileName
      * @throws IllegalArgumentException
      */
-    public void removeQuestionAttachment(String fileName) throws IllegalArgumentException {
-        if (this.questionAttachments.containsKey(fileName)) {
-          
-            QuestionAttachment qa = (QuestionAttachment) this.questionAttachments.get(fileName);
-            this.questionAttachments.remove(qa);
-          
-        } else {
-            throw new IllegalArgumentException("File " + fileName + " could not be found to be deleted from QuestionResponse ");
+    public void removeQuestionAttachment(String attachmentMemoryId) throws IllegalArgumentException {
+        // Get the attachment corresponding to the attachment.
+        QuestionAttachment qa = (QuestionAttachment) this.questionAttachments.get(attachmentMemoryId);
+        if(qa != null) {
+            // Get the Status of attachment.
+            int attachmentStatus = qa.getStatus();
+                        
+            if(qa.isToBeCreated()) {
+                // If the status is NEW, its been recently added to the Map by the user in this session. 
+                // Thus, just remove the attachment from the MAP.
+                this.questionAttachments.remove(qa);
+            }
+            else if (qa.isExisting()){
+                // If status == EXISTING, it exists in the database. Thus, set the status to DELETED.
+            	qa.setAttachmentStatusToDeleted();
+        	}
+        }
+        else {
+            throw new IllegalArgumentException("File corresponding to the memory id=" + attachmentMemoryId + " could not be found to be deleted from QuestionResponse ");
         }
     }
 
@@ -127,6 +138,15 @@ public class QuestionResponseData {
      */
     public Map getQuestionAttachments() {
         return this.questionAttachments;
+    }
+
+    
+    /**
+     * Method setQuestionAttachments.
+     * @param Map
+     */
+    public HashMap setQuestionAttachments(HashMap qaMap) {
+        return this.questionAttachments = qaMap;
     }
 
 
@@ -240,7 +260,7 @@ public class QuestionResponseData {
      */
     public void setResponseDefType(String responseType) {
         this.responseDefType = responseType;
-        this.dirty = true;
+        //this.dirty = true;
     }
 
     /**
@@ -257,7 +277,7 @@ public class QuestionResponseData {
      */
     public void setInputValue(String inputValue) {
         this.inputValue = inputValue;
-        this.dirty = true;
+        //this.dirty = true;
     }
 
     /**
@@ -274,7 +294,7 @@ public class QuestionResponseData {
      */
     public void setQuestionDefId(String questionId) {
         this.questionDefId = questionId;
-        this.dirty = true;
+        //this.dirty = true;
     }
 
     /**
@@ -309,17 +329,17 @@ public class QuestionResponseData {
      * Returns the dirty.
      * @return boolean
      */
-    public boolean isDirty() {
+    /*public boolean isDirty() {
         return dirty;
-    }
+    }*/
 
     /**
      * Sets the dirty.
      * @param dirty The dirty to set
      */
-    public void setDirty(boolean dirty) {
+    /*public void setDirty(boolean dirty) {
         this.dirty = dirty;
-    }
+    }*/
 
     /**
      * Returns the id.

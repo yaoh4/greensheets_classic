@@ -641,7 +641,177 @@ public class GreensheetFormDataHelper {
 
     }
 
-    private void saveQuestionData(GreensheetForm form, GsUser user, GsGrant grant)
+    private void saveQuestionData(GreensheetForm form, GsUser user, GsGrant grant) throws GreensheetBaseException {
+        Connection conn = null;
+        Statement stmt = null;
+        PreparedStatement pstmt = null;
+        try {
+            
+            conn = DbConnectionHelper.getInstance().getConnection(user.getOracleId());
+            conn.setAutoCommit(false);
+            
+            Collection qrdList = form.getQuestionResponsDataMap().values();
+            Iterator iter = qrdList.iterator();
+            
+            while (iter.hasNext()) {
+
+                int formId = 0;
+                String extrnl_question_id = null;
+                String extrnl_resp_def_id = null;
+                String extrnl_selc_def_id = null;
+                String string_value = null;
+                String text_value = null;
+                double number_value = 0;
+                java.sql.Date date_value = null;
+                String comment_value = null;
+                boolean delete = false;
+                stmt = conn.createStatement();
+
+                QuestionResponseData qrd = (QuestionResponseData) iter.next();
+                String respDefType = qrd.getResponseDefType();
+
+                logger.debug("\n\tRESPDEFTYPE :::: " + respDefType + "\n\tRESPDEFID :::: " + qrd.getResponseDefId()+ "\n\tSELECTVAL :::: " + qrd.getSelectionDefId()+ "\n\tINPUTVAL :::: " + qrd.getInputValue());
+
+                boolean isRDCheckBox = respDefType.equalsIgnoreCase(QuestionResponseData.CHECK_BOX);
+                boolean isRDFile = respDefType.equalsIgnoreCase(QuestionResponseData.FILE);
+                boolean isRDRadio = respDefType.equalsIgnoreCase(QuestionResponseData.RADIO);
+                boolean isRDDropDown = respDefType.equalsIgnoreCase(QuestionResponseData.DROP_DOWN);
+                boolean isRDComment = respDefType.equalsIgnoreCase(QuestionResponseData.COMMENT);
+                boolean isRDString = respDefType.equalsIgnoreCase(QuestionResponseData.STRING);
+                boolean isRDNumber = respDefType.equalsIgnoreCase(QuestionResponseData.NUMBER);
+                boolean isRDDate = respDefType.equalsIgnoreCase(QuestionResponseData.DATE);
+                boolean isRDText = respDefType.equalsIgnoreCase(QuestionResponseData.TEXT);
+                
+                // Delete all question answers, except for file attachments. Create new answers for the data.
+                if(!isRDFile) {
+                    String sql = "delete from form_question_answers_t where id=" + qrd.getId();
+                    stmt = conn.createStatement();
+                    stmt.execute(sql);
+                    stmt.close();
+                }
+                
+                // If File attachments, do nothing. handle later
+                if(isRDFile) {
+                    
+                }
+                
+                // Special handling for Check Boxes
+                if(isRDCheckBox) {
+                    this.checkBoxHandler(qrd, form, conn);
+                }
+                
+                boolean bCreateRecord = true;
+                if (isRDRadio || isRDDropDown) {
+                    extrnl_selc_def_id = qrd.getSelectionDefId();
+                    // Value could be the default SEL_X. Donot save.
+                    if(extrnl_selc_def_id.equalsIgnoreCase("") || (extrnl_selc_def_id.indexOf("SEL_X") > -1)) {
+                        bCreateRecord = false;
+                    }
+                }
+                // else if RD  is COMMENT, STRING, TEXT, NUMBER, DATE 
+                else if (isRDComment || isRDString || isRDNumber || isRDDate || isRDText) {        
+                    // Get the Input value
+                    String inputValue = qrd.getInputValue();
+                    if ((inputValue != null) && (!inputValue.equalsIgnoreCase(""))) {
+                        String escapedSqlValue = StringEscapeUtils.escapeSql(inputValue);
+                        
+					    if(isRDComment) {
+					        comment_value = escapedSqlValue;
+					    }
+					    
+					    if(isRDString) {
+					        string_value = escapedSqlValue;
+					    }
+					    
+					    if(isRDText) {
+					        text_value = escapedSqlValue;
+					    }
+					    
+					    if(isRDNumber) {
+					        number_value = Double.parseDouble(inputValue);
+					    }
+					    
+					    if(isRDDate) {
+					        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+					        java.util.Date date = sdf.parse(inputValue);
+					        java.sql.Date sDate = new java.sql.Date(date.getTime());
+					        date_value = sDate;
+					    }
+					    
+                    }
+                    else if ((inputValue != null) && (inputValue.equalsIgnoreCase(""))) {
+                        bCreateRecord = false;
+                    }
+                }
+                
+                // Save the response if not a file or checkbox AND if bCreateRecord is true.
+                if (!isRDFile && !isRDCheckBox && bCreateRecord) {
+                    int fqaId = DbUtils.getNewRowId(conn, "fqa_seq.nextval");
+                    String sqlInsert = "insert into form_question_answers_t "
+                        + "(id, frm_id, extrnl_question_id, extrnl_resp_def_id,"
+                        + "extrnl_selc_def_id,string_value,text_value,number_value,date_value,comment_value)"
+                        + " values(?,?,?,?,?,?,?,?,?,?)";
+                    
+                    pstmt = conn.prepareStatement(sqlInsert);
+                    pstmt.setInt(1, fqaId);
+                    pstmt.setInt(2, form.getFormId());
+                    pstmt.setString(3, qrd.getQuestionDefId());
+                    pstmt.setString(4, qrd.getResponseDefId());
+                    pstmt.setString(5, extrnl_selc_def_id);
+                    pstmt.setString(6, string_value);
+                    pstmt.setString(7, text_value);
+                    if (number_value == 0) {
+                        number_value = Types.NULL;
+                    }
+                    pstmt.setDouble(8, number_value);
+                    pstmt.setDate(9, date_value);
+                    pstmt.setString(10, comment_value);
+                    pstmt.execute();
+                    
+                    logger.debug("INSERTED RECORD into FQA table- FQA_ID =  " + fqaId + "  FormID = " + form.getFormId());
+                }
+            }                	
+            conn.commit();
+            /*
+//          Special handling for file response defs
+            if (respDefType.equalsIgnoreCase(QuestionResponseData.FILE)) {
+                logger.debug("SAVING FILES");
+                AttachmentHelper ah = new AttachmentHelper();
+                ah.saveAttachments(qrd, grant, form, conn);
+            }
+*/
+        } 
+        catch (Exception se) {
+            if (conn != null) {
+                try {
+                    System.err.print("ALERT - Transaction being Rolled Back.");
+                    conn.rollback();
+                    throw new GreensheetBaseException("errorSavingData", se);
+                } 
+                catch (SQLException excep) {
+                    System.err.print("SQLException: ");
+                    System.err.println(excep.getMessage());
+                    throw new GreensheetBaseException("errorSavingData", se);
+                }
+            }
+
+        } 
+        finally {
+            try {
+                if (stmt != null) stmt.close();
+                if (pstmt != null) pstmt.close();
+
+            } 
+            catch (SQLException se) {
+                throw new GreensheetBaseException("errorSavingData", se);
+            }
+            if (conn != null) {
+                DbConnectionHelper.getInstance().freeConnection(conn);
+            }
+        }
+    }            
+    /*
+    private void saveQuestionData1111(GreensheetForm form, GsUser user, GsGrant grant)
             throws GreensheetBaseException {
         Connection conn = null;
         Statement stmt = null;
@@ -805,6 +975,9 @@ public class GreensheetFormDataHelper {
         }
 
     }
+    
+    */
+
 
     private void checkForDuplicateNewForms(GreensheetForm form, GsGrant g)
             throws GreensheetBaseException {

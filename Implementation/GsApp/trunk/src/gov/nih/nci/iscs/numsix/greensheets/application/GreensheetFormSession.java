@@ -34,8 +34,6 @@ public class GreensheetFormSession {
         this.grant = grant;
     }
 
-
-
     public String getFormTitle(){
         String grp  = null;
         if(form.getGroupType().equals(GreensheetGroupType.PGM)){
@@ -116,7 +114,18 @@ public class GreensheetFormSession {
      * Method updateQuestionAttachments.
      * @param respDefId
      */
-    public void updateQuestionAttachments(String respDefId) {
+    public void updateQRDQuestionAttachments(String respDefId, HashMap qaMap) {
+        //get the proxy for the responseDefId
+        QuestionAttachmentsProxy qap = this.getQuestionAttachmentProxy(respDefId);
+        QuestionResponseData qrd = form.getQuestionResponseDataByRespId(respDefId);
+        
+        if (qrd != null) {
+            qrd.setQuestionAttachments(qaMap);
+        }
+     }
+    
+    /*
+    public void updateQuestionAttachmentsKKDeleted(String respDefId) {
 
         //get the proxy for the responseDefId
         QuestionAttachmentsProxy qap = this.getQuestionAttachmentProxy(respDefId);
@@ -177,5 +186,6 @@ public class GreensheetFormSession {
         }
 
     }
+    */
 
 }

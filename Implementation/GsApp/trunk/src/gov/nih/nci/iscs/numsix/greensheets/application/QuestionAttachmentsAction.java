@@ -52,10 +52,10 @@ public class QuestionAttachmentsAction extends DispatchAction {
 
             gfs.addAttachmentsProxy(qap, respId);
 
-            req.setAttribute("TMP_ATTTACHMENTS_LIST", qap);
+            req.setAttribute("QA_PROXY", qap);
             req.setAttribute("RESP_DEF_ID", respId);
             
-            req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getTmpQuestionAttachmentList().size());
+            req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getAttachmentCount());
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
             req.setAttribute("canEdit", new Boolean(gus.getUser().isCanEdit()).toString());
 
@@ -102,12 +102,13 @@ public class QuestionAttachmentsAction extends DispatchAction {
                 qa.setFilename(file.getFileName());
                 qa.setDocData(file.getFileData());
 
-                qap.addTmpQuestionAttachment(qa);
+                qap.addQuestionAttachment(qa);
             }
-            req.setAttribute("TMP_ATTTACHMENTS_LIST", qap);
+
+            req.setAttribute("QA_PROXY", qap);
             req.setAttribute("RESP_DEF_ID", respDefId);
             
-            req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getTmpQuestionAttachmentList().size());
+            req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getAttachmentCount());
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
             req.setAttribute("canEdit", new Boolean(gus.getUser().isCanEdit()).toString());
             forward = "attachments";
@@ -130,7 +131,7 @@ public class QuestionAttachmentsAction extends DispatchAction {
         } else {
 
             DynaActionForm form = (DynaActionForm) aForm;
-            String fileName = (String) form.get("deleteFileName");
+            String fileMemoryId = (String) form.get("fileMemoryId");
 
             String respDefId = (String) form.get("respDefId");
             String formUid = (String) form.get("formUid");
@@ -139,22 +140,14 @@ public class QuestionAttachmentsAction extends DispatchAction {
             GreensheetFormSession gfs = gus.getGreensheetFormSession(formUid);
 
             QuestionAttachmentsProxy qap = gfs.getQuestionAttachmentProxy(respDefId);
-
-            List list = qap.getTmpQuestionAttachmentList();
-
-            Object[] tmpQs = list.toArray();
-            int size = tmpQs.length;
-            for (int i = 0; i < size; i++) {
-                QuestionAttachment qa = (QuestionAttachment) tmpQs[i];
-                if (qa.getFilename().equalsIgnoreCase(fileName)) {
-                    qap.removeAttachment(qa.getFilename());
-                }
-            }
-
-            req.setAttribute("TMP_ATTTACHMENTS_LIST", qap);
+            
+            // delete or mark the attachment for deletion
+            qap.removeAttachment(fileMemoryId);
+                    
+            req.setAttribute("QA_PROXY", qap);
             req.setAttribute("RESP_DEF_ID", respDefId);
             
-            req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getTmpQuestionAttachmentList().size());
+            req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getAttachmentCount());
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
             req.setAttribute("canEdit", new Boolean(gus.getUser().isCanEdit()).toString());
 
@@ -178,7 +171,7 @@ public class QuestionAttachmentsAction extends DispatchAction {
         } else {
 
             DynaActionForm form = (DynaActionForm) aForm;
-            String fileName = (String) form.get("viewFileName");
+            String fileMemoryId = (String) form.get("fileMemoryId");
 
             String respDefId = (String) form.get("respDefId");
             String formUid = (String) form.get("formUid");
@@ -188,6 +181,51 @@ public class QuestionAttachmentsAction extends DispatchAction {
 
             QuestionAttachmentsProxy qap = gfs.getQuestionAttachmentProxy(respDefId);
 
+            QuestionAttachment qa = qap.getAttachment(fileMemoryId);
+            if (qa != null) {
+                byte[] byst = null;
+                if (qa.getDocData() == null) {
+                    GreensheetFormMgr mgr = GreensheetMgrFactory.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
+                    mgr.getQuestionAttachmentData(qa);
+                    byst = qa.getDocData();
+                } 
+                else {
+                    byst = qa.getDocData();
+                }
+                
+                resp.reset();
+                resp.resetBuffer();
+                
+                String fileName = qa.getFilename();
+
+                String contentType = URLConnection.getFileNameMap().getContentTypeFor(fileName);
+
+                if (contentType == null) {
+                    contentType = "application/octet-stream";
+                }
+
+                resp.setContentType(contentType);
+                resp.setContentLength(byst.length);
+                
+                String header = "attachment;  filename=\"" + fileName + "\";";
+
+                if (logger.isDebugEnabled()) {
+                    logger.debug("");
+                }
+                logger.debug("Downloading File " + fileName);
+                resp.setHeader("Content-Disposition", header);
+
+                //Send content to Browser
+                resp.getOutputStream().write(byst);
+                resp.getOutputStream().flush();
+                
+                req.setAttribute("QA_PROXY", qap);
+                req.setAttribute("RESP_DEF_ID", respDefId);
+                req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
+            }
+            
+            
+   /*         
             List list = qap.getTmpQuestionAttachmentList();
 
             ListIterator iter = list.listIterator();
@@ -205,17 +243,7 @@ public class QuestionAttachmentsAction extends DispatchAction {
                         byst = qa.getDocData();
                     }
 
-                    resp.reset();
-                    resp.resetBuffer();
-
-                    String contentType = URLConnection.getFileNameMap().getContentTypeFor(fileName);
-
-                    if (contentType == null) {
-                        contentType = "application/octet-stream";
-                    }
-
-                    resp.setContentType(contentType);
-                    resp.setContentLength(byst.length);
+                    
 
                     String header = "attachment;  filename=\"" + fileName + "\";";
 
@@ -231,11 +259,10 @@ public class QuestionAttachmentsAction extends DispatchAction {
 
                 }
             }
-
-            req.setAttribute("TMP_ATTTACHMENTS_LIST", qap);
+            req.setAttribute("QA_PROXY", qap);
             req.setAttribute("RESP_DEF_ID", respDefId);
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
-
+*/
             return null;
         }
 
@@ -292,12 +319,11 @@ public class QuestionAttachmentsAction extends DispatchAction {
             String formUid = (String) form.get("formUid");
             String respDefId = (String) form.get("respDefId");
 
-            GreensheetUserSession gus =
-                (GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
-
+            GreensheetUserSession gus = (GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
             GreensheetFormSession gfs = gus.getGreensheetFormSession(formUid);
+            QuestionAttachmentsProxy qap = gfs.getQuestionAttachmentProxy(respDefId);
 
-            gfs.updateQuestionAttachments(respDefId);
+            gfs.updateQRDQuestionAttachments(respDefId, qap.getAttachmentMap());
 
             gfs.removeQuestionAttachmentsProxy(respDefId);
 

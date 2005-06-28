@@ -7,25 +7,23 @@
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.*;
+
 import java.util.*;
 
 import org.apache.commons.lang.*;
 
 /**
- * This class serves as a temporary holder of question attachments for a particular question. Any actions regarding question
-attachments 
- * are not finalized until the form is saved. Therefore the proxy holds the questionAttachment objetcts whose 
- * actions are not yet finalized. The proxy is initialized with any attachmets that already exist for the 
- * greenesheet question as represeneted by the responseDefId
+ * This class serves as a temporary holder of question attachments for a particular question. Any actions regarding question attachments 
+ * are not finalized until the form is saved. Therefore the proxy holds the questionAttachment objetcts whose  actions are not yet 
+ * finalized. The proxy is initialized with any attachmets that already exist for the greenesheet question as represeneted by the responseDefId
  * 
  * 
  *  @author kpuscas, Number Six Software
  */
 public class QuestionAttachmentsProxy {
 
-    private String responseDefid;
-    private List tmpQuestionAttachmentList = new ArrayList();
-    private List removedAttachmentFileNames = new ArrayList();
+    private String responseDefid;  
+    private HashMap qaMap = new HashMap();
 
     public QuestionAttachmentsProxy() {
     }
@@ -43,6 +41,23 @@ public class QuestionAttachmentsProxy {
     }
 
     /**
+     * Returns the attachment map.
+     * @return String
+     */
+    public HashMap getAttachmentMap() {
+        return this.qaMap;
+    }
+    
+    /**
+     * Returns the attachment .
+     * @param fileMemoryId 
+     * @return QuestionAttachment
+     */
+    public QuestionAttachment getAttachment(String fileMemoryId) {
+        return (QuestionAttachment) this.qaMap.get(fileMemoryId);
+    }
+    
+    /**
      * Returns the responseDefid.
      * @return String
      */
@@ -57,54 +72,34 @@ public class QuestionAttachmentsProxy {
     public void setResponseDefid(String responseDefid) {
         this.responseDefid = responseDefid;
     }
-
-    public void addTmpQuestionAttachment(QuestionAttachment qa) {
-        this.tmpQuestionAttachmentList.add(qa);
+    
+    public void addQuestionAttachment(QuestionAttachment qa) {
+        this.qaMap.put(qa.getMemId(), qa);
     }
 
-
-    public void removeAttachment(String fileName){
-        Iterator iter = tmpQuestionAttachmentList.listIterator();
-        while(iter.hasNext()){
-            QuestionAttachment qa = (QuestionAttachment) iter.next();
-
-            if(qa.getFilename().equalsIgnoreCase(fileName)){
-                this.removedAttachmentFileNames.add(qa.getFilename());
-             
-                iter.remove();
-            }               
-        }
-
+    public int getAttachmentCount() {
+        return this.qaMap.size();
     }
 
+    public void removeAttachment(String memId){
+        QuestionAttachment qa = (QuestionAttachment) this.qaMap.get(memId);
+        if (qa != null) {
+            if(qa.isToBeCreated()) {
+                //New attachment, just remove it off  the map.
+                this.qaMap.remove(memId);
+            }
+            else if (qa.isExisting()) {
+                qa.setAttachmentStatusToDeleted();
+            }
+        }        
+    }
 
     public void initWithExistingQuestionAttachments(Object[] attachments) {
-        
-        //@todo need to type check the array
-        
         for(int i = 0; i<attachments.length; i++){
             QuestionAttachment qa = (QuestionAttachment) attachments[i];
-            if(!qa.isToBeDeleted()){
-                this.tmpQuestionAttachmentList.add(qa);
-            }               
+            qa.setAttachmentStatusToExisting();       
         }
-
     }
 
-    /**
-     * Returns the tmpQuestionAttachmentList.
-     * @return List
-     */
-    public List getTmpQuestionAttachmentList() {
-        return tmpQuestionAttachmentList;
-    }
-
-    /**
-     * Returns the removedAttachmentFileNames.
-     * @return List
-     */
-    public List getRemovedAttachmentFileNames() {
-        return removedAttachmentFileNames;
-    }
 
 }

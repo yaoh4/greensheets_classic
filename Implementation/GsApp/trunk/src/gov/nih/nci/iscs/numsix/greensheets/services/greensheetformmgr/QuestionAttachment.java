@@ -6,25 +6,31 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
+import java.rmi.server.UID;
 /**
  * Wrapper class for files attached to greensheet questions.
  * 
  * 
  *  @author kpuscas, Number Six Software
  */
-public class QuestionAttachment {
-
-    private String filename;
-    private byte[] docData;
-    private boolean toBeDeleted = false;
-    private boolean dirty = false;
+public class QuestionAttachment {    
+    private String fileName; 
     private String filePath;
-    private int id;
+    private byte[] docData;
+    private int dbId;
+    private String memId;
+    private int status;
+    
+    private static final int EXISTING = 0; // indicates that the attachment exists in the database.
+    private static final int NEW = 1; // indicates a new attachment.
+    private static final int DELETED = 2; // indicates that the attachment has been deleted by the user. 
 
     /**
      * Constructor for QuestionAttachment.
      */
     private QuestionAttachment() {
+        this.setAttachmentStatusToNew();
+        this.setMemId();
     }
 
     /**
@@ -36,10 +42,10 @@ public class QuestionAttachment {
      */
     public static QuestionAttachment createExistingAttachment(String filename, String path, int id) {
         QuestionAttachment qa = new QuestionAttachment();
+        qa.setAttachmentStatusToExisting();
         qa.setFilename(filename);
         qa.setFilePath(path);
-        qa.setId(id);
-        qa.setDirty(false);
+        qa.setDbId(id);
         return qa;
     }
 
@@ -48,11 +54,96 @@ public class QuestionAttachment {
      * @return QuestionAttachment
      */
     public static QuestionAttachment createNewAttachment() {
-        QuestionAttachment qa = new QuestionAttachment();
-        qa.setDirty(true);
-        return qa;
+       QuestionAttachment qa = new QuestionAttachment();
+       qa.setAttachmentStatusToNew();
+       return qa;
     }
 
+    /**
+     * Returns the Database ID.
+     * @return int
+     */
+    public int getDbId() {
+        return dbId;
+    }
+
+    /**
+     * Sets the Database id.
+     * @param id The id to set
+     */
+    
+    public void setDbId(int id) {
+        this.dbId = id;
+    }
+    
+    /**
+     * Returns the Memory ID.
+     * @return String
+     */
+    public String getMemId() {
+        return memId;
+    }
+
+    /**
+     * Sets the Memory id.
+     */
+    private void setMemId() {
+       // Get a unique id.
+        UID uniqueId = new UID();
+        long time = System.currentTimeMillis();
+        this.memId = uniqueId.toString() + time;
+    }
+
+    /**
+     * Sets the status of the attachment to NEW
+     */
+    public void setAttachmentStatusToNew() {
+        this.status = QuestionAttachment.NEW;
+    }
+
+    /**
+     * Sets the status of the attachment to DELETED
+     */
+    public void setAttachmentStatusToDeleted() {
+        this.status = QuestionAttachment.DELETED;
+    }
+    
+    /**
+     * Sets the status of the attachment to EXISTING
+     */
+    public void setAttachmentStatusToExisting() {
+        this.status = QuestionAttachment.EXISTING;
+    }
+    
+    /**
+     * Gets the status of the attachment.
+     */
+    public int getStatus() {
+        return this.status;
+    }
+    
+    /**
+     * Determines if the attachment needs to be Created
+     */
+    public boolean isToBeCreated() {
+        return (this.status == QuestionAttachment.NEW);
+    }
+    
+    /**
+     * Determines if the attachment is existing
+     */
+    public boolean isExisting() {
+        return (this.status == QuestionAttachment.EXISTING);
+    }
+    
+    /**
+     * Determines if the attachment needs to be deleted
+     */
+    public boolean isToBeDeleted() {
+        return (this.status == QuestionAttachment.DELETED);
+    }
+    
+  
     /**
      * Returns the docData.
      * @return byte[]
@@ -66,7 +157,7 @@ public class QuestionAttachment {
      * @return String
      */
     public String getFilename() {
-        return filename;
+        return fileName;
     }
 
     /**
@@ -81,44 +172,10 @@ public class QuestionAttachment {
      * Sets the filename.
      * @param filename The filename to set
      */
-    public void setFilename(String filename) {
-        this.filename = filename;
-        this.setDirty(true);
+    public void setFilename(String fileName) {
+        this.fileName = fileName;
     }
-
-    /**
-     * Returns the toBeDeleted.
-     * @return boolean
-     */
-    public boolean isToBeDeleted() {
-        return toBeDeleted;
-    }
-
-    /**
-     * Sets the toBeDeleted.
-     * @param toBeDeleted The toBeDeleted to set
-     */
-    public void setToBeDeleted(boolean toBeDeleted) {
-        this.toBeDeleted = toBeDeleted;
-    }
-
-    /**
-     * Returns the dirty.
-     * @return boolean
-     */
-    public boolean isDirty() {
-        return dirty;
-    }
-
-    /**
-     * Sets the dirty.
-     * @param dirty The dirty to set
-     */
-    public void setDirty(boolean dirty) {
-
-        this.dirty = dirty;
-    }
-
+    
     /**
      * Returns the filePath.
      * @return String
@@ -133,38 +190,27 @@ public class QuestionAttachment {
      */
     public void setFilePath(String filePath) {
         this.filePath = filePath;
-        this.setDirty(true);
     }
 
     /**
      * @see java.lang.Object#toString()
      */
     public String toString() {
-        return "fileName:: "
-            + this.filename
-            + "  filePath:: "
-            + this.filePath
-            + "  isDirty:: "
-            + this.isDirty()
-            + "  toBeDeleted:: "
-            + this.toBeDeleted;
-
+        String fileStatus = "";
+        if (this.status == 0) {
+            fileStatus = "EXISTING";
+        }
+        
+        if (this.status == 1) {
+            fileStatus = "NEW";
+        }
+        
+        if (this.status == 2) {
+            fileStatus = "DELETED";
+        }
+                
+        return "fileName:: " + this.fileName + "  filePath:: " + this.filePath + "  File Status:: " + fileStatus;           
     }
 
-    /**
-     * Returns the id.
-     * @return int
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets the id.
-     * @param id The id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    
 }
