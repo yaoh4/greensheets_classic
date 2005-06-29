@@ -50,10 +50,10 @@ public class AppConfigLoader {
         File gsFormToFoTranslator = new File(path + "xmlxsltsrc/GsFormToFoTranslator.xslt");
 
         AppConfigProperties.getInstance().addProperty("TEST_QUESTIONS_SRC", new File(path + "xmlxsltsrc/TEST_Questions.xml"));
-        AppConfigProperties.getInstance().addProperty("PC_QUESTIONS_SRC", new File(path + "xmlxsltsrc/PC_Questions.xml"));
-        AppConfigProperties.getInstance().addProperty("PNC_QUESTIONS_SRC", new File(path + "xmlxsltsrc/PNC_Questions.xml"));
-        AppConfigProperties.getInstance().addProperty("SC_QUESTIONS_SRC", new File(path + "xmlxsltsrc/SC_Questions.xml"));
-        AppConfigProperties.getInstance().addProperty("SNC_QUESTIONS_SRC", new File(path + "xmlxsltsrc/SNC_Questions.xml"));
+        AppConfigProperties.getInstance().addProperty("PC_QUESTIONS_SRC_6.22.05", new File(path + "xmlxsltsrc/PC_Questions.6.22.05.xml"));
+        AppConfigProperties.getInstance().addProperty("PNC_QUESTIONS_SRC_6.22.05", new File(path + "xmlxsltsrc/PNC_Questions.6.22.05.xml"));
+        AppConfigProperties.getInstance().addProperty("SC_QUESTIONS_SRC_6.22.05", new File(path + "xmlxsltsrc/SC_Questions.6.22.05.xml"));
+        AppConfigProperties.getInstance().addProperty("SNC_QUESTIONS_SRC_6.22.05", new File(path + "xmlxsltsrc/SNC_Questions.6.22.05.xml"));
         
         AppConfigProperties.getInstance().addProperty("PC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/PC_Questions.3.23.05.xml"));
         AppConfigProperties.getInstance().addProperty("PNC_QUESTIONS_SRC_3.23.05", new File(path + "xmlxsltsrc/PNC_Questions.3.23.05.xml"));

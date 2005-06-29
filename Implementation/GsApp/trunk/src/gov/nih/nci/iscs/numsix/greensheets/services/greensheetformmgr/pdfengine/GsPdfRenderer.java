@@ -34,6 +34,8 @@ public class GsPdfRenderer {
 
 
 	private java.util.Date cutOffDate;
+	
+	private java.util.Date cutOffDate2;
 
 	private GreensheetForm form;
 
@@ -61,6 +63,10 @@ public class GsPdfRenderer {
 		// use a different set of xml source file for pdf generation.
 		c.set(2005, 2, 24);
 		this.cutOffDate = c.getTime();
+		
+		c.set(2005,5,22);
+		this.cutOffDate2 = c.getTime();
+		logger.debug("GsPdfRenderer - grant " + grant.getFullGrantNumber());
 	}
 
 	/**
@@ -78,25 +84,38 @@ public class GsPdfRenderer {
 					|| grant.getType().equalsIgnoreCase("8")
 					|| grant.getType().equalsIgnoreCase("4")) {
 
-				if (useOldXmlSrc()) {
+				if (useXmlSrc032305()) {
 					srcKey = "PNC_QUESTIONS_SRC_3.23.05";
 				} 
+				if (useXmlSrc052205()){
+					srcKey = "PNC_QUESTIONS_SRC_6.22.05";
+				}
 			} else if (form.getGroupType().equals(GreensheetGroupType.PGM)) {
-				if (useOldXmlSrc()) {
+				if (useXmlSrc032305()) {
 					srcKey = "PC_QUESTIONS_SRC_3.23.05";
 				} 
+				if(useXmlSrc052205()){
+					srcKey = "PC_QUESTIONS_SRC_6.22.05";
+				}
 			} else if (form.getGroupType().equals(GreensheetGroupType.SPEC)
 					&& grant.getType().equalsIgnoreCase("5")
 					|| grant.getType().equalsIgnoreCase("8")
 					|| grant.getType().equalsIgnoreCase("4")) {
 
-				if (useOldXmlSrc()) {
+				if (useXmlSrc032305()) {
 					srcKey = "SNC_QUESTIONS_SRC_3.23.05";
 				} 
+				if(useXmlSrc052205()){
+					srcKey = "SNC_QUESTIONS_SRC_6.22.05";
+				}
+				
 			} else if (form.getGroupType().equals(GreensheetGroupType.SPEC)) {
-				if (useOldXmlSrc()) {
+				if (useXmlSrc052205()) {
 					srcKey = "SC_QUESTIONS_SRC_3.23.05";
 				} 
+				if(useXmlSrc052205()){
+					srcKey = "SC_QUESTIONS_SRC_6.22.05";
+				}
 			}
 			
 			Document questionsXml = null;
@@ -105,6 +124,7 @@ public class GsPdfRenderer {
 			if(srcKey != null){
 				File questSrc = (File) AppConfigProperties.getInstance()
 					.getProperty(srcKey);
+				logger.debug("using file source " + srcKey);
 				SAXReader reader = new SAXReader();
 				questionsXml = reader.read(questSrc);
 			}else{
@@ -146,6 +166,7 @@ public class GsPdfRenderer {
          String sqlSelect = null;
  
              sqlSelect = "SELECT ft.id,ft.template_xml FROM form_templates_t ft where ft.id=" + this.form.getTemplateId();
+             logger.debug("Getting source from db " + sqlSelect);
              stmt = conn.createStatement();
              rs = stmt.executeQuery(sqlSelect);
              while (rs.next()) {
@@ -202,9 +223,11 @@ public class GsPdfRenderer {
 	
 	
 	/**
+	 * Checks to see if the xml source from 03/23/05 should be used. This is stored in files
+	 * contained in the web-inf directory
 	 * @return
 	 */
-	private boolean useOldXmlSrc() {
+	private boolean useXmlSrc032305() {
 		if ((form.getSubmittedDate() == null
 				&& (form.getStatus().equals(GreensheetStatus.SUBMITTED) || form
 						.getStatus().equals(GreensheetStatus.FROZEN)) || (form
@@ -216,7 +239,23 @@ public class GsPdfRenderer {
 		}
 
 	}
-
+	/**
+	 * Checks to see if the xml source from 06/22/05 should be used. This is stored in files
+	 * contained in the web-inf directory
+	 * @return
+	 */
+	private boolean useXmlSrc052205(){
+		if ((form.getSubmittedDate() == null
+				&& (form.getStatus().equals(GreensheetStatus.SUBMITTED) || form
+						.getStatus().equals(GreensheetStatus.FROZEN)) || (form
+				.getSubmittedDate() != null && (form.getSubmittedDate().before(
+				cutOffDate2)) && form.getSubmittedDate().after(cutOffDate)))) {
+			return true;
+		} else {
+			return false;
+		}		
+	}
+	
 	private Document generateGsFormXml(Document doc) throws Exception {
 
 		File xsltSrc = (File) AppConfigProperties.getInstance().getProperty(
