@@ -64,7 +64,7 @@ public class GsPdfRenderer {
 		c.set(2005, 2, 24);
 		this.cutOffDate = c.getTime();
 		
-		c.set(2005,5,22);
+		c.set(2005,5,28);
 		this.cutOffDate2 = c.getTime();
 		logger.debug("GsPdfRenderer - grant " + grant.getFullGrantNumber());
 	}
@@ -87,15 +87,15 @@ public class GsPdfRenderer {
 				if (useXmlSrc032305()) {
 					srcKey = "PNC_QUESTIONS_SRC_3.23.05";
 				} 
-				if (useXmlSrc052205()){
-					srcKey = "PNC_QUESTIONS_SRC_6.22.05";
+				if (useXmlSrc052805()){
+					srcKey = "PNC_QUESTIONS_SRC_6.28.05";
 				}
 			} else if (form.getGroupType().equals(GreensheetGroupType.PGM)) {
 				if (useXmlSrc032305()) {
 					srcKey = "PC_QUESTIONS_SRC_3.23.05";
 				} 
-				if(useXmlSrc052205()){
-					srcKey = "PC_QUESTIONS_SRC_6.22.05";
+				if(useXmlSrc052805()){
+					srcKey = "PC_QUESTIONS_SRC_6.28.05";
 				}
 			} else if (form.getGroupType().equals(GreensheetGroupType.SPEC)
 					&& grant.getType().equalsIgnoreCase("5")
@@ -105,16 +105,16 @@ public class GsPdfRenderer {
 				if (useXmlSrc032305()) {
 					srcKey = "SNC_QUESTIONS_SRC_3.23.05";
 				} 
-				if(useXmlSrc052205()){
-					srcKey = "SNC_QUESTIONS_SRC_6.22.05";
+				if(useXmlSrc052805()){
+					srcKey = "SNC_QUESTIONS_SRC_6.28.05";
 				}
 				
 			} else if (form.getGroupType().equals(GreensheetGroupType.SPEC)) {
-				if (useXmlSrc052205()) {
+				if (useXmlSrc032305()) {
 					srcKey = "SC_QUESTIONS_SRC_3.23.05";
 				} 
-				if(useXmlSrc052205()){
-					srcKey = "SC_QUESTIONS_SRC_6.22.05";
+				if(useXmlSrc052805()){
+					srcKey = "SC_QUESTIONS_SRC_6.28.05";
 				}
 			}
 			
@@ -240,11 +240,11 @@ public class GsPdfRenderer {
 
 	}
 	/**
-	 * Checks to see if the xml source from 06/22/05 should be used. This is stored in files
+	 * Checks to see if the xml source from 06/28/05 should be used. This is stored in files
 	 * contained in the web-inf directory
 	 * @return
 	 */
-	private boolean useXmlSrc052205(){
+	private boolean useXmlSrc052805(){
 		if ((form.getSubmittedDate() == null
 				&& (form.getStatus().equals(GreensheetStatus.SUBMITTED) || form
 						.getStatus().equals(GreensheetStatus.FROZEN)) || (form
@@ -385,7 +385,7 @@ public class GsPdfRenderer {
 					if (qrd != null) {
 						String selVal = qrd.getUserSelectId();
 						String type = qrd.getResponseDefType();
-						logger.debug(" selVal " + selVal);
+						//logger.debug(" selVal " + selVal);
 
 						if (selVal.equalsIgnoreCase(selDefId)
 								&& !type
