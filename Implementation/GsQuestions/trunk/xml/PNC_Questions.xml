@@ -1113,7 +1113,7 @@
 										</GrantTypeMechs>
 										<QText>Is gender and minority recruitment/retention
                                             appropriate and on schedule? </QText>
-										<QInstructions>&lt;QInstructions>http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf&lt;/QInstructions></QInstructions>
+										<QInstructions>http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="PNCQ_9_RD_DD_23" type="DROP_DOWN">
 												<SelectionDef id="SEL_X_3">
