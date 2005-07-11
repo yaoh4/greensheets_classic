@@ -11,6 +11,9 @@
 
   function addAttach() {
   	var filename = document.attachmentsForm.fileAttachment.value;
+  	//filename = filename .replace(/^\s+|\s+$/g, "");
+	//document.attachmentsForm.fileAttachment.value = filename;
+	
   	var fnArray = filename.split("\<%=java.io.File.separator%>");
   	var fileNameOnly = fnArray[fnArray.length-1];
   	fileNameOnly = fileNameOnly.replace(/^\s+|\s+$/g, "");
@@ -160,9 +163,10 @@ if(filename != ''){
 					<td>
 			  		  	<bean:write name="attachment" property="filename"/>
 			  		  </td>
-			  		  <td>
+		<!--	  		  <td>
 			  		  	<bean:write name="attachment" property="statusValue"/>
 			  		  </td>
+			  		  -->
 				</tr>
 			</logic:equal>    		
 			<logic:equal name="attachment" property="statusValue" value="EXISTING">
@@ -176,9 +180,9 @@ if(filename != ''){
 					<td>
 			  		  	<bean:write name="attachment" property="filename"/>
 			  		  </td>
-			  		  <td>
+			  	<!--	  <td>
 			  		  	<bean:write name="attachment" property="statusValue"/>
-			  		  </td>
+			  		  </td>-->
 				</tr>
 			</logic:equal>    			
 	 	</logic:iterate> 
