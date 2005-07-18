@@ -30,9 +30,6 @@ class AttachmentHelper {
     AttachmentHelper() {
     }
     
-
-    
-
     /**
      * Method saveAttachments.
      * @param qrd
@@ -43,6 +40,8 @@ class AttachmentHelper {
     // Updated by KKanchinadam.
     
     void saveAttachments(QuestionResponseData qrd, GsGrant grant, GreensheetForm form, Connection conn) throws GreensheetBaseException {
+        logger.debug("In Method -- AttachmentHelper:saveAttachments:");
+        
         // Get the file path
         Properties p = (Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
         String repositoryPath = p.getProperty("attachemts.repository.path");
@@ -62,8 +61,10 @@ class AttachmentHelper {
             
             //If  this is a new question, make an entry in the Database in the Form Question Answers table.
             if(qrd.getId() == 0) {
-                qrd.setId(DbUtils.getNewRowId(conn, "fqa_seq.nextval"));
+                int newId = DbUtils.getNewRowId(conn, "fqa_seq.nextval");
+                qrd.setId(newId);
                 this.makeNewQuestionEntry(qrd,form,conn);
+                logger.debug("Entering a new question with fqa_seq = " + newId);
             }
             
             // Now that the parent record is taken care of... take care of the file attachments.
@@ -72,18 +73,69 @@ class AttachmentHelper {
             boolean fileAttachmentsPresentInDb = false; //flag to track whether the question response data will eventually contain any file or not.
             if (qrd.getQuestionAttachments() != null) {
                 Set entries = qrd.getQuestionAttachments().entrySet();
-                Iterator iter = entries.iterator();
-                // Iterate thru the entries. Delete if status is deleted, else add it.
+                logger.debug("Number of file entries = " + entries.size());
                 
-                while (iter.hasNext()) {
+                /*
+                 	Problem: If you have two files with the same name with different status:
+                 			 Filename : x.doc with Status = NEW
+                 			 Filename : x.doc with Status = DELETED
+                 	Since the order of elements in a HashMap is not guaranteed,  a situation could arise where,
+                 	1. x.doc with Status = NEW is created. Thus, the existing x.doc on the file system is replaced by the new x.doc.
+                 	2. x.doc with status = DELETED is  processed. This will delete the new x.doc created in the above step.
+                 	Next time, when attempting to view the file, a FileNotFoundException will be thrown, since the file no longer exists on the drive.
+                 	
+                 	Solution: Create an arraylist, with all DELETED items, followed by NEW Items, followed by EXISTING items.     	
+                 	you need EXISTING items since need to determine if any file attachments exist for the Question or not.		                                
+                */
+                
+                ArrayList qaList = new ArrayList();
+                Iterator iter = entries.iterator();
+                while(iter.hasNext()) {
                     Map.Entry me = (Map.Entry) iter.next();
                     QuestionAttachment qa = (QuestionAttachment) me.getValue();
+                    if (qa.isToBeDeleted()) {
+                        qaList.add(qa);
+                    }
+                }
+                
+                iter = entries.iterator();
+                while(iter.hasNext()) {
+                    Map.Entry me = (Map.Entry) iter.next();
+                    QuestionAttachment qa = (QuestionAttachment) me.getValue();
+                    if (qa.isToBeCreated()) {
+                        qaList.add(qa);
+                    }
+                }
+                
+                iter = entries.iterator();
+                while(iter.hasNext()) {
+                    Map.Entry me = (Map.Entry) iter.next();
+                    QuestionAttachment qa = (QuestionAttachment) me.getValue();
+                    if (qa.isExisting()) {
+                        qaList.add(qa);
+                    }
+                }
+                
+                logger.debug("Map Size =" + entries.size() + " , ArrayList size = " + qaList.size());
+                
+                iter = qaList.iterator();
+                
+                // Iterate thru the entries. Delete if status is deleted, else add it.
+                int countFiles = 1;
+                while (iter.hasNext()) {
+                    logger.debug("File #" + countFiles );
+                    //Map.Entry me = (Map.Entry) iter.next();
+                    //QuestionAttachment qa = (QuestionAttachment) me.getValue();
+                    QuestionAttachment qa = (QuestionAttachment) iter.next();
+                    
                     // get the status
                     int qaStatus = qa.getStatus();
+                    logger.debug(countFiles + ".) -- Filename, Status  = " + qa.getFilename() + ", " + qa.getStatusValue());
                     
-                    // If status = NEW or EXISTING, then eventually at least one file attachment will exist. So no need to deleted the Form Question Answer from the database.
+                    // If status = NEW or EXISTING, then eventually at least one file attachment will exist. So no need to delete the Form Question Answer from the database.
                     if (qa.isExisting() || qa.isToBeCreated()) {
                         fileAttachmentsPresentInDb = true;
+                        logger.debug("fileAttachmentsPresentInDb = TRUE."); 
                     }
                     
                     /*
@@ -96,65 +148,134 @@ class AttachmentHelper {
                     f = new File(rootDir + File.separator + qa.getFilename());
                     
                     String sqlAction = null;
+                    String sqlDebug = null;
+                    
                     if (qa.isToBeDeleted()) {
-                        sqlAction = "delete from form_answer_attachments_t where id=?";
-                        pstmt = conn.prepareStatement(sqlAction);
-                        pstmt.setInt(1,qa.getDbId());
-                        
-                        // Delete the file from the file system.
-                        // Commented out ....KK to discuss with Kevin. KK does not like this idea.
-                        
-                        //f.delete();
-                    }
+                        // First, delete the record, then delete the file.
+                        try {
+                            conn.setAutoCommit(false);
+                            sqlAction = "delete from form_answer_attachments_t where id=?";
+                            logger.debug("Deleting the attachment ,sql is :");
+                            logger.debug(sqlAction);
+                            pstmt = conn.prepareStatement(sqlAction);
+                            pstmt.setInt(1,qa.getDbId());
+                            
+                            sqlDebug = "delete from form_answer_attachments_t where id=" + qa.getDbId();
+                            
+                            pstmt.execute();
+                            pstmt.close();  
+                            conn.commit();
+                            
+                            // Now delete the file
+                            f.delete();
+                        }
+                         catch (SQLException se) {
+                            fileAttachmentsPresentInDb = true; // File not deleted, hence parent question will have attachments for sure..
+                            conn.rollback();
+                            
+                            logger.debug("Sql Exception when Deleting a file attachment record in the DB.");
+                            logger.debug("Sql is = " + sqlDebug);
+                            throw new GreensheetBaseException("error.deletefile.sql", se);
+                        }
+                        finally {
+                            try {
+                                if (pstmt != null) {
+                                    pstmt.close();
+                                }
+                            }
+                            catch (SQLException se) {
+                                throw new GreensheetBaseException("error.savefile.sql", se);
+                            }
+                        }             
+                     }
                     else if (qa.isToBeCreated()) {
-                        sqlAction = "insert into form_answer_attachments_t (id,fqa_id,name,file_location) values(faa_seq.nextval,?,?,?)";
-                        pstmt = conn.prepareStatement(sqlAction);
-                        pstmt.setInt(1,qrd.getId());
-                        pstmt.setString(2,qa.getFilename());
-                        pstmt.setString(3,qa.getFilePath());
-                        
-                        // Create the file on the file system.
-                        FileOutputStream fs = new FileOutputStream(f);
-                        fs.write(qa.getDocData());
-                        fs.close();
-                        qa.setFilePath(rootDir + File.separator + qa.getFilename());
+                        // Create the file first. Then create the record.
+                        File newFile = null;
+                        try {
+//                          Create the file on the file system.
+                            FileOutputStream fs = new FileOutputStream(f);
+                            fs.write(qa.getDocData());
+                            fs.close();
+                            qa.setFilePath(rootDir + File.separator + qa.getFilename());
+                            
+                            newFile = new File(rootDir + File.separator + qa.getFilename()); // If db error, then delete the file maybe.
+                         
+                            conn.setAutoCommit(false);
+                            sqlAction = "insert into form_answer_attachments_t (id,fqa_id,name,file_location) values(faa_seq.nextval,?,?,?)";
+                            pstmt = conn.prepareStatement(sqlAction);
+                            pstmt.setInt(1,qrd.getId());
+                            pstmt.setString(2,qa.getFilename());
+                            pstmt.setString(3,qa.getFilePath());
+                            
+                            sqlDebug = "insert into form_answer_attachments_t (id,fqa_id,name,file_location) values(faa_seq.nextval,?,?,?) ---- ";
+                            sqlDebug += "Values are SeqValue, " + qrd.getId() + ", " + qa.getFilename() + ", " + qa.getFilePath();
+                            
+                            logger.debug("Creating a new attachment, sql is");
+                            logger.debug(sqlAction);
+                            
+                            pstmt.execute();
+                            pstmt.close();  
+                            conn.commit();
+                        }
+                        catch (SQLException se) {
+                            conn.rollback();
+                            
+                            logger.debug("Sql Exception when creating a new file attachment record in the DB.");
+                            logger.debug("Sql is = " + sqlDebug);
+                            throw new GreensheetBaseException("error.savefile.sql", se);
+                        }
+                        catch (FileNotFoundException fe) {
+                            conn.rollback();
+                            
+                            logger.debug("Sql Exception when creating a new file on the file system.");
+                            logger.debug("Sql is = " + sqlDebug);
+                            throw new GreensheetBaseException("error.savefile.fe", fe);                            
+                        }
+                        catch (IOException ie) {
+                            conn.rollback();
+                            
+                            logger.debug("Error in Creating a new file attachment. IO Exception occurred.");
+                            logger.debug("Sql is = " + sqlDebug);
+                            throw new GreensheetBaseException("error.savefile.io", ie);
+                        }
+                        finally {
+                            try {
+                                if (pstmt != null) {
+                                    pstmt.close();
+                                }
+                            }
+                            catch (SQLException se) {
+                                throw new GreensheetBaseException("error.savefile.sql", se);
+                            }
+                        }                        	
                     }
-                   
-                    pstmt.execute();
-                    pstmt.close();
-                }
+                    
+                    countFiles++;
+                 }
                 // Check the fileAttachmentsPresentInDb flag. If this is true, it means there is at least one file attachment in the database for the qrd.
                 // If this flag is false, there are no file attachments in the db for this QRD. Hence, delete the parent record.
                 if (!fileAttachmentsPresentInDb) {
+                    conn.setAutoCommit(false);
                     String sqlDelete = "delete from form_question_answers_t where id =?";
                     pstmt = conn.prepareStatement(sqlDelete);
                     pstmt.setInt(1,qrd.getId());
                 
                     pstmt.execute();
-                    pstmt.close();                  
+                    pstmt.close();   
+                    conn.commit();
                 }
             }
         }
         catch (SQLException se) {
+            logger.debug("SQL EXCEPTION");
             throw new GreensheetBaseException("error.savefile.sql", se);
-        } 
-        catch (FileNotFoundException fe) {
-            throw new GreensheetBaseException("error.savefile.fe", fe);
+        }        
+        catch(Exception e) {
+            logger.debug("EXCEPTION ");
+            throw new GreensheetBaseException("error in file attachment", e);
         }
-        catch (IOException ie) {
-            throw new GreensheetBaseException("error.savefile.io", ie);
-        }
-        finally {            
-            try {
-
-                if (pstmt != null)
-                    pstmt.close();
-            } 
-            catch (SQLException se) {
-                throw new GreensheetBaseException("error.savefile.sql", se);
-            }
-        }               
     }
+    
 
     private void makeNewQuestionEntry(QuestionResponseData qrd,GreensheetForm form,Connection conn) throws SQLException{
         PreparedStatement pstmt = null;
@@ -187,8 +308,6 @@ class AttachmentHelper {
         }
     }
     
-    
-
     void getQuestionAttachmentData(QuestionAttachment qa) throws GreensheetBaseException {
 
         String fullpath = qa.getFilePath();
@@ -233,152 +352,5 @@ class AttachmentHelper {
             throw new GreensheetBaseException(e);
         }
         qa.setDocData(bytes);
-
-    }
-
-   /*
-    void saveAttachments1(QuestionResponseData qrd, GsGrant grant, GreensheetForm form, Connection conn) throws GreensheetBaseException {
-
-        // First, create/delete db entries.
-        boolean dbActionsPerformedSuccessfully = true;
-        try {
-            registerQuestionAttachment(qrd, form, conn);
-        }
-        catch (SQLException se) {
-            dbActionsPerformedSuccessfully = false;
-            se.printStackTrace();
-        }
-        
-        // If all db entries are fine,
-        File f = null;
-
-        Properties p = (Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
-        String repositoryPath = p.getProperty("attachemts.repository.path");
-        String rootDir = repositoryPath + File.separator + grant.getFullGrantNumber() + File.separator + form.getGroupTypeAsString() + File.separator + qrd.getQuestionDefId();
-
-        try {
-            File dir = new File(rootDir);
-            if (!dir.isDirectory()) {
-                dir.mkdirs();
-            }
-            Object[] list = qrd.getQuestionAttachments().values().toArray();
-            int size = list.length;
-            for (int i = 0; i < size; i++) {
-                QuestionAttachment qa = (QuestionAttachment) list[i];
-
-                f = new File(rootDir + File.separator + qa.getFilename());
-
-                logger.debug("file is " + f.getAbsolutePath());
-                
-                // if qa status = Existing , do nothing
-                // if qa status = New, create the file
-                // if qa status = Deleted, delete the file.
-                if(qa.isToBeCreated()) {
-                    FileOutputStream fs = new FileOutputStream(f);
-                    fs.write(qa.getDocData());
-                    fs.close();
-                    qa.setFilePath(rootDir + File.separator + qa.getFilename());
-                }
-                else if (qa.isToBeDeleted()) {
-                    f.delete();
-                }            
-            }
-
-            //registerQuestionAttachment(qrd, form, conn);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            f.delete();
-            throw new GreensheetBaseException("error.savefile.sql", e);
-        } catch (FileNotFoundException fe) {
-            throw new GreensheetBaseException("error.savefile.fe", fe);
-        } catch (IOException ie) {
-            throw new GreensheetBaseException("error.savefile.io", ie);
-        }
-
-    }
-    */
-    /**
-     * Method registerQuestionAttachment.
-     * @param qrd
-     * @param form
-     * @param conn
-     * @throws SQLException
-     */
-    /*
-    private void registerQuestionAttachmentkkkkk(QuestionResponseData qrd, GreensheetForm form, Connection conn) throws SQLException {
-        PreparedStatement pstmt = null;
-        boolean makeNewQuestionEntry = false;
-        
-        try {
-            // If  this is a new question, make an entry in the Database in the Form Question Answers table.
-            if(qrd.getId() == 0) {
-                qrd.setId(DbUtils.getNewRowId(conn, "fqa_seq.nextval"));
-                this.makeNewQuestionEntry(qrd,form,conn);
-            }
-            
-            // Now that the parent record is taken care of... take care of the file attachments.
-            boolean fileAttachmentsPresentInDb = false; //flag to track whether the question response data will eventually contain any file or not.
-            if (qrd.getQuestionAttachments() != null) {
-                Set entries = qrd.getQuestionAttachments().entrySet();
-                Iterator iter = entries.iterator();
-                // Iterate thru the entries. Delete if status is deleted, else add it.
-                
-                while (iter.hasNext()) {
-                    Map.Entry me = (Map.Entry) iter.next();
-                    QuestionAttachment qa = (QuestionAttachment) me.getValue();
-                    // get the status
-                    int qaStatus = qa.getStatus();
-                    
-                    // If status = NEW or EXISTING, then eventually at least one file attachment will exist. So no need to deleted the Form Question Answer from the database.
-                    if (qa.isExisting() || qa.isToBeCreated()) {
-                        fileAttachmentsPresentInDb = true;
-                    }
-                    
-                   String sqlAction = null;
-                   if (qa.isToBeDeleted()) {
-                       sqlAction = "delete from form_answer_attachments_t where id=?";
-                       pstmt = conn.prepareStatement(sqlAction);
-                       pstmt.setInt(1,qa.getDbId());
-                   }
-                   else if (qa.isToBeCreated()) {
-                       sqlAction = "insert into form_answer_attachments_t (id,fqa_id,name,file_location) values(faa_seq.nextval,?,?,?)";
-                       pstmt = conn.prepareStatement(sqlAction);
-                       pstmt.setInt(1,qrd.getId());
-                       pstmt.setString(2,qa.getFilename());
-                       pstmt.setString(3,qa.getFilePath());
-                   }
-                   
-                   pstmt.execute();
-                   pstmt.close();
-                }
-                
-                // Check the fileAttachmentsPresentInDb flag. If this is true, it means there is at least one file attachment in the database for the qrd.
-                // If this flag is false, there are no file attachments in the db for this QRD. Hence, delete the parent record.
-                if (!fileAttachmentsPresentInDb) {
-                    String sqlDelete = "delete from form_question_answers_t where id =?";
-                    pstmt = conn.prepareStatement(sqlDelete);
-                    pstmt.setInt(1,qrd.getId());
-                
-                    pstmt.execute();
-                    pstmt.close();                  
-                }
-            }
-        }
-        catch (SQLException se) {
-            throw se;
-        } 
-        finally {            
-            try {
-
-                if (pstmt != null)
-                    pstmt.close();
-            } 
-            catch (SQLException se) {
-                throw se;
-            }
-        }
-    }
-*/
-    
+    }    
 }

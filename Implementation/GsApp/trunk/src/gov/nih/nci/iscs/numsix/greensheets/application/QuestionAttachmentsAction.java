@@ -21,16 +21,17 @@ public class QuestionAttachmentsAction extends DispatchAction {
 
     private static final Logger logger = Logger.getLogger(QuestionAttachmentsAction.class);
 
-    public ActionForward findAttachments(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
-        throws Exception {
+    public ActionForward findAttachments(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
+        logger.debug("In Method QuestionAttachmentsAction:findAttachments()");
+        
         String forward = null;
 
         if (req.getSession().isNew()) {
             forward = "actionConfirm";
             req.setAttribute(
                 "ACTION_CONFIRM_MESSAGE",
-                "Your user session has time out. Please close this window and the Greensheet window and Refresh your grants list");
+                "Your user session has timed out. Please close this window and the Greensheet window and Refresh your grants list");
 
         } else {
             String respId = req.getParameter("RESP_DEF_ID");
@@ -42,19 +43,32 @@ public class QuestionAttachmentsAction extends DispatchAction {
             GreensheetForm form = gfs.getForm();
 
             QuestionResponseData qrd = form.getQuestionResponseDataByRespId(respId);
-
-            QuestionAttachmentsProxy qap = new QuestionAttachmentsProxy(respId);
-
-            if (qrd != null) {
-                Object[] arr = qrd.getQuestionAttachments().values().toArray();
-                qap.initWithExistingQuestionAttachments(arr);
-            }
-
-            gfs.addAttachmentsProxy(qap, respId);
-
-            req.setAttribute("QA_PROXY", qap);
-            req.setAttribute("RESP_DEF_ID", respId);
+            logger.debug("RESP ID = " + respId);
             
+            // Attempt to get the question attachment proxy object for this resp id from form. if not, create a new one.
+            QuestionAttachmentsProxy qap = gfs.getQuestionAttachmentProxy(respId);
+            if(qap == null) {
+                qap = new QuestionAttachmentsProxy(respId);
+                if (qrd != null) {
+                    Object[] arr = qrd.getQuestionAttachments().values().toArray();
+                    qap.initWithExistingQuestionAttachments(arr);
+                    
+                    logger.debug("Initialized with existing attachments.");
+                }
+                
+                // Add to the gfs.
+                gfs.addAttachmentsProxy(qap, respId);
+                logger.debug("Added the QuestionAttachmentProxy (QAP) to GreensheetFormSession(GFS).");
+            }
+            else {
+                logger.debug("QuestionAttachmentProxy(QAP) exists in the GreensheetFormSession(GFS). No need to add.");
+            }
+            
+            logger.debug("Number of Attachments, Response Def ID = " + qap.getAttachmentCount() + ", " + respId);
+            
+            req.setAttribute("QA_PROXY", qap);          
+            req.setAttribute("VALID_FILE_NAMES", qap.getValidFileNames());    
+            req.setAttribute("RESP_DEF_ID", respId);            
             req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getAttachmentCount());
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
             req.setAttribute("canEdit", new Boolean(gus.getUser().isCanEdit()).toString());
@@ -68,6 +82,8 @@ public class QuestionAttachmentsAction extends DispatchAction {
     public ActionForward attachFile(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
         throws Exception {
 
+        logger.debug("In Method QuestionAttachmentsAction:attachFile()");
+        
         String forward = null;
 
         if (req.getSession().isNew()) {
@@ -103,15 +119,18 @@ public class QuestionAttachmentsAction extends DispatchAction {
                 qa.setDocData(file.getFileData());
 
                 qap.addQuestionAttachment(qa);
-            }
-
+            }          
+            
             req.setAttribute("QA_PROXY", qap);
+            req.setAttribute("VALID_FILE_NAMES", qap.getValidFileNames());    
             req.setAttribute("RESP_DEF_ID", respDefId);
             
             req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getAttachmentCount());
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
             req.setAttribute("canEdit", new Boolean(gus.getUser().isCanEdit()).toString());
             forward = "attachments";
+            
+            logger.debug("Number of Attachments, Response Def ID = " + qap.getAttachmentCount() + ", " + respDefId);
         }
         return mapping.findForward(forward);
 
@@ -120,6 +139,8 @@ public class QuestionAttachmentsAction extends DispatchAction {
     public ActionForward deleteFile(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
         throws Exception {
 
+        logger.debug("In Method QuestionAttachmentsAction:deleteFile()");
+        
         String forward = null;
 
         if (req.getSession().isNew()) {
@@ -145,12 +166,15 @@ public class QuestionAttachmentsAction extends DispatchAction {
             qap.removeAttachment(fileMemoryId);
                     
             req.setAttribute("QA_PROXY", qap);
+            req.setAttribute("VALID_FILE_NAMES", qap.getValidFileNames());    
             req.setAttribute("RESP_DEF_ID", respDefId);
             
             req.setAttribute("NUM_OF_ATTACHMENTS", "" + qap.getAttachmentCount());
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
             req.setAttribute("canEdit", new Boolean(gus.getUser().isCanEdit()).toString());
 
+            logger.debug("Number of Attachments, Response Def ID = " + qap.getAttachmentCount() + ", " + respDefId);
+            
             forward = "attachments";
         }
         return mapping.findForward(forward);
@@ -160,6 +184,8 @@ public class QuestionAttachmentsAction extends DispatchAction {
     public ActionForward viewFile(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
         throws Exception {
 
+        logger.debug("In Method QuestionAttachmentAction:viewFile()");
+        
         String forward = null;
 
         if (req.getSession().isNew()) {
@@ -220,49 +246,13 @@ public class QuestionAttachmentsAction extends DispatchAction {
                 resp.getOutputStream().flush();
                 
                 req.setAttribute("QA_PROXY", qap);
+                req.setAttribute("VALID_FILE_NAMES", qap.getValidFileNames());    
                 req.setAttribute("RESP_DEF_ID", respDefId);
                 req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
+                
+                logger.debug("Number of Attachments, Response Def ID = " + qap.getAttachmentCount() + ", " + respDefId);
             }
-            
-            
-   /*         
-            List list = qap.getTmpQuestionAttachmentList();
-
-            ListIterator iter = list.listIterator();
-
-            while (iter.hasNext()) {
-                QuestionAttachment qa = (QuestionAttachment) iter.next();
-                if (qa.getFilename().equalsIgnoreCase(fileName)) {
-
-                    byte[] byst = null;
-                    if (qa.getDocData() == null) {
-                        GreensheetFormMgr mgr = GreensheetMgrFactory.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
-                        mgr.getQuestionAttachmentData(qa);
-                        byst = qa.getDocData();
-                    } else {
-                        byst = qa.getDocData();
-                    }
-
-                    
-
-                    String header = "attachment;  filename=\"" + fileName + "\";";
-
-                    if (logger.isDebugEnabled()) {
-                        logger.debug("");
-                    }
-                    logger.debug("Downloading File " + fileName);
-                    resp.setHeader("Content-Disposition", header);
-
-                    //Send content to Browser
-                    resp.getOutputStream().write(byst);
-                    resp.getOutputStream().flush();
-
-                }
-            }
-            req.setAttribute("QA_PROXY", qap);
-            req.setAttribute("RESP_DEF_ID", respDefId);
-            req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
-*/
+     
             return null;
         }
 
@@ -270,6 +260,7 @@ public class QuestionAttachmentsAction extends DispatchAction {
 
     public ActionForward cancel(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
         throws Exception {
+        logger.debug("In Method QuestionAttachmentsAction:cancel()");
 
         String forward = null;
 
@@ -305,6 +296,8 @@ public class QuestionAttachmentsAction extends DispatchAction {
     public ActionForward save(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
         throws Exception {
 
+        logger.debug("In Method QuestionAttachmentsAction:save()");
+        
         String forward = null;
 
         if (req.getSession().isNew()) {
@@ -323,6 +316,8 @@ public class QuestionAttachmentsAction extends DispatchAction {
             GreensheetFormSession gfs = gus.getGreensheetFormSession(formUid);
             QuestionAttachmentsProxy qap = gfs.getQuestionAttachmentProxy(respDefId);
 
+            logger.debug("Saving- Num of Attachments = " + qap.getAttachmentMap().size());
+            logger.debug("RespDefId = " + respDefId);
             gfs.updateQRDQuestionAttachments(respDefId, qap.getAttachmentMap());
 
             gfs.removeQuestionAttachmentsProxy(respDefId);

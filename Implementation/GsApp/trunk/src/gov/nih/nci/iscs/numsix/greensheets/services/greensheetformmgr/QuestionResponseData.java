@@ -37,7 +37,7 @@ public class QuestionResponseData {
     private String inputValue;
     private String questionDefId;
     private HashMap questionAttachments = new HashMap();
-    // kk private boolean dirty = true;
+
     private int id;
 
 
@@ -93,7 +93,7 @@ public class QuestionResponseData {
         this.questionDefId = questionDefId;
         this.responseDefId = responseDefId;
         this.responseDefType = responseDefType;
-        this.questionAttachments.put(qa.getMemId(), qa);
+        this.questionAttachments.put(qa.getFileMemoryId(), qa);
     }
 
     /**
@@ -102,7 +102,7 @@ public class QuestionResponseData {
      */
     public void addQuestionAttachment(QuestionAttachment qa) {
         qa.setAttachmentStatusToNew();
-        questionAttachments.put(qa.getMemId(), qa);        
+        questionAttachments.put(qa.getFileMemoryId(), qa);        
     }
 
     /**
@@ -111,19 +111,24 @@ public class QuestionResponseData {
      * @throws IllegalArgumentException
      */
     public void removeQuestionAttachment(String attachmentMemoryId) throws IllegalArgumentException {
+        logger.debug("In Method - QuestionResponseData:removeQuestionAttachment");
+        
         // Get the attachment corresponding to the attachment.
         QuestionAttachment qa = (QuestionAttachment) this.questionAttachments.get(attachmentMemoryId);
         if(qa != null) {
             // Get the Status of attachment.
             int attachmentStatus = qa.getStatus();
+            logger.debug("Attachment Status = " + qa.getStatusValue());
                         
             if(qa.isToBeCreated()) {
                 // If the status is NEW, its been recently added to the Map by the user in this session. 
                 // Thus, just remove the attachment from the MAP.
+                logger.debug("NEW attachment- Thus removing the attachment from the map.");
                 this.questionAttachments.remove(qa);
             }
             else if (qa.isExisting()){
                 // If status == EXISTING, it exists in the database. Thus, set the status to DELETED.
+                logger.debug("EXISTING attachment - Setting status to DELETED");
             	qa.setAttachmentStatusToDeleted();
         	}
         }

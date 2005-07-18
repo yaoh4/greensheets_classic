@@ -116,76 +116,26 @@ public class GreensheetFormSession {
      */
     public void updateQRDQuestionAttachments(String respDefId, HashMap qaMap) {
         //get the proxy for the responseDefId
+        logger.debug("updateQRDQuestionAttachments -- Resp Def Id = " + respDefId);
+        logger.debug("updateQRDQuestionAttachments -- qaMap Size = " + qaMap.size());
+        
         QuestionAttachmentsProxy qap = this.getQuestionAttachmentProxy(respDefId);
         QuestionResponseData qrd = form.getQuestionResponseDataByRespId(respDefId);
         
         if (qrd != null) {
+            logger.debug("Updating the QRD Attachment map");
             qrd.setQuestionAttachments(qaMap);
         }
-     }
-    
-    /*
-    public void updateQuestionAttachmentsKKDeleted(String respDefId) {
-
-        //get the proxy for the responseDefId
-        QuestionAttachmentsProxy qap = this.getQuestionAttachmentProxy(respDefId);
-        QuestionResponseData qrd = form.getQuestionResponseDataByRespId(respDefId);
-
-        
-        // there is a current qrd for attachments to this question
-        if (qrd != null) {
-        	
-            Iterator iter = qrd.getQuestionAttachments().values().iterator();
-
-            while (iter.hasNext()) {
-
-                QuestionAttachment qa = (QuestionAttachment) iter.next();
-
-                //if the form qa is not on the tmpQa list then assume it is to be deleted
-                if (qap.getRemovedAttachmentFileNames().size() > 0) {
-                    Iterator delIter = qap.getRemovedAttachmentFileNames().iterator();
-                    while (delIter.hasNext()) {
-                        String delFileName = (String) delIter.next();
-                        if (qa.getFilename().equalsIgnoreCase(delFileName)) {
-                        	logger.debug("2");
-                            qa.setToBeDeleted(true);
-                            // delete any qa that have been added to the form but have not been saved
-                            // previously. ie the qrd does not have an id in the db.
-                            if(qrd.getId() == 0){
-                            	form.getQuestionResponsDataMap().remove(respDefId);
-                            	logger.debug("remove " + respDefId + " fileName " + delFileName);
-                            }
-                        }
-
-                    }
-                }
-
-            }
-
-            List qapList = qap.getTmpQuestionAttachmentList();
-            Iterator iter2 = qapList.iterator();
-
-            while (iter2.hasNext()) {
-                QuestionAttachment tmpQa = (QuestionAttachment) iter2.next();
-                //if tmpQa is not in the form qa list add it   
-                if (!qrd.getQuestionAttachments().containsKey(tmpQa.getFilename())) {
-                    qrd.addQuestionAttachment(tmpQa);
-                }
-            }
-
-        } else {
+        else {
             QuestionResponseData newQrd = new QuestionResponseData();
-            List qapList = qap.getTmpQuestionAttachmentList();
-            Iterator iter = qapList.iterator();
-            while (iter.hasNext()) {
-                QuestionAttachment tmpQa = (QuestionAttachment) iter.next();
-                newQrd.setFileResponseData(qap.getQuestionDefId(), respDefId, QuestionResponseData.FILE, tmpQa);
+            Iterator iter = qaMap.values().iterator();
+            while(iter.hasNext()) {
+                QuestionAttachment qa = (QuestionAttachment) iter.next();
+                newQrd.setFileResponseData(qap.getQuestionDefId(), respDefId, QuestionResponseData.FILE, qa);
                 form.addQuestionResposeData(respDefId, newQrd);
-                logger.debug("\n added one " + tmpQa.getFilename());
+                
+                logger.debug("Added a new Question Response Data for filename - " + qa.getFilename());               
             }
         }
-
-    }
-    */
-
+     }
 }

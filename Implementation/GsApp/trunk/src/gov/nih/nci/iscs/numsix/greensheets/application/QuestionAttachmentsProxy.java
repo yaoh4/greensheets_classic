@@ -11,6 +11,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.*;
 import java.util.*;
 
 import org.apache.commons.lang.*;
+import org.apache.log4j.Logger;
 
 /**
  * This class serves as a temporary holder of question attachments for a particular question. Any actions regarding question attachments 
@@ -22,6 +23,8 @@ import org.apache.commons.lang.*;
  */
 public class QuestionAttachmentsProxy {
 
+    private static final Logger logger = Logger.getLogger(QuestionAttachmentsAction.class);
+    
     private String responseDefid;  
     private HashMap qaMap = new HashMap();
 
@@ -48,6 +51,37 @@ public class QuestionAttachmentsProxy {
         return this.qaMap;
     }
     
+    
+    /**
+     * Returns the attachment map.
+     * @return String
+     */
+    public String getValidFileNames() {
+        logger.debug("In Method QuestionAttachmentsProxy:getValidFileName");
+        logger.debug("Length of map = " + this.qaMap.size());
+        String fileNames = "";
+       	Iterator iter = this.qaMap.values().iterator();
+       	while(iter.hasNext()) {	       	
+       	    QuestionAttachment qa = (QuestionAttachment) iter.next();
+       	    logger.debug("Filename, Status = " + qa.getFilename() + ", " + qa.getStatus());
+       	    if (!qa.isToBeDeleted()) {
+       	        fileNames += qa.getFilename() + "$";
+       	    }
+       	}
+       	if(fileNames.length() > 1)
+       	    fileNames = fileNames.substring(1, fileNames.length()-1);
+       	
+       	return fileNames;
+    }
+    
+    /**
+     * Returns the names of the valid files delimited by a "$" symbol
+     * @return String
+     */
+    public Collection getAttachmentCollection() {
+        return this.qaMap.values();
+    }
+    
     /**
      * Returns the attachment .
      * @param fileMemoryId 
@@ -72,9 +106,9 @@ public class QuestionAttachmentsProxy {
     public void setResponseDefid(String responseDefid) {
         this.responseDefid = responseDefid;
     }
-    
+
     public void addQuestionAttachment(QuestionAttachment qa) {
-        this.qaMap.put(qa.getMemId(), qa);
+        this.qaMap.put(qa.getFileMemoryId(), qa);
     }
 
     public int getAttachmentCount() {
@@ -82,24 +116,28 @@ public class QuestionAttachmentsProxy {
     }
 
     public void removeAttachment(String memId){
+        logger.debug("In Method QuestionAttachmentsProxy:removeAttachment()");
+        
         QuestionAttachment qa = (QuestionAttachment) this.qaMap.get(memId);
         if (qa != null) {
             if(qa.isToBeCreated()) {
                 //New attachment, just remove it off  the map.
                 this.qaMap.remove(memId);
+                logger.debug("NEW Attachment - Remove from map.");
             }
             else if (qa.isExisting()) {
                 qa.setAttachmentStatusToDeleted();
+                logger.debug("EXISTING attachment - Set status to DELETED.");
             }
         }        
     }
 
     public void initWithExistingQuestionAttachments(Object[] attachments) {
-        for(int i = 0; i<attachments.length; i++){
-            QuestionAttachment qa = (QuestionAttachment) attachments[i];
-            qa.setAttachmentStatusToExisting();       
+        logger.debug("Number of existing attachments = " + attachments.length);
+        for(int i = 0; i<attachments.length; i++){            
+            QuestionAttachment qa = (QuestionAttachment) attachments[i];   
+            QuestionAttachment newQA = qa.createCopy();
+            this.qaMap.put(newQA.getFileMemoryId(), newQA);
         }
-    }
-
-
+    }  
 }

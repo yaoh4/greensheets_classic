@@ -6,7 +6,11 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
+import gov.nih.nci.iscs.numsix.greensheets.application.QuestionAttachmentsAction;
+
 import java.rmi.server.UID;
+
+import org.apache.log4j.Logger;
 /**
  * Wrapper class for files attached to greensheet questions.
  * 
@@ -14,6 +18,8 @@ import java.rmi.server.UID;
  *  @author kpuscas, Number Six Software
  */
 public class QuestionAttachment {    
+    private static final Logger logger = Logger.getLogger(QuestionAttachmentsAction.class);
+    
     private String fileName; 
     private String filePath;
     private byte[] docData;
@@ -30,7 +36,7 @@ public class QuestionAttachment {
      */
     private QuestionAttachment() {
         this.setAttachmentStatusToNew();
-        this.setMemId();
+        this.setFileMemoryId();
     }
 
     /**
@@ -41,6 +47,8 @@ public class QuestionAttachment {
      * @return QuestionAttachment
      */
     public static QuestionAttachment createExistingAttachment(String filename, String path, int id) {
+        logger.debug("In Method QuestionAttachment:createExistingAttachment().");
+        
         QuestionAttachment qa = new QuestionAttachment();
         qa.setAttachmentStatusToExisting();
         qa.setFilename(filename);
@@ -56,6 +64,23 @@ public class QuestionAttachment {
     public static QuestionAttachment createNewAttachment() {
        QuestionAttachment qa = new QuestionAttachment();
        qa.setAttachmentStatusToNew();
+       return qa;
+    }
+    
+    /**
+     * Method createCopy.
+     * @return QuestionAttachment
+     */
+    public  QuestionAttachment createCopy() {
+       logger.debug("In Method QuestionAttachment:createCopy().");
+       QuestionAttachment qa = new QuestionAttachment();
+       qa.fileName = this.fileName;
+       qa.filePath = this.filePath;
+       qa.docData = this.docData;
+       qa.dbId = this.dbId;
+       qa.memId = this.memId;
+       qa.status = this.status;
+       
        return qa;
     }
 
@@ -80,14 +105,14 @@ public class QuestionAttachment {
      * Returns the Memory ID.
      * @return String
      */
-    public String getMemId() {
+    public String getFileMemoryId() {
         return memId;
     }
 
     /**
      * Sets the Memory id.
      */
-    private void setMemId() {
+    private void setFileMemoryId() {
        // Get a unique id.
         UID uniqueId = new UID();
         long time = System.currentTimeMillis();
@@ -123,6 +148,26 @@ public class QuestionAttachment {
     }
     
     /**
+     * Gets the status value of the attachment.
+     */
+    public String getStatusValue() {
+        String fileStatus = "";
+        if (this.status == 0) {
+            fileStatus = "EXISTING";
+        }
+        
+        if (this.status == 1) {
+            fileStatus = "NEW";
+        }
+        
+        if (this.status == 2) {
+            fileStatus = "DELETED";
+        }
+        
+        return fileStatus;
+    }
+    
+    /**
      * Determines if the attachment needs to be Created
      */
     public boolean isToBeCreated() {
@@ -144,6 +189,29 @@ public class QuestionAttachment {
     }
     
   
+    /**
+     * Gets the value of New
+     */
+    public String getAttachmentNewValue() {
+        return "NEW";
+    }
+    
+    
+    /**
+     * Gets the value of Existing
+     */
+    public String getAttachmentExistingValue() {
+        return "EXISTING";
+    }
+    
+    /**
+     * Gets the value of Deleted
+     */
+    public String getAttachmentDeletedValue() {
+        return "DELETED";
+    }
+    
+    
     /**
      * Returns the docData.
      * @return byte[]
@@ -191,23 +259,12 @@ public class QuestionAttachment {
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
-
+    
     /**
      * @see java.lang.Object#toString()
      */
     public String toString() {
-        String fileStatus = "";
-        if (this.status == 0) {
-            fileStatus = "EXISTING";
-        }
-        
-        if (this.status == 1) {
-            fileStatus = "NEW";
-        }
-        
-        if (this.status == 2) {
-            fileStatus = "DELETED";
-        }
+        String fileStatus = this.getStatusValue();
                 
         return "fileName:: " + this.fileName + "  filePath:: " + this.filePath + "  File Status:: " + fileStatus;           
     }
