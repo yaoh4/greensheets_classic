@@ -101,7 +101,7 @@ if(filename != ''){
   }
   
   function viewAttach(fileMemId) {
-  		document.attachmentsForm.fileMemoryId.value = filename;
+  		document.attachmentsForm.fileMemoryId.value = fileMemId;
   		document.attachmentsForm.method.value="viewFile";
   		document.attachmentsForm.submit();
   }  
