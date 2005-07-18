@@ -6,9 +6,9 @@
 <form-beans>
     <form-bean name="attachmentsForm" type="org.apache.struts.action.DynaActionForm">
         <form-property name="fileAttachment" type="org.apache.struts.upload.FormFile"/>
-        <form-property name="deleteFileName" type="java.lang.String"/>
-        <form-property name="viewFileName" type="java.lang.String"/>
+        <form-property name="fileMemoryId" type="java.lang.String"/>        
         <form-property name="respDefId" type="java.lang.String"/>
+		<form-property name="allValidFileNames" type="java.lang.String"/>
         <form-property name="formUid" type="java.lang.String"/>
         <form-property name="method" type="java.lang.String"/>
     </form-bean>
