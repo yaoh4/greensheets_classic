@@ -134,10 +134,12 @@ public class GsPdfRenderer {
 			
 			Document gsFormXml = this.generateGsFormXml(questionsXml);
 
+			logger.debug("Printing the generateGsFormXml.xml file.");
 			this.printXmlFile("generateGsFormXml.xml", gsFormXml);
 
 			this.generatePdfReadyXml(gsFormXml);
 
+			logger.debug("Printing the pdfReadyXml.xml.xml file.");
 			this.printXmlFile("pdfReadyXml.xml", gsFormXml);
 
 			FoEngine fe = new FoEngine();

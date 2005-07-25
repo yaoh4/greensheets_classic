@@ -783,12 +783,12 @@ public class GreensheetFormDataHelper {
             conn.commit();
  
                 
-            logger.debug("SAVING/DELETING THE ATTACHMENTS NOW.......");
-            
-            // Handle each file attachment separately
-            logger.debug("Number of QRD with Files = " + qaMap.size());
+            logger.debug("SAVING/DELETING THE ATTACHMENTS NOW.......");                  
             
             if(qaMap != null) { // attachments exist
+//              Handle each file attachment separately
+                logger.debug("Number of QRD with Files = " + qaMap.size());
+                
                 Iterator iterAttachments = qaMap.values().iterator();
                 int count = 1;
                 while (iterAttachments.hasNext()){
