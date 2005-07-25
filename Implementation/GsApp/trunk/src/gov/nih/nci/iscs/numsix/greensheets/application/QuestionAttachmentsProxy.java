@@ -59,7 +59,7 @@ public class QuestionAttachmentsProxy {
     public String getValidFileNames() {
         logger.debug("In Method QuestionAttachmentsProxy:getValidFileName");
         logger.debug("Length of map = " + this.qaMap.size());
-        String fileNames = "";
+        String fileNames = "$";
        	Iterator iter = this.qaMap.values().iterator();
        	while(iter.hasNext()) {	       	
        	    QuestionAttachment qa = (QuestionAttachment) iter.next();
