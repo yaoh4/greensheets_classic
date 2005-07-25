@@ -32,7 +32,7 @@ import org.apache.log4j.Logger;
  */
 public class GsPdfRenderer {
 
-
+ 
 	private java.util.Date cutOffDate;
 	
 	private java.util.Date cutOffDate2;
