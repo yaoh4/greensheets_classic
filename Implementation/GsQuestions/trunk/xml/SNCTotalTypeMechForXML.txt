@@ -1,4 +1,3 @@
-<TypeMech type="5" mech="R01"/>
 <TypeMech type=“5” mech=“P01”/>
 <TypeMech type=“8” mech=“P01”/>
 <TypeMech type=“5” mech=“R01”/>
