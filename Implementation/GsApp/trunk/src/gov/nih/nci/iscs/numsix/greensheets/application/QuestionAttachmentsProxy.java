@@ -45,7 +45,7 @@ public class QuestionAttachmentsProxy {
 
     /**
      * Returns the attachment map.
-     * @return String
+     * @return String 
      */
     public HashMap getAttachmentMap() {
         return this.qaMap;
