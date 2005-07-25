@@ -1105,6 +1105,7 @@
 											<TypeMech type="8" mech="U24"/>
 											<TypeMech type="5" mech="U56"/>
 											<TypeMech type="8" mech="U56"/>
+											<TypeMech type="3" mech="F31"/>
 											<TypeMech type="5" mech="F31"/>
 											<TypeMech type="8" mech="F31"/>
 											<TypeMech type="5" mech="F32"/>
@@ -1740,7 +1741,7 @@
 										</GrantTypeMechs>
 										<QText>All sites (grantee and all performance sites engaged
                                             in research involving human subjects) have an
-                                            OHRP-approved assurance of compliance?</QText>
+                                   OHRP-approved assurance of compliance?</QText>
 										<QInstructions>(Grantee must have assurance even if research
                                             involving human subjects is conducted only at other
                                             performance sites.)</QInstructions>
