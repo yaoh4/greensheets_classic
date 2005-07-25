@@ -11,8 +11,6 @@
 
   function addAttach() {
   	var filename = document.attachmentsForm.fileAttachment.value;
-  	//filename = filename .replace(/^\s+|\s+$/g, "");
-	//document.attachmentsForm.fileAttachment.value = filename;
 	
   	var fnArray = filename.split("\<%=java.io.File.separator%>");
   	var fileNameOnly = fnArray[fnArray.length-1];
