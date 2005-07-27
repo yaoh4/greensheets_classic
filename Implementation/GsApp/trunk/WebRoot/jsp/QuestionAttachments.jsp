@@ -11,9 +11,26 @@
 
   function addAttach() {
   	var filename = document.attachmentsForm.fileAttachment.value;
+	var fileNameOnly = filename ;
 	
-  	var fnArray = filename.split("\<%=java.io.File.separator%>");
-  	var fileNameOnly = fnArray[fnArray.length-1];
+	var fnArray = null;
+	
+	
+	// Windows Client
+	if(filename.indexOf("\\") > -1) {
+		fnArray = filename.split("\\");
+		fileNameOnly = fnArray[fnArray.length-1];
+	}
+	
+	// Unix or Mac Client
+	if(filename.indexOf("/") > -1) {
+		fnArray = filename.split("/");
+		fileNameOnly = fnArray[fnArray.length-1];
+	}
+
+
+  	// Replace whitespace in fileNameOnly.
+  	
   	fileNameOnly = fileNameOnly.replace(/^\s+|\s+$/g, "");
 
   	// Check for duplicate file names.
