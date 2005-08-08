@@ -7272,7 +7272,7 @@
 			<TypeMech type="5" mech="R35"/>
 		</GrantTypeMechs>
 		<QText>Has substantial foreign involvement been added since last award? </QText>
-		<QInstructions>http://www3.od.nih.gov/oma/manualchapters/grants/4104/</QInstructions>
+		<QInstructions>http://www3.od.nih.gov/oma/manualchapters/grants/54104/</QInstructions>
 		<ResponseDefsList>
 			<ResponseDef id="PNCQ_46_RD_CM_371" type="COMMENT"/>
 			<ResponseDef id="PNCQ_46_RD_FL_372" type="FILE"/>
