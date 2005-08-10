@@ -3705,7 +3705,7 @@
 											<TypeMech type="8" mech="TU2"/>
 										</GrantTypeMechs>
 										<QText>Are there any name(s) on the HHS Alert List?</QText>
-										<QInstructions>http://intranet.hhs.gov/gmotools/alertlist.doc</QInstructions>
+										<QInstructions>http://intranet.grantsinfo.hhs.gov/</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="SNCQ_65_RD_CM_22" type="COMMENT"/>
 											<ResponseDef id="SNCQ_65_RD_FL_23" type="FILE"/>

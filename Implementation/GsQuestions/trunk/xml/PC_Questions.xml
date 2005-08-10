@@ -1760,7 +1760,7 @@
 																							<TypeMech type="3" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Does awardee have approved human subjects assurance?</QText>
-																						<QInstructions>(http://ohrp/cit.nih.gov/search/asearch.asp)</QInstructions>
+																						<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp)</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_490_RD_CM_1084" type="COMMENT"/>
 																							<ResponseDef id="PCQ_490_RD_FL_1085" type="FILE"/>
@@ -1775,7 +1775,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to OHRP website</QText>
-																										<QInstructions>(http://ohrp.osophs.dhhs.gov)</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_500_RD_CM_1187" type="COMMENT"/>
 																											<ResponseDef id="PCQ_500_RD_FL_1188" type="FILE"/>
@@ -1803,7 +1803,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Does consortium site(s) have approved assurance(s)?</QText>
-																										<QInstructions>(http: ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																										<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_492_RD_CM_1193" type="COMMENT"/>
 																											<ResponseDef id="PCQ_492_RD_FL_1194" type="FILE"/>
@@ -2054,7 +2054,7 @@
 																							<TypeMech type="3" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Does awardee have approved human subjects assurance?</QText>
-																						<QInstructions>(http://ohrp/cit.nih.gov/search/asearch.asp</QInstructions>
+																						<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_506_RD_CM_1235" type="COMMENT"/>
 																							<ResponseDef id="PCQ_506_RD_FL_1236" type="FILE"/>
@@ -2069,7 +2069,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to OHRP website</QText>
-																										<QInstructions>(http://ohrp.osophs.dhhs.gov)</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_507_RD_CM_1238" type="COMMENT"/>
 																											<ResponseDef id="PCQ_507_RD_FL_1239" type="FILE"/>
@@ -2097,7 +2097,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Does consortium site(s) have approved assurance(s)?</QText>
-																										<QInstructions>(http: ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																										<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_509_RD_CM_1244" type="COMMENT"/>
 																											<ResponseDef id="PCQ_509_RD_FL_1245" type="FILE"/>
@@ -2261,7 +2261,7 @@
 																							<TypeMech type="3" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Does awardee have approved human subjects assurance?</QText>
-																						<QInstructions>(http://ohrp/cit.nih.gov/search/asearch.asp</QInstructions>
+																						<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_518_RD_CM_1271" type="COMMENT"/>
 																							<ResponseDef id="PCQ_518_RD_FL_1272" type="FILE"/>
@@ -2276,7 +2276,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to OHRP website</QText>
-																										<QInstructions>(http://ohrp.osophs.dhhs.gov)</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_519_RD_CM_1274" type="COMMENT"/>
 																											<ResponseDef id="PCQ_519_RD_FL_1275" type="FILE"/>
@@ -2304,7 +2304,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Does consortium site(s) have approved assurance(s)?</QText>
-																										<QInstructions>(http: ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																										<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_521_RD_CM_1277" type="COMMENT"/>
 																											<ResponseDef id="PCQ_521_RD_FL_1278" type="FILE"/>
@@ -2483,7 +2483,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to OHRP website:</QText>
-																										<QInstructions>http://ohrp.osophs.dhhs.gov</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_577_RD_CM_1441" type="COMMENT"/>
 																											<ResponseDef id="PCQ_577_RD_FL_1442" type="FILE"/>
@@ -2809,7 +2809,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to OHRP website:</QText>
-																										<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_532_RD_CM_1310" type="COMMENT"/>
 																											<ResponseDef id="PCQ_532_RD_FL_1311" type="FILE"/>
@@ -2883,7 +2883,7 @@
 																															<TypeMech type="3" mech="U10"/>
 																														</GrantTypeMechs>
 																														<QText>Date PI referred to the OHRP website:</QText>
-																														<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																														<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																														<ResponseDefsList>
 																															<ResponseDef id="PCQ_551_RD_CM_1358" type="COMMENT"/>
 																															<ResponseDef id="PCQ_551_RD_FL_1359" type="FILE"/>
@@ -3062,7 +3062,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to OHRP website:</QText>
-																										<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_561_RD_CM_1388" type="COMMENT"/>
 																											<ResponseDef id="PCQ_561_RD_FL_1389" type="FILE"/>
@@ -3141,7 +3141,7 @@
 																															<TypeMech type="3" mech="U10"/>
 																														</GrantTypeMechs>
 																														<QText>Date PI referred to the OHRP website:</QText>
-																														<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																														<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																														<ResponseDefsList>
 																															<ResponseDef id="PCQ_566_RD_CM_1404" type="COMMENT"/>
 																															<ResponseDef id="PCQ_566_RD_FL_1405" type="FILE"/>
@@ -3350,7 +3350,7 @@
 																											<TypeMech type="3" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to OHRP website:</QText>
-																										<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_613_RD_CM_1558" type="COMMENT"/>
 																											<ResponseDef id="PCQ_613_RD_FL_1559" type="FILE"/>
@@ -3424,7 +3424,7 @@
 																															<TypeMech type="3" mech="U10"/>
 																														</GrantTypeMechs>
 																														<QText>Date PI referred to the OHRP website:</QText>
-																														<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																														<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																														<ResponseDefsList>
 																															<ResponseDef id="PCQ_618_RD_CM_1573" type="COMMENT"/>
 																															<ResponseDef id="PCQ_618_RD_FL_1574" type="FILE"/>
@@ -3686,7 +3686,7 @@
 																			<TypeMech type="3" mech="U10"/>
 																		</GrantTypeMechs>
 																		<QText>Date PI referred to OHRP website:</QText>
-																		<QInstructions>http://ohrp.osophs.dhhs.gov</QInstructions>
+																		<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																		<ResponseDefsList>
 																			<ResponseDef id="PCQ_431_RD_CM_1000" type="COMMENT"/>
 																			<ResponseDef id="PCQ_431_RD_FL_1001" type="FILE"/>
@@ -4533,7 +4533,7 @@
 															<TypeMech type="3" mech="TU2"/>
 														</GrantTypeMechs>
 														<QText>Does performance site(s) have approved assurance(s)?</QText>
-														<QInstructions>http://ohrp.cit.nih.gov</QInstructions>
+														<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 														<ResponseDefsList>
 															<ResponseDef id="PCQ_454_RD_CM_1071" type="COMMENT"/>
 															<ResponseDef id="PCQ_454_RD_FL_1072" type="FILE"/>
@@ -4582,7 +4582,7 @@
 																			<TypeMech type="3" mech="TU2"/>
 																		</GrantTypeMechs>
 																		<QText>Date PI referred to OHRP website:</QText>
-																		<QInstructions>http://ohrp.osophs.dhhs.gov</QInstructions>
+																		<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																		<ResponseDefsList>
 																			<ResponseDef id="PCQ_457_RD_CM_1081" type="COMMENT"/>
 																			<ResponseDef id="PCQ_457_RD_FL_1082" type="FILE"/>
@@ -15114,7 +15114,7 @@
 																			<TypeMech type="9" mech="U10"/>
 																		</GrantTypeMechs>
 																		<QText>Does awardee have approved human subjects assurance?</QText>
-																		<QInstructions>(http://ohrp/cit.nih.gov/search/asearch.asp</QInstructions>
+																		<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																		<ResponseDefsList>
 																			<ResponseDef id="PCQ_131_RD_CM_387" type="COMMENT"/>
 																			<ResponseDef id="PCQ_131_RD_FL_388" type="FILE"/>
@@ -15134,7 +15134,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Date PI referred to OHRP website</QText>
-																						<QInstructions>(http://ohrp.osophs.dhhs.gov)</QInstructions>
+																						<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_132_RD_CM_390" type="COMMENT"/>
 																							<ResponseDef id="PCQ_132_RD_FL_391" type="FILE"/>
@@ -15172,7 +15172,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Does consortium site(s) have approved assurance(s)?</QText>
-																						<QInstructions>(http: ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																						<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_134_RD_CM_396" type="COMMENT"/>
 																							<ResponseDef id="PCQ_134_RD_FL_397" type="FILE"/>
@@ -15531,7 +15531,7 @@
 																			<TypeMech type="9" mech="U10"/>
 																		</GrantTypeMechs>
 																		<QText>Does awardee have approved human subjects assurance?</QText>
-																		<QInstructions>(http://ohrp/cit.nih.gov/search/asearch.asp</QInstructions>
+																		<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																		<ResponseDefsList>
 																			<ResponseDef id="PCQ_139_RD_CM_411" type="COMMENT"/>
 																			<ResponseDef id="PCQ_139_RD_FL_412" type="FILE"/>
@@ -15551,7 +15551,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Date PI referred to OHRP website</QText>
-																						<QInstructions>(http://ohrp.osophs.dhhs.gov)</QInstructions>
+																						<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_140_RD_CM_414" type="COMMENT"/>
 																							<ResponseDef id="PCQ_140_RD_FL_415" type="FILE"/>
@@ -15589,7 +15589,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Does consortium site(s) have approved assurance(s)?</QText>
-																						<QInstructions>(http: ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																						<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_142_RD_CM_420" type="COMMENT"/>
 																							<ResponseDef id="PCQ_142_RD_FL_421" type="FILE"/>
@@ -15832,7 +15832,7 @@
 																			<TypeMech type="9" mech="U10"/>
 																		</GrantTypeMechs>
 																		<QText>Does awardee have approved human subjects assurance?</QText>
-																		<QInstructions>(http://ohrp/cit.nih.gov/search/asearch.asp</QInstructions>
+																		<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																		<ResponseDefsList>
 																			<ResponseDef id="PCQ_147_RD_CM_440" type="COMMENT"/>
 																			<ResponseDef id="PCQ_147_RD_FL_441" type="FILE"/>
@@ -15852,7 +15852,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Date PI referred to OHRP website</QText>
-																						<QInstructions>(http://ohrp.osophs.dhhs.gov)</QInstructions>
+																						<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_148_RD_CM_443" type="COMMENT"/>
 																							<ResponseDef id="PCQ_148_RD_FL_444" type="FILE"/>
@@ -15890,7 +15890,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Does consortium site(s) have approved assurance(s)?</QText>
-																						<QInstructions>(http: ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																						<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_150_RD_CM_449" type="COMMENT"/>
 																							<ResponseDef id="PCQ_150_RD_FL_450" type="FILE"/>
@@ -16153,7 +16153,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Date PI referred to OHRP website:</QText>
-																						<QInstructions>http://ohrp.osophs.dhhs.gov</QInstructions>
+																						<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_254_RD_CM_745" type="COMMENT"/>
 																							<ResponseDef id="PCQ_254_RD_FL_746" type="FILE"/>
@@ -16563,7 +16563,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Date PI referred to OHRP website:</QText>
-																						<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																						<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_192_RD_CM_566" type="COMMENT"/>
 																							<ResponseDef id="PCQ_192_RD_FL_567" type="FILE"/>
@@ -16662,7 +16662,7 @@
 																											<TypeMech type="9" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to the OHRP website:</QText>
-																										<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_197_RD_CM_581" type="COMMENT"/>
 																											<ResponseDef id="PCQ_197_RD_FL_582" type="FILE"/>
@@ -16980,7 +16980,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Date PI referred to OHRP website:</QText>
-																						<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																						<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_211_RD_CM_623" type="COMMENT"/>
 																							<ResponseDef id="PCQ_211_RD_FL_624" type="FILE"/>
@@ -17079,7 +17079,7 @@
 																											<TypeMech type="9" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to the OHRP website:</QText>
-																										<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_216_RD_CM_638" type="COMMENT"/>
 																											<ResponseDef id="PCQ_216_RD_FL_639" type="FILE"/>
@@ -17357,7 +17357,7 @@
 																							<TypeMech type="9" mech="U10"/>
 																						</GrantTypeMechs>
 																						<QText>Date PI referred to OHRP website:</QText>
-																						<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																						<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																						<ResponseDefsList>
 																							<ResponseDef id="PCQ_596_RD_CM_1507" type="COMMENT"/>
 																							<ResponseDef id="PCQ_596_RD_FL_1508" type="FILE"/>
@@ -17456,7 +17456,7 @@
 																											<TypeMech type="9" mech="U10"/>
 																										</GrantTypeMechs>
 																										<QText>Date PI referred to the OHRP website:</QText>
-																										<QInstructions>http:ohrp.osophs.dhhs.gov</QInstructions>
+																										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 																										<ResponseDefsList>
 																											<ResponseDef id="PCQ_601_RD_CM_1522" type="COMMENT"/>
 																											<ResponseDef id="PCQ_601_RD_FL_1523" type="FILE"/>
@@ -18175,7 +18175,7 @@
 															<TypeMech type="9" mech="U10"/>
 														</GrantTypeMechs>
 														<QText>Date PI referred to OHRP website:</QText>
-														<QInstructions>http://ohrp.osophs.dhhs.gov</QInstructions>
+														<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 														<ResponseDefsList>
 															<ResponseDef id="PCQ_28_RD_CM_82" type="COMMENT"/>
 															<ResponseDef id="PCQ_28_RD_FL_83" type="FILE"/>
@@ -18228,7 +18228,7 @@
 															<TypeMech type="9" mech="F33"/>
 														</GrantTypeMechs>
 														<QText>Date PI referred to OHRP website:</QText>
-														<QInstructions>http://ohrp.osophs.dhhs.gov</QInstructions>
+														<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 														<ResponseDefsList>
 															<ResponseDef id="PCQ_110_RD_CM_325" type="COMMENT"/>
 															<ResponseDef id="PCQ_110_RD_FL_326" type="FILE"/>
@@ -21197,7 +21197,7 @@
 											<TypeMech type="9" mech="TU2"/>
 										</GrantTypeMechs>
 										<QText>Date PI referred to OHRP website:</QText>
-										<QInstructions>http://ohrp.osophs.dhhs.gov</QInstructions>
+										<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="PCQ_124_RD_CM_365" type="COMMENT"/>
 											<ResponseDef id="PCQ_124_RD_FL_366" type="FILE"/>
@@ -21247,7 +21247,7 @@
 											<TypeMech type="9" mech="TU2"/>
 										</GrantTypeMechs>
 										<QText>Does performance site(s) have approved assurance(s)?</QText>
-										<QInstructions>http://ohrp.cit.nih.gov</QInstructions>
+										<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="PCQ_126_RD_CM_371" type="COMMENT"/>
 											<ResponseDef id="PCQ_126_RD_FL_372" type="FILE"/>
@@ -21326,7 +21326,7 @@
 															<TypeMech type="9" mech="TU2"/>
 														</GrantTypeMechs>
 														<QText>Date PI referred to OHRP website:</QText>
-														<QInstructions>http://ohrp.osophs.dhhs.gov</QInstructions>
+														<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
 														<ResponseDefsList>
 															<ResponseDef id="PCQ_129_RD_CM_381" type="COMMENT"/>
 															<ResponseDef id="PCQ_129_RD_FL_382" type="FILE"/>
