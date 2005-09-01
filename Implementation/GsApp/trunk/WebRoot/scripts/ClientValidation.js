@@ -4,7 +4,7 @@ var strDisplayMessage = "";
 var strDisplayName = "";
 var MSG_INVALID_FORM = "Invalid form name specified. Please check the Form name and try again.";
 var STRING_TRUE = "true";
-var STRING_FALSE = "false"
+var STRING_FALSE = "false";
 var STRING_ZERO = "0";
 
 var VAL_TYPE_STRING = "typeString";
@@ -50,6 +50,9 @@ var MSG_INCORRECT_EMAIL = " can only contain alphanumeric characters, @ and peri
 var MSG_INCORRECT_SSN = " is not a valid SSN Number. It should be in the format - xxx-xx-xxxx or xxxxxxxxx .";
 
 var MSG_SELECT_RADIO = " is mandatory. Please select an option."; 
+var MSG_SELECT_DROPDOWN = " is mandatory. Please select an option.";
+var MSG_SELECT_CHECKBOX = " is mandatory. Please select an option.";
+
 var MSG_AT_LEAST_ONE_SHOULD_BE_FILLED = "At least one of the following fields should be filled:\n";
 
 var allDataFormatsValidated = true;
@@ -57,10 +60,10 @@ var allDataFormatsValidated = true;
 ///////////////////////////////////////////////////////////////////////////////////////
 					
 
-function ValidateFormValues(strFormName)
+function ValidateFormValues(strFormName, bSubmitAction)
 {
 	var bRetVal = false;
-	
+
 	var frmForm = eval("document." + strFormName);	
 	if (IsObjectNull(frmForm))
 	{
@@ -95,15 +98,18 @@ function ValidateFormValues(strFormName)
 				    var spanElement = getFormElement("span_div_error_" + arrElements[nIndex].id);
 					var imgElement = null;		    
 					
-					
-					if (!Validate(frmForm, arrElements[nIndex]))
+					var bValidationResult = Validate(frmForm, arrElements[nIndex], false, bSubmitAction);	// Third parameter = true from the html page when checking for values on the fly. 
+
+					if (!bValidationResult)
 					{
 						showDivElement(spanElement);	
 					    imgElement = getFormElement("img_div_error_" + arrElements[nIndex].id);
 						imgElement.setAttribute("title", strDisplayMessage);
 						foundFalse = true;
 										
-					}else{
+					}
+					else
+					{
 					    hideDivElement(spanElement);
 					    imgElement = getFormElement("img_div_error_" + arrElements[nIndex].id);
 					    imgElement.setAttribute("title","nothing here");
@@ -117,9 +123,12 @@ function ValidateFormValues(strFormName)
 	
 	//if a single element validateion is found to be false then return false
 	
-	if(foundFalse){
+	if(foundFalse)
+	{
 	    bRetVal = false;
-	}else{
+	}
+	else
+	{
 	    bRetVal = true;
 	}
 	return bRetVal;
@@ -127,26 +136,27 @@ function ValidateFormValues(strFormName)
 
 
 
-function Validate(frmForm, elElement,valueCheck)
+function Validate(frmForm, elElement,valueCheck, bSubmitAction)
 {
-
     var bReturnValue = false;	
 	
 	elElement.value	=	GetFormElementValue(elElement);
 
-
-	var strMessage = CheckValue(frmForm, elElement);
+	var strMessage = CheckValue(frmForm, elElement, bSubmitAction);
 	
 	if (strMessage == "")
 	{
 		bReturnValue = true;
-        allDataFormatsValidated = true;
+        //allDataFormatsValidated = true;
 	}
-	else{
+	else
+	{
 		strDisplayMessage += strMessage + "\n";
 		if(valueCheck==true && elElement.value != ""){
 		    alert("Error in Answer Format: " + strMessage);
-            allDataFormatsValidated = false;
+		    bReturnValue = false;
+		    
+            //allDataFormatsValidated = false;
 		    //elElement.value="";
 		}
 	}
@@ -155,13 +165,13 @@ function Validate(frmForm, elElement,valueCheck)
 	return bReturnValue;	
 }
 
-function CheckValue(frmForm, elElement)
+function CheckValue(frmForm, elElement, bSubmitAction)
 {
-
 	var strReturnValue = "";
 	
 	var strType			=	GetFormElementAttributeValue(frmForm, elElement, "valType",VAL_TYPE_STRING);
 	var strMandatory		=	GetFormElementAttributeValue(frmForm, elElement, "valMandatory",STRING_FALSE);
+		
 	var strSpace			=	GetFormElementAttributeValue(frmForm, elElement, "valContainsSpaces",STRING_TRUE);
 	var strMinLength		=	GetFormElementAttributeValue(frmForm, elElement, "valMinLength",STRING_ZERO);
 	var strMaxLength		=	GetFormElementAttributeValue(frmForm, elElement, "valMaxLength",STRING_ZERO);
@@ -181,7 +191,14 @@ function CheckValue(frmForm, elElement)
 	
 	if (IsStringEqual(strMandatory, STRING_TRUE) &&  !IsStringEqual(strType, VAL_TYPE_RADIO) && !IsStringEqual(strType, VAL_TYPE_AT_LEAST_ONE))
 	{
-		strReturnValue = IsMandatory(elElement);
+		if (bSubmitAction) // Check for an empty response ONLY if submitting the Form
+		{		
+			strReturnValue = IsMandatory(elElement);
+		}
+		else
+		{
+			strReturnValue = "";
+		}
 	}
 	else
 	{
@@ -196,12 +213,12 @@ function CheckValue(frmForm, elElement)
 	}
 	
 	
-	if (IsBlankString(strReturnValue)&& IsStringEqual(strMandatory, STRING_TRUE))
+	if (IsBlankString(strReturnValue) && IsStringEqual(strMandatory, STRING_TRUE))
 	{
 
 		switch(strType)
 		{
-			case VAL_TYPE_STRING			:	strReturnValue = IsString(elElement);
+			case VAL_TYPE_STRING			:	strReturnValue = IsString(elElement, bSubmitAction);
 												break;
 										
 			case VAL_TYPE_NAME				:	strReturnValue = IsValidName(elElement);
@@ -240,21 +257,14 @@ function CheckValue(frmForm, elElement)
 			case VAL_TYPE_SSN				:	strReturnValue = IsValidSsn(elElement);
 												break; 
 
-			case VAL_TYPE_RADIO				:	if (IsStringEqual(strMandatory, STRING_TRUE))
-												{
-												
-													strReturnValue = IsRadioSelected(frmForm, elElement);
-												}
+			case VAL_TYPE_RADIO				:	strReturnValue = IsRadioSelected(frmForm, elElement, bSubmitAction);												
 												break;
 												
-			case VAL_TYPE_CHECKBOX				:	if (IsStringEqual(strMandatory, STRING_TRUE))
-												{
-													strReturnValue = IsCheckBoxSelected(frmForm, elElement);
-												}
+			case VAL_TYPE_CHECKBOX			:	strReturnValue = IsCheckBoxSelected(frmForm, elElement, bSubmitAction);
 												break;												
 												
 
-			case VAL_TYPE_AT_LEAST_ONE		:	strReturnValue = AtLeastOne(frmForm, elElement);
+			case VAL_TYPE_AT_LEAST_ONE		:	strReturnValue = AtLeastOne(frmForm, elElement, bSubmitAction);
 												break;
 		}
 	}
@@ -274,7 +284,7 @@ function CheckValue(frmForm, elElement)
 	return strReturnValue;
 }
 
-function AtLeastOne(frmForm, elElement)
+function AtLeastOne(frmForm, elElement, bSubmitAction)
 {
 	var strReturnValue = "";
 	var elementNamesValue = GetFormElementAttributeValue(frmForm, elElement, "elementNames",VAL_TYPE_STRING);
@@ -310,7 +320,7 @@ function AtLeastOne(frmForm, elElement)
 		}
 	}
 	
-	if (!bFilled)
+	if (!bFilled & bSubmitAction)
 	{
 		strReturnValue = MSG_AT_LEAST_ONE_SHOULD_BE_FILLED;
 		var displayNames = strDisplayName;		
@@ -328,39 +338,34 @@ function AtLeastOne(frmForm, elElement)
 
 
 
-function IsCheckBoxSelected(frmForm, elElement)  
+function IsCheckBoxSelected(frmForm, elElement, bSubmitAction)  
 { 
-
-	
 	var strReturnValue = ""; 
 	var elName = elElement.getAttribute("name");
 	
 	var inputElementList = document.getElementsByTagName("INPUT");
 	var nLength = inputElementList.length;
-	
-	
+		
 	var nIndex = 0;
 	var bSelected = false;	
 	
 	for (nIndex = 0; nIndex<nLength; nIndex++)
-	{
-	
-	    if(inputElementList[nIndex].getAttribute("name") == elName){
-	        
+	{	
+	    if(inputElementList[nIndex].getAttribute("name") == elName)
+	    {	        
 	        //var val = inputElementList[nIndex].getAttribute("checked");
-	        var val = inputElementList[nIndex].checked
-		if(val == true || val == "checked")
-		{
-			bSelected = true;
-			break;
-		}
-	        
+	        var val = inputElementList[nIndex].checked;
+			if(val == true || val == "checked")
+			{
+				bSelected = true;
+				break;
+			}	        
 	    }
-
 	}
-	if (!bSelected)
+	
+	if (!bSelected && bSubmitAction)
 	{
-		strReturnValue = strDisplayName + MSG_SELECT_RADIO; 
+		strReturnValue = strDisplayName + MSG_SELECT_CHECKBOX; 
 	}
 			
 	return strReturnValue;
@@ -369,9 +374,8 @@ function IsCheckBoxSelected(frmForm, elElement)
 
 
 
-function IsRadioSelected(frmForm, elElement)  
+function IsRadioSelected(frmForm, elElement, bSubmitAction)  
 { 
-	
 	var strReturnValue = ""; 
 	var elName = elElement.getAttribute("name");
 	
@@ -387,32 +391,30 @@ function IsRadioSelected(frmForm, elElement)
 	for (nIndex = 0; nIndex<nLength; nIndex++)
 	{
 	
-	    if(inputElementList[nIndex].getAttribute("name") == elName){
-	        
+	    if(inputElementList[nIndex].getAttribute("name") == elName)
+	    {	        
 	        //var val = inputElementList[nIndex].getAttribute("checked");
-	        var val = inputElementList[nIndex].checked
-		if(val == true || val == "checked")
-		{
-			bSelected = true;
-			break;
-		}
-	        
+	        var val = inputElementList[nIndex].checked;
+			if(val == true || val == "checked")
+			{
+				bSelected = true;
+				break;
+			}	        
 	    }
-
 	}
+	
 	// For single radio button responses
-    if(nLength == undefined){
-
+    if(nLength == undefined)
+    {
 	    //var val = elElement.getAttribute("checked");
-	    var val = inputElementList[nIndex].checked
+	    var val = inputElementList[nIndex].checked;
 		if(val == true || val == "checked")
 		{
 			bSelected = true;
-		}
-	
+		}	
 	}
 	
-	if (!bSelected)
+	if (!bSelected && bSubmitAction)
 	{
 		strReturnValue = strDisplayName + MSG_SELECT_RADIO; 
 	}
@@ -547,12 +549,12 @@ function IsMandatory(elElement)
 	return strReturnValue; 
 } 
 
-function IsString(elElement)
+function IsString(elElement, bSubmitAction)
 {
-	
 	var strReturnValue = "";
-	if(elElement.tagName == "SELECT" && elElement.value.indexOf("SEL_X_") > -1){
-	    strReturnValue = "Selection is mandatory. Please select an option";
+	if( bSubmitAction && (elElement.tagName == "SELECT") && (elElement.value.indexOf("SEL_X_") > -1))
+	{	    
+	    strReturnValue = strDisplayName + MSG_SELECT_DROPDOWN; 
 	}
 	return strReturnValue;
 }
@@ -706,7 +708,7 @@ function IsDate(elElement, bPerformDOBCheck)
 	var strReturnValue = "";
 	var dateStr = GetFormElementValue(elElement);
 	//alert(dateStr);
-	allDataFormatsValidated = true;
+	//allDataFormatsValidated = true;
     if(dateStr != ""){
 		var datePat = /^(\d{2})(\/|-)(\d{2})\2(\d{4})$/;
 		var matchArray = dateStr.match(datePat);

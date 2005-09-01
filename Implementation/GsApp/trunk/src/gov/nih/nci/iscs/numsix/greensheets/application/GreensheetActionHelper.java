@@ -59,7 +59,7 @@ public class GreensheetActionHelper {
 
         //Check if the myportfolio option has been flagged and caused this request
         String changeMyPortFolioOption = req.getParameter("myPortfolio");
-
+    
         if (gus.isNewSession()) {
             gus.setMyPortfolio(false);
         } else if (changeMyPortFolioOption != null && changeMyPortFolioOption.equalsIgnoreCase("YES")) {
@@ -74,7 +74,6 @@ public class GreensheetActionHelper {
         } else {
             req.setAttribute("myPortfolioChecked", "");
         }
-
     }
 
     /**

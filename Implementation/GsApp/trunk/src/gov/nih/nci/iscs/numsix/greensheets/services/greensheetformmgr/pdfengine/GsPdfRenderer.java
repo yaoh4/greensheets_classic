@@ -20,7 +20,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
 import org.dom4j.*;
 import org.dom4j.io.*;
-
+ 
 import org.apache.log4j.Logger;
 
 /**
@@ -37,7 +37,7 @@ public class GsPdfRenderer {
 	
 	private java.util.Date cutOffDate2;
 
-	private GreensheetForm form;
+	private GreensheetForm form; 
 
 	private GsGrant grant;
 
@@ -132,17 +132,17 @@ public class GsPdfRenderer {
 				
 			}
 			
-			Document gsFormXml = this.generateGsFormXml(questionsXml);
-
+			Document gsFormXml = this.generateGsFormXml(questionsXml);			
+			
 			logger.debug("Printing the generateGsFormXml.xml file.");
 			this.printXmlFile("generateGsFormXml.xml", gsFormXml);
 
 			this.generatePdfReadyXml(gsFormXml);
 
-			logger.debug("Printing the pdfReadyXml.xml.xml file.");
+			logger.debug("Printing the pdfReadyXml.xml file.");
 			this.printXmlFile("pdfReadyXml.xml", gsFormXml);
 
-			FoEngine fe = new FoEngine();
+			FoEngine fe = new FoEngine(); 
 			result = fe.renderFormAsPDF(gsFormXml);
 			if (result == null) {
 				throw new GreensheetBaseException("PDF file is null");
@@ -217,9 +217,6 @@ public class GsPdfRenderer {
             DbConnectionHelper.getInstance().freeConnection(conn);
         }
 
-		
-		
-		
 		return doc;
 	}
 	
@@ -260,7 +257,7 @@ public class GsPdfRenderer {
 	
 	private Document generateGsFormXml(Document doc) throws Exception {
 
-		File xsltSrc = (File) AppConfigProperties.getInstance().getProperty(
+		File xsltSrc = (File) AppConfigProperties.getInstance().getProperty(  
 				"FORM_XML_TRANSLATOR");
 
 		TransformerFactory factory = TransformerFactory.newInstance();
@@ -270,19 +267,20 @@ public class GsPdfRenderer {
 		// Set the type and mech params
 		transformer.setParameter("paramType", grant.getType());
 		transformer.setParameter("paramMech", grant.getMech());
-
-		// now lets style the given document
+   
+		// now lets style the given document 
 		DocumentSource source = new DocumentSource(doc);
 		DocumentResult result = new DocumentResult();
 		transformer.transform(source, result);
 
-		// return the transformed document
+		// return the transformed document		
 		Document transformedDoc = result.getDocument();
+		//transformedDoc.setXMLEncoding("UTF-16");
 
 		return transformedDoc;
 
 	}
-
+ 
 	private void generatePdfReadyXml(Document doc) {
 
 		// Add aditional greensheet info

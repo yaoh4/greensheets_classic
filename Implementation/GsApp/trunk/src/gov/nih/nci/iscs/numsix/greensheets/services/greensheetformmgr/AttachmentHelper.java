@@ -182,6 +182,10 @@ class AttachmentHelper {
                                 if (pstmt != null) {
                                     pstmt.close();
                                 }
+                                
+                                if(f != null) {
+                                    f = null;                                    
+                                }
                             }
                             catch (SQLException se) {
                                 throw new GreensheetBaseException("error.savefile.sql", se);
@@ -191,11 +195,13 @@ class AttachmentHelper {
                     else if (qa.isToBeCreated()) {
                         // Create the file first. Then create the record.
                         File newFile = null;
+                        FileOutputStream fs = null;
                         try {
 //                          Create the file on the file system.
-                            FileOutputStream fs = new FileOutputStream(f);
+                            fs = new FileOutputStream(f);
                             fs.write(qa.getDocData());
                             fs.close();
+                            fs = null;
                             qa.setFilePath(rootDir + File.separator + qa.getFilename());
                             
                             newFile = new File(rootDir + File.separator + qa.getFilename()); // If db error, then delete the file maybe.
@@ -242,6 +248,19 @@ class AttachmentHelper {
                             try {
                                 if (pstmt != null) {
                                     pstmt.close();
+                                }
+                                
+                                if(f != null) {
+                                     f = null;                                    
+                                }
+                                
+                                if(newFile != null) {
+                                    newFile = null;                                    
+                                }
+                                
+                                if (fs != null) {
+                                    fs.close();
+                                    fs = null;
                                 }
                             }
                             catch (SQLException se) {

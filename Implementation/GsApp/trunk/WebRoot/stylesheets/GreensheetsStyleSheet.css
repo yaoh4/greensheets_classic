@@ -242,10 +242,10 @@ table.data th a:hover {color: black;
 	font-weight: bold; 
 	text-decoration: none;}
 table.data th.sorted {padding-left: 17px;}
-table.data th.order1 {background-image: url("../images/sort_down.gif"); 
+table.data th.order1 {background-image: url("../images/sort_up.gif"); 
 	background-position: center left; 
 	background-repeat: no-repeat;}			
-table.data th.order2 {background-image: url("../images/sort_up.gif"); 
+table.data th.order2 {background-image: url("../images/sort_down.gif"); 
 	background-position: center left; 
 	background-repeat: no-repeat;}
 

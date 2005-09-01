@@ -14,6 +14,44 @@ String userName = gus.getUser().getDisplayUserName();
 
 <script>
 
+function changePayLineOption()
+{
+	var isPayLineOptionChecked = document.frmPayLineOnly.paylineOnly.checked;
+	
+	if(isPayLineOptionChecked )
+	{
+		document.frmPayLineOnly.paylineOpt.value="YES";
+	}
+	else
+	{
+		document.frmPayLineOnly.paylineOpt.value="NO";
+	}
+	
+	document.frmPayLineOnly.submit();
+
+	//alert(document.frmPayLineOnly.paylineOpt.value);
+}
+
+function getMyPortfolio()
+{
+	var isMyPortfolioChecked = document.frmMyPortfolio.cbxMyPortfolio.checked;
+	
+	if(isMyPortfolioChecked )
+	{
+		document.frmMyPortfolio.myPortfolio.value="YES";
+	}
+	else
+	{
+		document.frmMyPortfolio.myPortfolio.value="NO";
+	}
+	
+	document.frmMyPortfolio.submit();
+
+	//alert(document.frmMyPortfolio.myPortfolio.value);
+}
+
+
+/*
 function changePayLineOption(){
 
 		var val = document.frmPayLineOnly.paylineOnly.getAttribute("checked");
@@ -45,7 +83,7 @@ function getMyPortfolio(){
 
 }
 
-
+*/
 
 
 

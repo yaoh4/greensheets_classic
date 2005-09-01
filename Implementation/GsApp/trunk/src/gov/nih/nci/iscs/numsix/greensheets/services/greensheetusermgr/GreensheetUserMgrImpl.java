@@ -20,7 +20,7 @@ import org.apache.log4j.*;
 public class GreensheetUserMgrImpl implements GreensheetUserMgr {
 
     private static final Logger logger = Logger.getLogger(GreensheetUserMgrImpl.class);
-
+ 
     /**
      * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GreensheetUserMgr#findUserByRemoteUserName(String)
      */
@@ -33,7 +33,7 @@ public class GreensheetUserMgrImpl implements GreensheetUserMgr {
         user.setRemoteUserName(userName);
         if (np.getOracleId() != null) {
             user.setOracleId(np.getOracleId());
-            this.getUserDBData(user);
+            this.getUserDBData(user);   
         } else {
             user.setRole(GsUserRole.GS_GUEST);
         }

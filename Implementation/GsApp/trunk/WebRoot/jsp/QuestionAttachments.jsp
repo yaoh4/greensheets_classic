@@ -103,9 +103,9 @@ if(filename != ''){
 
 */
 
-  function removeAttach(fileMemId, filename) {
+  function removeAttach(fileMemId) {
 
-    var bool = confirm("Are you sure you want to delete the attachment '" + filename + "'?");
+    var bool = confirm("Are you sure you want to delete the attachment?");
     if (bool) {
   		document.attachmentsForm.fileMemoryId.value = fileMemId;
   		document.attachmentsForm.method.value="deleteFile";
@@ -172,7 +172,7 @@ if(filename != ''){
 					<td>
 						<a href="javascript:viewAttach('<bean:write name="attachment" property="fileMemoryId"/>')"><img src="./images/IconView.gif" alt="View" width="15" height="15" border="0" /></a>
 						<logic:equal name="canEdit" value="true">
-	            				<a href="javascript:removeAttach('<bean:write name="attachment" property="fileMemoryId"/>', '<bean:write name="attachment" property="filename"/>')" ><img src="./images/IconDelete.gif" alt="Delete" width="15" height="15" border="0" /></a> 
+	            				<a href="javascript:removeAttach('<bean:write name="attachment" property="fileMemoryId"/>')" ><img src="./images/IconDelete.gif" alt="Delete" width="15" height="15" border="0" /></a> 
 	        				</logic:equal>	    
 					</td>
 					<td>
@@ -189,7 +189,7 @@ if(filename != ''){
 					<td>
 						<a href="javascript:viewAttach('<bean:write name="attachment" property="fileMemoryId"/>')"><img src="./images/IconView.gif" alt="View" width="15" height="15" border="0" /></a>
 						<logic:equal name="canEdit" value="true">
-	            				<a href="javascript:removeAttach('<bean:write name="attachment" property="fileMemoryId"/>', '<bean:write name="attachment" property="filename"/>')" ><img src="./images/IconDelete.gif" alt="Delete" width="15" height="15" border="0" /></a> 
+	            				<a href="javascript:removeAttach('<bean:write name="attachment" property="fileMemoryId"/>')" ><img src="./images/IconDelete.gif" alt="Delete" width="15" height="15" border="0" /></a> 
 	        				</logic:equal>	    
 					</td>
 					<td>

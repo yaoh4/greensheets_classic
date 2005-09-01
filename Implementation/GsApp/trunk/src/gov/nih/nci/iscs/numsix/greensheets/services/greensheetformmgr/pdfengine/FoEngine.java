@@ -90,6 +90,7 @@ public class FoEngine {
         transformer.transform(source, result);
 
         // return the transformed document
+        
         Document transformedDoc = result.getDocument();
 
         return transformedDoc;

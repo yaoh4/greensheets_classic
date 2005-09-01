@@ -99,6 +99,7 @@ function fileAttachments(formUid,respDefId)
 
 }
 
+/*
 function saveSubmitClose(selection)
 {
     var pocCtrl = document.frmGrantInfo.pointOfContact;
@@ -135,6 +136,69 @@ function saveSubmitClose(selection)
 	{
 		var bool = confirm("Your are leaving the current form. Unsaved changes will be lost. Click OK to continue");
         if (bool){
+            document.GreensheetForm.method.value="close";
+    	    document.GreensheetForm.submit();
+   	    }
+	}
+}
+*/
+
+
+function saveSubmitClose(selection)
+{
+    var pocCtrl = document.frmGrantInfo.pointOfContact;
+    if(pocCtrl != null){
+	    var poc = document.frmGrantInfo.pointOfContact.value;
+
+	    if(poc != "" && poc != null)
+	    {
+		    document.GreensheetForm.POC.value = poc;
+	    }
+	}
+	
+	if (selection == "SAVE")
+	{
+		var val = ValidateFormValues('GreensheetForm', false); // second parameter signifies whether the operation is SUBMIT or not. 
+		if(val)
+		{
+			document.GreensheetForm.method.value="save";
+			document.GreensheetForm.submit();
+		}
+		else
+		{
+			// Only reason is that the data format for some question is not right. 
+			var strMessage = "The form cannot be saved since the data format for some answer(s) may not be correct. The exclamation marks indcate the answer(s) that are not correct. Please check the answer(s) and try saving the form again.\n";
+			strMessage += "NOTE: Individual error messages are displayed as pop-up text when hovering over the exclamation marks with the mouse."; 
+			alert(strMessage);
+		}
+	}
+	
+	if (selection == "SUBMIT")
+	{
+		var val = ValidateFormValues('GreensheetForm', true); // second parameter signifies whether the operation is SUBMIT or not. 
+		if(val)
+		{
+			document.GreensheetForm.method.value="submit";
+			document.GreensheetForm.submit();
+			//alert("Submitting the form..actual code commented out.");
+		}
+		else
+		{
+			// Reasons - Data format may not be correct OR Not all questions have been answered.
+			var strMessage = "The form cannot be submitted due to the following reason(s):\n";
+			strMessage += "1. The data format for some answer(s) may not be correct.\n";
+			strMessage += "2. Some questions require answers.\n";
+			strMessage += "The exclamation marks indicate the answer(s) that are not correct. Please check the answer(s) and try submitting the form again.\n";
+			strMessage += "NOTE: Individual error messages are displayed as pop-up text when hovering over the exclamation marks with the mouse.";
+			alert(strMessage);
+		}
+	}
+		
+	if(selection == "CLOSE")
+	{
+		var bool = confirm("Your are leaving the current form. Unsaved changes will be lost. Click OK to continue.");
+        if (bool)
+        {
             document.GreensheetForm.method.value="close";
     	    document.GreensheetForm.submit();
    	    }

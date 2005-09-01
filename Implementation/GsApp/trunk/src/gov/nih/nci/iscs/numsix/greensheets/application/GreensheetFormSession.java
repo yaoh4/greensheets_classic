@@ -13,14 +13,14 @@ import org.apache.log4j.*;
 
 /**
  * The greensheet form session is a container for the form, grant and question attachments
- * for a particular greensheet form. A user can therefore have multiple GreensheetFormSessions
+ * for a particular greensheet form. A user can therefore have multiple GreensheetFormSessions   
  * active if they are working/viewing multiple greensheet forms at one time. 
  * 
  * 
  *  @author kpuscas, Number Six Software
  */
 public class GreensheetFormSession {
-
+    
     private GreensheetForm form;
     private GsGrant grant;
     private Map attachmentProxies = new HashMap();
