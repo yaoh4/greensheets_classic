@@ -51,8 +51,13 @@ public class FoEngine {
         try {
 
             Document foDoc = this.generateFo(srcDoc);
-
-            inputStream = new ByteArrayInputStream(foDoc.asXML().getBytes());
+            String docXml = foDoc.asXML();
+            //Replace the default UTF-8 encoding with ISO-8859-1 to take care of the special/extended character set.
+            // unfortunately, dom4j 1.4 has a bug whereby .asXML() method returns the encoding as UTF-8 only. Hence this approach.
+            //using dom4j 1.6.1 has its own set of problems.
+            
+            docXml = this.Replace(docXml, "UTF-8", "ISO-8859-1");
+            inputStream = new ByteArrayInputStream(docXml.getBytes());
             outputStream = new ByteArrayOutputStream();
 
             //Setup FOP
@@ -71,6 +76,7 @@ public class FoEngine {
         } finally {
             try {
                 inputStream.close();
+                outputStream.close();
             } catch (Exception e) {
             	throw new GreensheetBaseException("error rendering PDF",e);
             }
@@ -78,6 +84,37 @@ public class FoEngine {
         return result;
     }
 
+    
+    private String Replace(String psWord, String psReplace,
+            String psNewSeg) {
+        StringBuffer lsNewStr = new StringBuffer();
+        // Tested by DR 03/23/98 and modified
+        int liFound = 0;
+        int liLastPointer = 0;
+
+        do {
+
+            liFound = psWord.indexOf(psReplace, liLastPointer);
+
+            if (liFound < 0)
+                lsNewStr.append(psWord
+                        .substring(liLastPointer, psWord.length()));
+
+            else {
+
+                if (liFound > liLastPointer)
+                    lsNewStr.append(psWord.substring(liLastPointer, liFound));
+
+                lsNewStr.append(psNewSeg);
+                liLastPointer = liFound + psReplace.length();
+            }
+
+        } while (liFound > -1);
+
+        return lsNewStr.toString();
+    }
+    
+    
     private Document generateFo(Document formXmlDoc) throws Exception {
         File xsltSrc = (File) AppConfigProperties.getInstance().getProperty("FORM_FO_TRANSLATOR");
 
@@ -89,8 +126,7 @@ public class FoEngine {
         DocumentResult result = new DocumentResult();
         transformer.transform(source, result);
 
-        // return the transformed document
-        
+        // return the transformed document        
         Document transformedDoc = result.getDocument();
 
         return transformedDoc;

@@ -134,15 +134,15 @@ public class GsPdfRenderer {
 			
 			Document gsFormXml = this.generateGsFormXml(questionsXml);			
 			
-			logger.debug("Printing the generateGsFormXml.xml file.");
-			this.printXmlFile("generateGsFormXml.xml", gsFormXml);
+			logger.debug("Generating the generateGsFormXml.xml file.");
+			//this.printXmlFile("generateGsFormXml.xml", gsFormXml);
 
 			this.generatePdfReadyXml(gsFormXml);
 
-			logger.debug("Printing the pdfReadyXml.xml file.");
-			this.printXmlFile("pdfReadyXml.xml", gsFormXml);
+			logger.debug("Generating the pdfReadyXml.xml file.");
+			//this.printXmlFile("pdfReadyXml.xml", gsFormXml);
 
-			FoEngine fe = new FoEngine(); 
+			FoEngine fe = new FoEngine();  
 			result = fe.renderFormAsPDF(gsFormXml);
 			if (result == null) {
 				throw new GreensheetBaseException("PDF file is null");
@@ -275,19 +275,17 @@ public class GsPdfRenderer {
 
 		// return the transformed document		
 		Document transformedDoc = result.getDocument();
-		//transformedDoc.setXMLEncoding("UTF-16");
 
 		return transformedDoc;
-
 	}
- 
+	
 	private void generatePdfReadyXml(Document doc) {
 
 		// Add aditional greensheet info
 		Element additionalInfoElm = doc.getRootElement().addElement(
 				"AdditionalInfo");
 		Element generateAllQuestions = additionalInfoElm
-				.addElement("DisplayAllQuestions");
+				.addElement("DisplayAllQuestions"); 
 		generateAllQuestions.addText(this.generateAllQuestions);
 
 		Element commentOption = additionalInfoElm.addElement("CommentOption");
@@ -295,7 +293,7 @@ public class GsPdfRenderer {
 
 		Element commentOptionSepPage = additionalInfoElm
 				.addElement("CommentOptionSeperatePage");
-		commentOptionSepPage.addText(this.commentOptionSepPage);
+		commentOptionSepPage.addText(this.commentOptionSepPage); 
 
 		Element formTitle = additionalInfoElm.addElement("FormTitle");
 
@@ -349,7 +347,7 @@ public class GsPdfRenderer {
 		// set the response values for the responsedefs
 		List list = doc.selectNodes("//ResponseDef");
 
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
+		for (Iterator iter = list.iterator(); iter.hasNext();) { 
 			Element respDefElm = (Element) iter.next();
 			String respDefId = respDefElm.valueOf("@id");
 			String respDefType = respDefElm.valueOf("@type");
