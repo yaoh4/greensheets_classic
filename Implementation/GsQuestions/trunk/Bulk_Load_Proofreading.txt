@@ -1,0 +1,6 @@
+Date: September 12, 2005
+qlPC.txt--proofread against the Greensheets Usage Guide; no changes needed or made.
+qlPNC.txt--proofread against the Greensheets Usage Guide; Added 4,R42; 4,R44; 5,R56; 8,R56; 4,U42; 4,U44 and 3,F31
+qlSc.txt--proofead against the Greensheets Usage Guide; removed 3F31, 3F32 and 3F33 from the list. Those forms are based on the 
+Non-Competing form.
+qlSNC.txt--proofead against the Greensheets Usage Guide; fixed typo of 2 4,R33s; one should have been 8,R33. Added 5,R56 and 8,R56. (Sent Terry e-mail to confirm that no 4U42 and 4U44 are NOT needed. Usage Guide indicates no forms are necessary but Program has them.)
