@@ -95,6 +95,7 @@ function getMyPortfolio(){
 	<title>Greensheets</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
+	
 </head>
 <body>
 <%@ include file="/jsp/common/GlobalHeader.jsp"%> 
