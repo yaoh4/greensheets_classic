@@ -1,5 +1,16 @@
 <!-- start default footer include -->
-<br />
+<%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*" %>
+<%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*" %>
+<%@ page import="gov.nih.nci.iscs.numsix.greensheets.application.*" %>
+<%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*" %>
+<%@ page import="java.util.*" %>
+
+<%
+	String urlWorkbench1 = application.getInitParameter("urlWorkbench");
+	String urlImpac21 = application.getInitParameter("urlImpac2");
+%>
+
+<br /> 
 <br />
 <script language="javascript">
 function showAppInfo(act,event)
@@ -15,10 +26,37 @@ function showAppInfo(act,event)
 
 <table width="100%" cellspacing="0" class="footer">
 	<tr>
+		<td>
+			<table cellspacing="0" >
+				<tbody>
+					<tr>
+						<td>
+							<table cellspacing="0" class="globalNav">
+								<tbody>
+									<tr>
+										<td>
+											<span class="otherappsmenu">
+												<a class="oambutton" href="<%=urlWorkbench1%>">Workbench</a>
+											</span>
+										</td>
+										<td>
+											<span class="otherappsmenu">
+												<a class="oambutton" href="<%=urlImpac21%>">IMPAC II Applications</a>
+											</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
 		<td class="align1">
 			<img src="./images/LogoNCI.gif" alt="National Cancer Institute logo" 
 			onmouseover="javascript:showAppInfo('open',event);" onmouseout="javascript:showAppInfo('close',event);"/>
 		</td>
 	</tr>
 </table>
-<!-- end default footer include -->
+<!-- end default footer include --> 
+

@@ -25,6 +25,7 @@ function openHelp(){
 	String appEnv = DbConnectionHelper.getDbEnvironment();
 	String appVersion = application.getInitParameter("appVersion");
 	String emailLink = "mailto" + application.getInitParameter("commentsEmail") + "?subject=Greensheets";
+	
 	String urlWorkbench = application.getInitParameter("urlWorkbench");
 	String urlImpac2 = application.getInitParameter("urlImpac2");
 %>
@@ -130,11 +131,18 @@ function openHelp(){
 					<tbody>
 						<tr>
 							<td>
-								<a class="otherappsmenu" href="<%=urlWorkbench%>">Workbench</a>
+								<span class="otherappsmenu">
+									<a class="oambutton" href="<%=urlWorkbench%>">Workbench</a>
+								</span>
 							</td>
 							<td>
-								<a class="otherappsmenu" href="<%=urlImpac2%>">IMPAC II Applications</a>
+								<span class="otherappsmenu">
+									<a class="oambutton" href="<%=urlImpac2%>">IMPAC II Applications</a>
+								</span>
 							</td>
+						</tr>
+						<tr>
+							<td colspan="2" bgcolor="#99CCFF"><img src="./images/spacer.gif" width="5" height="2"> </td>
 						</tr>
 					</tbody>
 				</table>
@@ -151,7 +159,7 @@ function openHelp(){
 
 
 
-<table cellspacing="0" width="100%" class="header">
+<table cellspacing="0" width="100%" class="header" border="1">
 <!--
 	<tr class="topRow">
 		<td class="logo" colspan="2"><a href="#"><img src="./images/Logo_Greensheets.gif"  border="0" /></a></td>
