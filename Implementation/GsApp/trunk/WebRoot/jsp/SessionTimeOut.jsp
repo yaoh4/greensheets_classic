@@ -9,16 +9,13 @@
 	<script language="javascript" src="./scripts/ClientSideMethods.js"></script>
 </head>
 <body>
+<%@ include file="/jsp/common/GlobalHeader1.jsp"%> 
+
 <table cellspacing="0" width="100%" class="header">
-	<tr class="topRow">
-		<td class="logo"><a href="#"><img src="./images/LogoGreensheets.gif" alt="Greensheets logo" border="0" /></a></td>
-		<td class="align1 align4">&nbsp;<%=application.getInitParameter("buildinfo")%></td>
-	</tr>
 	<tr class="bottomRow">
 		<td class="globalNav">
 			<form name="refreshGrantsList" id="refreshGrantsList" method="post" action="/greensheets">
 				<a href="javascript: document.refreshGrantsList.submit();">Reload Greensheets</a>
-                <a href="javascript: openHelp()">Help</a>
             </form>
         </td>
 	</tr>

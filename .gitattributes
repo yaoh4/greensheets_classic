@@ -79,8 +79,10 @@ Implementation/GsApp/trunk/WebRoot/images/IconNoLocking.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconSaved.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconUnlocked.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconView.gif -text
+Implementation/GsApp/trunk/WebRoot/images/LogoGreensheets--old.gif -text
 Implementation/GsApp/trunk/WebRoot/images/LogoGreensheets.gif -text
 Implementation/GsApp/trunk/WebRoot/images/LogoNCI.gif -text
+Implementation/GsApp/trunk/WebRoot/images/Logo_Greensheets.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Logo_HHS.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavTriangle.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavTriangleBottom.gif -text
@@ -116,7 +118,9 @@ Implementation/GsApp/trunk/WebRoot/jsp/TemplateNotFound.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/AppInfo.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/DialogHeader.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalFooter.jsp -text
+Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalFooter1.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalHeader.jsp -text
+Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalHeader1.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/PopHeader.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/error.jsp -text
 Implementation/GsApp/trunk/WebRoot/scripts/CalendarMethods.js -text
@@ -129,6 +133,7 @@ Implementation/GsApp/trunk/WebRoot/scripts/plugins.js -text
 Implementation/GsApp/trunk/WebRoot/stylesheets/GreensheetsStyleSheet.css -text
 Implementation/GsApp/trunk/WebRoot/stylesheets/GreensheetsStyleSheet2.css -text
 Implementation/GsApp/trunk/WebRoot/stylesheets/fancy.css -text
+Implementation/GsApp/trunk/WebRoot/stylesheets/otherappsmenu.css -text
 Implementation/GsApp/trunk/WebRoot/stylesheets/outlook.css -text
 Implementation/GsApp/trunk/appconfig/db.properties -text
 Implementation/GsApp/trunk/appconfig/errormessages.properties -text

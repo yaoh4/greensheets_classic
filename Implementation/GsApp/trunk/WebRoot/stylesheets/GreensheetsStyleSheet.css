@@ -228,6 +228,32 @@ table.header tr.bottomRow td a:hover {background-color: white;
 	padding: 2px; 
 	text-decoration: none;}
 
+table.header tr.bottomRow1 td {border-top: 1px solid gray; 
+	padding: 0px; 
+	padding-left: 0px;
+	align:right;}
+table.header tr.bottomRow1 td a:link {background-color: #7EC722; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 0px; 
+	text-decoration: none;
+	align:right;}
+table.header tr.bottomRow1 td a:visited {background-color: #7EC722; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 0px; 
+	text-decoration: none;
+	align:right;}
+table.header tr.bottomRow1 td a:hover {background-color: white; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 0px; 
+	text-decoration: none;
+	align:right;}	
+
 /* data tables */
 table.data {border-collapse: collapse;}
 table.data th, table.data td {border: 1px solid gray; 

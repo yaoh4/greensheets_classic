@@ -4,6 +4,7 @@
 	<title>Welcome To Greensheets</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
+	<link rel="stylesheet" href="./stylesheets/otherappsmenu.css" type="text/css" />
 </head>
 <body>
 
@@ -17,6 +18,6 @@ function redirect() {
 
 <body onload="redirect()">
 
-<%@ include file="/jsp/common/DialogHeader.jsp"%>
+<%@ include file="/jsp/common/GlobalHeader1.jsp"%>
 <p>Retrieving your list of grants. Please wait.</p>
 <%@ include file="/jsp/common/GlobalFooter.jsp"%>
