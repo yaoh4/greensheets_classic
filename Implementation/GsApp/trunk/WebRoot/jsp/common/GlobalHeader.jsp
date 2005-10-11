@@ -31,59 +31,7 @@ function openHelp(){
 %>
 
 </script>
-<!--
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td nowrap><img src="./images/Logo_Greensheets.gif"  alt="Greensheets Logo"></td>
-          <td nowrap valign="bottom">&nbsp;</td>
-          <td nowrap valign="bottom"><b>User:</b> <%=userName%></td>
-          <td nowrap valign="bottom">&nbsp;</td>
-          <td nowrap valign="bottom"><b>Env: </b><%=DbConnectionHelper.getDbEnvironment()%></td>
-          <td nowrap valign="bottom">&nbsp;</td>
-          <td nowrap valign="bottom"><b>Version: </b><%=application.getInitParameter("appVersion")%></td>
-          <td nowrap valign="bottom" align="right" width="100%">
-          	<img src="./images/spacer.gif" width="60" height="5">
-            	<a href="mailto:<%=application.getInitParameter("commentsEmail")%>?subject=Greensheets">Send Comments</a>
-            	<img src="images/spacer.gif" width="5" height="5"> 
-            	<img src="images/spacer.gif" width="5" height="5"> 
-            	<img src="images/spacer.gif" width="5" height="5"> 
-            	 <a href="javascript: openHelp()">Help</a>
-            <img src="./images/spacer.gif" width="40" height="5"> 
-          </td> 
-        </tr>
-        <tr>
-          <td height="5" nowrap><img src="./images/spacer.gif" width="10" height="5"></td>
-          <td height="5" nowrap><img src="./images/spacer.gif" width="10" height="5"></td>
-          <td height="5" nowrap><img src="./images/spacer.gif" width="10" height="5"></td>
-          <td height="5" nowrap><img src="./images/spacer.gif" width="10" height="5"></td>
-          <td height="5" nowrap><img src="./images/spacer.gif" width="10" height="5"></td>
-        </tr>
-      </table>
-      
-      <table border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td bgcolor="#99CCFF">
-					<span class="otherappsmenu">
-						<a  class="oambutton" href="<%=application.getInitParameter("urlWorkbench")%>">Workbench</a> 
-					</span>
-			</td>		
-			<td><img src="./images/spacer.gif" width="5 height="5"> </td>
-			<td bgcolor="#99CCFF">
-				<span class="otherappsmenu">
-					<a class="oambutton"  href="<%=application.getInitParameter("urlImpac2")%>">IMPAC II Web Applications</a>	
-				</span>
-			</td>			      					
-		</tr>
-		<tr>
-			<td><img src="./images/Spacer.gif" width="10" height="3"></td>
-		</tr>
-		<tr>
-			<td ><img src="./images/Spacer.gif" width="10" height="3"></td>
-		</tr>
-	</table>
--->
-<!--  From Pals -->
-<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+	<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
 	<tbody>
 		<tr>
 			<td nowrap="nowrap" valign="bottom">
@@ -157,32 +105,4 @@ function openHelp(){
 	</tbody>
 </table>
 
-
-
-
-<!-- From Pals end -->
-<!--
-<table cellspacing="0" width="100%" class="header" border="0">
-	<tr class="bottomRow">
-		<td class="globalNav">
-			<form name="refreshGrantsList" id="refreshGrantsList" method="post" action="/greensheets/retrievegrants.do">
-				<a href="javascript: document.refreshGrantsList.submit();">Refresh Grants List</a>
-            </form>
-        </td>
-		<td class="align1">
-			<form name="SimpleSearch" id="SimpleSearch" method="post" action="/greensheets/searchforgrant.do">
-				Search for 
-				<select name="searchType">
-					<option value="SEARCH_GS_NUMBER">Grant Number</option>
-					<option value="SEARCH_GS_NAME">PI Name</option>
-				</select>:
-				<input type="text" name="searchText" value=" "/>
-				<a href="javascript: document.SimpleSearch.submit();">Go</a>
-			</form>
-		</td>
-	</tr>
-</table>
-<br />
-
--->
 <!-- end default header -->
