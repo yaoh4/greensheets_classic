@@ -141,8 +141,16 @@ function openHelp(){
 								</span>
 							</td>
 						</tr>
+													<!--<td colspan="2" bgcolor="#99CCFF"><img src="./images/spacer.gif" width="5" height="2"> </td>-->
 						<tr>
-							<td colspan="2" bgcolor="#99CCFF"><img src="./images/spacer.gif" width="5" height="2"> </td>
+							<!--<td colspan="2" bgcolor="#99CCFF"><img src="./images/spacer.gif" width="5" height="2"> </td>-->
+							<td  colspan="2" ></td>
+								<table width="100%" class="line" cellpadding="0" cellspacing="0">
+									<tr>
+										<td></td>
+									</tr>
+								</table>
+							</td>
 						</tr>
 					</tbody>
 				</table>
