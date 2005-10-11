@@ -35,19 +35,21 @@ public class GrantGreensheetProxy{
         this.userOracleId = user.getOracleId();
     }
 
+    private String getOnControlFlagCharacter() {
+        String onControlFlag = "";
+        if (grant.isGrantOnControl() && (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole().equals(GsUserRole.PGM_DIR))) {
+            onControlFlag = " *";
+        }
+        
+        return onControlFlag;
+    }
+    
     /**
      * Returns the grantNumber.
      * @return String
      */
     public String getGrantNumber() {
-
-        String onControlFlag = "";
-
-        if (grant.isGrantOnControl() && (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole().equals(GsUserRole.PGM_DIR))) {
-            onControlFlag = "*";
-        }
-
-        return grant.getFullGrantNumber() + onControlFlag;
+        return grant.getFullGrantNumber();// + getOnControlFlagCharacter();
 
     }
 
@@ -102,7 +104,7 @@ public class GrantGreensheetProxy{
 
     public String getPi() {
         return grant.getPi();
-    }
+    } 
 
     public String getCancerActivity() {
         return grant.getCancerActivity();
@@ -132,12 +134,12 @@ public class GrantGreensheetProxy{
 
     public String getSpecialistGreensheet() {
         if (grant.getSpecialistFormStatus() != null) {
-            return this.setGreensheetString(GreensheetGroupType.SPEC.getName());
+            return this.setGreensheetString(GreensheetGroupType.SPEC.getName()) + getOnControlFlagCharacter();
         } else {
             return null;
         }
-
     }
+    
     public String getSpecialistStatus() {
         if (grant.getSpecialistFormStatus() != null) {            
                           
@@ -145,11 +147,11 @@ public class GrantGreensheetProxy{
         } else {
             return null;
         }
-
     }
+    
     public String getProgramGreensheet() {
         if (grant.getProgramFormStatus() != null) {
-            return this.setGreensheetString(GreensheetGroupType.PGM.getName());
+            return this.setGreensheetString(GreensheetGroupType.PGM.getName()) + getOnControlFlagCharacter() ;
         } else {
             return null;
         }

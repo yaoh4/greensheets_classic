@@ -31,7 +31,7 @@ public class GreensheetActionHelper {
      * Constructor for GreensheetActionHelper.
      */
     private GreensheetActionHelper() {
-    } 
+    }  
 
     public static void setPaylineOption(HttpServletRequest req, GreensheetUserSession gus) {
 

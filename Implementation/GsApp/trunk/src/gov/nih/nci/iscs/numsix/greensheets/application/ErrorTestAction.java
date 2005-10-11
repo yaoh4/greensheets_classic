@@ -44,7 +44,7 @@ public class ErrorTestAction extends Action {
 
         } catch (Exception e) {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+        }  
 
         resp.sendError(200, "\nUser Test Passed \n Retrieve Grants Test Passed \n Retrieve Greensheet Passed");
         return null;
