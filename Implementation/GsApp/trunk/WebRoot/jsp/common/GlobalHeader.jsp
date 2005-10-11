@@ -24,7 +24,7 @@ function openHelp(){
 <%
 	String appEnv = DbConnectionHelper.getDbEnvironment();
 	String appVersion = application.getInitParameter("appVersion");
-	String emailLink = "mailto" + application.getInitParameter("commentsEmail") + "?subject=Greensheets";
+	String emailLink = "mailto:" + application.getInitParameter("commentsEmail") + "?subject=Greensheets";
 	
 	String urlWorkbench = application.getInitParameter("urlWorkbench");
 	String urlImpac2 = application.getInitParameter("urlImpac2");
@@ -86,7 +86,7 @@ function openHelp(){
 <table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
 	<tbody>
 		<tr>
-			<td nowrap="nowrap" valign="top">
+			<td nowrap="nowrap" valign="bottom">
 				<img src="./images/Logo_Greensheets.gif" alt="Greensheets" border="0" />
 			</td>
 			<td nowrap="nowrap" valign="bottom">&nbsp;</td>
@@ -141,9 +141,7 @@ function openHelp(){
 								</span>
 							</td>
 						</tr>
-													<!--<td colspan="2" bgcolor="#99CCFF"><img src="./images/spacer.gif" width="5" height="2"> </td>-->
 						<tr>
-							<!--<td colspan="2" bgcolor="#99CCFF"><img src="./images/spacer.gif" width="5" height="2"> </td>-->
 							<td  colspan="2" ></td>
 								<table width="100%" class="line" cellpadding="0" cellspacing="0">
 									<tr>
@@ -163,21 +161,12 @@ function openHelp(){
 
 
 <!-- From Pals end -->
-
-
-
-
-<table cellspacing="0" width="100%" class="header" border="1">
 <!--
-	<tr class="topRow">
-		<td class="logo" colspan="2"><a href="#"><img src="./images/Logo_Greensheets.gif"  border="0" /></a></td>
-	</tr>
--->	
+<table cellspacing="0" width="100%" class="header" border="0">
 	<tr class="bottomRow">
 		<td class="globalNav">
 			<form name="refreshGrantsList" id="refreshGrantsList" method="post" action="/greensheets/retrievegrants.do">
 				<a href="javascript: document.refreshGrantsList.submit();">Refresh Grants List</a>
-                <!-- <a href="javascript: openHelp()">Help</a> -->
             </form>
         </td>
 		<td class="align1">
@@ -194,4 +183,6 @@ function openHelp(){
 	</tr>
 </table>
 <br />
+
+-->
 <!-- end default header -->

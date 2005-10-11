@@ -24,14 +24,20 @@ function showAppInfo(act,event)
 }
 </script>
 
-<table width="100%" cellspacing="0" class="footer">
+<table width="100%" class="line">
+	<tr>
+		<td></td>
+	</tr>
+</table>
+
+<table width="100%" cellspacing="0">
 	<tr>
 		<td>
 			<table cellspacing="0" >
 				<tbody>
 					<tr>
 						<td>
-							<table cellspacing="0" class="globalNav">
+							<table cellspacing="0">
 								<tbody>
 									<tr>
 										<td>

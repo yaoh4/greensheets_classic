@@ -4,7 +4,7 @@
 <script language="javascript" src="./scripts/ClientSideMethods.js"></script>
 <table cellspacing="0" width="100%" class="header">
 	<tr class="topRow">
-		<td class="logo" colspan="2"><a href="#"><img src="./images/LogoGreensheets.gif"  border="0" /></a></td>
+		<td class="logo" colspan="2"><a href="#"><img src="./images/Logo_Greensheets.gif"  border="0" /></a></td>
 	</tr>
 	<tr class="bottomRow">
 		<td class="globalNav">&nbsp;</td>
