@@ -60,6 +60,7 @@ Implementation/GsApp/trunk/WebRoot/images/ButtonAdvancedSearch.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonGrantsList.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonHelp.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonSearch.gif -text
+Implementation/GsApp/trunk/WebRoot/images/Closed.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconAction.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconAddAttachment.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconAttachment.gif -text
@@ -87,6 +88,7 @@ Implementation/GsApp/trunk/WebRoot/images/Logo_HHS.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavTriangle.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavTriangleBottom.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavWhiteDivider.gif -text
+Implementation/GsApp/trunk/WebRoot/images/Open.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Spacer.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowd.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowl.gif -text
