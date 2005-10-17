@@ -9,6 +9,7 @@ package gov.nih.nci.iscs.numsix.greensheets.application;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.*;
 import gov.nih.nci.iscs.numsix.greensheets.services.*;
 import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.*;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionAttachment;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*;
 import java.util.*;
 
@@ -44,13 +45,35 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
             GreensheetActionHelper.setPaylineOption(req, gus);
             GreensheetActionHelper.setMyPortfolioOption(req, gus);
 
-
-            if (gus.getUser().getRole().equals(GsUserRole.GS_GUEST)) {
+// Starts with prefs
+            System.out.println("PREFS START");
+            HttpSession session = req.getSession();
+            Map userPrefs = (Map) session.getAttribute("preferences"); 
+                   
+            if(userPrefs != null) {
+                System.out.println("Count of Prefs = " + userPrefs.size());
+                                                           
+                Iterator iter = userPrefs.entrySet().iterator(); 
+               	while(iter.hasNext()) {	       	
+               	 Map.Entry mapEntry = (Map.Entry) iter.next();
+               	 System.out.println(mapEntry.getKey() + "  = " + mapEntry.getValue());
+               	}
+            } 
+            else {
+                System.out.println("User Prefs IS NULL"); 
+            } 
+             
+            System.out.println("PREFS END");
+// End of prefs            
+            
+            
+            
+            if (gus.getUser().getRole().equals(GsUserRole.GS_GUEST)) { 
                 grantList = "guestUserView";
             } else {
-
+ 
                 Map map = gMgr.getGrantsListForUser(gus.getUser(), gus.isPaylineOnly(), gus.isMyPortfolio());
-
+ 
                 gus.setGrants(map);
 
                 List list = GreensheetActionHelper.getGrantGreensheetProxyList(map, gus.getUser());
