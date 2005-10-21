@@ -18,6 +18,6 @@ function redirect() {
 
 <body onload="redirect()">
 
-<%@ include file="/jsp/common/GlobalHeader1.jsp"%>
-<p>Retrieving your list of grants. Please wait.</p>
-<%@ include file="/jsp/common/GlobalFooter.jsp"%>
+<%@ include file="/jsp/common/DialogHeader.jsp"%>
+<p>Authenticating the information and retrieving the list of grants. Please wait.</p>
+<%@ include file="/jsp/common/DialogFooter.jsp"%>
