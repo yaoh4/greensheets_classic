@@ -11,43 +11,6 @@
 GreensheetUserSession gus = (GreensheetUserSession) session.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
 String userName = gus.getUser().getDisplayUserName();
 
-
-// Preferences....
-Map userPrefs = (Map) session.getAttribute("preferences");
-System.out.println("Map Size in JSP = " + userPrefs.size());
-if(userPrefs != null) 
-{
-	System.out.println("Count of Prefs = " + userPrefs.size());
-
-	Iterator iter = userPrefs.entrySet().iterator(); 
-	while(iter.hasNext())
-	{	       	
-		Map.Entry mapEntry = (Map.Entry) iter.next();
-		System.out.println(mapEntry.getKey() + "  = " + mapEntry.getValue());
-	}
-}
-
-// Get the three options.
-String scope = userPrefs.get("greensheets.scope").toString();
-String grantType = userPrefs.get("greensheets.grantType").toString();
-String payline = userPrefs.get("greensheets.payline").toString();
-
-
-System.out.println("Values are -- " + scope + "  -- " + grantType + " -- " + payline);
-
-
-// Flag to determine the display - Preferences or the temporary search elements
-boolean displayPrefs = false;
-
-String forPrefs = application.getInitParameter("forPrefs");
-if((forPrefs != null) && forPrefs.equals("YES")) 
-{
-	displayPrefs = true;
-}
-
-// Hard code temporarily
-displayPrefs = false;
-
 %>
 
 <script>
@@ -199,70 +162,6 @@ function toggleDivAreaDisplay(divId, imgId)
 			</form>
 		</td>
 	</tr>
-	<%if (displayPrefs) {%>
-	<tr>
-		<td colspan="2" >
-			<form id="frmTest" name="frmTest">
-				<a href="javascript:toggleDivAreaDisplay('divId1', 'imgDivId1')">
-				<img border="0" id="imgDivId1" name="imgDivId1" src="./images/Open.gif" onclick="" /></a>
-				<div id="divId1" name="divId1" style="display:block">
-					<table cellpadding="3" bgcolor="#CCCCCC">
-						<tr>
-							<td valign="bottom"><strong>Grants From</strong></td>
-							<td valign="bottom"><label><input type="radio"  name="rbScope" id="rbScope" value="MP"   <%if (scope.equals("MP")) {%> checked="checked" <%} %> >My Portfolio</label></td>
-							<td valign="bottom"><label><input type="radio"  name="rbScope" id="rbScope" value="CA"   <%if (scope.equals("CA")) {%> checked="checked" <%} %> >My Cancer Activites</label></td>
-							<td valign="bottom"><label><input type="radio"  name="rbScope" id="rbScope" value="ALL"   <%if (scope.equals("ALL")) {%> checked="checked" <%} %> >All NCI Grants</label></td>
-						</tr>
-						<tr>
-							<td valign="bottom"><strong>Grant Type</strong></td>
-							<td valign="bottom"><label><input type="radio" name="rbGrantType" id="rbGrantType" value="C"   <%if (grantType.equals("C")) {%> checked="checked" <%} %>>Competing Grants</label></td>
-							<td valign="bottom"><label><input type="radio" name="rbGrantType" id="rbGrantType" value="NC"    <%if (grantType.equals("NC")) {%> checked="checked" <%} %>>Non-Competing Grants</label></td>
-							<td colspan="2" valign="bottom"><label><input type="radio" name="rbGrantType" id="rbGrantType" value="ALL"   <%if (grantType.equals("ALL")) {%> checked="checked" <%} %>>Both Competing and Non-Competing Grants</label>
-						</tr>
-						<tr>
-							<td valign="bottom"><div align="left"><strong>Budget Mechanism</strong></div></td>
-							<td colspan="3"><input name="" type="text"></td>
-						</tr>
-						<tr>
-							<td valign="bottom"><strong>Only Grants within the Payline</strong></td>
-							<td valign="bottom" colspan="2">
-								<label><input type="radio" name="rbPayline" id="rbPayline" value="YES" <%if (payline.equals("YES")) {%> checked="checked" <%} %>>Yes</label>
-								<label><input type="radio" name="rbPayline" id="rbPayline" value="NO" <%if (payline.equals("NO")) {%> checked="checked" <%} %>>No</label></td>
-						</tr>
-						<tr>
-							<td colspan="4" align="right" valign="bottom">
-								<table cellspacing="0" align="right" border="0">
-									<tr class="bottomRow1">
-										<td width="100%">&nbsp;</td>
-										<td  rowspan="2" valign="bottom" align="right" nowrap="1">
-											<table cellpadding="5" cellspacing="5" class="header">
-												<tr class="bottomRow1">
-													<td nowrap="1" class="globalNav">
-														<form name="refreshGrantsList" id="refreshGrantsList" method="post" action="/greensheets/retrievegrants.do">
-															<!--<a href="javascript:document.refreshGrantsList.submit();">Refresh Grants List</a>-->
-															<a href="#">Refresh Grants List</a>
-														</form>
-													</td>
-													<td nowrap="1" class="globalNav">
-														<form name="restorePreferences" id="restorePrefs" method="post">
-															<a href="#">Restore Preferences</a>
-														</form>
-													</td>
-												</tr>
-											</table>											
-								        </td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>	 
-				</div>
-		 	</form>
-		</td>
-	</tr>
-	<%}
-	else {
-	%>
 	<tr valign="bottom">
 		<td valign="bottom"  width="100%" nowrap="1" colspan="2">
 			<%if (request.getAttribute("SEARCH_RESULTS") == null) {%>
@@ -301,7 +200,6 @@ function toggleDivAreaDisplay(divId, imgId)
 			</table>
 		</td>
 	</tr>
-	<%}%>
 	<tr>
 		<td colspan="2" width="100%">
 			<display:table name="sessionScope.GRANT_LIST" 	requestURI="/greensheets/no_op.do" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" width="100%">

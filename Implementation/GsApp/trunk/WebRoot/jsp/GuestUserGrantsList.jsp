@@ -21,12 +21,10 @@ String userName = gus.getUser().getDisplayUserName();
 </head>
 <body>
 <%@ include file="/jsp/common/GlobalHeader.jsp"%>
-<h1>Grants List for <%=userName%></h1>
-
 
 <table border="0" cellpadding="0" cellspacing="0" >
 	<tr valign="bottom">
-		<td valign="bottom"  width="100%" nowrap="1"><h1>Specialist Grants List for <%=userName%></h1></td>
+		<td valign="bottom"  width="100%" nowrap="1"><h1>Grants List for <%=userName%></h1></td>
 		<td align="right" valign="bottom" nowrap="1">
 			<form name="SimpleSearch" id="SimpleSearch" method="post" action="/greensheets/searchforgrant.do">
 				<table>
