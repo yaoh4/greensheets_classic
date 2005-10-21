@@ -44,7 +44,7 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
 
             GreensheetActionHelper.setPaylineOption(req, gus);
             GreensheetActionHelper.setMyPortfolioOption(req, gus);
-
+/*
 // Starts with prefs
             System.out.println("PREFS START");
             HttpSession session = req.getSession();
@@ -65,8 +65,8 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
              
             System.out.println("PREFS END");
 // End of prefs            
-            
-            
+      */      
+             
             
             if (gus.getUser().getRole().equals(GsUserRole.GS_GUEST)) { 
                 grantList = "guestUserView";
