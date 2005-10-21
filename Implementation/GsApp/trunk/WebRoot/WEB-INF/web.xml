@@ -12,7 +12,7 @@
   </context-param>
   <context-param>
     <param-name>appBuild</param-name>  
-    <param-value>b09.02.05</param-value>
+    <param-value>b10.21.05</param-value>
   </context-param>
   <context-param>
     <param-name>showDebugOnError</param-name>   
@@ -33,6 +33,10 @@
 	<context-param>
 		<param-name>urlImpac2</param-name>
 			<param-value>http://impacii.nih.gov/webapps/index.cfm</param-value>
+	</context-param>
+	<context-param>
+		<param-name>forPrefs</param-name>
+			<param-value>NO</param-value>
 	</context-param>
 
 
