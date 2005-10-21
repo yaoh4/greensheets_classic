@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
 </head>
 <body>
-
+<%@ include file="/jsp/common/DialogHeader.jsp"%>
 <table cellspacing="0" width="100%" class="header">
 	<tr class="topRow">
 		<td class="logo"><a href="#"><img src="./images/LogoGreensheets.gif" alt="Greensheets logo" border="0" /></a></td>
@@ -63,6 +63,6 @@ if(session.getAttribute("list") == null || request.getParameter("refreshList")!=
 
 </display:table>
 
-<%@ include file="/jsp/common/GlobalFooter.jsp"%>
+<%@ include file="/jsp/common/DialogFooter.jsp"%>
 </body>
 </html>

@@ -36,6 +36,16 @@ String payline = userPrefs.get("greensheets.payline").toString();
 System.out.println("Values are -- " + scope + "  -- " + grantType + " -- " + payline);
 
 
+// Flag to determine the display - Preferences or the temporary search elements
+boolean displayPrefs = false;
+
+String forPrefs = application.getInitParameter("forPrefs");
+if((forPrefs != null) && forPrefs.equals("YES")) 
+{
+	displayPrefs = true;
+}
+
+
 %>
 
 <script>
@@ -187,13 +197,13 @@ function toggleDivAreaDisplay(divId, imgId)
 			</form>
 		</td>
 	</tr>
+	<%if (displayPrefs) {%>
 	<tr>
 		<td colspan="2" >
 			<form id="frmTest" name="frmTest">
 				<a href="javascript:toggleDivAreaDisplay('divId1', 'imgDivId1')">
 				<img border="0" id="imgDivId1" name="imgDivId1" src="./images/Open.gif" onclick="" /></a>
 				<div id="divId1" name="divId1" style="display:block">
-					<!--Expanded Criteria -->
 					<table cellpadding="3" bgcolor="#CCCCCC">
 						<tr>
 							<td valign="bottom"><strong>Grants From</strong></td>
@@ -241,14 +251,16 @@ function toggleDivAreaDisplay(divId, imgId)
 								        </td>
 									</tr>
 								</table>
-							<!--<img src="images/RefreshList.gif"><img src="images/RestorePref.gif" border="0"></td>-->
+							</td>
 						</tr>
 					</table>	 
 				</div>
 		 	</form>
 		</td>
 	</tr>
-	<!--
+	<%}
+	else {
+	%>
 	<tr valign="bottom">
 		<td valign="bottom"  width="100%" nowrap="1" colspan="2">
 			<%if (request.getAttribute("SEARCH_RESULTS") == null) {%>
@@ -281,14 +293,13 @@ function toggleDivAreaDisplay(divId, imgId)
 									</form>
 								</td>
 							</tr>
-						</table>
-						
+						</table>						
 			        </td>
 				</tr>
 			</table>
 		</td>
 	</tr>
-	-->
+	<%}%>
 	<tr>
 		<td colspan="2" width="100%">
 			<display:table name="sessionScope.GRANT_LIST" 	requestURI="/greensheets/no_op.do" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" width="100%">

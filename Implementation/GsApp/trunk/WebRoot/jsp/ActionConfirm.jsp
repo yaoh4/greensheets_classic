@@ -9,10 +9,10 @@
 </head>
 
 <body>
-<%@ include file="/jsp/common/PopHeader.jsp"%>
+<%@ include file="/jsp/common/DialogHeader.jsp"%>
 
 <p><h3><%=request.getAttribute("ACTION_CONFIRM_MESSAGE")%></h3></p>
 
-<%@ include file="/jsp/common/GlobalFooter.jsp"%>
+<%@ include file="/jsp/common/DialogFooter.jsp"%>
 </body>
 </html>

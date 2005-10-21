@@ -121,9 +121,7 @@ Implementation/GsApp/trunk/WebRoot/jsp/common/AppInfo.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/DialogFooter.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/DialogHeader.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalFooter.jsp -text
-Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalFooter1.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalHeader.jsp -text
-Implementation/GsApp/trunk/WebRoot/jsp/common/GlobalHeader1.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/PopHeader.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/error.jsp -text
 Implementation/GsApp/trunk/WebRoot/scripts/CalendarMethods.js -text

@@ -9,9 +9,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
 </head>
-<body>
+<body> 
 
-<%@ include file="/jsp/common/DialogHeader.jsp"%>
+<%@ include file="/jsp/common/DialogHeader.jsp"%> 
 <!-- begin body content -->
 <h1>Greensheet Not Found</h1>
 <p>
@@ -21,6 +21,6 @@
     Please e-mail the NCI GAB Greensheets e-mail group (in the Global Address List) if you feel that it should be included
 </p>
 <!-- end body content -->
-<%@ include file="/jsp/common/GlobalFooter.jsp"%>
+<%@ include file="/jsp/common/DialogFooter.jsp"%>
 </body>
 </html>

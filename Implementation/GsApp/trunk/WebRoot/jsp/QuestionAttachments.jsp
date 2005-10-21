@@ -213,6 +213,6 @@ if(filename != ''){
 	</p>
 </html:form>
 <!-- end body content -->
-<%@ include file="/jsp/common/GlobalFooter1.jsp"%>
+<%@ include file="/jsp/common/DialogFooter.jsp"%>
 </body>
 </html>

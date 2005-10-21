@@ -76,6 +76,6 @@ Technical Info
 
 
 
-<%@ include file="/jsp/common/GlobalFooter.jsp"%>
+<%@ include file="/jsp/common/DialogFooter.jsp"%>
 </body>
 </html>

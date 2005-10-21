@@ -9,7 +9,7 @@
 	<script language="javascript" src="./scripts/ClientSideMethods.js"></script>
 </head>
 <body>
-<%@ include file="/jsp/common/GlobalHeader1.jsp"%> 
+<%@ include file="/jsp/common/DialogHeader.jsp"%> 
 
 <table cellspacing="0" width="100%" class="header">
 	<tr class="bottomRow">
@@ -24,6 +24,6 @@
 
 Your user session has timed out. Please select the Reload Greensheets button.
 
-<%@ include file="/jsp/common/GlobalFooter.jsp"%>
+<%@ include file="/jsp/common/DialogFooter.jsp"%>
 </body>
 </html>

@@ -52,6 +52,6 @@
 </html:form>
 <!-- End Print Options Form -->
 
-<%@ include file="/jsp/common/GlobalFooter1.jsp"%>
+<%@ include file="/jsp/common/DialogFooter.jsp"%>
 </body>
 </html>

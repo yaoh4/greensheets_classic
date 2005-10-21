@@ -5,11 +5,6 @@
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*" %>
 <%@ page import="java.util.*" %>
 
-<%
-	String urlWorkbench1 = application.getInitParameter("urlWorkbench");
-	String urlImpac21 = application.getInitParameter("urlImpac2");
-%>
-
 <br /> 
 <br />
 <script language="javascript">
