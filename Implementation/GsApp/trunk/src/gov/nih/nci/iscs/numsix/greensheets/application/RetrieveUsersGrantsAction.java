@@ -44,29 +44,6 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
 
             GreensheetActionHelper.setPaylineOption(req, gus);
             GreensheetActionHelper.setMyPortfolioOption(req, gus);
-/*
-// Starts with prefs
-            System.out.println("PREFS START");
-            HttpSession session = req.getSession();
-            Map userPrefs = (Map) session.getAttribute("preferences"); 
-                   
-            if(userPrefs != null) {
-                System.out.println("Count of Prefs = " + userPrefs.size());
-                                                           
-                Iterator iter = userPrefs.entrySet().iterator(); 
-               	while(iter.hasNext()) {	       	
-               	 Map.Entry mapEntry = (Map.Entry) iter.next();
-               	 System.out.println(mapEntry.getKey() + "  = " + mapEntry.getValue());
-               	}
-            } 
-            else {
-                System.out.println("User Prefs IS NULL"); 
-            } 
-             
-            System.out.println("PREFS END");
-// End of prefs            
-      */        
-              
             
             if (gus.getUser().getRole().equals(GsUserRole.GS_GUEST)) { 
                 grantList = "guestUserView";
