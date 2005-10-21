@@ -65,13 +65,13 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
              
             System.out.println("PREFS END");
 // End of prefs            
-      */      
+      */        
               
             
             if (gus.getUser().getRole().equals(GsUserRole.GS_GUEST)) { 
                 grantList = "guestUserView";
             } else {
- 
+  
                 Map map = gMgr.getGrantsListForUser(gus.getUser(), gus.isPaylineOnly(), gus.isMyPortfolio());
  
                 gus.setGrants(map);
@@ -88,7 +88,7 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
                     grantList = "programGrantsList";
                 } else if (gus.getUser().getRole().equals(GsUserRole.SPEC)) {
                     grantList = "specialistGrantsList";
-                }
+                } 
             }
         }
 
