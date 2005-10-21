@@ -11,6 +11,7 @@
 <%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean"%>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Greensheets</title>
