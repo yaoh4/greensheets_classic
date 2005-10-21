@@ -45,6 +45,8 @@ if((forPrefs != null) && forPrefs.equals("YES"))
 	displayPrefs = true;
 }
 
+// Hard code temporarily
+displayPrefs = false;
 
 %>
 
