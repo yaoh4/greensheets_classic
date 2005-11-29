@@ -8953,7 +8953,7 @@
 							<TypeMech type="3" mech="U43"/>
 							<TypeMech type="3" mech="U44"/>
 						</GrantTypeMechs>
-						<QText>The Commercialization Plan (formerly known as the Product Develpoment Plan) is: </QText>
+						<QText>The Commercialization Plan (formerly known as the Product Development Plan) is: </QText>
 						<QInstructions/>
 						<ResponseDefsList>
 							<ResponseDef id="PCQ_541_RD_CM_1334" type="COMMENT"/>
@@ -36762,7 +36762,7 @@
 			<TypeMech type="7" mech="U44"/>
 			<TypeMech type="9" mech="U44"/>
 		</GrantTypeMechs>
-		<QText>The Commercialization Plan (formerly known as the Product Develpoment Plan) is: </QText>
+		<QText>The Commercialization Plan (formerly known as the Product Development Plan) is: </QText>
 		<QInstructions/>
 		<ResponseDefsList>
 			<ResponseDef id="PCQ_73_RD_CM_217" type="COMMENT"/>
@@ -38634,7 +38634,6 @@
 			<TypeMech type="9" mech="S06"/>
 			<TypeMech type="1" mech="U09"/>
 			<TypeMech type="2" mech="U09"/>
-			<TypeMech type="3" mech="U09"/>
 			<TypeMech type="6" mech="U09"/>
 			<TypeMech type="7" mech="U09"/>
 			<TypeMech type="9" mech="U09"/>
