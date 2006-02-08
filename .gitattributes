@@ -212,9 +212,6 @@ Implementation/GsApp/trunk/build/testing/reports/testSave21104948355227.html -te
 Implementation/GsApp/trunk/build/testing/results.xml -text
 Implementation/GsApp/trunk/build/testing/webtestTaskdefs.properties -text
 Implementation/GsApp/trunk/build/user.properties -text
-Implementation/GsApp/trunk/dist/Install.txt -text
-Implementation/GsApp/trunk/dist/greensheets.war -text
-Implementation/GsApp/trunk/dist/greensheetsAppConfig.zip -text
 Implementation/GsApp/trunk/model/ArchitectureModel.mdx -text
 Implementation/GsApp/trunk/model/ImplementationModel.mdx -text
 Implementation/GsApp/trunk/src/ApplicationResources.properties -text
