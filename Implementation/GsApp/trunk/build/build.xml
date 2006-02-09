@@ -145,8 +145,8 @@ directories.
     <javac 
         classpath="${project.classpath}" 
         srcdir="${src.java.dir}"
-        destdir="${java.classes.dir}" />
-        
+        destdir="${java.classes.dir}"
+	    debug="${javac.debug}"/>
     <copy todir="${java.classes.dir}">
         <fileset dir="${src.java.dir}" excludes="**/*.java"/>
     </copy>     
