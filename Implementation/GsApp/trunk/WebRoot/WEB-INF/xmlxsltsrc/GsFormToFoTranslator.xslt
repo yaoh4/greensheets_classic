@@ -47,6 +47,9 @@
             <fo:page-sequence master-reference="QuestionPage">
                 <!-- header -->
                 <fo:static-content flow-name="xsl-region-before">
+<!-- ghh added 2/13/06 -->
+					<fo:block text-align="end" font-size="8pt" font-family="serif">Grant <xsl:value-of select="//AdditionalInfo/GrantNumber"/> </fo:block> 
+<!--  end ghh  -->
                     <fo:block text-align="end" font-size="8pt" font-family="serif">Page <fo:page-number/> of  <fo:page-number-citation ref-id="LastPage"/>
                         <fo:block>
                             <fo:leader leader-pattern="rule" leader-length="100%" rule-style="solid" rule-thickness="1pt"/>

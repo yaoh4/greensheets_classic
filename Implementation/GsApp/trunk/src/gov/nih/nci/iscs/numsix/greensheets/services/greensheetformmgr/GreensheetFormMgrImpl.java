@@ -79,8 +79,9 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		dh.saveGreensheetFormData(form, grant, user);
 		dh.changeGreensheetFormStatus(form, GreensheetStatus.SUBMITTED, user);
-		dh.setGreensheetFormSubmitter(form, user);
-
+/** commented out the following invocation b/c combined method with above - ghh 3/9/06
+ *	dh.setGreensheetFormSubmitter(form, user);
+ */
 	}
 
 	/**

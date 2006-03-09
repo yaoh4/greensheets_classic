@@ -123,10 +123,10 @@ and javadocs
 ********************************************************************-->
 <target name="clean"
         description="cleans all build files including .class, .jar, .war, and javadocs">
-    <delete includeEmptyDirs="true">
+    <delete includeemptydirs="true">
         <fileset dir="${java.classes.dir}" includes="**/*"/>
     </delete>
-    <delete includeEmptyDirs="true">
+    <delete includeemptydirs="true">
         <fileset dir="${distribution.dir}" includes="**/*"/>
     </delete>
 </target>
@@ -221,7 +221,7 @@ directories.
 
     <!-- Deploy Local: deploy distribution files to local app server -->
     <target name="deploy" depends="build">        
-        <unzip src="${distribution.dir}/${app.config.zip}" dest="${deploy.local.jrun.conf.dir}/${app.name}" overwrite="true"/>            
+        <unzip src="${distribution.dir}/${app.config.zip}" dest="${deploy.local.jrun.conf.dir}/greensheets" overwrite="true"/>            
         <copy file="${distribution.dir}/${app.name.war}" tofile="${deploy.local.jrun.dir}/${app.name.war}"/>
     </target>
     

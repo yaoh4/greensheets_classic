@@ -288,11 +288,12 @@ public class GreensheetFormDataHelper {
         PreparedStatement pstmt = null;
         try {
             conn = DbConnectionHelper.getInstance().getConnection(user.getOracleId());
-            String updateSql = "update forms_t set form_status =? where id=?";
-            logger.debug("changeStatusSql " + updateSql);
+            String updateSql = "update forms_t set form_status =?, submitted_user_id =?, submitted_date=sysdate where id=?";
+            logger.debug("changeStatusSql and setSubmitterSql" + updateSql);
             pstmt = conn.prepareStatement(updateSql);
             pstmt.setString(1, newStatus.getName());
-            pstmt.setInt(2, form.getFormId());
+            pstmt.setString(2, user.getOracleId());
+            pstmt.setInt(3, form.getFormId());
             pstmt.executeUpdate();
 
         } catch (SQLException se) {
@@ -311,7 +312,7 @@ public class GreensheetFormDataHelper {
         }
 
     }
-
+    /* ghh commented out the following method so as to combine it with the preceding method 3/3/06
     void setGreensheetFormSubmitter(GreensheetForm form, GsUser user)
             throws GreensheetBaseException {
         Connection conn = null;
@@ -340,7 +341,7 @@ public class GreensheetFormDataHelper {
             DbConnectionHelper.getInstance().freeConnection(conn);
         }
     }
-
+*/
     private void getGreensheetFormAnswers(GreensheetForm form) throws GreensheetBaseException {
         Connection conn = null;
         Statement stmt = null;
