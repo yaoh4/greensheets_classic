@@ -568,8 +568,18 @@
                         <xsl:attribute name="id">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type!='FILE' and @type!='COMMENT']/@id"/></xsl:attribute>
                         <xsl:attribute name="src"><xsl:value-of select="$varImagePath"/>images/IconError.gif</xsl:attribute>
                         <xsl:attribute name="title">Some Text</xsl:attribute>
-                    </img>
+                    </img>					
                 </span>
+				<span style="display:none">
+                    <xsl:attribute name="id">span_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type ='COMMENT']/@id"/></xsl:attribute>
+                    <img border="0">
+                        <xsl:attribute name="name">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type='COMMENT']/@id"/></xsl:attribute>
+                        <xsl:attribute name="id">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type='COMMENT']/@id"/></xsl:attribute>
+                        <xsl:attribute name="src"><xsl:value-of select="$varImagePath"/>images/IconError.gif</xsl:attribute>
+                        <xsl:attribute name="title">Some Text</xsl:attribute>
+                    </img>				
+                </span>
+				
                 <xsl:call-template name="DisplaySubQuestionIcon">
                     <xsl:with-param name="pQuestionId" select="$pQuestionId"/>
                 </xsl:call-template>
@@ -668,7 +678,7 @@
         <xsl:value-of select="$varVelocityDisabledString"/>
         -->
         <xsl:text>onChange="Validate(document.GreensheetForm,this,true)" </xsl:text>
-        <xsl:text> performValidation="" valType="typeString" displayName="Comment" valMaxLength="2000" valMandatory="true"</xsl:text>
+        <xsl:text> performValidation="</xsl:text><xsl:value-of select="$paramValidation"/> <xsl:text>" valType="typeString" displayName="Comment" valMaxLength="2000" valMandatory="true"</xsl:text>
         <xsl:text disable-output-escaping="yes">&gt;</xsl:text>
         <xsl:value-of select="$varVelocityString"/>
         <xsl:text disable-output-escaping="yes">&lt;/textarea&gt; </xsl:text>
