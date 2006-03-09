@@ -1,0 +1,494 @@
+<html>
+<head>
+<title>PopCalendar eXtremely Perfect 7.0 DHTML Engine - www.calendarxp.net</title>
+<style type="text/css">
+.cxpNS {text-align:left;}
+.cxpLT {text-decoration:line-through;}
+.cxpLTB {text-decoration:line-through; font-weight:bold;}
+.cxpFB {font-weight:bold;}
+</style>
+<script type='text/javascript'>
+// Making any modification to the following scripts is a breach of the license agreement and will get yourself into a lawsuit eventually!
+//== PopCalendarXP 7.0.172 Commercial Edition,  Copyright 2001-2003 CalendarXP.net, LIMING WENG
+//== Release date: 2003.05.12    website - http://www.calendarxp.net
+var gd=new Date(), gToday=[gd.getFullYear(),gd.getMonth()+1,gd.getDate()];
+var ua=navigator.userAgent.toLowerCase();
+var MAC=ua.indexOf('mac')!=-1;
+var NN4=true, OP=OP6=IE5=IE4=IE=KO3=false;
+var gfSelf=this;
+var gTheme=this.name.split(":");
+var gCurMonth=eval(gTheme[0]);
+var gContainer=self;
+var fHoliday,fOnChange,fAfterSelected,fOnDrag,gEvent,gcOtherDayBG;
+var _agenda=[], popkey=["Lite"], flatkey=["Lite"];
+var gbInvertBold=gbInvertBorder=gbFlatBorder=gbShareAgenda=false;
+var MILLIDAY=86400000;
+
+
+function fCalibrate(y,m) {
+	if (m<1) { y--; m+=12; }
+	else if (m>12) { y++; m-=12; }
+	return [y,m];
+}
+
+function fAddEvent(y,m,d,message,action,bgcolor,fgcolor,bgimg,boxit,html) {
+	_agenda[y+"-"+m+"-"+d]=[message,action,bgcolor,fgcolor,bgimg,boxit,html];
+}
+
+function fGetEvent(y,m,d) {
+	var ag=_agenda[y+"-"+m+"-"+d];
+	if (ag) return ag.slice(0);
+	return null;
+}
+
+function fRemoveEvent(y,m,d) {
+	_agenda[y+"-"+m+"-"+d]=null;
+}
+
+var _nn4_css=["CalHead","CalCell","CellAnchor","WeekHead","WeekCol","MonthNav","CalTop",
+"CalMiddle","CalBottom","CalTitle","FreeDiv","Today","PopAnchor","PopMenu","PopMenuItem"];
+var _nn4_ids=["outerTable","innerDiv"];
+document.write("<scr"+"ipt src='"+gTheme[1]+".js' type='text/javascript'></scr"+"ipt>");
+</script>
+<script>document.write("<scr"+"ipt src='"+(gTheme[4]?gTheme[4]:"plugins.js")+"' type='text/javascript'></scr"+"ipt>");</script>
+<script>
+var _isAS=gTheme[2]&&gTheme[2].substring(0,6)=="share[";
+if (gbShareAgenda==true) {
+	if (!gContainer._cxp_agendas) gContainer._cxp_agendas=_agenda;
+	else _agenda=gContainer._cxp_agendas;
+	if (_isAS) fHoliday=eval(gTheme[2].split('[')[1].split(']')[0]).fHoliday;
+}
+if (gTheme[2]&&!_isAS) document.write("<scr"+"ipt src='"+gTheme[2]+"' type='text/javascript'></scr"+"ipt>");
+</script>
+<script>
+for (var i=0; i<_nn4_css.length; i++) {
+	eval("document.classes."+_nn4_css[i]+".all.borderWidths=function(){}");
+	eval("document.classes."+_nn4_css[i]+".all.paddings=function(){}");
+	eval("document.classes."+_nn4_css[i]+".all.margins=function(){}");
+}
+for (var i=0; i<_nn4_ids.length; i++) {
+	eval("document.ids."+_nn4_ids[i]+".borderWidths=function(){}");
+	eval("document.ids."+_nn4_ids[i]+".paddings=function(){}");
+	eval("document.ids."+_nn4_ids[i]+".margins=function(){}");
+}
+</script>
+<script>document.write("<lin"+"k rel='stylesheet' type='text/css' href='"+gTheme[1]+".css'>");</script>
+<script>document.write("<scr"+"ipt src='li"+"cen"+"ce' type='text/javascript'></scr"+"ipt>");</script>
+</head>
+<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
+<script type='text/javascript'>
+gdSelect=gdSelect.slice(0); gBegin=gBegin.slice(0); gEnd=gEnd.slice(0);
+gCurMonth=fCalibrate(gCurMonth[0],gCurMonth[1]);
+var gdBegin,gdEnd,gRange,gcbMon,gcbYear,gdCtrl,gLay;
+var gcTemp=gcCellBG;
+var giSat=gbEuroCal?5:6;
+var giSun=gbEuroCal?6:0;
+if (gbEuroCal) gWeekDay=gWeekDay.slice(1).concat(gWeekDay[0]);
+var _cal=[];
+for (var i=0;i<6;i++) { _cal[i]=[]; for (var j=0;j<7;j++) _cal[i][j]=[]; }
+var gDays=[31,31,28,31,30,31,30,31,31,30,31,30,31];
+
+function fDragIt(y,m,d,aStat) {
+	return fOnDrag&&fOnDrag(y,m,d,0);
+}
+
+function fRepaint() {
+	fSetCal(gCurMonth[0],gCurMonth[1],0,false);
+}
+
+function fPopCalendar(dateCtrl,range,posLayerId) {
+	gLay=posLayerId?eval("self.document."+posLayerId):null;
+	if (gdCtrl!=dateCtrl)
+		gdCtrl=dateCtrl;
+	else if (gfSelf.visibility=="show") {
+		fHideCal();
+		return;
+	}
+	var s=fParseDate(gdCtrl.value);
+	if (s==null) {
+		if (gdSelect[2]==0||gdCtrl.value=="") {
+			s=eval(gTheme[0]);
+			gdCtrl.value="";
+		} else {
+			s=gdSelect;
+			gdCtrl.value=fFormatDate(s[0],s[1],s[2]);
+		}
+	} else {
+		gdCtrl.value=fFormatDate(s[0],s[1],s[2]);
+		gdSelect=s;
+	}
+	fInitRange(range);
+	if (gRange[2]&&fIsOutRange(s[0],s[1])) s=gRange[2];
+	if (!fSetCal(s[0],s[1],0,true)) {
+		gdCtrl.value="";
+		fHideCal();
+		return;
+	}
+	gfSelf.visibility="hide";
+	var p,oh;
+	if (gbFixedPos) {
+		p=gPosOffset;
+		oh=0;
+	} else {
+		var pc=gLay?gLay.document.anchors:self.document.anchors;
+		var aname=gdCtrl.name+"dummy";
+		for (var i=0;i<pc.length;i++)
+			if (pc[i].name.split(":")[0]==aname) break;
+		if (i==pc.length) { alert("Expected NN4 localizer <a name='"+aname+":27'> </a> not found!"); return; }
+		var a=pc[i];
+		p=[a.x+(gLay?gLay.left:0),a.y+(gLay?gLay.top:0)];
+		oh=parseInt(a.name.split(":")[1],10);
+		var h=oh+gfSelf.clip.height;
+		if (gbAutoPos) {
+			var xo=self.pageXOffset;
+			var yo=self.pageYOffset;
+			var tmp=self.innerWidth-gfSelf.clip.width+xo-16;
+			p[0]=p[0]<xo?xo+1:p[0]>tmp?tmp:p[0];
+			tmp=self.innerHeight+yo-h;
+			if (p[1]>tmp&&(!gbPopDown||p[1]-yo+oh>=h)) p[1]-=h;
+		} else if (!gbPopDown) p[1]-=h;
+		p[0]+=gPosOffset[0];
+		p[1]+=gPosOffset[1];
+	}
+	fToggle(self.document, "show");
+	with (gfSelf) {
+		pageX=p[0];
+		pageY=oh+p[1];
+		fToggle(self.document, "hide");
+		visibility="show";
+	}
+}
+
+function fToggle(doc, stat) {
+	var ls=doc.layers;
+	for (var i=0; i<ls.length; i++)
+		if (ls[i].name.substring(0,6)=="toggle")
+			ls[i].visibility=stat;
+		else if (ls[i].layers.length)
+			fToggle(ls[i], stat);
+}
+
+function fHideCal() {
+	gfSelf.visibility="hide";
+	fToggle(self.document, "show");
+}
+
+function fInitRange(r) {
+	gRange=r?r:[];
+	var rb=gRange[0]?r[0]:gBegin;
+	gdBegin=new Date(rb[0],rb[1]-1,rb[2]);
+	gRange[0]=rb;
+	var re=gRange[1]?r[1]:gEnd;
+	gdEnd=new Date(re[0],re[1]-1,re[2]);
+	gRange[1]=re;
+}
+
+function fParseDate(ds) {
+	var i,r=null;
+	if (ds) {
+		var pd=ds.split(gsSplit);
+		if (pd.length==3) {
+			var m=pd[giDatePos==1?0:1];
+			for (i=0; (i<12)&&(gMonths[i].substring(0,3).toLowerCase()!=m.substring(0,3).toLowerCase())&&(i+1!=m); i++);
+			if (i<12) {
+				var y=parseInt(pd[giDatePos==2?0:2].substring(0,4),10);
+				var pf=Math.floor(gEnd[0]/100)*100;
+				r=[y<100?y>gEnd[0]%100?pf-100+y:pf+y:y,i+1,parseInt(pd[giDatePos],10)];
+			} else return null;
+		} else return null;
+		var td=new Date(r[0],r[1]-1,r[2]);
+		if (isNaN(td)||td.getMonth()!=r[1]-1) return null;
+	}
+	return r;
+}
+
+function fFormatDate(y,m,d){
+	var M=giMonthMode==0?gbPadZero&&m<10?"0"+m:m:giMonthMode==1?gMonths[m-1]:gMonths[m-1].substring(0,giMonthMode);
+	var D=gbPadZero&&d<10?"0"+d:d;
+	var sy=y%100;
+	var Y=gbShortYear?sy<10?"0"+sy:sy:y;
+	switch (giDatePos) {
+		case 0: return D+gsSplit+M+gsSplit+Y;
+		case 1: return M+gsSplit+D+gsSplit+Y;
+		case 2: return Y+gsSplit+M+gsSplit+D;
+	}
+}
+
+function fGetAgenda(y,m,d,taint) {
+	var s=fCalibrate(y,m),cm=gCurMonth,oor=false;
+	var def=["",gsAction,gcCellBG,null,guCellBGImg,false,gsCellHTML];
+	if (taint) if ((giShowOther&4)&&(s[0]<cm[0]||s[0]==cm[0]&&s[1]<cm[1])||(giShowOther&8)&&(s[0]>cm[0]||s[0]==cm[0]&&s[1]>cm[1]))
+		return null;
+	var ag=fHoliday?fHoliday(s[0],s[1],d):fGetEvent(y,m,d);
+	if (ag==null) ag=def;
+	else {
+		for (var i=0;i<7;i++) {
+			if (gAgendaMask[i]!=-1) ag[i]=gAgendaMask[i];
+			if (ag[i]==null&&i!=1) ag[i]=def[i];
+		}
+		if (taint&&s[1]!=cm[1]&&!(giShowOther&1)) {
+			def[0]=ag[0]; def[1]=ag[1]; ag=null; ag=def;
+		}
+	}
+	if (taint&&s[1]!=cm[1]) {
+		if (gcOtherDayBG&&ag[2]==gcCellBG) ag[2]=gcOtherDayBG;
+		ag[3]=gcOtherDay;
+	}
+	for (var i=3; i<gRange.length; i++)
+		if (gRange[i][2]==d&&gRange[i][1]==s[1]&&gRange[i][0]==s[0])
+			{ oor=true; break; }
+	if (oor||!fValidRange(s[0],s[1],d)) {
+		ag[0]=gsOutOfRange; ag[1]=null;
+		if (guOutOfRange) ag[4]=guOutOfRange;
+	}
+	return ag;
+}
+
+function fGetDOW(y,m,d) {
+	var dow=new Date(y,m-1,d).getDay();
+	if (gbEuroCal)
+		if (--dow<0) dow=6;
+	return dow;
+}
+
+function fGetWeekNo(y,m,d) {
+	var dow=fGetDOW(y,1,1);
+	return Math.ceil(((Date.UTC(y,m-1,d)-Date.UTC(y,0,1))/MILLIDAY+dow-6)/7)+(dow<=3?1:0);
+}
+
+function fW2Date(y,w,wd) { // w > 0, wd > 0
+	var dow=fGetDOW(y,1,1);
+	if (dow<=3) w--;
+	var date=new Date(new Date(y,0,1)-0+(w*7+wd-dow-1)*MILLIDAY);
+	return [date.getFullYear(),date.getMonth()+1,date.getDate()];
+}
+
+function fDate2W(y,m,d) {
+	var w=fGetWeekNo(y,m,d), wd=fGetDOW(y,m,d)+1;
+	if (w==0) { y--; w=fGetWeekNo(y,12,31); }
+	else if (w>52) {
+		var w1=fGetWeekNo(y+1,1,1);
+		if (w1>0) { y++; w=w1; }
+	}
+	return [y,w,wd];
+}
+
+function fValidRange(y,m,d) {
+	var dt=new Date(y,m-1,d);
+	return (dt>=gdBegin)&&(dt<=gdEnd);
+}
+
+function fGetDays(y) {
+	gDays[2]=y%4==0&&y%100!=0||y%400==0?29:28;
+	return gDays;
+}
+
+function fBuildCal(y,m) {
+	var days=fGetDays(y),iDay1=fGetDOW(y,m,1);
+	var iLast=days[m-1]-iDay1+1,iDate=1,iNext=1;
+	for (var d=0;d<7;d++) {
+		_cal[0][d][0]=d<iDay1?m-1:m;
+		_cal[0][d][1]=d<iDay1?iLast+d:iDate++;
+	}
+	for (var w=1;w<6;w++)
+		for (var d=0;d<7;d++) {
+			_cal[w][d][0]=iDate<=days[m]?m:m+1;
+			_cal[w][d][1]=iDate<=days[m]?iDate++:iNext++;
+		}
+}
+
+function fIsOutRange(y,m) {
+	return (y>gRange[1][0]||y<gRange[0][0]||y==gRange[0][0]&&m<gRange[0][1]||y==gRange[1][0]&&m>gRange[1][1]);
+}
+
+function fCheckRange(y,m) {
+	if (fIsOutRange(y,m)) {
+		if (gsOutOfRange!="") alert(gsOutOfRange);
+		return false;
+	}
+	return true;
+}
+
+function fSetCal(y,m,d,bTriggerOnChg) {
+	var t=fCalibrate(parseInt(y,10),parseInt(m,10));
+	y=t[0];
+	m=t[1];
+	if (!fCheckRange(y,m)||bTriggerOnChg&&fOnChange&&fOnChange(y,m,d)) {
+		if (gcbMon) gcbMon.options[gCurMonth[1]-1].selected=true;
+		if (gcbYear) gcbYear.options[gCurMonth[0]-gBegin[0]].selected=true;
+		return false;
+	}
+	if (d>0) fUpdSelect(y,m,d);
+	fDrawCal(y,m);
+	return true;
+}
+
+function fUpdSelect(y,m,d) {
+	gdSelect[0]=y; gdSelect[1]=m; gdSelect[2]=d;
+}
+
+function fSetDate(y,m,d,taint) {
+	var ag=fGetAgenda(y,m,d,taint);
+	if (ag==null||ag[1]==null) return false;
+	if (!fSetCal(y,m,d,true)) return false;
+	gdCtrl.value=fFormatDate(y,m,d);
+	if (gbAutoClose) fHideCal();
+	eval(ag[1]);
+	if (fAfterSelected) fAfterSelected(y,m,d);
+	return true;
+}
+
+function fPrevMonth() {
+	return fSetCal(gCurMonth[0],gCurMonth[1]-1,0,true);
+}
+
+function fNextMonth() {
+	return fSetCal(gCurMonth[0],gCurMonth[1]+1,0,true);
+}
+
+function fHint(y,m,d) {
+	var ag=fGetAgenda(y,m,d,true);
+	self.status=ag?ag[0]:"";
+}
+
+function flic() {
+	var sh=eval("sel"+"f.loc"+"ation.h"+"ost"),sk=eval("po"+"pke"+"y"),ak,ls=sh.length,l;
+	for(var j=0;j<sk.length;j++){ak=[parseInt(sk[j].substr(sk[j].length-2,2),10)];if(ak[0]==0||!sh||sh=="lo"+"calh"+"ost")return true;
+	else{l=ak[0]==1?ls:ak[0];if(l>ls||l<ls&&sh.charCodeAt(ls-l-1)!=46)continue;for(var i=1;i<=l;i++)ak[i]=sh.charCodeAt(ls-l+i-1);
+	if(ak[0]<10)ak[0]="0"+ak[0];if("2"+ak.reverse().join("")==sk[j])return true;}}return false;
+}
+
+var _sWC=document.classes.WeekCol.all.backgroundColor,_sWH=document.classes.WeekHead.all.backgroundColor,_sCH=document.classes.CalHead.all.backgroundColor;
+var _sLyr="' height='"+(giHeadHeight-giHeadTop)+"' top='"+giHeadTop+"'>",
+_sWH="<TD "+(_sWH?"bgcolor="+_sWH:"")+"><ilayer><layer class='WeekHead' width='"+giWeekWidth+_sLyr,
+_sCH="<TD "+(_sCH?"bgcolor="+_sCH:"")+"><ilayer><layer class='CalHead' width='"+giCellWidth+_sLyr,
+_sWC="<TD "+(_sWC?"bgcolor="+_sWC:"")+"><ilayer><layer class='WeekCol' width='"+giWeekWidth+"' height='"+(giCellHeight-giWeekTop)+"' top='"+giWeekTop+"'>",
+_sLyrTD="</layer></ilayer></TD>",
+_ss=["<TD valign=top",
+" bgcolor='",
+"><ilayer><layer class='CalCell' width='"+giCellWidth+"' height='"+giCellHeight+"' ",
+" onmouseover='if(gbFocus){gcTemp=this.bgColor;this.bgColor=gcToggle;}fHint(",
+");' onmouseout='if(gbFocus)this.bgColor=gcTemp;' ",
+"background='",
+" ><A class='CellAnchor' href='javascript:void(0)' onmouseover='fHint(",
+");return true;' onmousedown='gEvent=event;if(!fDragIt(",
+",0))fSetDate(",
+",true);return false;' ><FONT color='",
+" class='cxpLTB'",
+" class='cxpLT'",
+" class='cxpFB'",
+"</FONT></A>"];
+
+function fDrawCal(y,m) {
+	var td,ti,htm,bo,ag,i,c,c1,dayNo,dc,cbg,isT,isS,weekNo,cd,ex,bfb,sCellDate;
+	var ms=giMarkSelected,ht=giMarkToday;
+	gCurMonth[0]=y; gCurMonth[1]=m;
+	fBuildCal(y,m);
+	gfSelf.visibility="hide";
+	with (document) {
+		clear(); open();
+		var a=["<BODY leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 bgcolor='",gcCalBG,"'><TABLE id='outerTable' ",gsOuterTable,"><FORM name='_cxp_topForm'>"];
+		if (!gbHideTop)
+		if (giDCStyle==2)
+			a.push("<TR><TD class='CalTop' nowrap><SPAN class='CalTitle'>",eval(gsCalTitle),"</SPAN></TD></TR>");
+		else {
+			a.push("<TR><TD class='CalTop' nowrap><table border=0 cellspacing=0 cellpadding=0 width='100%'><tr>");
+			if (giDCStyle==1) {
+				a.push("<TD align='left' nowrap><A href='javascript:void(0)' onmousedown='gEvent=event;fPrevMonth();return false;' onmouseover='return true;' class='MonthNav'>",gsNavPrev,"</A></TD><TD align='center' class='CalTitle' nowrap>");
+				a.push(eval(gsCalTitle));
+				a.push("</TD><TD align='right' nowrap><A href='javascript:void(0)' onmousedown='gEvent=event;fNextMonth();return false;' onmouseover='return true;' class='MonthNav'>",gsNavNext,"</A></TD></tr></table></TD></TR>");
+			} else {
+				a.push("<TD align='left' nowrap>",gsNavPrev,"</TD>");
+				var mstr=["<TD class='CalTitle' align='center' nowrap><SELECT name='MonSelect' class='CalTitle' onchange='gEvent=event;fSetCal(gcbYear.options[gcbYear.selectedIndex].value,gcbMon.options[gcbMon.selectedIndex].value,0,true)'>"];
+				for (i=0;i<12;i++) {
+					mstr.push("<OPTION value='",i+1,"'>",gMonths[i],"</OPTION>");
+				}
+				mstr.push("</SELECT></TD>"); mstr=mstr.join('');
+				var ystr=["<TD class='CalTitle' align='center' nowrap><SELECT name='YearSelect' class='CalTitle' onchange='gEvent=event;fSetCal(gcbYear.options[gcbYear.selectedIndex].value,gcbMon.options[gcbMon.selectedIndex].value,0,true)'>"];
+				for(i=gBegin[0];i<=gEnd[0];i++) {
+					ystr.push("<OPTION value='",i,"'>",eval(gsYearInBox),"</OPTION>");
+				}
+				ystr.push("</SELECT></TD>"); ystr=ystr.join('');
+				if (gbDCSeq)
+					a.push(mstr,ystr);
+				else
+					a.push(ystr,mstr);
+				a.push("</TD><TD align='right' nowrap>",gsNavNext,"</TD></tr></table></TD></TR>");
+			}
+		}
+		if (!flic()) gdEnd=new Date(0);
+		a.push("</FORM><TR class='CalMiddle'><TD class='cxpNS'><ilayer><layer id='innerDiv' ");
+		if(guCalBG)a.push("background='",guCalBG,"'");
+		a.push(" bgColor='",gcCalFrame,"'><TABLE width='100%' ",gsInnerTable," ><TR>");
+		for (var wd=0,i=0; i<8; i++)
+			if (i==giWeekCol) a.push(_sWH,gsWeekHead,_sLyrTD);
+			else if (i!=7||giWeekCol>=0) a.push(_sCH,gWeekDay[wd++],_sLyrTD);
+		a.push("</TR>");
+		if (giWeekCol>=0) weekNo=fDate2W(y,m,1)[1];
+		for (var week=0; week<6; week++) {
+			ex=week>3&&_cal[week][0][1]<20;
+			if (gbShrink2fit&&ex) continue;
+			a.push("<TR>");
+			for (var day=-1,i=0; i<8; i++) 
+			if (i==giWeekCol) {
+				a.push(_sWC,(giShowOther&8)&&!(giShowOther&16)&&ex?"&nbsp;":eval(gsWeeks),_sLyrTD);
+				if (m==1&&weekNo>50||m==12&&weekNo>=52&&weekNo>=fDate2W(y,12,31)[1]) weekNo=0;
+				weekNo++;
+			} else if (i!=7||giWeekCol>=0) {
+				day++; dayNo=_cal[week][day][1];
+				cd=fCalibrate(y,_cal[week][day][0]);
+				isS=gdSelect[2]==dayNo&&gdSelect[1]==cd[1]&&gdSelect[0]==cd[0];
+				isT=gToday[2]==dayNo&&gToday[1]==cd[1]&&gToday[0]==cd[0];
+				ag=fGetAgenda(cd[0],cd[1],dayNo,true);
+				if (ag==null) {
+					dc=giShowOther&16&&(week<2&&(giShowOther&4)||week>3&&(giShowOther&8))?gcOtherDay:gcOtherDayBG;
+					cbg=null; bo=td=false; ti=htm=""; c=c1=gcOtherDayBG;
+				} else {
+					cbg=ag[4]; dc=ag[3]==null?day==giSun?gcSun:day==giSat?gcSat:gcWorkday:ag[3];
+					if (cd[1]==m||(giShowOther&2)) {
+						c=isS&&(ms&2)?gcBGSelected:isT&&(ht&2)?gcBGToday:ag[2];
+						c1=isS&&(ms&1)?gcBGSelected:ag[2]!=gcCellBG&&ag[5]!=true?ag[2]:isT&&(ht&1)?gcBGToday:gcCellBG;
+						bo=isS&&(ms&4)||isT&&(ht&4);
+						dc=isS&&(ms&8)?gcFGSelected:isT&&(ht&8)?gcFGToday:dc;
+						cbg=isS&&(ms&16)?guSelectedBGImg:isT&&(ht&16)?guTodayBGImg:cbg;
+					} else {
+						bo=false; c=ag[2]; c1=ag[5]==true?gcCellBG:c;
+					}
+					bo=gbBoldAgenda&&ag[0]&&ag[0]!=gsOutOfRange||bo;
+					htm=ag[6]?"<BR>"+ag[6]:"";
+					td=ag[1]==null;
+					ti=ag[0];
+					if (gcSunBG&&day==giSun) { c1=c1==gcCellBG?gcSunBG:c1; c=c==gcCellBG?gcSunBG:c; }
+					if (gcSatBG&&day==giSat) { c1=c1==gcCellBG?gcSatBG:c1; c=c==gcCellBG?gcSatBG:c; }
+				}
+				if (gbInvertBold) bo=!bo;
+				sCellDate=cd[0]+","+cd[1]+","+dayNo;
+				a.push(_ss[0]);if(c)a.push(_ss[1]+c+"'");a.push(_ss[2]);if(c1)a.push(_ss[1]+c1+"'");
+				a.push(_ss[3],sCellDate,_ss[4]);if(cbg)a.push(_ss[5]+cbg+"'");
+				a.push(_ss[6],sCellDate,_ss[7],sCellDate,_ss[8],sCellDate,_ss[9],dc,"'",td?bo?_ss[10]:_ss[11]:bo?_ss[12]:"",">",eval(gsDays),_ss[13],htm,_sLyrTD);
+				ag=null;
+			}
+			a.push("</TR>");
+		}
+		a.push("</TABLE></layer></ilayer></TD></TR>");
+		if (!gbHideBottom) a.push("<FORM name='_cxp_bottomForm'><TR><TD class='CalBottom' nowrap>",gsBottom,"</TD></TR></FORM>");
+		a.push("</TABLE>");
+		for (i=0;i<giFreeDiv;i++)
+			a.push("<layer class='FreeDiv' id='freeDiv",i,"' visibility='hide'></layer>");
+		a.push("</BODY>");
+		write(a.join(''));
+		if (giDCStyle==0) {
+			gcbMon=document.forms["_cxp_topForm"].MonSelect; 
+			gcbYear=document.forms["_cxp_topForm"].YearSelect; 
+			gcbMon.options[m-1].selected=true;
+			gcbYear.options[y-gBegin[0]].selected=true;
+		}
+		close();
+	}
+	gfSelf.visibility="show";
+}
+if (!gTheme[3]) gTheme[3]="gfPop";
+eval("self."+gTheme[3]+"=gfSelf");
+</script>
+</body>
+</html>

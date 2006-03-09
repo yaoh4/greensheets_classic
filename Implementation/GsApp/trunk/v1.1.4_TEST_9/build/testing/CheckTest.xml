@@ -1,0 +1,38 @@
+<project name="GritsCheckTest" basedir="." default="main">
+    <!-- sets the needed tasks definition -->
+    <taskdef file="./webtestTaskdefs.properties">
+        <classpath>
+            <fileset dir="./lib" includes="**/*.jar"/>
+        </classpath>
+    </taskdef>
+    <target name="main">
+        <property name="webtest.connectioninitializer" value="com.canoo.webtest.security.SunJsseBaseConnectionInitializer"/>
+        <property name="webtest.truststore.file" value="C:\dev\jdks\jdk1.4.2_05\jre\lib\security\cacerts"/>
+        <property name="reports.dir" value="./reports"/>
+        <delete file="results.txt"/>
+        <delete>
+            <fileset dir="." includes="*.html"/>
+            <fileset dir="." includes="results.xml"/>
+        </delete>
+        <testSpec name="CheckTest">
+            <!-- set the default test configuration -->
+            <config host="i2e-test.nci.nih.gov" protocol="https" port="443" basepath="greensheets"
+                summary="true" resultfile="results.xml"/>
+            <steps>
+                <invoke stepid="GsLogin" url="/" save="${reports.dir}/testSave" username="puscask" password="bflat0"/>
+                <verifytitle stepid="Check Page exists" text="Welcome To Greensheets"/>
+                <invoke stepid="nextpage" url="/retrievegrants.do" save="${reports.dir}/testSave2"
+                    username="puscask" password="bflat0"/>
+                <verifytext stepid="Check Page exists" text="Portfolio"/>
+            </steps>
+        </testSpec>
+
+    </target>
+    
+    <target name="genReport">
+         <ant antfile="ApplyXSL.xml" target="applySingle">
+             <property name="reports.dir" value="./reports"/>
+        </ant>   
+    
+    </target>
+</project>
