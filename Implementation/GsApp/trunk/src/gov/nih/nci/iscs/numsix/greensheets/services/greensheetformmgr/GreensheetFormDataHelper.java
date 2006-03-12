@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2003, Number Six Software, Inc.
+ * Copyright(c) 2003, Number Six Software, Inc.
  * Licensed under The Apache Software License, http://www.apache.org/licenses/LICENSE
  * Written for National Cancer Institute
  */

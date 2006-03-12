@@ -11,7 +11,7 @@
         <xsl:choose>
             <xsl:when test="//AdditionalInfo/CommentOption = 'YES' ">YES</xsl:when>
             <xsl:otherwise>NO</xsl:otherwise>
-        </xsl:choose>
+        </xsl:choose> 
     </xsl:variable>
     <xsl:variable name="varDisplayCommentsOnSeparatePage">
         <xsl:choose>
