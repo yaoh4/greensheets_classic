@@ -29,7 +29,7 @@ Author: Kevin A. Puscas - Number Six Software 2003
     
     
 <!--
-########### App project Properties Settings - Edit as Needed ###########
+########### App project Properties Settings - Edit as Needed #############
 -->    
     
     <!-- change for to specific project values -->
@@ -123,10 +123,10 @@ and javadocs
 ********************************************************************-->
 <target name="clean"
         description="cleans all build files including .class, .jar, .war, and javadocs">
-    <delete includeemptydirs="true">
+    <delete includeEmptyDirs="true">
         <fileset dir="${java.classes.dir}" includes="**/*"/>
     </delete>
-    <delete includeemptydirs="true">
+    <delete includeEmptyDirs="true">
         <fileset dir="${distribution.dir}" includes="**/*"/>
     </delete>
 </target>
