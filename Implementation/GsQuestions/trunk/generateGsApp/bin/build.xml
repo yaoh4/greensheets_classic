@@ -19,7 +19,8 @@
         <jar destfile="generateGs.jar" basedir="./classes">
             <manifest>
                 <attribute name="Main-Class" value="gov.nih.nci.iscs.numsix.gsTools.gsgenerator.GenerateGS"/>
-                <attribute name="Class-Path" value="./lib/xml-apis.jar ./lib/dom4j-1.4.jar ./lib/xalan.jar ./lib/xercesImpl.jar ./lib/classes12.jar"/>
+                <attribute name="Class-Path" value="./endorsed/xml-apis.jar ./lib/dom4j-1.4.jar ./endorsed/xalan.jar ./endorsed/xercesImpl.jar ./lib/classes12.jar"/>
+                <!-- <attribute name="Class-Path" value="./lib/xml-apis.jar ./lib/dom4j-1.4.jar ./lib/xalan.jar ./lib/xercesImpl.jar ./lib/classes12.jar"/> -->
             </manifest>
         </jar>
     </target>

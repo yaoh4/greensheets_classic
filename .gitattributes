@@ -563,6 +563,9 @@ Implementation/GsQuestions/trunk/generateGsApp/.project -text
 Implementation/GsQuestions/trunk/generateGsApp/GsForm.xsd -text
 Implementation/GsQuestions/trunk/generateGsApp/bin/build.xml -text
 Implementation/GsQuestions/trunk/generateGsApp/bin/jarDescription.jardesc -text
+Implementation/GsQuestions/trunk/generateGsApp/endorsed/xalan.jar -text
+Implementation/GsQuestions/trunk/generateGsApp/endorsed/xercesImpl.jar -text
+Implementation/GsQuestions/trunk/generateGsApp/endorsed/xml-apis.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/generateGs.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/lib/classes12.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/lib/dom4j-1.4.jar -text
