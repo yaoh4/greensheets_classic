@@ -1012,10 +1012,6 @@ Implementation/GsQuestions/trunk/scripts/CalendarMethods.js -text
 Implementation/GsQuestions/trunk/scripts/ClientSideMethods.js -text
 Implementation/GsQuestions/trunk/scripts/fancy.js -text
 Implementation/GsQuestions/trunk/stylesheets/GreensheetsStyleSheet.css -text
-Implementation/GsQuestions/trunk/vm/PC_1_R43.vm -text
-Implementation/GsQuestions/trunk/vm/PC_1_U10.vm -text
-Implementation/GsQuestions/trunk/vm/SC_1_U10.vm -text
-Implementation/GsQuestions/trunk/vm/_init.txt -text
 Implementation/GsQuestions/trunk/xml/PC_Questions.xml -text
 Implementation/GsQuestions/trunk/xml/PNC_Questions.xml -text
 Implementation/GsQuestions/trunk/xml/PNC_Questions_orig.xml -text
