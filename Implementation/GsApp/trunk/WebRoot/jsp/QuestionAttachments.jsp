@@ -69,7 +69,7 @@
   			//fileNameOnly = fnArray[fnArray.length-1];
 			if (fileNameOnly.length >= 100)
 			{
-				alert("The name of the file you are attaching is exceeds 100 characters. Please rename the file and attach again");
+				alert("The name of the file you are attaching exceeds 100 characters. Please rename the file and attach again");
 			}
 			else
 			{
@@ -91,7 +91,7 @@ if(filename != ''){
   			var fnArray = filename.split("\<%=java.io.File.separator%>");
   			fileNameOnly = fnArray[fnArray.length-1];
 				if (fileNameOnly.length >= 100) {	
-					alert("The name of the file you are attaching is exceeds 100 characters. Please rename the file and attach again");
+					alert("The name of the file you are attaching exceeds 100 characters. Please rename the file and attach again");
 				}else{
   				document.attachmentsForm.method.value="attachFile";
   				document.attachmentsForm.submit();
