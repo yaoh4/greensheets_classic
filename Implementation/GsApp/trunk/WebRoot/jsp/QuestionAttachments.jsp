@@ -32,7 +32,6 @@
   	// Replace whitespace in fileNameOnly.
   	
   	fileNameOnly = fileNameOnly.replace(/^\s+|\s+$/g, "");
-
   	// Check for duplicate file names.
   	var bIsDuplicateFileName = false;
   	var allFileNames = document.attachmentsForm.allValidFileNames.value;
@@ -43,18 +42,20 @@
   		{
   			var countFiles = arrFilenames.length;
   			var index = 0;
+
   			for (index=0; index<countFiles; index++)
   			{
   				var existingFileName = arrFilenames[index];
   				existingFileName = existingFileName.replace(/^\s+|\s+$/g, "");
-  				if(fileNameOnly == existingFileName)
+//ghh added: && (fileNameOnly != null) on 3/27/06
+  				if((fileNameOnly == existingFileName) && (fileNameOnly != ""))
   				{
   					bIsDuplicateFileName = true;
   				}  				
   			}  		
   		}  	
   	}
-  	
+	
   	if(bIsDuplicateFileName)
   	{
   		alert("A file with the specified name already exists. Please rename the file before attempting to attach.");
