@@ -1050,4 +1050,38 @@ function OnClickClearAll()
 	    setViewHideAllComments(false);
         allDataFormatsValidated = true;
 	}
+	
+
+function toggleDivAreaDisplay(divId, imgId)
+	{		
+		// Get the div element. 
+		var divElement = document.getElementById(divId);	
+		// If element is not null, toggle the display of the element.
+		if( (divElement != null) && (divElement != 'undefined') )
+		{
+			//set up the variables.
+			var displayText = "block";
+			var imgSrc = "Open.gif";
+			
+			if(divElement.style.display == "block")
+			{
+				displayText = "none";
+				imgSrc = "Closed.gif";			
+			}
+
+			// Show or hide the Div Area
+			divElement.style.display = displayText;			
+			
+			// Change the icon 
+			// First get the image element
+			var imgElement = document.getElementById(imgId);
+			if( (imgElement != null) && (imgElement != 'undefined') )
+			{
+				imgElement.src = imgSrc;	
+			}
+		
+		}		
+	}
+
+	
 }
