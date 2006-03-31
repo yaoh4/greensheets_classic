@@ -52,6 +52,10 @@ function openHelp(){
 			<td style="vertical-align: bottom; white-space: nowrap; width: 100%; text-align: right;">
 				<img src="./images/Spacer.gif" width="60" height="5" />
 					<div style="text-align: right;">
+						<a href="jsp/common/Preferences.jsp">Preferences</a>
+						<img src="./images/Spacer.gif" width="5" height="5">
+						<img src="./images/Spacer.gif" width="5" height="5">
+						<img src="./images/Spacer.gif" width="5" height="5">					
 						<a href="<%=emailLink%>">Send Comments</a>
 						<img src="./images/Spacer.gif" width="5" height="5">
 						<img src="./images/Spacer.gif" width="5" height="5">
