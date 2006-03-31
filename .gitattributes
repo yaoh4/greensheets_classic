@@ -60,6 +60,7 @@ Implementation/GsApp/trunk/WebRoot/images/ButtonAdvancedSearch.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonGrantsList.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonHelp.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonSearch.gif -text
+Implementation/GsApp/trunk/WebRoot/images/Cancel.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Closed.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconAction.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconAddAttachment.gif -text
@@ -89,12 +90,14 @@ Implementation/GsApp/trunk/WebRoot/images/NavTriangle.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavTriangleBottom.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavWhiteDivider.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Open.gif -text
+Implementation/GsApp/trunk/WebRoot/images/SavePreferences.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Spacer.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowd.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowl.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowr.gif -text
 Implementation/GsApp/trunk/WebRoot/images/close.gif -text
 Implementation/GsApp/trunk/WebRoot/images/down.gif -text
+Implementation/GsApp/trunk/WebRoot/images/editpreferences.gif -text
 Implementation/GsApp/trunk/WebRoot/images/gs_IconSortAscending.gif -text
 Implementation/GsApp/trunk/WebRoot/images/gs_IconSortDescending.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ico_file_excel.png -text
