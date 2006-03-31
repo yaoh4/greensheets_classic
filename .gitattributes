@@ -145,6 +145,7 @@ Implementation/GsApp/trunk/appconfig/db.properties -text
 Implementation/GsApp/trunk/appconfig/errormessages.properties -text
 Implementation/GsApp/trunk/appconfig/greensheetconfig.properties -text
 Implementation/GsApp/trunk/appconfig/ldap.properties -text
+Implementation/GsApp/trunk/appconfig/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormToFoTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormXmlTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PC_Questions.3.23.05.xml -text
