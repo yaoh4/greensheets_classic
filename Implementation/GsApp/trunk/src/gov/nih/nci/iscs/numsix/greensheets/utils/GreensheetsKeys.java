@@ -40,6 +40,8 @@ public final class GreensheetsKeys {
     // Database Properties Object
     public static final String KEY_DB_PROPERTIES = "DB_PROPERTIES";
 
+    // Preferences Properties
+    public static final String KEY_PREFERENCES_PROPERTIES = "PREFERENCES_PROPERTIES";
 
     // Ldap Properties Object
     public static final String KEY_LDAP_PROPERTIES = "LDAP_PROPERTIES";

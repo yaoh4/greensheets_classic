@@ -6,59 +6,73 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.fwrk;
 
-import gov.nih.nci.iscs.numsix.greensheets.utils.*;
-import java.util.*;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigLoader;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
+import gov.nih.nci.iscs.numsix.greensheets.utils.DbConnectionHelper;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
-import javax.servlet.*;
-import org.apache.struts.action.*;
-import org.apache.struts.config.*;
+import java.util.HashMap;
+import java.util.Properties;
+
+import javax.servlet.ServletException;
+
+import org.apache.struts.action.ActionServlet;
+import org.apache.struts.action.PlugIn;
+import org.apache.struts.config.ModuleConfig;
 
 /**
- *  Struts plugin for application initialization routines
+ * Struts plugin for application initialization routines
  * 
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 public class GreensheetsInitPlugIn implements PlugIn {
 
-    /**
-     * @see org.apache.struts.action.PlugIn#destroy()
-     */
-    public void destroy() {
-    }
+	/**
+	 * @see org.apache.struts.action.PlugIn#destroy()
+	 */
+	public void destroy() {
+	}
 
-    /**
-     * @see org.apache.struts.action.PlugIn#init(ActionServlet, ModuleConfig)
-     */
-    public void init(ActionServlet serv, ModuleConfig arg1) throws ServletException {
+	/**
+	 * @see org.apache.struts.action.PlugIn#init(ActionServlet, ModuleConfig)
+	 */
+	public void init(ActionServlet serv, ModuleConfig arg1)
+			throws ServletException {
 
-        String root = System.getProperty("conf.dir");
+		String root = System.getProperty("conf.dir");
 
-        String configPath = root + "/" + serv.getServletContext().getInitParameter("CONFIG_PATH") + "/";
-        
-        try {
- 
-            
-            AppConfigLoader.initErrorMessages(serv.getServletContext().getRealPath("WEB-INF"));
-            AppConfigLoader.initAppConfigProperties(configPath);
-            AppConfigLoader.initDbProperties(configPath);
-            AppConfigLoader.loadQuestionsXmlSrc(serv.getServletContext().getRealPath("WEB-INF"));
+		String configPath = root + "/"
+				+ serv.getServletContext().getInitParameter("CONFIG_PATH")
+				+ "/";
 
-            System.out.println("\n<<<<<<<<< AppConfig Init Complete >>>>>>>>\n");
+		try {
 
-            DbConnectionHelper.getInstance().initOracleConnectionPool(
-                (Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_DB_PROPERTIES));
+			AppConfigLoader.initErrorMessages(serv.getServletContext()
+					.getRealPath("WEB-INF"));
+			AppConfigLoader.initAppConfigProperties(configPath);
+			AppConfigLoader.initDbProperties(configPath);
+			AppConfigLoader.initPreferencesProperties(configPath);
+			AppConfigLoader.loadQuestionsXmlSrc(serv.getServletContext()
+					.getRealPath("WEB-INF"));
 
-            System.out.println("\n<<<<<<<<<< Database Init Complete >>>>>>>>\n");
-            
-             AppConfigProperties.getInstance().addProperty("TEMPLATE_RESOURCE_MAP", new HashMap());
+			System.out
+					.println("\n<<<<<<<<< AppConfig Init Complete >>>>>>>>\n");
 
+			DbConnectionHelper.getInstance().initOracleConnectionPool(
+					(Properties) AppConfigProperties.getInstance().getProperty(
+							GreensheetsKeys.KEY_DB_PROPERTIES));
 
-        } catch (Exception e) {
-            throw new ServletException(e);
-        }
+			System.out
+					.println("\n<<<<<<<<<< Database Init Complete >>>>>>>>\n");
 
-    }
+			AppConfigProperties.getInstance().addProperty(
+					"TEMPLATE_RESOURCE_MAP", new HashMap());
 
+		} catch (Exception e) {
+			throw new ServletException(e);
+		}
+
+	}
 
 }
