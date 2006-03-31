@@ -7,37 +7,59 @@
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.pdfengine;
 
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.utils.*;
+import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GsGrant;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetForm;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
+import gov.nih.nci.iscs.numsix.greensheets.utils.DbConnectionHelper;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
-import java.io.*;
-import java.net.*;
-import java.sql.*;
-import java.util.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.net.MalformedURLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Calendar;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Properties;
 
-import javax.xml.transform.*;
-import javax.xml.transform.stream.*;
-import org.dom4j.*;
-import org.dom4j.io.*;
- 
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamSource;
+
 import org.apache.log4j.Logger;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.io.DocumentResult;
+import org.dom4j.io.DocumentSource;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
 
 /**
- * This class is responsible for retrieving the question xml and adding the 
- * required additional information such as the  users answers and form header
+ * This class is responsible for retrieving the question xml and adding the
+ * required additional information such as the users answers and form header
  * informaiton. The Xml is then sent to the FoEngine for rendering the PDF
  * 
  * @author kpuscas, Number Six Software
  */
 public class GsPdfRenderer {
 
- 
 	private java.util.Date cutOffDate;
-	
+
 	private java.util.Date cutOffDate2;
 
-	private GreensheetForm form; 
+	private GreensheetForm form;
 
 	private GsGrant grant;
 
@@ -59,18 +81,20 @@ public class GsPdfRenderer {
 		this.generateAllQuestions = generateAllQuestions;
 		Calendar c = Calendar.getInstance();
 		// This represents a hard coded date when a major change to the
-		// question source occurred. Greensheets submitted or frozen before this date
+		// question source occurred. Greensheets submitted or frozen before this
+		// date
 		// use a different set of xml source file for pdf generation.
 		c.set(2005, 2, 24);
 		this.cutOffDate = c.getTime();
-		
-		c.set(2005,5,28);
+
+		c.set(2005, 5, 28);
 		this.cutOffDate2 = c.getTime();
 		logger.debug("GsPdfRenderer - grant " + grant.getFullGrantNumber());
 	}
 
 	/**
 	 * Public method that is responsible for pdf generation.
+	 * 
 	 * @return byte[]
 	 * @throws GreensheetBaseException
 	 */
@@ -86,15 +110,15 @@ public class GsPdfRenderer {
 
 				if (useXmlSrc032305()) {
 					srcKey = "PNC_QUESTIONS_SRC_3.23.05";
-				} 
-				if (useXmlSrc052805()){
+				}
+				if (useXmlSrc052805()) {
 					srcKey = "PNC_QUESTIONS_SRC_6.28.05";
 				}
 			} else if (form.getGroupType().equals(GreensheetGroupType.PGM)) {
 				if (useXmlSrc032305()) {
 					srcKey = "PC_QUESTIONS_SRC_3.23.05";
-				} 
-				if(useXmlSrc052805()){
+				}
+				if (useXmlSrc052805()) {
 					srcKey = "PC_QUESTIONS_SRC_6.28.05";
 				}
 			} else if (form.getGroupType().equals(GreensheetGroupType.SPEC)
@@ -104,45 +128,52 @@ public class GsPdfRenderer {
 
 				if (useXmlSrc032305()) {
 					srcKey = "SNC_QUESTIONS_SRC_3.23.05";
-				} 
-				if(useXmlSrc052805()){
+				}
+				if (useXmlSrc052805()) {
 					srcKey = "SNC_QUESTIONS_SRC_6.28.05";
 				}
-				
+
 			} else if (form.getGroupType().equals(GreensheetGroupType.SPEC)) {
 				if (useXmlSrc032305()) {
 					srcKey = "SC_QUESTIONS_SRC_3.23.05";
-				} 
-				if(useXmlSrc052805()){
+				}
+				if (useXmlSrc052805()) {
 					srcKey = "SC_QUESTIONS_SRC_6.28.05";
 				}
 			}
-			
+
 			Document questionsXml = null;
-			// If srcKey is not null then use the question xml files to get the 
+
+			// If srcKey is not null then use the question xml files to get the
 			// question def. Otherwise get the xml from the database.
-			if(srcKey != null){
+			if (srcKey != null) {
 				File questSrc = (File) AppConfigProperties.getInstance()
-					.getProperty(srcKey);
+						.getProperty(srcKey);
 				logger.debug("using file source " + srcKey);
-				SAXReader reader = new SAXReader();
+
+				String saxParser = ((Properties) AppConfigProperties
+						.getInstance().getProperty(
+								GreensheetsKeys.KEY_CONFIG_PROPERTIES))
+						.getProperty("sax.parser");
+
+				SAXReader reader = new SAXReader(saxParser);
 				questionsXml = reader.read(questSrc);
-			}else{
+			} else {
 				questionsXml = this.getSourceFromDb();
-				
+
 			}
-			
-			Document gsFormXml = this.generateGsFormXml(questionsXml);			
-			
+
+			Document gsFormXml = this.generateGsFormXml(questionsXml);
+
 			logger.debug("Generating the generateGsFormXml.xml file.");
-			//this.printXmlFile("generateGsFormXml.xml", gsFormXml);
+			// this.printXmlFile("generateGsFormXml.xml", gsFormXml);
 
 			this.generatePdfReadyXml(gsFormXml);
 
 			logger.debug("Generating the pdfReadyXml.xml file.");
-			//this.printXmlFile("pdfReadyXml.xml", gsFormXml);
+			// this.printXmlFile("pdfReadyXml.xml", gsFormXml);
 
-			FoEngine fe = new FoEngine();  
+			FoEngine fe = new FoEngine();
 			result = fe.renderFormAsPDF(gsFormXml);
 			if (result == null) {
 				throw new GreensheetBaseException("PDF file is null");
@@ -158,72 +189,79 @@ public class GsPdfRenderer {
 		return result;
 	}
 
-	private Document getSourceFromDb()throws GreensheetBaseException{
+	private Document getSourceFromDb() throws GreensheetBaseException {
 		Connection conn = null;
 		ResultSet rs = null;
 		Statement stmt = null;
 		Document doc = null;
-		try{
-		 conn = DbConnectionHelper.getInstance().getConnection();
-         String sqlSelect = null;
- 
-             sqlSelect = "SELECT ft.id,ft.template_xml FROM form_templates_t ft where ft.id=" + this.form.getTemplateId();
-             logger.debug("Getting source from db " + sqlSelect);
-             stmt = conn.createStatement();
-             rs = stmt.executeQuery(sqlSelect);
-             while (rs.next()) {
-                 int tempId = rs.getInt(1);
-                 java.sql.Clob clob = (java.sql.Clob) rs.getObject(2);
-                 
-                 if(clob == null){
-                 	throw new GreensheetBaseException("Error finding questions source");
-                 }
+		try {
+			conn = DbConnectionHelper.getInstance().getConnection();
+			String sqlSelect = null;
 
-                 ByteArrayOutputStream out = new ByteArrayOutputStream();
+			sqlSelect = "SELECT ft.id,ft.template_xml FROM form_templates_t ft where ft.id="
+					+ this.form.getTemplateId();
+			logger.debug("Getting source from db " + sqlSelect);
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sqlSelect);
+			while (rs.next()) {
+				int tempId = rs.getInt(1);
+				java.sql.Clob clob = (java.sql.Clob) rs.getObject(2);
 
-                 Reader reader = clob.getCharacterStream();
-                 int i = 0;
+				if (clob == null) {
+					throw new GreensheetBaseException(
+							"Error finding questions source");
+				}
 
-                 while (i > -1) {
-                     i = reader.read();
-                     out.write(i);
-                 }
-                 reader.close();
-                 String template = out.toString();
-                 template = template.substring(0,template.lastIndexOf("</GreensheetForm>")+ "</GreensheetForm>".length());
-                 template.trim();                
-                 out.close();
-                 doc = DocumentHelper.parseText(template);
-             }
-		} catch (DocumentException de){
-			throw new GreensheetBaseException("Error parsing questions source", de);
-		} catch(IOException ie){
-			throw new GreensheetBaseException("Error retrieving question source", ie);
+				ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+				Reader reader = clob.getCharacterStream();
+				int i = 0;
+
+				while (i > -1) {
+					i = reader.read();
+					out.write(i);
+				}
+				reader.close();
+				String template = out.toString();
+				template = template.substring(0, template
+						.lastIndexOf("</GreensheetForm>")
+						+ "</GreensheetForm>".length());
+				template.trim();
+				out.close();
+				doc = DocumentHelper.parseText(template);
+			}
+		} catch (DocumentException de) {
+			throw new GreensheetBaseException("Error parsing questions source",
+					de);
+		} catch (IOException ie) {
+			throw new GreensheetBaseException(
+					"Error retrieving question source", ie);
 		} catch (SQLException se) {
-            throw new GreensheetBaseException("Error retrieving question source", se);
+			throw new GreensheetBaseException(
+					"Error retrieving question source", se);
 
-        } finally {
-            try {
-                if (rs != null)
-                    rs.close();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
 
-                if (stmt != null)
-                    stmt.close();
+				if (stmt != null)
+					stmt.close();
 
-            } catch (SQLException se) {
-                throw new GreensheetBaseException("Error generating PDF", se);
-            }
+			} catch (SQLException se) {
+				throw new GreensheetBaseException("Error generating PDF", se);
+			}
 
-            DbConnectionHelper.getInstance().freeConnection(conn);
-        }
+			DbConnectionHelper.getInstance().freeConnection(conn);
+		}
 
 		return doc;
 	}
-	
-	
+
 	/**
-	 * Checks to see if the xml source from 03/23/05 should be used. This is stored in files
-	 * contained in the web-inf directory
+	 * Checks to see if the xml source from 03/23/05 should be used. This is
+	 * stored in files contained in the web-inf directory
+	 * 
 	 * @return
 	 */
 	private boolean useXmlSrc032305() {
@@ -238,26 +276,29 @@ public class GsPdfRenderer {
 		}
 
 	}
+
 	/**
-	 * Checks to see if the xml source from 06/28/05 should be used. This is stored in files
-	 * contained in the web-inf directory
+	 * Checks to see if the xml source from 06/28/05 should be used. This is
+	 * stored in files contained in the web-inf directory
+	 * 
 	 * @return
 	 */
-	private boolean useXmlSrc052805(){
+	private boolean useXmlSrc052805() {
 		if ((form.getSubmittedDate() == null
 				&& (form.getStatus().equals(GreensheetStatus.SUBMITTED) || form
 						.getStatus().equals(GreensheetStatus.FROZEN)) || (form
-				.getSubmittedDate() != null && (form.getSubmittedDate().before(
-				cutOffDate2)) && form.getSubmittedDate().after(cutOffDate)))) {
+				.getSubmittedDate() != null
+				&& (form.getSubmittedDate().before(cutOffDate2)) && form
+				.getSubmittedDate().after(cutOffDate)))) {
 			return true;
 		} else {
 			return false;
-		}		
+		}
 	}
-	
+
 	private Document generateGsFormXml(Document doc) throws Exception {
 
-		File xsltSrc = (File) AppConfigProperties.getInstance().getProperty(  
+		File xsltSrc = (File) AppConfigProperties.getInstance().getProperty(
 				"FORM_XML_TRANSLATOR");
 
 		TransformerFactory factory = TransformerFactory.newInstance();
@@ -267,25 +308,25 @@ public class GsPdfRenderer {
 		// Set the type and mech params
 		transformer.setParameter("paramType", grant.getType());
 		transformer.setParameter("paramMech", grant.getMech());
-   
-		// now lets style the given document 
+
+		// now lets style the given document
 		DocumentSource source = new DocumentSource(doc);
 		DocumentResult result = new DocumentResult();
 		transformer.transform(source, result);
 
-		// return the transformed document		
+		// return the transformed document
 		Document transformedDoc = result.getDocument();
 
 		return transformedDoc;
 	}
-	
+
 	private void generatePdfReadyXml(Document doc) {
 
 		// Add aditional greensheet info
 		Element additionalInfoElm = doc.getRootElement().addElement(
 				"AdditionalInfo");
 		Element generateAllQuestions = additionalInfoElm
-				.addElement("DisplayAllQuestions"); 
+				.addElement("DisplayAllQuestions");
 		generateAllQuestions.addText(this.generateAllQuestions);
 
 		Element commentOption = additionalInfoElm.addElement("CommentOption");
@@ -293,7 +334,7 @@ public class GsPdfRenderer {
 
 		Element commentOptionSepPage = additionalInfoElm
 				.addElement("CommentOptionSeperatePage");
-		commentOptionSepPage.addText(this.commentOptionSepPage); 
+		commentOptionSepPage.addText(this.commentOptionSepPage);
 
 		Element formTitle = additionalInfoElm.addElement("FormTitle");
 
@@ -347,7 +388,7 @@ public class GsPdfRenderer {
 		// set the response values for the responsedefs
 		List list = doc.selectNodes("//ResponseDef");
 
-		for (Iterator iter = list.iterator(); iter.hasNext();) { 
+		for (Iterator iter = list.iterator(); iter.hasNext();) {
 			Element respDefElm = (Element) iter.next();
 			String respDefId = respDefElm.valueOf("@id");
 			String respDefType = respDefElm.valueOf("@type");
@@ -383,7 +424,7 @@ public class GsPdfRenderer {
 					if (qrd != null) {
 						String selVal = qrd.getUserSelectId();
 						String type = qrd.getResponseDefType();
-						//logger.debug(" selVal " + selVal);
+						// logger.debug(" selVal " + selVal);
 
 						if (selVal.equalsIgnoreCase(selDefId)
 								&& !type
