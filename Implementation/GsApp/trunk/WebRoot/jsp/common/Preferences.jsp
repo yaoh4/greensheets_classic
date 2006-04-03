@@ -1,134 +1,162 @@
-<!DOCTYPE HTML PUBLIC "-//w3c//dtd html 4.0 transitional//en">
-<html>
-	<head>
-		<title>Greensheets</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/stylesheets/GreensheetsStyleSheet.css" type="text/css" />
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/stylesheets/otherappsmenu.css" type="text/css" />
-	</head>
-	<body>
+<%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr.*" %>
+<%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*" %>
+<%@ page import="gov.nih.nci.iscs.numsix.greensheets.application.*" %>
+<%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*" %>
+<%@ page import="java.util.*" %>
 
-		<!-- start header -->
-		<img src="<%=request.getContextPath()%>/images/Logo_Greensheets.gif" alt="Greensheets" border="0" />
-		<!-- end header -->
 
-		<!--  horiz. line -->
-		<table width="100%" class="line">
-			<tr>
-				<td></td>
-			</tr>
-		</table>
 
-		<h1>
-			Select options and save to set your startup preferences
-		</h1>
+<%
+	// Names of the Keys
+	String keyGrantsFrom = "GrantsFrom";
+	String keyGrantType = "GrantType";
+	String keyBudgetMechanism = "BudgetMechanism";
+	String keyWithinPayline = "WithinPayline";
 
-		<!--Expanded Criteria -->
-		<table cellpadding="3">
-			<!--  Grants From Section -->
-			<tr>
-				<td valign="top">
-					<strong>Grants From</strong>
-				</td>
-				<form name="form1" method="post" action="">
-				<td valign="top">
-					<label>
-						<input type="radio" name="My group" value="radio">
-						My Portfolio
-					</label>
-				</td>
-				<td valign="top">
-					<label>
-						<input type="radio" name="My group" value="radio">
-						My Cancer Activites
-					</label>
-				</td>
-				<td valign="top">
-					<label>
-						<input type="radio" name="My group" value="radio">
-						All NCI Grants
-					</label>
-				</td>
-				</form>
-			</tr>
-			<!--  Grants Type Section -->
-			<tr>
-				<td>
-					<strong>Grant Type</strong>
-				</td>
-				<form name="form2" method="post" action="">
-				<td valign="top">
-					<label>
-						<input type="radio" name="grant types" value="radio">
-						Competing Grants
-					</label>
-				</td>
-				<td valign="top">
-					<label>
-						<input type="radio" name="grant types" value="radio">
-						Non-Competing Grants
-					</label>
-				</td>
-				<td valign="top">
-					<label>
-						<input type="radio" name="grant types" value="radio">
-						Both Competing and Non-Competing Grants
-					</label>
-					</form>
-			</tr>
+	// Grants From 
+	String prefGrantsFromDefault = "ALL";
+	String prefGrantsFromP = "P";
+	String prefGrantsFromCA = "CA";
+	String prefGrantsFromAll = "ALL";
 
-			<!--  Budget Mechanism Section -->
-			<tr>
-				<td valign="top">
-					<strong>Budget Mechanism</strong>
-				</td>
-				<td valign="top">
-					<input name="" type="text">
-				</td>
-				<td valign="top">
-					<strong>Only Grants within the Payline</strong>
-				</td>
-				<td valign="top">
-					<label>
-						<input type="radio" name="grant types" value="radio">
-						Yes
-					</label>
-					<label>
-						<input type="radio" name="grant types" value="radio">
-						No
-					</label>
-				</td>
-			</tr>
-		</table>
-		<p></p>
+	// Grant Type
+	String prefGrantTypeDefault = "BOTH";
+	String prefGrantTypeC = "C";
+	String prefGrantTypeNC = "NC";
+	String prefGrantTypeBoth = "BOTH";
 
-		<!-- Save prefs section -->
-		<table>
-			<tr>
-				<td>
-					<a href="Confirm.html"><img src="<%=request.getContextPath()%>/images/SavePreferences.gif" border="0"></a>
-				</td>
-				<td>
-					<a href="home.html"><img src="<%=request.getContextPath()%>/images/Cancel.gif" border="0" alt="Close"> </a>
-				</td>
-			</tr>
-		</table>
+	// Budget Mechanism
+	String prefBudgetMechanism = "";
 
-		<!--  horiz. line -->
-		<table width="100%" class="line">
-			<tr>
-				<td></td>
-			</tr>
-		</table>
+	// Within Payline
+	String prefWithinPaylineDefault = "YES";
+	String prefWithinPaylineYes = "YES";
+	String prefWithinPaylineNo = "NO";
 
-		<!--  logo section -->
-		<table width="100%" cellspacing="0">
-			<tr>
-				<td align="right">
-					<img src="<%=request.getContextPath()%>/images/LogoNCI.gif" alt="National Cancer Institute logo" />
-				</td>
-			</tr>
-		</table>
+	Properties props = (Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_USER_PREFERENCES);
+	
+	if (props != null) {
+		// Key Names
+		keyGrantsFrom				=	props.getProperty("preferences.GrantsFromName");
+		keyGrantType				=	props.getProperty("preferences.GrantTypeName");
+		keyBudgetMechanism	=	props.getProperty("preferences.BudgetMechanismName");
+		keyWithinPayline			=	props.getProperty("preferences.WithinPaylineName");
 
-	</body>
-</html>
+		// Default values
+		prefGrantsFromDefault		=	props.getProperty("preferences.GrantsFromDefault");
+		prefGrantTypeDefault			=	props.getProperty("preferences.GrantTypeDefault");
+		prefBudgetMechanism		=	props.getProperty("preferences.BudgetMechanismDefault");
+		prefWithinPaylineDefault		=	props.getProperty("preferences.WithinPaylineDefault");
+
+		// Grants From values
+		prefGrantsFromP			=	props.getProperty("preferences.GrantsFromP");
+		prefGrantsFromCA			=	props.getProperty("preferences.GrantsFromCA");
+		prefGrantsFromAll			=	props.getProperty("preferences.GrantsFromAll");
+	
+		// Grant Type
+		prefGrantTypeC					=	props.getProperty("preferences.GrantTypeC");
+		prefGrantTypeNC				=	props.getProperty("preferences.GrantTypeNC");
+		prefGrantTypeBoth				=	props.getProperty("preferences.GrantTypeBoth");
+
+		// Within Payline
+		prefWithinPaylineYes			=	props.getProperty("preferences.WithinPaylineYes");
+		prefWithinPaylineNo			=	props.getProperty("preferences.WithinPaylineNo");
+	}
+
+	// Get the currently logged in User Preferences.
+	GreensheetPreferencesMgr gsPrefMgr = new GreensheetPreferencesMgrImpl();
+	HashMap userPrefs = gsPrefMgr.getUserPreferences();
+
+	String grantsFrom 				= 	userPrefs.containsKey(keyGrantsFrom)	?	(String) userPrefs.get(keyGrantsFrom)	:	prefGrantsFromDefault;
+	String grantType				=	userPrefs.containsKey(keyGrantType)	?	(String) userPrefs.get(keyGrantType)	:	prefGrantTypeDefault;
+	String budgetMechanism	=	userPrefs.containsKey(keyBudgetMechanism)	?	(String) userPrefs.get(keyBudgetMechanism)	:	prefBudgetMechanism;
+	String withinPayline			=	userPrefs.containsKey(keyWithinPayline)	?	(String) userPrefs.get(keyWithinPayline)	:	prefWithinPaylineDefault;
+
+System.out.println(grantsFrom + " ---- " + grantType + " ------- " + budgetMechanism + " ------- " + withinPayline);
+
+	// For Radio selections
+
+	// Grants From radio buttons
+	String selGrantsFromP = grantsFrom.equals(prefGrantsFromP)	?	"checked='checked'" : "";
+	String selGrantsFromCA = grantsFrom.equals(prefGrantsFromCA)	?	"checked='checked'" : "";
+	String selGrantsFromAll = grantsFrom.equals(prefGrantsFromAll)	?	"checked='checked'" : "";
+	
+	// Grant Type radio buttons
+	String selGrantTypeC = grantType.equals(prefGrantTypeC)	?	"checked='checked'" : "";
+	String selGrantTypeNC = grantType.equals(prefGrantTypeNC)	?	"checked='checked'" : "";
+	String selGrantTypeBoth = grantType.equals(prefGrantTypeBoth)	?	"checked='checked'" : "";
+
+	// Within Payline radio buttons
+	String selWithinPaylineYes = withinPayline.equals(prefWithinPaylineYes)	?	"checked='checked'" : "";
+	String selWithinPaylineNo = withinPayline.equals(prefWithinPaylineNo)	?	"checked='checked'" : "";
+%>
+
+<!-- Start of Preferences Code -->
+
+<table cellpadding="3" bgcolor="#CCCCCC">
+	<tr>
+		<td valign="bottom">
+			<strong>Grants From</strong>
+		</td>
+		<td valign="bottom">
+			<label>
+				<input type="radio" name="rbGrantsFrom" id="rbGrantsFrom" value="<%=prefGrantsFromP%>"  <%=selGrantsFromP%> />My Portfolio</label>
+		</td>
+		<td valign="bottom">
+			<label>
+				<input type="radio" name="rbGrantsFrom" id="rbGrantsFrom" value="<%=prefGrantsFromCA%>" <%=selGrantsFromCA%>/>My Cancer Activites</label>
+		</td>
+		<td valign="bottom">
+			<label>
+				<input type="radio" name="rbGrantsFrom" id="rbGrantsFrom" value="<%=prefGrantsFromAll%>" <%=selGrantsFromAll%> />All NCI Grants</label>
+		</td>
+	</tr>
+	<tr>
+		<td valign="bottom">
+			<strong>Grant Type</strong>
+		</td>
+		<td valign="bottom">
+			<label>
+				<input type="radio" name="rbGrantType" id="rbGrantType" value="<%=prefGrantTypeC%>" <%=selGrantTypeC%> />Competing Grants</label>
+		</td>
+		<td valign="bottom">
+			<label>
+				<input type="radio" name="rbGrantType" id="rbGrantType" value="<%=prefGrantTypeNC%>" <%=selGrantTypeNC%> />Non-Competing Grants</label>
+		</td>
+		<td colspan="2" valign="bottom">
+			<label>
+				<input type="radio" name="rbGrantType" id="rbGrantType" value="<%=prefGrantTypeBoth%>" <%=selGrantTypeBoth%> />Both Competing and Non-Competing Grants</label>
+		</td>
+	</tr>
+	<tr>
+		<td valign="bottom">
+			<div align="left">
+				<strong>Budget Mechanism</strong>
+			</div>
+		</td>
+		<td>
+			<input name="txtBudgetMechanism" id="txtBudgetMechanism" type="text" value="<%=budgetMechanism%>"/>
+		</td>
+	</tr>
+	<tr>
+		<td valign="bottom">
+			<strong>Only Grants within the Payline</strong>
+		</td>
+		<td valign="bottom">
+			<label>
+				<input type="radio" name="rbPayline" id="rbPayline" value="<%=prefWithinPaylineYes%>" <%=selWithinPaylineYes%>/>Yes</label>
+			<label>
+				<input type="radio" name="rbPayline" id="rbPayline" value="<%=prefWithinPaylineNo%>" <%=selWithinPaylineNo%>/>No</label>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" align="right" valign="bottom">
+			<img src="images/RefreshList.gif"/>
+			<img src="images/RestorePref.gif" border="0"/>
+		</td>
+	</tr>
+</table>
+
+
+
+<!-- End of Preferences -->
