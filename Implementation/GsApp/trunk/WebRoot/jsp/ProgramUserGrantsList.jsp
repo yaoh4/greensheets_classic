@@ -96,12 +96,12 @@ function toggleDivAreaDisplay(divId, imgId)
 		{
 			//set up the variables.
 			var displayText = "block";
-			var imgSrc = "./images/Open.gif";
+			var imgSrc = "./images/IconOpen.gif";
 			
 			if(divElement.style.display == "block")
 			{
 				displayText = "none";
-				imgSrc = "./images/Closed.gif";			
+				imgSrc = "./images/IconClosed.gif";			
 			}
 
 			// Show or hide the Div Area
@@ -162,6 +162,20 @@ function toggleDivAreaDisplay(divId, imgId)
 			</form>
 		</td>
 	</tr>
+	</table>
+	<!-- Show/Hide Criteria -->
+		 
+	<form id="frmCriteria" name="frmCriteria">
+		<a href="javascript:toggleDivAreaDisplay('divId1', 'imgDivId1')">
+			<img border="0" id="imgDivId1" name="imgDivId1" src="images/IconClosed.gif" onclick=""/>
+		</a>
+		<div id="divId1" name="divId1" style="display:none">
+			<!--Expanded Criteria -->
+			<%@ include file="/jsp/common/Preferences.jsp"%> 			
+		</div>
+	</form>
+	
+	<!--	
 	<tr valign="bottom">
 		<td valign="bottom"  width="100%" nowrap="1" colspan="2">
 			<%if (request.getAttribute("SEARCH_RESULTS") == null) {%>
@@ -200,6 +214,7 @@ function toggleDivAreaDisplay(divId, imgId)
 			</table>
 		</td>
 	</tr>
+-->
 	<tr>
 		<td colspan="2" width="100%">
 			<display:table name="sessionScope.GRANT_LIST" 	requestURI="/greensheets/no_op.do" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" width="100%">
