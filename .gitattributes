@@ -235,6 +235,7 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/E
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GrantGreensheetProxy.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GreensheetActionHelper.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GreensheetFormSession.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GreensheetPreferencesAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GreensheetUserSession.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/NoOpAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/QuestionAttachmentsAction.java -text
@@ -266,6 +267,8 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/gree
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetformmgr/QuestionResponseData.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetformmgr/pdfengine/FoEngine.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetformmgr/pdfengine/GsPdfRenderer.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetpreferencesmgr/GreensheetPreferencesMgr.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetpreferencesmgr/GreensheetPreferencesMgrImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetresourcemgr/GreensheetResourceManagerImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetresourcemgr/GreensheetResourceManagerTestImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetresourcemgr/GreensheetTemplateWrapper.java -text
