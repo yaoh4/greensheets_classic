@@ -22,8 +22,8 @@ import org.apache.struts.config.ModuleConfig;
 
 /**
  * Struts plugin for application initialization routines
- * 
- * 
+ *
+ *
  * @author kpuscas, Number Six Software
  */
 public class GreensheetsInitPlugIn implements PlugIn {
@@ -52,7 +52,7 @@ public class GreensheetsInitPlugIn implements PlugIn {
 					.getRealPath("WEB-INF"));
 			AppConfigLoader.initAppConfigProperties(configPath);
 			AppConfigLoader.initDbProperties(configPath);
-			AppConfigLoader.initPreferencesProperties(configPath);
+			AppConfigLoader.initPreferences(configPath);
 			AppConfigLoader.loadQuestionsXmlSrc(serv.getServletContext()
 					.getRealPath("WEB-INF"));
 
