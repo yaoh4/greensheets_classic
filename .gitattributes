@@ -67,6 +67,7 @@ Implementation/GsApp/trunk/WebRoot/images/IconAddAttachment.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconAttachment.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconAttachmentChecked.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconCalendar.gif -text
+Implementation/GsApp/trunk/WebRoot/images/IconClosed.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconCollapsed.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconComment.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconCommentChecked.gif -text
@@ -78,6 +79,7 @@ Implementation/GsApp/trunk/WebRoot/images/IconGreensheets.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconGreensheetsSmall02.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconLocked.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconNoLocking.gif -text
+Implementation/GsApp/trunk/WebRoot/images/IconOpen.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconSaved.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconUnlocked.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconView.gif -text
@@ -90,6 +92,8 @@ Implementation/GsApp/trunk/WebRoot/images/NavTriangle.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavTriangleBottom.gif -text
 Implementation/GsApp/trunk/WebRoot/images/NavWhiteDivider.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Open.gif -text
+Implementation/GsApp/trunk/WebRoot/images/RefreshList.gif -text
+Implementation/GsApp/trunk/WebRoot/images/RestorePref.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Spacer.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowd.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowl.gif -text
