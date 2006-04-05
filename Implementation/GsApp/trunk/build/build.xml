@@ -147,9 +147,10 @@ directories.
         srcdir="${src.java.dir}"
         destdir="${java.classes.dir}"
 	    debug="${javac.debug}"/>
-    <copy todir="${java.classes.dir}">
-        <fileset dir="${src.java.dir}" excludes="**/*.java"/>
-    </copy>     
+	<!-- copies all resource files (e.g. *.properties, *.txt, etc) to the WEB-INF/classes dir -->
+    	<copy todir="${java.classes.dir}">
+        	<fileset dir="${src.java.dir}" excludes="**/*.java"/>
+    	</copy>     
 </target>
     
 

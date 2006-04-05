@@ -143,7 +143,7 @@ function Validate(frmForm, elElement,valueCheck, bSubmitAction)
 	elElement.value	=	GetFormElementValue(elElement);
 
 	var strMessage = CheckValue(frmForm, elElement, bSubmitAction);
-	
+
 	if (strMessage == "")
 	{
 		bReturnValue = true;
@@ -178,7 +178,7 @@ function CheckValue(frmForm, elElement, bSubmitAction)
 	
 	strDisplayName			=	GetFormElementAttributeValue(frmForm, elElement, "displayName", STRING_DEFAULT_DISPLAY_NAME);
 	
-	
+
 	if (IsBlankString(strDisplayName))
 	{
 		strDisplayName = STRING_DEFAULT_DISPLAY_NAME ;
@@ -188,17 +188,20 @@ function CheckValue(frmForm, elElement, bSubmitAction)
 		if (!IsStringEqual(strType, VAL_TYPE_AT_LEAST_ONE))
 			strDisplayName = "'" + strDisplayName + "'" ;
 	}
-	
-	if (IsStringEqual(strMandatory, STRING_TRUE) &&  !IsStringEqual(strType, VAL_TYPE_RADIO) && !IsStringEqual(strType, VAL_TYPE_AT_LEAST_ONE))
+//ghh added && !IsStringEqual(strDisplayName,"'Comment'") to the following if stmt on 4/5/06 because Comment fields can have an empty response
+
+	if (IsStringEqual(strMandatory, STRING_TRUE) &&  !IsStringEqual(strType, VAL_TYPE_RADIO) && !IsStringEqual(strType, VAL_TYPE_AT_LEAST_ONE) && !IsStringEqual(strDisplayName,"'Comment'"))
 	{
 		if (bSubmitAction) // Check for an empty response ONLY if submitting the Form
 		{		
 			strReturnValue = IsMandatory(elElement);
+
 		}
 		else
 		{
 			strReturnValue = "";
 		}
+
 	}
 	else
 	{
