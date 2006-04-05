@@ -1,0 +1,334 @@
+/* 
+Greensheets StyleSheet
+*/
+
+/* 
+Titles and other text formatting:
+
+	1. TitlePrimary--style for Primary titles
+	2. TitleSecondary--style for secondary titles
+	3. TitleTertiary--style for tertiary titles
+*/
+
+.TitlePrimary 
+{ 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 12pt; 
+	font-weight: bold; 
+	color: #666666;
+}
+
+.TitleSecondary
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #666666;
+}
+
+.TitleTertiary 
+{ 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 8pt; 
+	font-weight: bold; 
+	color: #666666;
+}
+
+/* 
+List Cell Styles.  These are the styles applied to "List" Tables such as 
+the Grants List and the Greensheets List for each Grant:
+
+	1. listCellHead--styles used for the Headers of List Tables.
+	2. listCell--styles used for the Data Cells (i.e. records returned) of List Tables.
+	3. anchorListCellHead--styles used for the anchors WITHIN THE HEADERS of List Tables.
+*/
+
+.listCellHead 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #7EC722; 
+	BORDER-BOTTOM: white 2px outset; 
+	BORDER-LEFT: white 2px outset; 
+	BORDER-RIGHT: white 2px outset; 
+	BORDER-TOP: white 2px outset;
+}
+
+.listCell 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #FFFFFF; 
+	BORDER-BOTTOM: #999999 1px solid;  
+	BORDER-LEFT: #999999 1px solid;
+}
+
+.highlightedListCell 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #D4D0C8; 
+	BORDER-BOTTOM: #999999 1px solid;  
+	BORDER-LEFT: #999999 1px solid;
+}
+
+.highlightedListCell2 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #D4D0C8; 
+	BORDER-BOTTOM: #999999 1px solid;  
+	BORDER-LEFT: #999999 1px solid;
+}
+
+.listCell2 
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #FFFFFF; 
+	BORDER-BOTTOM: #999999 1px solid;  
+	BORDER-LEFT: #999999 1px solid;
+	BORDER-RIGHT: #999999 1px solid;
+}
+
+a.anchorListCellHead:link
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+
+a.anchorListCellHead:visited
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+
+a.anchorListCellHead:active
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt; 
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+
+
+/* 
+Greensheet Form Styles
+*/
+
+
+.Greensheet 
+{  
+	border: #999999; 
+	border-style: solid; 
+	BORDER-BOTTOM: #999999 1px solid; 
+	BORDER-TOP: #999999 1px solid; 
+	BORDER-LEFT: #999999 1px solid;
+	BORDER-RIGHT: #999999 1px solid;
+}
+
+.GreensheetCell1 
+{
+	BORDER-BOTTOM: #999999 1px solid;
+	BORDER-RIGHT: #999999 1px solid;
+}
+
+.GreensheetCell2 
+{
+	BORDER-BOTTOM: #999999 1px solid;
+}
+
+.GreensheetLevel1
+{
+	background-color:#FFFF99	
+}
+  
+.GreensheetLevel2
+{
+	background-color:#FFFFFF	
+}
+
+.GreensheetLevel3
+{
+	background-color:#FFFF99	
+}
+
+.GreensheetLevel4
+{
+	background-color:#FFFFFF	
+}
+
+/* 
+Miscellaneous Specialty Styles
+*/
+
+.FooterLine 
+{
+	BACKGROUND-COLOR: #B3B3B3;
+}
+
+
+/* ---------------------------------------------------------------------------------------- */
+/* default */
+p, a, span, li, caption, th, td, input, textarea, select {font-family: verdana, arial, helvetica, sans-serif; 
+	font-size: x-small;}
+
+h1 {font-family: arial, helvetica, sans-serif; 
+	font-size: medium; 
+	font-weight: bold;
+	line-height: 200%;
+	letter-spacing: 2px;}
+h2 {font-family: arial, helvetica, sans-serif; 
+	font-size: small; 
+	font-weight: bold;
+	letter-spacing: 2px;}
+
+th, td {vertical-align: top;}
+
+a:link {color: #239950;}
+a:visited {color: #7EC722;}
+a:hover {text-decoration: none;}
+
+.align1 {text-align: right;}	
+.align2 {text-align: center;}
+.align3 {text-align: left;}
+.align4 {vertical-align: bottom;}	
+.align5 {vertical-align: middle;}
+.align6 {vertical-align: top;}
+
+/* header */
+table.header {border-collapse: collapse; 
+	padding: 0px;}
+table.header tr.bottomRow td {border-top: 1px solid gray; 
+	padding: 2px; 
+	padding-left: 0px;}
+table.header tr.bottomRow td a:link {background-color: #7EC722; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 2px; 
+	text-decoration: none;}
+table.header tr.bottomRow td a:visited {background-color: #7EC722; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 2px; 
+	text-decoration: none;}
+table.header tr.bottomRow td a:hover {background-color: white; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 2px; 
+	text-decoration: none;}
+
+table.header tr.bottomRow1 td {border-top: 1px solid gray; 
+	padding: 0px; 
+	padding-left: 0px;
+	align:right;}
+table.header tr.bottomRow1 td a:link {background-color: #7EC722; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 0px; 
+	text-decoration: none;
+	align:right;}
+table.header tr.bottomRow1 td a:visited {background-color: #7EC722; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 0px; 
+	text-decoration: none;
+	align:right;}
+table.header tr.bottomRow1 td a:hover {background-color: white; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 0px; 
+	text-decoration: none;
+	align:right;}	
+
+/* data tables */
+table.data {border-collapse: collapse;}
+table.data th, table.data td {border: 1px solid gray; 
+	font-family: verdana, arial, helvetica, sans-serif; 
+	padding: 3px;}
+table.data th {background-color: #7EC722;}
+table.data th a:link {color: black; 
+	font-weight: bold;}
+table.data th a:visited {color: black; 
+	font-weight: bold;}
+table.data th a:hover {color: black; 
+	font-weight: bold; 
+	text-decoration: none;}
+table.data th.sorted {padding-left: 17px;}
+table.data th.order1 {background-image: url("../images/sort_up.gif"); 
+	background-position: center left; 
+	background-repeat: no-repeat;}			
+table.data th.order2 {background-image: url("../images/sort_down.gif"); 
+	background-position: center left; 
+	background-repeat: no-repeat;}
+
+span.pagebanner {
+	padding: 2px 4px 2px 4px;
+	margin-top: 2px;
+	display:block;
+	border-bottom: none;
+}
+
+span.pagelinks {
+	padding: 2px 4px 2px 4px;
+	display:block;
+	border-top: none;
+	margin-bottom: 5px;
+}
+
+/*
+span.export {
+	padding: 0 4px 1px 20px;
+	display:inline; display:inline-block;
+	cursor: pointer;
+}
+
+span.excel {
+	background-image: url(../images/ico_file_excel.png);
+}
+
+span.csv {
+	background-image: url(../img/ico_file_csv.png);
+}
+span.xml {
+	background-image: url(../img/ico_file_xml.png);
+}
+*/
+/* buttons */
+a:link.button {background-color: #7EC722; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 2px; 
+	text-decoration: none;}
+a:visited.button {background-color: #7EC722; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 2px; 
+	text-decoration: none;}
+a:hover.button {background-color: white; 
+	border: 1px solid gray; 
+	color: black; 
+	font-weight: bold; 
+	padding: 2px; 
+	text-decoration: none;}
+	
+/* footer */
+table.footer {border-collapse: collapse; 
+	border-top: 1px solid gray;
+	padding: 0px;}	
+	

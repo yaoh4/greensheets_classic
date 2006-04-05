@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<summary>
+    <testresult
+        location="C:\n6.projects\NCI\svnRoot\greensheets\Implementation\GsApp\trunk\build\testing\gs_test.xml:17: "
+        starttime="Wed Jan 05 13:29:05 EST 2005"
+        successful="no" testspecname="MY-SCENARIO-NAME-HERE">
+        <config>
+            <parameter name="defaultpage" value="null"/>
+            <parameter name="showhtmlparseroutput" value="no"/>
+            <parameter name="summary" value="yes"/>
+            <parameter name="protocol" value="https"/>
+            <parameter name="saveresponse" value="no"/>
+            <parameter name="haltonerror" value="yes"/>
+            <parameter name="resultpath" value="C:\n6.projects\NCI\svnRoot\greensheets\Implementation\GsApp\trunk\build\testing"/>
+            <parameter name="host" value="i2e-test.nci.nih.gov"/>
+            <parameter name="haltonfailure" value="yes"/>
+            <parameter name="basepath" value="greensheets"/>
+            <parameter name="resultfile" value="results.xml"/>
+            <parameter name="port" value="443"/>
+        </config>
+        <results>
+            <step>
+                <parameter name="password" value="bflat0"/>
+                <parameter name="stepId" value=""/>
+                <parameter name="username" value="puscask"/>
+                <parameter name="url" value="/"/>
+                <parameter name="stepType" value="invoke"/>
+                <result>
+                    <completed duration="891"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="text" value="Welcome To Greensheets"/>
+                <parameter name="stepId" value="&lt;unknown>"/>
+                <parameter name="regex" value="false"/>
+                <parameter name="stepType" value="verifytitle"/>
+                <result>
+                    <completed duration="10"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="password" value="bflat0"/>
+                <parameter name="stepId" value=""/>
+                <parameter name="username" value="puscask"/>
+                <parameter name="url" value="retrievegrants.do"/>
+                <parameter name="stepType" value="invoke"/>
+                <result>
+                    <completed duration="741"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="value" value=" Smith"/>
+                <parameter name="stepId" value="&lt;unknown>"/>
+                <parameter name="name" value="searchText"/>
+                <parameter name="stepType" value="setinputfield"/>
+                <result>
+                    <completed duration="0"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="value" value="SEARCH_GS_NAME"/>
+                <parameter name="stepId" value="&lt;unknown>"/>
+                <parameter name="name" value="searchType"/>
+                <parameter name="stepType" value="setinputfield"/>
+                <result>
+                    <completed duration="0"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="label" value=""/>
+                <parameter name="stepId" value="Search for Smith"/>
+                <parameter name="name" value="Go"/>
+                <parameter name="stepType" value="clicklink"/>
+                <result>
+                    <completed duration="10"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="text" value="Greensheets"/>
+                <parameter name="stepId" value="&lt;unknown>"/>
+                <parameter name="regex" value="false"/>
+                <parameter name="stepType" value="verifytitle"/>
+                <result>
+                    <completed duration="0"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="stepId" value=""/>
+                <parameter name="url" value="retrievegreensheet.do?GRANT_ID=1F31CA113287-01&amp;APPL_ID=6892212&amp;GS_GROUP_TYPE=PGM&amp;ORACLE_ID=PuscasK"/>
+                <parameter name="stepType" value="invoke"/>
+                <result>
+                    <failed duration="2544"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="text" value="Greensheets : 1F31CA113287-01"/>
+                <parameter name="stepId" value="&lt;unknown>"/>
+                <parameter name="regex" value="false"/>
+                <parameter name="stepType" value="verifytitle"/>
+                <result>
+                    <notexecuted duration="0"/>
+                </result>
+            </step>
+            <error
+                exception="com.canoo.webtest.engine.StepExecutionException" message="Unexpected exception caught: java.lang.RuntimeException: Script '// Making any modification to the following scripts is a breach of the license agreement and will get yourself into a lawsuit eventually!&#xa;//== PopCalendarXP 7.0.172 Commercial Edition,  Copyright 2001-2003 CalendarXP.net, LIMING WENG&#xa;//== Release date: 2003.05.12    website - http://www.calendarxp.net&#xa;var gd=new Date(), gToday=[gd.getFullYear(),gd.getMonth()+1,gd.getDate()];&#xa;var ua=navigator.userAgent.toLowerCase();&#xa;var MAC=ua.indexOf('mac')!=-1;&#xa;var OP=!!self.opera, OP6=OP&amp;&amp;ua.indexOf(&quot;opera 6&quot;)!=-1, KO3=ua.indexOf(&quot;konqueror&quot;)!=-1;&#xa;var IE=ua.indexOf(&quot;msie&quot;)!=-1&amp;&amp;!OP&amp;&amp;ua.indexOf(&quot;webtv&quot;)==-1;&#xa;var NN4=false, IE4=IE&amp;&amp;!document.getElementById, IE5=IE&amp;&amp;!![].push;&#xa;var gTheme=self.name.split(&quot;:&quot;);&#xa;var gCurMonth=eval(gTheme[0]);&#xa;var gContainer=parent;&#xa;var fRepaint,fHoliday,fOnChange,fAfterSelected,fOnDrag,gEvent,gcOtherDayBG;&#xa;var _agenda=[], popkey=[&quot;Lite&quot;], flatkey=[&quot;Lite&quot;];&#xa;var gbInvertBold=gbInvertBorder=gbFlatBorder=gbShareAgenda=false;&#xa;var MILLIDAY=86400000, giInitDelay=200, giResizeDelay=50;&#xa;if (![].push) Array.prototype.push=function () {&#xa;    for (var i=0; i&lt;arguments.length; i++)&#xa;        this[this.length]=arguments[i];&#xa;    return this.length;&#xa;}&#xa;&#xa;function varDate() {&#xa;    alert(&quot;Missing or invalid license! Please verify your license installation.&quot;);&#xa;}&#xa;&#xa;function fCalibrate(y,m) {&#xa;    if (m&lt;1) { y--; m+=12; }&#xa;    else if (m>12) { y++; m-=12; }&#xa;    return [y,m];&#xa;}&#xa;&#xa;function fGetById(doc, id) {&#xa;    if (IE4) return doc.all(id);&#xa;    else return doc.getElementById(id);&#xa;}&#xa;&#xa;function fAddEvent(y,m,d,message,action,bgcolor,fgcolor,bgimg,boxit,html) {&#xa;    _agenda[y+&quot;-&quot;+m+&quot;-&quot;+d]=[message,action,bgcolor,fgcolor,bgimg,boxit,html];&#xa;}&#xa;&#xa;function fGetEvent(y,m,d) {&#xa;    var ag=_agenda[y+&quot;-&quot;+m+&quot;-&quot;+d];&#xa;    if (ag) return ag.slice(0);&#xa;    return null;&#xa;}&#xa;&#xa;function fRemoveEvent(y,m,d) {&#xa;    _agenda[y+&quot;-&quot;+m+&quot;-&quot;+d]=null;&#xa;}&#xa;&#xa;var gfSelf=fGetById(parent.document,self.name);&#xa;document.write(&quot;&lt;scr&quot;+&quot;ipt type='text/javascript' src='../scripts/&quot;+gTheme[1]+&quot;.js'>&lt;\/scr&quot;+&quot;ipt>&quot;);&#xa;document.write(&quot;&lt;scr&quot;+&quot;ipt type='text/javascript' src='../scripts/&quot;+(gTheme[4]?gTheme[4]:&quot;plugins.js&quot;)+&quot;'>&lt;\/scr&quot;+&quot;ipt>&quot;);' failed: com.meterware.httpunit.NoSuchFrameException: No frame named gToday:outlook is currently active"><![CDATA[com.canoo.webtest.engine.StepExecutionException: Unexpected exception caught: java.lang.RuntimeException: Script '// Making any modification to the following scripts is a breach of the license agreement and will get yourself into a lawsuit eventually!
+//== PopCalendarXP 7.0.172 Commercial Edition,  Copyright 2001-2003 CalendarXP.net, LIMING WENG
+//== Release date: 2003.05.12    website - http://www.calendarxp.net
+var gd=new Date(), gToday=[gd.getFullYear(),gd.getMonth()+1,gd.getDate()];
+var ua=navigator.userAgent.toLowerCase();
+var MAC=ua.indexOf('mac')!=-1;
+var OP=!!self.opera, OP6=OP&&ua.indexOf("opera 6")!=-1, KO3=ua.indexOf("konqueror")!=-1;
+var IE=ua.indexOf("msie")!=-1&&!OP&&ua.indexOf("webtv")==-1;
+var NN4=false, IE4=IE&&!document.getElementById, IE5=IE&&!![].push;
+var gTheme=self.name.split(":");
+var gCurMonth=eval(gTheme[0]);
+var gContainer=parent;
+var fRepaint,fHoliday,fOnChange,fAfterSelected,fOnDrag,gEvent,gcOtherDayBG;
+var _agenda=[], popkey=["Lite"], flatkey=["Lite"];
+var gbInvertBold=gbInvertBorder=gbFlatBorder=gbShareAgenda=false;
+var MILLIDAY=86400000, giInitDelay=200, giResizeDelay=50;
+if (![].push) Array.prototype.push=function () {
+    for (var i=0; i<arguments.length; i++)
+        this[this.length]=arguments[i];
+    return this.length;
+}
+
+function varDate() {
+    alert("Missing or invalid license! Please verify your license installation.");
+}
+
+function fCalibrate(y,m) {
+    if (m<1) { y--; m+=12; }
+    else if (m>12) { y++; m-=12; }
+    return [y,m];
+}
+
+function fGetById(doc, id) {
+    if (IE4) return doc.all(id);
+    else return doc.getElementById(id);
+}
+
+function fAddEvent(y,m,d,message,action,bgcolor,fgcolor,bgimg,boxit,html) {
+    _agenda[y+"-"+m+"-"+d]=[message,action,bgcolor,fgcolor,bgimg,boxit,html];
+}
+
+function fGetEvent(y,m,d) {
+    var ag=_agenda[y+"-"+m+"-"+d];
+    if (ag) return ag.slice(0);
+    return null;
+}
+
+function fRemoveEvent(y,m,d) {
+    _agenda[y+"-"+m+"-"+d]=null;
+}
+
+var gfSelf=fGetById(parent.document,self.name);
+document.write("<scr"+"ipt type='text/javascript' src='../scripts/"+gTheme[1]+".js'><\/scr"+"ipt>");
+document.write("<scr"+"ipt type='text/javascript' src='../scripts/"+(gTheme[4]?gTheme[4]:"plugins.js")+"'><\/scr"+"ipt>");' failed: com.meterware.httpunit.NoSuchFrameException: No frame named gToday:outlook is currently active, Step: InvokePage at C:\n6.projects\NCI\svnRoot\greensheets\Implementation\GsApp\trunk\build\testing\gs_test.xml:33:  with (stepId="", url="retrievegreensheet.do?GRANT_ID=1F31CA113287-01&APPL_ID=6892212&GS_GROUP_TYPE=PGM&ORACLE_ID=PuscasK", stepType="invoke")
+	at com.canoo.webtest.steps.Step.handleUnexpectedException(Step.java:371)
+	at com.canoo.webtest.steps.request.Target.protectedGoto(Target.java:113)
+	at com.canoo.webtest.steps.request.Target.gotoTarget(Target.java:142)
+	at com.canoo.webtest.steps.request.InvokePage.doExecute(InvokePage.java:37)
+	at com.canoo.webtest.steps.Step.execute(Step.java:118)
+	at com.canoo.webtest.engine.Engine.executeSteps(Engine.java:26)
+	at com.canoo.webtest.ant.TestSpecificationTask.execute(TestSpecificationTask.java:68)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:275)
+	at org.apache.tools.ant.Task.perform(Task.java:364)
+	at org.apache.tools.ant.Target.execute(Target.java:341)
+	at org.apache.tools.ant.Target.performTasks(Target.java:369)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1214)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1062)
+	at org.apache.tools.ant.Main.runBuild(Main.java:673)
+	at org.apache.tools.ant.Main.startAnt(Main.java:188)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:196)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:55)
+]]></error>
+        </results>
+    </testresult>
+</summary>
