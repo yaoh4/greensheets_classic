@@ -164,17 +164,16 @@ function toggleDivAreaDisplay(divId, imgId)
 	</tr>
 	</table>
 	<!-- Show/Hide Criteria -->
-		 <!--
+<!--
 	<form id="frmCriteria" name="frmCriteria">
 		<a href="javascript:toggleDivAreaDisplay('divId1', 'imgDivId1')">
 			<img border="0" id="imgDivId1" name="imgDivId1" src="images/IconClosed.gif" onclick=""/>
 		</a>
-		<div id="divId1" name="divId1" style="display:none">
-			<!--Expanded Criteria -->
+		<div id="divId1" name="divId1" style="display:none">\
 			<%@ include file="/jsp/common/Preferences.jsp"%> 			
 		</div>
 	</form>
-	-->
+-->
 
 	<tr valign="bottom">
 		<td valign="bottom"  width="100%" nowrap="1" colspan="2">
