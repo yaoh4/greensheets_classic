@@ -43,9 +43,9 @@ public class AppConfigLoader {
     }
 
     public static void initPreferences(String path) throws Exception {
-        Properties p = new Properties();
-        p.load(new FileInputStream(path + "preferences.properties"));
-        AppConfigProperties.getInstance().addProperty(GreensheetsKeys.KEY_USER_PREFERENCES, p);
+       // Properties p = new Properties();
+      //  p.load(new FileInputStream(path + "preferences.properties"));
+      //  AppConfigProperties.getInstance().addProperty(GreensheetsKeys.KEY_USER_PREFERENCES, p);
     }
 
 
