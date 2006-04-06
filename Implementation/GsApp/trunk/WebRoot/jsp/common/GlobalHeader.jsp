@@ -66,7 +66,7 @@ function openHelp(){
 						<img src="./images/Spacer.gif" width="5" height="5"> 
 				 	</div>
 			</td>
-		 </tr>
+		 </tr> 
  	</tbody>
 </table>
 
