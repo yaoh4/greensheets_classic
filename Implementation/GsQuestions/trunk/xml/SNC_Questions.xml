@@ -395,8 +395,13 @@
 							<TypeMech type="3" mech="F33"/>
 							<TypeMech type="5" mech="F33"/>
 							<TypeMech type="8" mech="F33"/>
+                                                        <TypeMech type="5" mech="T15"/>
 							<TypeMech type="5" mech="S06"/>
 							<TypeMech type="8" mech="S06"/>
+                                                        <TypeMech type="5" mech="T32"/>
+							<TypeMech type="8" mech="T32"/>
+							<TypeMech type="5" mech="TU2"/>
+							<TypeMech type="8" mech="TU2"/>
 						</GrantTypeMechs>
 						<QText>Is this a SNAP grant application?</QText>
 						<QInstructions/>

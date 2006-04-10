@@ -16019,6 +16019,9 @@
 				<SelectionDef id="SEL_132">
 					<Value>Committed level</Value>
 				</SelectionDef>
+				<SelectionDef id="SEL_560">
+					<Value>Current NCI Funding Policy</Value>
+				</SelectionDef>
 				<SelectionDef id="SEL_133">
 					<Value> Other (must explain)</Value>
 					<QuestionDef id="PNCQ_73">
