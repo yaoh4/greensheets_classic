@@ -22402,7 +22402,7 @@
 											<TypeMech type="7" mech="R42"/>
 											<TypeMech type="9" mech="R42"/>
 										</GrantTypeMechs>
-										<QText>Will a minimum of 40% of the work been performed by the single partnering Research Institution?</QText>
+										<QText>Will a minimum of 40% of the work be performed by the single partnering Research Institution?</QText>
 										<QInstructions>If No, signed concurrence memo is required.</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="SCQ_227_RD_CM_409" type="COMMENT"/>
@@ -22475,7 +22475,7 @@
 											<TypeMech type="7" mech="R42"/>
 											<TypeMech type="9" mech="R42"/>
 										</GrantTypeMechs>
-										<QText>Will a minimum of 30% of the work been performed by the single partnering Research Institution?</QText>
+										<QText>Will a minimum of 30% of the work be performed by the single partnering Research Institution?</QText>
 										<QInstructions>If No, signed concurrence memo is required.</QInstructions>
 										<ResponseDefsList>
 											<ResponseDef id="SCQ_230_RD_CM_418" type="COMMENT"/>
