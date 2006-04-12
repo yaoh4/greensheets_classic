@@ -16017,7 +16017,7 @@
 			<ResponseDef id="PNCQ_72_RD_FL_219" type="FILE"/>
 			<ResponseDef id="PNCQ_72_RD_DD_215" type="DROP_DOWN">
 				<SelectionDef id="SEL_132">
-					<Value>Committed level</Value>
+					<Value>Committed Level</Value>
 				</SelectionDef>
 				<SelectionDef id="SEL_560">
 					<Value>Current NCI Funding Policy</Value>
