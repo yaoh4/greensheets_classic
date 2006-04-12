@@ -16015,7 +16015,7 @@
 		<ResponseDefsList>
 			<ResponseDef id="PNCQ_72_RD_CM_218" type="COMMENT"/>
 			<ResponseDef id="PNCQ_72_RD_FL_219" type="FILE"/>
-			<ResponseDef id="PNCQ_72_RD_RB_214" type="RADIO">
+			<ResponseDef id="PNCQ_72_RD_DD_215" type="DROP_DOWN">
 				<SelectionDef id="SEL_132">
 					<Value>Committed level</Value>
 				</SelectionDef>
