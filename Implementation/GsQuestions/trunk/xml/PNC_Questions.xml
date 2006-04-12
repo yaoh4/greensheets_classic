@@ -16016,6 +16016,9 @@
 			<ResponseDef id="PNCQ_72_RD_CM_218" type="COMMENT"/>
 			<ResponseDef id="PNCQ_72_RD_FL_219" type="FILE"/>
 			<ResponseDef id="PNCQ_72_RD_DD_215" type="DROP_DOWN">
+				<SelectionDef id="SEL_X_65">
+					<Value>--Select an option--</Value>
+				</SelectionDef>
 				<SelectionDef id="SEL_132">
 					<Value>Committed Level</Value>
 				</SelectionDef>
