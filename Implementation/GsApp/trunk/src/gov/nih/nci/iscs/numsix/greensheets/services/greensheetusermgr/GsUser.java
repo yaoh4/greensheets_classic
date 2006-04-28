@@ -37,7 +37,8 @@ public class GsUser {
     }
 
     public NciPerson getNciPerson() {
-        return this.getNciPerson();
+        //return this.getNciPerson();
+    	return this.nciPerson;
     }
 
     public String getDisplayUserName() {
