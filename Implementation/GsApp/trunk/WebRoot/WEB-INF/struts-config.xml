@@ -12,7 +12,12 @@
         <form-property name="formUid" type="java.lang.String"/>
         <form-property name="method" type="java.lang.String"/>
     </form-bean>
-
+	
+	
+	<form-bean name="savePreferencesForm" type="org.apache.struts.action.DynaActionForm">
+        <form-property name="method" type="java.lang.String"/>
+    </form-bean>
+	
     <form-bean name="changeLockForm" type="org.apache.struts.action.DynaActionForm">
         <form-property name="grantId" type="java.lang.String"/>
         <form-property name="applId" type="java.lang.String"/>
@@ -55,6 +60,7 @@
     <forward name="templateloadstatus" path="/jsp/TemplateLoadStatus.jsp" /> 
     <forward name="retrievegrants" path="/retrievegrants.do"/> 
     <forward name="sessionTimeOut" path="/jsp/SessionTimeOut.jsp"/>
+	<forward name="viewCurrentPreferences" path="/jsp/ViewCurrentPreferences.jsp"/>
 </global-forwards>
 
 
@@ -63,7 +69,7 @@
      <action path="/retrievegrants"
             type="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveUsersGrantsAction"
             scope="request"/>
-
+	
      <action path="/searchforgrant"
             type="gov.nih.nci.iscs.numsix.greensheets.application.SearchForGrantAction"
             name = "searchOptionsForm"
@@ -91,8 +97,13 @@
             parameter="method"
             scope="request"/>
 
-
-     <action path="/changelock"
+	<action path="/savepreferences"
+            name="attachmentsForm"
+            type="gov.nih.nci.iscs.numsix.greensheets.application.SavePreferencesAction"
+            parameter="method"
+            scope="request"/>
+	
+	 <action path="/changelock"
      	    name="changeLockForm"
             type="gov.nih.nci.iscs.numsix.greensheets.application.ChangeGreensheetLockAction"
             scope="request"/>
@@ -114,6 +125,8 @@
     <action path="/specialistSubmittedStatus" forward="/jsp/SpecialistSubmitStatus.jsp"/>
     
     <action path="/closeDialog" forward="/jsp/CloseDialog.jsp" /> 
+	
+	<action path="/editpreferences" forward="/jsp/EditPreferences.jsp" /> 
     
     <action path="/pdfgeneration" forward="/jsp/PdfGenerationOptions.jsp"/>
 

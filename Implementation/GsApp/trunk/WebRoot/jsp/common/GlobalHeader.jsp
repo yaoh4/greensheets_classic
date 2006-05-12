@@ -31,84 +31,89 @@ function openHelp(){
 %>
 
 </script>
-	<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
-	<tbody>
-		<tr>
-			<td nowrap="nowrap" valign="bottom">
-				<img src="./images/Logo_Greensheets.gif" alt="Greensheets" border="0" />
-			</td>
-			<td nowrap="nowrap" valign="bottom">&nbsp;</td>
-			<td style="vertical-align: bottom; white-space: nowrap;">
-				User: <b><%=userName%></b>
-			</td>
-			<td nowrap="nowrap" valign="bottom">&nbsp;</td>
-			<td style="vertical-align: bottom; white-space: nowrap;">
-				Env: <b><%=appEnv%></b>
-			</td>
-			<td nowrap="nowrap" valign="bottom">&nbsp;</td>
-			<td style="vertical-align: bottom; white-space: nowrap;">
-				Version: <b><%=appVersion%></b>
-			</td>
-			<td style="vertical-align: bottom; white-space: nowrap; width: 100%; text-align: right;">
-				<img src="./images/Spacer.gif" width="60" height="5" />
-					<div style="text-align: right;">
-					<!--
-						<a href="jsp/common/Preferences.jsp">Preferences</a>
-						<img src="./images/Spacer.gif" width="5" height="5">
-			-->
-						<img src="./images/Spacer.gif" width="5" height="5">
-						<img src="./images/Spacer.gif" width="5" height="5">					
-						<a href="<%=emailLink%>">Send Comments</a>
-						<img src="./images/Spacer.gif" width="5" height="5">
-						<img src="./images/Spacer.gif" width="5" height="5">
-						<img src="./images/Spacer.gif" width="5" height="5"> 
-						<a href="javascript: openHelp()">Help</a>
-						<img src="./images/Spacer.gif" width="5" height="5"> 
-				 	</div>
-			</td>
-		 </tr> 
- 	</tbody>
-</table>
-
-<table width="100%" class="line">
-	<tr>
-		<td></td>
-	</tr>
-</table>
-
-
-<table cellspacing="0" >
-	<tbody>
+	<table width="100%">
 		<tr>
 			<td>
-				<table cellspacing="0" class="globalNav">
-					<tbody>
-						<tr>
-							<td>
-								<span class="otherappsmenu">
-									<a class="oambutton" href="<%=urlWorkbench%>">Workbench</a>
-								</span>
-							</td>
-							<td>
-								<span class="otherappsmenu">
-									<a class="oambutton" href="<%=urlImpac2%>">IMPAC II Applications</a>
-								</span>
-							</td>
-						</tr>
-						<tr>
-							<td  colspan="2" ></td>
-								<table width="100%" class="line" cellpadding="0" cellspacing="0">
-									<tr>
-										<td></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</tbody>
+				<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td nowrap="nowrap" valign="bottom">
+							<img src="./images/Logo_Greensheets.gif" alt="Greensheets" border="0" />
+						</td>
+						<td nowrap="nowrap" valign="bottom">&nbsp;</td>
+						<td style="vertical-align: bottom; white-space: nowrap;">
+							User: <b><%=userName%></b>
+						</td>
+						<td nowrap="nowrap" valign="bottom">&nbsp;</td>
+						<td style="vertical-align: bottom; white-space: nowrap;">
+							Env: <b><%=appEnv%></b>
+						</td>
+						<td nowrap="nowrap" valign="bottom">&nbsp;</td>
+						<td style="vertical-align: bottom; white-space: nowrap;">
+							Version: <b><%=appVersion%></b>
+						</td>
+						<td style="vertical-align: bottom; white-space: nowrap; width: 100%; text-align: right;">
+							<img src="./images/Spacer.gif" width="60" height="5" />
+								<div style="text-align: right;">
+								<!--
+									<a href="jsp/common/Preferences.jsp">Preferences</a>
+									<img src="./images/Spacer.gif" width="5" height="5">
+						-->
+									<img src="./images/Spacer.gif" width="5" height="5">
+									<img src="./images/Spacer.gif" width="5" height="5">					
+									<a href="<%=emailLink%>">Send Comments</a>
+									<img src="./images/Spacer.gif" width="5" height="5">
+									<img src="./images/Spacer.gif" width="5" height="5">
+									<img src="./images/Spacer.gif" width="5" height="5"> 
+									<a href="javascript: openHelp()">Help</a>
+									<img src="./images/Spacer.gif" width="5" height="5"> 
+								</div>
+						</td>
 				</table>
 			</td>
 		</tr>
-	</tbody>
-</table>
+		<tr>
+			<table width="100%" class="line">
+				<tr>
+					<td></td>
+				</tr>
+			</table>		
+		</tr>
+		<tr>
+			<table cellspacing="0" >
+				<tr>
+					<td>
+						<table cellspacing="0" class="globalNav">
+							<tbody>
+								<tr>
+									<td>
+										<span class="otherappsmenu">
+											<a class="oambutton" href="<%=urlWorkbench%>">Workbench</a>
+										</span>
+									</td>
+									<td>
+										<span class="otherappsmenu">
+											<a class="oambutton" href="<%=urlImpac2%>">IMPAC II Applications</a>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td  colspan="2" ></td>
+										<table width="100%" class="line" cellpadding="0" cellspacing="0">
+											<tr>
+												<td></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</table>			
+		</tr>
+	</table>
+
+
+
 
 <!-- end default header -->
