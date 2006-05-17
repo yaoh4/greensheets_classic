@@ -61,6 +61,7 @@ Implementation/GsApp/trunk/WebRoot/images/ButtonAdvancedSearch.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonGrantsList.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonHelp.gif -text
 Implementation/GsApp/trunk/WebRoot/images/ButtonSearch.gif -text
+Implementation/GsApp/trunk/WebRoot/images/Cancel.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Closed.gif -text
 Implementation/GsApp/trunk/WebRoot/images/EditPref.gif -text
 Implementation/GsApp/trunk/WebRoot/images/IconAction.gif -text
@@ -95,6 +96,7 @@ Implementation/GsApp/trunk/WebRoot/images/NavWhiteDivider.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Open.gif -text
 Implementation/GsApp/trunk/WebRoot/images/RefreshList.gif -text
 Implementation/GsApp/trunk/WebRoot/images/RestorePref.gif -text
+Implementation/GsApp/trunk/WebRoot/images/Search.gif -text
 Implementation/GsApp/trunk/WebRoot/images/Spacer.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowd.gif -text
 Implementation/GsApp/trunk/WebRoot/images/arrowl.gif -text
