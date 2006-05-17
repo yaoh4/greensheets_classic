@@ -37,7 +37,6 @@
     
 </form-beans>
 
-
 <global-exceptions>
        <exception key="error.exception" 
                   type="java.lang.Exception" 
