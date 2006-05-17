@@ -4,8 +4,8 @@
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*" %>
 <%@ page import="java.util.*" %>
 <!-- begin default header -->
-<link rel="stylesheet" href="./stylesheets/otherappsmenu.css" type="text/css" />
-<script language="javascript" src="./scripts/ClientSideMethods.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/stylesheets/otherappsmenu.css" type="text/css" />
+<script language="javascript" src="<%=request.getContextPath()%>/scripts/ClientSideMethods.js"></script>
 
 <script>
 
@@ -37,7 +37,7 @@ function openHelp(){
 				<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td nowrap="nowrap" valign="bottom">
-							<img src="./images/Logo_Greensheets.gif" alt="Greensheets" border="0" />
+							<img src="<%=request.getContextPath()%>/images/Logo_Greensheets.gif" alt="Greensheets" border="0" />
 						</td>
 						<td nowrap="nowrap" valign="bottom">&nbsp;</td>
 						<td style="vertical-align: bottom; white-space: nowrap;">
@@ -52,20 +52,20 @@ function openHelp(){
 							Version: <b><%=appVersion%></b>
 						</td>
 						<td style="vertical-align: bottom; white-space: nowrap; width: 100%; text-align: right;">
-							<img src="./images/Spacer.gif" width="60" height="5" />
+							<img src="<%=request.getContextPath()%>/images/Spacer.gif" width="60" height="5" />
 								<div style="text-align: right;">
 								<!--
-									<a href="jsp/common/Preferences.jsp">Preferences</a>
-									<img src="./images/Spacer.gif" width="5" height="5">
+									<a href="/jsp/common/Preferences.jsp">Preferences</a>
+									<img src="/images/Spacer.gif" width="5" height="5">
 						-->
-									<img src="./images/Spacer.gif" width="5" height="5">
-									<img src="./images/Spacer.gif" width="5" height="5">					
+									<img src="<%=request.getContextPath()%>/images/Spacer.gif" width="5" height="5">
+									<img src="/images/Spacer.gif" width="5" height="5">					
 									<a href="<%=emailLink%>">Send Comments</a>
-									<img src="./images/Spacer.gif" width="5" height="5">
-									<img src="./images/Spacer.gif" width="5" height="5">
-									<img src="./images/Spacer.gif" width="5" height="5"> 
+									<img src="<%=request.getContextPath()%>/images/Spacer.gif" width="5" height="5">
+									<img src="<%=request.getContextPath()%>/images/Spacer.gif" width="5" height="5">
+									<img src="<%=request.getContextPath()%>/images/Spacer.gif" width="5" height="5"> 
 									<a href="javascript: openHelp()">Help</a>
-									<img src="./images/Spacer.gif" width="5" height="5"> 
+									<img src="<%=request.getContextPath()%>/images/Spacer.gif" width="5" height="5"> 
 								</div>
 						</td>
 				</table>
@@ -112,8 +112,4 @@ function openHelp(){
 			</table>			
 		</tr>
 	</table>
-
-
-
-
 <!-- end default header -->

@@ -25,7 +25,6 @@ public interface GreensheetPreferencesMgr {
      */
     public void saveUserPreferences(HashMap userPreferences) throws GreensheetBaseException;
     
-
 	public HashMap getUserPrefs();
 
 	public String getGrantSource() ;

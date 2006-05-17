@@ -5,7 +5,7 @@
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display"%>
-<script language="javascript" src="./scripts/ClientSideMethods.js"></script>
+<script language="javascript" src="<%=request.getContextPath()%>/scripts/ClientSideMethods.js"></script>
 
 <%
 GreensheetUserSession gus = (GreensheetUserSession) session.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
@@ -18,8 +18,8 @@ String userName = gus.getUser().getDisplayUserName();
 	<head>
 		<title>Greensheets</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" href="./stylesheets/otherappsmenu.css" type="text/css" />
-		<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/stylesheets/otherappsmenu.css" type="text/css" />
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/stylesheets/GreensheetsStyleSheet.css" type="text/css" />
 	</head>
 	<body>
 		<table border="0" width="100%">
