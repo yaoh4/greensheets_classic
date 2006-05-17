@@ -114,6 +114,7 @@ Implementation/GsApp/trunk/WebRoot/images/sort_up.gif -text
 Implementation/GsApp/trunk/WebRoot/index.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/ActionConfirm.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/CloseDialog.jsp -text
+Implementation/GsApp/trunk/WebRoot/jsp/EditPreferences.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/GuestUserGrantsList.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/GuestUserView.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/LinkTest.jsp -text
@@ -134,7 +135,6 @@ Implementation/GsApp/trunk/WebRoot/jsp/common/PopHeader.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/Preferences.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/PreferencesEditNav.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/common/PreferencesNav.jsp -text
-Implementation/GsApp/trunk/WebRoot/jsp/common/PreferencesPanel.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/error.jsp -text
 Implementation/GsApp/trunk/WebRoot/scripts/CalendarMethods.js -text
 Implementation/GsApp/trunk/WebRoot/scripts/ClientMethods.js -text
