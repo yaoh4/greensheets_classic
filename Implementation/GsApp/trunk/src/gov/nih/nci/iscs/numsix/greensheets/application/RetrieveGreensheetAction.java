@@ -6,15 +6,25 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.utils.*;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetMgrFactory;
+import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr;
+import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GsGrant;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetForm;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
-import javax.servlet.http.*;
-import org.apache.log4j.*;
-import org.apache.struts.action.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
 
 /**
  * Action class that retrieves a greensheet form based on the type and mechanism. 
