@@ -115,7 +115,6 @@ Implementation/GsApp/trunk/WebRoot/images/sort_up.gif -text
 Implementation/GsApp/trunk/WebRoot/index.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/ActionConfirm.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/CloseDialog.jsp -text
-Implementation/GsApp/trunk/WebRoot/jsp/EditPreferences.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/EditProgramPreferences.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/GuestUserGrantsList.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/GuestUserView.jsp -text
