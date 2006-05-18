@@ -25,7 +25,6 @@ function openHelp(){
 	String appEnv = DbConnectionHelper.getDbEnvironment();
 	String appVersion = application.getInitParameter("appVersion");
 	String emailLink = "mailto:" + application.getInitParameter("commentsEmail") + "?subject=Greensheets";
-	
 	String urlWorkbench = application.getInitParameter("urlWorkbench");
 	String urlImpac2 = application.getInitParameter("urlImpac2");
 %>
@@ -54,10 +53,6 @@ function openHelp(){
 						<td style="vertical-align: bottom; white-space: nowrap; width: 100%; text-align: right;">
 							<img src="<%=request.getContextPath()%>/images/Spacer.gif" width="60" height="5" />
 								<div style="text-align: right;">
-								<!--
-									<a href="/jsp/common/Preferences.jsp">Preferences</a>
-									<img src="/images/Spacer.gif" width="5" height="5">
-						-->
 									<img src="<%=request.getContextPath()%>/images/Spacer.gif" width="5" height="5">
 									<img src="/images/Spacer.gif" width="5" height="5">					
 									<a href="<%=emailLink%>">Send Comments</a>
