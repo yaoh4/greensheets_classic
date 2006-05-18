@@ -56,27 +56,76 @@ function toggleCriteriaPanelDisplay(divId, imgId)
 	<body>
 		<table border="0" width="100%">
 			<tr>
-				<td width="100%">
+				<td border="0" width="100%">
 					<%@ include file="/jsp/common/GlobalHeader.jsp"%>
 				</td>
 			</tr>
 			<tr>
-				<td width="100%">
-					<table width="100%" cellpadding="3">
+				<td>
+					<table border="0" width="100%">
 						<tr>
 							<td>
-								<form id="frmCriteria" name="frmCriteria">
-									<a href="javascript:toggleCriteriaPanelDisplay('divId1', 'imgDivId')">
-									    <img border="0" id="imgDivId1" name="imgDivId1" src="images/IconOpen.gif" onclick="" /> 
-									</a>
-									<div id="divId1" name="divId1" style="display:block">
-										<%@ include file="/jsp/common/Preferences.jsp"%>
-									</div>
-								</form>
+								<a href="javascript:toggleCriteriaPanelDisplay('divId1', 'imgDivId1')"> <img border="0" id="imgDivId1" name="imgDivId1" src="./images/IconOpen.gif" onclick="" /> </a>
+								<div id="divId1" name="divId1" style="display:block">
+									<TABLE bgcolor="#CCCCCC" border="0" width="100%">
+										<TR>
+											<TD>
+												<P align="left">
+													<STRONG>Grants From:</STRONG>
+													<SELECT name="selGrantsFrom">
+														<OPTION value="myportfolio">
+															My Porfolio
+														</option>
+														<OPTION value="mycanceractivity">
+															My Cancer Activity
+														</option>
+														<OPTION value="allncigrants">
+															All NCI Grants
+														</option>
+													</SELECT>
+												</P>
+											</TD>
+											<TD></TD>
+											<TD>
+												<P align="right">
+													<STRONG>Grant Type:</STRONG>
+													<SELECT name="selGrantType">
+														<OPTION value="competinggrants">
+															Competing Grants
+														</OPTION>
+														<OPTION value="noncompetinggrants">
+															Non-Competing Grants
+														</OPTION>
+														<OPTION value="both" selected="true">
+															Both
+														</OPTION>
+													</SELECT>
+												</P>
+											</TD>
+										</TR>
+										<TR>
+											<TD colspan="3" valign="bottom">
+												<DIV align="right">
+													<img src="./images/RestorePref.gif" border="0">
+													<img src="./images/Search.gif" border="0">
+													<img src="./images/Cancel.gif" border="0">
+												</DIV>
+											<TD>
+										</TR>
+									</TABLE>
+								</div>
 							</td>
+							<td>
+								<p align="right">
+								   <a href="editprogrampreferences.do">
+									  <img src="./images/EditPref.gif" border="0">
+								   </a>
+								</p>
+							<td>
 						</tr>
 					</table>
 				</td>
+			</tr>
 			<tr>
 				<td width="100%">
 					<display:table name="sessionScope.GRANT_LIST" requestURI="/greensheets/no_op.do" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" width="100%">
