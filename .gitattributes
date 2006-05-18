@@ -234,6 +234,7 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/A
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/ChangeGreensheetLockAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/DateColumnDecorator.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/EditPreferencesAction.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/EditProgramPreferencesAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/ErrorTestAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GrantGreensheetProxy.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GreensheetActionHelper.java -text
