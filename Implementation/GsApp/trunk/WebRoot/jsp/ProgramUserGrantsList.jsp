@@ -65,42 +65,77 @@ function toggleCriteriaPanelDisplay(divId, imgId)
 					<table border="0" width="100%">
 						<tr>
 							<td>
-								<a href="javascript:toggleCriteriaPanelDisplay('divId1', 'imgDivId1')"> <img border="0" id="imgDivId1" name="imgDivId1" src="./images/IconOpen.gif" onclick="" /> </a>
+								<a href="javascript:toggleCriteriaPanelDisplay('divId1', 'imgDivId1')"> 
+								     <img border="0" id="imgDivId1" name="imgDivId1" src="./images/IconOpen.gif" onclick="" /> 
+								</a>
 								<div id="divId1" name="divId1" style="display:block">
-									<TABLE bgcolor="#CCCCCC" border="0" width="100%">
+									<TABLE bgcolor="#CCCCCC" border="0" width="100%" cellpadding="3">
 										<TR>
 											<TD>
 												<P align="left">
 													<STRONG>Grants From:</STRONG>
 													<SELECT name="selGrantsFrom">
 														<OPTION value="myportfolio">
-															My Porfolio
+															 My Porfolio
 														</option>
 														<OPTION value="mycanceractivity">
-															My Cancer Activity
+															 My Cancer Activity
 														</option>
 														<OPTION value="allncigrants">
-															All NCI Grants
+															 All NCI Grants
 														</option>
 													</SELECT>
 												</P>
-											</TD>
-											<TD></TD>
 											<TD>
-												<P align="right">
+												<DIV align="right">
 													<STRONG>Grant Type:</STRONG>
 													<SELECT name="selGrantType">
 														<OPTION value="competinggrants">
-															Competing Grants
+															 Competing Grants
 														</OPTION>
 														<OPTION value="noncompetinggrants">
-															Non-Competing Grants
+															 Non-Competing Grants
 														</OPTION>
 														<OPTION value="both" selected="true">
-															Both
+															 Both
 														</OPTION>
 													</SELECT>
-												</P>
+												</DIV>
+											</TD>
+										</TR>
+										<TR>
+											<TD align="bottom">
+												<DIV align="left">
+													<STRONG>Mechanism:</STRONG>
+													<INPUT type="text" name="selMechanism">
+													 Example: R01
+												</DIV>
+												<DIV align="left">
+													 Leaving Mechanisms blank will return all Mechanisms
+												</DIV>
+											</TD>
+											<TD>
+												<DIV align="right">
+													<STRONG>Only Grants within Payline:</STRONG>
+													<LABEL>
+														<INPUT type="radio" name="selWithinPayline" value="yes">
+														 Yes
+													</LABEL>
+													<LABEL>
+														<INPUT type="radio" name="selWithinPayline" value="no">
+														 No
+													</LABEL>
+												</DIV>
+											</TD>
+										</TR>
+										<TR>
+											<TD colspan="2">
+												<DIV align="left">
+													<STRONG>Grant Number:</STRONG>
+													<INPUT type="text" name="selGrantNumber">
+													 &nbsp;&nbsp;&nbsp; -or- &nbsp;&nbsp;&nbsp; <STRONG>PI Name:</STRONG>
+													<INPUT type="text" name="selPiName" />
+												</DIV>
 											</TD>
 										</TR>
 										<TR>
@@ -117,9 +152,7 @@ function toggleCriteriaPanelDisplay(divId, imgId)
 							</td>
 							<td>
 								<p align="right">
-								   <a href="editprogrampreferences.do">
-									  <img src="./images/EditPref.gif" border="0">
-								   </a>
+									<a href="editprogrampreferences.do"> <img src="./images/EditPref.gif" border="0"> </a>
 								</p>
 							<td>
 						</tr>
