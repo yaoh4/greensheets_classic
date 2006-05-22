@@ -678,7 +678,6 @@
         <xsl:value-of select="$varVelocityDisabledString"/>
         -->
         <xsl:text>onChange="Validate(document.GreensheetForm,this,true)" </xsl:text>
-//ghh 3/27/06 modified valMandatory="true" to "false"
         <xsl:text> performValidation="</xsl:text><xsl:value-of select="$paramValidation"/> <xsl:text>" valType="typeString" displayName="Comment" valMaxLength="2000" valMandatory="false"</xsl:text>
         <xsl:text disable-output-escaping="yes">&gt;</xsl:text>
         <xsl:value-of select="$varVelocityString"/>
