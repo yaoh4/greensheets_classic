@@ -285,7 +285,6 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/gree
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetresourcemgr/GreensheetTemplateWrapper.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetusermgr/GreensheetUserMgr.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetusermgr/GreensheetUserMgrImpl.java -text
-Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetusermgr/GreensheetUserMgrTestImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetusermgr/GsUser.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetusermgr/GsUserRole.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetusermgr/NciPerson.java -text
