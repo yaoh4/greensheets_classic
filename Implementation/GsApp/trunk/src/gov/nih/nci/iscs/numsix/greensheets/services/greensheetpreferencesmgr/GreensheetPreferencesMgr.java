@@ -7,6 +7,7 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 
 import java.util.*;
 
@@ -18,78 +19,22 @@ import java.util.*;
  */
 public interface GreensheetPreferencesMgr {     
 
-    /**
-     * Method saveForm.
-     * @param userPreferences
-     * @throws GreensheetBaseException
-     */
-    public void saveUserPreferences(HashMap userPreferences) throws GreensheetBaseException;
+	/** 
+	 * restoreUserPreferences restores preferences for a user (if any)
+     * @return applPrefsMap
+	 */
+    public Map restoreUserPreferences() throws GreensheetBaseException;
     
-	public HashMap getUserPrefs();
+	/** 
+	 * restoreApplicationPreferences restores application default preferences
+     * @return applPrefsMap
+     */
+    public Map restoreApplicationPreferences() throws GreensheetBaseException;    
 
-	public String getGrantSource() ;
-	
-	public String getGrantType() ;
-	
-	public String getGrantMechanism();
-	
-	public String getGrantPayline() ;
-	
-	
-	public String isGrantSourceOptionSelected(String optionValue, boolean isDropdown) ;
-
-	public String isGrantTypeOptionSelected(String optionValue, boolean isDropdown) ;
-
-	public String isGrantPaylineOptionSelected(String optionValue, boolean isDropdown) ;
-
-	public boolean isGrantSourcePortfolioSelected() ;
-
-	public boolean isGrantSourceMyActivitiesSelected() ;
-
-	public boolean isGrantSourceAllSelected() ;
-	
-	
-	public boolean isGrantTypeBothSelected() ;
-	
-	public boolean isGrantTypeCompetingSelected() ; 
-	
-	public boolean isGrantTypeNonCompetingSelected() ;
-	
-	public boolean isGrantYesSelected() ;
-	
-	public boolean isGrantNoSelected() ;
-	
-	
-	public String getGrantMechanismDefault() ;
-
-	public String getGrantMechanismName() ;
-
-	public String getGrantPaylineDefault() ;
-
-	public String getGrantPaylineName() ;
-
-	public String getGrantPaylineNo() ;
-
-	public String getGrantPaylineYes() ;
-
-	public String getGrantSourceAll() ;
-
-	public String getGrantSourceDefault() ;
-
-	public String getGrantSourceMyActivities();
-
-	public String getGrantSourceName() ;
-
-	public String getGrantSourcePortfolio() ;
-
-	public String getGrantTypeBoth() ;
-
-	public String getGrantTypeCompeting() ;
-
-	public String getGrantTypeDefault() ;
-
-	public String getGrantTypeName();
-
-	public String getGrantTypeNonCompeting() ;
+	/** 
+	 * savePreferences saves preferences for a user
+     * @arg  GsUser
+     */
+	public void savePreferences(GsUser user, HashMap prefsMap) throws GreensheetBaseException;
  }
 

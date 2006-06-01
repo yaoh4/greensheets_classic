@@ -8,6 +8,7 @@ package gov.nih.nci.iscs.numsix.greensheets.services.grantmgr;
 
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.*;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*;
+
 import java.util.*;
 /**
  *
@@ -47,6 +48,11 @@ public class GrantMgrTestImpl implements GrantMgr {
     public GsGrant findGrantById(String applId, String grantNumber) throws GreensheetBaseException {
         return null;
     }
+
+	public Map getGrantsListForProgramUser(GsUser user, String grantSource, String grantType, String mechanism, String onlyGrantsWithinPayline, String grantNumber, String piName) throws GreensheetBaseException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 

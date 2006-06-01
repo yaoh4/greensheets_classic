@@ -11,63 +11,72 @@ import org.apache.log4j.*;
 import org.apache.struts.action.*;
 
 /**
- *
  * 
  * 
- *  @author kpuscas, Number Six Software
+ * 
+ * @author kpuscas, Number Six Software
  */
 public class SearchForGrantAction extends GsBaseAction {
 
-    private static final Logger logger = Logger.getLogger(SearchForGrantAction.class);
-    /**
-     * @see org.apache.struts.action.Action#execute(ActionMapping, ActionForm, HttpServletRequest, HttpServletResponse)
-     */
-    public ActionForward execute(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
-        throws Exception {
+	private static final Logger logger = Logger
+			.getLogger(SearchForGrantAction.class);
 
-        String forward = null;
+	/**
+	 * @see org.apache.struts.action.Action#execute(ActionMapping, ActionForm,
+	 *      HttpServletRequest, HttpServletResponse)
+	 */
+	public ActionForward execute(ActionMapping mapping, ActionForm aForm,
+			HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-        if (req.getSession().isNew()) {
-            forward = "sessionTimeOut";
+		String forward = null;
 
-        } else {
+		if (req.getSession().isNew()) {
+			forward = "sessionTimeOut";
 
-            GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
-            
-            GreensheetActionHelper.setPaylineOption(req, gus);
+		} else {
 
-            GrantMgr mgr = GreensheetMgrFactory.createGrantMgr(GreensheetMgrFactory.PROD);
+			GreensheetUserSession gus = GreensheetActionHelper
+					.getGreensheetUserSession(req);
 
-            DynaActionForm form = (DynaActionForm) aForm;
+			GreensheetActionHelper.setPaylineOption(req, gus);
 
-            String searchType = (String) form.get("searchType");
-            String searchText = (String) form.get("searchText");
+			GrantMgr mgr = GreensheetMgrFactory
+					.createGrantMgr(GreensheetMgrFactory.PROD);
 
+			DynaActionForm form = (DynaActionForm) aForm;
 
-            Map map = mgr.searchForGrant(searchType, searchText, gus.getUser());
+			String searchType = (String) form.get("searchType");
+			String searchText = (String) form.get("searchText");
 
-            gus.setGrants(map);
+			Map map = mgr.searchForGrant(searchType, searchText, gus.getUser());
 
-            List list = GreensheetActionHelper.getGrantGreensheetProxyList(map, gus.getUser());
+			gus.setGrants(map);
 
-            req.getSession().setAttribute("GRANT_LIST", list);
-            
-            logger.debug(gus.getUser().getRoleAsString());
-            
-            if (gus.getUser().getRole().equals(GsUserRole.PGM_DIR) || gus.getUser().getRole().equals(GsUserRole.PGM_ANL)) {
-                req.setAttribute("SEARCH_RESULTS","true");
-                forward = "programGrantsList";
-            } else if (gus.getUser().getRole().equals(GsUserRole.SPEC)) {
-                req.setAttribute("SEARCH_RESULTS","true");
-                forward = "specialistGrantsList";
-            }else if(gus.getUser().getRole().equals(GsUserRole.GS_GUEST)){
-                req.setAttribute("SEARCH_RESULTS","true");
-                forward = "guestUserGrantsList";
-            }
-        }
-        
-        logger.debug(forward);
-        return mapping.findForward(forward);
-    }
+			List list = GreensheetActionHelper.getGrantGreensheetProxyList(map,
+					gus.getUser());
+
+			req.getSession().setAttribute("GRANT_LIST", list);
+
+			logger.debug(gus.getUser().getRoleAsString());
+			
+//			Logic removed 25.05.2006, see #4016, A.Angelo
+//			if (gus.getUser().getRole().equals(GsUserRole.PGM_DIR)
+//					|| gus.getUser().getRole().equals(GsUserRole.PGM_ANL)) {
+//				req.setAttribute("SEARCH_RESULTS", "true");
+//				forward = "programGrantsList";
+//			}
+
+			 if (gus.getUser().getRole().equals(GsUserRole.SPEC)) {
+				req.setAttribute("SEARCH_RESULTS", "true");
+				forward = "specialistGrantsList";
+			} else if (gus.getUser().getRole().equals(GsUserRole.GS_GUEST)) {
+				req.setAttribute("SEARCH_RESULTS", "true");
+				forward = "guestUserGrantsList";
+			}
+		}
+
+		logger.debug(forward);
+		return mapping.findForward(forward);
+	}
 
 }

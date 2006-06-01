@@ -65,7 +65,6 @@ public class GreensheetActionHelper {
         } else if (changeMyPortFolioOption != null && changeMyPortFolioOption.equalsIgnoreCase("YES")) {
             gus.setMyPortfolio(true);
         } else if (changeMyPortFolioOption != null && changeMyPortFolioOption.equalsIgnoreCase("NO")) {
-
             gus.setMyPortfolio(false);
         }
 

@@ -19,5 +19,4 @@ import org.apache.struts.action.*;
  */
 public class GsBaseAction extends Action {
 
-
 }
