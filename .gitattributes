@@ -234,7 +234,6 @@ Implementation/GsApp/trunk/src/displaytag.properties -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/GreensheetResourceManager.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/GreensheetsResourceException.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/velocity/GreenSheetResourceLoader.java -text
-Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/ApplicationResources.properties -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/ChangeGreensheetLockAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/DateColumnDecorator.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/EditProgramPreferencesAction.java -text
