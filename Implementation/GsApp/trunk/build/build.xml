@@ -38,8 +38,6 @@ Author: Kevin A. Puscas - Number Six Software 2003
     <property name="test.suite.file"        value="GsTestSuite.xml"/>    
     
     
-    
-    
     <!-- default properties -->
     <property name="distribution.dir"       value="./dist"/>
     <property name="web.root.dir"           value="./WebRoot"/>
@@ -121,7 +119,7 @@ a typical web applicaiton.
 this target cleans all build files including .class, .jar, .war,
 and javadocs
 ********************************************************************-->
-<target name="clean"
+<target name="clean" depends="set_dev_structure"
         description="cleans all build files including .class, .jar, .war, and javadocs">
     <delete includeEmptyDirs="true">
         <fileset dir="${java.classes.dir}" includes="**/*"/>
@@ -139,7 +137,7 @@ compiles the java source files using the classpath specified
 also copies any resource files that are in the java source
 directories.
 ********************************************************************-->
-<target name="compile" 
+<target name="compile" depends="set_dev_structure"
         description="compiles the java source files using the classpath specified" >
         
     <!-- create the classed dir -->
