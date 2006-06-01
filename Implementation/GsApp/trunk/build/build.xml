@@ -141,6 +141,10 @@ directories.
 ********************************************************************-->
 <target name="compile" 
         description="compiles the java source files using the classpath specified" >
+        
+    <!-- create the classed dir -->
+    <mkdir dir="${java.classes.dir}"/>        
+    
     <!-- compile the java source -->
     <javac 
         classpath="${project.classpath}" 
