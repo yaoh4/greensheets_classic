@@ -123,7 +123,6 @@ Implementation/GsApp/trunk/WebRoot/jsp/GuestUserGrantsList.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/GuestUserView.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/LinkTest.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/PdfGenerationOptions.jsp -text
-Implementation/GsApp/trunk/WebRoot/jsp/PreferencesPanel.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/ProgramUserGrantsList.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/QuestionAttachments.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/ReloadXmlSrc.jsp -text
