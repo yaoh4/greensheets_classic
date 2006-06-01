@@ -34,7 +34,8 @@ String userName = gus.getUser().getDisplayUserName();
 								<TD>
 									<P align="left">
 										<STRONG>Grants From:</STRONG>
-										<SELECT name="grantsFrom">
+										<SELECT name="grantSources">
+											<OPTION selected="true"/>							
 											<OPTION value="myportfolio">
 												My Porfolio
 											</option>
@@ -49,7 +50,8 @@ String userName = gus.getUser().getDisplayUserName();
 								<TD>
 									<DIV align="right">
 										<STRONG>Grant Type:</STRONG>
-										<SELECT name="grantType">
+										<SELECT name="grantTypes">
+										    <OPTION selected="true"/>
 											<OPTION value="competinggrants">
 												Competing Grants
 											</OPTION>
@@ -102,12 +104,8 @@ String userName = gus.getUser().getDisplayUserName();
 							<TR>
 								<TD colspan="3">
 									<P align="left">
-										<a href="javascript:document.programPreferencesForm.submit();">
-										   <img src="./images/SavePref.gif" border="0">
-										</a>
-										<a href="retrievegrants.do">
-										  <img src="./images/Cancel.gif" border="0">
-										</a>
+										<html:image page="/images/SavePref.gif" alt="Save Preferencces" property="method" value="save" />
+										<html:image page="/images/Cancel.gif" alt="Cancel" property="method" value="cancel" />
 									</P>
 								</TD>
 							</TR>

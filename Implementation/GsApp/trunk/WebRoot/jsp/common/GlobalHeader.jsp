@@ -6,9 +6,7 @@
 <!-- begin default header -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/stylesheets/otherappsmenu.css" type="text/css" />
 <script language="javascript" src="<%=request.getContextPath()%>/scripts/ClientSideMethods.js"></script>
-
 <script>
-
 function openHelp(){
 
 

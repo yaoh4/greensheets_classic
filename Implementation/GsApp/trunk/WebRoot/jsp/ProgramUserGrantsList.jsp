@@ -1,10 +1,11 @@
 <%@ page language="java"%>
-
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.application.*"%>
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*"%>
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display"%>
+<%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic"%>
 <script language="javascript" src="./scripts/ClientSideMethods.js"></script>
 
 <%
@@ -13,6 +14,8 @@ String userName = gus.getUser().getDisplayUserName();
 %>
 
 <!DOCTYPE HTML PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+
+<html:hidden property="method" value="error"/>
 
 <script>
 function toggleCriteriaPanelDisplay(divId, imgId)
@@ -44,6 +47,10 @@ function toggleCriteriaPanelDisplay(divId, imgId)
 			}		
 		}		
 	}	
+	
+function setMethod(target) {
+   document.forms[0].method.value=target;
+}
 </script>
 
 <html>
@@ -68,38 +75,23 @@ function toggleCriteriaPanelDisplay(divId, imgId)
 								<a href="javascript:toggleCriteriaPanelDisplay('divId1', 'imgDivId1')"> 
 								     <img border="0" id="imgDivId1" name="imgDivId1" src="./images/IconOpen.gif" onclick="" /> 
 								</a>
-								<div id="divId1" name="divId1" style="display:block">
+								<div id="divId1" name="divId1" style="display:block">  
+								  <html:form action="searchprogramgrantsdispatch">
 									<TABLE bgcolor="#CCCCCC" border="0" width="100%" cellpadding="3">
 										<TR>
 											<TD>
 												<P align="left">
 													<STRONG>Grants From:</STRONG>
-													<SELECT name="selGrantsFrom">
-														<OPTION value="myportfolio">
-															 My Porfolio
-														</option>
-														<OPTION value="mycanceractivity">
-															 My Cancer Activity
-														</option>
-														<OPTION value="allncigrants">
-															 All NCI Grants
-														</option>
-													</SELECT>
+													<html:select property="grantSource" >
+													     <html:optionsCollection name="grantSources" value="value" label="label"/>
+													</html:select>
 												</P>
 											<TD>
 												<DIV align="right">
 													<STRONG>Grant Type:</STRONG>
-													<SELECT name="selGrantType">
-														<OPTION value="competinggrants">
-															 Competing Grants
-														</OPTION>
-														<OPTION value="noncompetinggrants">
-															 Non-Competing Grants
-														</OPTION>
-														<OPTION value="both" selected="true">
-															 Both
-														</OPTION>
-													</SELECT>
+													<html:select property="grantType">
+													     <html:optionsCollection name="grantTypes" value="value" label="label"/>
+													</html:select>													
 												</DIV>
 											</TD>
 										</TR>
@@ -107,7 +99,7 @@ function toggleCriteriaPanelDisplay(divId, imgId)
 											<TD align="bottom">
 												<DIV align="left">
 													<STRONG>Mechanism:</STRONG>
-													<INPUT type="text" name="selMechanism">
+													<html:text property="mechanism"/>
 													 Example: R01
 												</DIV>
 												<DIV align="left">
@@ -117,14 +109,10 @@ function toggleCriteriaPanelDisplay(divId, imgId)
 											<TD>
 												<DIV align="right">
 													<STRONG>Only Grants within Payline:</STRONG>
-													<LABEL>
-														<INPUT type="radio" name="selWithinPayline" value="yes">
-														 Yes
-													</LABEL>
-													<LABEL>
-														<INPUT type="radio" name="selWithinPayline" value="no">
-														 No
-													</LABEL>
+													   <logic:iterate id="choice"  name="grantsWithinPaylineChoices">
+													      <html:radio property="onlyGrantsWithinPayline" idName="choice" value="value"/>
+														  <bean:write name="choice" property="label"/>
+													  </logic:iterate>
 												</DIV>
 											</TD>
 										</TR>
@@ -132,27 +120,30 @@ function toggleCriteriaPanelDisplay(divId, imgId)
 											<TD colspan="2">
 												<DIV align="left">
 													<STRONG>Grant Number:</STRONG>
-													<INPUT type="text" name="selGrantNumber">
-													 &nbsp;&nbsp;&nbsp; -or- &nbsp;&nbsp;&nbsp; <STRONG>PI Name:</STRONG>
-													<INPUT type="text" name="selPiName" />
+													<html:text property="grantNumber"/>
+ 												    &nbsp;&nbsp;&nbsp; -or- &nbsp;&nbsp;&nbsp; <STRONG>PI Name:</STRONG>
+														<html:text property="piName"/>	
 												</DIV>
 											</TD>
 										</TR>
 										<TR>
 											<TD colspan="3" valign="bottom">
 												<DIV align="right">
-													<img src="./images/RestorePref.gif" border="0">
-													<img src="./images/Search.gif" border="0">
-													<img src="./images/Cancel.gif" border="0">
+													<html:image page="/images/RestorePref.gif" property="image_restorePreferences"/>
+													<html:image page="/images/Search.gif" property="image_search"/>
+													<html:image page="/images/Cancel.gif" property="image_cancel"/>												   
 												</DIV>
 											<TD>
 										</TR>
 									</TABLE>
+								  </html:form> 
 								</div>
 							</td>
 							<td>
 								<p align="right">
-									<a href="editprogrampreferences.do"> <img src="./images/EditPref.gif" border="0"> </a>
+								    <html:link page="/editprogrampreferences.do">
+										   <html:img page="/images/EditPref.gif" alt="Edit Preferencces" border="0"/>
+									</html:link>
 								</p>
 							<td>
 						</tr>

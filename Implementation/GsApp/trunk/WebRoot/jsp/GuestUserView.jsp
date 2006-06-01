@@ -30,8 +30,8 @@ String userName = gus.getUser().getDisplayUserName();
 			<form name="SimpleSearch" id="SimpleSearch" method="post" action="/greensheets/searchforgrant.do">
 				<table>
 					<tr>
-						<td  nowrap="1" valign="bottom">						
-								Search for 
+						<td  nowrap="1" valign="bottom">
+								Search for
 								<select name="searchType">
 									<option value="SEARCH_GS_NUMBER">Grant Number</option>
 									<option value="SEARCH_GS_NAME">PI Name</option>
