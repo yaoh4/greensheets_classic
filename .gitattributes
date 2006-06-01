@@ -1,7 +1,5 @@
 * text=auto !eol
 Implementation/GsApp/trunk/WebRoot/META-INF/MANIFEST.MF -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/classes/ApplicationResources.properties -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/classes/displaytag.properties -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/errormessages.properties -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/avalon-framework-cvs-20020806.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/batik.jar -text
