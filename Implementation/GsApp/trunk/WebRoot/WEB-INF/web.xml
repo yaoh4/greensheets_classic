@@ -12,7 +12,7 @@
   </context-param>
   <context-param>
     <param-name>appBuild</param-name>  
-    <param-value>b04.06.06</param-value>
+    <param-value>b06.01.06</param-value>
   </context-param>
   <context-param>
     <param-name>showDebugOnError</param-name>   
