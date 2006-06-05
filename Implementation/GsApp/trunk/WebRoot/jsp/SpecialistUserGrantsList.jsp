@@ -86,14 +86,11 @@ String userName = gus.getUser().getDisplayUserName();
 				<display:column sortable="true" property="pi" title="PI"/>
 				<display:column sortable="true" property="programStatus" title="Pgm GS Status"/>
 				<display:column sortable="true" property="pgmFormSubmittedDate" title="Pgm GS Submitted Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
-				
 				<display:column property="programGreensheet" title=""/>
 				<display:column property="programLockIcon" title="Pgm GS Lock"/>
-				
 				<display:column sortable="true" property="specialistStatus" title="GMS GS Status"/>
 				<display:column property="specialistGreensheet" title=""/>
-				<display:column property="specialistLockIcon" title="GMS GS Lock"/>
-				
+				<display:column property="specialistLockIcon" title="GMS GS Lock"/>	
 				<display:setProperty name="paging.banner.items_name" value="Grants"/>
 				<display:setProperty name="paging.banner.item_name" value="Grant"/>
 				<display:setProperty name="paging.banner.placement" value="both"/>
