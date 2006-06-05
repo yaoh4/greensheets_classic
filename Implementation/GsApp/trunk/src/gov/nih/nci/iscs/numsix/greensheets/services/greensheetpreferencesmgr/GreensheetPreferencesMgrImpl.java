@@ -17,8 +17,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
@@ -30,9 +32,6 @@ import org.apache.log4j.Logger;
  * @author kkanchinadam, Number Six Software
  */
 public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
-
-	// The Greensheets User object. Used in class initialization
-	public GsUser gsUser;
 
 	// User & Application Preference Maps
 	public Map userPrefsMap;
@@ -85,10 +84,54 @@ public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
 	 * 
 	 * @arg GsUser
 	 */
-	public void savePreferences(GsUser user, HashMap prefsMap)
+	public void savePreferences(GsUser gsUser, Map userPrefsMap)
 			throws GreensheetBaseException {
-		// TODO Auto-generated method stub
-	}	
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+
+
+		try {
+			// delete old preferences (if any)			
+			conn = DbConnectionHelper.getInstance().getConnection();
+			stmt = conn.createStatement();
+			String userName = gsUser.getNciPerson().getCommonName()
+					.toUpperCase();
+			String del = "DELETE FROM USER_PREFERENCES_T WHERE APPLICATION_NAME='GREENSHEETS' AND USERNAME='"+ userName + "'";
+			rs = stmt.executeQuery(del);
+			// save new preferences
+			Set keys = userPrefsMap.keySet();
+			Iterator i = keys.iterator();
+			while (i.hasNext()) {
+				String key = (String) i.next();
+				String value = (String) userPrefsMap.get(key);
+				String ins = "INSERT INTO USER_PREFERENCES_T (APPLICATION_NAME, USERNAME, PREFERENCE_NAME, PREFERENCE_VALUE)" +
+				" VALUES ('GREENSHEETS', '"+ userName + "', '" + key+"', '" + value + "')";
+				rs = stmt.executeQuery(ins);
+			}
+			// commit
+			conn.commit();
+		} catch (Exception e) {
+			logger.debug(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+					rs = null;
+				}
+				if (stmt != null) {
+					stmt.close();
+					stmt = null;
+				}
+				DbConnectionHelper.getInstance().freeConnection(conn);
+			} catch (Exception e) {
+				logger.debug(e.getMessage());
+			}
+		}
+
+	}
+
 
 	/** setApplPrefsMap */
 	private void setApplPrefsMap() {

@@ -35,6 +35,6 @@ public interface GreensheetPreferencesMgr {
 	 * savePreferences saves preferences for a user
      * @arg  GsUser
      */
-	public void savePreferences(GsUser user, HashMap prefsMap) throws GreensheetBaseException;
+	public void savePreferences(GsUser user, Map prefsMap) throws GreensheetBaseException;
  }
 

@@ -10,8 +10,13 @@ public interface Constants {
 	// preferences bean keys
 	public static final String PREFERENCES_KEY = "preferences";
 	public static final String GRANT_SOURCES_KEY = "grantSources";
+	public static final String GRANT_SOURCE_KEY = "grantSource";
 	public static final String GRANT_TYPES_KEY = "grantTypes";
+	public static final String GRANT_TYPE_KEY = "grantType";
+	public static final String GRANT_MECHANISM_KEY = "mechanism";
 	public static final String GRANTS_WITHIN_PAYLINE_CHOICES = "grantsWithinPaylineChoices";
+	public static final String GRANTS_WITHIN_PAYLINE_CHOICE = "onlyGrantsWithinPayline";
+	public static final String GRANTS_WITHIN_PAYLINE_CHOICE_SEL = "onlyGrantsWithinPaylineSel";
 	
 	// preferences field value keys
 	public static final String PREFERENCES_MYPORTFOLIO = "myportfolio";
