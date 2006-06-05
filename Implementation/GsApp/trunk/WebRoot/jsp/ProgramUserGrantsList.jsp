@@ -1,7 +1,4 @@
 <%@ page language="java"%>
-<%@ page import="gov.nih.nci.iscs.numsix.greensheets.application.*"%>
-<%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*"%>
-<%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html"%>
@@ -129,9 +126,9 @@ function setMethod(target) {
 										<TR>
 											<TD colspan="3" valign="bottom">
 												<DIV align="right">
-													<html:image page="/images/RestorePref.gif" property="image_restorePreferences"/>
-													<html:image page="/images/Search.gif" property="image_search"/>
-													<html:image page="/images/Cancel.gif" property="image_cancel"/>												   
+													<html:image page="/images/RestorePref.gif" property="image_restorePreferences" alt="Restore Preferences"/>
+													<html:image page="/images/Search.gif" property="image_search" alt="Search"/>
+													<html:image page="/images/Cancel.gif" property="image_cancel" alt="Cancel" />												   
 												</DIV>
 											<TD>
 										</TR>
@@ -142,7 +139,7 @@ function setMethod(target) {
 							<td>
 								<p align="right">
 								    <html:link page="/editprogrampreferences.do">
-										   <html:img page="/images/EditPref.gif" alt="Edit Preferencces" border="0"/>
+										   <html:img page="/images/EditPref.gif" border="0" alt="Edit Preferencces"/>
 									</html:link>
 								</p>
 							<td>

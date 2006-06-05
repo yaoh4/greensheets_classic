@@ -1,15 +1,15 @@
 <%@ page language="java"%>
-<%@ page import="gov.nih.nci.iscs.numsix.greensheets.application.*"%>
-<%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*"%>
-<%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*"%>
-<%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display"%>
-<script language="javascript" src="<%=request.getContextPath()%>/scripts/ClientSideMethods.js"></script>
+<%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic"%>
+<script language="javascript" src="./scripts/ClientSideMethods.js"></script>
+
 <%
 GreensheetUserSession gus = (GreensheetUserSession) session.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
 String userName = gus.getUser().getDisplayUserName();
 %>
+
 <!DOCTYPE HTML PUBLIC "-//w3c//dtd html 4.0 transitional//en">
 
 <html>
@@ -28,40 +28,22 @@ String userName = gus.getUser().getDisplayUserName();
 			</tr>
 			<tr>
 				<td>
-					<html:form action="saveprogrampreferences">
+					<html:form action="editprogrampreferencesdispatch">
 						<TABLE border="0" width="80%" cellpadding="3">
 							<TR>
 								<TD>
 									<P align="left">
 										<STRONG>Grants From:</STRONG>
-										<SELECT name="grantSources">
-											<OPTION selected="true"/>							
-											<OPTION value="myportfolio">
-												My Porfolio
-											</option>
-											<OPTION value="mycanceractivity">
-												My Cancer Activity
-											</option>
-											<OPTION value="allncigrants">
-												All NCI Grants
-											</option>
-										</SELECT>
+										<html:select property="grantSource">
+											<html:optionsCollection name="grantSources" value="value" label="label" />
+										</html:select>
 									</P>
 								<TD>
 									<DIV align="right">
 										<STRONG>Grant Type:</STRONG>
-										<SELECT name="grantTypes">
-										    <OPTION selected="true"/>
-											<OPTION value="competinggrants">
-												Competing Grants
-											</OPTION>
-											<OPTION value="noncompetinggrants">
-												Non-Competing Grants
-											</OPTION>
-											<OPTION value="both" selected="true">
-												Both
-											</OPTION>
-										</SELECT>
+										<html:select property="grantType">
+											<html:optionsCollection name="grantTypes" value="value" label="label" />
+										</html:select>
 									</DIV>
 								</TD>
 							</TR>
@@ -69,7 +51,7 @@ String userName = gus.getUser().getDisplayUserName();
 								<TD align="bottom">
 									<DIV align="left">
 										<STRONG>Mechanism:</STRONG>
-										<INPUT type="text" name="mechanism">
+										<html:text property="mechanism" />
 										Example: R01
 									</DIV>
 									<DIV align="left">
@@ -79,14 +61,10 @@ String userName = gus.getUser().getDisplayUserName();
 								<TD>
 									<DIV align="right">
 										<STRONG>Only Grants within Payline:</STRONG>
-										<LABEL>
-											<INPUT type="radio" name="onlyGrantsWithinPayline" value="yes">
-											Yes
-										</LABEL>
-										<LABEL>
-											<INPUT type="radio" name="onlyGrantsWithinPayline" value="no">
-											No
-										</LABEL>
+										<logic:iterate id="choice" name="grantsWithinPaylineChoices">
+											<html:radio property="onlyGrantsWithinPayline" idName="choice" value="value" />
+											<bean:write name="choice" property="label" />
+										</logic:iterate>
 									</DIV>
 								</TD>
 							</TR>
@@ -94,18 +72,17 @@ String userName = gus.getUser().getDisplayUserName();
 								<TD colspan="2">
 									<DIV align="left">
 										<STRONG>Grant Number:</STRONG>
-										<INPUT type="text" name="grantNumber">
-										    &nbsp;&nbsp;&nbsp; -or- &nbsp;&nbsp;&nbsp;
-										    <STRONG>PI Name:</STRONG>
-										<INPUT type="text" name="piName" />
+										<html:text property="grantNumber" />
+										&nbsp;&nbsp;&nbsp; -or- &nbsp;&nbsp;&nbsp; <STRONG>PI Name:</STRONG>
+										<html:text property="piName"/>	
 									</DIV>
 								</TD>
 							</TR>
 							<TR>
 								<TD colspan="3">
 									<P align="left">
-										<html:image page="/images/SavePref.gif" alt="Save Preferencces" property="method" value="save" />
-										<html:image page="/images/Cancel.gif" alt="Cancel" property="method" value="cancel" />
+									    <html:image page="/images/SavePref.gif" property="image_savePreferences" alt="Save Preferencces" />
+										<html:image page="/images/Cancel.gif" property="image_cancel" alt="Cancel" />
 									</P>
 								</TD>
 							</TR>
