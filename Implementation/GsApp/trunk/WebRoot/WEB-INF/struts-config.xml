@@ -97,6 +97,24 @@
     		<forward name="image_cancel.x" path="/searchprogramgrants.do?method=cancel" />
 		</action>
 		
+		<action path="/editprogrampreferences" parameter="method" name="programPreferencesForm"
+		type="gov.nih.nci.iscs.numsix.greensheets.application.EditProgramPreferencesAction"
+		input="/jsp/EditProgramPreferences.jsp" scope="request">
+			<forward name="success" path="/jsp/EditProgramPreferences.jsp" />
+		</action>
+		<action path="/editprogrampreferencesdispatch"
+		name="programPreferencesForm"
+		type="org.apache.struts.scaffold.FindForwardAction"
+		input="/jsp/EditProgramPreferences.jsp"
+		scope="request">	
+    		<forward name="image_savePreferences.x" path="/saveprogrampreferences.do" />
+    		<forward name="image_cancel.x" path="/searchprogramgrants.do?method=cancel" />
+		</action>		
+
+		<action path="/saveprogrampreferences" name="programPreferencesForm" 
+		type="gov.nih.nci.iscs.numsix.greensheets.application.SaveProgramPreferencesAction" scope="request">
+			<forward name="success" path="/jsp/ViewProgramPreferences.jsp" />
+		</action>		
 
 		<!--  Guest & Specialist Search Action -->
 		<action path="/searchforgrant" type="gov.nih.nci.iscs.numsix.greensheets.application.SearchForGrantAction" name="searchOptionsForm" scope="request" />
@@ -122,14 +140,6 @@
 		<action path="/specialistSubmittedStatus" forward="/jsp/SpecialistSubmitStatus.jsp" />
 
 		<action path="/closeDialog" forward="/jsp/CloseDialog.jsp" />
-
-		<action path="/editprogrampreferences" type="gov.nih.nci.iscs.numsix.greensheets.application.EditProgramPreferencesAction" scope="request">
-			<forward name="success" path="/jsp/EditProgramPreferences.jsp" />
-		</action>
-
-		<action path="/saveprogrampreferences" name="programPreferencesForm" type="gov.nih.nci.iscs.numsix.greensheets.application.SaveProgramPreferencesAction" scope="request">
-			<forward name="success" path="/jsp/ViewProgramPreferences.jsp" />
-		</action>
 
 		<action path="/pdfgeneration" forward="/jsp/PdfGenerationOptions.jsp" />
 
