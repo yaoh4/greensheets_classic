@@ -69,16 +69,6 @@ String userName = gus.getUser().getDisplayUserName();
 								</TD>
 							</TR>
 							<TR>
-								<TD colspan="2">
-									<DIV align="left">
-										<STRONG>Grant Number:</STRONG>
-										<html:text property="grantNumber" />
-										&nbsp;&nbsp;&nbsp; -or- &nbsp;&nbsp;&nbsp; <STRONG>PI Name:</STRONG>
-										<html:text property="piName"/>	
-									</DIV>
-								</TD>
-							</TR>
-							<TR>
 								<TD colspan="3">
 									<P align="left">
 									    <html:image page="/images/SavePref.gif" property="image_savePreferences" alt="Save Preferencces" />

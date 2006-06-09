@@ -37,13 +37,6 @@ public class SaveProgramPreferencesAction extends GsBaseAction {
 			map.put(Constants.PREFERENCES_GRANT_MECHANISM_KEY, prefs
 					.getMechanism());
 		}
-		if (prefs.getGrantNumber().length()!=0) {
-			map.put(Constants.PREFERENCES_GRANT_NUMBER_KEY, prefs
-					.getGrantNumber());
-		}
-		if (prefs.getPiName().length()!=0) {
-			map.put(Constants.PREFERENCES_GRANT_PI_KEY, prefs.getPiName());
-		}
 		pm.savePreferences(gus.getUser(), map);
 
 		// set grant source field

@@ -19,12 +19,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.util.LabelValueBean;
 
-/**
- * 
- * 
- * 
- * @author kpuscas, Number Six Software
- */
 public class EditProgramPreferencesAction extends GsBaseAction {
 
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -93,7 +87,7 @@ public class EditProgramPreferencesAction extends GsBaseAction {
 		GreensheetPreferencesMgr pm = (GreensheetPreferencesMgr) new GreensheetPreferencesMgrImpl(
 				gsUser);
 
-		Map map = pm.restoreApplicationPreferences();
+		Map map = pm.restoreUserPreferences();
 		prefs.grantSource = (String) map
 				.get(Constants.PREFERENCES_GRANT_SOURCE_KEY);
 		prefs.grantType = (String) map
@@ -102,10 +96,7 @@ public class EditProgramPreferencesAction extends GsBaseAction {
 				.get(Constants.PREFERENCES_GRANT_MECHANISM_KEY);
 		prefs.onlyGrantsWithinPayline = (String) map
 				.get(Constants.PREFERENCES_GRANT_PAYLINE_KEY);
-		prefs.grantNumber = (String) map
-				.get(Constants.PREFERENCES_GRANT_NUMBER_KEY);
-		prefs.piName = (String) map.get(Constants.PREFERENCES_GRANT_PI_KEY);
-
+		
 		return prefs;
 	}
 
