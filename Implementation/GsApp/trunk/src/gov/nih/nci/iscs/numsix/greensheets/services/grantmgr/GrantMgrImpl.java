@@ -449,14 +449,15 @@ public class GrantMgrImpl implements GrantMgr {
 	/** addGrantsPaylineCriteria */
 	private void addGrantsPaylineCriteria(ViewDataRetriever viewDataRetriever,
 			String onlyGrantsWithinPayline) throws Exception {
-		ValueToken vtps = new ValueToken();
-		vtps.setColumnKey("withinPaylineFlag");
 		if (onlyGrantsWithinPayline.equals(Constants.PREFERENCES_YES)) {
-			vtps.setValue("Y");
+			ValueToken vt = new ValueToken();
+			vt.setColumnKey("withinPaylineFlag");			
+			vt.setValue("Y");
+			viewDataRetriever.addCondition(vt);
 		} else {
-			vtps.setValue("N");
+			// do not add to where clause, i.e. retrieve all grants
 		}
-		viewDataRetriever.addCondition(vtps);
+		
 	}
 	
 	/** addGrantSourceCriteria */
