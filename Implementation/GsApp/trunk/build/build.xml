@@ -43,7 +43,7 @@ Author: Kevin A. Puscas - Number Six Software 2003
     <property name="web.root.dir"           value="./WebRoot"/>
     <property name="app.config.dir"         value="./appconfig"/>
     <property name="src.java.dir"           value="./src"/>
-    <property name="doc.dir"		    	value="./docs"/>
+    <property name="doc.dir"		    value="./docs"/>
     <property name="web.inf.dir"            value="${web.root.dir}/WEB-INF"/>
     <property name="lib.dir"                value="${web.inf.dir}/lib"/>
     <property name="java.classes.dir"       value="${web.inf.dir}/classes"/>
@@ -206,6 +206,11 @@ directories.
 
 
         </war>
+        
+        <!-- provide documentation with distribution (i.e. installation guide, release notes, etc.) --> 
+    	<copy todir="${distribution.dir}">
+            <fileset dir="${doc.dir}" includes="*.*"/>
+    	</copy>      
                 
     </target>
  
