@@ -229,6 +229,7 @@ Implementation/GsApp/trunk/build/testing/results.xml -text
 Implementation/GsApp/trunk/build/testing/webtestTaskdefs.properties -text
 Implementation/GsApp/trunk/build/user.properties -text
 Implementation/GsApp/trunk/docs/INSTALL.txt -text
+Implementation/GsApp/trunk/docs/RELEASE-NOTES.txt -text
 Implementation/GsApp/trunk/model/ArchitectureModel.mdx -text
 Implementation/GsApp/trunk/model/ImplementationModel.mdx -text
 Implementation/GsApp/trunk/src/ApplicationResources.properties -text
