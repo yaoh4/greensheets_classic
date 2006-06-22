@@ -233,7 +233,6 @@ Implementation/GsApp/trunk/docs/RELEASE-NOTES.txt -text
 Implementation/GsApp/trunk/model/ArchitectureModel.mdx -text
 Implementation/GsApp/trunk/model/ImplementationModel.mdx -text
 Implementation/GsApp/trunk/src/ApplicationResources.properties -text
-Implementation/GsApp/trunk/src/RELEASE-NOTES.txt -text
 Implementation/GsApp/trunk/src/displaytag.properties -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/GreensheetResourceManager.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/GreensheetsResourceException.java -text
