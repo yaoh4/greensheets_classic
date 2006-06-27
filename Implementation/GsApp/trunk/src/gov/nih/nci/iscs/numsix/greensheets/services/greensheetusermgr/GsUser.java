@@ -6,167 +6,191 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
-import org.apache.commons.lang.*;
-import org.apache.log4j.*;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+
 /**
- *  The GsUser class represents the application user. It contains information
- *  related to user identity and role within the application.
+ * The GsUser class represents the application user. It contains information
+ * related to user identity and role within the application.
  * 
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 public class GsUser {
 
-    private GsUserRole role;
-    private String remoteUserName;
-    private String oracleId;
-    private List cancerActivities = null;
-    private List myPortfolioIds = null;
-    private NciPerson nciPerson;
-    private boolean canEdit;
+	private GsUserRole role;
 
-    private static final Logger logger = Logger.getLogger(GsUser.class);
+	private String remoteUserName;
 
-    public GsUser() {
-    }
+	private String oracleId;
 
-    public GsUser(NciPerson np) {
-        this.nciPerson = np;
-    }
+	private List cancerActivities = null;
 
-    public NciPerson getNciPerson() {
-        //return this.getNciPerson();
-    	return this.nciPerson;
-    }
+	private List myPortfolioIds = null;
 
-    public String getDisplayUserName() {
+	private NciPerson nciPerson;
 
-        return nciPerson.getFirstName() + " " + nciPerson.getLastName();
-    }
-    
+	private boolean canEdit;
 
-    /**
-     * Returns the remoteUserName.
-     * @return String
-     */
-    public String getRemoteUserName() {
-        return remoteUserName;
-    }
+	private static final Logger logger = Logger.getLogger(GsUser.class);
 
-    /**
-     * Returns the role.
-     * @return GsUserRole
-     */
-    public gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole getRole() {
-        return role;
-    }
+	public GsUser() {
+	}
 
-    /**
-     * Returns the role.
-     * @return String
-     */
-    public String getRoleAsString() {
-        return role.getName();
-    }
+	public GsUser(NciPerson np) {
+		this.nciPerson = np;
+	}
 
-    /**
-     * Sets the remoteUserName.
-     * @param remoteUserName The remoteUserName to set
-     */
-    public void setRemoteUserName(String remoteUserName) {
-        this.remoteUserName = remoteUserName;
-    }
+	public NciPerson getNciPerson() {
+		// return this.getNciPerson();
+		return this.nciPerson;
+	}
 
-    /**
-     * Sets the role.
-     * @param role The role to set
-     */
-    public void setRole(gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole role) {
-        this.role = role;
-    }
+	public String getDisplayUserName() {
 
-    /**
-     * Returns the oracleId.
-     * @return String
-     */
-    public String getOracleId() {
-        return oracleId;
-    }
+		return nciPerson.getFirstName() + " " + nciPerson.getLastName();
+	}
 
-    /**
-     * Sets the oracleId.
-     * @param oracleId The oracleId to set
-     */
-    public void setOracleId(String oracleId) {
-        this.oracleId = oracleId;
-    }
+	/**
+	 * Returns the remoteUserName.
+	 * 
+	 * @return String
+	 */
+	public String getRemoteUserName() {
+		return remoteUserName;
+	}
 
-    public void setMyPortfolioIds(String ids){
-        Object o = null;
-        myPortfolioIds = new ArrayList();
-        if (ids != null) {
-            ids.toUpperCase();
+	/**
+	 * Returns the role.
+	 * 
+	 * @return GsUserRole
+	 */
+	public gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole getRole() {
+		return role;
+	}
 
-            // a comma separated list of cancer activities
-            StringTokenizer tokenizer = new StringTokenizer(ids, ",");
-            while (tokenizer.hasMoreElements()) {
-                o = tokenizer.nextElement();
-                if (!myPortfolioIds.contains(o)) {
-                    String val = StringUtils.strip((String) o, "'");
-                    myPortfolioIds.add(val);
-                }
-            }
-        }        
-        
-    }
+	/**
+	 * Returns the role.
+	 * 
+	 * @return String
+	 */
+	public String getRoleAsString() {
+		return role.getName();
+	}
 
-    public List getMyPortfolioIds(){
-        return this.myPortfolioIds;
-    }
+	/**
+	 * Sets the remoteUserName.
+	 * 
+	 * @param remoteUserName
+	 *            The remoteUserName to set
+	 */
+	public void setRemoteUserName(String remoteUserName) {
+		this.remoteUserName = remoteUserName;
+	}
 
-    public void setCancerActivities(String theCancerActivities) {
+	/**
+	 * Sets the role.
+	 * 
+	 * @param role
+	 *            The role to set
+	 */
+	public void setRole(
+			gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole role) {
+		this.role = role;
+	}
 
-        Object o = null;
-        cancerActivities = new ArrayList();
-        if (theCancerActivities != null) {
-            theCancerActivities.toUpperCase();
+	/**
+	 * Returns the oracleId.
+	 * 
+	 * @return String
+	 */
+	public String getOracleId() {
+		return oracleId;
+	}
 
-            // a comma separated list of cancer activities
-            StringTokenizer tokenizer = new StringTokenizer(theCancerActivities, ",");
-            while (tokenizer.hasMoreElements()) {
-                o = tokenizer.nextElement();
-                if (!cancerActivities.contains(o)) {
-                    String val = StringUtils.strip((String) o, "'");
-                    cancerActivities.add(val);
-                }
-            }
-        }
-    }
+	/**
+	 * Sets the oracleId.
+	 * 
+	 * @param oracleId
+	 *            The oracleId to set
+	 */
+	public void setOracleId(String oracleId) {
+		this.oracleId = oracleId;
+	}
 
-    /**
-     * Returns the cancerActivities.
-     * @return ArrayList
-     */
-    public List getCancerActivities() {
-        return cancerActivities;
-    }
+	public void setMyPortfolioIds(String ids) {
+		Object o = null;
+		myPortfolioIds = new ArrayList();
+		if (ids != null) {
+			ids.toUpperCase();
 
-    /**
-     * Returns the canEdit.
-     * @return boolean
-     */
-    public boolean isCanEdit() {
-        return canEdit;
-    }
+			// a comma separated list of cancer activities
+			StringTokenizer tokenizer = new StringTokenizer(ids, ",");
+			while (tokenizer.hasMoreElements()) {
+				o = tokenizer.nextElement();
+				if (!myPortfolioIds.contains(o)) {
+					String val = StringUtils.strip((String) o, "'");
+					myPortfolioIds.add(val);
+				}
+			}
+		}
 
-    /**
-     * Sets the canEdit.
-     * @param canEdit The canEdit to set
-     */
-    public void setCanEdit(boolean canEdit) {
-        this.canEdit = canEdit;
-    }
+	}
+
+	public List getMyPortfolioIds() {
+		return this.myPortfolioIds;
+	}
+
+	public void setCancerActivities(String theCancerActivities) {
+
+		Object o = null;
+		cancerActivities = new ArrayList();
+		if (theCancerActivities != null) {
+			theCancerActivities.toUpperCase();
+
+			// a comma separated list of cancer activities
+			StringTokenizer tokenizer = new StringTokenizer(
+					theCancerActivities, ",");
+			while (tokenizer.hasMoreElements()) {
+				o = tokenizer.nextElement();
+				if (!cancerActivities.contains(o)) {
+					String val = StringUtils.strip((String) o, "'");
+					cancerActivities.add(val);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Returns the cancerActivities.
+	 * 
+	 * @return ArrayList
+	 */
+	public List getCancerActivities() {
+		return cancerActivities;
+	}
+
+	/**
+	 * Returns the canEdit.
+	 * 
+	 * @return boolean
+	 */
+	public boolean isCanEdit() {
+		return canEdit;
+	}
+
+	/**
+	 * Sets the canEdit.
+	 * 
+	 * @param canEdit
+	 *            The canEdit to set
+	 */
+	public void setCanEdit(boolean canEdit) {
+		this.canEdit = canEdit;
+	}
 
 }

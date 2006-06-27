@@ -25,7 +25,6 @@ import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -300,7 +299,7 @@ public class GrantMgrImpl implements GrantMgr {
 		Map grantsMap = new HashMap();
 		List grantsList;
 		try {
-			// use the view data retriever factory to get a handle on an 
+			// use the view data retriever factory to get a handle on an
 			// initialized view data retriever object
 			ViewDataRetrieverFactory drFactory = new ViewDataRetrieverFactory();
 			ViewDataRetriever viewDataRetriever = drFactory
@@ -308,8 +307,8 @@ public class GrantMgrImpl implements GrantMgr {
 
 			// add conditions here...
 			addLatestBudgetStartDateCriteria(viewDataRetriever);
-			addGrantSourceCriteria(viewDataRetriever, user, grantSource);		
-			addGrantTypeCriteria(viewDataRetriever,grantType);
+			addGrantSourceCriteria(viewDataRetriever, user, grantSource);
+			addGrantTypeCriteria(viewDataRetriever, grantType);
 			addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline);
 			addMechanismCriteria(viewDataRetriever, mechanism);
 			addGrantNumberCriteria(viewDataRetriever, grantNumber);
@@ -449,101 +448,106 @@ public class GrantMgrImpl implements GrantMgr {
 	/** addGrantsPaylineCriteria */
 	private void addGrantsPaylineCriteria(ViewDataRetriever viewDataRetriever,
 			String onlyGrantsWithinPayline) throws Exception {
-		if (onlyGrantsWithinPayline.equals(Constants.PREFERENCES_YES)) {
-			ValueToken vt = new ValueToken();
-			vt.setColumnKey("withinPaylineFlag");			
-			vt.setValue("Y");
-			viewDataRetriever.addCondition(vt);
-		} else {
-			// do not add to where clause, i.e. retrieve all grants
-		}
-		
-	}
-	
-	/** addGrantSourceCriteria */
-	private void addGrantSourceCriteria(ViewDataRetriever viewDataRetriever, GsUser user,
-			String grantSource) throws Exception {
 
-		if (grantSource.equals(Constants.PREFERENCES_MYPORTFOLIO) && (user.getMyPortfolioIds() != null)) {
+		if (onlyGrantsWithinPayline == null) {
+			// do not add to where clause, i.e. retrieve all grants
+		} else {
+			if (onlyGrantsWithinPayline.equals(Constants.PREFERENCES_YES)) {
+				ValueToken vt = new ValueToken();
+				vt.setColumnKey("withinPaylineFlag");
+				vt.setValue("Y");
+				viewDataRetriever.addCondition(vt);
+			}
+		}
+	}
+
+	/** addGrantSourceCriteria */
+	private void addGrantSourceCriteria(ViewDataRetriever viewDataRetriever,
+			GsUser user, String grantSource) throws Exception {
+
+		if (grantSource.equals(Constants.PREFERENCES_MYPORTFOLIO)
+				&& (user.getMyPortfolioIds() != null)) {
 			ListToken lt = new ListToken();
 			lt.setColumnKey("pdNpeId");
 			lt.setValue(user.getMyPortfolioIds());
 			viewDataRetriever.addCondition(lt);
 		}
-		
+
 		if (grantSource.equals(Constants.PREFERENCES_MYCANCERACTIVITY)) {
 			ListToken lt = new ListToken();
 			lt.setColumnKey("cayCode");
 			lt.setValue(user.getCancerActivities());
-			viewDataRetriever.addCondition(lt);			
+			viewDataRetriever.addCondition(lt);
 		}
-		
-		if (grantSource.equals(Constants.PREFERENCES_ALLNCIGRANTS)) {
-			// do nothing	
-		}
-   }
 
-    /** addGrantTypeCriteria */
+		if (grantSource.equals(Constants.PREFERENCES_ALLNCIGRANTS)) {
+			// do nothing
+		}
+	}
+
+	/** addGrantTypeCriteria */
 	private void addGrantTypeCriteria(ViewDataRetriever viewDataRetriever,
 			String grantSource) throws Exception {
-		
+
 		if (grantSource.equals(Constants.PREFERENCES_NONCOMPETINGGRANTS)) {
 			LikeToken lt = new LikeToken();
 			lt.setColumnKey("councilMeetingDate");
 			lt.setValue("%00");
-			viewDataRetriever.addCondition(lt);			
+			viewDataRetriever.addCondition(lt);
 		}
-		
+
 		if (grantSource.equals(Constants.PREFERENCES_COMPETINGGRANTS)) {
 			LikeToken lt = new LikeToken();
 			lt.setColumnKey("councilMeetingDate");
 			lt.setValue("%00");
 			lt.setNegative(true);
-			viewDataRetriever.addCondition(lt);			
-		}		
-		
-		if (grantSource.equals(Constants.PREFERENCES_BOTH)) {
-			 // do nothing
+			viewDataRetriever.addCondition(lt);
 		}
-		
+
+		if (grantSource.equals(Constants.PREFERENCES_BOTH)) {
+			// do nothing
+		}
+
 	}
-	
-    /** addMechanismCriteria */
+
+	/** addMechanismCriteria */
 	private void addMechanismCriteria(ViewDataRetriever viewDataRetriever,
-			String mechanism) throws Exception {	
-		if (!(mechanism==null||mechanism.equals(null)||mechanism.equals(""))) {
+			String mechanism) throws Exception {
+		if (!(mechanism == null || mechanism.equals(null) || mechanism
+				.equals(""))) {
 			ValueToken vt = new ValueToken();
 			vt.setColumnKey("activityCode");
 			vt.setValue(mechanism.toUpperCase());
-			viewDataRetriever.addCondition(vt);			
-		} else  {
-			 // do nothing
+			viewDataRetriever.addCondition(vt);
+		} else {
+			// do nothing
 		}
-	}	
-	
-    /** addGrantNumberCriteria */
+	}
+
+	/** addGrantNumberCriteria */
 	private void addGrantNumberCriteria(ViewDataRetriever viewDataRetriever,
-			String grantNumber) throws Exception {	
-		if (!(grantNumber==null||grantNumber.equals(null)||grantNumber.equals(""))) {
+			String grantNumber) throws Exception {
+		if (!(grantNumber == null || grantNumber.equals(null) || grantNumber
+				.equals(""))) {
 			ValueToken vt = new ValueToken();
 			vt.setColumnKey("fullGrantNum");
 			vt.setValue(grantNumber.toUpperCase());
-			viewDataRetriever.addCondition(vt);			
-		} else  {
-			 // do nothing
+			viewDataRetriever.addCondition(vt);
+		} else {
+			// do nothing
 		}
-	}		
+	}
 
-    /** addPiNameCriteria */
+	/** addPiNameCriteria */
 	private void addPiNameCriteria(ViewDataRetriever viewDataRetriever,
-			String piName) throws Exception {	
-		if (!(piName==null||piName.equals(null)||piName.equals(""))) {
+			String piName) throws Exception {
+		if (!(piName == null || piName.equals(null) || piName.equals(""))) {
 			LikeToken lt = new LikeToken();
 			lt.setColumnKey("piName");
-			lt.setValue("%"+piName.toUpperCase()+"%");
-			viewDataRetriever.addCondition(lt);				
-		} else  {
-			 // do nothing
+			lt.setValue("%" + piName.toUpperCase() + "%");
+			viewDataRetriever.addCondition(lt);
+		} else {
+			// do nothing
 		}
-	}		
+	}
 }

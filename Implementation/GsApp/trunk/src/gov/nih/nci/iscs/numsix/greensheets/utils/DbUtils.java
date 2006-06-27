@@ -19,31 +19,33 @@ import org.apache.commons.lang.StringUtils;
  */
 public class DbUtils {
 
-    private DbUtils(){
-    }
-    
-    
-    /**
-     * removes duplicate single quotes used by the commons.lang.StringUtils.escapeSql 
-     * method.
-     * @param s
-     * @return
-     */
-    public static String removeDupQuotes(String s){
-        while(StringUtils.contains(s, "''")){
-        	s = s.replaceAll("''","'");
-        }
-        return s;
-    }
-    
+	private DbUtils() {
+	}
+
+	/**
+	 * removes duplicate single quotes used by the
+	 * commons.lang.StringUtils.escapeSql method.
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public static String removeDupQuotes(String s) {
+		while (StringUtils.contains(s, "''")) {
+			s = s.replaceAll("''", "'");
+		}
+		return s;
+	}
+
 	/**
 	 * Returns the next unique id from the provided sequence.
+	 * 
 	 * @param conn
 	 * @param seq
 	 * @return
 	 * @throws SQLException
 	 */
-	public static int getNewRowId(Connection conn, String seq) throws SQLException {
+	public static int getNewRowId(Connection conn, String seq)
+			throws SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
 		int id = 0;
@@ -74,7 +76,5 @@ public class DbUtils {
 		}
 		return id;
 	}
-    
-    
-    
+
 }

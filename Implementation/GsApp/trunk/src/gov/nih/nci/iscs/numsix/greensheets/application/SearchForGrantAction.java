@@ -1,14 +1,21 @@
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*;
-import java.util.*;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetMgrFactory;
+import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
 
-import javax.servlet.http.*;
-import org.apache.log4j.*;
-import org.apache.struts.action.*;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.DynaActionForm;
 
 /**
  * 
@@ -58,15 +65,15 @@ public class SearchForGrantAction extends GsBaseAction {
 			req.getSession().setAttribute("GRANT_LIST", list);
 
 			logger.debug(gus.getUser().getRoleAsString());
-			
-//			Logic removed 25.05.2006, see #4016, A.Angelo
-//			if (gus.getUser().getRole().equals(GsUserRole.PGM_DIR)
-//					|| gus.getUser().getRole().equals(GsUserRole.PGM_ANL)) {
-//				req.setAttribute("SEARCH_RESULTS", "true");
-//				forward = "programGrantsList";
-//			}
 
-			 if (gus.getUser().getRole().equals(GsUserRole.SPEC)) {
+			// Logic removed 25.05.2006, see #4016, A.Angelo
+			// if (gus.getUser().getRole().equals(GsUserRole.PGM_DIR)
+			// || gus.getUser().getRole().equals(GsUserRole.PGM_ANL)) {
+			// req.setAttribute("SEARCH_RESULTS", "true");
+			// forward = "programGrantsList";
+			// }
+
+			if (gus.getUser().getRole().equals(GsUserRole.SPEC)) {
 				req.setAttribute("SEARCH_RESULTS", "true");
 				forward = "specialistGrantsList";
 			} else if (gus.getUser().getRole().equals(GsUserRole.GS_GUEST)) {

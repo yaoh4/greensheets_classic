@@ -2,7 +2,6 @@ package gov.nih.nci.iscs.numsix.greensheets.application;
 
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseDispatchAction;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr.GreensheetPreferencesMgr;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr.GreensheetPreferencesMgrImpl;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
@@ -41,7 +40,6 @@ public class EditProgramPreferencesAction extends GsBaseAction {
 	private void setProgramPreferencesFormLOVs(HttpServletRequest req) {
 		setGrantsSourcesLOV(req);
 		setGrantTypesLOV(req);
-		setGrantsWithinPaylineChoicesRADIO(req);
 	}
 
 	/** setGrantsSourcesLOV */
@@ -67,19 +65,6 @@ public class EditProgramPreferencesAction extends GsBaseAction {
 		req.setAttribute(Constants.GRANT_TYPES_KEY, grantTypes);
 	}
 
-	/** setGrantsWithinPaylineChoicesRADIO */
-	private void setGrantsWithinPaylineChoicesRADIO(HttpServletRequest req) {
-		Collection grantsWithinPaylineChoices = new ArrayList();
-		grantsWithinPaylineChoices.add(new LabelValueBean("Yes",
-				Constants.PREFERENCES_YES));
-		grantsWithinPaylineChoices.add(new LabelValueBean("No",
-				Constants.PREFERENCES_NO));
-		req.setAttribute(Constants.GRANTS_WITHIN_PAYLINE_CHOICES,
-				grantsWithinPaylineChoices);
-		req.setAttribute(Constants.GRANTS_WITHIN_PAYLINE_CHOICE_SEL,
-				Constants.PREFERENCES_YES);
-	}
-
 	/** restoreProgramPreferencesForm */
 	private ProgramPreferencesForm restoreProgramPreferencesForm(GsUser gsUser,
 			ProgramPreferencesForm prefs) throws Exception {
@@ -96,7 +81,7 @@ public class EditProgramPreferencesAction extends GsBaseAction {
 				.get(Constants.PREFERENCES_GRANT_MECHANISM_KEY);
 		prefs.onlyGrantsWithinPayline = (String) map
 				.get(Constants.PREFERENCES_GRANT_PAYLINE_KEY);
-		
+
 		return prefs;
 	}
 

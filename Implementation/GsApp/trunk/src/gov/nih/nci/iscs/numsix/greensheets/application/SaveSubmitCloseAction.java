@@ -6,151 +6,174 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import gov.nih.nci.iscs.numsix.greensheets.services.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.utils.*;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetMgrFactory;
+import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GsGrant;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetForm;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
-import javax.servlet.http.*;
-import org.apache.log4j.*;
-import org.apache.struts.action.*;
-import org.apache.struts.actions.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.actions.DispatchAction;
+
 /**
- * Action manages the Save, Submit, and Close operations for the greensheet form.
+ * Action manages the Save, Submit, and Close operations for the greensheet
+ * form.
  * 
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 public class SaveSubmitCloseAction extends DispatchAction {
 
-    private static final Logger logger = Logger.getLogger(SaveSubmitCloseAction.class);
+	private static final Logger logger = Logger
+			.getLogger(SaveSubmitCloseAction.class);
 
-    /**
-     * Method save.
-     * @param mapping
-     * @param aForm
-     * @param req
-     * @param resp
-     * @return ActionForward
-     * @throws Exception
-     */
-    public ActionForward save(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
-        throws Exception {
+	/**
+	 * Method save.
+	 * 
+	 * @param mapping
+	 * @param aForm
+	 * @param req
+	 * @param resp
+	 * @return ActionForward
+	 * @throws Exception
+	 */
+	public ActionForward save(ActionMapping mapping, ActionForm aForm,
+			HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-        String forward = null;
+		String forward = null;
 
-        if (req.getSession().isNew()) {
-            forward = "actionConfirm";
-            req.setAttribute(
-                "ACTION_CONFIRM_MESSAGE",
-                "Your user session has time out. Please close this window and Refresh your grants list");
+		if (req.getSession().isNew()) {
+			forward = "actionConfirm";
+			req
+					.setAttribute(
+							"ACTION_CONFIRM_MESSAGE",
+							"Your user session has time out. Please close this window and Refresh your grants list");
 
-        } else {
+		} else {
 
-            String id = req.getParameter(GreensheetsKeys.KEY_FORM_UID);
-            String poc = req.getParameter("POC");
+			String id = req.getParameter(GreensheetsKeys.KEY_FORM_UID);
+			String poc = req.getParameter("POC");
 
-            GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
-            GreensheetFormSession gfs = gus.getGreensheetFormSession(id);
-            GsUser user = gus.getUser();
-            GreensheetForm form = gfs.getForm();
-            form.setPOC(poc);
-            GsGrant grant = gfs.getGrant();
+			GreensheetUserSession gus = GreensheetActionHelper
+					.getGreensheetUserSession(req);
+			GreensheetFormSession gfs = gus.getGreensheetFormSession(id);
+			GsUser user = gus.getUser();
+			GreensheetForm form = gfs.getForm();
+			form.setPOC(poc);
+			GsGrant grant = gfs.getGrant();
 
-            GreensheetFormMgr mgr = GreensheetMgrFactory.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
+			GreensheetFormMgr mgr = GreensheetMgrFactory
+					.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
 
-            mgr.saveForm(form, req.getParameterMap(), user, grant);
+			mgr.saveForm(form, req.getParameterMap(), user, grant);
 
-            GreensheetActionHelper.setFormDisplayInfo(req, id);
+			GreensheetActionHelper.setFormDisplayInfo(req, id);
 
-            req.setAttribute(GreensheetsKeys.KEY_GRANT_ID, grant.getFullGrantNumber());
-            req.setAttribute(GreensheetsKeys.KEY_GS_GROUP_TYPE, form.getGroupTypeAsString());
+			req.setAttribute(GreensheetsKeys.KEY_GRANT_ID, grant
+					.getFullGrantNumber());
+			req.setAttribute(GreensheetsKeys.KEY_GS_GROUP_TYPE, form
+					.getGroupTypeAsString());
 
-            req.setAttribute("TEMPLATE_ID", Integer.toString(form.getTemplateId()));
-            req.setAttribute(GreensheetsKeys.KEY_FORM_UID, id);
+			req.setAttribute("TEMPLATE_ID", Integer.toString(form
+					.getTemplateId()));
+			req.setAttribute(GreensheetsKeys.KEY_FORM_UID, id);
 
-            forward = "retrievegreensheet";
-        }
-        return mapping.findForward(forward);
+			forward = "retrievegreensheet";
+		}
+		return mapping.findForward(forward);
 
-    }
+	}
 
-    /**
-     * Method submit.
-     * @param mapping
-     * @param aForm
-     * @param req
-     * @param resp
-     * @return ActionForward
-     * @throws Exception
-     */
-    public ActionForward submit(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
-        throws Exception {
+	/**
+	 * Method submit.
+	 * 
+	 * @param mapping
+	 * @param aForm
+	 * @param req
+	 * @param resp
+	 * @return ActionForward
+	 * @throws Exception
+	 */
+	public ActionForward submit(ActionMapping mapping, ActionForm aForm,
+			HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-        if (req.getSession().isNew()) {
+		if (req.getSession().isNew()) {
 
-            req.setAttribute(
-                "ACTION_CONFIRM_MESSAGE",
-                "Your user session has time out. Please close this window and Refresh your grants list");
+			req
+					.setAttribute(
+							"ACTION_CONFIRM_MESSAGE",
+							"Your user session has time out. Please close this window and Refresh your grants list");
 
-        } else {
+		} else {
 
-            String id = req.getParameter(GreensheetsKeys.KEY_FORM_UID);
-            String poc = req.getParameter("POC");
-            GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
-            GreensheetFormSession gfs = gus.getGreensheetFormSession(id);
-            GsUser user = gus.getUser();
-            GreensheetForm form = gfs.getForm();
-            form.setPOC(poc);
+			String id = req.getParameter(GreensheetsKeys.KEY_FORM_UID);
+			String poc = req.getParameter("POC");
+			GreensheetUserSession gus = GreensheetActionHelper
+					.getGreensheetUserSession(req);
+			GreensheetFormSession gfs = gus.getGreensheetFormSession(id);
+			GsUser user = gus.getUser();
+			GreensheetForm form = gfs.getForm();
+			form.setPOC(poc);
 
-            GsGrant grant = gfs.getGrant();
+			GsGrant grant = gfs.getGrant();
 
-            GreensheetFormMgr mgr = GreensheetMgrFactory.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
+			GreensheetFormMgr mgr = GreensheetMgrFactory
+					.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
 
-            mgr.submitForm(form, req.getParameterMap(), user, grant);
+			mgr.submitForm(form, req.getParameterMap(), user, grant);
 
-            req.setAttribute(
-                GreensheetsKeys.KEY_ACTION_CONFIRM_MESSAGE,
-                "The Greensheet Form for Grant " + gus.getFormSessionGrant(id).getFullGrantNumber() + " has been submitted");
+			req.setAttribute(GreensheetsKeys.KEY_ACTION_CONFIRM_MESSAGE,
+					"The Greensheet Form for Grant "
+							+ gus.getFormSessionGrant(id).getFullGrantNumber()
+							+ " has been submitted");
 
-            gus.removeGreensheetFormSession(id);
-        }
-        return (mapping.findForward("actionConfirm"));
+			gus.removeGreensheetFormSession(id);
+		}
+		return (mapping.findForward("actionConfirm"));
 
-    }
+	}
 
-    /**
-     * Method close.
-     * @param mapping
-     * @param aForm
-     * @param req
-     * @param resp
-     * @return ActionForward
-     * @throws Exception
-     */
-    public ActionForward close(ActionMapping mapping, ActionForm aForm, HttpServletRequest req, HttpServletResponse resp)
-        throws Exception {
+	/**
+	 * Method close.
+	 * 
+	 * @param mapping
+	 * @param aForm
+	 * @param req
+	 * @param resp
+	 * @return ActionForward
+	 * @throws Exception
+	 */
+	public ActionForward close(ActionMapping mapping, ActionForm aForm,
+			HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-        String forward = null;
+		String forward = null;
 
-        if (req.getSession().isNew()) {
-            forward = "actionConfirm";
-            req.setAttribute(
-                "ACTION_CONFIRM_MESSAGE",
-                "Your user session has time out. Please close this window and Refresh your grants list");
+		if (req.getSession().isNew()) {
+			forward = "actionConfirm";
+			req
+					.setAttribute(
+							"ACTION_CONFIRM_MESSAGE",
+							"Your user session has time out. Please close this window and Refresh your grants list");
 
-        } else {
+		} else {
 
-            String id = req.getParameter(GreensheetsKeys.KEY_FORM_UID);
+			String id = req.getParameter(GreensheetsKeys.KEY_FORM_UID);
 
-            GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
-            gus.removeGreensheetFormSession(id);
+			GreensheetUserSession gus = GreensheetActionHelper
+					.getGreensheetUserSession(req);
+			gus.removeGreensheetFormSession(id);
 
-            forward = "closeDialog";
-        }
-        return mapping.findForward(forward);
+			forward = "closeDialog";
+		}
+		return mapping.findForward(forward);
 
-    }
+	}
 
 }

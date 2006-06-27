@@ -1,12 +1,12 @@
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr.GreensheetPreferencesMgr;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr.GreensheetPreferencesMgrImpl;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,8 +32,16 @@ public class SaveProgramPreferencesAction extends GsBaseAction {
 		Map map = new HashMap();
 		map.put(Constants.PREFERENCES_GRANT_SOURCE_KEY, prefs.getGrantSource());
 		map.put(Constants.PREFERENCES_GRANT_TYPE_KEY, prefs.getGrantType());
-		map.put(Constants.PREFERENCES_GRANT_PAYLINE_KEY, prefs.getOnlyGrantsWithinPayline());		
-		if (prefs.getMechanism().length()!=0) {
+
+		if (prefs.getOnlyGrantsWithinPayline() == null) {
+			map.put(Constants.PREFERENCES_GRANT_PAYLINE_KEY,
+					Constants.PREFERENCES_NO);
+		} else {
+			map.put(Constants.PREFERENCES_GRANT_PAYLINE_KEY, prefs
+					.getOnlyGrantsWithinPayline());
+		}
+
+		if (prefs.getMechanism().length() != 0) {
 			map.put(Constants.PREFERENCES_GRANT_MECHANISM_KEY, prefs
 					.getMechanism());
 		}
@@ -64,15 +72,15 @@ public class SaveProgramPreferencesAction extends GsBaseAction {
 		// set mechanism field
 		req.setAttribute(Constants.GRANT_MECHANISM_KEY, prefs.getMechanism());
 
-		// set grants within paymine choice field (y/n)
-		if (prefs.getOnlyGrantsWithinPayline()
-				.equals(Constants.PREFERENCES_YES)) {
-			req.setAttribute(Constants.GRANTS_WITHIN_PAYLINE_CHOICE, "Yes");
-		} else if (prefs.getOnlyGrantsWithinPayline().equals(
-				Constants.PREFERENCES_NO)) {
+		// set grants within payline check-box (values y or null)
+		if (prefs.getOnlyGrantsWithinPayline() == null) {
 			req.setAttribute(Constants.GRANTS_WITHIN_PAYLINE_CHOICE, "No");
+		} else {
+			if (prefs.getOnlyGrantsWithinPayline().equals(
+					Constants.PREFERENCES_YES)) {
+				req.setAttribute(Constants.GRANTS_WITHIN_PAYLINE_CHOICE, "Yes");
+			}
 		}
-
 		return mapping.findForward(Constants.SUCCESS_KEY);
 	}
 

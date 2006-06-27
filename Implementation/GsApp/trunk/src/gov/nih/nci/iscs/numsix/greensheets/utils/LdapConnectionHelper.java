@@ -8,100 +8,112 @@ package gov.nih.nci.iscs.numsix.greensheets.utils;
 import gov.nih.nci.iscs.infra.ctxdispenser.DirCtxDispenser;
 import gov.nih.nci.iscs.infra.ctxdispenser.DirCtxDispenserConfigurator;
 import gov.nih.nci.iscs.infra.ctxdispenser.DirCtxDispenserException;
-import java.util.*;
 
-import javax.naming.directory.*;
-import org.apache.log4j.*;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Properties;
+
+import javax.naming.directory.DirContext;
+
+import org.apache.log4j.Logger;
+
 /**
  * Helper class used to establish connection to the NIC ldap system
  * 
  * @author kpuscas
- *
+ * 
  */
 public class LdapConnectionHelper {
 
+	private static String LDAP_CONFIG_FILENAME;
 
-    private static String LDAP_CONFIG_FILENAME;
+	protected DirCtxDispenser dirCtxDispenser;
 
- 
-    protected DirCtxDispenser dirCtxDispenser;
-    private Properties configParameters;
+	private Properties configParameters;
 
+	private static final Logger logger = Logger
+			.getLogger(LdapConnectionHelper.class);
 
-    private static final Logger logger = Logger.getLogger(LdapConnectionHelper.class);
-    /**
-     * Creates a new LdapConnectionHelper object.
-     *
-     * @param configFile DOCUMENT ME!
-     */
-    public LdapConnectionHelper(Properties props) {
-        this.configParameters = props;
-    }
+	/**
+	 * Creates a new LdapConnectionHelper object.
+	 * 
+	 * @param configFile
+	 *            DOCUMENT ME!
+	 */
+	public LdapConnectionHelper(Properties props) {
+		this.configParameters = props;
+	}
 
+	/**
+	 * returns an LDAP context used for searching and getting attributes from
+	 * the LDAP
+	 * 
+	 * @return <code>DirContext</code> - connection to the LDAP
+	 * @throws Exception
+	 */
+	public synchronized DirContext getConnection() throws Exception {
 
-    /**
-     * returns an LDAP context used for searching and getting attributes from the LDAP
-     *
-     * @return <code>DirContext</code> - connection to the LDAP
-     * @throws Exception
-     */
-    public synchronized DirContext getConnection() throws Exception {
+		DirContext context = null;
+		if (dirCtxDispenser == null) {
+			logger.info("Constructing LdapConnection from dispenser!!! ");
+			dirCtxDispenser = new DirCtxDispenser();
+			try {
+				List list = DirCtxDispenserConfigurator.getConfig();
+				dirCtxDispenser.init(list);
+			} catch (DirCtxDispenserException e) {
+				throw new Exception(
+						" Error when getting a context in - getContext() ");
+			}
+		}
 
-        DirContext context = null;
-        if(dirCtxDispenser == null) {
-            logger.info("Constructing LdapConnection from dispenser!!! ");
-            dirCtxDispenser = new DirCtxDispenser();
-            try {                
-                List list = DirCtxDispenserConfigurator.getConfig();                
-                dirCtxDispenser.init(list);
-            } catch(DirCtxDispenserException e) {
-                throw new Exception(" Error when getting a context in - getContext() ");
-            }
-        }
+		try {
+			logger.info("Getting context from Dispenser...");
+			logger
+					.info("dirCtxDispenser = null?? "
+							+ (dirCtxDispenser == null));
+			context = dirCtxDispenser.getContext();
+			logger.debug("...Got context from Dispenser");
+		} catch (Exception e) {
 
-        try {
-            logger.info("Getting context from Dispenser...");
-            logger.info("dirCtxDispenser = null?? " + (dirCtxDispenser == null));
-            context = dirCtxDispenser.getContext();
-            logger.debug("...Got context from Dispenser");
-        } catch(Exception e) {
-            
-            throw new Exception("Problem obtaining context from contextDispenser - getContext()");
-        }
+			throw new Exception(
+					"Problem obtaining context from contextDispenser - getContext()");
+		}
 
-        return context;
-    }
+		return context;
+	}
 
-    /**
-     * Returns the search base used for the given context.
-     *
-     * @param context connection to the LDAP
-     * @return <code>String</code> - search base for the given context
-     * @throws DirCtxDispenserException exception in getting a context
-     * @throws IntraException wraps any exceptions generated
-     */
-    public String getContextName(DirContext context) throws Exception {
+	/**
+	 * Returns the search base used for the given context.
+	 * 
+	 * @param context
+	 *            connection to the LDAP
+	 * @return <code>String</code> - search base for the given context
+	 * @throws DirCtxDispenserException
+	 *             exception in getting a context
+	 * @throws IntraException
+	 *             wraps any exceptions generated
+	 */
+	public String getContextName(DirContext context) throws Exception {
 
-        String contextName = null;
-        if(context == null) {
-            throw new Exception("Error getting the context name");
-        } else {
-            try {
+		String contextName = null;
+		if (context == null) {
+			throw new Exception("Error getting the context name");
+		} else {
+			try {
 
-                Hashtable env = context.getEnvironment();
-                contextName = (String)configParameters.get("contextName");
-            } catch(javax.naming.NamingException e) {
-                throw new Exception(" exception in getContextName(context)");
-            }
-        }
+				Hashtable env = context.getEnvironment();
+				contextName = (String) configParameters.get("contextName");
+			} catch (javax.naming.NamingException e) {
+				throw new Exception(" exception in getContextName(context)");
+			}
+		}
 
-        if(contextName == null) {
+		if (contextName == null) {
 
-            contextName = (String)configParameters.get("contextName");
-        }
+			contextName = (String) configParameters.get("contextName");
+		}
 
-
-        return contextName;
-    }
+		return contextName;
+	}
 
 }

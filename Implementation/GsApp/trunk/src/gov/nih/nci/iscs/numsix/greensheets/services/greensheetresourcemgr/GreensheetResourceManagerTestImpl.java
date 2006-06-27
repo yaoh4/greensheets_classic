@@ -6,13 +6,11 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetresourcemgr;
 
+import gov.nih.nci.iscs.i2e.greensheets.GreensheetResourceManager;
+import gov.nih.nci.iscs.i2e.greensheets.GreensheetsResourceException;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 
-import gov.nih.nci.iscs.i2e.greensheets.*;
-import gov.nih.nci.iscs.numsix.greensheets.utils.*;
-import java.util.*;
-
-
-
+import java.util.Map;
 
 /**
  * Test Implementation of GreensheetResourceManager interface
@@ -21,21 +19,23 @@ import java.util.*;
  * 
  * @author kpuscas, Number Six Software
  */
-public class GreensheetResourceManagerTestImpl implements GreensheetResourceManager {
-    
+public class GreensheetResourceManagerTestImpl implements
+		GreensheetResourceManager {
 
-    
-    /**
-     * @see gov.nih.nci.iscs.i2e.greensheets.GreensheetResourceManager#getResource(String, int)
-     */
-    public String getResource(String id, int type) throws GreensheetsResourceException {
-        
-        Map map = (Map) AppConfigProperties.getInstance().getProperty("TEMPLATE_RESOURCE_MAP");
+	/**
+	 * @see gov.nih.nci.iscs.i2e.greensheets.GreensheetResourceManager#getResource(String,
+	 *      int)
+	 */
+	public String getResource(String id, int type)
+			throws GreensheetsResourceException {
 
-        String template = ((GreensheetTemplateWrapper)map.get(id)).getTemplate();
-        
-        return template;
-    }
+		Map map = (Map) AppConfigProperties.getInstance().getProperty(
+				"TEMPLATE_RESOURCE_MAP");
+
+		String template = ((GreensheetTemplateWrapper) map.get(id))
+				.getTemplate();
+
+		return template;
+	}
 
 }
-

@@ -4,364 +4,428 @@
  * Written for National Cancer Institute
  */
 
-
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr;
 
-import java.io.*;
-import java.util.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-import org.apache.commons.lang.builder.*;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
- * This is a base object representing an NCI user. Information for this user is based on 
- * related information in the NCI LDAP
+ * This is a base object representing an NCI user. Information for this user is
+ * based on related information in the NCI LDAP
  * 
  * @author kpuscas, Number Six Software
- *
+ * 
  */
 public class NciPerson implements Serializable {
 
+	private ArrayList groupMembership;
 
+	private String adminUnit;
 
+	private String commonName;
 
-    private ArrayList groupMembership;
-    private String adminUnit;
-    private String commonName;
-    private String distinguishedName;
-    private String email;
-    private String externalOrganization;
-    private String firstName;
-    private String fullName;
-    private String functionalRole;
-    private String lastName;
-    private String manager;
-    private String memeber;
-    private String middleInitial;
-    private String oracleId;
-    private String organization;
-    private String tfsId;
-    private String title;
+	private String distinguishedName;
 
-    // unique ldap ID of a person, in the form dn=VasudeSa,ou=6116,ou=nci,o=nih
-    private String uid;
+	private String email;
 
+	private String externalOrganization;
 
-    /**
-     * Sets the adminUnit.
-     * @param adminUnit The adminUnit to set
-     */
-    public void setAdminUnit(String adminUnit) {
-        this.adminUnit = adminUnit;
-    }
+	private String firstName;
 
-    /**
-     * Returns the adminUnit.
-     * @return String
-     */
-    public String getAdminUnit() {
+	private String fullName;
 
-        return adminUnit;
-    }
+	private String functionalRole;
 
-    /**
-     * Sets the commonName.
-     * @param commonName The commonName to set
-     */
-    public void setCommonName(String commonName) {
-        this.commonName = commonName;
-    }
+	private String lastName;
 
-    /**
-     * Returns the commonName.
-     * @return String
-     */
-    public String getCommonName() {
+	private String manager;
 
-        return commonName;
-    }
+	private String memeber;
 
-    /**
-     * Sets the distinguishedName.
-     * @param distinguishedName The distinguishedName to set
-     */
-    public void setDistinguishedName(String distinguishedName) {
-        this.distinguishedName = distinguishedName;
-    }
+	private String middleInitial;
 
-    /**
-     * Returns the distinguishedName.
-     * @return String
-     */
-    public String getDistinguishedName() {
+	private String oracleId;
 
-        return distinguishedName;
-    }
+	private String organization;
 
-    /**
-     * Sets the email.
-     * @param email The email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	private String tfsId;
 
-    /**
-     * Returns the email.
-     * @return String
-     */
-    public String getEmail() {
+	private String title;
 
-        return email;
-    }
+	// unique ldap ID of a person, in the form dn=VasudeSa,ou=6116,ou=nci,o=nih
+	private String uid;
 
-    /**
-     * Sets the externalOrganization.
-     * @param externalOrganization The externalOrganization to set
-     */
-    public void setExternalOrganization(String externalOrganization) {
-        this.externalOrganization = externalOrganization;
-    }
+	/**
+	 * Sets the adminUnit.
+	 * 
+	 * @param adminUnit
+	 *            The adminUnit to set
+	 */
+	public void setAdminUnit(String adminUnit) {
+		this.adminUnit = adminUnit;
+	}
 
-    /**
-     * Returns the externalOrganization.
-     * @return String
-     */
-    public String getExternalOrganization() {
+	/**
+	 * Returns the adminUnit.
+	 * 
+	 * @return String
+	 */
+	public String getAdminUnit() {
 
-        return externalOrganization;
-    }
+		return adminUnit;
+	}
 
-    /**
-     * Sets the firstName.
-     * @param firstName The firstName to set
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	/**
+	 * Sets the commonName.
+	 * 
+	 * @param commonName
+	 *            The commonName to set
+	 */
+	public void setCommonName(String commonName) {
+		this.commonName = commonName;
+	}
 
-    /**
-     * Returns the firstName.
-     * @return String
-     */
-    public String getFirstName() {
+	/**
+	 * Returns the commonName.
+	 * 
+	 * @return String
+	 */
+	public String getCommonName() {
 
-        return firstName;
-    }
+		return commonName;
+	}
 
-    /**
-     * Sets the fullName.
-     * @param fullName The fullName to set
-     */
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
+	/**
+	 * Sets the distinguishedName.
+	 * 
+	 * @param distinguishedName
+	 *            The distinguishedName to set
+	 */
+	public void setDistinguishedName(String distinguishedName) {
+		this.distinguishedName = distinguishedName;
+	}
 
-    /**
-     * Returns the fullName.
-     * @return String
-     */
-    public String getFullName() {
+	/**
+	 * Returns the distinguishedName.
+	 * 
+	 * @return String
+	 */
+	public String getDistinguishedName() {
 
-        return fullName;
-    }
+		return distinguishedName;
+	}
 
-    /**
-     * Sets the functionalRole.
-     * @param functionalRole The functionalRole to set
-     */
-    public void setFunctionalRole(String functionalRole) {
-        this.functionalRole = functionalRole;
-    }
+	/**
+	 * Sets the email.
+	 * 
+	 * @param email
+	 *            The email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    /**
-     * Returns the functionalRole.
-     * @return String
-     */
-    public String getFunctionalRole() {
+	/**
+	 * Returns the email.
+	 * 
+	 * @return String
+	 */
+	public String getEmail() {
 
-        return functionalRole;
-    }
+		return email;
+	}
 
-    /**
-     * Sets the groupMembership.
-     * @param groupMembership The groupMembership to set
-     */
-    public void setGroupMembership(ArrayList groupMembership) {
-        this.groupMembership = groupMembership;
-    }
+	/**
+	 * Sets the externalOrganization.
+	 * 
+	 * @param externalOrganization
+	 *            The externalOrganization to set
+	 */
+	public void setExternalOrganization(String externalOrganization) {
+		this.externalOrganization = externalOrganization;
+	}
 
-    /**
-     * Returns the groupMembership.
-     * @return ArrayList
-     */
-    public ArrayList getGroupMembership() {
+	/**
+	 * Returns the externalOrganization.
+	 * 
+	 * @return String
+	 */
+	public String getExternalOrganization() {
 
-        return groupMembership;
-    }
+		return externalOrganization;
+	}
 
-    /**
-     * Sets the lastName.
-     * @param lastName The lastName to set
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	/**
+	 * Sets the firstName.
+	 * 
+	 * @param firstName
+	 *            The firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    /**
-     * Returns the lastName.
-     * @return String
-     */
-    public String getLastName() {
+	/**
+	 * Returns the firstName.
+	 * 
+	 * @return String
+	 */
+	public String getFirstName() {
 
-        return lastName;
-    }
+		return firstName;
+	}
 
-    /**
-     * Sets the manager.
-     * @param manager The manager to set
-     */
-    public void setManager(String manager) {
-        this.manager = manager;
-    }
+	/**
+	 * Sets the fullName.
+	 * 
+	 * @param fullName
+	 *            The fullName to set
+	 */
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 
-    /**
-     * Returns the manager.
-     * @return String
-     */
-    public String getManager() {
+	/**
+	 * Returns the fullName.
+	 * 
+	 * @return String
+	 */
+	public String getFullName() {
 
-        return manager;
-    }
+		return fullName;
+	}
 
-    /**
-     * Sets the memeber.
-     * @param memeber The memeber to set
-     */
-    public void setMemeber(String memeber) {
-        this.memeber = memeber;
-    }
+	/**
+	 * Sets the functionalRole.
+	 * 
+	 * @param functionalRole
+	 *            The functionalRole to set
+	 */
+	public void setFunctionalRole(String functionalRole) {
+		this.functionalRole = functionalRole;
+	}
 
-    /**
-     * Returns the memeber.
-     * @return String
-     */
-    public String getMemeber() {
+	/**
+	 * Returns the functionalRole.
+	 * 
+	 * @return String
+	 */
+	public String getFunctionalRole() {
 
-        return memeber;
-    }
+		return functionalRole;
+	}
 
-    /**
-     * Sets the middleInitial.
-     * @param middleInitial The middleInitial to set
-     */
-    public void setMiddleInitial(String middleInitial) {
-        this.middleInitial = middleInitial;
-    }
+	/**
+	 * Sets the groupMembership.
+	 * 
+	 * @param groupMembership
+	 *            The groupMembership to set
+	 */
+	public void setGroupMembership(ArrayList groupMembership) {
+		this.groupMembership = groupMembership;
+	}
 
-    /**
-     * Returns the middleInitial.
-     * @return String
-     */
-    public String getMiddleInitial() {
+	/**
+	 * Returns the groupMembership.
+	 * 
+	 * @return ArrayList
+	 */
+	public ArrayList getGroupMembership() {
 
-        return middleInitial;
-    }
+		return groupMembership;
+	}
 
-    /**
-     * Sets the oracleId.
-     * @param oracleId The oracleId to set
-     */
-    public void setOracleId(String oracleId) {
-        this.oracleId = oracleId;
-    }
+	/**
+	 * Sets the lastName.
+	 * 
+	 * @param lastName
+	 *            The lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    /**
-     * Returns the oracleId.
-     * @return String
-     */
-    public String getOracleId() {
+	/**
+	 * Returns the lastName.
+	 * 
+	 * @return String
+	 */
+	public String getLastName() {
 
-        return oracleId;
-    }
+		return lastName;
+	}
 
-    /**
-     * Sets the organization.
-     * @param organization The organization to set
-     */
-    public void setOrganization(String organization) {
-        this.organization = organization;
-    }
+	/**
+	 * Sets the manager.
+	 * 
+	 * @param manager
+	 *            The manager to set
+	 */
+	public void setManager(String manager) {
+		this.manager = manager;
+	}
 
-    /**
-     * Returns the organization.
-     * @return String
-     */
-    public String getOrganization() {
+	/**
+	 * Returns the manager.
+	 * 
+	 * @return String
+	 */
+	public String getManager() {
 
-        return organization;
-    }
+		return manager;
+	}
 
-    /**
-     * Sets the tfsId.
-     * @param tfsId The tfsId to set
-     */
-    public void setTfsId(String tfsId) {
-        this.tfsId = tfsId;
-    }
+	/**
+	 * Sets the memeber.
+	 * 
+	 * @param memeber
+	 *            The memeber to set
+	 */
+	public void setMemeber(String memeber) {
+		this.memeber = memeber;
+	}
 
-    /**
-     * Returns the tfsId.
-     * @return String
-     */
-    public String getTfsId() {
+	/**
+	 * Returns the memeber.
+	 * 
+	 * @return String
+	 */
+	public String getMemeber() {
 
-        return tfsId;
-    }
+		return memeber;
+	}
 
-    /**
-     * Sets the title.
-     * @param title The title to set
-     */
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	/**
+	 * Sets the middleInitial.
+	 * 
+	 * @param middleInitial
+	 *            The middleInitial to set
+	 */
+	public void setMiddleInitial(String middleInitial) {
+		this.middleInitial = middleInitial;
+	}
 
-    /**
-     * Returns the title.
-     * @return String
-     */
-    public String getTitle() {
+	/**
+	 * Returns the middleInitial.
+	 * 
+	 * @return String
+	 */
+	public String getMiddleInitial() {
 
-        return title;
-    }
+		return middleInitial;
+	}
 
-    /**
-     * Sets the uid.
-     * @param uid The uid to set
-     */
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
+	/**
+	 * Sets the oracleId.
+	 * 
+	 * @param oracleId
+	 *            The oracleId to set
+	 */
+	public void setOracleId(String oracleId) {
+		this.oracleId = oracleId;
+	}
 
-    /**
-     * Returns the uid.
-     * @return String
-     */
-    public String getUid() {
+	/**
+	 * Returns the oracleId.
+	 * 
+	 * @return String
+	 */
+	public String getOracleId() {
 
-        return uid;
-    }
+		return oracleId;
+	}
 
-    /**
-     * DOCUMENT ME!
-     *
-     * @return DOCUMENT ME!
-     */
-    public String toString() {
+	/**
+	 * Sets the organization.
+	 * 
+	 * @param organization
+	 *            The organization to set
+	 */
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
 
-        return ToStringBuilder.reflectionToString(this);
+	/**
+	 * Returns the organization.
+	 * 
+	 * @return String
+	 */
+	public String getOrganization() {
 
-    }
-    
-  
+		return organization;
+	}
+
+	/**
+	 * Sets the tfsId.
+	 * 
+	 * @param tfsId
+	 *            The tfsId to set
+	 */
+	public void setTfsId(String tfsId) {
+		this.tfsId = tfsId;
+	}
+
+	/**
+	 * Returns the tfsId.
+	 * 
+	 * @return String
+	 */
+	public String getTfsId() {
+
+		return tfsId;
+	}
+
+	/**
+	 * Sets the title.
+	 * 
+	 * @param title
+	 *            The title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * Returns the title.
+	 * 
+	 * @return String
+	 */
+	public String getTitle() {
+
+		return title;
+	}
+
+	/**
+	 * Sets the uid.
+	 * 
+	 * @param uid
+	 *            The uid to set
+	 */
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+
+	/**
+	 * Returns the uid.
+	 * 
+	 * @return String
+	 */
+	public String getUid() {
+
+		return uid;
+	}
+
+	/**
+	 * DOCUMENT ME!
+	 * 
+	 * @return DOCUMENT ME!
+	 */
+	public String toString() {
+
+		return ToStringBuilder.reflectionToString(this);
+
+	}
+
 }

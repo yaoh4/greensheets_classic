@@ -6,31 +6,31 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import java.text.*;
-import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.displaytag.decorator.*;
-import org.displaytag.exception.*;
+import org.displaytag.decorator.ColumnDecorator;
+import org.displaytag.exception.DecoratorException;
 
 /**
  * Decorator for date display in the MM/dd/yyyy format
  * 
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 public class DateColumnDecorator implements ColumnDecorator {
 
-    /**
-     * @see org.displaytag.decorator.ColumnDecorator#decorate(Object)
-     */
-    public String decorate(Object date) throws DecoratorException {
-        if(date != null){     
-            SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-            return formatter.format((Date)date);
-        }else{
-            return null;
-        }
+	/**
+	 * @see org.displaytag.decorator.ColumnDecorator#decorate(Object)
+	 */
+	public String decorate(Object date) throws DecoratorException {
+		if (date != null) {
+			SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+			return formatter.format((Date) date);
+		} else {
+			return null;
+		}
 
-    }
+	}
 
 }

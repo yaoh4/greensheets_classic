@@ -4,37 +4,40 @@
  * Written for National Cancer Institute
  */
 
-
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr;
+
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 
-import java.util.*;
+import java.util.Map;
 
 /**
  * Provides services for Greensheet Preferences
  * 
  * 
- *  @author kkanchinadam, Number Six Software
+ * @author kkanchinadam, Number Six Software
  */
-public interface GreensheetPreferencesMgr {     
+public interface GreensheetPreferencesMgr {
 
-	/** 
+	/**
 	 * restoreUserPreferences restores preferences for a user (if any)
-     * @return applPrefsMap
+	 * 
+	 * @return applPrefsMap
 	 */
-    public Map restoreUserPreferences() throws GreensheetBaseException;
-    
-	/** 
+	public Map restoreUserPreferences() throws GreensheetBaseException;
+
+	/**
 	 * restoreApplicationPreferences restores application default preferences
-     * @return applPrefsMap
-     */
-    public Map restoreApplicationPreferences() throws GreensheetBaseException;    
+	 * 
+	 * @return applPrefsMap
+	 */
+	public Map restoreApplicationPreferences() throws GreensheetBaseException;
 
-	/** 
+	/**
 	 * savePreferences saves preferences for a user
-     * @arg  GsUser
-     */
-	public void savePreferences(GsUser user, Map prefsMap) throws GreensheetBaseException;
- }
-
+	 * 
+	 * @arg GsUser
+	 */
+	public void savePreferences(GsUser user, Map prefsMap)
+			throws GreensheetBaseException;
+}

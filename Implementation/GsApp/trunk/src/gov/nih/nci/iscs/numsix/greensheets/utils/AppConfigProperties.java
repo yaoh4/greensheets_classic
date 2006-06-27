@@ -6,63 +6,67 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.utils;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
 
 /**
- *  Singleton class that contains key-value pairs of the application
- *  configuration properties.
+ * Singleton class that contains key-value pairs of the application
+ * configuration properties.
  * 
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 public class AppConfigProperties {
 
-    private static AppConfigProperties instance = new AppConfigProperties();
+	private static AppConfigProperties instance = new AppConfigProperties();
 
-    private Map props = new HashMap();
-    private boolean inited = false;
+	private Map props = new HashMap();
 
-    private AppConfigProperties() {
-    }
+	private boolean inited = false;
 
-    public static AppConfigProperties getInstance() {
-        return instance;
-    }
+	private AppConfigProperties() {
+	}
 
-    public void addProperties(Map m) {
-        props.putAll(m);
-    }
+	public static AppConfigProperties getInstance() {
+		return instance;
+	}
 
-    public void addProperty(String key, Object value) {
-        props.put(key, value);
-    }
+	public void addProperties(Map m) {
+		props.putAll(m);
+	}
 
-    public Object getProperty(String key) {
-        return props.get(key);
-    }
+	public void addProperty(String key, Object value) {
+		props.put(key, value);
+	}
 
-    public Object findPropertyValue(String key) {
+	public Object getProperty(String key) {
+		return props.get(key);
+	}
 
-        Object result = null;
+	public Object findPropertyValue(String key) {
 
-        if (props.containsKey(key)) {
-            result = props.get(key);
-        } else {
+		Object result = null;
 
-            Iterator iter = props.entrySet().iterator();
-            while (iter.hasNext()) {
-                Map.Entry me = (Map.Entry) iter.next();
-                if (me.getValue() instanceof java.util.Properties) {
-                    Properties p = (Properties) me.getValue();
-                    if (p.contains(key)) {
-                        result = props.get(key);
-                        break;
-                    }
-                }
+		if (props.containsKey(key)) {
+			result = props.get(key);
+		} else {
 
-            }
+			Iterator iter = props.entrySet().iterator();
+			while (iter.hasNext()) {
+				Map.Entry me = (Map.Entry) iter.next();
+				if (me.getValue() instanceof java.util.Properties) {
+					Properties p = (Properties) me.getValue();
+					if (p.contains(key)) {
+						result = props.get(key);
+						break;
+					}
+				}
 
-        }
-        return result;
-    }
+			}
+
+		}
+		return result;
+	}
 }

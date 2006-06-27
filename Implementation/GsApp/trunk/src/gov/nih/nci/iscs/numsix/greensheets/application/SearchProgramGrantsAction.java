@@ -39,7 +39,7 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 				.createGrantMgr(GreensheetMgrFactory.PROD);
 
 		// set program preferences form values
-	    restoreProgramPreferencesForm(gus.getUser(), prefs);
+		restoreProgramPreferencesForm(gus.getUser(), prefs);
 
 		// set payline options for user session
 		setUserSessionPaylineOption(prefs, gus);
@@ -125,7 +125,7 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 				.getGreensheetUserSession(req);
 
 		// set program preferences form values
-	    restoreProgramPreferencesForm(gus.getUser(), prefs);
+		restoreProgramPreferencesForm(gus.getUser(), prefs);
 
 		// set all LOVs in Form
 		setProgramPreferencesFormLOVs(req);
@@ -137,7 +137,6 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 	private void setProgramPreferencesFormLOVs(HttpServletRequest req) {
 		setGrantsSourcesLOV(req);
 		setGrantTypesLOV(req);
-		setGrantsWithinPaylineChoicesRADIO(req);
 	}
 
 	/** setGrantsSourcesLOV */
@@ -163,27 +162,16 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 		req.setAttribute(Constants.GRANT_TYPES_KEY, grantTypes);
 	}
 
-	/** setGrantsWithinPaylineChoicesRADIO */
-	private void setGrantsWithinPaylineChoicesRADIO(HttpServletRequest req) {
-		Collection grantsWithinPaylineChoices = new ArrayList();
-		grantsWithinPaylineChoices.add(new LabelValueBean("Yes",
-				Constants.PREFERENCES_YES));
-		grantsWithinPaylineChoices.add(new LabelValueBean("No",
-				Constants.PREFERENCES_NO));
-		req.setAttribute(Constants.GRANTS_WITHIN_PAYLINE_CHOICES,
-				grantsWithinPaylineChoices);
-	}
-
 	/** setProgramPreferencesForm */
 	private ProgramPreferencesForm setProgramPreferencesForm(GsUser gsUser,
 			ProgramPreferencesForm prefs) throws Exception {
 		if (prefs.isNull()) {
-			return restoreProgramPreferencesForm(gsUser,prefs);
+			return restoreProgramPreferencesForm(gsUser, prefs);
 		} else {
 			return prefs;
 		}
 	}
-	
+
 	/** restoreProgramPreferencesForm */
 	private ProgramPreferencesForm restoreProgramPreferencesForm(GsUser gsUser,
 			ProgramPreferencesForm prefs) throws Exception {
@@ -202,18 +190,20 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 		prefs.grantNumber = (String) map
 				.get(Constants.PREFERENCES_GRANT_NUMBER_KEY);
 		prefs.piName = (String) map.get(Constants.PREFERENCES_GRANT_PI_KEY);
-		
+
 		return prefs;
-	}	
+	}
 
 	/** setUserSessionPaylineOption */
 	private void setUserSessionPaylineOption(ProgramPreferencesForm prefs,
 			GreensheetUserSession gus) {
-		if (prefs.getOnlyGrantsWithinPayline()
-				.equals(Constants.PREFERENCES_YES)) {
-			gus.setPaylineOnly(true);
-		} else {
+		if (prefs.getOnlyGrantsWithinPayline() == null) {
 			gus.setPaylineOnly(false);
+		} else {
+			if (prefs.getOnlyGrantsWithinPayline().equals(
+					Constants.PREFERENCES_YES)) {
+				gus.setPaylineOnly(true);
+			}
 		}
 	}
 

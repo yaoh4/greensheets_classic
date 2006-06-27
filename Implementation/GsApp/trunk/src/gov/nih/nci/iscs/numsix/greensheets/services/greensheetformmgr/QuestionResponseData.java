@@ -6,360 +6,422 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.apache.commons.lang.builder.*;
-
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.log4j.Logger;
-import org.apache.log4j.Priority;
+
 /**
- *  Represents an response to an individual question for an individual GreensheetForm instance.
+ * Represents an response to an individual question for an individual
+ * GreensheetForm instance.
  * 
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 public class QuestionResponseData {
 
-    public static final String DROP_DOWN = "DROP_DOWN";
-    public static final String RADIO = "RADIO";
-    public static final String CHECK_BOX = "CHECK_BOX";
-    public static final String FILE = "FILE";
-    public static final String COMMENT = "COMMENT";
-    public static final String NUMBER = "NUMBER";
-    public static final String TEXT = "TEXT";
-    public static final String DATE = "DATE";
-    public static final String STRING = "STRING";
+	public static final String DROP_DOWN = "DROP_DOWN";
 
-    private String responseDefId;
-    private String responseDefType;
-    private String selectionDefId;
-    private String answerValue;
-    private String inputValue;
-    private String questionDefId;
-    private HashMap questionAttachments = new HashMap();
+	public static final String RADIO = "RADIO";
 
-    private int id;
+	public static final String CHECK_BOX = "CHECK_BOX";
 
+	public static final String FILE = "FILE";
 
-    private static final Logger logger = Logger.getLogger(QuestionResponseData.class);
-    public QuestionResponseData(int id){
-        this.id = id;
-    }
+	public static final String COMMENT = "COMMENT";
 
-    public QuestionResponseData() {
-    }
+	public static final String NUMBER = "NUMBER";
 
-    /**
-     * Method setResponseData set the data for responses that require user selection from a list of options
-     * @param questionDefId
-     * @param responseDefId
-     * @param responseDefType
-     * @param selectionDefId
-     * @param inputValue
-     */
-    public void setSelectResponseData(String questionDefId, String responseDefId, String responseDefType, String selectionDefId) {
+	public static final String TEXT = "TEXT";
 
-        this.questionDefId = questionDefId;
-        this.responseDefId = responseDefId;
-        this.responseDefType = responseDefType;
-        this.selectionDefId = selectionDefId;
-    }
+	public static final String DATE = "DATE";
 
-    /**
-     * Method setInputResponseData set the data for responses that require user input
-     * @param questionDefId
-     * @param responseDefId
-     * @param responseDefType
-     * @param inputValue
-     */
-    public void setInputResponseData(String questionDefId, String responseDefId, String responseDefType, String inputValue) {
+	public static final String STRING = "STRING";
 
-        this.questionDefId = questionDefId;
-        this.responseDefId = responseDefId;
-        this.responseDefType = responseDefType;
-        this.inputValue = inputValue;
+	private String responseDefId;
 
-    }
+	private String responseDefType;
 
-    /**
-     * Method setFileResponseData. Add a QuestionAttachment to this questionResponse. The questionResponse is of type FILE
-     * @param questionDefId
-     * @param responseDefId
-     * @param responseDefType
-     * @param qa
-     */
-    public void setFileResponseData(String questionDefId, String responseDefId, String responseDefType, QuestionAttachment qa) {
+	private String selectionDefId;
 
-        this.questionDefId = questionDefId;
-        this.responseDefId = responseDefId;
-        this.responseDefType = responseDefType;
-        this.questionAttachments.put(qa.getFileMemoryId(), qa);
-    }
+	private String answerValue;
 
-    /**
-     * Method addQuestionAttachment.
-     * @param qa
-     */
-    public void addQuestionAttachment(QuestionAttachment qa) {
-        qa.setAttachmentStatusToNew();
-        questionAttachments.put(qa.getFileMemoryId(), qa);        
-    }
+	private String inputValue;
 
-    /**
-     * Method removeQuestionAttachment.
-     * @param fileName
-     * @throws IllegalArgumentException
-     */
-    public void removeQuestionAttachment(String attachmentMemoryId) throws IllegalArgumentException {
-        logger.debug("In Method - QuestionResponseData:removeQuestionAttachment");
-        
-        // Get the attachment corresponding to the attachment.
-        QuestionAttachment qa = (QuestionAttachment) this.questionAttachments.get(attachmentMemoryId);
-        if(qa != null) {
-            // Get the Status of attachment.
-            int attachmentStatus = qa.getStatus();
-            logger.debug("Attachment Status = " + qa.getStatusValue());
-                        
-            if(qa.isToBeCreated()) {
-                // If the status is NEW, its been recently added to the Map by the user in this session. 
-                // Thus, just remove the attachment from the MAP.
-                logger.debug("NEW attachment- Thus removing the attachment from the map.");
-                this.questionAttachments.remove(qa);
-            }
-            else if (qa.isExisting()){
-                // If status == EXISTING, it exists in the database. Thus, set the status to DELETED.
-                logger.debug("EXISTING attachment - Setting status to DELETED");
-            	qa.setAttachmentStatusToDeleted();
-        	}
-        }
-        else {
-            throw new IllegalArgumentException("File corresponding to the memory id=" + attachmentMemoryId + " could not be found to be deleted from QuestionResponse ");
-        }
-    }
+	private String questionDefId;
 
-    /**
-     * Method getQuestionAttachments.
-     * @return Map
-     */
-    public Map getQuestionAttachments() {
-        return this.questionAttachments;
-    }
+	private HashMap questionAttachments = new HashMap();
 
-    
-    /**
-     * Method setQuestionAttachments.
-     * @param Map
-     */
-    public HashMap setQuestionAttachments(HashMap qaMap) {
-        return this.questionAttachments = qaMap;
-    }
+	private int id;
 
+	private static final Logger logger = Logger
+			.getLogger(QuestionResponseData.class);
 
-    /**
-     * Method hasQuestionAttachments. If the type is FILE then are there any attachments.
-     * @return boolean
-     */
-    public boolean hasQuestionAttachments(){
-        if(this.questionAttachments.size()>0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-    
-    /**
-     * Method commentHasValues. If the type id COMMENT then is there any text in the comment
-     * @return boolean
-     */
-    public boolean commentHasValues(){
-              
-        if(responseDefType.equalsIgnoreCase(this.COMMENT) && !this.inputValue.equals("") && this.inputValue != null){
-            return true;
-        }else{
-            return false;
-        }
-    }
+	public QuestionResponseData(int id) {
+		this.id = id;
+	}
 
-    /**
-     * Method getUserSelectId returns the id of a userselect type of response. These are for
-     * Check boxes, Selects, and Drop Down type of controls.
-     * @return String
-     * @throws Exception
-     */
-    public String getUserSelectId(){
-        if (responseDefType.equalsIgnoreCase(this.CHECK_BOX)
-            || responseDefType.equalsIgnoreCase(this.RADIO)
-            || responseDefType.equalsIgnoreCase(this.DROP_DOWN)) {
-            return this.selectionDefId;
-        } else {
-            return null;
-        }
-    }
+	public QuestionResponseData() {
+	}
 
+	/**
+	 * Method setResponseData set the data for responses that require user
+	 * selection from a list of options
+	 * 
+	 * @param questionDefId
+	 * @param responseDefId
+	 * @param responseDefType
+	 * @param selectionDefId
+	 * @param inputValue
+	 */
+	public void setSelectResponseData(String questionDefId,
+			String responseDefId, String responseDefType, String selectionDefId) {
 
+		this.questionDefId = questionDefId;
+		this.responseDefId = responseDefId;
+		this.responseDefType = responseDefType;
+		this.selectionDefId = selectionDefId;
+	}
 
-    /**
-     * Method getUserInputValue. The the value of the data the user inputted for this question.
-     * @return String
-     */
-    public String getUserInputValue() {
-        if (responseDefType.equalsIgnoreCase(this.COMMENT)
-            || responseDefType.equalsIgnoreCase(this.STRING)
-            || responseDefType.equalsIgnoreCase(this.NUMBER)
-            || responseDefType.equalsIgnoreCase(this.TEXT)
-            || responseDefType.equalsIgnoreCase(this.DATE)) {
-            return this.inputValue;
-        } else {
-            return null;
-        }
+	/**
+	 * Method setInputResponseData set the data for responses that require user
+	 * input
+	 * 
+	 * @param questionDefId
+	 * @param responseDefId
+	 * @param responseDefType
+	 * @param inputValue
+	 */
+	public void setInputResponseData(String questionDefId,
+			String responseDefId, String responseDefType, String inputValue) {
 
-    }
+		this.questionDefId = questionDefId;
+		this.responseDefId = responseDefId;
+		this.responseDefType = responseDefType;
+		this.inputValue = inputValue;
 
+	}
 
-    /**
-     * Returns the answerValue. This is the value used by the presentation mechanism of 
-     * Velocity and HTML.
-     * @return String
-     */
-    public String getAnswerValue() {
+	/**
+	 * Method setFileResponseData. Add a QuestionAttachment to this
+	 * questionResponse. The questionResponse is of type FILE
+	 * 
+	 * @param questionDefId
+	 * @param responseDefId
+	 * @param responseDefType
+	 * @param qa
+	 */
+	public void setFileResponseData(String questionDefId, String responseDefId,
+			String responseDefType, QuestionAttachment qa) {
 
-        if (responseDefType.equalsIgnoreCase(this.CHECK_BOX) || responseDefType.equalsIgnoreCase(this.RADIO)) {
-            answerValue = "checked";
-        } else if (responseDefType.equalsIgnoreCase(this.DROP_DOWN)) {
-            answerValue = "selected";
-        } else {
-            answerValue = inputValue;
-        }
+		this.questionDefId = questionDefId;
+		this.responseDefId = responseDefId;
+		this.responseDefType = responseDefType;
+		this.questionAttachments.put(qa.getFileMemoryId(), qa);
+	}
 
-        return answerValue;
-    }
+	/**
+	 * Method addQuestionAttachment.
+	 * 
+	 * @param qa
+	 */
+	public void addQuestionAttachment(QuestionAttachment qa) {
+		qa.setAttachmentStatusToNew();
+		questionAttachments.put(qa.getFileMemoryId(), qa);
+	}
 
-    /**
-     * Returns the responseDefId.
-     * @return String
-     */
-    public String getResponseDefId() {
-        return responseDefId;
-    }
+	/**
+	 * Method removeQuestionAttachment.
+	 * 
+	 * @param fileName
+	 * @throws IllegalArgumentException
+	 */
+	public void removeQuestionAttachment(String attachmentMemoryId)
+			throws IllegalArgumentException {
+		logger
+				.debug("In Method - QuestionResponseData:removeQuestionAttachment");
 
-    /**
-     * Returns the selectionId.
-     * @return String
-     */
-    public String getselectionInputId() {
-        return selectionDefId;
-    }
+		// Get the attachment corresponding to the attachment.
+		QuestionAttachment qa = (QuestionAttachment) this.questionAttachments
+				.get(attachmentMemoryId);
+		if (qa != null) {
+			// Get the Status of attachment.
+			int attachmentStatus = qa.getStatus();
+			logger.debug("Attachment Status = " + qa.getStatusValue());
 
-    /**
-     * Returns the responseDefType.
-     * @return String
-     */
-    public String getResponseDefType() {
-        return responseDefType;
-    }
+			if (qa.isToBeCreated()) {
+				// If the status is NEW, its been recently added to the Map by
+				// the user in this session.
+				// Thus, just remove the attachment from the MAP.
+				logger
+						.debug("NEW attachment- Thus removing the attachment from the map.");
+				this.questionAttachments.remove(qa);
+			} else if (qa.isExisting()) {
+				// If status == EXISTING, it exists in the database. Thus, set
+				// the status to DELETED.
+				logger.debug("EXISTING attachment - Setting status to DELETED");
+				qa.setAttachmentStatusToDeleted();
+			}
+		} else {
+			throw new IllegalArgumentException(
+					"File corresponding to the memory id="
+							+ attachmentMemoryId
+							+ " could not be found to be deleted from QuestionResponse ");
+		}
+	}
 
-    /**
-     * Sets the responseDefType.
-     * @param responseDefType The responseDefType to set
-     */
-    public void setResponseDefType(String responseType) {
-        this.responseDefType = responseType;
-        //this.dirty = true;
-    }
+	/**
+	 * Method getQuestionAttachments.
+	 * 
+	 * @return Map
+	 */
+	public Map getQuestionAttachments() {
+		return this.questionAttachments;
+	}
 
-    /**
-     * Returns the inputValue.
-     * @return String
-     */
-    public String getInputValue() {
-        return inputValue;
-    }
+	/**
+	 * Method setQuestionAttachments.
+	 * 
+	 * @param Map
+	 */
+	public HashMap setQuestionAttachments(HashMap qaMap) {
+		return this.questionAttachments = qaMap;
+	}
 
-    /**
-     * Sets the inputValue.
-     * @param inputValue The inputValue to set
-     */
-    public void setInputValue(String inputValue) {
-        this.inputValue = inputValue;
-        //this.dirty = true;
-    }
+	/**
+	 * Method hasQuestionAttachments. If the type is FILE then are there any
+	 * attachments.
+	 * 
+	 * @return boolean
+	 */
+	public boolean hasQuestionAttachments() {
+		if (this.questionAttachments.size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-    /**
-     * Returns the questionDefId.
-     * @return String
-     */
-    public String getQuestionDefId() {
-        return questionDefId;
-    }
+	/**
+	 * Method commentHasValues. If the type id COMMENT then is there any text in
+	 * the comment
+	 * 
+	 * @return boolean
+	 */
+	public boolean commentHasValues() {
 
-    /**
-     * Sets the questionDefId.
-     * @param questionDefId The questionDefId to set
-     */
-    public void setQuestionDefId(String questionId) {
-        this.questionDefId = questionId;
-        //this.dirty = true;
-    }
+		if (responseDefType.equalsIgnoreCase(this.COMMENT)
+				&& !this.inputValue.equals("") && this.inputValue != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-    /**
-     * Sets the responseDefId.
-     * @param responseDefId The responseDefId to set
-     */
-    public void setResponseDefId(String responseId) {
-        this.responseDefId = responseId;
-    }
+	/**
+	 * Method getUserSelectId returns the id of a userselect type of response.
+	 * These are for Check boxes, Selects, and Drop Down type of controls.
+	 * 
+	 * @return String
+	 * @throws Exception
+	 */
+	public String getUserSelectId() {
+		if (responseDefType.equalsIgnoreCase(this.CHECK_BOX)
+				|| responseDefType.equalsIgnoreCase(this.RADIO)
+				|| responseDefType.equalsIgnoreCase(this.DROP_DOWN)) {
+			return this.selectionDefId;
+		} else {
+			return null;
+		}
+	}
 
-    /**
-     * Returns the selectionDefId.
-     * @return String
-     */
-    public String getSelectionDefId() {
-        return selectionDefId;
-    }
+	/**
+	 * Method getUserInputValue. The the value of the data the user inputted for
+	 * this question.
+	 * 
+	 * @return String
+	 */
+	public String getUserInputValue() {
+		if (responseDefType.equalsIgnoreCase(this.COMMENT)
+				|| responseDefType.equalsIgnoreCase(this.STRING)
+				|| responseDefType.equalsIgnoreCase(this.NUMBER)
+				|| responseDefType.equalsIgnoreCase(this.TEXT)
+				|| responseDefType.equalsIgnoreCase(this.DATE)) {
+			return this.inputValue;
+		} else {
+			return null;
+		}
 
-    /**
-     * Sets the selectionDefId.
-     * @param selectionDefId The selectionDefId to set
-     */
-    public void setSelectionDefId(String selectionInputId) {
-        this.selectionDefId = selectionInputId;
-    }
+	}
 
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
-    }
+	/**
+	 * Returns the answerValue. This is the value used by the presentation
+	 * mechanism of Velocity and HTML.
+	 * 
+	 * @return String
+	 */
+	public String getAnswerValue() {
 
-    /**
-     * Returns the dirty.
-     * @return boolean
-     */
-    /*public boolean isDirty() {
-        return dirty;
-    }*/
+		if (responseDefType.equalsIgnoreCase(this.CHECK_BOX)
+				|| responseDefType.equalsIgnoreCase(this.RADIO)) {
+			answerValue = "checked";
+		} else if (responseDefType.equalsIgnoreCase(this.DROP_DOWN)) {
+			answerValue = "selected";
+		} else {
+			answerValue = inputValue;
+		}
 
-    /**
-     * Sets the dirty.
-     * @param dirty The dirty to set
-     */
-    /*public void setDirty(boolean dirty) {
-        this.dirty = dirty;
-    }*/
+		return answerValue;
+	}
 
-    /**
-     * Returns the id.
-     * @return int
-     */
-    public int getId() {
-        return id;
-    }
+	/**
+	 * Returns the responseDefId.
+	 * 
+	 * @return String
+	 */
+	public String getResponseDefId() {
+		return responseDefId;
+	}
 
-    /**
-     * Sets the id.
-     * @param id The id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * Returns the selectionId.
+	 * 
+	 * @return String
+	 */
+	public String getselectionInputId() {
+		return selectionDefId;
+	}
+
+	/**
+	 * Returns the responseDefType.
+	 * 
+	 * @return String
+	 */
+	public String getResponseDefType() {
+		return responseDefType;
+	}
+
+	/**
+	 * Sets the responseDefType.
+	 * 
+	 * @param responseDefType
+	 *            The responseDefType to set
+	 */
+	public void setResponseDefType(String responseType) {
+		this.responseDefType = responseType;
+		// this.dirty = true;
+	}
+
+	/**
+	 * Returns the inputValue.
+	 * 
+	 * @return String
+	 */
+	public String getInputValue() {
+		return inputValue;
+	}
+
+	/**
+	 * Sets the inputValue.
+	 * 
+	 * @param inputValue
+	 *            The inputValue to set
+	 */
+	public void setInputValue(String inputValue) {
+		this.inputValue = inputValue;
+		// this.dirty = true;
+	}
+
+	/**
+	 * Returns the questionDefId.
+	 * 
+	 * @return String
+	 */
+	public String getQuestionDefId() {
+		return questionDefId;
+	}
+
+	/**
+	 * Sets the questionDefId.
+	 * 
+	 * @param questionDefId
+	 *            The questionDefId to set
+	 */
+	public void setQuestionDefId(String questionId) {
+		this.questionDefId = questionId;
+		// this.dirty = true;
+	}
+
+	/**
+	 * Sets the responseDefId.
+	 * 
+	 * @param responseDefId
+	 *            The responseDefId to set
+	 */
+	public void setResponseDefId(String responseId) {
+		this.responseDefId = responseId;
+	}
+
+	/**
+	 * Returns the selectionDefId.
+	 * 
+	 * @return String
+	 */
+	public String getSelectionDefId() {
+		return selectionDefId;
+	}
+
+	/**
+	 * Sets the selectionDefId.
+	 * 
+	 * @param selectionDefId
+	 *            The selectionDefId to set
+	 */
+	public void setSelectionDefId(String selectionInputId) {
+		this.selectionDefId = selectionInputId;
+	}
+
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+
+	/**
+	 * Returns the dirty.
+	 * 
+	 * @return boolean
+	 */
+	/*
+	 * public boolean isDirty() { return dirty; }
+	 */
+
+	/**
+	 * Sets the dirty.
+	 * 
+	 * @param dirty
+	 *            The dirty to set
+	 */
+	/*
+	 * public void setDirty(boolean dirty) { this.dirty = dirty; }
+	 */
+
+	/**
+	 * Returns the id.
+	 * 
+	 * @return int
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * Sets the id.
+	 * 
+	 * @param id
+	 *            The id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
 }

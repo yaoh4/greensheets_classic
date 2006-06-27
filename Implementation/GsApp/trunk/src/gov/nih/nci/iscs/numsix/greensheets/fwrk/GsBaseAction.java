@@ -6,16 +6,14 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.fwrk;
 
-
-import org.apache.struts.action.*;
-
+import org.apache.struts.action.Action;
 
 /**
- * Base Struts Action class. All greensheets application Action classes
- * extend this class
+ * Base Struts Action class. All greensheets application Action classes extend
+ * this class
  * 
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 public class GsBaseAction extends Action {
 

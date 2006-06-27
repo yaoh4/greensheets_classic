@@ -9,6 +9,7 @@ package gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.DbConnectionHelper;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
@@ -49,10 +50,10 @@ public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
 
 	/** init */
 	private void init(GsUser gsUser) {
-		setApplPrefsMap();
+		setApplPrefsMap(gsUser);
 		setUserPrefsMap(gsUser);
 	}
-	
+
 	/**
 	 * restorePreferences restores preferences for a user
 	 * 
@@ -74,8 +75,7 @@ public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
 	 * 
 	 * @return applPrefsMap
 	 */
-	public Map restoreApplicationPreferences()
-			throws GreensheetBaseException {
+	public Map restoreApplicationPreferences() throws GreensheetBaseException {
 		return applPrefsMap;
 	}
 
@@ -86,19 +86,19 @@ public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
 	 */
 	public void savePreferences(GsUser gsUser, Map userPrefsMap)
 			throws GreensheetBaseException {
-		
+
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 
-
 		try {
-			// delete old preferences (if any)			
+			// delete old preferences (if any)
 			conn = DbConnectionHelper.getInstance().getConnection();
 			stmt = conn.createStatement();
 			String userName = gsUser.getNciPerson().getCommonName()
 					.toUpperCase();
-			String del = "DELETE FROM USER_PREFERENCES_T WHERE APPLICATION_NAME='GREENSHEETS' AND USERNAME='"+ userName + "'";
+			String del = "DELETE FROM USER_PREFERENCES_T WHERE APPLICATION_NAME='GREENSHEETS' AND USERNAME='"
+					+ userName + "'";
 			rs = stmt.executeQuery(del);
 			// save new preferences
 			Set keys = userPrefsMap.keySet();
@@ -106,8 +106,12 @@ public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
 			while (i.hasNext()) {
 				String key = (String) i.next();
 				String value = (String) userPrefsMap.get(key);
-				String ins = "INSERT INTO USER_PREFERENCES_T (APPLICATION_NAME, USERNAME, PREFERENCE_NAME, PREFERENCE_VALUE)" +
-				" VALUES ('GREENSHEETS', '"+ userName + "', '" + key+"', '" + value + "')";
+				String ins = "INSERT INTO USER_PREFERENCES_T (APPLICATION_NAME, USERNAME, PREFERENCE_NAME, PREFERENCE_VALUE)"
+						+ " VALUES ('GREENSHEETS', '"
+						+ userName
+						+ "', '"
+						+ key
+						+ "', '" + value + "')";
 				rs = stmt.executeQuery(ins);
 			}
 			// commit
@@ -132,28 +136,53 @@ public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
 
 	}
 
-
 	/** setApplPrefsMap */
-	private void setApplPrefsMap() {
+	private void setApplPrefsMap(GsUser user) {
+
 		Properties prefs = (Properties) AppConfigProperties.getInstance()
 				.getProperty(GreensheetsKeys.KEY_USER_PREFERENCES);
-		
+
 		applPrefsMap = new HashMap();
 
-		addPropToPrefMap(applPrefsMap,prefs,Constants.PREFERENCES_GRANT_SOURCE_KEY);
-		addPropToPrefMap(applPrefsMap,prefs,Constants.PREFERENCES_GRANT_TYPE_KEY);
-		addPropToPrefMap(applPrefsMap,prefs,Constants.PREFERENCES_GRANT_MECHANISM_KEY);
-		addPropToPrefMap(applPrefsMap,prefs,Constants.PREFERENCES_GRANT_PAYLINE_KEY);
-		addPropToPrefMap(applPrefsMap,prefs,Constants.PREFERENCES_GRANT_NUMBER_KEY);
-		addPropToPrefMap(applPrefsMap,prefs,Constants.PREFERENCES_GRANT_PI_KEY);
+		if (user.getRole().equals(GsUserRole.PGM_DIR)) {
+			addPropToPrefMap(applPrefsMap, prefs,
+					Constants.PREFERENCES_GRANT_SOURCE_PD_KEY,
+					Constants.PREFERENCES_GRANT_SOURCE_KEY);
+		} else if (user.getRole().equals(GsUserRole.PGM_ANL)) {
+			addPropToPrefMap(applPrefsMap, prefs,
+					Constants.PREFERENCES_GRANT_SOURCE_PA_KEY,
+					Constants.PREFERENCES_GRANT_SOURCE_KEY);
+		}
+
+		addPropToPrefMap(applPrefsMap, prefs,
+				Constants.PREFERENCES_GRANT_TYPE_KEY);
+		addPropToPrefMap(applPrefsMap, prefs,
+				Constants.PREFERENCES_GRANT_MECHANISM_KEY);
+		addPropToPrefMap(applPrefsMap, prefs,
+				Constants.PREFERENCES_GRANT_PAYLINE_KEY);
+		addPropToPrefMap(applPrefsMap, prefs,
+				Constants.PREFERENCES_GRANT_NUMBER_KEY);
+		addPropToPrefMap(applPrefsMap, prefs,
+				Constants.PREFERENCES_GRANT_PI_KEY);
 
 	}
 
 	/** addPropToPrefMap */
-	private void addPropToPrefMap(Map map, Properties props, String key) {
+	private void addPropToPrefMap(Map map, Properties props, String fromKey) {
 		try {
-			String value = new String(props.getProperty(key));
-			map.put(key, value);
+			String value = new String(props.getProperty(fromKey));
+			map.put(fromKey, value);
+		} catch (Exception e) {
+			// do nothing, no value found
+		}
+	}
+
+	/** addPropToPrefMap */
+	private void addPropToPrefMap(Map map, Properties props, String fromKey,
+			String toKey) {
+		try {
+			String value = new String(props.getProperty(fromKey));
+			map.put(toKey, value);
 		} catch (Exception e) {
 			// do nothing, no value found
 		}
@@ -161,7 +190,7 @@ public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
 
 	/** setUserPrefsMap */
 	private void setUserPrefsMap(GsUser gsUser) {
-		
+
 		userPrefsMap = new HashMap();
 
 		Connection conn = null;

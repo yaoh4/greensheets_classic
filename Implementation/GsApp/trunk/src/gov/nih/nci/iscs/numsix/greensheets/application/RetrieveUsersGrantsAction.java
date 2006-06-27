@@ -6,18 +6,23 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionAttachment;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr.*;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetMgrFactory;
+import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
-import javax.servlet.http.*;
-import org.apache.log4j.*;
-import org.apache.struts.action.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
 
 /**
  * Action retrieves a list of grants assigned to the user

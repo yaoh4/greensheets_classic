@@ -7,7 +7,7 @@ import org.apache.struts.action.ActionForm;
 
 public class GsBaseActionForm extends ActionForm {
 
-   /** isNull */
+	/** isNull */
 	public boolean isNull() {
 		Class clazz = this.getClass();
 		Field[] fields = clazz.getDeclaredFields();
@@ -44,7 +44,7 @@ public class GsBaseActionForm extends ActionForm {
 		}
 		return results.toString();
 	}
-	
+
 	/** clear */
 	public void clear() {
 		Class clazz = this.getClass();
@@ -52,7 +52,7 @@ public class GsBaseActionForm extends ActionForm {
 		try {
 			AccessibleObject.setAccessible(fields, true);
 			for (int i = 0; i < fields.length; i++) {
-			   fields[i].set(this,null);
+				fields[i].set(this, null);
 			}
 		} catch (Exception e) {
 			// Don't bother reporting this

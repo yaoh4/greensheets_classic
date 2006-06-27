@@ -22,8 +22,8 @@ import org.apache.struts.config.ModuleConfig;
 
 /**
  * Struts plugin for application initialization routines
- *
- *
+ * 
+ * 
  * @author kpuscas, Number Six Software
  */
 public class GreensheetsInitPlugIn implements PlugIn {

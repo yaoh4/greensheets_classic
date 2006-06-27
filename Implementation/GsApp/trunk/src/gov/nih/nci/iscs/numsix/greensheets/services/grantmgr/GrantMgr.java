@@ -56,9 +56,9 @@ public interface GrantMgr {
 	 * @param piName
 	 * @return Map
 	 * @throws GreensheetBaseException
-	 */	
+	 */
 	public Map getGrantsListForProgramUser(GsUser user, String grantSource,
 			String grantType, String mechanism, String onlyGrantsWithinPayline,
-			String grantNumber, String piName) throws GreensheetBaseException ;
+			String grantNumber, String piName) throws GreensheetBaseException;
 
 }

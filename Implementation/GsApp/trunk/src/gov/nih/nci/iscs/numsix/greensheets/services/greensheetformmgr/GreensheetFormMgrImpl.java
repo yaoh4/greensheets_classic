@@ -6,44 +6,35 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.*;
-import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.*;
-import gov
-	.nih
-	.nci
-	.iscs
-	.numsix
-	.greensheets
-	.services
-	.greensheetformmgr
-	.pdfengine
-	.
-	* ;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*;
-import java.util.*;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GsGrant;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.pdfengine.GsPdfRenderer;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 
-import org.apache.commons.lang.*;
-import org.apache.log4j.*;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 
 /**
  * Production Implementation of GreensheetFormMgr interface
  * 
  * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr
  * 
- *  @author kpuscas, Number Six Software
+ * @author kpuscas, Number Six Software
  */
 public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 
-	private static final Logger logger =
-		Logger.getLogger(GreensheetFormMgrImpl.class);
+	private static final Logger logger = Logger
+			.getLogger(GreensheetFormMgrImpl.class);
 
 	/**
-	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#findGreensheetForGrant(GsGrant, GreensheetGroupType)
+	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#findGreensheetForGrant(GsGrant,
+	 *      GreensheetGroupType)
 	 */
-	public GreensheetForm findGreensheetForGrant(
-		GsGrant grant,
-		GreensheetGroupType type)
-		throws GreensheetBaseException {
+	public GreensheetForm findGreensheetForGrant(GsGrant grant,
+			GreensheetGroupType type) throws GreensheetBaseException {
 
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		GreensheetForm form = dh.getGreensheetFormForGrant(grant, type);
@@ -52,14 +43,11 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	}
 
 	/**
-	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#saveForm(GreensheetForm, Map, GsUser)
+	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#saveForm(GreensheetForm,
+	 *      Map, GsUser)
 	 */
-	public void saveForm(
-		GreensheetForm form,
-		Map newVals,
-		GsUser user,
-		GsGrant grant)
-		throws GreensheetBaseException {
+	public void saveForm(GreensheetForm form, Map newVals, GsUser user,
+			GsGrant grant) throws GreensheetBaseException {
 		this.setAnswerResponseValues(form.getQuestionResponsDataMap(), newVals);
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		dh.saveGreensheetFormData(form, grant, user);
@@ -67,28 +55,27 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	}
 
 	/**
-	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#submitForm(GreensheetForm, Map, GsUser)
+	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#submitForm(GreensheetForm,
+	 *      Map, GsUser)
 	 */
-	public void submitForm(
-		GreensheetForm form,
-		Map newVals,
-		GsUser user,
-		GsGrant grant)
-		throws GreensheetBaseException {
+	public void submitForm(GreensheetForm form, Map newVals, GsUser user,
+			GsGrant grant) throws GreensheetBaseException {
 		this.setAnswerResponseValues(form.getQuestionResponsDataMap(), newVals);
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		dh.saveGreensheetFormData(form, grant, user);
 		dh.changeGreensheetFormStatus(form, GreensheetStatus.SUBMITTED, user);
-/** commented out the following invocation b/c combined method with above - ghh 3/9/06
- *	dh.setGreensheetFormSubmitter(form, user);
- */
+		/**
+		 * commented out the following invocation b/c combined method with above -
+		 * ghh 3/9/06 dh.setGreensheetFormSubmitter(form, user);
+		 */
 	}
 
 	/**
-	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#changeLock(GreensheetForm, GsUser)
+	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#changeLock(GreensheetForm,
+	 *      GsUser)
 	 */
 	public void changeLock(GreensheetForm form, GsUser user)
-		throws GreensheetBaseException {
+			throws GreensheetBaseException {
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		GreensheetStatus newStatus = null;
 		if (form.getStatus().equals(GreensheetStatus.SUBMITTED)) {
@@ -103,7 +90,7 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#getQuestionAttachmentData(String)
 	 */
 	public void getQuestionAttachmentData(QuestionAttachment qa)
-		throws GreensheetBaseException {
+			throws GreensheetBaseException {
 		AttachmentHelper ah = new AttachmentHelper();
 		ah.getQuestionAttachmentData(qa);
 	}
@@ -111,46 +98,38 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	/**
 	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#getGreensheetFormAsPFD()
 	 */
-	public byte[] getGreensheetFormAsPdf(
-		GreensheetForm form,
-		GsGrant grant,
-		String commentOption,
-		String commentOptionSepPage,
-		String generateAllQuestions) throws GreensheetBaseException{
-		GsPdfRenderer rend =
-			new GsPdfRenderer (
-				form,
-				grant,
-				commentOption,
-				commentOptionSepPage,
-				generateAllQuestions);
+	public byte[] getGreensheetFormAsPdf(GreensheetForm form, GsGrant grant,
+			String commentOption, String commentOptionSepPage,
+			String generateAllQuestions) throws GreensheetBaseException {
+		GsPdfRenderer rend = new GsPdfRenderer(form, grant, commentOption,
+				commentOptionSepPage, generateAllQuestions);
 		return rend.generatePdf();
 	}
 
-	private void setAnswerResponseValues(
-		Map questionResponseDataMap,
-		Map newValues) {
+	private void setAnswerResponseValues(Map questionResponseDataMap,
+			Map newValues) {
 
-		// Go through all the oldValues and check to see if the responseDefId is in 
-		// the newValues Map as a key. If not assume it was changed and should be deleted
-		// from the questionResponseDataMap of existing values. Set the selectionDefId to ""
+		// Go through all the oldValues and check to see if the responseDefId is
+		// in
+		// the newValues Map as a key. If not assume it was changed and should
+		// be deleted
+		// from the questionResponseDataMap of existing values. Set the
+		// selectionDefId to ""
 		Iterator qrIter = questionResponseDataMap.values().iterator();
 		while (qrIter.hasNext()) {
 			QuestionResponseData qrd = (QuestionResponseData) qrIter.next();
 			String rId = qrd.getResponseDefId();
 			if (!newValues.containsKey(rId)) {
-				logger.debug(
-					"\n\tREMOVE "
-						+ qrd.getResponseDefId()
-						+ "  seldefid "
-						+ qrd.getSelectionDefId());
+				logger.debug("\n\tREMOVE " + qrd.getResponseDefId()
+						+ "  seldefid " + qrd.getSelectionDefId());
 				qrd.setSelectionDefId("");
 
 			}
 
 		}
 
-		// go through all the new values and either update existing values or create new QuestionResponseData objects
+		// go through all the new values and either update existing values or
+		// create new QuestionResponseData objects
 		// and add them to the questionResponseDataMap for this form.
 		Iterator iter = newValues.keySet().iterator();
 
@@ -176,123 +155,84 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 
 				qrd = (QuestionResponseData) questionResponseDataMap.get(key);
 				if (qrd.getInputValue() != null
-					&& !qrd.getInputValue().equalsIgnoreCase(value)) {
+						&& !qrd.getInputValue().equalsIgnoreCase(value)) {
 					qrd.setInputValue(value);
-				} else if (
-					qrd.getSelectionDefId() != null
+				} else if (qrd.getSelectionDefId() != null
 						&& !qrd.getSelectionDefId().equalsIgnoreCase(
-							"," + value + ",")) {
+								"," + value + ",")) {
 					qrd.setSelectionDefId(value);
 				}
 
-				logger.debug(
-					"\n\tExisting qid:"
-						+ qrd.getQuestionDefId()
-						+ "  key: "
-						+ key
-						+ "  value: "
-						+ value);
+				logger.debug("\n\tExisting qid:" + qrd.getQuestionDefId()
+						+ "  key: " + key + "  value: " + value);
 
 			} else if (key.indexOf("_RD_") > -1) {
 
-				String questionDefId =
-					StringUtils.substringBeforeLast(key, "_RD_");
+				String questionDefId = StringUtils.substringBeforeLast(key,
+						"_RD_");
 
-				if (key.indexOf("_DD_") > -1
-					&& !(value.indexOf("SEL_X") > -1)) {
+				if (key.indexOf("_DD_") > -1 && !(value.indexOf("SEL_X") > -1)) {
 					qrd = new QuestionResponseData();
-					qrd.setSelectResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.DROP_DOWN,
-						value);
+					qrd.setSelectResponseData(questionDefId, key,
+							QuestionResponseData.DROP_DOWN, value);
 
 				} else if (key.indexOf("_RB_") > -1) {
 					qrd = new QuestionResponseData();
-					qrd.setSelectResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.RADIO,
-						value);
+					qrd.setSelectResponseData(questionDefId, key,
+							QuestionResponseData.RADIO, value);
 
 				} else if (key.indexOf("_CB_") > -1) {
 					qrd = new QuestionResponseData();
-					qrd.setSelectResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.CHECK_BOX,
-						value);
+					qrd.setSelectResponseData(questionDefId, key,
+							QuestionResponseData.CHECK_BOX, value);
 
-				} else if (
-					key.indexOf("_TX_") > -1 && !value.equalsIgnoreCase("")) {
+				} else if (key.indexOf("_TX_") > -1
+						&& !value.equalsIgnoreCase("")) {
 					qrd = new QuestionResponseData();
-					qrd.setInputResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.TEXT,
-						value);
+					qrd.setInputResponseData(questionDefId, key,
+							QuestionResponseData.TEXT, value);
 
-				} else if (
-					key.indexOf("_NU_") > -1 && !value.equalsIgnoreCase("")) {
+				} else if (key.indexOf("_NU_") > -1
+						&& !value.equalsIgnoreCase("")) {
 					qrd = new QuestionResponseData();
-					qrd.setInputResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.NUMBER,
-						value);
+					qrd.setInputResponseData(questionDefId, key,
+							QuestionResponseData.NUMBER, value);
 
-				} else if (
-					key.indexOf("_ST_") > -1 && !value.equalsIgnoreCase("")) {
+				} else if (key.indexOf("_ST_") > -1
+						&& !value.equalsIgnoreCase("")) {
 					qrd = new QuestionResponseData();
-					qrd.setInputResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.STRING,
-						value);
+					qrd.setInputResponseData(questionDefId, key,
+							QuestionResponseData.STRING, value);
 
-				} else if (
-					key.indexOf("_DT_") > -1 && !value.equalsIgnoreCase("")) {
+				} else if (key.indexOf("_DT_") > -1
+						&& !value.equalsIgnoreCase("")) {
 					qrd = new QuestionResponseData();
-					qrd.setInputResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.DATE,
-						value);
+					qrd.setInputResponseData(questionDefId, key,
+							QuestionResponseData.DATE, value);
 
-				} else if (
-					key.indexOf("_FL_") > -1 && !value.equalsIgnoreCase("")) {
+				} else if (key.indexOf("_FL_") > -1
+						&& !value.equalsIgnoreCase("")) {
 
-					logger.debug(
-						"----------------------------------------------Adding new file ???? "
-							+ key);
+					logger
+							.debug("----------------------------------------------Adding new file ???? "
+									+ key);
 
 					qrd = new QuestionResponseData();
-					qrd.setFileResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.FILE,
-						null);
+					qrd.setFileResponseData(questionDefId, key,
+							QuestionResponseData.FILE, null);
 
-				} else if (
-					key.indexOf("_CM_") > -1 && !value.equalsIgnoreCase("")) {
+				} else if (key.indexOf("_CM_") > -1
+						&& !value.equalsIgnoreCase("")) {
 					qrd = new QuestionResponseData();
-					qrd.setInputResponseData(
-						questionDefId,
-						key,
-						QuestionResponseData.COMMENT,
-						value);
+					qrd.setInputResponseData(questionDefId, key,
+							QuestionResponseData.COMMENT, value);
 
 				}
 
 				if (qrd != null) {
 					questionResponseDataMap.put(key, qrd);
-					logger.debug(
-						"\n\tNew qid:"
-							+ qrd.getQuestionDefId()
-							+ "  key: "
-							+ key
-							+ "  value: "
-							+ value);
+					logger.debug("\n\tNew qid:" + qrd.getQuestionDefId()
+							+ "  key: " + key + "  value: " + value);
 				}
 			}
 
