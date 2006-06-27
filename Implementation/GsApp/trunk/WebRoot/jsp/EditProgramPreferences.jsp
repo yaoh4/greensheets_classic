@@ -60,11 +60,8 @@ String userName = gus.getUser().getDisplayUserName();
 								</TD>
 								<TD>
 									<DIV align="right">
-										<STRONG>Only Grants within Payline:</STRONG>
-										<logic:iterate id="choice" name="grantsWithinPaylineChoices">
-											<html:radio property="onlyGrantsWithinPayline" idName="choice" value="value" />
-											<bean:write name="choice" property="label" />
-										</logic:iterate>
+										<STRONG>Show only Grants within the Payline:</STRONG>
+									    <html:checkbox property="onlyGrantsWithinPayline" value="yes"/>
 									</DIV>
 								</TD>
 							</TR>
