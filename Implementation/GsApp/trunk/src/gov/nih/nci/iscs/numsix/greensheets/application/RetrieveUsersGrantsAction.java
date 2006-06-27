@@ -58,13 +58,13 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
 			GsUser gsUser = gus.getUser();
 			GsUserRole gsUserRole = gsUser.getRole();
 
-			//	If "role" = "Guest"
+			// If "role" = "Guest"
 			if (gsUserRole.equals((GsUserRole.GS_GUEST))) {
-				//	set forward name
+				// set forward name
 				grantList = "guestUserView";
 			}
 
-			//	If "role" = "Specialist"
+			// If "role" = "Specialist"
 			if (gsUserRole.equals(GsUserRole.SPEC)) {
 				GreensheetActionHelper.setPaylineOption(req, gus);
 				GreensheetActionHelper.setMyPortfolioOption(req, gus);
