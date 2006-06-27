@@ -8,7 +8,7 @@
 
   <context-param>
     <param-name>appVersion</param-name>  
-    <param-value>v1.1.9</param-value>
+    <param-value>v1.1.10</param-value>
   </context-param>
   <context-param>
     <param-name>appBuild</param-name>  
