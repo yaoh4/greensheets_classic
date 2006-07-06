@@ -1,7 +1,7 @@
 			    I N S T A L L A T I O N
  			   
                                   GREENSHEETS
-                                 Version 1.1.9
+                                 Version 1.2.0
                                  
 INTRODUCTION
 ============

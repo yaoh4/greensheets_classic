@@ -61,7 +61,7 @@ public class EditProgramPreferencesAction extends GsBaseAction {
 				Constants.PREFERENCES_COMPETINGGRANTS));
 		grantTypes.add(new LabelValueBean("Non-Competing Grants",
 				Constants.PREFERENCES_NONCOMPETINGGRANTS));
-		grantTypes.add(new LabelValueBean("Both", Constants.PREFERENCES_BOTH));
+		grantTypes.add(new LabelValueBean("Both Competing and Non-Competing Grants", Constants.PREFERENCES_BOTH));
 		req.setAttribute(Constants.GRANT_TYPES_KEY, grantTypes);
 	}
 

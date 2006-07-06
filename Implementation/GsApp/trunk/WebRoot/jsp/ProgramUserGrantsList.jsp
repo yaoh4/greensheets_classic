@@ -98,7 +98,7 @@ function setMethod(target) {
 														Example: R01
 													</DIV>
 													<DIV align="left">
-														Leaving Mechanisms blank will return all Mechanisms
+														Leaving Mechanism blank will return all Mechanisms
 													</DIV>
 												</TD>
 												<TD>
@@ -121,9 +121,9 @@ function setMethod(target) {
 											<TR>
 												<TD colspan="3" valign="bottom">
 													<DIV align="right">
-														<html:image page="/images/RestorePref.gif" property="image_restorePreferences" alt="Restore Preferences" />
 														<html:image page="/images/Search.gif" property="image_search" alt="Search" />
 														<html:image page="/images/Cancel.gif" property="image_cancel" alt="Cancel" />
+														<html:image page="/images/RestorePref.gif" property="image_restorePreferences" alt="Restore Preferences" />														
 													</DIV>
 												<TD>
 											</TR>

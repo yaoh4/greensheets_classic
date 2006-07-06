@@ -1,7 +1,7 @@
 			    R E L E A S E  N O T E S
  			   
                                   GREENSHEETS
-                     	         Version 1.1.9
+                     	         Version 1.2.0
                                  
 INTRODUCTION
 ============
@@ -10,8 +10,8 @@ It is primarily a intended for downstream developers with the  main emphasis on
 maintenance and code cleanup releases, with occasional new features.
 
 
-NEW FEAURES
-===========
+NEW FEATURES
+============
 #4016  Provide user customizable preferences for Program role users which are used to query the
        grant collection. The system also contains a default set of query prefences which are used 
        when no user preferences exist for a particular user.

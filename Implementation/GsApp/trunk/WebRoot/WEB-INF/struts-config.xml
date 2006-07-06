@@ -69,7 +69,7 @@
 		<forward name="sessionTimeOut" path="/jsp/SessionTimeOut.jsp" />
 		<forward name="viewCurrentPreferences" path="/jsp/ViewCurrentPreferences.jsp" />
 	</global-forwards>
-
+  
 	<!-- ========== Action Mapping Definitions ========== -->
 	<action-mappings>
 
@@ -92,9 +92,9 @@
 		input="/jsp/ProgramUserGrantsList.jsp"
 		parameter="method"
 		scope="request">	
-    		<forward name="image_restorePreferences.x" path="/searchprogramgrants.do?method=restorePreferences" />
     		<forward name="image_search.x" path="/searchprogramgrants.do?method=search" />
     		<forward name="image_cancel.x" path="/searchprogramgrants.do?method=cancel" />
+            <forward name="image_restorePreferences.x" path="/searchprogramgrants.do?method=restorePreferences" />    		
 		</action>
 		
 		<action path="/editprogrampreferences" parameter="method" name="programPreferencesForm"

@@ -107,7 +107,7 @@ public class GreensheetUserMgrImpl implements GreensheetUserMgr {
 			// Set the OUT parameters to register
 			cs.registerOutParameter(2, java.sql.Types.VARCHAR); // p_pd_flag.
 																// Not Used
-			cs.registerOutParameter(3, java.sql.Types.VARCHAR); // p_ca_flog.
+			cs.registerOutParameter(3, java.sql.Types.VARCHAR); // p_ca_flag.
 																// Not Used
 			cs.registerOutParameter(4, java.sql.Types.VARCHAR); // P_npe_ids.
 			cs.registerOutParameter(5, java.sql.Types.VARCHAR); // p_ru_codes.

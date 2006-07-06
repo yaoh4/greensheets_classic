@@ -472,6 +472,16 @@ public class GrantMgrImpl implements GrantMgr {
 			lt.setValue(user.getMyPortfolioIds());
 			viewDataRetriever.addCondition(lt);
 		}
+		
+		if (grantSource.equals(Constants.PREFERENCES_MYPORTFOLIO)
+				&& (user.getMyPortfolioIds() == null)) {
+			// set a condition which is always false and essentially return nothing
+			// a program analyst is not supposed to have any grants in their portfolio
+			ValueToken vt = new ValueToken();
+			vt.setColumnKey("pdNpeId");
+			vt.setValue("0");
+			viewDataRetriever.addCondition(vt);
+		}		
 
 		if (grantSource.equals(Constants.PREFERENCES_MYCANCERACTIVITY)) {
 			ListToken lt = new ListToken();
@@ -515,10 +525,10 @@ public class GrantMgrImpl implements GrantMgr {
 			String mechanism) throws Exception {
 		if (!(mechanism == null || mechanism.equals(null) || mechanism
 				.equals(""))) {
-			ValueToken vt = new ValueToken();
-			vt.setColumnKey("activityCode");
-			vt.setValue(mechanism.toUpperCase());
-			viewDataRetriever.addCondition(vt);
+			LikeToken lt = new LikeToken();
+			lt.setColumnKey("activityCode");
+			lt.setValue("%" + mechanism.toUpperCase() + "%");
+			viewDataRetriever.addCondition(lt );
 		} else {
 			// do nothing
 		}
@@ -529,10 +539,10 @@ public class GrantMgrImpl implements GrantMgr {
 			String grantNumber) throws Exception {
 		if (!(grantNumber == null || grantNumber.equals(null) || grantNumber
 				.equals(""))) {
-			ValueToken vt = new ValueToken();
-			vt.setColumnKey("fullGrantNum");
-			vt.setValue(grantNumber.toUpperCase());
-			viewDataRetriever.addCondition(vt);
+			LikeToken lt = new LikeToken();
+			lt.setColumnKey("fullGrantNum");
+			lt.setValue("%" + grantNumber.toUpperCase() + "%");
+			viewDataRetriever.addCondition(lt);
 		} else {
 			// do nothing
 		}
