@@ -48,7 +48,7 @@
   				var existingFileName = arrFilenames[index];
   				existingFileName = existingFileName.replace(/^\s+|\s+$/g, "");
 //ghh added: && (fileNameOnly != null) on 3/27/06
-  				if((fileNameOnly == existingFileName) && (fileNameOnly != ""))
+  				if((fileNameOnly.toLowerCase() == existingFileName.toLowerCase()) && (fileNameOnly != ""))
   				{
   					bIsDuplicateFileName = true;
   				}  				
