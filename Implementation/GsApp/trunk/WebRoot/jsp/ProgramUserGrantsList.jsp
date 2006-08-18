@@ -127,6 +127,14 @@ function setMethod(target) {
 													</DIV>
 												<TD>
 											</TR>
+											<TR>
+												<TD colspan="3" valign="bottom">
+													<DIV align="left">
+														<STRONG>NOTE: Selection of ALL NCI Grants, Both Competing and Non-Competing Grants, and leaving the Payline checkbox unchecked will result in all grants being returned within the multi-page list. 
+														This will slow system response.</STRONG>
+													</DIV>
+												</TD>
+											</TR>
 										</TABLE>
 									</html:form>
 								</div>

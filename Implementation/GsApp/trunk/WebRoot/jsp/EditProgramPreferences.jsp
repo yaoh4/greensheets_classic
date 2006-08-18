@@ -39,7 +39,7 @@ String userName = gus.getUser().getDisplayUserName();
 										</html:select>
 									</P>
 								<TD>
-									<DIV align="right">
+									<DIV align="left">
 										<STRONG>Grant Type:</STRONG>
 										<html:select property="grantType">
 											<html:optionsCollection name="grantTypes" value="value" label="label" />
@@ -59,7 +59,7 @@ String userName = gus.getUser().getDisplayUserName();
 									</DIV>
 								</TD>
 								<TD>
-									<DIV align="right">
+									<DIV align="left">
 										<STRONG>Show only Grants within the Payline:</STRONG>
 									    <html:checkbox property="onlyGrantsWithinPayline" value="yes"/>
 									</DIV>
@@ -73,6 +73,12 @@ String userName = gus.getUser().getDisplayUserName();
 									</P>
 								</TD>
 							</TR>
+							<TR>
+								<TD colspan="3">
+									<STRONG>NOTE: Selection of ALL NCI Grants, Both Competing and Non-Competing Grants, and leaving the Payline checkbox unchecked will result in all grants being returned within the multi-page list. 
+									This will slow system response.</STRONG>
+								</TD>
+							</TR>							
 						</TABLE>
 					</html:form>
 				</td>

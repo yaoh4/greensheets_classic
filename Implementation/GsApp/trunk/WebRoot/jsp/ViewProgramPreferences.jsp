@@ -59,7 +59,13 @@ String userName = gus.getUser().getDisplayUserName();
 					    <img src="/images/Spacer.gif" width="5" height="5">	
 					 <div>					
 					<div>
-						<a href="retrievegrants.do"> <img src="./images/GreensheetsHome.gif" border="0"> </a>
+						<a href="retrievegrants.do"> <img src="./images/GreensheetsHome.gif" border="0" alt="Greensheets Home"> </a>						
+						&nbsp;&nbsp;&nbsp;
+						<a href="editprogrampreferences.do"> <img src="./images/EditPref.gif" border="0" alt="Edit Preferences"> </a>
+					</div>
+					<div>
+						<STRONG>NOTE: Selection of ALL NCI Grants, Both Competing and Non-Competing Grants, and leaving the Payline checkbox unchecked will result in all grants being returned within the multi-page list. 
+						This will slow system response.</STRONG>
 					</div>
 				<td>
 			<tr>
