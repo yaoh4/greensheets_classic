@@ -60,7 +60,7 @@ String userName = gus.getUser().getDisplayUserName();
 								</TD>
 								<TD>
 									<DIV align="left">
-										<STRONG>Show only Grants within the Payline:</STRONG>
+										<STRONG>Show only Competing Grants within the Payline:</STRONG>
 									    <html:checkbox property="onlyGrantsWithinPayline" value="yes"/>
 									</DIV>
 								</TD>
