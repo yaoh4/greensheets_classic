@@ -55,11 +55,19 @@ public class GrantMgrTestImpl implements GrantMgr {
 		return null;
 	}
 
+//	 Bug#4204 Abdul: Commented out this for the two new fields lastName and firstName	
+//	public Map getGrantsListForProgramUser(GsUser user, String grantSource,
+//			String grantType, String mechanism, String onlyGrantsWithinPayline,
+//			String grantNumber, String piName) throws GreensheetBaseException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
 	public Map getGrantsListForProgramUser(GsUser user, String grantSource,
 			String grantType, String mechanism, String onlyGrantsWithinPayline,
-			String grantNumber, String piName) throws GreensheetBaseException {
+			String grantNumber, String lastName, String firstName) throws GreensheetBaseException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }
