@@ -162,9 +162,11 @@ public class GreensheetPreferencesMgrImpl implements GreensheetPreferencesMgr {
 				Constants.PREFERENCES_GRANT_PAYLINE_KEY);
 		addPropToPrefMap(applPrefsMap, prefs,
 				Constants.PREFERENCES_GRANT_NUMBER_KEY);
-		addPropToPrefMap(applPrefsMap, prefs,
-				Constants.PREFERENCES_GRANT_PI_KEY);
-
+//		 Bug#4204 Abdul: Commented out this for the new fields lastName and firstName		
+//		addPropToPrefMap(applPrefsMap, prefs,
+//				Constants.PREFERENCES_GRANT_PI_KEY);
+		addPropToPrefMap(applPrefsMap, prefs, Constants.PREFERENCES_GRANT_PI_LAST_NAME_KEY);	// Bug#4204 Abdul: Added the new field lastName
+		addPropToPrefMap(applPrefsMap, prefs, Constants.PREFERENCES_GRANT_PI_FIRST_NAME_KEY);	// Bug#4204 Abdul: Added the new field firstName
 	}
 
 	/** addPropToPrefMap */
