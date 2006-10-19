@@ -44,6 +44,23 @@ public interface GrantMgr {
 	public Map searchForGrant(String searchType, String searchText, GsUser user)
 			throws GreensheetBaseException;
 
+//	/**
+//	 * Method searchForGrant.
+//	 * 
+//	 * @param user
+//	 * @param grantSource
+//	 * @param grantType
+//	 * @param mechanism
+//	 * @param onlyGrantsWithinPayline
+//	 * @param grantNumber
+//	 * @param piName
+//	 * @return Map
+//	 * @throws GreensheetBaseException
+//	 */
+//	public Map getGrantsListForProgramUser(GsUser user, String grantSource,
+//			String grantType, String mechanism, String onlyGrantsWithinPayline,
+//			String grantNumber, String piName) throws GreensheetBaseException;
+
 	/**
 	 * Method searchForGrant.
 	 * 
@@ -53,12 +70,12 @@ public interface GrantMgr {
 	 * @param mechanism
 	 * @param onlyGrantsWithinPayline
 	 * @param grantNumber
-	 * @param piName
+	 * @param lastName
+	 * @param firstName 
 	 * @return Map
 	 * @throws GreensheetBaseException
 	 */
 	public Map getGrantsListForProgramUser(GsUser user, String grantSource,
 			String grantType, String mechanism, String onlyGrantsWithinPayline,
-			String grantNumber, String piName) throws GreensheetBaseException;
-
+			String grantNumber, String lastName, String firstName) throws GreensheetBaseException;	
 }
