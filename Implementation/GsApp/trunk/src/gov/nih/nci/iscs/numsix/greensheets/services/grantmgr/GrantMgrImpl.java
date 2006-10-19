@@ -290,11 +290,14 @@ public class GrantMgrImpl implements GrantMgr {
 		return map;
 	}
 
+//	Bug#4204 Abdul: Commented out and introduced the following declaration
 	/** getGrantsListForProgramUser */
+//	public Map getGrantsListForProgramUser(GsUser user, String grantSource,
+//			String grantType, String mechanism, String onlyGrantsWithinPayline,
+//			String grantNumber, String piName) throws GreensheetBaseException {
 	public Map getGrantsListForProgramUser(GsUser user, String grantSource,
 			String grantType, String mechanism, String onlyGrantsWithinPayline,
-			String grantNumber, String piName) throws GreensheetBaseException {
-
+			String grantNumber, String lastName, String firstName) throws GreensheetBaseException {
 		// initialize map and list result holders
 		Map grantsMap = new HashMap();
 		List grantsList;
@@ -309,11 +312,15 @@ public class GrantMgrImpl implements GrantMgr {
 			addLatestBudgetStartDateCriteria(viewDataRetriever);
 			addGrantSourceCriteria(viewDataRetriever, user, grantSource);
 			addGrantTypeCriteria(viewDataRetriever, grantType);
-			addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline);
+//			Bug#4157 Abdul:For Non-Competing grants, the 'Show only Competing Grants within the Payline' checkbox should be ignored.
+//			addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline);
+			addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline, grantType);
 			addMechanismCriteria(viewDataRetriever, mechanism);
 			addGrantNumberCriteria(viewDataRetriever, grantNumber);
-			addPiNameCriteria(viewDataRetriever, piName);
-
+//			addPiNameCriteria(viewDataRetriever, piName);		//	Bug#4204 Abdul: Commented out this method call to enable the search on individual as well as combination of lastName and firstName
+			addLastNameCriteria(viewDataRetriever, lastName);	//	Bug#4204 Abdul: Added this method call
+			addFirstNameCriteria(viewDataRetriever, firstName);	//	Bug#4204 Abdul: Added this method call
+			
 			// execute query and put in grants list
 			grantsList = viewDataRetriever.getDataList();
 
@@ -445,11 +452,28 @@ public class GrantMgrImpl implements GrantMgr {
 		viewDataRetriever.addCondition(this.getLatestBudgetStartDateCriteria());
 	}
 
+//	Bug#4157 Abdul:For Non-Competing grants, the 'Show only Competing Grants within the Payline' checkbox should be ignored. 
+//	/** addGrantsPaylineCriteria */
+//	private void addGrantsPaylineCriteria(ViewDataRetriever viewDataRetriever,
+//			String onlyGrantsWithinPayline) throws Exception {
+//
+//		if (onlyGrantsWithinPayline == null) {
+//			// do not add to where clause, i.e. retrieve all grants
+//		} else {
+//			if (onlyGrantsWithinPayline.equals(Constants.PREFERENCES_YES)) {
+//				ValueToken vt = new ValueToken();
+//				vt.setColumnKey("withinPaylineFlag");
+//				vt.setValue("Y");
+//				viewDataRetriever.addCondition(vt);
+//			}
+//		}
+//	}
+
 	/** addGrantsPaylineCriteria */
 	private void addGrantsPaylineCriteria(ViewDataRetriever viewDataRetriever,
-			String onlyGrantsWithinPayline) throws Exception {
+			String onlyGrantsWithinPayline, String grantType) throws Exception {
 
-		if (onlyGrantsWithinPayline == null) {
+		if (onlyGrantsWithinPayline == null || grantType.equals(Constants.PREFERENCES_NONCOMPETINGGRANTS)) {
 			// do not add to where clause, i.e. retrieve all grants
 		} else {
 			if (onlyGrantsWithinPayline.equals(Constants.PREFERENCES_YES)) {
@@ -460,7 +484,7 @@ public class GrantMgrImpl implements GrantMgr {
 			}
 		}
 	}
-
+	
 	/** addGrantSourceCriteria */
 	private void addGrantSourceCriteria(ViewDataRetriever viewDataRetriever,
 			GsUser user, String grantSource) throws Exception {
@@ -548,16 +572,43 @@ public class GrantMgrImpl implements GrantMgr {
 		}
 	}
 
-	/** addPiNameCriteria */
-	private void addPiNameCriteria(ViewDataRetriever viewDataRetriever,
-			String piName) throws Exception {
-		if (!(piName == null || piName.equals(null) || piName.equals(""))) {
+//	 Bug#4204 Abdul: Commented out this method
+//	/** addPiNameCriteria */
+//	private void addPiNameCriteria(ViewDataRetriever viewDataRetriever,
+//			String piName) throws Exception {
+//		if (!(piName == null || piName.equals(null) || piName.equals(""))) {
+//			LikeToken lt = new LikeToken();
+//			lt.setColumnKey("piName");
+//			lt.setValue("%" + piName.toUpperCase() + "%");
+//			viewDataRetriever.addCondition(lt);
+//		} else {
+//			// do nothing
+//		}
+//	}
+
+//	Bug#4204 Abdul: Introduced the following method to enable the search on individual as well as combination of lastName and firstName
+	/** addLastNameCriteria */
+	private void addLastNameCriteria(ViewDataRetriever viewDataRetriever, String lastName) throws Exception {
+		if (!(lastName == null || lastName.equals(null) || lastName.equals(""))) {
 			LikeToken lt = new LikeToken();
-			lt.setColumnKey("piName");
-			lt.setValue("%" + piName.toUpperCase() + "%");
+			lt.setColumnKey("lastName");
+			lt.setValue(lastName.toUpperCase() + "%");
 			viewDataRetriever.addCondition(lt);
 		} else {
 			// do nothing
 		}
 	}
+
+//	Bug#4204 Abdul: Introduced the following method to enable the search on individual as well as combination of lastName and firstName
+	/** addFirstNameCriteria */
+	private void addFirstNameCriteria(ViewDataRetriever viewDataRetriever, String firstName) throws Exception {
+		if (!(firstName == null || firstName.equals(null) || firstName.equals(""))) {
+			LikeToken lt = new LikeToken();
+			lt.setColumnKey("firstName");
+			lt.setValue(firstName.toUpperCase() + "%");
+			viewDataRetriever.addCondition(lt);
+		} else {
+			// do nothing
+		}
+	}	
 }
