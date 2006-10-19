@@ -45,7 +45,7 @@ String userName = gus.getUser().getDisplayUserName();
 						<bean:write name="mechanism" />
 					</div>
 					<div>
-						<STRONG>Only Grants within Payline:</STRONG> 
+						<STRONG>Only Competing Grants within Payline:</STRONG> 
 						<bean:write name="onlyGrantsWithinPayline" />
 					</div>
 					<div>
