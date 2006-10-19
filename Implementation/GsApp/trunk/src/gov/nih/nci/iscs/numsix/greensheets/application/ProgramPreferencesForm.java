@@ -14,7 +14,10 @@ public class ProgramPreferencesForm extends GsBaseActionForm {
 
 	public String grantNumber;
 
-	public String piName;
+	//public String piName;	// Bug#4204 Abdul: Commented out in place of the two new fields
+	public String lastName;	// Bug#4204 Abdul: Introduced the new field lastName
+	
+	public String firstName;	// Bug#4204 Abdul: Introduced the new field firstName
 
 	public ProgramPreferencesForm() {
 	}
@@ -59,12 +62,28 @@ public class ProgramPreferencesForm extends GsBaseActionForm {
 		this.onlyGrantsWithinPayline = onlyGrantsWithinPayline;
 	}
 
-	public String getPiName() {
-		return piName;
+//	 Bug#4204 Abdul: Commented out for the sake of two new fields specified below
+//	public String getPiName() {
+//		return piName;
+//	}
+//
+//	public void setPiName(String piName) {
+//		this.piName = piName;
+//	}
+
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setPiName(String piName) {
-		this.piName = piName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}	
 }
