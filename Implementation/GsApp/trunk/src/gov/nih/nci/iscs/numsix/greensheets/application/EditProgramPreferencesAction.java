@@ -8,6 +8,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,19 +37,44 @@ public class EditProgramPreferencesAction extends GsBaseAction {
 		return mapping.findForward(Constants.SUCCESS_KEY);
 	}
 
-	/** setProgramPreferencesFormLOVs */
-	private void setProgramPreferencesFormLOVs(HttpServletRequest req) {
+	/** setProgramPreferencesFormLOVs 
+	 * @throws Exception */
+	private void setProgramPreferencesFormLOVs(HttpServletRequest req) throws Exception {
 		setGrantsSourcesLOV(req);
 		setGrantTypesLOV(req);
 	}
 
-	/** setGrantsSourcesLOV */
-	private void setGrantsSourcesLOV(HttpServletRequest req) {
+	/** setGrantsSourcesLOV 
+	 * @throws Exception */
+	private void setGrantsSourcesLOV(HttpServletRequest req) throws Exception {
+		// Bug#4157 Abdul: Collect the user's cancer activities.
+		// get the user session
+		GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
+		GsUser loggedOnUser = gus.getUser();
+		List cancerActivities = loggedOnUser.getCancerActivities();
+		int activityCount = 0;
+		StringBuffer userCancerActivities = new StringBuffer("");
+		
+		if (cancerActivities != null) {
+			activityCount = cancerActivities.size();
+			if (activityCount > 0) {
+				userCancerActivities.append(" (" + (String) cancerActivities.get(0));
+				for (int index = 1; index < activityCount; index++) {
+					userCancerActivities.append(", ").append(cancerActivities.get(index));
+				}
+				userCancerActivities.append(") ");
+			}
+		}
+		
 		Collection grantSources = new ArrayList();
 		grantSources.add(new LabelValueBean("My Portfolio",
 				Constants.PREFERENCES_MYPORTFOLIO));
-		grantSources.add(new LabelValueBean("My Cancer Activity",
-				Constants.PREFERENCES_MYCANCERACTIVITY));
+//		Bug#4157 Abdul: Append the user's cancer activities to the choice 'My Cancer Activity'.
+//		grantSources.add(new LabelValueBean("My Cancer Activity",
+//				Constants.PREFERENCES_MYCANCERACTIVITY));
+		grantSources.add(new LabelValueBean("My Cancer Activity" + userCancerActivities,
+				Constants.PREFERENCES_MYCANCERACTIVITY));		
+		
 		grantSources.add(new LabelValueBean("All NCI Grants",
 				Constants.PREFERENCES_ALLNCIGRANTS));
 		req.setAttribute(Constants.GRANT_SOURCES_KEY, grantSources);
