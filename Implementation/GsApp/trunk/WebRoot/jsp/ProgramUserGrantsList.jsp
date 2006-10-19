@@ -103,7 +103,7 @@ function setMethod(target) {
 												</TD>
 												<TD>
 													<DIV align="right">
-														<STRONG>Show only Grants within the Payline:</STRONG>
+														<STRONG>Show only Competing Grants within the Payline:</STRONG>
 														<html:checkbox property="onlyGrantsWithinPayline" value="yes"/>
 													</DIV>
 												</TD>
@@ -113,8 +113,10 @@ function setMethod(target) {
 													<DIV align="left">
 														<STRONG>Grant Number:</STRONG>
 														<html:text property="grantNumber" />
-														&nbsp;&nbsp;&nbsp; -or- &nbsp;&nbsp;&nbsp; <STRONG>PI Name:</STRONG>
-														<html:text property="piName" />
+														&nbsp;&nbsp;&nbsp; -or- &nbsp;&nbsp;&nbsp; <STRONG>PI's Last Name:</STRONG>
+														<html:text property="lastName" />
+														&nbsp;&nbsp;&nbsp; <STRONG>First Name:</STRONG>
+														<html:text property="firstName" />														
 													</DIV>
 												</TD>
 											</TR>
