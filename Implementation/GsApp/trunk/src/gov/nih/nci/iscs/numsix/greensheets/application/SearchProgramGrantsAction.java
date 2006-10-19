@@ -47,11 +47,16 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 		// set portfolio options
 		setUserSessionMyPortfolioOption(prefs, gus);
 
+//		 Bug#4204 Abdul: Commented out this for the new fields lastName and firstName		
 		// get list of grants for user
+//		Map grantsMap = gMgr.getGrantsListForProgramUser(gus.getUser(), prefs
+//				.getGrantSource(), prefs.getGrantType(), prefs.getMechanism(),
+//				prefs.getOnlyGrantsWithinPayline(), prefs.getGrantNumber(),
+//				prefs.getPiName());
 		Map grantsMap = gMgr.getGrantsListForProgramUser(gus.getUser(), prefs
 				.getGrantSource(), prefs.getGrantType(), prefs.getMechanism(),
 				prefs.getOnlyGrantsWithinPayline(), prefs.getGrantNumber(),
-				prefs.getPiName());
+				prefs.getLastName(), prefs.getFirstName());		
 		gus.setGrants(grantsMap);
 
 		// transform list of grants into a list of proxy objects each containig
@@ -92,11 +97,16 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 		// set portfolio options
 		setUserSessionMyPortfolioOption(prefs, gus);
 
+//		Bug#4204 Abdul: Changed the code to accomodate the 2 new fields  
 		// get list of grants for user
+//		Map grantsMap = gMgr.getGrantsListForProgramUser(gus.getUser(), prefs
+//				.getGrantSource(), prefs.getGrantType(), prefs.getMechanism(),
+//				prefs.getOnlyGrantsWithinPayline(), prefs.getGrantNumber(),
+//				prefs.getPiName());
 		Map grantsMap = gMgr.getGrantsListForProgramUser(gus.getUser(), prefs
 				.getGrantSource(), prefs.getGrantType(), prefs.getMechanism(),
 				prefs.getOnlyGrantsWithinPayline(), prefs.getGrantNumber(),
-				prefs.getPiName());
+				prefs.getLastName(), prefs.getFirstName());
 		gus.setGrants(grantsMap);
 
 		// transform list of grants into a list of proxy objects each containig
@@ -133,18 +143,42 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 		return mapping.findForward(Constants.SUCCESS_KEY);
 	}
 
-	/** setProgramPreferencesFormLOVs */
-	private void setProgramPreferencesFormLOVs(HttpServletRequest req) {
+	/** setProgramPreferencesFormLOVs 
+	 * @throws Exception */
+	private void setProgramPreferencesFormLOVs(HttpServletRequest req) throws Exception {
 		setGrantsSourcesLOV(req);
 		setGrantTypesLOV(req);
 	}
 
-	/** setGrantsSourcesLOV */
-	private void setGrantsSourcesLOV(HttpServletRequest req) {
+	/** setGrantsSourcesLOV 
+	 * @throws Exception */
+	private void setGrantsSourcesLOV(HttpServletRequest req) throws Exception {
+		// Bug#4157 Abdul: Collect the user's cancer activities.
+		// get the user session
+		GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
+		GsUser loggedOnUser = gus.getUser();
+		List cancerActivities = loggedOnUser.getCancerActivities();
+		int activityCount = 0;
+		StringBuffer userCancerActivities = new StringBuffer("");
+		
+		if (cancerActivities != null) {
+			activityCount = cancerActivities.size();
+			if (activityCount > 0) {
+				userCancerActivities.append(" (" + (String) cancerActivities.get(0));
+				for (int index = 1; index < activityCount; index++) {
+					userCancerActivities.append(", ").append(cancerActivities.get(index));
+				}
+				userCancerActivities.append(") ");
+			}
+		}
+		
 		Collection grantSources = new ArrayList();
 		grantSources.add(new LabelValueBean("My Portfolio",
 				Constants.PREFERENCES_MYPORTFOLIO));
-		grantSources.add(new LabelValueBean("My Cancer Activity",
+//		Bug#4157 Abdul: Append the user's cancer activities to the choice 'My Cancer Activity'.
+//		grantSources.add(new LabelValueBean("My Cancer Activity",
+//				Constants.PREFERENCES_MYCANCERACTIVITY));
+		grantSources.add(new LabelValueBean("My Cancer Activity" + userCancerActivities,
 				Constants.PREFERENCES_MYCANCERACTIVITY));
 		grantSources.add(new LabelValueBean("All NCI Grants",
 				Constants.PREFERENCES_ALLNCIGRANTS));
@@ -189,8 +223,10 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 				.get(Constants.PREFERENCES_GRANT_PAYLINE_KEY);
 		prefs.grantNumber = (String) map
 				.get(Constants.PREFERENCES_GRANT_NUMBER_KEY);
-		prefs.piName = (String) map.get(Constants.PREFERENCES_GRANT_PI_KEY);
-
+//		prefs.piName = (String) map.get(Constants.PREFERENCES_GRANT_PI_KEY); // Bug#4204 Abdul: Commented out this for the new fields lastName and firstName
+		prefs.lastName = (String) map.get(Constants.PREFERENCES_GRANT_PI_LAST_NAME_KEY); // Bug#4204 Abdul: Added the new field lastName
+		prefs.firstName = (String) map.get(Constants.PREFERENCES_GRANT_PI_FIRST_NAME_KEY); // Bug#4204 Abdul: Added the new field firstName
+		
 		return prefs;
 	}
 
