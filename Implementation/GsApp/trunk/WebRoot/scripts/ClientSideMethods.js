@@ -85,7 +85,7 @@ function getGrantDetail(grantNum, applId, url){
 
 
 function CancelAndRefresh() {
-	var bool = confirm("Your are leaving the current form. Unsaved changes will be lost. Click OK to continue");
+	var bool = confirm("You are leaving the current form. Unsaved changes will be lost. Click OK to continue");
     if (bool){
     	document.GreensheetForm.submit();
    	}
@@ -134,7 +134,7 @@ function saveSubmitClose(selection)
 	}
 	if(selection == "CLOSE")
 	{
-		var bool = confirm("Your are leaving the current form. Unsaved changes will be lost. Click OK to continue");
+		var bool = confirm("You are leaving the current form. Unsaved changes will be lost. Click OK to continue");
         if (bool){
             document.GreensheetForm.method.value="close";
     	    document.GreensheetForm.submit();
@@ -196,7 +196,7 @@ function saveSubmitClose(selection)
 		
 	if(selection == "CLOSE")
 	{
-		var bool = confirm("Your are leaving the current form. Unsaved changes will be lost. Click OK to continue.");
+		var bool = confirm("You are leaving the current form. Unsaved changes will be lost. Click OK to continue.");
         if (bool)
         {
             document.GreensheetForm.method.value="close";
