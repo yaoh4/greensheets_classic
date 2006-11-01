@@ -301,6 +301,8 @@ public class GrantMgrImpl implements GrantMgr {
 		// initialize map and list result holders
 		Map grantsMap = new HashMap();
 		List grantsList;
+		List nonCompetingGrantsList;
+		
 		try {
 			// use the view data retriever factory to get a handle on an
 			// initialized view data retriever object
@@ -311,7 +313,11 @@ public class GrantMgrImpl implements GrantMgr {
 			// add conditions here...
 			addLatestBudgetStartDateCriteria(viewDataRetriever);
 			addGrantSourceCriteria(viewDataRetriever, user, grantSource);
-			addGrantTypeCriteria(viewDataRetriever, grantType);
+			if (grantType != null && grantType.equals(Constants.PREFERENCES_BOTH)) {
+				addGrantTypeCriteria(viewDataRetriever, Constants.PREFERENCES_COMPETINGGRANTS);
+			} else {
+				addGrantTypeCriteria(viewDataRetriever, grantType);
+			}
 //			Bug#4157 Abdul:For Non-Competing grants, the 'Show only Competing Grants within the Payline' checkbox should be ignored.
 //			addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline);
 			addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline, grantType);
@@ -323,6 +329,27 @@ public class GrantMgrImpl implements GrantMgr {
 			
 			// execute query and put in grants list
 			grantsList = viewDataRetriever.getDataList();
+			
+			if (grantType != null && grantType.equals(Constants.PREFERENCES_BOTH)) {
+//				The Competing grants have already been retrieved from the Database.
+//				Now retrieve the Non-Competing grants.
+				viewDataRetriever.clearConditions();
+				
+				addLatestBudgetStartDateCriteria(viewDataRetriever);
+				addGrantSourceCriteria(viewDataRetriever, user, grantSource);
+				addGrantTypeCriteria(viewDataRetriever, Constants.PREFERENCES_NONCOMPETINGGRANTS);
+				addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline, Constants.PREFERENCES_NONCOMPETINGGRANTS);	// Ignore this flag for the Non-Competing grants.
+				addMechanismCriteria(viewDataRetriever, mechanism);
+				addGrantNumberCriteria(viewDataRetriever, grantNumber);
+				addLastNameCriteria(viewDataRetriever, lastName);	//	Bug#4204 Abdul: Added this method call
+				addFirstNameCriteria(viewDataRetriever, firstName);	//	Bug#4204 Abdul: Added this method call
+
+				nonCompetingGrantsList = viewDataRetriever.getDataList();
+				int nonCompetingGrantsListSize = nonCompetingGrantsList.size();
+				if (nonCompetingGrantsList != null && nonCompetingGrantsList.size() > 0) {
+					grantsList.addAll(nonCompetingGrantsList);
+				}
+			}			
 
 		} catch (Exception e) {
 			throw new GreensheetBaseException("error.usergrantlist", e);
@@ -521,27 +548,22 @@ public class GrantMgrImpl implements GrantMgr {
 
 	/** addGrantTypeCriteria */
 	private void addGrantTypeCriteria(ViewDataRetriever viewDataRetriever,
-			String grantSource) throws Exception {
+			String grantType) throws Exception {
 
-		if (grantSource.equals(Constants.PREFERENCES_NONCOMPETINGGRANTS)) {
+		if (grantType.equals(Constants.PREFERENCES_NONCOMPETINGGRANTS)) {
 			LikeToken lt = new LikeToken();
 			lt.setColumnKey("councilMeetingDate");
 			lt.setValue("%00");
 			viewDataRetriever.addCondition(lt);
 		}
 
-		if (grantSource.equals(Constants.PREFERENCES_COMPETINGGRANTS)) {
+		if (grantType.equals(Constants.PREFERENCES_COMPETINGGRANTS)) {
 			LikeToken lt = new LikeToken();
 			lt.setColumnKey("councilMeetingDate");
 			lt.setValue("%00");
 			lt.setNegative(true);
 			viewDataRetriever.addCondition(lt);
 		}
-
-		if (grantSource.equals(Constants.PREFERENCES_BOTH)) {
-			// do nothing
-		}
-
 	}
 
 	/** addMechanismCriteria */
