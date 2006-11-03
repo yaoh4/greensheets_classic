@@ -1,6 +1,5 @@
 <%@ page language="java"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean"%>
-<%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic"%>
 <script language="javascript" src="./scripts/ClientSideMethods.js"></script>
