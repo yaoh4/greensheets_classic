@@ -154,7 +154,7 @@ function setMethod(target) {
 			</tr>
 			<tr>
 				<td width="100%">
-					<display:table name="sessionScope.GRANT_LIST" requestURI="/greensheets/no_op.do" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" width="100%">
+					<display:table name="sessionScope.GRANT_LIST" requestURI="" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" width="100%">
 						<display:column property="programGreensheet" title="" />
 						<display:column sortable="true" property="grantNumberSort" title="Grant Number" />
 						<display:column sortable="true" property="latestBudgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />

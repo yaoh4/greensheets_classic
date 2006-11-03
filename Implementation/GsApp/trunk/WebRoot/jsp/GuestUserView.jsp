@@ -5,8 +5,6 @@
 <%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display" %>
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
