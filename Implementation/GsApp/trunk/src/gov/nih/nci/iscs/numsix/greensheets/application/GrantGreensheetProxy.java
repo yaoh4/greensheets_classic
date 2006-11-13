@@ -165,6 +165,8 @@ public class GrantGreensheetProxy {
 
 	public String getProgramLockIcon() {
 		String lockIcon = null;
+		String value = null;	//Bug#4303 Abdul: Don't show the hyperlink for inappropriate action.
+		
 		if (grant.getProgramFormStatus().equalsIgnoreCase(
 				GreensheetStatus.UNSUBMITTED.getName())) {
 			lockIcon = "IconUnlocked.gif";
@@ -175,23 +177,29 @@ public class GrantGreensheetProxy {
 			lockIcon = "IconNoLocking.gif";
 		}
 
-		String value = "<a href=\"javascript:changeLock('"
-				+ grant.getFullGrantNumber()
-				+ "','"
-				+ this.getApplId()
-				+ "','"
-				+ GreensheetGroupType.PGM.getName()
-				+ "');\">"
-				+ "<img src=\"images/"
+		if (lockIcon == null || lockIcon.equalsIgnoreCase("IconNoLocking.gif")) {
+			value = "<img src=\"images/"
 				+ lockIcon
-				+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\"></a>";
-
+				+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\">";			
+		} else {
+			value = "<a href=\"javascript:changeLock('"
+					+ grant.getFullGrantNumber()
+					+ "','"
+					+ this.getApplId()
+					+ "','"
+					+ GreensheetGroupType.PGM.getName()
+					+ "');\">"
+					+ "<img src=\"images/"
+					+ lockIcon
+					+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\"></a>";
+		}
 		return value;
-
 	}
 
 	public String getSpecialistLockIcon() {
 		String lockIcon = null;
+		String value = null;	//Bug#4303 Abdul: Don't show the hyperlink for inappropriate action.
+		
 		if (grant.getSpecialistFormStatus().equalsIgnoreCase(
 				GreensheetStatus.UNSUBMITTED.getName())) {
 			lockIcon = "IconUnlocked.gif";
@@ -202,7 +210,12 @@ public class GrantGreensheetProxy {
 			lockIcon = "IconNoLocking.gif";
 		}
 
-		String value = "<a href=\"javascript:changeLock('"
+		if (lockIcon == null || lockIcon.equalsIgnoreCase("IconNoLocking.gif")) {
+			value = "<img src=\"images/"
+				+ lockIcon
+				+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\">";			
+		} else {		
+			value = "<a href=\"javascript:changeLock('"
 				+ grant.getFullGrantNumber()
 				+ "','"
 				+ this.getApplId()
@@ -212,9 +225,8 @@ public class GrantGreensheetProxy {
 				+ "<img src=\"images/"
 				+ lockIcon
 				+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\"></a>";
-
+		}
 		return value;
-
 	}
 
 	public String getProgramStatus() {
