@@ -48,8 +48,8 @@ Implementation/GsApp/trunk/WebRoot/WEB-INF/xmlxsltsrc/SC_Questions.3.23.05.xml -
 Implementation/GsApp/trunk/WebRoot/WEB-INF/xmlxsltsrc/SC_Questions.6.28.05.xml -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/xmlxsltsrc/SNC_Questions.3.23.05.xml -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/xmlxsltsrc/SNC_Questions.6.28.05.xml -text
-Implementation/GsApp/trunk/WebRoot/help/GreensheetsPgmGuide.pdf -text
-Implementation/GsApp/trunk/WebRoot/help/GreensheetsSpecGuide.pdf -text
+Implementation/GsApp/trunk/WebRoot/help/GreensheetsPgmGuide.pdf -text svneol=unset#unset
+Implementation/GsApp/trunk/WebRoot/help/GreensheetsSpecGuide.pdf -text svneol=unset#unset
 Implementation/GsApp/trunk/WebRoot/html/Footer.html -text
 Implementation/GsApp/trunk/WebRoot/html/agenda.js -text
 Implementation/GsApp/trunk/WebRoot/html/ipopeng.htm -text
