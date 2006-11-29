@@ -1,0 +1,12 @@
+
+select * from form_answer_attachments_t
+where create_date >= TO_DATE('09-NOV-2006', 'DD-MON-YYYY') OR last_change_date >= TO_DATE('09-NOV-2006', 'DD-MON-YYYY')
+
+
+
+
+select * from form_answer_attachments_t
+where create_date >= '09-NOV-2006' OR last_change_date >= '09-NOV-2006'
+
+
+
