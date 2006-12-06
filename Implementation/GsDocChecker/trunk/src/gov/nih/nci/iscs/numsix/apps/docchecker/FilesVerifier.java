@@ -61,6 +61,18 @@ public class FilesVerifier {
 		this.docRootPrefixInDb = docCheckerConfig.getDbPrefix();
 		this.docRootPrefixInDb = this.appendSuffix(this.docRootPrefixInDb, IConstants.FILE_PATH_SEPARATOR);	// This step is required because Prod settinng does not end with the forward slash.
 		docRootPrefixInDbLen = docRootPrefixInDb.length();
+
+		// Get the report type requested.
+		reportType = docCheckerConfig.getReportType();
+		if (reportType == null || reportType.trim().equalsIgnoreCase("")) {
+			log.error("Could not decide on the Report type.");
+			throw new DocCheckerException("Could not decide on the Report type. Check the Application config file or enter a valid command line switch for the report type.");
+		}
+		reportRunFrom = docCheckerConfig.getReportLastRun();
+		if (reportRunFrom == null) {
+			log.error("Could not decide on the Report Date.");
+			throw new DocCheckerException("Could not decide on the Report Date. Check the Application config file or enter a valid command line option for the date the report needs to run from.");
+		}
 		
 		// Initialize the maps that holds the names of the files.
 		this.filesOnDiskMap = new HashMap();
@@ -83,6 +95,19 @@ public class FilesVerifier {
 
 		while (filesOnDiskItr.hasNext()) {
 			File file = (File) filesOnDiskItr.next();
+			long fileLastModified = 0L;
+			Date fileLastModifiedDt = null;
+			// Do not include the (disk) file whose creation/modification datetime stamp is before the Date the Report was last run for the INCREMENTAL report type. 
+			if (reportType.equalsIgnoreCase(IConstants.REPORT_TYPE_INCREMENTAL)) {
+				fileLastModified = file.lastModified();
+				if (fileLastModified != 0L) {
+					fileLastModifiedDt = new Date(fileLastModified);
+					if (fileLastModifiedDt.compareTo(reportRunFrom) < 0) {
+						filesOnDiskItr.remove();
+						continue;
+					}
+				}
+			}
 			fileLength = file.length();
 
 			fileAttribCurrent = new DocCheckerFileAttrib();
@@ -100,18 +125,6 @@ public class FilesVerifier {
 		// Collect the names of the files recorded in the DB into a map.
 		log.debug("Collecting the list of files from the Database.");
 		try {
-			reportType = docCheckerConfig.getReportType();
-			if (reportType == null || reportType.trim().equalsIgnoreCase("")) {
-				log.error("Could not decide on the Report type.");
-				throw new DocCheckerException("Could not decide on the Report type. Check the Application config file or enter a valid command line option for the report type.");
-			}
-			
-			reportRunFrom = docCheckerConfig.getReportLastRun();
-			if (reportRunFrom == null) {
-				log.error("Could not decide on the Report Date.");
-				throw new DocCheckerException("Could not decide on the Report Date. Check the Application config file or enter a valid command line option for the date the report needs to run from.");
-			}
-			
 			if (reportType.equalsIgnoreCase(IConstants.REPORT_TYPE_FULL)) {
 				stmt = conn.prepareStatement("select file_location from FORM_ANSWER_ATTACHMENTS_T");
 			} else {
