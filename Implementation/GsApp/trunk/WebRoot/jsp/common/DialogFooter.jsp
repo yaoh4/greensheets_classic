@@ -32,8 +32,7 @@ function showAppInfo(act,event)
 			&nbsp;
 		</td>
 		<td class="align1">
-			<img src="./images/LogoNCI.gif" alt="National Cancer Institute logo" 
-			onmouseover="javascript:showAppInfo('open',event);" onmouseout="javascript:showAppInfo('close',event);"/>
+			<img src="./images/LogoNCI.gif" alt="National Cancer Institute logo" />
 		</td>
 	</tr>
 </table>
