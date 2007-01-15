@@ -744,8 +744,9 @@ public class GreensheetFormDataHelper {
 					if (qaMap == null) {
 						qaMap = new HashMap();
 					}
-					logger.debug("File for RESP DEF ID = " + qrd.getId());
-					qaMap.put(qrd.getId() + "", qrd);
+//					logger.debug("File qrd =" + qrd.getResponseDefId()+ "Size"+qrd.getQuestionAttachments().size() + " : " +qrd);
+					logger.debug("File for RESP DEF ID = " + qrd.getResponseDefId());
+					qaMap.put(qrd.getResponseDefId() + "", qrd);
 				}
 
 				// Special handling for Check Boxes
