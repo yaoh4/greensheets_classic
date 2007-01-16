@@ -32,7 +32,7 @@ function showAppInfo(act,event)
 			&nbsp;
 		</td>
 		<td class="align1">
-			<img src="./images/LogoNCI.gif" alt="National Cancer Institute logo" />
+			<img src="./images/LogoNCI.gif" alt="National Cancer Institute" title="National Cancer Institute">
 		</td>
 	</tr>
 </table>
