@@ -59,7 +59,7 @@ function showAppInfo(act,event)
 			</table>
 		</td>
 		<td class="align1">
-			<img src="<%=request.getContextPath()%>/images/LogoNCI.gif" alt="National Cancer Institute logo"/>
+			<img src="<%=request.getContextPath()%>/images/LogoNCI.gif" alt="National Cancer Institute" title="National Cancer Institute">
 		</td>
 	</tr>
 </table>
