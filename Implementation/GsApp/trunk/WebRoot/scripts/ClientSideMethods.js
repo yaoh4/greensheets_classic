@@ -985,12 +985,14 @@ function setCommentIcon(commentId, iconType)
 function setAttachmentsIcon(id, numOfAttachments)
 {
     
-    if(numOfAttachments > 0){
+    if(Number(numOfAttachments) > 0){
         imgElement = getFormElement("img_div_" + id);
 		if ((imgElement != null) && (imgElement != 'undefined')){  
 		    imgElement.src = "./images/IconAttachmentChecked.gif";
 		}
-	}else{
+	}
+	if (Number(numOfAttachments) == 0) 
+	{
         imgElement = getFormElement("img_div_" + id);
 		if ((imgElement != null) && (imgElement != 'undefined')){  
 		    imgElement.src = "./images/IconAttachment.gif";
