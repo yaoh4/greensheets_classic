@@ -448,7 +448,7 @@
                                         <xsl:with-param name="pParentQuestionNumber">
                                             <xsl:choose>
                                                 <xsl:when test="$pParentQuestionNumber = '' ">
-                                                    <xsl:value-of select="position()"/>
+                                                    <xsl:value-of select="count(ancestor::QuestionDef)+1"/>
                                                 </xsl:when>
                                                 <xsl:when test="$pParentQuestionNumber != '' ">
                                                     <xsl:value-of select="$pParentQuestionNumber"/>.<xsl:value-of select="position()"/>
