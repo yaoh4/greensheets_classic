@@ -5,17 +5,12 @@ Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/avalon-framework-cvs-20020806.jar
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/batik.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/classes12.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/clecommons.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-beanutils-core.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-collections-3.2.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-digester.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-fileupload.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-jxpath-1.1.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-lang-2.2.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-logging-1.1.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-validator.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dataretriever.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dirctxdispenser.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/displaytag-1.1.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dom4j-1.4.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/fop.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/jakarta-oro.jar -text
