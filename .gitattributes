@@ -20,7 +20,6 @@ Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dom4j-1.4.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/fop.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/jakarta-oro.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/listManager.jar-old -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/log4j-1.2.14.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/struts-legacy.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/struts-scaffold-1.0.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/struts.jar -text
