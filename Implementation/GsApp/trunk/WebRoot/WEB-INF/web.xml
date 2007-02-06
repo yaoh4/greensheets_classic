@@ -8,11 +8,11 @@
 
   <context-param>
     <param-name>appVersion</param-name>  
-    <param-value>v1.2.0</param-value>
+    <param-value>v1.3.0</param-value>
   </context-param>
   <context-param>
     <param-name>appBuild</param-name>  
-    <param-value>b02.02.07</param-value>
+    <param-value>b02.06.07</param-value>
   </context-param>
   <context-param>
     <param-name>showDebugOnError</param-name>   
@@ -28,7 +28,7 @@
 	</context-param>
 	<context-param>
 		<param-name>urlWorkbench</param-name>
-			<param-value>https://i2e.nci.nih.gov/workbench/WorkbenchView</param-value>
+			<param-value>https://i2e-test.nci.nih.gov/workbench/WorkbenchView</param-value>
 	</context-param>
 	<context-param>
 		<param-name>urlImpac2</param-name>
