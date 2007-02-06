@@ -1,6 +1,6 @@
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.reports.*" %>
 <%@ page import="java.util.*" %>
-<%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display" %>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Greensheets</title>

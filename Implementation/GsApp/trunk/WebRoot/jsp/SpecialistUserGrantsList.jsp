@@ -5,7 +5,7 @@
 <%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display" %>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 
 <%
 GreensheetUserSession gus = (GreensheetUserSession) session.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
@@ -75,7 +75,7 @@ String userName = gus.getUser().getDisplayUserName();
 	</tr>
 	<tr>
 		<td colspan="2" width="100%" >
-			<display:table name="sessionScope.GRANT_LIST"  requestURI="/greensheets/no_op.do" class="data" id="row" sort="list" defaultsort="8" defaultorder="descending" pagesize="50" cellspacing="0" width="100%">
+			<display:table name="sessionScope.GRANT_LIST"  requestURI="/greensheets/no_op.do" class="data" id="row" sort="list" defaultsort="8" defaultorder="descending" pagesize="50" cellspacing="0" style="width: 100%;">
 				<display:column sortable="true" property="grantNumberSort" title="Grant Number" />
 				<display:column sortable="true" property="cancerActivity" title="CA"/>
 				<display:column sortable="true" property="latestBudgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
