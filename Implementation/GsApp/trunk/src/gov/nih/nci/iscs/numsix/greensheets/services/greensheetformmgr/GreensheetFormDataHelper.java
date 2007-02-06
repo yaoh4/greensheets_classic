@@ -274,11 +274,10 @@ public class GreensheetFormDataHelper {
 
 				this.saveQuestionData(form, user, grant);
 			}
-		} catch (GreensheetBaseException gbe ){
-			throw new GreensheetBaseException("error.savinggreensheet", gbe);
+
 		} catch (SQLException se) {
 
-			throw new GreensheetBaseException("error.savinggreensheet",
+			throw new GreensheetBaseException("Error saving Greensheet values",
 					se);
 		} finally {
 			try {
@@ -292,7 +291,7 @@ public class GreensheetFormDataHelper {
 					pstmt.close();
 
 			} catch (SQLException se) {
-				throw new GreensheetBaseException("error.savingGreensheet", se);
+				throw new GreensheetBaseException("error.greensheetform", se);
 			}
 
 			DbConnectionHelper.getInstance().freeConnection(conn);
@@ -678,7 +677,6 @@ public class GreensheetFormDataHelper {
 		Connection conn = null;
 		Statement stmt = null;
 		PreparedStatement pstmt = null;
-
 		try {
 
 			conn = DbConnectionHelper.getInstance().getConnection(
@@ -688,7 +686,7 @@ public class GreensheetFormDataHelper {
 			Collection qrdList = form.getQuestionResponsDataMap().values();
 			Iterator iter = qrdList.iterator();
 
-			HashMap qaMap = new HashMap();
+			HashMap qaMap = null;
 
 			while (iter.hasNext()) {
 
@@ -743,9 +741,10 @@ public class GreensheetFormDataHelper {
 
 				// If File attachments, do nothing. handle later
 				if (isRDFile) {
-					//if (qaMap == null) {
-						//qaMap = new HashMap();
-					//}
+					if (qaMap == null) {
+						qaMap = new HashMap();
+					}
+//					logger.debug("File qrd =" + qrd.getResponseDefId()+ "Size"+qrd.getQuestionAttachments().size() + " : " +qrd);
 					logger.debug("File for RESP DEF ID = " + qrd.getResponseDefId());
 					qaMap.put(qrd.getResponseDefId() + "", qrd);
 				}
@@ -839,56 +838,46 @@ public class GreensheetFormDataHelper {
 			logger.debug("SAVING/DELETING THE ATTACHMENTS NOW.......");
 
 			if (qaMap != null) { // attachments exist
-				
-				// Handle each file attachment separately
+			// Handle each file attachment separately
 				logger.debug("Number of QRD with Files = " + qaMap.size());
-//				logger.debug(qaMap.toString());
+
 				Iterator iterAttachments = qaMap.values().iterator();
 				int count = 1;
-
-				AttachmentHelper ah = new AttachmentHelper();
 				while (iterAttachments.hasNext()) {
-					try {
-						logger.debug("Entering QRD #" + count );
-						
-						QuestionResponseData qrd = (QuestionResponseData) iterAttachments.next();
-						ah.saveAttachments(qrd, grant, form, conn);
-					 	} catch (Exception e ) {
-							// Do Nothing Go Forward.....
-					 		logger.error(e.getMessage());
-						}
-					 	logger.debug("Finished QRD #" + count++);
+					logger.debug("QRD #" + count);
+					QuestionResponseData qrd = (QuestionResponseData) iterAttachments
+							.next();
+					AttachmentHelper ah = new AttachmentHelper();
+					ah.saveAttachments(qrd, grant, form, conn);
+
+					count++;
 				}
-				logger.debug("Checking if errors were thrown while saving attachments.");
-				if (ah.errorsExist()) { // If errors exist the errorExist() will return true. 
-						logger.debug(ah.errorsText());
-						throw new GreensheetBaseException ("error.savingattachment",new GreensheetBaseException(ah.errorsText()));
-					}
 			}
-			logger.debug(" DONE --- SAVING/DELETING THE ATTACHMENTS NOW.......");
-		} catch (GreensheetBaseException gbe){
-			throw new GreensheetBaseException("error.savinganswers",gbe);
-		} catch (Exception e) {
+
+			logger
+					.debug(" DONE --- SAVING/DELETING THE ATTACHMENTS NOW.......");
+		} catch (Exception se) {
 			if (conn != null) {
 				try {
 					logger.debug("ALERT - Transaction being Rolled Back.");
 					conn.rollback();
-				} catch (Exception ex) {
-					logger.error("Exception while rolling back transaction. ",ex);
-					throw new GreensheetBaseException("error.savinganswers", ex);
+					throw new GreensheetBaseException("errorSavingData", se);
+				} catch (SQLException excep) {
+					logger.debug("SQLException: ");
+					logger.debug(excep.getMessage());
+					throw new GreensheetBaseException("errorSavingData", se);
 				}
 			}
-			logger.error("Exception while saving Question Data",e);
-			throw new GreensheetBaseException ("error.savinganswers",e );
+
 		} finally {
 			try {
 				if (stmt != null)
 					stmt.close();
 				if (pstmt != null)
 					pstmt.close();
-			} catch (Exception se) {
-				logger.error("Exception while closing stmt and pstmt after saving question data",se);
-				throw new GreensheetBaseException("error.savinganswers", se);
+
+			} catch (SQLException se) {
+				throw new GreensheetBaseException("errorSavingData", se);
 			}
 			if (conn != null) {
 				DbConnectionHelper.getInstance().freeConnection(conn);
