@@ -5,7 +5,6 @@ Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/avalon-framework-cvs-20020806.jar
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/batik.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/classes12.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/clecommons.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-beanutils-core.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-digester.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-fileupload.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-jxpath-1.1.jar -text
