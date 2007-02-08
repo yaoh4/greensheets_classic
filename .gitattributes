@@ -10,7 +10,6 @@ Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-collections-3.2.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-digester.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-fileupload.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-jxpath-1.1.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-lang-2.2.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-validator.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dataretriever.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dirctxdispenser.jar -text
