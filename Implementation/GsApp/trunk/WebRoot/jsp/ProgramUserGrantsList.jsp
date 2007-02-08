@@ -1,6 +1,6 @@
 <%@ page language="java"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean"%>
-<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
+<%@ taglib uri="/WEB-INF/tlds/displaytag.tld" prefix="display"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic"%>
 <script language="javascript" src="./scripts/ClientSideMethods.js"></script>
@@ -69,7 +69,7 @@ function setMethod(target) {
 					<table border="0" width="100%">
 						<tr>
 							<td>
-								<a href="javascript:toggleCriteriaPanelDisplay('divId1', 'imgDivId1')"> <img border="0" id="imgDivId1" name="imgDivId1" src="./images/IconOpen.gif" onClick="" /> </a>
+								<a href="javascript:toggleCriteriaPanelDisplay('divId1', 'imgDivId1')"> <img border="0" id="imgDivId1" name="imgDivId1" src="./images/IconOpen.gif" onclick="" /> </a>
 								<div id="divId1" name="divId1" style="display:block">
 									<html:form action="searchprogramgrantsdispatch">
 										<TABLE bgcolor="#CCCCCC" border="0" width="100%" cellpadding="3">
@@ -154,7 +154,7 @@ function setMethod(target) {
 			</tr>
 			<tr>
 				<td width="100%">
-					<display:table name="sessionScope.GRANT_LIST" requestURI="" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" style="width: 100%;">
+					<display:table name="sessionScope.GRANT_LIST" requestURI="" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" width="100%">
 						<display:column property="programGreensheet" title="" />
 						<display:column sortable="true" property="grantNumberSort" title="Grant Number" />
 						<display:column sortable="true" property="latestBudgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
