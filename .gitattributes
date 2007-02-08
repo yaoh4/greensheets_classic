@@ -8,7 +8,6 @@ Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/clecommons.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-digester.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-fileupload.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-jxpath-1.1.jar -text
-Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-lang.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-logging.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/commons-validator.jar -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/lib/dataretriever.jar -text
