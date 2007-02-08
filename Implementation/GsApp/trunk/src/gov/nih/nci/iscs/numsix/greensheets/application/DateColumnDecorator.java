@@ -8,9 +8,10 @@ package gov.nih.nci.iscs.numsix.greensheets.application;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.displaytag.decorator.ColumnDecorator;
+import javax.servlet.jsp.PageContext;
+import org.displaytag.decorator.DisplaytagColumnDecorator;
 import org.displaytag.exception.DecoratorException;
+import org.displaytag.properties.MediaTypeEnum;
 
 /**
  * Decorator for date display in the MM/dd/yyyy format
@@ -18,12 +19,8 @@ import org.displaytag.exception.DecoratorException;
  * 
  * @author kpuscas, Number Six Software
  */
-public class DateColumnDecorator implements ColumnDecorator {
-
-	/**
-	 * @see org.displaytag.decorator.ColumnDecorator#decorate(Object)
-	 */
-	public String decorate(Object date) throws DecoratorException {
+public class DateColumnDecorator implements DisplaytagColumnDecorator {
+	public Object decorate(Object date, PageContext pageContext, MediaTypeEnum media) throws DecoratorException {
 		if (date != null) {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 			return formatter.format((Date) date);
