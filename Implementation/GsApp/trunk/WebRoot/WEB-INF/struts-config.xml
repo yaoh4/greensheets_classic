@@ -56,7 +56,7 @@
 		<forward name="guestUserView" path="/jsp/GuestUserView.jsp" />
 		<forward name="guestUserGrantsList" path="/jsp/GuestUserGrantsList.jsp" />
 		<forward name="specialistGrantsList" path="/jsp/SpecialistUserGrantsList.jsp" />
-		<forward name="programGrantsList" path="/searchprogramgrants.do?method=search" />
+		<forward name="programGrantsList" path="/searchprogramgrants.do?method=restorePreferences" />
 
 		<forward name="vmid" path="/velocityViewId" />
 		<forward name="closeDialog" path="/jsp/CloseDialog.jsp" />
@@ -91,10 +91,10 @@
 		type="org.apache.struts.scaffold.FindForwardAction"
 		input="/jsp/ProgramUserGrantsList.jsp"
 		parameter="method"
-		scope="request">	
-    		<forward name="image_search.x" path="/searchprogramgrants.do?method=search" />
+		scope="request">
+			<forward name="image_restorePreferences.x" path="/searchprogramgrants.do?method=restorePreferences" />    		
+			<forward name="image_search.x" path="/searchprogramgrants.do?method=search" />
     		<forward name="image_cancel.x" path="/searchprogramgrants.do?method=cancel" />
-            <forward name="image_restorePreferences.x" path="/searchprogramgrants.do?method=restorePreferences" />    		
 		</action>
 		
 		<action path="/editprogrampreferences" parameter="method" name="programPreferencesForm"
