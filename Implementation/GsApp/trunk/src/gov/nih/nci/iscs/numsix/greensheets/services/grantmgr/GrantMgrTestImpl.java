@@ -69,5 +69,11 @@ public class GrantMgrTestImpl implements GrantMgr {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	// Bug # 4366 Anand 
+	public Map searchForProgramUserGrantList(GsUser user, String grantSource,
+			String grantType, String mechanism, String onlyGrantsWithinPayline,
+			String grantNumber, String lastName, String firstName) throws GreensheetBaseException {
+		return null;
+	}
 	
 }

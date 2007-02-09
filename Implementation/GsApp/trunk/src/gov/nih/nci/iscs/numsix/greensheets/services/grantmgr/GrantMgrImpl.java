@@ -289,6 +289,76 @@ public class GrantMgrImpl implements GrantMgr {
 
 		return map;
 	}
+	// Bug # 4366 implementing the new search functionality
+	public Map searchForProgramUserGrantList(GsUser user, String grantSource,
+			String grantType, String mechanism, String onlyGrantsWithinPayline,
+			String grantNumber, String lastName, String firstName) throws GreensheetBaseException {
+		
+		Map grantsMap = new HashMap();
+		List grantsList;
+		List nonCompetingGrantsList;
+		
+		try {
+			// use the view data retriever factory to get a handle on an
+			// initialized view data retriever object
+			ViewDataRetrieverFactory drFactory = new ViewDataRetrieverFactory();
+			ViewDataRetriever viewDataRetriever = drFactory
+					.getViewDataRetriever("FORM_GRANT_VW");
+
+			// add conditions here...
+
+			addGrantSourceCriteria(viewDataRetriever, user, grantSource);
+			if (grantType != null && grantType.equals(Constants.PREFERENCES_BOTH)) {
+				addGrantTypeCriteria(viewDataRetriever, Constants.PREFERENCES_COMPETINGGRANTS);
+			} else {
+				addGrantTypeCriteria(viewDataRetriever, grantType);
+			}
+			addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline, grantType);
+			addMechanismCriteria(viewDataRetriever, mechanism);
+			addGrantNumberCriteria(viewDataRetriever, grantNumber);
+			addLastNameCriteria(viewDataRetriever, lastName);	//	Bug#4204 Abdul: Added this method call
+			addFirstNameCriteria(viewDataRetriever, firstName);	//	Bug#4204 Abdul: Added this method call
+			
+			// execute query and put in grants list
+			grantsList = viewDataRetriever.getDataList();
+			
+			if (grantType != null && grantType.equals(Constants.PREFERENCES_BOTH)) {
+//				The Competing grants have already been retrieved from the Database.
+//				Now retrieve the Non-Competing grants.
+				viewDataRetriever.clearConditions();
+
+				addGrantSourceCriteria(viewDataRetriever, user, grantSource);
+				addGrantTypeCriteria(viewDataRetriever, Constants.PREFERENCES_NONCOMPETINGGRANTS);
+				addGrantsPaylineCriteria(viewDataRetriever, onlyGrantsWithinPayline, Constants.PREFERENCES_NONCOMPETINGGRANTS);	// Ignore this flag for the Non-Competing grants.
+				addMechanismCriteria(viewDataRetriever, mechanism);
+				addGrantNumberCriteria(viewDataRetriever, grantNumber);
+				addLastNameCriteria(viewDataRetriever, lastName);	//	Bug#4204 Abdul: Added this method call
+				addFirstNameCriteria(viewDataRetriever, firstName);	//	Bug#4204 Abdul: Added this method call
+
+				nonCompetingGrantsList = viewDataRetriever.getDataList();
+				int nonCompetingGrantsListSize = nonCompetingGrantsList.size();
+				if (nonCompetingGrantsList != null && nonCompetingGrantsList.size() > 0) {
+					grantsList.addAll(nonCompetingGrantsList);
+				}
+			}			
+
+		} catch (Exception e) {
+			throw new GreensheetBaseException("error.usergrantlist", e);
+		}
+
+		// prepare result for return
+		int grantsListSize = grantsList.size();
+		logger.debug("NUMBER Of Grants Found " + grantsListSize);
+		for (int i = 0; i < grantsListSize; i++) {
+			FormGrant formGrant = (FormGrant) grantsList.get(i);
+			GsGrant gsGrant = new GsGrant();
+			gsGrant.setFormGrant(formGrant);
+			grantsMap.put(gsGrant.getFullGrantNumber(), gsGrant);
+		}
+		// return result
+		return grantsMap;
+
+	}
 
 //	Bug#4204 Abdul: Commented out and introduced the following declaration
 	/** getGrantsListForProgramUser */
@@ -311,6 +381,7 @@ public class GrantMgrImpl implements GrantMgr {
 					.getViewDataRetriever("FORM_GRANT_VW");
 
 			// add conditions here...
+			addBaseFilterCriteria(viewDataRetriever, user);
 			addLatestBudgetStartDateCriteria(viewDataRetriever);
 			addGrantSourceCriteria(viewDataRetriever, user, grantSource);
 			if (grantType != null && grantType.equals(Constants.PREFERENCES_BOTH)) {
@@ -334,7 +405,7 @@ public class GrantMgrImpl implements GrantMgr {
 //				The Competing grants have already been retrieved from the Database.
 //				Now retrieve the Non-Competing grants.
 				viewDataRetriever.clearConditions();
-				
+				addBaseFilterCriteria(viewDataRetriever, user);
 				addLatestBudgetStartDateCriteria(viewDataRetriever);
 				addGrantSourceCriteria(viewDataRetriever, user, grantSource);
 				addGrantTypeCriteria(viewDataRetriever, Constants.PREFERENCES_NONCOMPETINGGRANTS);
@@ -633,4 +704,56 @@ public class GrantMgrImpl implements GrantMgr {
 			// do nothing
 		}
 	}	
+	
+	// Bug # 4366 Introduced the method to filter the grants list on the basic requirements
+	private void addBaseFilterCriteria(ViewDataRetriever viewDataRetriever, GsUser user) throws Exception {
+		Properties p = (Properties) AppConfigProperties.getInstance()
+		.getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
+		
+		ValueToken vt = new ValueToken();
+		vt.setColumnKey("pgmFormStatus");
+		vt.setValue("SUBMITTED");
+		vt.setComparison(ValueToken.EQUALS);
+		vt.setNegative(true);
+		viewDataRetriever.addCondition(vt);
+
+		ValueToken vt2 = new ValueToken();
+		vt2.setColumnKey("pgmFormStatus");
+		vt2.setValue("FROZEN");
+		vt2.setComparison(ValueToken.EQUALS);
+		vt2.setNegative(true);
+		viewDataRetriever.addCondition(vt2);
+
+		ValueToken vt4 = new ValueToken();
+		vt4.setColumnKey("applStatusGroupCode");
+		vt4.setValue("A");
+		vt4.setComparison(ValueToken.EQUALS);
+		vt4.setNegative(true);
+		viewDataRetriever.addCondition(vt4);
+
+		String minNames = p.getProperty("minoritysupplements.userids");
+
+		if (StringUtils.contains(minNames, user.getOracleId())) {
+			ValueToken vt5 = new ValueToken();
+			vt5.setColumnKey("mbMinorityFlag");
+			vt5.setValue("Y");
+			viewDataRetriever.addCondition(vt5);
+		} 
+		// this filter is executed as part of the GrantSource Criteria.
+		/*else {
+			ListToken lt = new ListToken();
+			lt.setColumnKey("cayCode");
+			lt.setValue(user.getCancerActivities());
+			viewDataRetriever.addCondition(lt);
+		}*/
+
+		OrderByToken obt = new OrderByToken();
+		obt.setFieldName("budgetStartDate");
+		obt.setSortOrder("ASC");
+
+
+	}	
+	
+	
+	
 }

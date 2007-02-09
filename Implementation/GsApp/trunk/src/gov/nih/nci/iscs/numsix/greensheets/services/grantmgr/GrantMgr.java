@@ -9,6 +9,7 @@ package gov.nih.nci.iscs.numsix.greensheets.services.grantmgr;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -78,4 +79,8 @@ public interface GrantMgr {
 	public Map getGrantsListForProgramUser(GsUser user, String grantSource,
 			String grantType, String mechanism, String onlyGrantsWithinPayline,
 			String grantNumber, String lastName, String firstName) throws GreensheetBaseException;	
+	
+	public Map searchForProgramUserGrantList(GsUser user, String grantSource,
+			String grantType, String mechanism, String onlyGrantsWithinPayline,
+			String grantNumber, String lastName, String firstName) throws GreensheetBaseException;
 }
