@@ -103,7 +103,7 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
 //				.getGrantSource(), prefs.getGrantType(), prefs.getMechanism(),
 //				prefs.getOnlyGrantsWithinPayline(), prefs.getGrantNumber(),
 //				prefs.getPiName());
-		Map grantsMap = gMgr.getGrantsListForProgramUser(gus.getUser(), prefs
+		Map grantsMap = gMgr.searchForProgramUserGrantList(gus.getUser(), prefs
 				.getGrantSource(), prefs.getGrantType(), prefs.getMechanism(),
 				prefs.getOnlyGrantsWithinPayline(), prefs.getGrantNumber(),
 				prefs.getLastName(), prefs.getFirstName());
