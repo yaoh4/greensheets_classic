@@ -301,12 +301,27 @@ public class GrantMgrImpl implements GrantMgr {
 		try {
 			// use the view data retriever factory to get a handle on an
 			// initialized view data retriever object
+			boolean grantNumberBlank = (grantNumber == null || grantNumber.equals(null) || grantNumber.equals(""));
+			boolean lastNameBlank = (lastName == null || lastName.equals(null) || lastName.equals(""));
+			boolean firstNameBlank = (firstName == null || firstName.equals(null) || firstName.equals(""));
+			
+			logger.debug("Grant Number : "+grantNumberBlank +" Last Name : " + lastNameBlank +" First Name : " + firstNameBlank);
 			ViewDataRetrieverFactory drFactory = new ViewDataRetrieverFactory();
 			ViewDataRetriever viewDataRetriever = drFactory
 					.getViewDataRetriever("FORM_GRANT_VW");
 
 			// add conditions here...
-
+			if (grantNumberBlank && lastNameBlank && firstNameBlank) {
+				logger.debug("Competing grants ");
+				addBaseFilterCriteria(viewDataRetriever, user);
+				addLatestBudgetStartDateCriteria(viewDataRetriever);
+			} else {
+				if ( !(grantSource.equals(Constants.PREFERENCES_ALLNCIGRANTS)) ){
+					logger.debug("Competing but not ALL NCI Grants");
+					addLatestBudgetStartDateCriteria(viewDataRetriever);
+				}
+			}
+			
 			addGrantSourceCriteria(viewDataRetriever, user, grantSource);
 			if (grantType != null && grantType.equals(Constants.PREFERENCES_BOTH)) {
 				addGrantTypeCriteria(viewDataRetriever, Constants.PREFERENCES_COMPETINGGRANTS);
@@ -319,6 +334,8 @@ public class GrantMgrImpl implements GrantMgr {
 			addLastNameCriteria(viewDataRetriever, lastName);	//	Bug#4204 Abdul: Added this method call
 			addFirstNameCriteria(viewDataRetriever, firstName);	//	Bug#4204 Abdul: Added this method call
 			
+
+			//viewDataRetriever.getConditions();
 			// execute query and put in grants list
 			grantsList = viewDataRetriever.getDataList();
 			
@@ -326,6 +343,17 @@ public class GrantMgrImpl implements GrantMgr {
 //				The Competing grants have already been retrieved from the Database.
 //				Now retrieve the Non-Competing grants.
 				viewDataRetriever.clearConditions();
+				
+				if (grantNumberBlank && lastNameBlank && firstNameBlank) {
+					logger.debug("Non Competing grants ");
+					addBaseFilterCriteria(viewDataRetriever, user);
+					addLatestBudgetStartDateCriteria(viewDataRetriever);
+				} else {
+					if ( !(grantSource.equals(Constants.PREFERENCES_ALLNCIGRANTS)) ){
+						logger.debug("Non Competing but not ALL NCI Grants");
+						addLatestBudgetStartDateCriteria(viewDataRetriever);
+					}
+				}
 
 				addGrantSourceCriteria(viewDataRetriever, user, grantSource);
 				addGrantTypeCriteria(viewDataRetriever, Constants.PREFERENCES_NONCOMPETINGGRANTS);
@@ -336,7 +364,8 @@ public class GrantMgrImpl implements GrantMgr {
 				addFirstNameCriteria(viewDataRetriever, firstName);	//	Bug#4204 Abdul: Added this method call
 
 				nonCompetingGrantsList = viewDataRetriever.getDataList();
-				int nonCompetingGrantsListSize = nonCompetingGrantsList.size();
+
+				//int nonCompetingGrantsListSize = nonCompetingGrantsList.size();
 				if (nonCompetingGrantsList != null && nonCompetingGrantsList.size() > 0) {
 					grantsList.addAll(nonCompetingGrantsList);
 				}
