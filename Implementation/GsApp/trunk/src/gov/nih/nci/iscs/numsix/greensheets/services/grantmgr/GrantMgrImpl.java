@@ -315,12 +315,12 @@ public class GrantMgrImpl implements GrantMgr {
 				logger.debug("Competing grants ");
 				addBaseFilterCriteria(viewDataRetriever, user);
 				addLatestBudgetStartDateCriteria(viewDataRetriever);
-			} else {
+			} /*else {
 				if ( !(grantSource.equals(Constants.PREFERENCES_ALLNCIGRANTS)) ){
 					logger.debug("Competing but not ALL NCI Grants");
 					addLatestBudgetStartDateCriteria(viewDataRetriever);
 				}
-			}
+			}*/
 			
 			addGrantSourceCriteria(viewDataRetriever, user, grantSource);
 			if (grantType != null && grantType.equals(Constants.PREFERENCES_BOTH)) {
