@@ -348,12 +348,12 @@ public class GrantMgrImpl implements GrantMgr {
 					logger.debug("Non Competing grants ");
 					addBaseFilterCriteria(viewDataRetriever, user);
 					addLatestBudgetStartDateCriteria(viewDataRetriever);
-				} else {
+				} /*else {
 					if ( !(grantSource.equals(Constants.PREFERENCES_ALLNCIGRANTS)) ){
 						logger.debug("Non Competing but not ALL NCI Grants");
 						addLatestBudgetStartDateCriteria(viewDataRetriever);
 					}
-				}
+				}*/
 
 				addGrantSourceCriteria(viewDataRetriever, user, grantSource);
 				addGrantTypeCriteria(viewDataRetriever, Constants.PREFERENCES_NONCOMPETINGGRANTS);
