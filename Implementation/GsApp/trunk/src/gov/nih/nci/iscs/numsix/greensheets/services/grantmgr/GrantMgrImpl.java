@@ -304,6 +304,7 @@ public class GrantMgrImpl implements GrantMgr {
 			boolean grantNumberBlank = (grantNumber == null || grantNumber.equals(null) || grantNumber.equals(""));
 			boolean lastNameBlank = (lastName == null || lastName.equals(null) || lastName.equals(""));
 			boolean firstNameBlank = (firstName == null || firstName.equals(null) || firstName.equals(""));
+			boolean mechanismBlank = (mechanism == null || mechanism.equals(null) || mechanism.equals(""));
 			
 			logger.debug("Grant Number : "+grantNumberBlank +" Last Name : " + lastNameBlank +" First Name : " + firstNameBlank);
 			ViewDataRetrieverFactory drFactory = new ViewDataRetrieverFactory();
@@ -311,7 +312,7 @@ public class GrantMgrImpl implements GrantMgr {
 					.getViewDataRetriever("FORM_GRANT_VW");
 
 			// add conditions here...
-			if (grantNumberBlank && lastNameBlank && firstNameBlank) {
+			if (mechanismBlank && grantNumberBlank && lastNameBlank && firstNameBlank) {
 				logger.debug("Competing grants ");
 				addBaseFilterCriteria(viewDataRetriever, user);
 				addLatestBudgetStartDateCriteria(viewDataRetriever);
@@ -344,7 +345,7 @@ public class GrantMgrImpl implements GrantMgr {
 //				Now retrieve the Non-Competing grants.
 				viewDataRetriever.clearConditions();
 				
-				if (grantNumberBlank && lastNameBlank && firstNameBlank) {
+				if (mechanismBlank && grantNumberBlank && lastNameBlank && firstNameBlank) {
 					logger.debug("Non Competing grants ");
 					addBaseFilterCriteria(viewDataRetriever, user);
 					addLatestBudgetStartDateCriteria(viewDataRetriever);
