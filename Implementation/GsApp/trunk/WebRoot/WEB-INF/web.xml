@@ -6,7 +6,7 @@
 <web-app>
 	<context-param>
 		<param-name>appVersion</param-name>
-		<param-value>v1.2.2_TEST_3</param-value>
+		<param-value>v1.2.2</param-value>
 	</context-param>
 	<context-param>
 		<param-name>appBuild</param-name>
@@ -27,7 +27,7 @@
 	<context-param>
 		<param-name>urlWorkbench</param-name>
 		<param-value>
-			https://i2e-test.nci.nih.gov/workbench/WorkbenchView</param-value>
+			https://i2e.nci.nih.gov/workbench/WorkbenchView</param-value>
 	</context-param>
 	<context-param>
 		<param-name>urlImpac2</param-name>
