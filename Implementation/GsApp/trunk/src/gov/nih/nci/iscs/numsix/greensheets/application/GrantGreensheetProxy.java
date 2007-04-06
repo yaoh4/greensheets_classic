@@ -48,7 +48,7 @@ public class GrantGreensheetProxy {
 		if (grant.isGrantOnControl()
 				&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
 						.equals(GsUserRole.PGM_DIR))) {
-			onControlFlag = " *";
+			onControlFlag = "<img src=\"images/IconInControl.GIF\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets In Control\">";
 		}
 
 		return onControlFlag;
@@ -258,18 +258,122 @@ public class GrantGreensheetProxy {
 	}
 
 	private String setGreensheetString(String group) {
-		String value = "<a href=\"javascript:retreieveGreensheet('"
-				+ grant.getFullGrantNumber()
-				+ "','"
-				+ this.getApplId()
-				+ "','"
-				+ group
-				+ "','"
-				+ this.getUserOracleId()
-				+ "');\">"
-				+ "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\"></a>";
+		String attname = "NOT_STARTED";
+		   String greensheetIcon = "";
+		   
+			if (grant.getProgramFormStatus() != null) {
+				if ( grant.getProgramFormStatus().equalsIgnoreCase("SUBMITTED")){
+					if (grant.isGrantOnControl()
+							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
+									.equals(GsUserRole.PGM_DIR))) {
+					attname = "SUBMITTEDC"; } else {
+						attname = "SUBMITTEDNC";
+					}
+					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
+					+ grant.getFullGrantNumber()
+					+ "','"
+					+ this.getApplId()
+					+ "','"
+					+ group
+					+ "','"
+					+ this.getUserOracleId()
+					+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">"
+					+ "</a>";
+					
+					greensheetIcon = "<img src=\"images/IconLocked.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Submitted\">";
+					return value + greensheetIcon;
+				} else if ( grant.getProgramFormStatus().equalsIgnoreCase("UNSUBMITTED")){
+					if (grant.isGrantOnControl()
+							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
+									.equals(GsUserRole.PGM_DIR))) {
+					attname = "UNSUBMITTEDC"; } else {
+						attname = "UNSUBMITTEDNC";
+					}
+					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
+					+ grant.getFullGrantNumber()
+					+ "','"
+					+ this.getApplId()
+					+ "','"
+					+ group
+					+ "','"
+					+ this.getUserOracleId()
+					+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">"
+					+ "</a>";
+					
+					greensheetIcon = "<img src=\"images/IconUnlocked.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets UnSubmitted\">";
+					return value + greensheetIcon;
+				} else if (grant.getProgramFormStatus().equalsIgnoreCase("SAVED")){
+					if (grant.isGrantOnControl()
+							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
+									.equals(GsUserRole.PGM_DIR))) {
+					attname = "SAVEDC"; } else {
+						attname = "SAVEDNC";
+					}
+					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
+					+ grant.getFullGrantNumber()
+					+ "','"
+					+ this.getApplId()
+					+ "','"
+					+ group
+					+ "','"
+					+ this.getUserOracleId()
+					+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">"
+					+ "</a>";
+					
+					greensheetIcon = "<img src=\"images/IconSaved.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Saved\">";
+					return value + greensheetIcon + "</a>";
+				} else if (grant.getProgramFormStatus().equalsIgnoreCase("FROZEN")){
+					if (grant.isGrantOnControl()
+							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
+									.equals(GsUserRole.PGM_DIR))) {
+					attname = "FROZENC"; } else {
+						attname = "FROZENNC";
+					}
+					
+					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
+					+ grant.getFullGrantNumber()
+					+ "','"
+					+ this.getApplId()
+					+ "','"
+					+ group
+					+ "','"
+					+ this.getUserOracleId()
+					+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">"
+					+ "</a>";
+					greensheetIcon = "<img src=\"images/IconFrozen.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Frozen\">";
+					return value + greensheetIcon;
+				} else
+					if (grant.isGrantOnControl()
+							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
+									.equals(GsUserRole.PGM_DIR))) {
+					attname = "NOTSTARTEDC"; } else {
+						attname = "NOTSTARTEDNC";
+					}
+					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
+					+ grant.getFullGrantNumber()
+					+ "','"
+					+ this.getApplId()
+					+ "','"
+					+ group
+					+ "','"
+					+ this.getUserOracleId()
+					+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">"
+					+ "</a>";
+					greensheetIcon ="<img src=\"images/Spacer.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Not Started\">";;
+					return value + greensheetIcon ;
+			}
+			
+			return "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
+			+ grant.getFullGrantNumber()
+			+ "','"
+			+ this.getApplId()
+			+ "','"
+			+ group
+			+ "','"
+			+ this.getUserOracleId()
+			+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">";
 
-		return value;
+			
 
 	}
 
