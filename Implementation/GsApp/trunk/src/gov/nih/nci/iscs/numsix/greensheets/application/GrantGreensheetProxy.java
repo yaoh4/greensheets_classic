@@ -22,8 +22,8 @@ import org.apache.log4j.Logger;
 /**
  * Class wraps information from a grant and greensheet for presentation in the
  * grants list table
- * 
- * 
+ *
+ *
  * @author kpuscas, Number Six Software
  */
 public class GrantGreensheetProxy {
@@ -48,7 +48,7 @@ public class GrantGreensheetProxy {
 		if (grant.isGrantOnControl()
 				&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
 						.equals(GsUserRole.PGM_DIR))) {
-			onControlFlag = "<img src=\"images/IconInControl.GIF\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets In Control\">";
+			onControlFlag = "<img src=\"images/IconInControl.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets In Control\">";
 		}
 
 		return onControlFlag;
@@ -56,7 +56,7 @@ public class GrantGreensheetProxy {
 
 	/**
 	 * Returns the grantNumber.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getGrantNumber() {
@@ -166,7 +166,7 @@ public class GrantGreensheetProxy {
 	public String getProgramLockIcon() {
 		String lockIcon = null;
 		String value = null;	//Bug#4303 Abdul: Don't show the hyperlink for inappropriate action.
-		
+
 		if (grant.getProgramFormStatus().equalsIgnoreCase(
 				GreensheetStatus.UNSUBMITTED.getName())) {
 			lockIcon = "IconUnlocked.gif";
@@ -180,7 +180,7 @@ public class GrantGreensheetProxy {
 		if (lockIcon == null || lockIcon.equalsIgnoreCase("IconNoLocking.gif")) {
 			value = "<img src=\"images/"
 				+ lockIcon
-				+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\">";			
+				+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\">";
 		} else {
 			value = "<a href=\"javascript:changeLock('"
 					+ grant.getFullGrantNumber()
@@ -199,7 +199,7 @@ public class GrantGreensheetProxy {
 	public String getSpecialistLockIcon() {
 		String lockIcon = null;
 		String value = null;	//Bug#4303 Abdul: Don't show the hyperlink for inappropriate action.
-		
+
 		if (grant.getSpecialistFormStatus().equalsIgnoreCase(
 				GreensheetStatus.UNSUBMITTED.getName())) {
 			lockIcon = "IconUnlocked.gif";
@@ -213,8 +213,8 @@ public class GrantGreensheetProxy {
 		if (lockIcon == null || lockIcon.equalsIgnoreCase("IconNoLocking.gif")) {
 			value = "<img src=\"images/"
 				+ lockIcon
-				+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\">";			
-		} else {		
+				+ "\" width=\"15\" height=\"18\" border=\"0\" alt=\"ChangeLock\">";
+		} else {
 			value = "<a href=\"javascript:changeLock('"
 				+ grant.getFullGrantNumber()
 				+ "','"
@@ -240,7 +240,7 @@ public class GrantGreensheetProxy {
 
 	/**
 	 * Returns the userOracleId.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getUserOracleId() {
@@ -249,7 +249,7 @@ public class GrantGreensheetProxy {
 
 	/**
 	 * Sets the userOracleId.
-	 * 
+	 *
 	 * @param userOracleId
 	 *            The userOracleId to set
 	 */
@@ -260,7 +260,7 @@ public class GrantGreensheetProxy {
 	private String setGreensheetString(String group) {
 		String attname = "NOT_STARTED";
 		   String greensheetIcon = "";
-		   
+
 			if (grant.getProgramFormStatus() != null) {
 				if ( grant.getProgramFormStatus().equalsIgnoreCase("SUBMITTED")){
 					if (grant.isGrantOnControl()
@@ -279,7 +279,7 @@ public class GrantGreensheetProxy {
 					+ this.getUserOracleId()
 					+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">"
 					+ "</a>";
-					
+
 					greensheetIcon = "<img src=\"images/IconLocked.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Submitted\">";
 					return value + greensheetIcon;
 				} else if ( grant.getProgramFormStatus().equalsIgnoreCase("UNSUBMITTED")){
@@ -299,7 +299,7 @@ public class GrantGreensheetProxy {
 					+ this.getUserOracleId()
 					+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">"
 					+ "</a>";
-					
+
 					greensheetIcon = "<img src=\"images/IconUnlocked.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets UnSubmitted\">";
 					return value + greensheetIcon;
 				} else if (grant.getProgramFormStatus().equalsIgnoreCase("SAVED")){
@@ -319,7 +319,7 @@ public class GrantGreensheetProxy {
 					+ this.getUserOracleId()
 					+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">"
 					+ "</a>";
-					
+
 					greensheetIcon = "<img src=\"images/IconSaved.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Saved\">";
 					return value + greensheetIcon + "</a>";
 				} else if (grant.getProgramFormStatus().equalsIgnoreCase("FROZEN")){
@@ -329,7 +329,7 @@ public class GrantGreensheetProxy {
 					attname = "FROZENC"; } else {
 						attname = "FROZENNC";
 					}
-					
+
 					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
 					+ grant.getFullGrantNumber()
 					+ "','"
@@ -362,7 +362,7 @@ public class GrantGreensheetProxy {
 					greensheetIcon ="<img src=\"images/Spacer.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Not Started\">";;
 					return value + greensheetIcon ;
 			}
-			
+
 			return "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
 			+ grant.getFullGrantNumber()
 			+ "','"
@@ -373,7 +373,7 @@ public class GrantGreensheetProxy {
 			+ this.getUserOracleId()
 			+ "');\">" + "<img src=\"images/IconGreensheets.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets\">";
 
-			
+
 
 	}
 
