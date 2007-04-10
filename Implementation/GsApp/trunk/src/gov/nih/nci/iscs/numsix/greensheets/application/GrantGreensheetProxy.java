@@ -256,19 +256,26 @@ public class GrantGreensheetProxy {
 	public void setUserOracleId(String userOracleId) {
 		this.userOracleId = userOracleId;
 	}
-
+	/**
+	 * Returns the URL for opening the greensheet and sets the ordering sequence of the greensheet
+	 * which is 
+	 * NotStarted IN Control = AC
+	 * NotStarted NOT IN Control = ANC
+	 * Saved IN Control = BC
+	 * Saved NOT IN Control =BNC
+	 * UnSubmitted = C
+	 * Submitted = D
+	 * Frozen = E
+	 *
+	 * @return String
+	 */
 	private String setGreensheetString(String group) {
 		String attname = "NOT_STARTED";
 		   String greensheetIcon = "";
 
 			if (grant.getProgramFormStatus() != null) {
 				if ( grant.getProgramFormStatus().equalsIgnoreCase("SUBMITTED")){
-					if (grant.isGrantOnControl()
-							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
-									.equals(GsUserRole.PGM_DIR))) {
-					attname = "SUBMITTEDC"; } else {
-						attname = "SUBMITTEDNC";
-					}
+					attname ="D";
 					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
 					+ grant.getFullGrantNumber()
 					+ "','"
@@ -283,12 +290,7 @@ public class GrantGreensheetProxy {
 					greensheetIcon = "<img src=\"images/IconLocked.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Submitted\">";
 					return value + greensheetIcon;
 				} else if ( grant.getProgramFormStatus().equalsIgnoreCase("UNSUBMITTED")){
-					if (grant.isGrantOnControl()
-							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
-									.equals(GsUserRole.PGM_DIR))) {
-					attname = "UNSUBMITTEDC"; } else {
-						attname = "UNSUBMITTEDNC";
-					}
+					attname = "C";
 					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
 					+ grant.getFullGrantNumber()
 					+ "','"
@@ -306,8 +308,8 @@ public class GrantGreensheetProxy {
 					if (grant.isGrantOnControl()
 							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
 									.equals(GsUserRole.PGM_DIR))) {
-					attname = "SAVEDC"; } else {
-						attname = "SAVEDNC";
+					attname = "BC"; } else {
+						attname = "BNC";
 					}
 					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
 					+ grant.getFullGrantNumber()
@@ -323,12 +325,7 @@ public class GrantGreensheetProxy {
 					greensheetIcon = "<img src=\"images/IconSaved.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Saved\">";
 					return value + greensheetIcon + "</a>";
 				} else if (grant.getProgramFormStatus().equalsIgnoreCase("FROZEN")){
-					if (grant.isGrantOnControl()
-							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
-									.equals(GsUserRole.PGM_DIR))) {
-					attname = "FROZENC"; } else {
-						attname = "FROZENNC";
-					}
+					attname = "E";
 
 					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
 					+ grant.getFullGrantNumber()
@@ -346,8 +343,8 @@ public class GrantGreensheetProxy {
 					if (grant.isGrantOnControl()
 							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
 									.equals(GsUserRole.PGM_DIR))) {
-					attname = "NOTSTARTEDC"; } else {
-						attname = "NOTSTARTEDNC";
+					attname = "AC"; } else {
+						attname = "ANC";
 					}
 					String value = "<a name = \"" + attname +"\" href=\"javascript:retreieveGreensheet('"
 					+ grant.getFullGrantNumber()
