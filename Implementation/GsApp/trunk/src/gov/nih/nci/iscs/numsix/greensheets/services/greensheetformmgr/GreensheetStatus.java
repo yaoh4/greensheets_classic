@@ -6,7 +6,7 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
-import org.apache.commons.lang.enum.ValuedEnum;
+import org.apache.commons.lang.enums.ValuedEnum;
 
 /**
  * 
