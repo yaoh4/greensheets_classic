@@ -6,7 +6,7 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr;
 
-import org.apache.commons.lang.enum.ValuedEnum;
+import org.apache.commons.lang.enums.ValuedEnum;
 
 /**
  * Enumeration of the different user roles that a user of the application my

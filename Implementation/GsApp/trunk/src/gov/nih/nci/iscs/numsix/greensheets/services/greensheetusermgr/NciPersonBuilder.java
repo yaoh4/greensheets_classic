@@ -191,11 +191,11 @@ public class NciPersonBuilder {
 
 				// the groups are an enumeration, a list of groups the user is a
 				// member of
-				NamingEnumeration enum = attribute.getAll();
+				NamingEnumeration enums = attribute.getAll();
 				ArrayList groupList = new ArrayList();
 				try {
-					while ((enum != null) && (enum.hasMore())) {
-						groupList.add((String) enum.next());
+					while ((enums != null) && (enums.hasMore())) {
+						groupList.add((String) enums.next());
 					}
 				} catch (Exception e) {
 					throw new GreensheetBaseException("error.ldap", e);
