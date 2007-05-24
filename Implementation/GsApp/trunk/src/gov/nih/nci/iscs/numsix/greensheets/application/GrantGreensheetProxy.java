@@ -259,13 +259,13 @@ public class GrantGreensheetProxy {
 	/**
 	 * Returns the URL for opening the greensheet and sets the ordering sequence of the greensheet
 	 * which is 
-	 * NotStarted IN Control = AC
-	 * NotStarted NOT IN Control = ANC
-	 * Saved IN Control = BC
-	 * Saved NOT IN Control =BNC
+	 * NotStarted IN Control = A
+	 * Saved IN Control = B
 	 * UnSubmitted = C
-	 * Submitted = D
-	 * Frozen = E
+	 * Saved NOT IN Control =D
+	 * Submitted = E
+	 * NOT Started Not In Control = F
+	 * Frozen = G
 	 *
 	 * @return String
 	 */
@@ -275,7 +275,7 @@ public class GrantGreensheetProxy {
 
 			if (Status != null) {
 				if ( Status.equalsIgnoreCase("SUBMITTED")){
-					attname ="D";
+					attname ="E";
 					greensheetIcon = "<img src=\"images/IconLocked.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Submitted\">";
 				} else if ( Status.equalsIgnoreCase("UNSUBMITTED")){
 					attname = "C";
@@ -284,19 +284,19 @@ public class GrantGreensheetProxy {
 					if (grant.isGrantOnControl()
 							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
 									.equals(GsUserRole.PGM_DIR))) {
-					attname = "BC"; } else {
-						attname = "BNC";
+					attname = "B"; } else {
+						attname = "D";
 					}
 					greensheetIcon = "<img src=\"images/IconSaved.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Saved\">";
 				} else if (Status.equalsIgnoreCase("FROZEN")){
-					attname = "E";
+					attname = "G";
 					greensheetIcon = "<img src=\"images/IconFrozen.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Frozen\">";
 				} else {
 					if (grant.isGrantOnControl()
 							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
 									.equals(GsUserRole.PGM_DIR))) {
-					attname = "AC"; } else {
-						attname = "ANC";
+					attname = "A"; } else {
+						attname = "F";
 					}
 					greensheetIcon ="<img src=\"images/Spacer.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Not Started\">";
 				}
