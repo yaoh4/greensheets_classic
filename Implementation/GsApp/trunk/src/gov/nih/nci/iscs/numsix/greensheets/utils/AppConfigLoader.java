@@ -23,21 +23,21 @@ public class AppConfigLoader {
 
 	public static void initAppConfigProperties(String path) throws Exception {
 		Properties p = new Properties();
-		p.load(new FileInputStream(path + "greensheetconfig.properties"));
+		p.load(new FileInputStream(path + "/greensheetconfig.properties"));
 		AppConfigProperties.getInstance().addProperty(
 				GreensheetsKeys.KEY_CONFIG_PROPERTIES, p);
 	}
 
 	public static void initDbProperties(String path) throws Exception {
 		Properties p = new Properties();
-		p.load(new FileInputStream(path + "db.properties"));
+		p.load(new FileInputStream(path + "/db.properties"));
 		AppConfigProperties.getInstance().addProperty(
 				GreensheetsKeys.KEY_DB_PROPERTIES, p);
 	}
 
 	public static void initErrorMessages(String path) throws Exception {
 		Properties p = new Properties();
-		p.load(new FileInputStream(path + "errormessages.properties"));
+		p.load(new FileInputStream(path + "/errormessages.properties"));
 		AppConfigProperties.getInstance().addProperty(
 				GreensheetsKeys.KEY_ERROR_MESSAGES, p);
 
@@ -45,7 +45,7 @@ public class AppConfigLoader {
 
 	public static void initPreferences(String path) throws Exception {
 		Properties p = new Properties();
-		p.load(new FileInputStream(path + "preferences.properties"));
+		p.load(new FileInputStream(path + "/preferences.properties"));
 		AppConfigProperties.getInstance().addProperty(
 				GreensheetsKeys.KEY_USER_PREFERENCES, p);
 	}
