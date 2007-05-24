@@ -43,9 +43,7 @@ public class GreensheetsInitPlugIn implements PlugIn {
 		String root = System.getProperty("conf.dir");
 
 		String configPath = root + "/"
-				+ serv.getServletContext().getInitParameter("CONFIG_PATH")
-				+ "/";
-
+				+ serv.getServletContext().getInitParameter("CONFIG_PATH");
 		try {
 
 			AppConfigLoader.initErrorMessages(serv.getServletContext()
