@@ -309,7 +309,6 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/utils/LdapCon
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/velocity/tools/view/servlet/VelocityViewIdServlet.java -text
 Implementation/GsApp/trunk/uml/greensheets-domain-model.xml.zip -text
 Implementation/GsApp/trunk/uml/greensheets-domain-model.xml.zip.bak -text
-Implementation/GsDocChecker/trunk/docs/Questions.txt -text
 Implementation/GsDocChecker/trunk/logs/logsgsdocchecker_a2.log -text
 Implementation/GsDocChecker/trunk/reports/DEV/DocChecker_2006_Nov_29_12_55_20_INCR.pdf -text
 Implementation/GsDocChecker/trunk/reports/PROD/Doc[!!-~]Checker[!!-~]Records[!!-~]with[!!-~]Locate[!!-~]Status[!!-~]in[!!-~]PROD.xls -text
