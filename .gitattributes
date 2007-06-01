@@ -318,6 +318,7 @@ Implementation/GsDocChecker/trunk/conf/config_test.xml -text
 Implementation/GsDocChecker/trunk/conf/db.properties -text
 Implementation/GsDocChecker/trunk/conf/email_body.properties -text
 Implementation/GsDocChecker/trunk/conf/log4j.properties -text
+Implementation/GsDocChecker/trunk/docs/Questions.txt -text
 Implementation/GsQuestions/trunk/Bulk_Load_Proofreading.txt -text
 Implementation/GsQuestions/trunk/GenerateGs.bat -text
 Implementation/GsQuestions/trunk/checkfile.vm -text
