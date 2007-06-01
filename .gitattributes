@@ -312,6 +312,12 @@ Implementation/GsApp/trunk/uml/greensheets-domain-model.xml.zip.bak -text
 Implementation/GsDocChecker/trunk/build/RunDocChecker.bat -text
 Implementation/GsDocChecker/trunk/build/UNIX[!!-~]Scripts.txt -text
 Implementation/GsDocChecker/trunk/build/build.xml -text
+Implementation/GsDocChecker/trunk/conf/config.xml -text
+Implementation/GsDocChecker/trunk/conf/config_prod.xml -text
+Implementation/GsDocChecker/trunk/conf/config_test.xml -text
+Implementation/GsDocChecker/trunk/conf/db.properties -text
+Implementation/GsDocChecker/trunk/conf/email_body.properties -text
+Implementation/GsDocChecker/trunk/conf/log4j.properties -text
 Implementation/GsQuestions/trunk/Bulk_Load_Proofreading.txt -text
 Implementation/GsQuestions/trunk/GenerateGs.bat -text
 Implementation/GsQuestions/trunk/checkfile.vm -text
