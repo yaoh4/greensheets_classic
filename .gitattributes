@@ -334,6 +334,7 @@ Implementation/GsDocChecker/trunk/lib/log4j-1.2.13.jar -text
 Implementation/GsDocChecker/trunk/lib/mail.jar -text
 Implementation/GsDocChecker/trunk/lib/ojdbc14.jar -text
 Implementation/GsDocChecker/trunk/logs/logsgsdocchecker_a2.log -text
+Implementation/GsDocChecker/trunk/sql/SQLs[!!-~]DocChecker.txt -text
 Implementation/GsQuestions/trunk/Bulk_Load_Proofreading.txt -text
 Implementation/GsQuestions/trunk/GenerateGs.bat -text
 Implementation/GsQuestions/trunk/checkfile.vm -text
