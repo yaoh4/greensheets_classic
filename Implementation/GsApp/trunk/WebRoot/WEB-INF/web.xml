@@ -24,15 +24,6 @@
 		<param-name>commentsEmail</param-name>
 		<param-value>NCI-NOW-L@LIST.NIH.GOV</param-value>
 	</context-param>
-	<context-param>
-		<param-name>urlWorkbench</param-name>
-		<param-value>
-			https://i2e.nci.nih.gov/workbench/WorkbenchView</param-value>
-	</context-param>
-	<context-param>
-		<param-name>urlImpac2</param-name>
-		<param-value>http://impacii.nih.gov/webapps/index.cfm</param-value>
-	</context-param>
 	
 	<!-- Standard Action Servlet Configuration (with debugging) -->
 	<servlet>
