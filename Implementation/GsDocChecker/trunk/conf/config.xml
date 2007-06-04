@@ -43,7 +43,7 @@
 	
 	<environment>
 		<description>Development environment.</description> <!-- You need to change the disk-location, report-loc, db-prefix before using the DEV environment. -->
-		<disk-location>C:/nciprojects/DocChecker/data/test/</disk-location>
+		<disk-location>C:/nciprojects/GsDocChecker/data/test/</disk-location>
 		<db-prefix>/data/test/greensheets/</db-prefix>
 		<report-loc>C:/nciprojects/GsDocChecker/reports/DEV/</report-loc>
 	</environment>
