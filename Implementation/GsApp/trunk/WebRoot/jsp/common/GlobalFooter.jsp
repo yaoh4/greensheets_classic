@@ -6,8 +6,9 @@
 <%@ page import="java.util.*" %>
 
 <%
-	String urlWorkbench1 = application.getInitParameter("urlWorkbench");
-	String urlImpac21 = application.getInitParameter("urlImpac2");
+	String urlWorkbench1 = ((Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES)).getProperty("url.Workbench");
+	String urlImpac21 = ((Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES)).getProperty("url.Impac2");
+	
 %>
 
 <br /> 
