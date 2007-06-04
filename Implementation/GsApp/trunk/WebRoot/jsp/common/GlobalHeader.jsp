@@ -23,8 +23,8 @@ function openHelp(){
 	String appEnv = DbConnectionHelper.getDbEnvironment();
 	String appVersion = application.getInitParameter("appVersion");
 	String emailLink = "mailto:" + application.getInitParameter("commentsEmail") + "?subject=Greensheets";
-	String urlWorkbench = application.getInitParameter("urlWorkbench");
-	String urlImpac2 = application.getInitParameter("urlImpac2");
+	String urlWorkbench = ((Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES)).getProperty("url.Workbench");
+	String urlImpac2 = ((Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES)).getProperty("url.Impac2");
 %>
 
 </script>
