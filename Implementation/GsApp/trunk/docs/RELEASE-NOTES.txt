@@ -1,7 +1,7 @@
 			    R E L E A S E  N O T E S
  			   
                                   GREENSHEETS
-                     	         Version 1.2.0
+                     	         Version 1.2.3
                                  
 INTRODUCTION
 ============
@@ -12,11 +12,17 @@ maintenance and code cleanup releases, with occasional new features.
 
 NEW FEATURES
 ============
-#4016  Provide user customizable preferences for Program role users which are used to query the
-       grant collection. The system also contains a default set of query prefences which are used 
-       when no user preferences exist for a particular user.
+#277   Provide user a new way to sort the Grants using the Pgm GS Status Column. The order followed is 
+		* NotStarted IN Control
+		* Saved IN Control
+		* UnSubmitted
+		* Saved NOT IN Control
+		* Submitted
+		* NOT Started Not In Control
+		* Frozen
 
 
 BUG FIXES
 =========
-N/A
+We have changed the way we implement the URL's for Workbench and ImpacII application. Previously the 
+urls were set in the web.xml file. We have removed it and implemented as properties in the greensheetconfig.properties file.
