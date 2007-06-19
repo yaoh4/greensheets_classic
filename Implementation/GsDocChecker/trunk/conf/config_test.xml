@@ -62,7 +62,7 @@
 	
 	<report-recipients>
 		<sender>nciweb@mail.nih.gov</sender>
-		<subscribers-email>alatheef@numbersix.com</subscribers-email>
+		<subscribers-email>kparrott@numbersix.com</subscribers-email>
 		<subject>Greensheets Attachments Reconciliation Report</subject>
 		<!-- 
 		If read from this file, the message is saved in distorted form again.
