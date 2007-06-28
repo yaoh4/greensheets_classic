@@ -1,2 +1,0 @@
-set DOCDEPJARS="lib\dataretriever.jar;lib\log4j-1.2.13.jar;lib\commons-io-1.2.jar;lib\ojdbc14.jar;lib\itext-1.4.5.jar;lib\commons-configuration-1.3.jar;lib\commons-lang-2.2.jar;lib\commons-digester-1.7.jar;lib\commons-beanutils-core.jar;lib\commons-collections-3.2.jar;lib\commons-logging-1.1.jar;lib\mail.jar;lib\activation.jar;."
-java -classpath .;%DOCDEPJARS% gov.nih.nci.iscs.numsix.apps.docchecker.DocChecker %1 %2 %3 %4
