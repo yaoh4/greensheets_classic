@@ -275,28 +275,28 @@ public class GrantGreensheetProxy {
 
 			if (Status != null) {
 				if ( Status.equalsIgnoreCase("SUBMITTED")){
-					attname ="E" + this.getBudgetStartDate();
+					attname ="E" + grant.getLatestBudgetStartDate();
 					greensheetIcon = "<img src=\"images/IconLocked.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Submitted\">";
 				} else if ( Status.equalsIgnoreCase("UNSUBMITTED")){
-					attname = "C" + this.getBudgetStartDate();
+					attname = "C" + grant.getLatestBudgetStartDate();
 					greensheetIcon = "<img src=\"images/IconUnlocked.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets UnSubmitted\">";
 				} else if (Status.equalsIgnoreCase("SAVED")){
 					if (grant.isGrantOnControl()
 							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
 									.equals(GsUserRole.PGM_DIR))) {
-					attname = "B" + this.getBudgetStartDate(); } else {
-						attname = "D" + this.getBudgetStartDate();
+					attname = "B" + grant.getLatestBudgetStartDate(); } else {
+						attname = "D" + grant.getLatestBudgetStartDate();
 					}
 					greensheetIcon = "<img src=\"images/IconSaved.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Saved\">";
 				} else if (Status.equalsIgnoreCase("FROZEN")){
-					attname = "G" + this.getBudgetStartDate();
+					attname = "G" + grant.getLatestBudgetStartDate();
 					greensheetIcon = "<img src=\"images/IconFrozen.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Frozen\">";
 				} else {
 					if (grant.isGrantOnControl()
 							&& (user.getRole().equals(GsUserRole.PGM_ANL) || user.getRole()
 									.equals(GsUserRole.PGM_DIR))) {
-					attname = "A"+ this.getBudgetStartDate(); } else {
-						attname = "F" + this.getBudgetStartDate();
+					attname = "A"+ grant.getLatestBudgetStartDate(); } else {
+						attname = "F" + grant.getLatestBudgetStartDate();
 					}
 					greensheetIcon ="<img src=\"images/Spacer.gif\" width=\"15\" height=\"18\" border=\"0\" alt=\"Greensheets Not Started\">";
 				}
