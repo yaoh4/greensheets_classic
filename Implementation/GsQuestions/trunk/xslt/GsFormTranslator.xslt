@@ -448,7 +448,7 @@
                                         <xsl:with-param name="pParentQuestionNumber">
                                             <xsl:choose>
                                                 <xsl:when test="$pParentQuestionNumber = '' ">
-                                                    <xsl:value-of select="count(ancestor::QuestionDef)+1"/>
+                                                    <xsl:value-of select="position()"/>
                                                 </xsl:when>
                                                 <xsl:when test="$pParentQuestionNumber != '' ">
                                                     <xsl:value-of select="$pParentQuestionNumber"/>.<xsl:value-of select="position()"/>
@@ -678,7 +678,7 @@
         <xsl:value-of select="$varVelocityDisabledString"/>
         -->
         <xsl:text>onChange="Validate(document.GreensheetForm,this,true)" </xsl:text>
-        <xsl:text> performValidation="</xsl:text><xsl:value-of select="$paramValidation"/> <xsl:text>" valType="typeString" displayName="Comment" valMaxLength="2000" valMandatory="false"</xsl:text>
+        <xsl:text> performValidation="</xsl:text><xsl:value-of select="$paramValidation"/> <xsl:text>" valType="typeString" displayName="Comment" valMaxLength="4000" valMandatory="false"</xsl:text>
         <xsl:text disable-output-escaping="yes">&gt;</xsl:text>
         <xsl:value-of select="$varVelocityString"/>
         <xsl:text disable-output-escaping="yes">&lt;/textarea&gt; </xsl:text>
