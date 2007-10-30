@@ -774,7 +774,9 @@ public class GreensheetFormDataHelper {
 								.escapeSql(inputValue);
 
 						if (isRDComment) {
-							comment_value = escapedSqlValue;
+//							System.out.println("Comment Val " + inputValue);
+//							System.out.println("comment length " + inputValue.length() );
+							comment_value = inputValue;//escapedSqlValue;
 						}
 
 						if (isRDString) {
@@ -814,6 +816,8 @@ public class GreensheetFormDataHelper {
 							+ " values(?,?,?,?,?,?,?,?,?,?)";
 
 					pstmt = conn.prepareStatement(sqlInsert);
+					// pstmt.setEscapeProcessing(true);
+					
 					pstmt.setInt(1, fqaId);
 					pstmt.setInt(2, form.getFormId());
 					pstmt.setString(3, qrd.getQuestionDefId());
