@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<GreensheetQuestions>
+<GreensheetQuestions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\schema\GsForm.xsd">
 	<QuestionDef id="SCQ_125">
 		<GrantTypeMechs>
 			<TypeMech type="1" mech="P01"/>
