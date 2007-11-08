@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GreensheetQuestions id="PGM_NC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\NCIProjects\greensheets\Implementation\GSQuestions\trunk\schema\GsForm.xsd">
+<GreensheetQuestions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\schema\GsForm.xsd">
 	<QuestionDef id="PNCQ_1">
 		<GrantTypeMechs>
 			<TypeMech type="5" mech="R01"/>
@@ -5131,7 +5131,7 @@
 														<QInstructions/>
 														<ResponseDefsList>
 															<ResponseDef id="PNCQ_290_RD_DD_341" type="DROP_DOWN">
-																<SelectionDef id="SEL_X_51">
+																<SelectionDef id="SEL_X_91">
 																	<Value>-Select an option-</Value>
 																</SelectionDef>
 																<SelectionDef id="SEL_971">
@@ -15755,7 +15755,7 @@
 							<ResponseDef id="PNCQ_271_RD_CM_300" type="COMMENT"/>
 							<ResponseDef id="PNCQ_271_RD_FL_301" type="FILE"/>
 							<ResponseDef id="PNCQ_271_RD_DD_302" type="DROP_DOWN">
-								<SelectionDef id="SEL_951">
+								<SelectionDef id="SEL_X_51">
 									<Value>--Select an option--</Value>
 								</SelectionDef>
 								<SelectionDef id="SEL_952">
