@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="D:\NCIProjectsSVN\Greensheets\Implementation\GsQuestions\trunk\xslt\GsFormTranslator.xslt"?>
-<GreensheetQuestions id="PGM_C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\NCIProjectsSVN\Greensheets\Implementation\GsQuestions\trunk\schema\GsForm.xsd">
+<GreensheetQuestions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\schema\GsForm.xsd">
 	<QuestionDef id="PCQ_74">
 		<GrantTypeMechs>
 			<TypeMech type="3" mech="P01"/>
@@ -724,7 +723,7 @@
 											<ResponseDef id="PCQ_409_RD_CM_926" type="COMMENT"/>
 											<ResponseDef id="PCQ_409_RD_FL_927" type="FILE"/>
 											<ResponseDef id="PCQ_409_RD_DD_928" type="DROP_DOWN">
-												<SelectionDef id="SEL_618">
+												<SelectionDef id="SEL_X_42">
 													<Value>--Select an option--</Value>
 												</SelectionDef>
 												<SelectionDef id="SEL_619">
@@ -1649,7 +1648,7 @@
 											<ResponseDef id="PCQ_425_RD_CM_982" type="COMMENT"/>
 											<ResponseDef id="PCQ_425_RD_FL_983" type="FILE"/>
 											<ResponseDef id="PCQ_425_RD_DD_984" type="DROP_DOWN">
-												<SelectionDef id="SEL_X_42">
+												<SelectionDef id="SEL_X_43">
 													<Value>--Select an option--</Value>
 												</SelectionDef>
 												<SelectionDef id="SEL_645">
@@ -1732,7 +1731,7 @@
 											<ResponseDef id="PCQ_426_RD_CM_985" type="COMMENT"/>
 											<ResponseDef id="PCQ_426_RD_FL_986" type="FILE"/>
 											<ResponseDef id="PCQ_426_RD_DD_987" type="DROP_DOWN">
-												<SelectionDef id="SEL_X_43">
+												<SelectionDef id="SEL_X_44">
 													<Value>--Select an option--</Value>
 												</SelectionDef>
 												<SelectionDef id="SEL_653">
@@ -1765,7 +1764,7 @@
 															<ResponseDef id="PCQ_428_RD_CM_991" type="COMMENT"/>
 															<ResponseDef id="PCQ_428_RD_FL_992" type="FILE"/>
 															<ResponseDef id="PCQ_428_RD_DD_993" type="DROP_DOWN">
-																<SelectionDef id="SEL_X_44">
+																<SelectionDef id="SEL_X_45">
 																	<Value>--Select an option--</Value>
 																</SelectionDef>
 																<SelectionDef id="SEL_660">
@@ -38117,7 +38116,7 @@
 			<ResponseDef id="PCQ_593_RD_CM_1489" type="COMMENT"/>
 			<ResponseDef id="PCQ_593_RD_FL_1490" type="FILE"/>
 			<ResponseDef id="PCQ_593_RD_DD_1500" type="DROP_DOWN">
-				<SelectionDef id="SEL_943">
+				<SelectionDef id="SEL_X_1001">
 					<Value>--Select an option--</Value>
 				</SelectionDef>
 				<SelectionDef id="SEL_944">
