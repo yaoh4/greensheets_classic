@@ -886,6 +886,7 @@ Implementation/GsQuestions/trunk/xml/SamplDefsSNQ.xml -text
 Implementation/GsQuestions/trunk/xml/SampleDefs.xml -text
 Implementation/GsQuestions/trunk/xml/SamplesPNQ.xml -text
 Implementation/GsQuestions/trunk/xml/TEST_Questions.xml -text
+Implementation/GsQuestions/trunk/xslt/AddNewGreensheets.xslt -text
 Implementation/GsQuestions/trunk/xslt/FormToNewForm.xslt -text
 Implementation/GsQuestions/trunk/xslt/GsFormTranslator.xslt -text
 Implementation/GsQuestions/trunk/xslt/GsFormXmlTranslator.xslt -text
