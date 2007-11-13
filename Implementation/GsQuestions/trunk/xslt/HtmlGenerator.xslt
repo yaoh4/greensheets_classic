@@ -365,7 +365,7 @@
                     <table border="0" cellspacing="0" cellpadding="0">
                         <tr align="left" valign="top">
                             <td class="TitleSecondary">
-                                $!gsType Greensheet Type: <xsl:value-of select="$paramType"/> &amp; Mech: <xsl:value-of select="$paramMech"/>
+                                Greensheet Type: <xsl:value-of select="$paramType"/> &amp; Mech: <xsl:value-of select="$paramMech"/>
                             </td>
                         </tr>
                     </table>
