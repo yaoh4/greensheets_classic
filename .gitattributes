@@ -551,7 +551,6 @@ Implementation/GsDocChecker/trunk/lib/log4j-1.2.13.jar -text
 Implementation/GsDocChecker/trunk/lib/mail.jar -text
 Implementation/GsDocChecker/trunk/lib/ojdbc14.jar -text
 Implementation/GsDocChecker/trunk/logs/logsgsdocchecker_a2.log -text
-Implementation/GsDocChecker/trunk/reports/DEV/DocChecker_2007_Jun_28_02_59_38_FULL.pdf -text
 Implementation/GsDocChecker/trunk/sql/SQLs[!!-~]DocChecker.txt -text
 Implementation/GsDocChecker/trunk/src/gov/nih/nci/iscs/numsix/apps/docchecker/AppManager.java -text
 Implementation/GsDocChecker/trunk/src/gov/nih/nci/iscs/numsix/apps/docchecker/DocChecker.java -text
