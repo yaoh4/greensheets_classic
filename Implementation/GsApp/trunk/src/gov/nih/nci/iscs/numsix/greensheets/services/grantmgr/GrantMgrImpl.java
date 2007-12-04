@@ -116,7 +116,7 @@ public class GrantMgrImpl implements GrantMgr {
 				vgr.addCondition(vt);
 				
 				ValueToken vt2 = new ValueToken();
-				vt2.setColumnKey("pgmFormStatus");
+				vt2.setColumnKey("specFormStatus");
 				vt2.setValue("FROZEN");
 				vt2.setComparison(ValueToken.EQUALS);
 				vt2.setNegative(true);
@@ -130,7 +130,7 @@ public class GrantMgrImpl implements GrantMgr {
 				OrderByToken obt = new OrderByToken();
 				obt.setFieldName("budgetStartDate");
 				obt.setSortOrder("ASC");
-
+				
 				l = vgr.getGrantList();
 				logger.debug("End Specialist Grant List Query "
 						+ new Date().toString());
