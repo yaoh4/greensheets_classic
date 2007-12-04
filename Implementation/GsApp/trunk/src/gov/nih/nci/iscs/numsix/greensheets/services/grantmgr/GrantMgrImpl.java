@@ -99,60 +99,9 @@ public class GrantMgrImpl implements GrantMgr {
 			// Add the condition for Latest Budget Start Date.
 			vgr.addCondition(this.getLatestBudgetStartDateCriteria());
 
-			// Query Rules for Program users
-			if (user.getRole().equals(GsUserRole.PGM_DIR)
-					|| user.getRole().equals(GsUserRole.PGM_ANL)) {
-
-				logger.debug("Start Program Grant List Query "
+			// removed the IF block because it is redundant
+				logger.debug("Start Specialist Grant List Query "
 						+ new Date().toString());
-				setBaseProgramGrantsListTokens(user, vgr, p);
-
-				// Check if the payline was selected (paylineOnly=true/false)
-				if (paylineOnly) {
-					ValueToken vtps = new ValueToken();
-					vtps.setColumnKey("withinPaylineFlag");
-					vtps.setValue("Y");
-					vgr.addCondition(vtps);
-				}
-
-				// Check if My Porfolio was selected (myPortfolio = true)
-				if (myPortfolio && (user.getMyPortfolioIds() != null)) {
-					ListToken lt = new ListToken();
-					lt.setColumnKey("pdNpeId");
-					lt.setValue(user.getMyPortfolioIds());
-					vgr.addCondition(lt);
-				}
-
-				l = vgr.getGrantList();
-
-				// Now need to get the non-competing grants
-
-				vgr.clearConditions();
-				this.setBaseProgramGrantsListTokens(user, vgr, p);
-
-				// Add the condition for Latest Budget Start Date.
-				vgr.addCondition(this.getLatestBudgetStartDateCriteria());
-
-				LikeToken lt4 = new LikeToken();
-				lt4.setColumnKey("councilMeetingDate");
-				lt4.setValue("%00");
-				vgr.addCondition(lt4);
-
-				// Get the non-competes is My Portfolio restriction enabled
-				if (myPortfolio && (user.getMyPortfolioIds() != null)) {
-
-					ListToken lt = new ListToken();
-					lt.setColumnKey("pdNpeId");
-					lt.setValue(user.getMyPortfolioIds());
-					vgr.addCondition(lt);
-				}
-
-				List nonCompetingList = vgr.getGrantList();
-				l.addAll(nonCompetingList);
-
-				logger.debug("End Program Grant List Query "
-						+ new Date().toString());
-			} else {
 
 				ValueToken vt1 = new ValueToken();
 				vt1.setColumnKey("onControlFlag");
@@ -165,6 +114,13 @@ public class GrantMgrImpl implements GrantMgr {
 				vt.setComparison(ValueToken.EQUALS);
 				vt.setNegative(true);
 				vgr.addCondition(vt);
+				
+				ValueToken vt2 = new ValueToken();
+				vt2.setColumnKey("pgmFormStatus");
+				vt2.setValue("FROZEN");
+				vt2.setComparison(ValueToken.EQUALS);
+				vt2.setNegative(true);
+				vgr.addCondition(vt2);
 
 				LikeToken lt = new LikeToken();
 				lt.setColumnKey("allGmsUserids");
@@ -176,7 +132,9 @@ public class GrantMgrImpl implements GrantMgr {
 				obt.setSortOrder("ASC");
 
 				l = vgr.getGrantList();
-			}
+				logger.debug("End Specialist Grant List Query "
+						+ new Date().toString());
+			
 
 		} catch (GrantRetrieverException e) {
 			throw new GreensheetBaseException("error.usergrantlist", e);
@@ -297,7 +255,8 @@ public class GrantMgrImpl implements GrantMgr {
 		Map grantsMap = new HashMap();
 		List grantsList;
 		List nonCompetingGrantsList;
-		
+		logger.debug("Start Program Grant List Search Query searchForProgramUserGrantList()"
+				+ new Date().toString());
 		try {
 			// use the view data retriever factory to get a handle on an
 			// initialized view data retriever object
@@ -370,7 +329,9 @@ public class GrantMgrImpl implements GrantMgr {
 				if (nonCompetingGrantsList != null && nonCompetingGrantsList.size() > 0) {
 					grantsList.addAll(nonCompetingGrantsList);
 				}
-			}			
+			}	
+			logger.debug("End Program Grant List Search Query searchForProgramUserGrantList()"
+					+ new Date().toString());
 
 		} catch (Exception e) {
 			throw new GreensheetBaseException("error.usergrantlist", e);
@@ -402,7 +363,8 @@ public class GrantMgrImpl implements GrantMgr {
 		Map grantsMap = new HashMap();
 		List grantsList;
 		List nonCompetingGrantsList;
-		
+		logger.debug("Start Program Grant List Query getGrantsListForProgramUser()"
+				+ new Date().toString());
 		try {
 			// use the view data retriever factory to get a handle on an
 			// initialized view data retriever object
@@ -451,7 +413,9 @@ public class GrantMgrImpl implements GrantMgr {
 					grantsList.addAll(nonCompetingGrantsList);
 				}
 			}			
-
+			logger.debug("End Program Grant List Query getGrantsListForProgramUser()"
+					+ new Date().toString());
+			
 		} catch (Exception e) {
 			throw new GreensheetBaseException("error.usergrantlist", e);
 		}
