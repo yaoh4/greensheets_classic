@@ -4683,7 +4683,6 @@
 																	<QuestionDef id="PCQ_443">
 																		<GrantTypeMechs>
 																			<TypeMech type="3" mech="R25"/>
-																			<TypeMech type="3" mech="RL5"/>
 																		</GrantTypeMechs>
 																		<QText>This R25 is:</QText>
 																		<QInstructions/>
@@ -4699,7 +4698,6 @@
 																					<QuestionDef id="PCQ_444">
 																						<GrantTypeMechs>
 																							<TypeMech type="3" mech="R25"/>
-																							<TypeMech type="3" mech="RL5"/>
 																						</GrantTypeMechs>
 																						<QText>Data and safety monitoring (DSM) conducted by NCI or NCI-approved contractor? </QText>
 																						<QInstructions/>
@@ -4715,7 +4713,6 @@
 																									<QuestionDef id="PCQ_445">
 																										<GrantTypeMechs>
 																											<TypeMech type="3" mech="R25"/>
-																											<TypeMech type="3" mech="RL5"/>
 																										</GrantTypeMechs>
 																										<QText>DSM plan approved by NCI? </QText>
 																										<QInstructions/>

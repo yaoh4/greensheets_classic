@@ -10982,13 +10982,7 @@
 					<QuestionDef id="SNCQ_145">
 						<GrantTypeMechs>
 							<TypeMech type="5" mech="R01"/>
-							<TypeMech type="5" mech="SC1"/>
-							<TypeMech type="5" mech="SC2"/>
-							<TypeMech type="5" mech="RL1"/>
 							<TypeMech type="8" mech="R01"/>
-							<TypeMech type="8" mech="SC1"/>
-							<TypeMech type="8" mech="SC2"/>
-							<TypeMech type="8" mech="RL1"/>
 						</GrantTypeMechs>
 						<QText>Has this grant been recycled?</QText>
 						<QInstructions/>

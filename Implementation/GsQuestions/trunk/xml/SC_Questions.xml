@@ -27586,15 +27586,10 @@
 									<QuestionDef id="SCQ_79">
 										<GrantTypeMechs>
 											<TypeMech type="1" mech="R21"/>
-											<TypeMech type="1" mech="RL2"/>
 											<TypeMech type="3" mech="R21"/>
-											<TypeMech type="3" mech="RL2"/>
 											<TypeMech type="6" mech="R21"/>
-											<TypeMech type="6" mech="RL2"/>
 											<TypeMech type="7" mech="R21"/>
-											<TypeMech type="7" mech="RL2"/>
 											<TypeMech type="9" mech="R21"/>
-											<TypeMech type="9" mech="RL2"/>
 											<TypeMech type="1" mech="R33"/>
 											<TypeMech type="2" mech="R33"/>
 											<TypeMech type="3" mech="R33"/>
@@ -27613,15 +27608,10 @@
 													<QuestionDef id="SCQ_80">
 														<GrantTypeMechs>
 															<TypeMech type="1" mech="R21"/>
-															<TypeMech type="1" mech="RL2"/>
 															<TypeMech type="3" mech="R21"/>
-															<TypeMech type="3" mech="RL2"/>
 															<TypeMech type="6" mech="R21"/>
-															<TypeMech type="6" mech="RL2"/>
 															<TypeMech type="7" mech="R21"/>
-															<TypeMech type="7" mech="RL2"/>
 															<TypeMech type="9" mech="R21"/>
-															<TypeMech type="9" mech="RL2"/>
 															<TypeMech type="1" mech="R33"/>
 															<TypeMech type="2" mech="R33"/>
 															<TypeMech type="3" mech="R33"/>
@@ -28685,29 +28675,11 @@
 					<QuestionDef id="SCQ_246">
 						<GrantTypeMechs>
 							<TypeMech type="1" mech="R01"/>
-							<TypeMech type="1" mech="SC1"/>
-							<TypeMech type="1" mech="SC2"/>
-							<TypeMech type="1" mech="RL1"/>
 							<TypeMech type="2" mech="R01"/>
-							<TypeMech type="2" mech="SC1"/>
-							<TypeMech type="2" mech="SC2"/>
-							<TypeMech type="2" mech="RL1"/>
 							<TypeMech type="3" mech="R01"/>
-							<TypeMech type="3" mech="SC1"/>
-							<TypeMech type="3" mech="SC2"/>
-							<TypeMech type="3" mech="RL1"/>
 							<TypeMech type="6" mech="R01"/>
-							<TypeMech type="6" mech="SC1"/>
-							<TypeMech type="6" mech="SC2"/>
-							<TypeMech type="6" mech="RL1"/>
 							<TypeMech type="7" mech="R01"/>
-							<TypeMech type="7" mech="SC1"/>
-							<TypeMech type="7" mech="SC2"/>
-							<TypeMech type="7" mech="RL1"/>
 							<TypeMech type="9" mech="R01"/>
-							<TypeMech type="9" mech="SC1"/>
-							<TypeMech type="9" mech="SC2"/>
-							<TypeMech type="9" mech="RL1"/>
 						</GrantTypeMechs>
 						<QText>Has this grant been recycled?</QText>
 						<QInstructions/>
