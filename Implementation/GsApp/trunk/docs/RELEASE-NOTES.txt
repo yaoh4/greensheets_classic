@@ -1,7 +1,7 @@
 			    R E L E A S E  N O T E S
  			   
                                   GREENSHEETS
-                     	         Version 1.2.3
+                     	         Version 1.2.5
                                  
 INTRODUCTION
 ============
@@ -12,17 +12,9 @@ maintenance and code cleanup releases, with occasional new features.
 
 NEW FEATURES
 ============
-#277   Provide user a new way to sort the Grants using the Pgm GS Status Column. The order followed is 
-		* NotStarted IN Control
-		* Saved IN Control
-		* UnSubmitted
-		* Saved NOT IN Control
-		* Submitted
-		* NOT Started Not In Control
-		* Frozen
-
+#284   Edited the Code to filter out Frozen Greensheets for users of type Specialists When they Login to the Default Screen.  
 
 BUG FIXES
 =========
-We have changed the way we implement the URL's for Workbench and ImpacII application. Previously the 
-urls were set in the web.xml file. We have removed it and implemented as properties in the greensheetconfig.properties file.
+#287   Fixed the Issue where when the user includes ' in the comments of the greensheets the javascript validates it if the num of characters are less then the max value but
+when inserting into the database the java code inserts 2 ' in to the database.
