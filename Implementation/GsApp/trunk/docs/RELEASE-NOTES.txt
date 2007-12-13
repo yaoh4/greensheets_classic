@@ -9,7 +9,7 @@ This document contains Release Notes, whose purpose is to communicate the major 
 It also documents known problems and workarounds.
 
 
-NEW FEATURES
+BUG FIXES
 ============
 #284   Edited the Code to filter out Frozen Greensheets for users of type Specialist when they Login to the Default Screen.  
 
@@ -18,6 +18,7 @@ NEW FEATURES
 	characters effectively become TWO characters because they have the escape character precede them. If the length of the comment the user entered is very close to the 
 	length limit of the database column, then the added "extra" escape characters can make the string longer than the database will allow. Attempting to insert the row 
 	then results in an SQL exception and an error.
-BUG FIXES
+
+NEW FEATURES
 =========
 None Available
