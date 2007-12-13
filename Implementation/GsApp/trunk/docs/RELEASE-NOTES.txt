@@ -5,16 +5,19 @@
                                  
 INTRODUCTION
 ============
-This document contains the release notes for this version of the GREENSHEETS application
-It is primarily a intended for downstream developers with the  main emphasis on
-maintenance and code cleanup releases, with occasional new features.
+This document contains Release Notes, whose purpose is to communicate the major new features and changes in this release of the GREENSHEETS application. 
+It also documents known problems and workarounds.
 
 
 NEW FEATURES
 ============
-#284   Edited the Code to filter out Frozen Greensheets for users of type Specialists When they Login to the Default Screen.  
+#284   Edited the Code to filter out Frozen Greensheets for users of type Specialist when they Login to the Default Screen.  
 
+#287   Fixed the Issue where the problem is:- If a user enters as a part of the comment on a greensheet form any special characters that would require "escaping" them in order to make them a 
+	part of a character string to be used in a SQL INSERT statement (such as single quote/apostrophy, and many others), then, before insertion into the database, such
+	characters effectively become TWO characters because they have the escape character precede them. If the length of the comment the user entered is very close to the 
+	length limit of the database column, then the added "extra" escape characters can make the string longer than the database will allow. Attempting to insert the row 
+	then results in an SQL exception and an error.
 BUG FIXES
 =========
-#287   Fixed the Issue where when the user includes ' in the comments of the greensheets the javascript validates it if the num of characters are less then the max value but
-when inserting into the database the java code inserts 2 ' in to the database.
+None Available
