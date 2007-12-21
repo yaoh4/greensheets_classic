@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     
- <xsl:output method="xml" indent="yes"/>
+ <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
  <xsl:strip-space elements="*"/>
 <xsl:param name="paramType">3</xsl:param> 
  <xsl:param name="paramMech">R01</xsl:param>
@@ -23,10 +23,10 @@
  
  
  <xsl:template match="QuestionDef">
-  <QuestionDef>
+<!--  <QuestionDef>-->
    <xsl:apply-templates/> 
  
-  </QuestionDef>
+<!--  </QuestionDef>-->
 <!--      <xsl:value-of select="position()"/>-->
  </xsl:template>
  
