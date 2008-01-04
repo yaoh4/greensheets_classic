@@ -4,39 +4,98 @@
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 <!--	<xsl:output method="text"/>-->
 	<xsl:strip-space elements="*"/>
+	<xsl:param name="paramType">3</xsl:param> 
+	<xsl:param name="paramMech">R35</xsl:param>
 	<xsl:template match="/">
 		<GF>
 			<xsl:for-each select="/GreensheetQuestions/QuestionDef">
-				<xsl:element name="QuestionDef">
-					<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
-					<xsl:attribute name="posn"><xsl:value-of select="position()"/></xsl:attribute>
-					<xsl:attribute name="last"><xsl:value-of select="last()"/></xsl:attribute>
-					<xsl:attribute name="type"><xsl:text>GD</xsl:text></xsl:attribute>
-<!--					<xsl:call-template name="childorparent"/>-->
-					<xsl:apply-templates/>
-				</xsl:element>
+				<xsl:if test="count(descendant::QuestionDef/GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech] ) &gt; 0">
+					<xsl:element name="QuestionDef">
+							<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
+<!--							<xsl:attribute name="posn"><xsl:value-of select="position()"/></xsl:attribute>
+							<xsl:attribute name="last"><xsl:value-of select="last()"/></xsl:attribute>
+-->							<xsl:attribute name="type"><xsl:text>GD</xsl:text></xsl:attribute>
+		<!--					<xsl:call-template name="childorparent"/>-->
+							<xsl:choose>
+								<xsl:when test="GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]">
+									<xsl:attribute name="has"><xsl:text>Y</xsl:text></xsl:attribute>	
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:attribute name="has"><xsl:text>N</xsl:text></xsl:attribute>
+								</xsl:otherwise>
+							</xsl:choose>
+							<xsl:if test="count(descendant::QuestionDef/GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech] ) &gt; 0">
+								<xsl:choose>
+									<xsl:when test="GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]">
+										<xsl:attribute name="missing"><xsl:text>N</xsl:text></xsl:attribute>	
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:attribute name="missing"><xsl:text>Y</xsl:text></xsl:attribute>
+									</xsl:otherwise>
+								</xsl:choose>
+								
+							</xsl:if>
+							<xsl:apply-templates/>
+						</xsl:element>
+				</xsl:if>
 			</xsl:for-each>
 		</GF>
 	</xsl:template>
 	<xsl:template match="QuestionDef[ResponseDefsList/ResponseDef/SelectionDef/QuestionDef]">
+		<xsl:if test="count(descendant::QuestionDef/GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech] ) &gt; 0">
 		<xsl:element name="QuestionDef">
 			<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
-			<xsl:attribute name="posn"><xsl:value-of select="position()"/></xsl:attribute>
+<!--					<xsl:attribute name="posn"><xsl:value-of select="position()"/></xsl:attribute>
 			<xsl:attribute name="last"><xsl:value-of select="last()"/></xsl:attribute>
-			<xsl:attribute name="type"><xsl:text>P</xsl:text></xsl:attribute>
-<!--			<xsl:call-template name="childorparent"/>-->
+-->					<xsl:attribute name="type"><xsl:text>P</xsl:text></xsl:attribute>
+			<xsl:choose>
+				<xsl:when test="GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]">
+					<xsl:attribute name="has"><xsl:text>Y</xsl:text></xsl:attribute>	
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:attribute name="has"><xsl:text>N</xsl:text></xsl:attribute>
+				</xsl:otherwise>
+			</xsl:choose>					
+			<xsl:if test="count(descendant::QuestionDef/GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech] ) &gt; 0">
+				<xsl:choose>
+					<xsl:when test="GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]">
+						<xsl:attribute name="missing"><xsl:text>N</xsl:text></xsl:attribute>	
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:attribute name="missing"><xsl:text>Y</xsl:text></xsl:attribute>
+					</xsl:otherwise>
+				</xsl:choose>
+				
+			</xsl:if>
+<!--					<xsl:call-template name="childorparent"/>-->
+
+			
 			<xsl:apply-templates/>
 		</xsl:element>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template match="QuestionDef">
-		<xsl:element name="QuestionDef">
-			<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
-			<xsl:attribute name="posn"><xsl:value-of select="position()"/></xsl:attribute>
-			<xsl:attribute name="last"><xsl:value-of select="last()"/></xsl:attribute>
-			<xsl:attribute name="type"><xsl:text>L</xsl:text></xsl:attribute>
-			<xsl:apply-templates/>
-			<xsl:text>&#xa;&#xa;</xsl:text>
-		</xsl:element>
+		<xsl:choose>
+			<xsl:when test="GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]">
+				<xsl:element name="QuestionDef">
+					<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
+<!--					<xsl:attribute name="posn"><xsl:value-of select="position()"/></xsl:attribute>
+					<xsl:attribute name="last"><xsl:value-of select="last()"/></xsl:attribute>
+-->					<xsl:attribute name="type"><xsl:text>L</xsl:text></xsl:attribute>
+					
+					<xsl:choose>
+						<xsl:when test="GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]">
+							<xsl:attribute name="has"><xsl:text>Y</xsl:text></xsl:attribute>	
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:attribute name="has"><xsl:text>N</xsl:text></xsl:attribute>
+						</xsl:otherwise>
+					</xsl:choose>
+					<xsl:apply-templates/>
+					<xsl:text>&#xa;&#xa;</xsl:text>
+				</xsl:element>
+			</xsl:when>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template match="Value"/>
@@ -49,22 +108,19 @@
 	            </QText>
 	</xsl:template>
 	<xsl:template name="childorparent">
-		<xsl:for-each select="*">
+<!--		<xsl:for-each select="descendant::QuestionDef">
 			<xsl:choose>
-				<xsl:when test="position() != last() -1 and last() > 2">
-					<xsl:attribute name="Children"><xsl:value-of select="node()"/></xsl:attribute>
-				</xsl:when>
-				<xsl:when test="position() = last()  and last() > 1">
-					<xsl:attribute name="Children"><xsl:value-of select="@id"/></xsl:attribute>
-				</xsl:when>
-				<xsl:when test="last() =1">
-					<xsl:attribute name="Children">NC</xsl:attribute>
+				<xsl:when test="GrantTypeMechs/TypeMech[@type='3' and @mech='R01']">
+					<xsl:attribute name="hasChildren"><xsl:text>Y</xsl:text></xsl:attribute>	
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="@*"/>
+					<xsl:attribute name="hasChildren"><xsl:text>N</xsl:text></xsl:attribute>
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:text>&#xa;&#xa;</xsl:text>
-		</xsl:for-each>
+			</xsl:for-each>-->
+		<xsl:if test="count(descendant::QuestionDef/GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech] ) &gt; 0 ">
+			<xsl:attribute name="hasChildren"><xsl:text>Y</xsl:text></xsl:attribute>
+		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
