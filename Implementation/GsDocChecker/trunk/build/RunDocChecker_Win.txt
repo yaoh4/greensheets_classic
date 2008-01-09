@@ -1,9 +1,0 @@
-REM Set the DOCCHECKER_HOME env variable to point to the directiry 
-REM where you have installed the Greensheet Doc Checker.
-REM Allocate more memory via the JVM arguments below if the PDF report file grows in size ie when OutOfMemoryError occurs.
-REM -Xms 512m -Xmx1024m
-
-set DOCCHECKER_HOME=	
-set DOCDEPJARS="lib\dataretriever.jar;lib\log4j-1.2.13.jar;lib\commons-io-1.2.jar;lib\ojdbc14.jar;lib\itext-1.4.5.jar;lib\commons-configuration-1.3.jar;lib\commons-lang-2.2.jar;lib\commons-digester-1.7.jar;lib\commons-beanutils-core.jar;lib\commons-collections-3.2.jar;lib\commons-logging-1.1.jar;lib\mail.jar;lib\activation.jar"
-cd %DOCCHECKER_HOME%
-java -classpath .;%DOCDEPJARS% gov.nih.nci.iscs.numsix.apps.docchecker.DocChecker %1 %2 %3 %4
