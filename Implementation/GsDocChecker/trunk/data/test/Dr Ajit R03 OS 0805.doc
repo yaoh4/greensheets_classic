@@ -1,0 +1,6 @@
+maven.xdoc.date=left
+
+# MULTIPROJECT info
+
+# maven.multiproject.excludes=foo/project.xml,bar/project.xml
+# maven.multiproject.includes=bar/project.xml,bar/project.xml

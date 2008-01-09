@@ -1,0 +1,26 @@
+<project xmlns:j="jelly:core" xmlns:ant="jelly:ant" xmlns:artifact="artifact"
+  default="install">
+
+  <!-- ==================================================== -->
+  <!-- Master Goals-->
+  <!-- ==================================================== -->
+  <goal name="build" description="build all modules">
+    <j:set var="goal" value="build"/>
+    <attainGoal name="multiproject:goal"/>
+  </goal>  
+  
+  <goal name="install" description="install modules in repository">
+    <attainGoal name="multiproject:install"/>
+  </goal>
+  
+  <goal name="clean" description="clean all application modules">
+    <attainGoal name="multiproject:clean"/>
+  </goal>  
+  
+  <goal name="deploy" description="deploy the application">
+    <j:set var="goal" value="deploy"/>
+    <attainGoal name="multiproject:goal"/>
+  </goal>  
+
+</project>
+

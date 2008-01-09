@@ -1,0 +1,12 @@
+# DocChecker Deployment Database Properties
+#
+# The values of the properties in this file should be edited
+# as needed for the deployment environment
+#I2ETEST=a1d2_at.nci.nih.gov
+
+# Point to the oracle DB enviornment.
+oracle.environment=TEST
+oracle.url=jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = app1-cm1.nci.nih.gov)(PORT = 1610)))  (CONNECT_DATA = (SERVICE_NAME = a1d2_at.nci.nih.gov)))
+
+oracle.user=NCI_APP_USER
+oracle.password=ORAC1E
