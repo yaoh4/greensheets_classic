@@ -53,7 +53,8 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 			HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 		String forward = null;
-
+		logger.debug("execute() Begin");
+		
 		if (req.getSession().isNew() && req.getParameter("EXTERNAL") == null) {
 			forward = "actionConfirm";
 			req
@@ -62,7 +63,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 							"Your user session has time out. Please close this window and Refresh your grants list");
 
 		} else {
-
+			
 			GreensheetUserSession gus = GreensheetActionHelper
 					.getGreensheetUserSession(req);
 			GsGrant grant = this.getGrant(req);
@@ -105,12 +106,12 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 				forward = "vmid";
 			}
 		}
-
+		logger.debug("execute() End");
 		return (mapping.findForward(forward));
 	}
 
 	private GsGrant getGrant(HttpServletRequest req) throws Exception {
-
+		logger.debug("getGrant() Begin");
 		GreensheetUserSession gus = (GreensheetUserSession) req.getSession()
 				.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
 		String grantIdp = (String) req
@@ -151,12 +152,13 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 								+ grant.getFullGrantNumber());
 			}
 		}
+		logger.debug("getGrant() End");
 		return grant;
 	}
 
 	private GreensheetForm getForm(HttpServletRequest req, GsGrant grant)
 			throws Exception {
-
+		logger.debug("getForm() Begin");
 		GreensheetForm form = null;
 
 		String groupp = req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE);
@@ -188,7 +190,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 		} else {
 			throw new GreensheetBaseException("error.grouptype");
 		}
-
+		logger.debug("getForm() End");
 		return form;
 
 	}
