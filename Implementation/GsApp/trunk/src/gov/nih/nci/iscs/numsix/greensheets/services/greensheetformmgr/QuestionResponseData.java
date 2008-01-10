@@ -196,6 +196,7 @@ public class QuestionResponseData {
 	 * @return boolean
 	 */
 	public boolean hasQuestionAttachments() {
+		
 		if (this.questionAttachments.size() > 0) {
 			return true;
 		} else {
