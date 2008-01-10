@@ -122,7 +122,10 @@ public class GreensheetForm {
 	public Map getQuestionResponsDataMap() {
 		return questionResponsDataMap;
 	}
-
+	
+	public void resetQuestionResponsDataMap(){
+		this.questionResponsDataMap = new HashMap();
+	}
 	/**
 	 * Returns the status.
 	 * 
