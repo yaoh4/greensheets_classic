@@ -45,6 +45,8 @@ public class GreensheetFormDataHelper {
 
 	GreensheetForm getGreensheetFormForGrant(GsGrant grant,
 			GreensheetGroupType type) throws GreensheetBaseException {
+		
+		logger.debug("getGreensheetFormForGrant() Begin");
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -169,14 +171,15 @@ public class GreensheetFormDataHelper {
 
 			DbConnectionHelper.getInstance().freeConnection(conn);
 		}
-
+		
+		logger.debug("getGreensheetFormForGrant() End");
 		return form;
 
 	}
 
 	void saveGreensheetFormData(GreensheetForm form, GsGrant grant, GsUser user)
 			throws GreensheetBaseException {
-
+		logger.debug("saveGreensheetFormData() Begin");
 		Connection conn = null;
 		Statement stmt = null;
 		PreparedStatement pstmt = null;
@@ -256,6 +259,7 @@ public class GreensheetFormDataHelper {
 				this.saveQuestionData(form, user, grant);
 
 				form.setStatus(GreensheetStatus.SAVED);
+				//form = new GreensheetForm();
 
 			} else {
 				formId = form.getFormId();
@@ -273,6 +277,7 @@ public class GreensheetFormDataHelper {
 				pstmt.close();
 
 				this.saveQuestionData(form, user, grant);
+				
 			}
 
 		} catch (SQLException se) {
@@ -297,6 +302,7 @@ public class GreensheetFormDataHelper {
 			DbConnectionHelper.getInstance().freeConnection(conn);
 
 		}
+		logger.debug("saveGreensheetFormData() End");
 
 	}
 
@@ -356,6 +362,8 @@ public class GreensheetFormDataHelper {
 	 */
 	private void getGreensheetFormAnswers(GreensheetForm form)
 			throws GreensheetBaseException {
+		
+		logger.debug("getGreensheetFormAnswers() Begin");
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -373,7 +381,7 @@ public class GreensheetFormDataHelper {
 
 			rs = stmt.executeQuery(sql);
 
-			QuestionResponseData qrd = null;
+			QuestionResponseData qrd = new QuestionResponseData();
 
 			while (rs.next()) {
 				int fqaId = rs.getInt("id");
@@ -459,7 +467,7 @@ public class GreensheetFormDataHelper {
 							"error retreiveing form values. response def "
 									+ respDefId + " not found");
 				}
-
+				//logger.debug("QuestionResponseDataMap" + form.getQuestionResponsDataMap());
 				form.addQuestionResposeData(respDefId, qrd);
 
 			}
@@ -538,6 +546,7 @@ public class GreensheetFormDataHelper {
 			DbConnectionHelper.getInstance().freeConnection(conn);
 
 		}
+		logger.debug("getGreensheetFormAnswers() End");
 
 	}
 
@@ -672,7 +681,7 @@ public class GreensheetFormDataHelper {
 	private void saveQuestionData(GreensheetForm form, GsUser user,
 			GsGrant grant) throws GreensheetBaseException {
 
-		logger.debug("In Method GreensheetFormDataHelper:saveQuestionData().");
+		logger.debug("saveQuestionData() Begin");
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -857,9 +866,11 @@ public class GreensheetFormDataHelper {
 					count++;
 				}
 			}
-
-			logger
-					.debug(" DONE --- SAVING/DELETING THE ATTACHMENTS NOW.......");
+			
+			logger.debug(" DONE --- SAVING/DELETING THE ATTACHMENTS NOW.......");
+			logger.debug("Lets clean the QA MAP");
+			form.resetQuestionResponsDataMap();
+			
 		} catch (Exception se) {
 			if (conn != null) {
 				try {
@@ -887,6 +898,7 @@ public class GreensheetFormDataHelper {
 				DbConnectionHelper.getInstance().freeConnection(conn);
 			}
 		}
+		logger.debug("saveQuestionData() End");
 	}
 
 	private void checkForDuplicateNewForms(GreensheetForm form, GsGrant g)
