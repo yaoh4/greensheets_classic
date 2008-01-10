@@ -130,7 +130,7 @@ if(filename != ''){
   function save() {
   		document.attachmentsForm.method.value="save";
   		document.attachmentsForm.submit();
-        window.opener.setAttachmentsIcon('<%=(String)request.getAttribute("RESP_DEF_ID")%>',numAttachments);
+        window.opener.setAttachmentsIcon('<%=(String)request.getAttribute("RESP_DEF_ID")%>',<%=request.getAttribute("NUM_OF_ATTACHMENTS")%>);
   }
 </script> 
 <html xmlns="http://www.w3.org/1999/xhtml">
