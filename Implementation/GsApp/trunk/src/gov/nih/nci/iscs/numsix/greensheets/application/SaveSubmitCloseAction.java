@@ -46,7 +46,8 @@ public class SaveSubmitCloseAction extends DispatchAction {
 	 */
 	public ActionForward save(ActionMapping mapping, ActionForm aForm,
 			HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
+		
+		logger.debug("save() Begin");
 		String forward = null;
 
 		if (req.getSession().isNew()) {
@@ -87,6 +88,7 @@ public class SaveSubmitCloseAction extends DispatchAction {
 
 			forward = "retrievegreensheet";
 		}
+		logger.debug("save() End");
 		return mapping.findForward(forward);
 
 	}
@@ -103,7 +105,8 @@ public class SaveSubmitCloseAction extends DispatchAction {
 	 */
 	public ActionForward submit(ActionMapping mapping, ActionForm aForm,
 			HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
+		
+		logger.debug("submit() Begin");
 		if (req.getSession().isNew()) {
 
 			req
@@ -136,6 +139,7 @@ public class SaveSubmitCloseAction extends DispatchAction {
 
 			gus.removeGreensheetFormSession(id);
 		}
+		logger.debug("submit() End");
 		return (mapping.findForward("actionConfirm"));
 
 	}
@@ -152,7 +156,8 @@ public class SaveSubmitCloseAction extends DispatchAction {
 	 */
 	public ActionForward close(ActionMapping mapping, ActionForm aForm,
 			HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
+		
+		logger.debug("close() Begin");
 		String forward = null;
 
 		if (req.getSession().isNew()) {
@@ -172,6 +177,7 @@ public class SaveSubmitCloseAction extends DispatchAction {
 
 			forward = "closeDialog";
 		}
+		logger.debug("close() End");
 		return mapping.findForward(forward);
 
 	}
