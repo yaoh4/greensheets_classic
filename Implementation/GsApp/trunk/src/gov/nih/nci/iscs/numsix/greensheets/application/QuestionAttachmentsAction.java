@@ -203,12 +203,12 @@ public class QuestionAttachmentsAction extends DispatchAction {
 			req.setAttribute("VALID_FILE_NAMES", qap.getValidFileNames());
 			req.setAttribute("RESP_DEF_ID", respDefId);
 
-			req.setAttribute("NUM_OF_ATTACHMENTS", ""
-					+ qap.getAttachmentCount());
+			/*req.setAttribute("NUM_OF_ATTACHMENTS", ""
+					+ qap.getnewCount());*/
 			req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
 			req.setAttribute("canEdit", new Boolean(gus.getUser().isCanEdit())
 					.toString());
-
+			
 			logger.debug("Number of Attachments, Response Def ID = "
 					+ qap.getAttachmentCount() + ", " + respDefId);
 
@@ -368,6 +368,8 @@ public class QuestionAttachmentsAction extends DispatchAction {
 			logger.debug("Saving- Num of Attachments = "
 					+ qap.getAttachmentMap().size());
 			logger.debug("RespDefId = " + respDefId);
+			req.setAttribute("NUM_OF_ATTACHMENTS", ""
+					+ qap.getAttachmentMap().size());
 			gfs.updateQRDQuestionAttachments(respDefId, qap.getAttachmentMap());
 
 			gfs.removeQuestionAttachmentsProxy(respDefId);
