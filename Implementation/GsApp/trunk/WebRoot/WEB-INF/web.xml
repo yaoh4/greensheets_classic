@@ -6,7 +6,7 @@
 <web-app>
 	<context-param>
 		<param-name>appVersion</param-name>
-		<param-value>v1.2.6_TEST_00</param-value>
+		<param-value>v1.2.6_TEST00</param-value>
 	</context-param>
 	<context-param>
 		<param-name>appBuild</param-name>
