@@ -35,10 +35,10 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	 */
 	public GreensheetForm findGreensheetForGrant(GsGrant grant,
 			GreensheetGroupType type) throws GreensheetBaseException {
-
+		logger.debug("findGreensheetForGrant() Begin");
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		GreensheetForm form = dh.getGreensheetFormForGrant(grant, type);
-
+		logger.debug("findGreensheetForGrant() End.");
 		return form;
 	}
 
@@ -48,10 +48,11 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	 */
 	public void saveForm(GreensheetForm form, Map newVals, GsUser user,
 			GsGrant grant) throws GreensheetBaseException {
+		logger.debug("saveForm() Begin");
 		this.setAnswerResponseValues(form.getQuestionResponsDataMap(), newVals);
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		dh.saveGreensheetFormData(form, grant, user);
-
+		logger.debug("saveForm() End");
 	}
 
 	/**
@@ -60,10 +61,12 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	 */
 	public void submitForm(GreensheetForm form, Map newVals, GsUser user,
 			GsGrant grant) throws GreensheetBaseException {
+		logger.debug("submitForm() Begin");
 		this.setAnswerResponseValues(form.getQuestionResponsDataMap(), newVals);
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		dh.saveGreensheetFormData(form, grant, user);
 		dh.changeGreensheetFormStatus(form, GreensheetStatus.SUBMITTED, user);
+		logger.debug("submitForm() End");
 		/**
 		 * commented out the following invocation b/c combined method with above -
 		 * ghh 3/9/06 dh.setGreensheetFormSubmitter(form, user);
@@ -76,6 +79,7 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	 */
 	public void changeLock(GreensheetForm form, GsUser user)
 			throws GreensheetBaseException {
+		logger.debug("changeLock() Begin");
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		GreensheetStatus newStatus = null;
 		if (form.getStatus().equals(GreensheetStatus.SUBMITTED)) {
@@ -84,6 +88,7 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 			newStatus = GreensheetStatus.SUBMITTED;
 		}
 		dh.changeGreensheetFormStatus(form, newStatus, user);
+		logger.debug("changeLock() End");
 	}
 
 	/**
@@ -91,8 +96,10 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	 */
 	public void getQuestionAttachmentData(QuestionAttachment qa)
 			throws GreensheetBaseException {
+		logger.debug("getQuestionAttachmentData() Begin");
 		AttachmentHelper ah = new AttachmentHelper();
 		ah.getQuestionAttachmentData(qa);
+		logger.debug("getQuestionAttachmentData() End");
 	}
 
 	/**
@@ -101,8 +108,10 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	public byte[] getGreensheetFormAsPdf(GreensheetForm form, GsGrant grant,
 			String commentOption, String commentOptionSepPage,
 			String generateAllQuestions) throws GreensheetBaseException {
+		logger.debug("getGreensheetFormAsPdf() Begin");
 		GsPdfRenderer rend = new GsPdfRenderer(form, grant, commentOption,
 				commentOptionSepPage, generateAllQuestions);
+		logger.debug("getGreensheetFormAsPdf() End");
 		return rend.generatePdf();
 	}
 
@@ -115,6 +124,7 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 		// be deleted
 		// from the questionResponseDataMap of existing values. Set the
 		// selectionDefId to ""
+		logger.debug("setAnswerResponseValues() Begin");
 		Iterator qrIter = questionResponseDataMap.values().iterator();
 		while (qrIter.hasNext()) {
 			QuestionResponseData qrd = (QuestionResponseData) qrIter.next();
@@ -237,6 +247,7 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 			}
 
 		}
+		logger.debug("setAnswerResponseValues() End");
 	}
 
 }
