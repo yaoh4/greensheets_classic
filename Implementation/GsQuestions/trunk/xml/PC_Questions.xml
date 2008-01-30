@@ -10125,7 +10125,6 @@
 					<QuestionDef id="PCQ_536">
 						<GrantTypeMechs>
 							<TypeMech type="3" mech="R21"/>
-							<TypeMech type="3" mech="RL2"/>
 						</GrantTypeMechs>
 						<QText>If this application is an R21/R33, then 'Approved milestones' are: </QText>
 						<QInstructions/>
@@ -23381,17 +23380,12 @@
 													<QuestionDef id="PCQ_92">
 														<GrantTypeMechs>
 															<TypeMech type="1" mech="R25"/>
-															<TypeMech type="1" mech="RL5"/>
 															<TypeMech type="2" mech="R25"/>
-															<TypeMech type="2" mech="RL5"/>
 															<TypeMech type="3" mech="R25"/>
-															<TypeMech type="3" mech="RL5"/>
 															<TypeMech type="6" mech="R25"/>
-															<TypeMech type="6" mech="RL5"/>
 															<TypeMech type="7" mech="R25"/>
-															<TypeMech type="7" mech="RL5"/>
 															<TypeMech type="9" mech="R25"/>
-															<TypeMech type="9" mech="RL5"/>
+															
 														</GrantTypeMechs>
 														<QText>This R25 is:</QText>
 														<QInstructions/>
@@ -23407,17 +23401,12 @@
 																	<QuestionDef id="PCQ_94">
 																		<GrantTypeMechs>
 																			<TypeMech type="1" mech="R25"/>
-																			<TypeMech type="1" mech="RL5"/>
 																			<TypeMech type="2" mech="R25"/>
-																			<TypeMech type="2" mech="RL5"/>
 																			<TypeMech type="3" mech="R25"/>
-																			<TypeMech type="3" mech="RL5"/>
 																			<TypeMech type="6" mech="R25"/>
-																			<TypeMech type="6" mech="RL5"/>
 																			<TypeMech type="7" mech="R25"/>
-																			<TypeMech type="7" mech="RL5"/>
 																			<TypeMech type="9" mech="R25"/>
-																			<TypeMech type="9" mech="RL5"/>
+																			
 																		</GrantTypeMechs>
 																		<QText>Data and safety monitoring (DSM) conducted by NCI or NCI-approved contractor? </QText>
 																		<QInstructions/>
@@ -23433,17 +23422,11 @@
 																					<QuestionDef id="PCQ_95">
 																						<GrantTypeMechs>
 																							<TypeMech type="1" mech="R25"/>
-																							<TypeMech type="1" mech="RL5"/>
 																							<TypeMech type="2" mech="R25"/>
-																							<TypeMech type="2" mech="RL5"/>
 																							<TypeMech type="3" mech="R25"/>
-																							<TypeMech type="3" mech="RL5"/>
 																							<TypeMech type="6" mech="R25"/>
-																							<TypeMech type="6" mech="RL5"/>
 																							<TypeMech type="7" mech="R25"/>
-																							<TypeMech type="7" mech="RL5"/>
 																							<TypeMech type="9" mech="R25"/>
-																							<TypeMech type="9" mech="RL5"/>
 																						</GrantTypeMechs>
 																						<QText>DSM plan approved by NCI? </QText>
 																						<QInstructions/>
@@ -23476,17 +23459,11 @@
 																	<QuestionDef id="PCQ_96">
 																		<GrantTypeMechs>
 																			<TypeMech type="1" mech="R25"/>
-																			<TypeMech type="1" mech="RL5"/>
 																			<TypeMech type="2" mech="R25"/>
-																			<TypeMech type="2" mech="RL5"/>
 																			<TypeMech type="3" mech="R25"/>
-																			<TypeMech type="3" mech="RL5"/>
 																			<TypeMech type="6" mech="R25"/>
-																			<TypeMech type="6" mech="RL5"/>
 																			<TypeMech type="7" mech="R25"/>
-																			<TypeMech type="7" mech="RL5"/>
 																			<TypeMech type="9" mech="R25"/>
-																			<TypeMech type="9" mech="RL5"/>
 																		</GrantTypeMechs>
 																		<QText>Has the special institutional statement regarding human subjects research under R25T support been received?</QText>
 																		<QInstructions/>
@@ -43810,7 +43787,6 @@
 	<QuestionDef id="PCQ_78">
 		<GrantTypeMechs>
 			<TypeMech type="1" mech="R21"/>
-			<TypeMech type="1" mech="RL2"/>
 		</GrantTypeMechs>
 		<QText>If this application is an R21/R33, then 'Approved milestones' are: </QText>
 		<QInstructions/>
@@ -44555,15 +44531,10 @@
 	<QuestionDef id="PCQ_593">
 		<GrantTypeMechs>
 			<TypeMech type="1" mech="R25"/>
-			<TypeMech type="1" mech="RL5"/>
 			<TypeMech type="2" mech="R25"/>
-			<TypeMech type="2" mech="RL5"/>
 			<TypeMech type="3" mech="R25"/>
-			<TypeMech type="3" mech="RL5"/>
 			<TypeMech type="6" mech="R25"/>
-			<TypeMech type="6" mech="RL5"/>
 			<TypeMech type="9" mech="R25"/>
-			<TypeMech type="9" mech="RL5"/>
 		</GrantTypeMechs>
 		<QText>This R25 is: </QText>
 		<QInstructions/>
@@ -44582,17 +44553,11 @@
 					<QuestionDef id="PCQ_97">
 						<GrantTypeMechs>
 							<TypeMech type="1" mech="R25"/>
-							<TypeMech type="1" mech="RL5"/>
 							<TypeMech type="2" mech="R25"/>
-							<TypeMech type="2" mech="RL5"/>
 							<TypeMech type="3" mech="R25"/>
-							<TypeMech type="3" mech="RL5"/>
 							<TypeMech type="6" mech="R25"/>
-							<TypeMech type="6" mech="RL5"/>
 							<TypeMech type="7" mech="R25"/>
-							<TypeMech type="7" mech="RL5"/>
 							<TypeMech type="9" mech="R25"/>
-							<TypeMech type="9" mech="RL5"/>
 						</GrantTypeMechs>
 						<QText>Trainees are:</QText>
 						<QInstructions/>
@@ -44608,17 +44573,11 @@
 									<QuestionDef id="PCQ_592">
 										<GrantTypeMechs>
 											<TypeMech type="1" mech="R25"/>
-											<TypeMech type="1" mech="RL5"/>
 											<TypeMech type="2" mech="R25"/>
-											<TypeMech type="2" mech="RL5"/>
 											<TypeMech type="3" mech="R25"/>
-											<TypeMech type="3" mech="RL5"/>
 											<TypeMech type="6" mech="R25"/>
-											<TypeMech type="6" mech="RL5"/>
 											<TypeMech type="7" mech="R25"/>
-											<TypeMech type="7" mech="RL5"/>
 											<TypeMech type="9" mech="R25"/>
-											<TypeMech type="9" mech="RL5"/>
 										</GrantTypeMechs>
 										<QText>The documentation is:</QText>
 										<QInstructions/>
@@ -44641,17 +44600,11 @@
 									<QuestionDef id="PCQ_273">
 										<GrantTypeMechs>
 											<TypeMech type="1" mech="R25"/>
-											<TypeMech type="1" mech="RL5"/>
 											<TypeMech type="2" mech="R25"/>
-											<TypeMech type="2" mech="RL5"/>
 											<TypeMech type="3" mech="R25"/>
-											<TypeMech type="3" mech="RL5"/>
 											<TypeMech type="6" mech="R25"/>
-											<TypeMech type="6" mech="RL5"/>
 											<TypeMech type="7" mech="R25"/>
-											<TypeMech type="7" mech="RL5"/>
 											<TypeMech type="9" mech="R25"/>
-											<TypeMech type="9" mech="RL5"/>
 										</GrantTypeMechs>
 										<QText>The documentation is:</QText>
 										<QInstructions/>
@@ -44674,17 +44627,11 @@
 									<QuestionDef id="PCQ_100">
 										<GrantTypeMechs>
 											<TypeMech type="1" mech="R25"/>
-											<TypeMech type="1" mech="RL5"/>
 											<TypeMech type="2" mech="R25"/>
-											<TypeMech type="2" mech="RL5"/>
 											<TypeMech type="3" mech="R25"/>
-											<TypeMech type="3" mech="RL5"/>
 											<TypeMech type="6" mech="R25"/>
-											<TypeMech type="6" mech="RL5"/>
 											<TypeMech type="7" mech="R25"/>
-											<TypeMech type="7" mech="RL5"/>
 											<TypeMech type="9" mech="R25"/>
-											<TypeMech type="9" mech="RL5"/>
 										</GrantTypeMechs>
 										<QText>NCI approval is:</QText>
 										<QInstructions/>
