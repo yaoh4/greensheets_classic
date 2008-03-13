@@ -2,15 +2,16 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     
  <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
- <xsl:strip-space elements="*"/>
-<xsl:param name="paramType">3</xsl:param> 
- <xsl:param name="paramMech">R01</xsl:param>
+ <!--<xsl:strip-space elements="*"/>-->
+<xsl:param name="paramType">8</xsl:param> 
+ <xsl:param name="paramMech">TU2</xsl:param>
  <xsl:template match="/" >
     <xsl:apply-templates/>
      
  </xsl:template> 
  <xsl:template match="GreensheetQuestions">
   <GreensheetQuestions>
+   
    <xsl:copy-of select="node|@*"/>
    <xsl:for-each select="QuestionDef">
     <QuestionDef>
@@ -51,12 +52,12 @@
          </xsl:for-each>
         <xsl:for-each select="QuestionDef">
          
-          <xsl:if test="GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]">
+<!--          <xsl:if test="GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]">-->
            <QuestionDef>
             <xsl:copy-of select="node|@*"/>
            <xsl:apply-templates/>
            </QuestionDef>
-          </xsl:if>
+<!--          </xsl:if>-->
          
         </xsl:for-each>
     </SelectionDef>
@@ -72,9 +73,16 @@
  </xsl:template>
 
  <xsl:template match="GrantTypeMechs">
-  <GrantTypeMechs>
-  <xsl:apply-templates/> 
-  </GrantTypeMechs>
+  <xsl:element name="GrantTypeMechs">
+     <xsl:copy-of select="node()|@*"/>
+   <xsl:if test="count(../ResponseDefsList/ResponseDef/SelectionDef/QuestionDef/GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech] ) &gt; 0 and count(TypeMech[@type=$paramType and @mech=$paramMech]) = 0 ">
+         <xsl:element name="TypeMech">
+        <xsl:attribute name="type"><xsl:value-of select="$paramType"/></xsl:attribute>
+        <xsl:attribute name="mech"><xsl:value-of select="$paramMech"/></xsl:attribute>
+     </xsl:element> 
+    
+   </xsl:if>
+  </xsl:element>
  </xsl:template>
  
 <xsl:template match="QInstructions">
@@ -84,8 +92,9 @@
 </xsl:template>
  
  <xsl:template match="TypeMech">
-  <xsl:apply-templates/>
-  <xsl:choose>
+  
+  <xsl:copy-of select="node()|@*"/>
+<!--  <xsl:choose>
    <xsl:when test="@type=$paramType and @mech=$paramMech">
     <xsl:element name="TypeMech">
      <xsl:attribute name="type"><xsl:value-of select="$paramType"/></xsl:attribute>
@@ -93,7 +102,7 @@
     </xsl:element>
    </xsl:when>
    
-  </xsl:choose>
+  </xsl:choose>-->
   
  </xsl:template>
  
