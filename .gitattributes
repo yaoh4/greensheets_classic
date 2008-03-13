@@ -658,6 +658,7 @@ Implementation/GsQuestions/trunk/xslt/CleanElements.xslt -text
 Implementation/GsQuestions/trunk/xslt/Compare.xslt -text
 Implementation/GsQuestions/trunk/xslt/FormToNewForm.xslt -text
 Implementation/GsQuestions/trunk/xslt/GetMissingParentQuestions.xslt -text
+Implementation/GsQuestions/trunk/xslt/GetQuestions4WhichParentisMissing.xslt -text
 Implementation/GsQuestions/trunk/xslt/GsFormTranslator.xslt -text
 Implementation/GsQuestions/trunk/xslt/GsFormXmlTranslator.xslt -text
 Implementation/GsQuestions/trunk/xslt/HtmlGenerator.xslt -text
