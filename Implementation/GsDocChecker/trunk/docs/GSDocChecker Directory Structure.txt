@@ -1,0 +1,45 @@
+GSDocChecker
+  |
+  |------- conf
+  |            config.xml
+  |            db.properties
+  |            email_body.properties
+  |            log4j.properties
+  |------- lib
+  |            activation.jar
+  |            classes12.jar
+  |            commons-beanutils-core.jar
+  |            commons-collections-3.2.jar
+  |            commons-configuration-1.3.jar
+  |            commons-digester-1.7.jar
+  |            commons-io-1.2.jar
+  |            commons-lang-2.2.jar
+  |            commons-logging-1.1.jar
+  |            dataretriever.jar
+  |            itext-1.4.5.jar
+  |            list.txt
+  |            log4j-1.2.13.jar
+  |            mail.jar
+  |            ojdbc14.jar
+  |------- src
+  |         |____ gov
+  |                |__ nih
+  |                    |__ nci
+  |                        |__iscs
+  |                            |__ numsix
+  |                                  |__ apps
+  |                                       |__ docchecker
+  |                                       |             AppManager.java
+  |                                       |             DocChecker.java
+  |                                       |             DocCheckerConfig.java
+  |                                       |             DocCheckerFileAttrib.java
+  |                                       |             DocCheckerResults.java
+  |                                       |             EmailManager.java
+  |                                       |             FilesVerifier.java
+  |                                       |             IConstants.java
+  |                                       |__ exception    
+  |                                       |             DocCheckerException.java
+  |                                       |__ util
+  |                                       |             DbConnectionHelper.java
+  |                                       |             ReportWriter.java
+  |
