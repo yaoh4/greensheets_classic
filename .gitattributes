@@ -538,6 +538,9 @@ Implementation/GsDocChecker/trunk/data/test/subdirc/WizardStructUser.class -text
 Implementation/GsDocChecker/trunk/data/test/subdirc/ldapDebugFlags.class -text
 Implementation/GsDocChecker/trunk/data/test/subdirc/projectreconcile.xml -text
 Implementation/GsDocChecker/trunk/data/test/subdird/Testforfilecreation.txt -text
+Implementation/GsDocChecker/trunk/docs/ModelDiagrams/index.html -text
+Implementation/GsDocChecker/trunk/docs/ModelDiagrams/index.xml -text
+Implementation/GsDocChecker/trunk/docs/ModelDiagrams/overview_banner.jpg -text
 Implementation/GsDocChecker/trunk/docs/Questions.txt -text
 Implementation/GsDocChecker/trunk/lib/activation.jar -text
 Implementation/GsDocChecker/trunk/lib/classes12.jar -text
