@@ -1236,5 +1236,7 @@ Implementation/GsQuestions/trunk/xslt/GsFormTranslator.xslt -text
 Implementation/GsQuestions/trunk/xslt/GsFormXmlTranslator.xslt -text
 Implementation/GsQuestions/trunk/xslt/HtmlGenerator.xslt -text
 Implementation/GsQuestions/trunk/xslt/MergeXmlFiles.xslt -text
+Implementation/GsQuestions/trunk/xslt/Transform_newQuery.xslt -text
+Implementation/GsQuestions/trunk/xslt/Transform_oldQuery.xslt -text
 Implementation/GsQuestions/trunk/xslt/checks.xslt -text
 Implementation/GsQuestions/trunk/xslt/metrics.xslt -text
