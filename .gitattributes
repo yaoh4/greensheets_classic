@@ -1154,6 +1154,7 @@ Implementation/GsQuestions/trunk/generateGsApp/lib/xercesImpl.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/lib/xml-apis.jar -text
 Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateGS.java -text
 Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateHtmlPanel.java -text
+Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateReportsPanel.java -text
 Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateValidationPanel.java -text
 Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/GenerateVelocityPanel.java -text
 Implementation/GsQuestions/trunk/generateGsApp/src/gov/nih/nci/iscs/numsix/gsTools/gsgenerator/TemplateLoader.java -text

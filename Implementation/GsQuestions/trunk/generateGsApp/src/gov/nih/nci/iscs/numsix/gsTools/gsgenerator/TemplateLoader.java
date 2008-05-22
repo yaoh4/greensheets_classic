@@ -4,9 +4,14 @@ package gov.nih.nci.iscs.numsix.gsTools.gsgenerator;
 import java.util.*;
 import java.util.logging.Logger;
 import java.sql.*;
+
 import oracle.jdbc.*;
 import oracle.sql.*;
 import java.io.*;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
 
 public class TemplateLoader {
 
@@ -47,13 +52,14 @@ public class TemplateLoader {
         } else if (group.equals("SNC") || group.equals("SC")) {
             this.group = "SPEC";
         }
-
+        
+//        System.out.println(dbProperties);
         StringTokenizer st = new StringTokenizer(dbProperties, ",");
         url = (String) st.nextToken();
         userName = (String) st.nextToken();
         password = (String) st.nextToken();
 
-        System.out.println("filename " + fileName + "  type " + type + "  mech " + mech + "  group " + this.group);
+//        System.out.println("filename " + fileName + "  type " + type + "  mech " + mech + "  group " + this.group);
 
     }
 
@@ -211,7 +217,7 @@ public class TemplateLoader {
 
     private Connection getConnection() throws Exception {
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-        Logger.global.info(url);
+//        Logger.global.info(url);
         return DriverManager.getConnection(url, userName, password);
     }
 
@@ -280,5 +286,81 @@ public class TemplateLoader {
             closeConnection(conn);
         }
     }
+    public Document getXMLFromDB( ) throws Exception {
+		Connection conn = null;
+		ResultSet rs = null;
+		Statement stmt = null;
+		Document doc = null;
+		try {
+			conn = getConnection();
+			String sqlSelect = null;
 
+			sqlSelect = 
+                "SELECT ft.template_xml FROM form_templates_t ft,form_grant_matrix_t fg "
+                + "WHERE ft.id=fg.ftm_id AND fg.form_role_code='"
+                + group
+                + "' AND "
+                + "fg.appl_type_code='"
+                + type
+                + "' AND fg.activity_code='"
+                + mech
+                + "'";
+        ;
+//			System.out.println("Getting source from db " + sqlSelect);
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sqlSelect);
+			while (rs.next()) {
+				//int tempId = rs.getInt(1);
+				java.sql.Clob clob = (java.sql.Clob) rs.getObject(1);
+
+				if (clob == null) {
+					throw new Exception(
+							"Error finding questions source");
+				}
+
+				ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+				Reader reader = clob.getCharacterStream();
+				int i = 0;
+
+				while (i > -1) {
+					i = reader.read();
+					out.write(i);
+				}
+				reader.close();
+				String template = out.toString();
+				template = template.substring(0, template
+						.lastIndexOf("</GreensheetForm>")
+						+ "</GreensheetForm>".length());
+				template.trim();
+				out.close();
+				doc = DocumentHelper.parseText(template);
+			}
+		} catch (DocumentException de) {
+			throw new Exception("Error parsing questions source",
+					de);
+		} catch (IOException ie) {
+			throw new Exception(
+					"Error retrieving question source", ie);
+		} catch (SQLException se) {
+			throw new Exception(
+					"Error retrieving question source", se);
+
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+
+				if (stmt != null)
+					stmt.close();
+
+			} catch (SQLException se) {
+				throw new Exception("Error generating PDF", se);
+			}
+
+			closeConnection(conn);
+		}
+
+		return doc;
+	}
 }

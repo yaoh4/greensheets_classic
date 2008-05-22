@@ -46,7 +46,7 @@ public class GenerateHtmlPanel {
                 int count = 0;
                 
                 javax.xml.transform.TransformerFactory tFactory = javax.xml.transform.TransformerFactory.newInstance();
-                javax.xml.transform.Transformer transformer = tFactory.newTransformer (new javax.xml.transform.stream.StreamSource(root + "/xslt/GsFormTranslator.xslt"));
+                javax.xml.transform.Transformer transformer = tFactory.newTransformer (new javax.xml.transform.stream.StreamSource(root + "/xslt/HtmlGenerator.xslt"));
 
                 while ((line = br.readLine()) != null) {
                     String[] temp = line.split(",");
@@ -80,7 +80,7 @@ public class GenerateHtmlPanel {
 
                   javax.xml.transform.TransformerFactory tFactory = javax.xml.transform.TransformerFactory.newInstance();
 
-                  javax.xml.transform.Transformer transformer = tFactory.newTransformer (new javax.xml.transform.stream.StreamSource(root + "/xslt/GsFormTranslator.xslt"));
+                  javax.xml.transform.Transformer transformer = tFactory.newTransformer (new javax.xml.transform.stream.StreamSource(root + "/xslt/HtmlGenerator.xslt"));
                   String qType = txtType.getText();
                   String qMech = txtMech.getText();
                   transformer.setParameter("paramType", qType);

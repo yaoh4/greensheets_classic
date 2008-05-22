@@ -255,9 +255,9 @@ public class GenerateVelocityPanel {
             transformer.setParameter("paramValidation", new Boolean(validationOff).toString());
             transformer.setParameter("paramGenerateVelocityStrings", "true");
             transformer.transform(new javax.xml.transform.stream.StreamSource(questionsSrcXml),
-                    new javax.xml.transform.stream.StreamResult(new java.io.FileOutputStream(
-                            fileName)));
-
+                    new javax.xml.transform.stream.StreamResult(new java.io.FileOutputStream( fileName)));
+            
+            System.out.println("Generating Questions from " + type + " " + mech);
         	transformer = tFactory.newTransformer(new StreamSource(root + "/xslt/GsFormXmlTranslator.xslt"));
             transformer.setParameter("paramType", type);
             transformer.setParameter("paramMech", mech);
