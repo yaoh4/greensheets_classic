@@ -386,7 +386,7 @@
                     </table>
                 </td>
             </tr>
-            <xsl:apply-templates select="QuestionDef[GrantTypeMechs/TypeMech/@type=$paramType and GrantTypeMechs/TypeMech/@mech=$paramMech]">
+            <xsl:apply-templates select="QuestionDef[GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]]">
                 <xsl:with-param name="pParentQuestionNumber"/>
             </xsl:apply-templates>
         </table>
@@ -486,7 +486,7 @@
                 <xsl:attribute name="name">div_<xsl:value-of select="@id"/></xsl:attribute>
                 <xsl:attribute name="id">div_<xsl:value-of select="@id"/></xsl:attribute>
                 <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                    <xsl:apply-templates select="QuestionDef[GrantTypeMechs/TypeMech/@type=$paramType and GrantTypeMechs/TypeMech/@mech = $paramMech]">
+                    <xsl:apply-templates select="QuestionDef[GrantTypeMechs/TypeMech[@type=$paramType and @mech = $paramMech]]">
                             <xsl:with-param name="pParentQRespDef" select="$pParentQRespDef"/>
                             <xsl:with-param name="pParentQuestionNumber" select="$pParentQuestionNumber"/>
                             <xsl:with-param name="pTriggerSelDefId" select="$pTriggerSelDefId"/>
@@ -761,7 +761,7 @@
     <xsl:template name="DisplaySubQuestionIcon">
         <xsl:param name="pQuestionId"/>
         <xsl:choose>
-            <xsl:when test="ResponseDefsList/ResponseDef/SelectionDef/QuestionDef[GrantTypeMechs/TypeMech/@type=$paramType and GrantTypeMechs/TypeMech/@mech=$paramMech]">
+            <xsl:when test="ResponseDefsList/ResponseDef/SelectionDef/QuestionDef[GrantTypeMechs/TypeMech[@type=$paramType and @mech=$paramMech]]">
                 <a>
                     <xsl:attribute name="name">a_div_<xsl:value-of select="$pQuestionId"/></xsl:attribute>
                     <xsl:attribute name="id">a_div_<xsl:value-of select="$pQuestionId"/></xsl:attribute>
