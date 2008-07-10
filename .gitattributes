@@ -167,6 +167,7 @@ Implementation/GsApp/trunk/appconfig/log4j.properties -text
 Implementation/GsApp/trunk/appconfig/log4j.properties.dev -text
 Implementation/GsApp/trunk/appconfig/log4j.properties.local -text
 Implementation/GsApp/trunk/appconfig/log4j.properties.prod -text
+Implementation/GsApp/trunk/appconfig/log4j.properties.test -text
 Implementation/GsApp/trunk/appconfig/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormToFoTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormXmlTranslator.xslt -text
