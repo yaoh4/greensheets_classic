@@ -362,6 +362,14 @@ public class GsGrant {
 		} else {
 
 			// the raw data is in the form YYYYMM, switch it to MM/YYYY
+			//Abdul: GREENSHEETS-289 - Fix starts below --------
+			// The Database has 00 for a very few rows in the column of council_meeting_date
+			if (councilMeetingDate.length() < 6) {
+				// In the above case, the data is not in the expected format (YYYYMM).
+				dateString = "";
+				return dateString;
+			}
+			//Abdul: GREENSHEETS-289 - Fix ends above --------			
 			String month = councilMeetingDate.substring(4, councilMeetingDate
 					.length());
 			String year = councilMeetingDate.substring(0, 4);
