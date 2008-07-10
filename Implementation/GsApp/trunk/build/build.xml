@@ -230,6 +230,7 @@ directories.
     <!-- Deploy Local: deploy distribution files to local app server -->
     <target name="deploy" depends="build">        
         <unzip src="${distribution.dir}/${app.config.zip}" dest="${deploy.local.jrun.conf.dir}/greensheets" overwrite="true"/>            
+    	<copy file="${app.config.dir}/log4j.properties.local" tofile="${deploy.local.jrun.conf.dir}/${app.name}/log4j.properties" overwrite="true"/>
         <copy file="${distribution.dir}/${app.name.war}" tofile="${deploy.local.jrun.dir}/${app.name.war}"/>
     </target>
     
