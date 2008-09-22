@@ -302,7 +302,7 @@
         <table width="100%" cellspacing="0" class="footer">
             <tr>
                 <td class="align1">
-                    <img src="./images/LogoNCI.gif" alt="National Cancer Institute logo" />
+                    <img src="../images/LogoNCI.gif" alt="National Cancer Institute logo" />
                 </td>
             </tr>
         </table>
@@ -553,18 +553,18 @@
                         <xsl:attribute name="id">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type!='FILE' and @type!='COMMENT']/@id"/></xsl:attribute>
                         <xsl:attribute name="src"><xsl:value-of select="$varImagePath"/>images/IconError.gif</xsl:attribute>
                         <xsl:attribute name="title">Some Text</xsl:attribute>
-                    </img>					
+                    </img>                  
                 </span>
-				<span style="display:none">
+                <span style="display:none">
                     <xsl:attribute name="id">span_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type ='COMMENT']/@id"/></xsl:attribute>
                     <img border="0">
                         <xsl:attribute name="name">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type='COMMENT']/@id"/></xsl:attribute>
                         <xsl:attribute name="id">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type='COMMENT']/@id"/></xsl:attribute>
                         <xsl:attribute name="src"><xsl:value-of select="$varImagePath"/>images/IconError.gif</xsl:attribute>
                         <xsl:attribute name="title">Some Text</xsl:attribute>
-                    </img>				
+                    </img>              
                 </span>
-				
+                
                 <xsl:call-template name="DisplaySubQuestionIcon">
                     <xsl:with-param name="pQuestionId" select="$pQuestionId"/>
                 </xsl:call-template>
