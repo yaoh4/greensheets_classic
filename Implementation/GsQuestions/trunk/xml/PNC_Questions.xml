@@ -19231,6 +19231,332 @@
             <ResponseDef id="PNCQ_76_RD_FL_219" type="FILE"/>
         </ResponseDefsList>
     </QuestionDef>
+    <QuestionDef id="PNCQ_200">
+        <GrantTypeMechs>
+            <TypeMech type="5" mech="C06"/>
+            <TypeMech type="5" mech="F30"/>
+            <TypeMech type="5" mech="F31"/>
+            <TypeMech type="5" mech="F32"/>
+            <TypeMech type="5" mech="F33"/>
+            <TypeMech type="5" mech="K01"/>
+            <TypeMech type="5" mech="K04"/>
+            <TypeMech type="5" mech="K05"/>
+            <TypeMech type="5" mech="K07"/>
+            <TypeMech type="5" mech="K08"/>
+            <TypeMech type="5" mech="K11"/>
+            <TypeMech type="5" mech="K12"/>
+            <TypeMech type="5" mech="K14"/>
+            <TypeMech type="5" mech="K22"/>
+            <TypeMech type="5" mech="K23"/>
+            <TypeMech type="5" mech="K24"/>
+            <TypeMech type="5" mech="K25"/>
+            <TypeMech type="5" mech="K99"/>
+            <TypeMech type="5" mech="KL1"/>
+            <TypeMech type="5" mech="KL2"/>
+            <TypeMech type="5" mech="P01"/>
+            <TypeMech type="5" mech="P20"/>
+            <TypeMech type="5" mech="P30"/>
+            <TypeMech type="5" mech="P50"/>
+            <TypeMech type="5" mech="PL1"/>
+            <TypeMech type="5" mech="R00"/>
+            <TypeMech type="5" mech="R01"/>
+            <TypeMech type="5" mech="R03"/>
+            <TypeMech type="5" mech="R13"/>
+            <TypeMech type="5" mech="R15"/>
+            <TypeMech type="5" mech="R18"/>
+            <TypeMech type="5" mech="R21"/>
+            <TypeMech type="5" mech="R24"/>
+            <TypeMech type="5" mech="R25"/>
+            <TypeMech type="5" mech="R29"/>
+            <TypeMech type="5" mech="R33"/>
+            <TypeMech type="5" mech="R35"/>
+            <TypeMech type="5" mech="R37"/>
+            <TypeMech type="5" mech="R41"/>
+            <TypeMech type="5" mech="R42"/>
+            <TypeMech type="5" mech="R43"/>
+            <TypeMech type="5" mech="R44"/>
+            <TypeMech type="5" mech="R55"/>
+            <TypeMech type="5" mech="R56"/>
+            <TypeMech type="5" mech="RL1"/>
+            <TypeMech type="5" mech="RL2"/>
+            <TypeMech type="5" mech="RL5"/>
+            <TypeMech type="5" mech="RL9"/>
+            <TypeMech type="5" mech="S15"/>
+            <TypeMech type="5" mech="SC1"/>
+            <TypeMech type="5" mech="SC2"/>
+            <TypeMech type="5" mech="T15"/>
+            <TypeMech type="5" mech="T32"/>
+            <TypeMech type="5" mech="TL1"/>
+            <TypeMech type="5" mech="TU2"/>
+            <TypeMech type="5" mech="U01"/>
+            <TypeMech type="5" mech="U09"/>
+            <TypeMech type="5" mech="U10"/>
+            <TypeMech type="5" mech="U13"/>
+            <TypeMech type="5" mech="U19"/>
+            <TypeMech type="5" mech="U24"/>
+            <TypeMech type="5" mech="U43"/>
+            <TypeMech type="5" mech="U44"/>
+            <TypeMech type="5" mech="U54"/>
+            <TypeMech type="5" mech="U56"/>
+            <TypeMech type="5" mech="UL1"/>
+        </GrantTypeMechs>
+        <QText>Are there any publications cited in the Progress Report Summary 
+            that appear not to be in compliance with the NIH Public Access 
+            Policy?</QText>
+        <QInstructions>Answer Yes if, although the dates suggest that the 
+            publication(s) fall under the Public Access policy, none of the 
+            acceptable IDs or indications is provided (PMCID, NIHMSID, or 
+            "PMC Journal – In Process").</QInstructions>
+        <ResponseDefsList>
+            <ResponseDef id="PNCQ_200_RD_CM_01" type="COMMENT"/>
+            <ResponseDef id="PNCQ_200_RD_FL_02" type="FILE"/>
+            <ResponseDef id="PNCQ_200_RD_RB_03" type="RADIO">
+                <SelectionDef id="SEL_200_03_01">
+                    <Value>Yes</Value>
+                    <QuestionDef id="PNCQ_2000">
+                        <GrantTypeMechs>
+                            <TypeMech type="5" mech="C06"/>
+                            <TypeMech type="5" mech="F30"/>
+                            <TypeMech type="5" mech="F31"/>
+                            <TypeMech type="5" mech="F32"/>
+                            <TypeMech type="5" mech="F33"/>
+                            <TypeMech type="5" mech="K01"/>
+                            <TypeMech type="5" mech="K04"/>
+                            <TypeMech type="5" mech="K05"/>
+                            <TypeMech type="5" mech="K07"/>
+                            <TypeMech type="5" mech="K08"/>
+                            <TypeMech type="5" mech="K11"/>
+                            <TypeMech type="5" mech="K12"/>
+                            <TypeMech type="5" mech="K14"/>
+                            <TypeMech type="5" mech="K22"/>
+                            <TypeMech type="5" mech="K23"/>
+                            <TypeMech type="5" mech="K24"/>
+                            <TypeMech type="5" mech="K25"/>
+                            <TypeMech type="5" mech="K99"/>
+                            <TypeMech type="5" mech="KL1"/>
+                            <TypeMech type="5" mech="KL2"/>
+                            <TypeMech type="5" mech="P01"/>
+                            <TypeMech type="5" mech="P20"/>
+                            <TypeMech type="5" mech="P30"/>
+                            <TypeMech type="5" mech="P50"/>
+                            <TypeMech type="5" mech="PL1"/>
+                            <TypeMech type="5" mech="R00"/>
+                            <TypeMech type="5" mech="R01"/>
+                            <TypeMech type="5" mech="R03"/>
+                            <TypeMech type="5" mech="R13"/>
+                            <TypeMech type="5" mech="R15"/>
+                            <TypeMech type="5" mech="R18"/>
+                            <TypeMech type="5" mech="R21"/>
+                            <TypeMech type="5" mech="R24"/>
+                            <TypeMech type="5" mech="R25"/>
+                            <TypeMech type="5" mech="R29"/>
+                            <TypeMech type="5" mech="R33"/>
+                            <TypeMech type="5" mech="R35"/>
+                            <TypeMech type="5" mech="R37"/>
+                            <TypeMech type="5" mech="R41"/>
+                            <TypeMech type="5" mech="R42"/>
+                            <TypeMech type="5" mech="R43"/>
+                            <TypeMech type="5" mech="R44"/>
+                            <TypeMech type="5" mech="R55"/>
+                            <TypeMech type="5" mech="R56"/>
+                            <TypeMech type="5" mech="RL1"/>
+                            <TypeMech type="5" mech="RL2"/>
+                            <TypeMech type="5" mech="RL5"/>
+                            <TypeMech type="5" mech="RL9"/>
+                            <TypeMech type="5" mech="S15"/>
+                            <TypeMech type="5" mech="SC1"/>
+                            <TypeMech type="5" mech="SC2"/>
+                            <TypeMech type="5" mech="T15"/>
+                            <TypeMech type="5" mech="T32"/>
+                            <TypeMech type="5" mech="TL1"/>
+                            <TypeMech type="5" mech="TU2"/>
+                            <TypeMech type="5" mech="U01"/>
+                            <TypeMech type="5" mech="U09"/>
+                            <TypeMech type="5" mech="U10"/>
+                            <TypeMech type="5" mech="U13"/>
+                            <TypeMech type="5" mech="U19"/>
+                            <TypeMech type="5" mech="U24"/>
+                            <TypeMech type="5" mech="U43"/>
+                            <TypeMech type="5" mech="U44"/>
+                            <TypeMech type="5" mech="U54"/>
+                            <TypeMech type="5" mech="U56"/>
+                            <TypeMech type="5" mech="UL1"/>
+                        </GrantTypeMechs>
+                        <QText>Has the Public Access notification e-mail been sent to the PI and Business Official?</QText>
+                        <QInstructions/>
+                        <ResponseDefsList>
+                            <ResponseDef id="PNCQ_2000_RD_CM_01" type="COMMENT"/>
+                            <ResponseDef id="PNCQ_2000_RD_FL_02" type="FILE"/>
+                            <ResponseDef id="PNCQ_2000_RD_RB_03" type="RADIO">
+                                <SelectionDef id="SEL_2000_03_01">
+                                    <Value>Yes</Value>
+                                    <QuestionDef id="PNCQ_20001">
+                                        <GrantTypeMechs>
+                                            <TypeMech type="5" mech="C06"/>
+                                            <TypeMech type="5" mech="F30"/>
+                                            <TypeMech type="5" mech="F31"/>
+                                            <TypeMech type="5" mech="F32"/>
+                                            <TypeMech type="5" mech="F33"/>
+                                            <TypeMech type="5" mech="K01"/>
+                                            <TypeMech type="5" mech="K04"/>
+                                            <TypeMech type="5" mech="K05"/>
+                                            <TypeMech type="5" mech="K07"/>
+                                            <TypeMech type="5" mech="K08"/>
+                                            <TypeMech type="5" mech="K11"/>
+                                            <TypeMech type="5" mech="K12"/>
+                                            <TypeMech type="5" mech="K14"/>
+                                            <TypeMech type="5" mech="K22"/>
+                                            <TypeMech type="5" mech="K23"/>
+                                            <TypeMech type="5" mech="K24"/>
+                                            <TypeMech type="5" mech="K25"/>
+                                            <TypeMech type="5" mech="K99"/>
+                                            <TypeMech type="5" mech="KL1"/>
+                                            <TypeMech type="5" mech="KL2"/>
+                                            <TypeMech type="5" mech="P01"/>
+                                            <TypeMech type="5" mech="P20"/>
+                                            <TypeMech type="5" mech="P30"/>
+                                            <TypeMech type="5" mech="P50"/>
+                                            <TypeMech type="5" mech="PL1"/>
+                                            <TypeMech type="5" mech="R00"/>
+                                            <TypeMech type="5" mech="R01"/>
+                                            <TypeMech type="5" mech="R03"/>
+                                            <TypeMech type="5" mech="R13"/>
+                                            <TypeMech type="5" mech="R15"/>
+                                            <TypeMech type="5" mech="R18"/>
+                                            <TypeMech type="5" mech="R21"/>
+                                            <TypeMech type="5" mech="R24"/>
+                                            <TypeMech type="5" mech="R25"/>
+                                            <TypeMech type="5" mech="R29"/>
+                                            <TypeMech type="5" mech="R33"/>
+                                            <TypeMech type="5" mech="R35"/>
+                                            <TypeMech type="5" mech="R37"/>
+                                            <TypeMech type="5" mech="R41"/>
+                                            <TypeMech type="5" mech="R42"/>
+                                            <TypeMech type="5" mech="R43"/>
+                                            <TypeMech type="5" mech="R44"/>
+                                            <TypeMech type="5" mech="R55"/>
+                                            <TypeMech type="5" mech="R56"/>
+                                            <TypeMech type="5" mech="RL1"/>
+                                            <TypeMech type="5" mech="RL2"/>
+                                            <TypeMech type="5" mech="RL5"/>
+                                            <TypeMech type="5" mech="RL9"/>
+                                            <TypeMech type="5" mech="S15"/>
+                                            <TypeMech type="5" mech="SC1"/>
+                                            <TypeMech type="5" mech="SC2"/>
+                                            <TypeMech type="5" mech="T15"/>
+                                            <TypeMech type="5" mech="T32"/>
+                                            <TypeMech type="5" mech="TL1"/>
+                                            <TypeMech type="5" mech="TU2"/>
+                                            <TypeMech type="5" mech="U01"/>
+                                            <TypeMech type="5" mech="U09"/>
+                                            <TypeMech type="5" mech="U10"/>
+                                            <TypeMech type="5" mech="U13"/>
+                                            <TypeMech type="5" mech="U19"/>
+                                            <TypeMech type="5" mech="U24"/>
+                                            <TypeMech type="5" mech="U43"/>
+                                            <TypeMech type="5" mech="U44"/>
+                                            <TypeMech type="5" mech="U54"/>
+                                            <TypeMech type="5" mech="U56"/>
+                                            <TypeMech type="5" mech="UL1"/>
+                                        </GrantTypeMechs>
+                                        <QText>Please attach the e-mail message to the greensheet:</QText>
+                                        <QInstructions/>
+                                        <ResponseDefsList>
+                                            <ResponseDef id="PNCQ_20001_RD_CM_01" type="COMMENT"/>
+                                            <ResponseDef id="PNCQ_20001_RD_FL_02" type="FILE"/>
+                                        </ResponseDefsList>
+                                    </QuestionDef>
+                                </SelectionDef>
+                                <SelectionDef id="SEL_2000_03_02">
+                                    <Value>No</Value>
+                                    <QuestionDef id="PNCQ_20002">
+                                        <GrantTypeMechs>
+                                            <TypeMech type="5" mech="C06"/>
+                                            <TypeMech type="5" mech="F30"/>
+                                            <TypeMech type="5" mech="F31"/>
+                                            <TypeMech type="5" mech="F32"/>
+                                            <TypeMech type="5" mech="F33"/>
+                                            <TypeMech type="5" mech="K01"/>
+                                            <TypeMech type="5" mech="K04"/>
+                                            <TypeMech type="5" mech="K05"/>
+                                            <TypeMech type="5" mech="K07"/>
+                                            <TypeMech type="5" mech="K08"/>
+                                            <TypeMech type="5" mech="K11"/>
+                                            <TypeMech type="5" mech="K12"/>
+                                            <TypeMech type="5" mech="K14"/>
+                                            <TypeMech type="5" mech="K22"/>
+                                            <TypeMech type="5" mech="K23"/>
+                                            <TypeMech type="5" mech="K24"/>
+                                            <TypeMech type="5" mech="K25"/>
+                                            <TypeMech type="5" mech="K99"/>
+                                            <TypeMech type="5" mech="KL1"/>
+                                            <TypeMech type="5" mech="KL2"/>
+                                            <TypeMech type="5" mech="P01"/>
+                                            <TypeMech type="5" mech="P20"/>
+                                            <TypeMech type="5" mech="P30"/>
+                                            <TypeMech type="5" mech="P50"/>
+                                            <TypeMech type="5" mech="PL1"/>
+                                            <TypeMech type="5" mech="R00"/>
+                                            <TypeMech type="5" mech="R01"/>
+                                            <TypeMech type="5" mech="R03"/>
+                                            <TypeMech type="5" mech="R13"/>
+                                            <TypeMech type="5" mech="R15"/>
+                                            <TypeMech type="5" mech="R18"/>
+                                            <TypeMech type="5" mech="R21"/>
+                                            <TypeMech type="5" mech="R24"/>
+                                            <TypeMech type="5" mech="R25"/>
+                                            <TypeMech type="5" mech="R29"/>
+                                            <TypeMech type="5" mech="R33"/>
+                                            <TypeMech type="5" mech="R35"/>
+                                            <TypeMech type="5" mech="R37"/>
+                                            <TypeMech type="5" mech="R41"/>
+                                            <TypeMech type="5" mech="R42"/>
+                                            <TypeMech type="5" mech="R43"/>
+                                            <TypeMech type="5" mech="R44"/>
+                                            <TypeMech type="5" mech="R55"/>
+                                            <TypeMech type="5" mech="R56"/>
+                                            <TypeMech type="5" mech="RL1"/>
+                                            <TypeMech type="5" mech="RL2"/>
+                                            <TypeMech type="5" mech="RL5"/>
+                                            <TypeMech type="5" mech="RL9"/>
+                                            <TypeMech type="5" mech="S15"/>
+                                            <TypeMech type="5" mech="SC1"/>
+                                            <TypeMech type="5" mech="SC2"/>
+                                            <TypeMech type="5" mech="T15"/>
+                                            <TypeMech type="5" mech="T32"/>
+                                            <TypeMech type="5" mech="TL1"/>
+                                            <TypeMech type="5" mech="TU2"/>
+                                            <TypeMech type="5" mech="U01"/>
+                                            <TypeMech type="5" mech="U09"/>
+                                            <TypeMech type="5" mech="U10"/>
+                                            <TypeMech type="5" mech="U13"/>
+                                            <TypeMech type="5" mech="U19"/>
+                                            <TypeMech type="5" mech="U24"/>
+                                            <TypeMech type="5" mech="U43"/>
+                                            <TypeMech type="5" mech="U44"/>
+                                            <TypeMech type="5" mech="U54"/>
+                                            <TypeMech type="5" mech="U56"/>
+                                            <TypeMech type="5" mech="UL1"/>
+                                        </GrantTypeMechs>
+                                        <QText>Explanation required: </QText>
+                                        <QInstructions/>
+                                        <ResponseDefsList>
+                                            <ResponseDef id="PNCQ_20002_RD_CM_01" type="COMMENT"/>
+                                            <ResponseDef id="PNCQ_20002_RD_FL_02" type="FILE"/>
+                                            <ResponseDef id="PNCQ_20002_RD_TX_03" type="TEXT"/>
+                                        </ResponseDefsList>
+                                    </QuestionDef>
+                                </SelectionDef>
+                            </ResponseDef>
+                        </ResponseDefsList>
+                    </QuestionDef>
+                </SelectionDef>
+                <SelectionDef id="SEL_200_03_02">
+                    <Value>No</Value>
+                </SelectionDef>
+            </ResponseDef>
+        </ResponseDefsList>
+    </QuestionDef>
     <QuestionDef id="PNCQ_224">
         <GrantTypeMechs>
             <TypeMech type="5" mech="R01"/>
