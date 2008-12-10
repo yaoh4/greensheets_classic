@@ -19308,10 +19308,10 @@
             acceptable IDs or indications is provided (PMCID, NIHMSID, or 
             "PMC Journal – In Process").</QInstructions>
         <ResponseDefsList>
-            <ResponseDef id="PNCQ_200_RD_CM_01" type="COMMENT"/>
-            <ResponseDef id="PNCQ_200_RD_FL_02" type="FILE"/>
-            <ResponseDef id="PNCQ_200_RD_RB_03" type="RADIO">
-                <SelectionDef id="SEL_200_03_01">
+            <ResponseDef id="PNCQ_200_RD_CM_1" type="COMMENT"/>
+            <ResponseDef id="PNCQ_200_RD_FL_2" type="FILE"/>
+            <ResponseDef id="PNCQ_200_RD_RB_3" type="RADIO">
+                <SelectionDef id="SEL_20031">
                     <Value>Yes</Value>
                     <QuestionDef id="PNCQ_2000">
                         <GrantTypeMechs>
@@ -19385,10 +19385,10 @@
                         <QText>Has the Public Access notification e-mail been sent to the PI and Business Official?</QText>
                         <QInstructions/>
                         <ResponseDefsList>
-                            <ResponseDef id="PNCQ_2000_RD_CM_01" type="COMMENT"/>
-                            <ResponseDef id="PNCQ_2000_RD_FL_02" type="FILE"/>
-                            <ResponseDef id="PNCQ_2000_RD_RB_03" type="RADIO">
-                                <SelectionDef id="SEL_2000_03_01">
+                            <ResponseDef id="PNCQ_2000_RD_CM_1" type="COMMENT"/>
+                            <ResponseDef id="PNCQ_2000_RD_FL_2" type="FILE"/>
+                            <ResponseDef id="PNCQ_2000_RD_RB_3" type="RADIO">
+                                <SelectionDef id="SEL_200031">
                                     <Value>Yes</Value>
                                     <QuestionDef id="PNCQ_20001">
                                         <GrantTypeMechs>
@@ -19462,12 +19462,12 @@
                                         <QText>Please attach the e-mail message to the greensheet:</QText>
                                         <QInstructions/>
                                         <ResponseDefsList>
-                                            <ResponseDef id="PNCQ_20001_RD_CM_01" type="COMMENT"/>
-                                            <ResponseDef id="PNCQ_20001_RD_FL_02" type="FILE"/>
+                                            <ResponseDef id="PNCQ_20001_RD_CM_1" type="COMMENT"/>
+                                            <ResponseDef id="PNCQ_20001_RD_FL_2" type="FILE"/>
                                         </ResponseDefsList>
                                     </QuestionDef>
                                 </SelectionDef>
-                                <SelectionDef id="SEL_2000_03_02">
+                                <SelectionDef id="SEL_200032">
                                     <Value>No</Value>
                                     <QuestionDef id="PNCQ_20002">
                                         <GrantTypeMechs>
@@ -19541,9 +19541,9 @@
                                         <QText>Explanation required: </QText>
                                         <QInstructions/>
                                         <ResponseDefsList>
-                                            <ResponseDef id="PNCQ_20002_RD_CM_01" type="COMMENT"/>
-                                            <ResponseDef id="PNCQ_20002_RD_FL_02" type="FILE"/>
-                                            <ResponseDef id="PNCQ_20002_RD_TX_03" type="TEXT"/>
+                                            <ResponseDef id="PNCQ_20002_RD_CM_1" type="COMMENT"/>
+                                            <ResponseDef id="PNCQ_20002_RD_FL_2" type="FILE"/>
+                                            <ResponseDef id="PNCQ_20002_RD_TX_3" type="TEXT"/>
                                         </ResponseDefsList>
                                     </QuestionDef>
                                 </SelectionDef>
@@ -19551,7 +19551,7 @@
                         </ResponseDefsList>
                     </QuestionDef>
                 </SelectionDef>
-                <SelectionDef id="SEL_200_03_02">
+                <SelectionDef id="SEL_20032">
                     <Value>No</Value>
                 </SelectionDef>
             </ResponseDef>
