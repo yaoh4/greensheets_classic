@@ -6,6 +6,8 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr;
 
+import gov.nih.nci.iscs.numsix.greensheets.application.GreensheetUserSession;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -36,6 +38,8 @@ public class GsUser {
 
 	private boolean canEdit;
 
+	private ArrayList dmChecklistUserPermissions = new ArrayList();	// Could use a better data type.
+	
 	private static final Logger logger = Logger.getLogger(GsUser.class);
 
 	public GsUser() {
@@ -193,4 +197,44 @@ public class GsUser {
 		this.canEdit = canEdit;
 	}
 
+	public void setDmChecklistUserPermissions(GreensheetUserSession gus, DMChecklistUserPermission userPermissions) {
+		int ndx = 0;
+		
+		synchronized (gus.getUser().dmChecklistUserPermissions) {
+			// Search thru' the list by APPL_ID and GRANT_ID
+			while (ndx < this.dmChecklistUserPermissions.size()) {
+				DMChecklistUserPermission userPermissionsTmp = (DMChecklistUserPermission) this.dmChecklistUserPermissions.get(ndx);
+				String applId;
+				String fullGrantNumber;
+				applId = userPermissionsTmp.getApplId();
+				fullGrantNumber = userPermissionsTmp.getFullGrantNumber();			
+				if ((applId != null & applId.equalsIgnoreCase(userPermissions.getApplId())) && (fullGrantNumber != null && fullGrantNumber.equalsIgnoreCase(userPermissionsTmp.getFullGrantNumber()))) {
+					this.dmChecklistUserPermissions.remove(ndx);
+					break;
+				}
+				ndx++;
+			}
+			this.dmChecklistUserPermissions.add(userPermissions);			
+		}
+	}
+	
+	public DMChecklistUserPermission getDmChecklistUserPermissions(GreensheetUserSession gus, String applId, String fullGrantNumber) {
+		int ndx = 0;
+		
+		synchronized (gus.getUser().dmChecklistUserPermissions) {
+			// Search thru' the list by APPL_ID and GRANT_ID
+			while (ndx < this.dmChecklistUserPermissions.size()) {
+				DMChecklistUserPermission userPermissionsTmp = (DMChecklistUserPermission) this.dmChecklistUserPermissions.get(ndx);
+				String applIdTmp;
+				String fullGrantNumberTmp;
+				applIdTmp = userPermissionsTmp.getApplId();
+				fullGrantNumberTmp = userPermissionsTmp.getFullGrantNumber();			
+				if ((applIdTmp != null & applIdTmp.equalsIgnoreCase(applId)) && (fullGrantNumberTmp != null && fullGrantNumberTmp.equalsIgnoreCase(fullGrantNumber))) {
+					return (DMChecklistUserPermission) this.dmChecklistUserPermissions.get(ndx);
+				}
+				ndx++;
+			}		
+			return null;			
+		}
+	}
 }

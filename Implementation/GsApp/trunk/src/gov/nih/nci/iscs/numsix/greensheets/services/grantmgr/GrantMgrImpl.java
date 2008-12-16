@@ -47,6 +47,8 @@ public class GrantMgrImpl implements GrantMgr {
 
 	private static final Logger logger = Logger.getLogger(GrantMgrImpl.class);
 
+	// Abdul Latheef: The following method fails if APPL ID is null, when the user tries to find the Grant by GRANT ID, not by the APPL ID.
+	// So, use the findGrantByGrantNumber() method for this case.
 	public GsGrant findGrantById(String applId, String grantNumber)
 			throws GreensheetBaseException {
 		List l = null;
@@ -80,6 +82,30 @@ public class GrantMgrImpl implements GrantMgr {
 		return g;
 	}
 
+	public GsGrant findGrantByGrantNumber(String grantNumber)
+			throws GreensheetBaseException {
+		List grantsList = null;
+		GsGrant grant = null;
+		try {
+			ViewGrantRetrieverImpl vgr = new ViewGrantRetrieverImpl();
+			logger.debug("Using Grant Number to find Grant " + grantNumber);
+			vgr.clearConditions();
+			vgr.setView("FORM_GRANT_VW");
+			ValueToken vtGrantNum = new ValueToken();
+			vtGrantNum.setColumnKey("fullGrantNum");
+			vtGrantNum.setValue(grantNumber);
+			vgr.addCondition(vtGrantNum);
+			grantsList = vgr.getGrantList();
+
+			grant = new GsGrant();
+			grant.setFormGrant((FormGrant) grantsList.get(0));
+		} catch (GrantRetrieverException e) {
+			throw new GreensheetBaseException("Error finding Grant", e);
+		}
+
+		return grant;
+	}	
+	
 	/**
 	 * @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr#getGrantsListForUser(GsUser,
 	 *      boolean)

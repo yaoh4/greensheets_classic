@@ -13,6 +13,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.Greensheet
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.DMChecklistUserPermission;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GreensheetUserMgr;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
@@ -214,7 +215,9 @@ public class GreensheetActionHelper {
 		boolean disablePoc = false;
 		boolean disabled = true;
 		String displayTypeString = null;
-
+		boolean displayElectronicSubmissionFlag = false;
+		DMChecklistUserPermission dmChecklistUserPermissions = null;		
+		
 		setQuestionResponsesInRequest(form, req);
 
 		// Set if the greensheet questions are disabled
@@ -256,6 +259,8 @@ public class GreensheetActionHelper {
 			displayTypeString = "PROGRAM";
 		} else if (type.equals(GreensheetGroupType.SPEC)) {
 			displayTypeString = "SPECIALIST";
+		} else if (type.equals(GreensheetGroupType.DM)) {	// Abdul Latheef (for GPMATS) : Expand the check for the DM Check list 
+			displayTypeString = "DOCUMENT MANAGEMENT";
 		}
 
 		// Set the submit and save button
@@ -282,6 +287,76 @@ public class GreensheetActionHelper {
 			}
 		}
 
+		// Abdul Latheef: Display the Save, Submit buttons appropriately for the
+		// DM Check list. The user could be accessing the DM Check list
+		// externally, which is totally controlled by the request parameters, not the role
+		// information retrieved from the Database.
+//		switch (role.getValue()) {
+//			case GsUserRole.GS_GUEST_VALUE:
+				if (type.equals(GreensheetGroupType.DM)) {	// Save the URL parameters in user's session if it is DM Checklist call
+					dmChecklistUserPermissions = user.getDmChecklistUserPermissions(gus, grant.getApplId(), grant.getFullGrantNumber());
+					if (dmChecklistUserPermissions == null) {
+						dmChecklistUserPermissions = new DMChecklistUserPermission();
+						dmChecklistUserPermissions.setApplId(grant.getApplId());
+						dmChecklistUserPermissions.setFullGrantNumber(grant.getFullGrantNumber());						
+					}
+					
+					// See if the user can save the DM Check list
+					// The request parameters exist when the user invokes the DM Checklist externally.
+					// They are lost when the first HTTP request completes and the DM Checklist form/greensheet is returned after the save.
+					String editableReqParam = req.getParameter(GreensheetsKeys.KEY_EDITABLE);	
+					
+					if (editableReqParam != null) {
+						if (editableReqParam.trim().equalsIgnoreCase("Y")) {
+							if (!form.getStatus().equals(GreensheetStatus.SUBMITTED) && !form.getStatus().equals(GreensheetStatus.FROZEN)) {	// Actually, DM Checklist should not have FROZEN status.
+								displaySave = true;	
+								disabled = false;	// Because disabled is true by default
+							}							
+						}
+						if ((editableReqParam.trim().equalsIgnoreCase("Y")) || (editableReqParam.trim().equalsIgnoreCase("N"))) {
+							dmChecklistUserPermissions.setEditable(editableReqParam.trim().toUpperCase());	
+						}
+					} else {
+						if (dmChecklistUserPermissions != null) {
+							String editableSessionVar = dmChecklistUserPermissions.getEditable();
+							if ((editableSessionVar != null) && (editableSessionVar.equalsIgnoreCase("Y"))) {
+								if (!form.getStatus().equals(GreensheetStatus.SUBMITTED) && !form.getStatus().equals(GreensheetStatus.FROZEN)) {
+									displaySave = true;	
+									disabled = false;	// Because disabled is true by default
+								}
+							}	// By default, the save button is hidden and the form is frozen. Test it anyway.
+						}						
+					}
+					
+					//See if the user can submit the DM Check list
+					String submittableReqParam = req.getParameter(GreensheetsKeys.KEY_SUBMITTABLE);
+					
+					if (submittableReqParam != null) {
+						if (submittableReqParam.trim().equalsIgnoreCase("Y")) {
+							if (!form.getStatus().equals(GreensheetStatus.SUBMITTED)) {
+								displaySubmit = true;
+								disabled = false;	// Because disabled is true by default
+							}
+						}
+						if ((submittableReqParam.trim().equalsIgnoreCase("Y")) || (submittableReqParam.trim().equalsIgnoreCase("N"))) {
+							dmChecklistUserPermissions.setSubmittable(submittableReqParam.trim().toUpperCase());	
+						}							
+					} else {
+						if (dmChecklistUserPermissions != null) {
+							String submittableSessionVar = dmChecklistUserPermissions.getSubmittable();
+							if ((submittableSessionVar != null) && (submittableSessionVar.equalsIgnoreCase("Y"))) {
+								if (!form.getStatus().equals(GreensheetStatus.SUBMITTED) && !form.getStatus().equals(GreensheetStatus.FROZEN)) {
+									displaySubmit = true;	
+									disabled = false;	// Because disabled is true by default
+								}
+							} // By default, the submit button is hidden and the form is frozen. Test it anyway.
+						}						
+					}
+					user.setDmChecklistUserPermissions(gus, dmChecklistUserPermissions);
+				}					
+//				break;		
+//		}
+
 		// Set if the Point of contact is displayed
 		if (form.getGroupType().equals(GreensheetGroupType.PGM)) {
 			displayPoc = true;
@@ -294,6 +369,11 @@ public class GreensheetActionHelper {
 			displayGmsAndPdCode = true;
 		}
 
+//		Abdul Latheef (for GPMATS). Set the flag to indicate if the application was electronically submittted.
+		if (form.getGroupType().equals(GreensheetGroupType.DM)) {
+			displayElectronicSubmissionFlag = true;
+		}
+		
 		user.setCanEdit(disabled);
 
 		req.setAttribute("grantDetailUrl", grantDetailUrl);
@@ -304,7 +384,8 @@ public class GreensheetActionHelper {
 		req.setAttribute("displayGmsAndPdCode",
 				new Boolean(displayGmsAndPdCode));
 		req.setAttribute("displayPoc", new Boolean(displayPoc));
-
+		req.setAttribute("displayElectronicSubmissionFlag", new Boolean(displayElectronicSubmissionFlag));	// Abdul Latheef (for GPMATS)
+		
 		if (disablePoc) {
 
 			req.setAttribute("disablePoc", "disabled");

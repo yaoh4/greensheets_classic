@@ -13,8 +13,8 @@ import org.apache.log4j.Logger;
 
 /**
  * Represents a NCI GsGrant
- * 
- * 
+ *
+ *
  * @author kpuscas, Number Six Software
  */
 
@@ -66,6 +66,8 @@ public class GsGrant {
 
 	private static final Logger logger = Logger.getLogger(GsGrant.class);
 
+	private boolean electronicallySubmitted = false;
+
 	/**
 	 * Constructor for GsGrant.
 	 */
@@ -116,7 +118,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the backupSpecialist.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getBackupSpecialist() {
@@ -126,7 +128,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the backupSpecialistCode.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getBackupSpecialistCode() {
@@ -135,7 +137,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the orgName.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getOrgName() {
@@ -144,7 +146,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the pdName.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getPdName() {
@@ -160,7 +162,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the pi.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getPi() {
@@ -175,7 +177,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the primarySpecialist.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getPrimarySpecialist() {
@@ -191,7 +193,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the primarySpecialistCode.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getPrimarySpecialistCode() {
@@ -200,7 +202,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the applId.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getApplId() {
@@ -209,7 +211,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the fullGrantNumber.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getFullGrantNumber() {
@@ -218,7 +220,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the mech.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getMech() {
@@ -227,7 +229,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the type.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getType() {
@@ -237,7 +239,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the grantOnControl.
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public boolean isGrantOnControl() {
@@ -251,7 +253,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the pdCode.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getPdCode() {
@@ -261,7 +263,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the percentileNumber.
-	 * 
+	 *
 	 * @return float
 	 */
 	public String getPercentileNumber() {
@@ -275,7 +277,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the priorityScore.
-	 * 
+	 *
 	 * @return int
 	 */
 	public String getPriorityScore() {
@@ -288,7 +290,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the programFormStatus.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getProgramFormStatus() {
@@ -298,7 +300,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the specialistFormStatus.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getSpecialistFormStatus() {
@@ -311,7 +313,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the budgetStartDate.
-	 * 
+	 *
 	 * @return Date
 	 */
 	public java.util.Date getBudgetStartDate() {
@@ -326,7 +328,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the latestBudgetStartDate.
-	 * 
+	 *
 	 * @return Date
 	 */
 	public java.util.Date getLatestBudgetStartDate() {
@@ -341,7 +343,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the getPgmFormSubmittedDate.
-	 * 
+	 *
 	 * @return Date
 	 */
 	public java.util.Date getPgmFormSubmittedDate() {
@@ -369,7 +371,7 @@ public class GsGrant {
 				dateString = "";
 				return dateString;
 			}
-			//Abdul: GREENSHEETS-289 - Fix ends above --------			
+			//Abdul: GREENSHEETS-289 - Fix ends above --------
 			String month = councilMeetingDate.substring(4, councilMeetingDate
 					.length());
 			String year = councilMeetingDate.substring(0, 4);
@@ -386,7 +388,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the cancerActivity.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getCancerActivity() {
@@ -404,7 +406,7 @@ public class GsGrant {
 
 	/**
 	 * Returns the formGrant.
-	 * 
+	 *
 	 * @return FormGrant
 	 */
 	public FormGrant getFormGrant() {
@@ -413,7 +415,7 @@ public class GsGrant {
 
 	/**
 	 * Sets the formGrant.
-	 * 
+	 *
 	 * @param formGrant
 	 *            The formGrant to set
 	 */
@@ -421,4 +423,35 @@ public class GsGrant {
 		this.formGrant = formGrant;
 	}
 
+	/**
+	 * Added for GPMATS enhancement
+	 *
+	 * @author Abdul Latheef
+	 *
+	 * Returns <code>Yes</code> if the application was submitted
+	 *         electronically; <code>No</code> otherwise.
+	 *
+	 * @return String
+	 */
+	public String isElectronicallySubmitted() {
+		String flag = formGrant.getElectronicSubmissionFlag();
+		if ((flag != null) && (flag.equalsIgnoreCase("Y"))) {
+			return "Yes";
+		} else {
+			return "No";
+		}
+	}
+
+	/**
+	 * Added for GPMATS enhancement
+	 *
+	 * @author Abdul Latheef
+	 *
+	 * Returns the DM Checklist Status.
+	 *
+	 * @return String
+	 */
+	public String getDmFormStatus() {
+		return formGrant.getDmFormStatus();
+	}
 }

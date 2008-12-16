@@ -11,7 +11,7 @@ import org.apache.commons.lang.enums.ValuedEnum;
 /**
  * Enumeration of Greensheet Group Types. These represent the Program (PGM)
  * Specialist(SPEC), and RMC (RMC) groups that are the ones who workup the forms
- * 
+ *
  * @author kpuscas, Number Six Software
  */
 public class GreensheetGroupType extends ValuedEnum {
@@ -22,6 +22,10 @@ public class GreensheetGroupType extends ValuedEnum {
 
 	public static final int RMC_VALUE = 3;
 
+	public static final int DM_VALUE = 3; 	// Abdul Latheef (for GPMATS enhancements):
+											// Added fourth type for the DM Checklist. Do not
+											// disturb the RMC_VALUE class data & related code.
+
 	public static final GreensheetGroupType PGM = new GreensheetGroupType(
 			"PGM", PGM_VALUE);
 
@@ -31,9 +35,14 @@ public class GreensheetGroupType extends ValuedEnum {
 	public static final GreensheetGroupType RMC = new GreensheetGroupType(
 			"RMC", RMC_VALUE);
 
+	// Abdul Latheef (for GPMATS enhancements):Added fourth type for the DM Checklist.
+	// Do not disturb the RMC_VALUE class data & related code.
+	public static final GreensheetGroupType DM = new GreensheetGroupType("DM",
+			DM_VALUE);
+
 	/**
 	 * Constructor for GreensheetGroupType.
-	 * 
+	 *
 	 * @param name
 	 * @param value
 	 */
@@ -48,9 +57,10 @@ public class GreensheetGroupType extends ValuedEnum {
 			return SPEC;
 		} else if (val.equalsIgnoreCase(RMC.getName())) {
 			return RMC;
+		} else if (val.equalsIgnoreCase(DM.getName())) {
+			return DM;
 		} else {
 			return null;
 		}
 	}
-
 }

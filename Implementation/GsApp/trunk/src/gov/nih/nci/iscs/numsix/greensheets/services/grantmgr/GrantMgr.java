@@ -23,7 +23,8 @@ public interface GrantMgr {
 
 	public GsGrant findGrantById(String applId, String grantNumber)
 			throws GreensheetBaseException;
-
+	public GsGrant findGrantByGrantNumber(String grantNumber) throws GreensheetBaseException;
+	
 	/**
 	 * Method getGrantsListForUser.
 	 * 

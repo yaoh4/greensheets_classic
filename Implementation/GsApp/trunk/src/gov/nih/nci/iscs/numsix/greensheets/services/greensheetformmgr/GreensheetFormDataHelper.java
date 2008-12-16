@@ -45,7 +45,7 @@ public class GreensheetFormDataHelper {
 
 	GreensheetForm getGreensheetFormForGrant(GsGrant grant,
 			GreensheetGroupType type) throws GreensheetBaseException {
-		
+
 		logger.debug("getGreensheetFormForGrant() Begin");
 		Connection conn = null;
 		Statement stmt = null;
@@ -64,10 +64,10 @@ public class GreensheetFormDataHelper {
 
 			if (type.equals(GreensheetGroupType.SPEC)) {
 				form_role_code = "SPEC";
-
 			} else if (type.equals(GreensheetGroupType.PGM)) {
 				form_role_code = "PGM";
-
+			} else if (type.equals(GreensheetGroupType.DM)) {	//Abdul Latheef: Added the condition for GPMATS
+				form_role_code = "DM";
 			}
 
 			int templateId = 0;
@@ -171,7 +171,7 @@ public class GreensheetFormDataHelper {
 
 			DbConnectionHelper.getInstance().freeConnection(conn);
 		}
-		
+
 		logger.debug("getGreensheetFormForGrant() End");
 		return form;
 
@@ -239,7 +239,7 @@ public class GreensheetFormDataHelper {
 					pstmt.setInt(1, afrId);
 					pstmt.setInt(2, formId);
 					pstmt.setString(3, grant.getFullGrantNumber());
-
+					logger.debug("grant.isDummyGrant() returns true." + "Full grant number passed to the SQL=" + grant.getFullGrantNumber()); // Abdul Latheef: For GPMATS
 				} else {
 
 					applSql = "insert into appl_forms_t (id,frm_id,appl_id) values (?,?,?)";
@@ -248,7 +248,7 @@ public class GreensheetFormDataHelper {
 					pstmt.setInt(1, afrId);
 					pstmt.setInt(2, formId);
 					pstmt.setString(3, grant.getApplId());
-
+					logger.debug("grant.isDummyGrant() returns false." + "APPL ID passed to the SQL=" + grant.getApplId()); // Abdul Latheef: For GPMATS
 				}
 
 				logger.debug("applSql " + applSql);
@@ -267,7 +267,18 @@ public class GreensheetFormDataHelper {
 				String formSql = "update forms_t set form_status = ?, ftm_id= ?, poc=? where id=?";
 
 				pstmt = conn.prepareStatement(formSql);
-				pstmt.setString(1, form.getStatusAsString());
+				// Abdul Latheef: For GPMATS enhancements
+				// When the user saves the DM Checklist when the form is in UNSUBMITTED state, put it in SAVED status.
+				// Restrict the change only to DM Checklist as PGM, SPEC greensheet users do not have such issue. 
+				// Note: Use caution. Though changeGreensheetFormStatus() appears to be generic, its code is used for form SUBMISSION only.
+				if (form.getGroupType().equals(GreensheetGroupType.DM)) {
+					logger.debug("Putting the DM Checklist in " + GreensheetStatus.SAVED.getName() + " status.");
+					pstmt.setString(1, GreensheetStatus.SAVED.getName());
+					form.setStatus(GreensheetStatus.SAVED);	// Is this necessary? The form will anyway be re-read from the DB?
+					logger.debug("Changing the status of the in-memory DM Checklist also to " + GreensheetStatus.SAVED.getName() + " status.");
+				} else {
+					pstmt.setString(1, form.getStatusAsString());
+				}
 				pstmt.setInt(2, form.getTemplateId());
 				pstmt.setString(3, StringEscapeUtils.escapeSql(form.getPOC()));
 				pstmt.setInt(4, formId);
@@ -277,7 +288,6 @@ public class GreensheetFormDataHelper {
 				pstmt.close();
 
 				this.saveQuestionData(form, user, grant);
-				
 			}
 
 		} catch (SQLException se) {
@@ -353,16 +363,15 @@ public class GreensheetFormDataHelper {
 	 * pstmt.executeUpdate();
 	 *  } catch (SQLException se) { throw new GreensheetBaseException("Problem
 	 * changing Greensheet Status"); } finally { try {
-	 * 
+	 *
 	 * if (pstmt != null) pstmt.close();
 	 *  } catch (SQLException se) { throw new
 	 * GreensheetBaseException("error.greensheetform", se); }
-	 * 
+	 *
 	 * DbConnectionHelper.getInstance().freeConnection(conn); } }
 	 */
 	private void getGreensheetFormAnswers(GreensheetForm form)
 			throws GreensheetBaseException {
-		
 		logger.debug("getGreensheetFormAnswers() Begin");
 		Connection conn = null;
 		Statement stmt = null;
@@ -826,7 +835,7 @@ public class GreensheetFormDataHelper {
 
 					pstmt = conn.prepareStatement(sqlInsert);
 					// pstmt.setEscapeProcessing(true);
-					
+
 					pstmt.setInt(1, fqaId);
 					pstmt.setInt(2, form.getFormId());
 					pstmt.setString(3, qrd.getQuestionDefId());
@@ -866,11 +875,10 @@ public class GreensheetFormDataHelper {
 					count++;
 				}
 			}
-			
+
 			logger.debug(" DONE --- SAVING/DELETING THE ATTACHMENTS NOW.......");
 			logger.debug("Lets clean the QA MAP");
 			form.resetQuestionResponsDataMap();
-			
 		} catch (Exception se) {
 			if (conn != null) {
 				try {

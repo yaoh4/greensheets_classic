@@ -29,6 +29,11 @@ public class GrantMgrTestImpl implements GrantMgr {
 		return null;
 	}
 
+	public GsGrant findGrantByGrantNumber(String grantNumber)
+			throws GreensheetBaseException {
+		return null;
+	}	
+	
 	/**
 	 * @see gov.nih.nci.iscs.numsix.greensheets.services.grantmgr.GrantMgr#getGrantsListForUser(GsUser,
 	 *      boolean)

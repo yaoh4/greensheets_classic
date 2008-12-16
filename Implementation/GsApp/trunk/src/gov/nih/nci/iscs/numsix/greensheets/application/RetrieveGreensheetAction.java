@@ -136,20 +136,25 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 			if (g == null) {
 				GrantMgr grantMgr = GreensheetMgrFactory
 						.createGrantMgr(GreensheetMgrFactory.PROD);
-				if (applId != null) {
+				
+				// Abdul Latheef (For GPMATS): Retrtieve the grant by the APPL ID
+				// Anyway, findGrantById() tries to find the Grant by APPL ID first.
+				if ((applId != null) && !(applId.trim().equalsIgnoreCase(""))) {
 					grant = grantMgr.findGrantById(applId, grantId);
-					gus.addGrant(grant);
+				}	
+
+				// Retrtieve the grant by the GRANT ID
+				if (grant == null && grantId != null && !grantId.trim().equalsIgnoreCase("")) {
+					grant = grantMgr.findGrantByGrantNumber(grantId);
 				}
-
-				logger.debug("Grant not in user list. Get new one "
-						+ grant.getFullGrantNumber());
-
+			
+				if (grant != null) {
+					gus.addGrant(grant);
+					logger.debug("Grant not in user list. Got new one " + grant.getFullGrantNumber());					
+				}
 			} else {
 				grant = g;
-
-				logger
-						.debug("Grant in user list "
-								+ grant.getFullGrantNumber());
+				logger.debug("Grant in user list " + grant.getFullGrantNumber());
 			}
 		}
 		logger.debug("getGrant() End");
@@ -186,7 +191,9 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 
 		} else if (group.equalsIgnoreCase(GreensheetGroupType.RMC.getName())) {
 			form = mgr.findGreensheetForGrant(grant, GreensheetGroupType.RMC);
-
+		// Abdul Latheef (for GPMATS enhancements)
+		} else if (group.equalsIgnoreCase(GreensheetGroupType.DM.getName())) {
+			form = mgr.findGreensheetForGrant(grant, GreensheetGroupType.DM);			
 		} else {
 			throw new GreensheetBaseException("error.grouptype");
 		}
