@@ -21,6 +21,10 @@ public final class GreensheetsKeys {
 	public static final String KEY_USER_ID = "USER_ID";
 
 	public static final String KEY_GS_GROUP_TYPE = "GS_GROUP_TYPE";
+	
+	public static final String KEY_EDITABLE = "EDITABLE";	// Abdul Latheef: Request param to get the Editable flag from the GPMATS application
+
+	public static final String KEY_SUBMITTABLE = "SUBMITTABLE";	// Abdul Latheef: Request param to get the Editable flag from the GPMATS application
 
 	// Test user parameter to bypass apache
 	public static final String KEY_TEST_USER = "TEST_USER";
