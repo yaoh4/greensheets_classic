@@ -51,6 +51,8 @@ public class TemplateLoader {
             this.group = "PGM";
         } else if (group.equals("SNC") || group.equals("SC")) {
             this.group = "SPEC";
+        } else if (group.equals("DC") || group.equals("DNC")) {
+            this.group = "DM";
         }
         
 //        System.out.println(dbProperties);
@@ -59,7 +61,7 @@ public class TemplateLoader {
         userName = (String) st.nextToken();
         password = (String) st.nextToken();
 
-//        System.out.println("filename " + fileName + "  type " + type + "  mech " + mech + "  group " + this.group);
+        System.out.println("filename " + fileName + "  type " + type + "  mech " + mech + "  group " + this.group);	// Abdul Latheef: Uncommented for debugging
 
     }
 
@@ -116,13 +118,14 @@ public class TemplateLoader {
                 "INSERT INTO FORM_GRANT_MATRIX_T "
                     + "(FTM_ID,FORM_ROLE_CODE,APPL_TYPE_CODE,MAJOR_ACTIVITY_CODE,ACTIVITY_CODE)"
                     + "VALUES(?,?,?,?,?)";
-
+            String whatIsMajorActivityCode = mech.substring(0, 1); System.out.println("MajorActivityCode=" + whatIsMajorActivityCode);
             OraclePreparedStatement ops = (OraclePreparedStatement) conn.prepareStatement(insertSql2);
             ops.setString(1, id);
             ops.setString(2, group);
             ops.setString(3, type);
             ops.setString(4, mech.substring(0, 1));
             ops.setString(5, mech);
+       
             ops.executeUpdate();
 
             conn.commit();

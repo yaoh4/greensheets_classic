@@ -65,7 +65,7 @@ public class GenerateVelocityPanel {
 
         });
 
-        
+
         targetDatabaseList.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 JComboBox cb = (JComboBox)e.getSource();
@@ -80,13 +80,13 @@ public class GenerateVelocityPanel {
                     rbLoadClob.setEnabled(false);
                     rbLoadAll.setEnabled(false);
                     cbxReplace.setEnabled(false);
-                    cbxValidationOn.setEnabled(false);                   
-                    
+                    cbxValidationOn.setEnabled(false);
+
                 }
-            
+
             }
         } );
-        
+
         btnGenenerate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -127,7 +127,7 @@ public class GenerateVelocityPanel {
                                 questSrc, cbxValidationOn.isSelected());
                     }else{
                         generateTemplates(type, mech, questionsSrcXml, dbProperties, false, false,
-                                questSrc, cbxValidationOn.isSelected());                       
+                                questSrc, cbxValidationOn.isSelected());
                     }
 
                 } catch (Exception ex) {
@@ -155,7 +155,7 @@ public class GenerateVelocityPanel {
         dbOptPanRight.add(cbxValidationOn);
         dbOptPanRight.add(cbxReplace);
 
-       
+
         dbOptionsPanel.add(dpOptPanLeft,BorderLayout.WEST);
         dbOptionsPanel.add(dbOptPanRight,BorderLayout.EAST);
 
@@ -197,7 +197,7 @@ public class GenerateVelocityPanel {
         String root = System.getProperty("user.dir");
 
         System.out.println("User.Dir " + root);
-        
+
         String fileName = root + "/vm/" + selected + "_" + type + "_" + mech + ".vm";
         String qSrcFileName = root + "/vm/" + selected + "_" + type + "_" + mech + "_qSrc.xml";
 
@@ -256,30 +256,23 @@ public class GenerateVelocityPanel {
             transformer.setParameter("paramGenerateVelocityStrings", "true");
             transformer.transform(new javax.xml.transform.stream.StreamSource(questionsSrcXml),
                     new javax.xml.transform.stream.StreamResult(new java.io.FileOutputStream( fileName)));
-            
+
             System.out.println("Generating Questions from " + type + " " + mech);
         	transformer = tFactory.newTransformer(new StreamSource(root + "/xslt/GsFormXmlTranslator.xslt"));
             transformer.setParameter("paramType", type);
             transformer.setParameter("paramMech", mech);
             transformer.transform(new javax.xml.transform.stream.StreamSource(questionsSrcXml),
                     new javax.xml.transform.stream.StreamResult(new java.io.FileOutputStream(
-                    		qSrcFileName)));             
-            
-            if (loadClob) {
-            	            	
-                TemplateLoader tl = new TemplateLoader(fileName, qSrcFileName, type, mech, selected, p
-                        .getProperty(dbProperties));
+                    		qSrcFileName)));
 
+            if (loadClob) {
+                TemplateLoader tl = new TemplateLoader(fileName, qSrcFileName, type, mech, selected, p.getProperty(dbProperties));
                 if (replace) {
                     tl.replaceTemplate();
-
                 } else {
                     tl.loadNewTemplate();
                 }
             }
-
         }
-
     }
-
 }

@@ -36,6 +36,7 @@ public class GenerateReportsPanel {
 	final static Properties p = new Properties();
 	
 	final static String root = System.getProperty("user.dir");
+//	final static String root = System.getProperty("propRoot");	// Abdul Latheef
 
     public GenerateReportsPanel() {
 
@@ -43,7 +44,8 @@ public class GenerateReportsPanel {
 
     public static Component createValidationPanel(final Map srcMap) {
     	try {
-            p.load(new FileInputStream("gengsapp.properties"));
+//            p.load(new FileInputStream("gengsapp.properties"));
+    		p.load(new FileInputStream(root + "/" + "gengsapp.properties")); // GPMATS
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -101,6 +103,7 @@ public class GenerateReportsPanel {
         System.out.println("\nFinished the Task.");
     }
     static void createReportOfQuestionsDisplayed()throws Exception {
+//    	System.out.println("root =" + root);	// GPMATS
     	String pcqFileName = root + "/qlPC.txt";
         String pncqFileName = root + "/qlPNC.txt";
         String scqFileName = root + "/qlSC.txt";

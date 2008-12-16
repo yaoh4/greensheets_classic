@@ -10,27 +10,23 @@ import java.util.*;
 
 
 public class GenerateHtmlPanel {
-
-
     public GenerateHtmlPanel(){
     }
 
     public static Component createHtmlPanel(final Map srcMap) {
 
         final String root = System.getProperty("user.dir");
-
+//        System.out.println("root=" + System.getProperty("user.dir"));	// GPMATS
         final JComboBox questionSrcList = new JComboBox(srcMap.keySet().toArray());
-
+        
         final JTextField txtType = new JTextField(4);
         final JTextField txtMech = new JTextField(4);
-
 
         JButton btnClose = new JButton("Close");
         btnClose.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
               System.exit(0);
             }
-
         });
 
         JButton button = new JButton("Generate Html");
@@ -66,14 +62,13 @@ public class GenerateHtmlPanel {
             }
             
             public void actionPerformed(ActionEvent e) {
-
                 try{
                   //System.out.println(srcMap.get(questionSrcList.getSelectedItem()));
                   System.out.println(txtType.getText());
                   System.out.println(txtMech.getText());
 
                   String selected = (String) srcMap.get(questionSrcList.getSelectedItem());
-
+//                  System.out.println("root=" + System.getProperty("user.dir"));	// GPMATS
                   String fileName = root + "/html/" + selected + "_" + txtType.getText() + "_" + txtMech.getText() +".html";
 
                   String questionsSrcXml = root + "/xml/" + selected + "_Questions.xml";
@@ -92,25 +87,28 @@ public class GenerateHtmlPanel {
                       String pncqFileName = root + "/qlPNC.txt";
                       String scqFileName = root + "/qlSC.txt";
                       String sncqFileName = root + "/qlSNC.txt";
+                      String dcqFileName = root + "/qlDC.txt";
+                      String dncqFileName = root + "/qlDNC.txt";
                       
                       System.out.println("Generating all HTML Files....START");
                       this.generateHtmlFiles(root, "PC", pcqFileName); 
                       this.generateHtmlFiles(root, "PNC", pncqFileName); 
                       this.generateHtmlFiles(root, "SC", scqFileName); 
                       this.generateHtmlFiles(root, "SNC", sncqFileName); 
+                      this.generateHtmlFiles(root, "DC", dcqFileName); 
+                      this.generateHtmlFiles(root, "DNC", dncqFileName);                      
                       System.out.println("Generation of HTML files -- END");
                   }
                   else {
                       transformer.transform(new javax.xml.transform.stream.StreamSource(questionsSrcXml),new javax.xml.transform.stream.StreamResult(
                                         new java.io.FileOutputStream(fileName)));
                   }
-
                 }catch(Exception ex){
                   ex.printStackTrace();
                 }
-
               }
-        });
+            }
+        );
 
         JPanel container = new JPanel();
 
@@ -136,11 +134,4 @@ public class GenerateHtmlPanel {
 
         return container;
     }
-
-
-   
-
-
-
-
 }
