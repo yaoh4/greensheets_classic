@@ -237,6 +237,24 @@
     <xsl:if test="$paramGenerateVelocityStrings = 'true' ">
         <xsl:text>#end</xsl:text>
     </xsl:if>
+    
+    <!-- For GPMATS enhancements: Display the flag that indicates if the application was submitted electronically. Code starts below -->
+    <xsl:if test="$paramGenerateVelocityStrings = 'true' ">
+        <xsl:text>#if($displayElectronicSubmissionFlag)</xsl:text>
+    </xsl:if>
+    <tr>
+        <td width="50%"><strong>Electronically submitted?</strong> $!CURRENT_USER_SESSION.getFormSessionGrant($!FORM_UID).isElectronicallySubmitted()</td>
+        <td>
+            <xsl:call-template name="InsertTab"/>
+        </td>
+        <td width="50%">
+            <xsl:call-template name="InsertTab"/>
+        </td>
+    </tr>
+    <xsl:if test="$paramGenerateVelocityStrings = 'true' ">
+        <xsl:text>#end</xsl:text>
+    </xsl:if>       
+    <!-- For GPMATS enhancements: Display the flag that indicates if the application was submitted electronically. Code ends above -->
 </table>
 </form>
 </xsl:template>
@@ -568,18 +586,18 @@
                         <xsl:attribute name="id">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type!='FILE' and @type!='COMMENT']/@id"/></xsl:attribute>
                         <xsl:attribute name="src"><xsl:value-of select="$varImagePath"/>images/IconError.gif</xsl:attribute>
                         <xsl:attribute name="title">Some Text</xsl:attribute>
-                    </img>					
+                    </img>                  
                 </span>
-				<span style="display:none">
+                <span style="display:none">
                     <xsl:attribute name="id">span_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type ='COMMENT']/@id"/></xsl:attribute>
                     <img border="0">
                         <xsl:attribute name="name">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type='COMMENT']/@id"/></xsl:attribute>
                         <xsl:attribute name="id">img_div_error_<xsl:value-of select="ResponseDefsList/ResponseDef[@type='COMMENT']/@id"/></xsl:attribute>
                         <xsl:attribute name="src"><xsl:value-of select="$varImagePath"/>images/IconError.gif</xsl:attribute>
                         <xsl:attribute name="title">Some Text</xsl:attribute>
-                    </img>				
+                    </img>              
                 </span>
-				
+                
                 <xsl:call-template name="DisplaySubQuestionIcon">
                     <xsl:with-param name="pQuestionId" select="$pQuestionId"/>
                 </xsl:call-template>
