@@ -69,75 +69,9 @@
       <TypeMech type="8" mech="R21"/>
       <TypeMech type="5" mech="R24"/>
       <TypeMech type="8" mech="R24"/>
-      <TypeMech type="5" mech="R25"/>
-      <TypeMech type="8" mech="R25"/>
-      <TypeMech type="5" mech="R29"/>
-      <TypeMech type="8" mech="R29"/>
-      <TypeMech type="5" mech="R33"/>
-      <TypeMech type="8" mech="R33"/>
-      <TypeMech type="5" mech="R35"/>
-      <TypeMech type="8" mech="R35"/>
-      <TypeMech type="5" mech="R37"/>
-      <TypeMech type="8" mech="R37"/>
-      <TypeMech type="5" mech="R41"/>
-      <TypeMech type="8" mech="R41"/>
-      <TypeMech type="5" mech="R42"/>
-      <TypeMech type="8" mech="R42"/>
-      <TypeMech type="5" mech="R43"/>
-      <TypeMech type="8" mech="R43"/>
-      <TypeMech type="5" mech="R44"/>
-      <TypeMech type="8" mech="R44"/>
-      <TypeMech type="5" mech="R55"/>
-      <TypeMech type="8" mech="R55"/>
-      <TypeMech type="5" mech="R56"/>
-      <TypeMech type="8" mech="R56"/>
-      <TypeMech type="5" mech="RL1"/>
-      <TypeMech type="8" mech="RL1"/>
-      <TypeMech type="5" mech="RL2"/>
-      <TypeMech type="8" mech="RL2"/>
-      <TypeMech type="5" mech="RL5"/>
-      <TypeMech type="8" mech="RL5"/>
-      <TypeMech type="5" mech="RL9"/>
-      <TypeMech type="8" mech="RL9"/>
-      <TypeMech type="5" mech="S15"/>
-      <TypeMech type="8" mech="S15"/>
-      <TypeMech type="5" mech="SC1"/>
-      <TypeMech type="8" mech="SC1"/>
-      <TypeMech type="5" mech="SC2"/>
-      <TypeMech type="8" mech="SC2"/>
-      <TypeMech type="5" mech="T15"/>
-      <TypeMech type="8" mech="T15"/>
-      <TypeMech type="5" mech="T32"/>
-      <TypeMech type="8" mech="T32"/>
-      <TypeMech type="5" mech="TL1"/>
-      <TypeMech type="8" mech="TL1"/>
-      <TypeMech type="5" mech="TU2"/>
-      <TypeMech type="8" mech="TU2"/>
-      <TypeMech type="5" mech="U01"/>
-      <TypeMech type="8" mech="U01"/>
-      <TypeMech type="5" mech="U09"/>
-      <TypeMech type="8" mech="U09"/>
-      <TypeMech type="5" mech="U10"/>
-      <TypeMech type="8" mech="U10"/>
-      <TypeMech type="5" mech="U13"/>
-      <TypeMech type="8" mech="U13"/>
-      <TypeMech type="5" mech="U19"/>
-      <TypeMech type="8" mech="U19"/>
-      <TypeMech type="5" mech="U24"/>
-      <TypeMech type="8" mech="U24"/>
-      <TypeMech type="5" mech="U43"/>
-      <TypeMech type="8" mech="U43"/>
-      <TypeMech type="5" mech="U44"/>
-      <TypeMech type="8" mech="U44"/>
-      <TypeMech type="5" mech="U54"/>
-      <TypeMech type="8" mech="U54"/>
-      <TypeMech type="5" mech="U56"/>
-      <TypeMech type="8" mech="U56"/>
-      <TypeMech type="5" mech="UL1"/>
-      <TypeMech type="8" mech="UL1"/>
     </GrantTypeMechs>
     <QText>Was this application received electronically?</QText>
-    <QInstructions>Please answer this question</QInstructions>
+    <QInstructions/>
     <ResponseDefsList>
       <ResponseDef id="DMNCQ_110_RD_CM_1" type="COMMENT"/>
       <ResponseDef id="DMNCQ_110_RD_FL_1" type="FILE"/>
@@ -215,75 +149,9 @@
               <TypeMech type="8" mech="R21"/>
               <TypeMech type="5" mech="R24"/>
               <TypeMech type="8" mech="R24"/>
-              <TypeMech type="5" mech="R25"/>
-              <TypeMech type="8" mech="R25"/>
-              <TypeMech type="5" mech="R29"/>
-              <TypeMech type="8" mech="R29"/>
-              <TypeMech type="5" mech="R33"/>
-              <TypeMech type="8" mech="R33"/>
-              <TypeMech type="5" mech="R35"/>
-              <TypeMech type="8" mech="R35"/>
-              <TypeMech type="5" mech="R37"/>
-              <TypeMech type="8" mech="R37"/>
-              <TypeMech type="5" mech="R41"/>
-              <TypeMech type="8" mech="R41"/>
-              <TypeMech type="5" mech="R42"/>
-              <TypeMech type="8" mech="R42"/>
-              <TypeMech type="5" mech="R43"/>
-              <TypeMech type="8" mech="R43"/>
-              <TypeMech type="5" mech="R44"/>
-              <TypeMech type="8" mech="R44"/>
-              <TypeMech type="5" mech="R55"/>
-              <TypeMech type="8" mech="R55"/>
-              <TypeMech type="5" mech="R56"/>
-              <TypeMech type="8" mech="R56"/>
-              <TypeMech type="5" mech="RL1"/>
-              <TypeMech type="8" mech="RL1"/>
-              <TypeMech type="5" mech="RL2"/>
-              <TypeMech type="8" mech="RL2"/>
-              <TypeMech type="5" mech="RL5"/>
-              <TypeMech type="8" mech="RL5"/>
-              <TypeMech type="5" mech="RL9"/>
-              <TypeMech type="8" mech="RL9"/>
-              <TypeMech type="5" mech="S15"/>
-              <TypeMech type="8" mech="S15"/>
-              <TypeMech type="5" mech="SC1"/>
-              <TypeMech type="8" mech="SC1"/>
-              <TypeMech type="5" mech="SC2"/>
-              <TypeMech type="8" mech="SC2"/>
-              <TypeMech type="5" mech="T15"/>
-              <TypeMech type="8" mech="T15"/>
-              <TypeMech type="5" mech="T32"/>
-              <TypeMech type="8" mech="T32"/>
-              <TypeMech type="5" mech="TL1"/>
-              <TypeMech type="8" mech="TL1"/>
-              <TypeMech type="5" mech="TU2"/>
-              <TypeMech type="8" mech="TU2"/>
-              <TypeMech type="5" mech="U01"/>
-              <TypeMech type="8" mech="U01"/>
-              <TypeMech type="5" mech="U09"/>
-              <TypeMech type="8" mech="U09"/>
-              <TypeMech type="5" mech="U10"/>
-              <TypeMech type="8" mech="U10"/>
-              <TypeMech type="5" mech="U13"/>
-              <TypeMech type="8" mech="U13"/>
-              <TypeMech type="5" mech="U19"/>
-              <TypeMech type="8" mech="U19"/>
-              <TypeMech type="5" mech="U24"/>
-              <TypeMech type="8" mech="U24"/>
-              <TypeMech type="5" mech="U43"/>
-              <TypeMech type="8" mech="U43"/>
-              <TypeMech type="5" mech="U44"/>
-              <TypeMech type="8" mech="U44"/>
-              <TypeMech type="5" mech="U54"/>
-              <TypeMech type="8" mech="U54"/>
-              <TypeMech type="5" mech="U56"/>
-              <TypeMech type="8" mech="U56"/>
-              <TypeMech type="5" mech="UL1"/>
-              <TypeMech type="8" mech="UL1"/>
             </GrantTypeMechs>
             <QText>Is application face page dated and signed?</QText>
-            <QInstructions>Please answer this question</QInstructions>
+            <QInstructions/>
             <ResponseDefsList>
               <ResponseDef id="DMNCQ_120_RD_CM_1" type="COMMENT"/>
               <ResponseDef id="DMNCQ_120_RD_FL_1" type="FILE"/>
@@ -293,9 +161,6 @@
                 </SelectionDef>
                 <SelectionDef id="SEL_8504">
                   <Value>No</Value>
-                </SelectionDef>
-                <SelectionDef id="SEL_8505">
-                  <Value>N/A</Value>
                 </SelectionDef>
               </ResponseDef>
             </ResponseDefsList>
@@ -368,75 +233,9 @@
               <TypeMech type="8" mech="R21"/>
               <TypeMech type="5" mech="R24"/>
               <TypeMech type="8" mech="R24"/>
-              <TypeMech type="5" mech="R25"/>
-              <TypeMech type="8" mech="R25"/>
-              <TypeMech type="5" mech="R29"/>
-              <TypeMech type="8" mech="R29"/>
-              <TypeMech type="5" mech="R33"/>
-              <TypeMech type="8" mech="R33"/>
-              <TypeMech type="5" mech="R35"/>
-              <TypeMech type="8" mech="R35"/>
-              <TypeMech type="5" mech="R37"/>
-              <TypeMech type="8" mech="R37"/>
-              <TypeMech type="5" mech="R41"/>
-              <TypeMech type="8" mech="R41"/>
-              <TypeMech type="5" mech="R42"/>
-              <TypeMech type="8" mech="R42"/>
-              <TypeMech type="5" mech="R43"/>
-              <TypeMech type="8" mech="R43"/>
-              <TypeMech type="5" mech="R44"/>
-              <TypeMech type="8" mech="R44"/>
-              <TypeMech type="5" mech="R55"/>
-              <TypeMech type="8" mech="R55"/>
-              <TypeMech type="5" mech="R56"/>
-              <TypeMech type="8" mech="R56"/>
-              <TypeMech type="5" mech="RL1"/>
-              <TypeMech type="8" mech="RL1"/>
-              <TypeMech type="5" mech="RL2"/>
-              <TypeMech type="8" mech="RL2"/>
-              <TypeMech type="5" mech="RL5"/>
-              <TypeMech type="8" mech="RL5"/>
-              <TypeMech type="5" mech="RL9"/>
-              <TypeMech type="8" mech="RL9"/>
-              <TypeMech type="5" mech="S15"/>
-              <TypeMech type="8" mech="S15"/>
-              <TypeMech type="5" mech="SC1"/>
-              <TypeMech type="8" mech="SC1"/>
-              <TypeMech type="5" mech="SC2"/>
-              <TypeMech type="8" mech="SC2"/>
-              <TypeMech type="5" mech="T15"/>
-              <TypeMech type="8" mech="T15"/>
-              <TypeMech type="5" mech="T32"/>
-              <TypeMech type="8" mech="T32"/>
-              <TypeMech type="5" mech="TL1"/>
-              <TypeMech type="8" mech="TL1"/>
-              <TypeMech type="5" mech="TU2"/>
-              <TypeMech type="8" mech="TU2"/>
-              <TypeMech type="5" mech="U01"/>
-              <TypeMech type="8" mech="U01"/>
-              <TypeMech type="5" mech="U09"/>
-              <TypeMech type="8" mech="U09"/>
-              <TypeMech type="5" mech="U10"/>
-              <TypeMech type="8" mech="U10"/>
-              <TypeMech type="5" mech="U13"/>
-              <TypeMech type="8" mech="U13"/>
-              <TypeMech type="5" mech="U19"/>
-              <TypeMech type="8" mech="U19"/>
-              <TypeMech type="5" mech="U24"/>
-              <TypeMech type="8" mech="U24"/>
-              <TypeMech type="5" mech="U43"/>
-              <TypeMech type="8" mech="U43"/>
-              <TypeMech type="5" mech="U44"/>
-              <TypeMech type="8" mech="U44"/>
-              <TypeMech type="5" mech="U54"/>
-              <TypeMech type="8" mech="U54"/>
-              <TypeMech type="5" mech="U56"/>
-              <TypeMech type="8" mech="U56"/>
-              <TypeMech type="5" mech="UL1"/>
-              <TypeMech type="8" mech="UL1"/>
             </GrantTypeMechs>
             <QText>Are all SNAP questions answered?</QText>
-            <QInstructions>Please answer this question</QInstructions>
+            <QInstructions/>
             <ResponseDefsList>
               <ResponseDef id="DMNCQ_130_RD_CM_1" type="COMMENT"/>
               <ResponseDef id="DMNCQ_130_RD_FL_1" type="FILE"/>
@@ -521,75 +320,9 @@
               <TypeMech type="8" mech="R21"/>
               <TypeMech type="5" mech="R24"/>
               <TypeMech type="8" mech="R24"/>
-              <TypeMech type="5" mech="R25"/>
-              <TypeMech type="8" mech="R25"/>
-              <TypeMech type="5" mech="R29"/>
-              <TypeMech type="8" mech="R29"/>
-              <TypeMech type="5" mech="R33"/>
-              <TypeMech type="8" mech="R33"/>
-              <TypeMech type="5" mech="R35"/>
-              <TypeMech type="8" mech="R35"/>
-              <TypeMech type="5" mech="R37"/>
-              <TypeMech type="8" mech="R37"/>
-              <TypeMech type="5" mech="R41"/>
-              <TypeMech type="8" mech="R41"/>
-              <TypeMech type="5" mech="R42"/>
-              <TypeMech type="8" mech="R42"/>
-              <TypeMech type="5" mech="R43"/>
-              <TypeMech type="8" mech="R43"/>
-              <TypeMech type="5" mech="R44"/>
-              <TypeMech type="8" mech="R44"/>
-              <TypeMech type="5" mech="R55"/>
-              <TypeMech type="8" mech="R55"/>
-              <TypeMech type="5" mech="R56"/>
-              <TypeMech type="8" mech="R56"/>
-              <TypeMech type="5" mech="RL1"/>
-              <TypeMech type="8" mech="RL1"/>
-              <TypeMech type="5" mech="RL2"/>
-              <TypeMech type="8" mech="RL2"/>
-              <TypeMech type="5" mech="RL5"/>
-              <TypeMech type="8" mech="RL5"/>
-              <TypeMech type="5" mech="RL9"/>
-              <TypeMech type="8" mech="RL9"/>
-              <TypeMech type="5" mech="S15"/>
-              <TypeMech type="8" mech="S15"/>
-              <TypeMech type="5" mech="SC1"/>
-              <TypeMech type="8" mech="SC1"/>
-              <TypeMech type="5" mech="SC2"/>
-              <TypeMech type="8" mech="SC2"/>
-              <TypeMech type="5" mech="T15"/>
-              <TypeMech type="8" mech="T15"/>
-              <TypeMech type="5" mech="T32"/>
-              <TypeMech type="8" mech="T32"/>
-              <TypeMech type="5" mech="TL1"/>
-              <TypeMech type="8" mech="TL1"/>
-              <TypeMech type="5" mech="TU2"/>
-              <TypeMech type="8" mech="TU2"/>
-              <TypeMech type="5" mech="U01"/>
-              <TypeMech type="8" mech="U01"/>
-              <TypeMech type="5" mech="U09"/>
-              <TypeMech type="8" mech="U09"/>
-              <TypeMech type="5" mech="U10"/>
-              <TypeMech type="8" mech="U10"/>
-              <TypeMech type="5" mech="U13"/>
-              <TypeMech type="8" mech="U13"/>
-              <TypeMech type="5" mech="U19"/>
-              <TypeMech type="8" mech="U19"/>
-              <TypeMech type="5" mech="U24"/>
-              <TypeMech type="8" mech="U24"/>
-              <TypeMech type="5" mech="U43"/>
-              <TypeMech type="8" mech="U43"/>
-              <TypeMech type="5" mech="U44"/>
-              <TypeMech type="8" mech="U44"/>
-              <TypeMech type="5" mech="U54"/>
-              <TypeMech type="8" mech="U54"/>
-              <TypeMech type="5" mech="U56"/>
-              <TypeMech type="8" mech="U56"/>
-              <TypeMech type="5" mech="UL1"/>
-              <TypeMech type="8" mech="UL1"/>
             </GrantTypeMechs>
             <QText>Are human subjects involved?</QText>
-            <QInstructions>Please answer this question</QInstructions>
+            <QInstructions/>
             <ResponseDefsList>
               <ResponseDef id="DMNCQ_140_RD_CM_1" type="COMMENT"/>
               <ResponseDef id="DMNCQ_140_RD_FL_1" type="FILE"/>
@@ -664,75 +397,9 @@
                       <TypeMech type="8" mech="R21"/>
                       <TypeMech type="5" mech="R24"/>
                       <TypeMech type="8" mech="R24"/>
-                      <TypeMech type="5" mech="R25"/>
-                      <TypeMech type="8" mech="R25"/>
-                      <TypeMech type="5" mech="R29"/>
-                      <TypeMech type="8" mech="R29"/>
-                      <TypeMech type="5" mech="R33"/>
-                      <TypeMech type="8" mech="R33"/>
-                      <TypeMech type="5" mech="R35"/>
-                      <TypeMech type="8" mech="R35"/>
-                      <TypeMech type="5" mech="R37"/>
-                      <TypeMech type="8" mech="R37"/>
-                      <TypeMech type="5" mech="R41"/>
-                      <TypeMech type="8" mech="R41"/>
-                      <TypeMech type="5" mech="R42"/>
-                      <TypeMech type="8" mech="R42"/>
-                      <TypeMech type="5" mech="R43"/>
-                      <TypeMech type="8" mech="R43"/>
-                      <TypeMech type="5" mech="R44"/>
-                      <TypeMech type="8" mech="R44"/>
-                      <TypeMech type="5" mech="R55"/>
-                      <TypeMech type="8" mech="R55"/>
-                      <TypeMech type="5" mech="R56"/>
-                      <TypeMech type="8" mech="R56"/>
-                      <TypeMech type="5" mech="RL1"/>
-                      <TypeMech type="8" mech="RL1"/>
-                      <TypeMech type="5" mech="RL2"/>
-                      <TypeMech type="8" mech="RL2"/>
-                      <TypeMech type="5" mech="RL5"/>
-                      <TypeMech type="8" mech="RL5"/>
-                      <TypeMech type="5" mech="RL9"/>
-                      <TypeMech type="8" mech="RL9"/>
-                      <TypeMech type="5" mech="S15"/>
-                      <TypeMech type="8" mech="S15"/>
-                      <TypeMech type="5" mech="SC1"/>
-                      <TypeMech type="8" mech="SC1"/>
-                      <TypeMech type="5" mech="SC2"/>
-                      <TypeMech type="8" mech="SC2"/>
-                      <TypeMech type="5" mech="T15"/>
-                      <TypeMech type="8" mech="T15"/>
-                      <TypeMech type="5" mech="T32"/>
-                      <TypeMech type="8" mech="T32"/>
-                      <TypeMech type="5" mech="TL1"/>
-                      <TypeMech type="8" mech="TL1"/>
-                      <TypeMech type="5" mech="TU2"/>
-                      <TypeMech type="8" mech="TU2"/>
-                      <TypeMech type="5" mech="U01"/>
-                      <TypeMech type="8" mech="U01"/>
-                      <TypeMech type="5" mech="U09"/>
-                      <TypeMech type="8" mech="U09"/>
-                      <TypeMech type="5" mech="U10"/>
-                      <TypeMech type="8" mech="U10"/>
-                      <TypeMech type="5" mech="U13"/>
-                      <TypeMech type="8" mech="U13"/>
-                      <TypeMech type="5" mech="U19"/>
-                      <TypeMech type="8" mech="U19"/>
-                      <TypeMech type="5" mech="U24"/>
-                      <TypeMech type="8" mech="U24"/>
-                      <TypeMech type="5" mech="U43"/>
-                      <TypeMech type="8" mech="U43"/>
-                      <TypeMech type="5" mech="U44"/>
-                      <TypeMech type="8" mech="U44"/>
-                      <TypeMech type="5" mech="U54"/>
-                      <TypeMech type="8" mech="U54"/>
-                      <TypeMech type="5" mech="U56"/>
-                      <TypeMech type="8" mech="U56"/>
-                      <TypeMech type="5" mech="UL1"/>
-                      <TypeMech type="8" mech="UL1"/>
                     </GrantTypeMechs>
                     <QText>Does IRB approval date precede institutional official's signature date?</QText>
-                    <QInstructions>Please answer this question</QInstructions>
+                    <QInstructions/>
                     <ResponseDefsList>
                       <ResponseDef id="DMNCQ_150_RD_CM_1" type="COMMENT"/>
                       <ResponseDef id="DMNCQ_150_RD_FL_1" type="FILE"/>
@@ -817,84 +484,15 @@
                       <TypeMech type="8" mech="R21"/>
                       <TypeMech type="5" mech="R24"/>
                       <TypeMech type="8" mech="R24"/>
-                      <TypeMech type="5" mech="R25"/>
-                      <TypeMech type="8" mech="R25"/>
-                      <TypeMech type="5" mech="R29"/>
-                      <TypeMech type="8" mech="R29"/>
-                      <TypeMech type="5" mech="R33"/>
-                      <TypeMech type="8" mech="R33"/>
-                      <TypeMech type="5" mech="R35"/>
-                      <TypeMech type="8" mech="R35"/>
-                      <TypeMech type="5" mech="R37"/>
-                      <TypeMech type="8" mech="R37"/>
-                      <TypeMech type="5" mech="R41"/>
-                      <TypeMech type="8" mech="R41"/>
-                      <TypeMech type="5" mech="R42"/>
-                      <TypeMech type="8" mech="R42"/>
-                      <TypeMech type="5" mech="R43"/>
-                      <TypeMech type="8" mech="R43"/>
-                      <TypeMech type="5" mech="R44"/>
-                      <TypeMech type="8" mech="R44"/>
-                      <TypeMech type="5" mech="R55"/>
-                      <TypeMech type="8" mech="R55"/>
-                      <TypeMech type="5" mech="R56"/>
-                      <TypeMech type="8" mech="R56"/>
-                      <TypeMech type="5" mech="RL1"/>
-                      <TypeMech type="8" mech="RL1"/>
-                      <TypeMech type="5" mech="RL2"/>
-                      <TypeMech type="8" mech="RL2"/>
-                      <TypeMech type="5" mech="RL5"/>
-                      <TypeMech type="8" mech="RL5"/>
-                      <TypeMech type="5" mech="RL9"/>
-                      <TypeMech type="8" mech="RL9"/>
-                      <TypeMech type="5" mech="S15"/>
-                      <TypeMech type="8" mech="S15"/>
-                      <TypeMech type="5" mech="SC1"/>
-                      <TypeMech type="8" mech="SC1"/>
-                      <TypeMech type="5" mech="SC2"/>
-                      <TypeMech type="8" mech="SC2"/>
-                      <TypeMech type="5" mech="T15"/>
-                      <TypeMech type="8" mech="T15"/>
-                      <TypeMech type="5" mech="T32"/>
-                      <TypeMech type="8" mech="T32"/>
-                      <TypeMech type="5" mech="TL1"/>
-                      <TypeMech type="8" mech="TL1"/>
-                      <TypeMech type="5" mech="TU2"/>
-                      <TypeMech type="8" mech="TU2"/>
-                      <TypeMech type="5" mech="U01"/>
-                      <TypeMech type="8" mech="U01"/>
-                      <TypeMech type="5" mech="U09"/>
-                      <TypeMech type="8" mech="U09"/>
-                      <TypeMech type="5" mech="U10"/>
-                      <TypeMech type="8" mech="U10"/>
-                      <TypeMech type="5" mech="U13"/>
-                      <TypeMech type="8" mech="U13"/>
-                      <TypeMech type="5" mech="U19"/>
-                      <TypeMech type="8" mech="U19"/>
-                      <TypeMech type="5" mech="U24"/>
-                      <TypeMech type="8" mech="U24"/>
-                      <TypeMech type="5" mech="U43"/>
-                      <TypeMech type="8" mech="U43"/>
-                      <TypeMech type="5" mech="U44"/>
-                      <TypeMech type="8" mech="U44"/>
-                      <TypeMech type="5" mech="U54"/>
-                      <TypeMech type="8" mech="U54"/>
-                      <TypeMech type="5" mech="U56"/>
-                      <TypeMech type="8" mech="U56"/>
-                      <TypeMech type="5" mech="UL1"/>
-                      <TypeMech type="8" mech="UL1"/>
                     </GrantTypeMechs>
                     <QText>Exemption number OR IRB approval date given?</QText>
-                    <QInstructions>Please answer this question</QInstructions>
+                    <QInstructions/>
                     <ResponseDefsList>
                       <ResponseDef id="DMNCQ_180_RD_CM_1" type="COMMENT"/>
                       <ResponseDef id="DMNCQ_180_RD_FL_1" type="FILE"/>
                       <ResponseDef id="DMNCQ_180_RD_RB_1" type="RADIO">
                         <SelectionDef id="SEL_8518">
                           <Value>Yes</Value>
-                        </SelectionDef>
-                        <SelectionDef id="SEL_8519">
-                          <Value>No</Value>
                           <QuestionDef id="DMNCQ_190">
                             <GrantTypeMechs>
                               <TypeMech type="5" mech="C06"/>
@@ -963,75 +561,9 @@
                               <TypeMech type="8" mech="R21"/>
                               <TypeMech type="5" mech="R24"/>
                               <TypeMech type="8" mech="R24"/>
-                              <TypeMech type="5" mech="R25"/>
-                              <TypeMech type="8" mech="R25"/>
-                              <TypeMech type="5" mech="R29"/>
-                              <TypeMech type="8" mech="R29"/>
-                              <TypeMech type="5" mech="R33"/>
-                              <TypeMech type="8" mech="R33"/>
-                              <TypeMech type="5" mech="R35"/>
-                              <TypeMech type="8" mech="R35"/>
-                              <TypeMech type="5" mech="R37"/>
-                              <TypeMech type="8" mech="R37"/>
-                              <TypeMech type="5" mech="R41"/>
-                              <TypeMech type="8" mech="R41"/>
-                              <TypeMech type="5" mech="R42"/>
-                              <TypeMech type="8" mech="R42"/>
-                              <TypeMech type="5" mech="R43"/>
-                              <TypeMech type="8" mech="R43"/>
-                              <TypeMech type="5" mech="R44"/>
-                              <TypeMech type="8" mech="R44"/>
-                              <TypeMech type="5" mech="R55"/>
-                              <TypeMech type="8" mech="R55"/>
-                              <TypeMech type="5" mech="R56"/>
-                              <TypeMech type="8" mech="R56"/>
-                              <TypeMech type="5" mech="RL1"/>
-                              <TypeMech type="8" mech="RL1"/>
-                              <TypeMech type="5" mech="RL2"/>
-                              <TypeMech type="8" mech="RL2"/>
-                              <TypeMech type="5" mech="RL5"/>
-                              <TypeMech type="8" mech="RL5"/>
-                              <TypeMech type="5" mech="RL9"/>
-                              <TypeMech type="8" mech="RL9"/>
-                              <TypeMech type="5" mech="S15"/>
-                              <TypeMech type="8" mech="S15"/>
-                              <TypeMech type="5" mech="SC1"/>
-                              <TypeMech type="8" mech="SC1"/>
-                              <TypeMech type="5" mech="SC2"/>
-                              <TypeMech type="8" mech="SC2"/>
-                              <TypeMech type="5" mech="T15"/>
-                              <TypeMech type="8" mech="T15"/>
-                              <TypeMech type="5" mech="T32"/>
-                              <TypeMech type="8" mech="T32"/>
-                              <TypeMech type="5" mech="TL1"/>
-                              <TypeMech type="8" mech="TL1"/>
-                              <TypeMech type="5" mech="TU2"/>
-                              <TypeMech type="8" mech="TU2"/>
-                              <TypeMech type="5" mech="U01"/>
-                              <TypeMech type="8" mech="U01"/>
-                              <TypeMech type="5" mech="U09"/>
-                              <TypeMech type="8" mech="U09"/>
-                              <TypeMech type="5" mech="U10"/>
-                              <TypeMech type="8" mech="U10"/>
-                              <TypeMech type="5" mech="U13"/>
-                              <TypeMech type="8" mech="U13"/>
-                              <TypeMech type="5" mech="U19"/>
-                              <TypeMech type="8" mech="U19"/>
-                              <TypeMech type="5" mech="U24"/>
-                              <TypeMech type="8" mech="U24"/>
-                              <TypeMech type="5" mech="U43"/>
-                              <TypeMech type="8" mech="U43"/>
-                              <TypeMech type="5" mech="U44"/>
-                              <TypeMech type="8" mech="U44"/>
-                              <TypeMech type="5" mech="U54"/>
-                              <TypeMech type="8" mech="U54"/>
-                              <TypeMech type="5" mech="U56"/>
-                              <TypeMech type="8" mech="U56"/>
-                              <TypeMech type="5" mech="UL1"/>
-                              <TypeMech type="8" mech="UL1"/>
                             </GrantTypeMechs>
                             <QText>Is IRB approval date within 12 months prior to start date?</QText>
-                            <QInstructions>Please answer this question</QInstructions>
+                            <QInstructions>(Choose N/A if what is given is an Exemption number rather than IRB Approval Date)</QInstructions>
                             <ResponseDefsList>
                               <ResponseDef id="DMNCQ_190_RD_CM_1" type="COMMENT"/>
                               <ResponseDef id="DMNCQ_190_RD_FL_1" type="FILE"/>
@@ -1041,6 +573,9 @@
                                 </SelectionDef>
                                 <SelectionDef id="SEL_8521">
                                   <Value>No</Value>
+                                </SelectionDef>
+                                <SelectionDef id="SEL_8556">
+                                  <Value>N/A</Value>
                                 </SelectionDef>
                               </ResponseDef>
                             </ResponseDefsList>
@@ -1113,75 +648,9 @@
                               <TypeMech type="8" mech="R21"/>
                               <TypeMech type="5" mech="R24"/>
                               <TypeMech type="8" mech="R24"/>
-                              <TypeMech type="5" mech="R25"/>
-                              <TypeMech type="8" mech="R25"/>
-                              <TypeMech type="5" mech="R29"/>
-                              <TypeMech type="8" mech="R29"/>
-                              <TypeMech type="5" mech="R33"/>
-                              <TypeMech type="8" mech="R33"/>
-                              <TypeMech type="5" mech="R35"/>
-                              <TypeMech type="8" mech="R35"/>
-                              <TypeMech type="5" mech="R37"/>
-                              <TypeMech type="8" mech="R37"/>
-                              <TypeMech type="5" mech="R41"/>
-                              <TypeMech type="8" mech="R41"/>
-                              <TypeMech type="5" mech="R42"/>
-                              <TypeMech type="8" mech="R42"/>
-                              <TypeMech type="5" mech="R43"/>
-                              <TypeMech type="8" mech="R43"/>
-                              <TypeMech type="5" mech="R44"/>
-                              <TypeMech type="8" mech="R44"/>
-                              <TypeMech type="5" mech="R55"/>
-                              <TypeMech type="8" mech="R55"/>
-                              <TypeMech type="5" mech="R56"/>
-                              <TypeMech type="8" mech="R56"/>
-                              <TypeMech type="5" mech="RL1"/>
-                              <TypeMech type="8" mech="RL1"/>
-                              <TypeMech type="5" mech="RL2"/>
-                              <TypeMech type="8" mech="RL2"/>
-                              <TypeMech type="5" mech="RL5"/>
-                              <TypeMech type="8" mech="RL5"/>
-                              <TypeMech type="5" mech="RL9"/>
-                              <TypeMech type="8" mech="RL9"/>
-                              <TypeMech type="5" mech="S15"/>
-                              <TypeMech type="8" mech="S15"/>
-                              <TypeMech type="5" mech="SC1"/>
-                              <TypeMech type="8" mech="SC1"/>
-                              <TypeMech type="5" mech="SC2"/>
-                              <TypeMech type="8" mech="SC2"/>
-                              <TypeMech type="5" mech="T15"/>
-                              <TypeMech type="8" mech="T15"/>
-                              <TypeMech type="5" mech="T32"/>
-                              <TypeMech type="8" mech="T32"/>
-                              <TypeMech type="5" mech="TL1"/>
-                              <TypeMech type="8" mech="TL1"/>
-                              <TypeMech type="5" mech="TU2"/>
-                              <TypeMech type="8" mech="TU2"/>
-                              <TypeMech type="5" mech="U01"/>
-                              <TypeMech type="8" mech="U01"/>
-                              <TypeMech type="5" mech="U09"/>
-                              <TypeMech type="8" mech="U09"/>
-                              <TypeMech type="5" mech="U10"/>
-                              <TypeMech type="8" mech="U10"/>
-                              <TypeMech type="5" mech="U13"/>
-                              <TypeMech type="8" mech="U13"/>
-                              <TypeMech type="5" mech="U19"/>
-                              <TypeMech type="8" mech="U19"/>
-                              <TypeMech type="5" mech="U24"/>
-                              <TypeMech type="8" mech="U24"/>
-                              <TypeMech type="5" mech="U43"/>
-                              <TypeMech type="8" mech="U43"/>
-                              <TypeMech type="5" mech="U44"/>
-                              <TypeMech type="8" mech="U44"/>
-                              <TypeMech type="5" mech="U54"/>
-                              <TypeMech type="8" mech="U54"/>
-                              <TypeMech type="5" mech="U56"/>
-                              <TypeMech type="8" mech="U56"/>
-                              <TypeMech type="5" mech="UL1"/>
-                              <TypeMech type="8" mech="UL1"/>
                             </GrantTypeMechs>
                             <QText>FWA/MPA number same as number on file with OHRP?</QText>
-                            <QInstructions>Please answer this question</QInstructions>
+                            <QInstructions/>
                             <ResponseDefsList>
                               <ResponseDef id="DMNCQ_200_RD_CM_1" type="COMMENT"/>
                               <ResponseDef id="DMNCQ_200_RD_FL_1" type="FILE"/>
@@ -1195,6 +664,9 @@
                               </ResponseDef>
                             </ResponseDefsList>
                           </QuestionDef>
+                        </SelectionDef>
+                        <SelectionDef id="SEL_8519">
+                          <Value>No</Value>
                         </SelectionDef>
                       </ResponseDef>
                     </ResponseDefsList>
@@ -1274,75 +746,9 @@
               <TypeMech type="8" mech="R21"/>
               <TypeMech type="5" mech="R24"/>
               <TypeMech type="8" mech="R24"/>
-              <TypeMech type="5" mech="R25"/>
-              <TypeMech type="8" mech="R25"/>
-              <TypeMech type="5" mech="R29"/>
-              <TypeMech type="8" mech="R29"/>
-              <TypeMech type="5" mech="R33"/>
-              <TypeMech type="8" mech="R33"/>
-              <TypeMech type="5" mech="R35"/>
-              <TypeMech type="8" mech="R35"/>
-              <TypeMech type="5" mech="R37"/>
-              <TypeMech type="8" mech="R37"/>
-              <TypeMech type="5" mech="R41"/>
-              <TypeMech type="8" mech="R41"/>
-              <TypeMech type="5" mech="R42"/>
-              <TypeMech type="8" mech="R42"/>
-              <TypeMech type="5" mech="R43"/>
-              <TypeMech type="8" mech="R43"/>
-              <TypeMech type="5" mech="R44"/>
-              <TypeMech type="8" mech="R44"/>
-              <TypeMech type="5" mech="R55"/>
-              <TypeMech type="8" mech="R55"/>
-              <TypeMech type="5" mech="R56"/>
-              <TypeMech type="8" mech="R56"/>
-              <TypeMech type="5" mech="RL1"/>
-              <TypeMech type="8" mech="RL1"/>
-              <TypeMech type="5" mech="RL2"/>
-              <TypeMech type="8" mech="RL2"/>
-              <TypeMech type="5" mech="RL5"/>
-              <TypeMech type="8" mech="RL5"/>
-              <TypeMech type="5" mech="RL9"/>
-              <TypeMech type="8" mech="RL9"/>
-              <TypeMech type="5" mech="S15"/>
-              <TypeMech type="8" mech="S15"/>
-              <TypeMech type="5" mech="SC1"/>
-              <TypeMech type="8" mech="SC1"/>
-              <TypeMech type="5" mech="SC2"/>
-              <TypeMech type="8" mech="SC2"/>
-              <TypeMech type="5" mech="T15"/>
-              <TypeMech type="8" mech="T15"/>
-              <TypeMech type="5" mech="T32"/>
-              <TypeMech type="8" mech="T32"/>
-              <TypeMech type="5" mech="TL1"/>
-              <TypeMech type="8" mech="TL1"/>
-              <TypeMech type="5" mech="TU2"/>
-              <TypeMech type="8" mech="TU2"/>
-              <TypeMech type="5" mech="U01"/>
-              <TypeMech type="8" mech="U01"/>
-              <TypeMech type="5" mech="U09"/>
-              <TypeMech type="8" mech="U09"/>
-              <TypeMech type="5" mech="U10"/>
-              <TypeMech type="8" mech="U10"/>
-              <TypeMech type="5" mech="U13"/>
-              <TypeMech type="8" mech="U13"/>
-              <TypeMech type="5" mech="U19"/>
-              <TypeMech type="8" mech="U19"/>
-              <TypeMech type="5" mech="U24"/>
-              <TypeMech type="8" mech="U24"/>
-              <TypeMech type="5" mech="U43"/>
-              <TypeMech type="8" mech="U43"/>
-              <TypeMech type="5" mech="U44"/>
-              <TypeMech type="8" mech="U44"/>
-              <TypeMech type="5" mech="U54"/>
-              <TypeMech type="8" mech="U54"/>
-              <TypeMech type="5" mech="U56"/>
-              <TypeMech type="8" mech="U56"/>
-              <TypeMech type="5" mech="UL1"/>
-              <TypeMech type="8" mech="UL1"/>
             </GrantTypeMechs>
             <QText>Are Vertebrate Animals involved?</QText>
-            <QInstructions>Please answer this question</QInstructions>
+            <QInstructions/>
             <ResponseDefsList>
               <ResponseDef id="DMNCQ_210_RD_CM_1" type="COMMENT"/>
               <ResponseDef id="DMNCQ_210_RD_FL_1" type="FILE"/>
@@ -1417,75 +823,9 @@
                       <TypeMech type="8" mech="R21"/>
                       <TypeMech type="5" mech="R24"/>
                       <TypeMech type="8" mech="R24"/>
-                      <TypeMech type="5" mech="R25"/>
-                      <TypeMech type="8" mech="R25"/>
-                      <TypeMech type="5" mech="R29"/>
-                      <TypeMech type="8" mech="R29"/>
-                      <TypeMech type="5" mech="R33"/>
-                      <TypeMech type="8" mech="R33"/>
-                      <TypeMech type="5" mech="R35"/>
-                      <TypeMech type="8" mech="R35"/>
-                      <TypeMech type="5" mech="R37"/>
-                      <TypeMech type="8" mech="R37"/>
-                      <TypeMech type="5" mech="R41"/>
-                      <TypeMech type="8" mech="R41"/>
-                      <TypeMech type="5" mech="R42"/>
-                      <TypeMech type="8" mech="R42"/>
-                      <TypeMech type="5" mech="R43"/>
-                      <TypeMech type="8" mech="R43"/>
-                      <TypeMech type="5" mech="R44"/>
-                      <TypeMech type="8" mech="R44"/>
-                      <TypeMech type="5" mech="R55"/>
-                      <TypeMech type="8" mech="R55"/>
-                      <TypeMech type="5" mech="R56"/>
-                      <TypeMech type="8" mech="R56"/>
-                      <TypeMech type="5" mech="RL1"/>
-                      <TypeMech type="8" mech="RL1"/>
-                      <TypeMech type="5" mech="RL2"/>
-                      <TypeMech type="8" mech="RL2"/>
-                      <TypeMech type="5" mech="RL5"/>
-                      <TypeMech type="8" mech="RL5"/>
-                      <TypeMech type="5" mech="RL9"/>
-                      <TypeMech type="8" mech="RL9"/>
-                      <TypeMech type="5" mech="S15"/>
-                      <TypeMech type="8" mech="S15"/>
-                      <TypeMech type="5" mech="SC1"/>
-                      <TypeMech type="8" mech="SC1"/>
-                      <TypeMech type="5" mech="SC2"/>
-                      <TypeMech type="8" mech="SC2"/>
-                      <TypeMech type="5" mech="T15"/>
-                      <TypeMech type="8" mech="T15"/>
-                      <TypeMech type="5" mech="T32"/>
-                      <TypeMech type="8" mech="T32"/>
-                      <TypeMech type="5" mech="TL1"/>
-                      <TypeMech type="8" mech="TL1"/>
-                      <TypeMech type="5" mech="TU2"/>
-                      <TypeMech type="8" mech="TU2"/>
-                      <TypeMech type="5" mech="U01"/>
-                      <TypeMech type="8" mech="U01"/>
-                      <TypeMech type="5" mech="U09"/>
-                      <TypeMech type="8" mech="U09"/>
-                      <TypeMech type="5" mech="U10"/>
-                      <TypeMech type="8" mech="U10"/>
-                      <TypeMech type="5" mech="U13"/>
-                      <TypeMech type="8" mech="U13"/>
-                      <TypeMech type="5" mech="U19"/>
-                      <TypeMech type="8" mech="U19"/>
-                      <TypeMech type="5" mech="U24"/>
-                      <TypeMech type="8" mech="U24"/>
-                      <TypeMech type="5" mech="U43"/>
-                      <TypeMech type="8" mech="U43"/>
-                      <TypeMech type="5" mech="U44"/>
-                      <TypeMech type="8" mech="U44"/>
-                      <TypeMech type="5" mech="U54"/>
-                      <TypeMech type="8" mech="U54"/>
-                      <TypeMech type="5" mech="U56"/>
-                      <TypeMech type="8" mech="U56"/>
-                      <TypeMech type="5" mech="UL1"/>
-                      <TypeMech type="8" mech="UL1"/>
                     </GrantTypeMechs>
                     <QText>Is IACUC approval date given?</QText>
-                    <QInstructions>Please answer this question</QInstructions>
+                    <QInstructions/>
                     <ResponseDefsList>
                       <ResponseDef id="DMNCQ_220_RD_CM_1" type="COMMENT"/>
                       <ResponseDef id="DMNCQ_220_RD_FL_1" type="FILE"/>
@@ -1560,75 +900,9 @@
                               <TypeMech type="8" mech="R21"/>
                               <TypeMech type="5" mech="R24"/>
                               <TypeMech type="8" mech="R24"/>
-                              <TypeMech type="5" mech="R25"/>
-                              <TypeMech type="8" mech="R25"/>
-                              <TypeMech type="5" mech="R29"/>
-                              <TypeMech type="8" mech="R29"/>
-                              <TypeMech type="5" mech="R33"/>
-                              <TypeMech type="8" mech="R33"/>
-                              <TypeMech type="5" mech="R35"/>
-                              <TypeMech type="8" mech="R35"/>
-                              <TypeMech type="5" mech="R37"/>
-                              <TypeMech type="8" mech="R37"/>
-                              <TypeMech type="5" mech="R41"/>
-                              <TypeMech type="8" mech="R41"/>
-                              <TypeMech type="5" mech="R42"/>
-                              <TypeMech type="8" mech="R42"/>
-                              <TypeMech type="5" mech="R43"/>
-                              <TypeMech type="8" mech="R43"/>
-                              <TypeMech type="5" mech="R44"/>
-                              <TypeMech type="8" mech="R44"/>
-                              <TypeMech type="5" mech="R55"/>
-                              <TypeMech type="8" mech="R55"/>
-                              <TypeMech type="5" mech="R56"/>
-                              <TypeMech type="8" mech="R56"/>
-                              <TypeMech type="5" mech="RL1"/>
-                              <TypeMech type="8" mech="RL1"/>
-                              <TypeMech type="5" mech="RL2"/>
-                              <TypeMech type="8" mech="RL2"/>
-                              <TypeMech type="5" mech="RL5"/>
-                              <TypeMech type="8" mech="RL5"/>
-                              <TypeMech type="5" mech="RL9"/>
-                              <TypeMech type="8" mech="RL9"/>
-                              <TypeMech type="5" mech="S15"/>
-                              <TypeMech type="8" mech="S15"/>
-                              <TypeMech type="5" mech="SC1"/>
-                              <TypeMech type="8" mech="SC1"/>
-                              <TypeMech type="5" mech="SC2"/>
-                              <TypeMech type="8" mech="SC2"/>
-                              <TypeMech type="5" mech="T15"/>
-                              <TypeMech type="8" mech="T15"/>
-                              <TypeMech type="5" mech="T32"/>
-                              <TypeMech type="8" mech="T32"/>
-                              <TypeMech type="5" mech="TL1"/>
-                              <TypeMech type="8" mech="TL1"/>
-                              <TypeMech type="5" mech="TU2"/>
-                              <TypeMech type="8" mech="TU2"/>
-                              <TypeMech type="5" mech="U01"/>
-                              <TypeMech type="8" mech="U01"/>
-                              <TypeMech type="5" mech="U09"/>
-                              <TypeMech type="8" mech="U09"/>
-                              <TypeMech type="5" mech="U10"/>
-                              <TypeMech type="8" mech="U10"/>
-                              <TypeMech type="5" mech="U13"/>
-                              <TypeMech type="8" mech="U13"/>
-                              <TypeMech type="5" mech="U19"/>
-                              <TypeMech type="8" mech="U19"/>
-                              <TypeMech type="5" mech="U24"/>
-                              <TypeMech type="8" mech="U24"/>
-                              <TypeMech type="5" mech="U43"/>
-                              <TypeMech type="8" mech="U43"/>
-                              <TypeMech type="5" mech="U44"/>
-                              <TypeMech type="8" mech="U44"/>
-                              <TypeMech type="5" mech="U54"/>
-                              <TypeMech type="8" mech="U54"/>
-                              <TypeMech type="5" mech="U56"/>
-                              <TypeMech type="8" mech="U56"/>
-                              <TypeMech type="5" mech="UL1"/>
-                              <TypeMech type="8" mech="UL1"/>
                             </GrantTypeMechs>
                             <QText>Does IACUC approval date precede institutional official's signature date?</QText>
-                            <QInstructions>Please answer this question</QInstructions>
+                            <QInstructions/>
                             <ResponseDefsList>
                               <ResponseDef id="DMNCQ_230_RD_CM_1" type="COMMENT"/>
                               <ResponseDef id="DMNCQ_230_RD_FL_1" type="FILE"/>
@@ -1713,75 +987,9 @@
                               <TypeMech type="8" mech="R21"/>
                               <TypeMech type="5" mech="R24"/>
                               <TypeMech type="8" mech="R24"/>
-                              <TypeMech type="5" mech="R25"/>
-                              <TypeMech type="8" mech="R25"/>
-                              <TypeMech type="5" mech="R29"/>
-                              <TypeMech type="8" mech="R29"/>
-                              <TypeMech type="5" mech="R33"/>
-                              <TypeMech type="8" mech="R33"/>
-                              <TypeMech type="5" mech="R35"/>
-                              <TypeMech type="8" mech="R35"/>
-                              <TypeMech type="5" mech="R37"/>
-                              <TypeMech type="8" mech="R37"/>
-                              <TypeMech type="5" mech="R41"/>
-                              <TypeMech type="8" mech="R41"/>
-                              <TypeMech type="5" mech="R42"/>
-                              <TypeMech type="8" mech="R42"/>
-                              <TypeMech type="5" mech="R43"/>
-                              <TypeMech type="8" mech="R43"/>
-                              <TypeMech type="5" mech="R44"/>
-                              <TypeMech type="8" mech="R44"/>
-                              <TypeMech type="5" mech="R55"/>
-                              <TypeMech type="8" mech="R55"/>
-                              <TypeMech type="5" mech="R56"/>
-                              <TypeMech type="8" mech="R56"/>
-                              <TypeMech type="5" mech="RL1"/>
-                              <TypeMech type="8" mech="RL1"/>
-                              <TypeMech type="5" mech="RL2"/>
-                              <TypeMech type="8" mech="RL2"/>
-                              <TypeMech type="5" mech="RL5"/>
-                              <TypeMech type="8" mech="RL5"/>
-                              <TypeMech type="5" mech="RL9"/>
-                              <TypeMech type="8" mech="RL9"/>
-                              <TypeMech type="5" mech="S15"/>
-                              <TypeMech type="8" mech="S15"/>
-                              <TypeMech type="5" mech="SC1"/>
-                              <TypeMech type="8" mech="SC1"/>
-                              <TypeMech type="5" mech="SC2"/>
-                              <TypeMech type="8" mech="SC2"/>
-                              <TypeMech type="5" mech="T15"/>
-                              <TypeMech type="8" mech="T15"/>
-                              <TypeMech type="5" mech="T32"/>
-                              <TypeMech type="8" mech="T32"/>
-                              <TypeMech type="5" mech="TL1"/>
-                              <TypeMech type="8" mech="TL1"/>
-                              <TypeMech type="5" mech="TU2"/>
-                              <TypeMech type="8" mech="TU2"/>
-                              <TypeMech type="5" mech="U01"/>
-                              <TypeMech type="8" mech="U01"/>
-                              <TypeMech type="5" mech="U09"/>
-                              <TypeMech type="8" mech="U09"/>
-                              <TypeMech type="5" mech="U10"/>
-                              <TypeMech type="8" mech="U10"/>
-                              <TypeMech type="5" mech="U13"/>
-                              <TypeMech type="8" mech="U13"/>
-                              <TypeMech type="5" mech="U19"/>
-                              <TypeMech type="8" mech="U19"/>
-                              <TypeMech type="5" mech="U24"/>
-                              <TypeMech type="8" mech="U24"/>
-                              <TypeMech type="5" mech="U43"/>
-                              <TypeMech type="8" mech="U43"/>
-                              <TypeMech type="5" mech="U44"/>
-                              <TypeMech type="8" mech="U44"/>
-                              <TypeMech type="5" mech="U54"/>
-                              <TypeMech type="8" mech="U54"/>
-                              <TypeMech type="5" mech="U56"/>
-                              <TypeMech type="8" mech="U56"/>
-                              <TypeMech type="5" mech="UL1"/>
-                              <TypeMech type="8" mech="UL1"/>
                             </GrantTypeMechs>
                             <QText>Is IACUC approval date within 36 months prior to start date?</QText>
-                            <QInstructions>Please answer this question</QInstructions>
+                            <QInstructions/>
                             <ResponseDefsList>
                               <ResponseDef id="DMNCQ_240_RD_CM_1" type="COMMENT"/>
                               <ResponseDef id="DMNCQ_240_RD_FL_1" type="FILE"/>
@@ -1870,75 +1078,9 @@
                       <TypeMech type="8" mech="R21"/>
                       <TypeMech type="5" mech="R24"/>
                       <TypeMech type="8" mech="R24"/>
-                      <TypeMech type="5" mech="R25"/>
-                      <TypeMech type="8" mech="R25"/>
-                      <TypeMech type="5" mech="R29"/>
-                      <TypeMech type="8" mech="R29"/>
-                      <TypeMech type="5" mech="R33"/>
-                      <TypeMech type="8" mech="R33"/>
-                      <TypeMech type="5" mech="R35"/>
-                      <TypeMech type="8" mech="R35"/>
-                      <TypeMech type="5" mech="R37"/>
-                      <TypeMech type="8" mech="R37"/>
-                      <TypeMech type="5" mech="R41"/>
-                      <TypeMech type="8" mech="R41"/>
-                      <TypeMech type="5" mech="R42"/>
-                      <TypeMech type="8" mech="R42"/>
-                      <TypeMech type="5" mech="R43"/>
-                      <TypeMech type="8" mech="R43"/>
-                      <TypeMech type="5" mech="R44"/>
-                      <TypeMech type="8" mech="R44"/>
-                      <TypeMech type="5" mech="R55"/>
-                      <TypeMech type="8" mech="R55"/>
-                      <TypeMech type="5" mech="R56"/>
-                      <TypeMech type="8" mech="R56"/>
-                      <TypeMech type="5" mech="RL1"/>
-                      <TypeMech type="8" mech="RL1"/>
-                      <TypeMech type="5" mech="RL2"/>
-                      <TypeMech type="8" mech="RL2"/>
-                      <TypeMech type="5" mech="RL5"/>
-                      <TypeMech type="8" mech="RL5"/>
-                      <TypeMech type="5" mech="RL9"/>
-                      <TypeMech type="8" mech="RL9"/>
-                      <TypeMech type="5" mech="S15"/>
-                      <TypeMech type="8" mech="S15"/>
-                      <TypeMech type="5" mech="SC1"/>
-                      <TypeMech type="8" mech="SC1"/>
-                      <TypeMech type="5" mech="SC2"/>
-                      <TypeMech type="8" mech="SC2"/>
-                      <TypeMech type="5" mech="T15"/>
-                      <TypeMech type="8" mech="T15"/>
-                      <TypeMech type="5" mech="T32"/>
-                      <TypeMech type="8" mech="T32"/>
-                      <TypeMech type="5" mech="TL1"/>
-                      <TypeMech type="8" mech="TL1"/>
-                      <TypeMech type="5" mech="TU2"/>
-                      <TypeMech type="8" mech="TU2"/>
-                      <TypeMech type="5" mech="U01"/>
-                      <TypeMech type="8" mech="U01"/>
-                      <TypeMech type="5" mech="U09"/>
-                      <TypeMech type="8" mech="U09"/>
-                      <TypeMech type="5" mech="U10"/>
-                      <TypeMech type="8" mech="U10"/>
-                      <TypeMech type="5" mech="U13"/>
-                      <TypeMech type="8" mech="U13"/>
-                      <TypeMech type="5" mech="U19"/>
-                      <TypeMech type="8" mech="U19"/>
-                      <TypeMech type="5" mech="U24"/>
-                      <TypeMech type="8" mech="U24"/>
-                      <TypeMech type="5" mech="U43"/>
-                      <TypeMech type="8" mech="U43"/>
-                      <TypeMech type="5" mech="U44"/>
-                      <TypeMech type="8" mech="U44"/>
-                      <TypeMech type="5" mech="U54"/>
-                      <TypeMech type="8" mech="U54"/>
-                      <TypeMech type="5" mech="U56"/>
-                      <TypeMech type="8" mech="U56"/>
-                      <TypeMech type="5" mech="UL1"/>
-                      <TypeMech type="8" mech="UL1"/>
                     </GrantTypeMechs>
                     <QText>Is Animal Welfare Assurance number given?</QText>
-                    <QInstructions>Please answer this question</QInstructions>
+                    <QInstructions/>
                     <ResponseDefsList>
                       <ResponseDef id="DMNCQ_250_RD_CM_1" type="COMMENT"/>
                       <ResponseDef id="DMNCQ_250_RD_FL_1" type="FILE"/>
@@ -2031,75 +1173,9 @@
       <TypeMech type="8" mech="R21"/>
       <TypeMech type="5" mech="R24"/>
       <TypeMech type="8" mech="R24"/>
-      <TypeMech type="5" mech="R25"/>
-      <TypeMech type="8" mech="R25"/>
-      <TypeMech type="5" mech="R29"/>
-      <TypeMech type="8" mech="R29"/>
-      <TypeMech type="5" mech="R33"/>
-      <TypeMech type="8" mech="R33"/>
-      <TypeMech type="5" mech="R35"/>
-      <TypeMech type="8" mech="R35"/>
-      <TypeMech type="5" mech="R37"/>
-      <TypeMech type="8" mech="R37"/>
-      <TypeMech type="5" mech="R41"/>
-      <TypeMech type="8" mech="R41"/>
-      <TypeMech type="5" mech="R42"/>
-      <TypeMech type="8" mech="R42"/>
-      <TypeMech type="5" mech="R43"/>
-      <TypeMech type="8" mech="R43"/>
-      <TypeMech type="5" mech="R44"/>
-      <TypeMech type="8" mech="R44"/>
-      <TypeMech type="5" mech="R55"/>
-      <TypeMech type="8" mech="R55"/>
-      <TypeMech type="5" mech="R56"/>
-      <TypeMech type="8" mech="R56"/>
-      <TypeMech type="5" mech="RL1"/>
-      <TypeMech type="8" mech="RL1"/>
-      <TypeMech type="5" mech="RL2"/>
-      <TypeMech type="8" mech="RL2"/>
-      <TypeMech type="5" mech="RL5"/>
-      <TypeMech type="8" mech="RL5"/>
-      <TypeMech type="5" mech="RL9"/>
-      <TypeMech type="8" mech="RL9"/>
-      <TypeMech type="5" mech="S15"/>
-      <TypeMech type="8" mech="S15"/>
-      <TypeMech type="5" mech="SC1"/>
-      <TypeMech type="8" mech="SC1"/>
-      <TypeMech type="5" mech="SC2"/>
-      <TypeMech type="8" mech="SC2"/>
-      <TypeMech type="5" mech="T15"/>
-      <TypeMech type="8" mech="T15"/>
-      <TypeMech type="5" mech="T32"/>
-      <TypeMech type="8" mech="T32"/>
-      <TypeMech type="5" mech="TL1"/>
-      <TypeMech type="8" mech="TL1"/>
-      <TypeMech type="5" mech="TU2"/>
-      <TypeMech type="8" mech="TU2"/>
-      <TypeMech type="5" mech="U01"/>
-      <TypeMech type="8" mech="U01"/>
-      <TypeMech type="5" mech="U09"/>
-      <TypeMech type="8" mech="U09"/>
-      <TypeMech type="5" mech="U10"/>
-      <TypeMech type="8" mech="U10"/>
-      <TypeMech type="5" mech="U13"/>
-      <TypeMech type="8" mech="U13"/>
-      <TypeMech type="5" mech="U19"/>
-      <TypeMech type="8" mech="U19"/>
-      <TypeMech type="5" mech="U24"/>
-      <TypeMech type="8" mech="U24"/>
-      <TypeMech type="5" mech="U43"/>
-      <TypeMech type="8" mech="U43"/>
-      <TypeMech type="5" mech="U44"/>
-      <TypeMech type="8" mech="U44"/>
-      <TypeMech type="5" mech="U54"/>
-      <TypeMech type="8" mech="U54"/>
-      <TypeMech type="5" mech="U56"/>
-      <TypeMech type="8" mech="U56"/>
-      <TypeMech type="5" mech="UL1"/>
-      <TypeMech type="8" mech="UL1"/>
     </GrantTypeMechs>
     <QText>Financial Status Report in file?</QText>
-    <QInstructions>Please answer this question</QInstructions>
+    <QInstructions/>
     <ResponseDefsList>
       <ResponseDef id="DMNCQ_270_RD_CM_1" type="COMMENT"/>
       <ResponseDef id="DMNCQ_270_RD_FL_1" type="FILE"/>
@@ -2118,6 +1194,46 @@
   </QuestionDef>
   <QuestionDef id="DMNCQ_290">
     <GrantTypeMechs>
+      <TypeMech type="5" mech="F30"/>
+      <TypeMech type="8" mech="F30"/>
+      <TypeMech type="5" mech="F31"/>
+      <TypeMech type="8" mech="F31"/>
+      <TypeMech type="5" mech="F32"/>
+      <TypeMech type="8" mech="F32"/>
+      <TypeMech type="5" mech="F33"/>
+      <TypeMech type="8" mech="F33"/>
+      <TypeMech type="5" mech="K12"/>
+      <TypeMech type="8" mech="K12"/>
+      <TypeMech type="5" mech="P01"/>
+      <TypeMech type="8" mech="P01"/>
+      <TypeMech type="5" mech="P20"/>
+      <TypeMech type="8" mech="P20"/>
+      <TypeMech type="5" mech="P30"/>
+      <TypeMech type="8" mech="P30"/>
+      <TypeMech type="5" mech="P50"/>
+      <TypeMech type="8" mech="P50"/>
+      <TypeMech type="5" mech="PL1"/>
+      <TypeMech type="8" mech="PL1"/>
+    </GrantTypeMechs>
+    <QText>Checklist included in application?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMNCQ_290_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMNCQ_290_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMNCQ_290_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8542">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8543">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMNCQ_300">
+    <GrantTypeMechs>
+      <TypeMech type="5" mech="C06"/>
+      <TypeMech type="8" mech="C06"/>
       <TypeMech type="5" mech="F30"/>
       <TypeMech type="8" mech="F30"/>
       <TypeMech type="5" mech="F31"/>
@@ -2166,266 +1282,124 @@
       <TypeMech type="8" mech="P50"/>
       <TypeMech type="5" mech="PL1"/>
       <TypeMech type="8" mech="PL1"/>
-      <TypeMech type="5" mech="T15"/>
-      <TypeMech type="8" mech="T15"/>
-      <TypeMech type="5" mech="T32"/>
-      <TypeMech type="8" mech="T32"/>
-      <TypeMech type="5" mech="TL1"/>
-      <TypeMech type="8" mech="TL1"/>
-      <TypeMech type="5" mech="TU2"/>
-      <TypeMech type="8" mech="TU2"/>
-      <TypeMech type="5" mech="U01"/>
-      <TypeMech type="8" mech="U01"/>
-      <TypeMech type="5" mech="U09"/>
-      <TypeMech type="8" mech="U09"/>
-      <TypeMech type="5" mech="U10"/>
-      <TypeMech type="8" mech="U10"/>
-      <TypeMech type="5" mech="U13"/>
-      <TypeMech type="8" mech="U13"/>
-      <TypeMech type="5" mech="U19"/>
-      <TypeMech type="8" mech="U19"/>
-      <TypeMech type="5" mech="U24"/>
-      <TypeMech type="8" mech="U24"/>
-      <TypeMech type="5" mech="U43"/>
-      <TypeMech type="8" mech="U43"/>
-      <TypeMech type="5" mech="U44"/>
-      <TypeMech type="8" mech="U44"/>
-      <TypeMech type="5" mech="U54"/>
-      <TypeMech type="8" mech="U54"/>
-      <TypeMech type="5" mech="U56"/>
-      <TypeMech type="8" mech="U56"/>
-      <TypeMech type="5" mech="UL1"/>
-      <TypeMech type="8" mech="UL1"/>
+      <TypeMech type="5" mech="R00"/>
+      <TypeMech type="8" mech="R00"/>
+      <TypeMech type="5" mech="R01"/>
+      <TypeMech type="8" mech="R01"/>
+      <TypeMech type="5" mech="R03"/>
+      <TypeMech type="8" mech="R03"/>
+      <TypeMech type="5" mech="R13"/>
+      <TypeMech type="8" mech="R13"/>
+      <TypeMech type="5" mech="R15"/>
+      <TypeMech type="8" mech="R15"/>
+      <TypeMech type="5" mech="R18"/>
+      <TypeMech type="8" mech="R18"/>
+      <TypeMech type="5" mech="R21"/>
+      <TypeMech type="8" mech="R21"/>
+      <TypeMech type="5" mech="R24"/>
+      <TypeMech type="8" mech="R24"/>
     </GrantTypeMechs>
-    <QText>Checklist included in application?</QText>
-    <QInstructions>Please answer this question</QInstructions>
+    <QText>Is Program Income box checked?</QText>
+    <QInstructions/>
     <ResponseDefsList>
-      <ResponseDef id="DMNCQ_290_RD_CM_1" type="COMMENT"/>
-      <ResponseDef id="DMNCQ_290_RD_FL_1" type="FILE"/>
-      <ResponseDef id="DMNCQ_290_RD_RB_1" type="RADIO">
-        <SelectionDef id="SEL_8542">
+      <ResponseDef id="DMNCQ_300_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMNCQ_300_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMNCQ_300_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8544">
           <Value>Yes</Value>
-          <QuestionDef id="DMNCQ_300">
-            <GrantTypeMechs>
-              <TypeMech type="5" mech="F30"/>
-              <TypeMech type="8" mech="F30"/>
-              <TypeMech type="5" mech="F31"/>
-              <TypeMech type="8" mech="F31"/>
-              <TypeMech type="5" mech="F32"/>
-              <TypeMech type="8" mech="F32"/>
-              <TypeMech type="5" mech="F33"/>
-              <TypeMech type="8" mech="F33"/>
-              <TypeMech type="5" mech="K01"/>
-              <TypeMech type="8" mech="K01"/>
-              <TypeMech type="5" mech="K04"/>
-              <TypeMech type="8" mech="K04"/>
-              <TypeMech type="5" mech="K05"/>
-              <TypeMech type="8" mech="K05"/>
-              <TypeMech type="5" mech="K07"/>
-              <TypeMech type="8" mech="K07"/>
-              <TypeMech type="5" mech="K08"/>
-              <TypeMech type="8" mech="K08"/>
-              <TypeMech type="5" mech="K11"/>
-              <TypeMech type="8" mech="K11"/>
-              <TypeMech type="5" mech="K12"/>
-              <TypeMech type="8" mech="K12"/>
-              <TypeMech type="5" mech="K14"/>
-              <TypeMech type="8" mech="K14"/>
-              <TypeMech type="5" mech="K22"/>
-              <TypeMech type="8" mech="K22"/>
-              <TypeMech type="5" mech="K23"/>
-              <TypeMech type="8" mech="K23"/>
-              <TypeMech type="5" mech="K24"/>
-              <TypeMech type="8" mech="K24"/>
-              <TypeMech type="5" mech="K25"/>
-              <TypeMech type="8" mech="K25"/>
-              <TypeMech type="5" mech="K99"/>
-              <TypeMech type="8" mech="K99"/>
-              <TypeMech type="5" mech="KL1"/>
-              <TypeMech type="8" mech="KL1"/>
-              <TypeMech type="5" mech="KL2"/>
-              <TypeMech type="8" mech="KL2"/>
-              <TypeMech type="5" mech="P01"/>
-              <TypeMech type="8" mech="P01"/>
-              <TypeMech type="5" mech="P20"/>
-              <TypeMech type="8" mech="P20"/>
-              <TypeMech type="5" mech="P30"/>
-              <TypeMech type="8" mech="P30"/>
-              <TypeMech type="5" mech="P50"/>
-              <TypeMech type="8" mech="P50"/>
-              <TypeMech type="5" mech="PL1"/>
-              <TypeMech type="8" mech="PL1"/>
-              <TypeMech type="5" mech="T15"/>
-              <TypeMech type="8" mech="T15"/>
-              <TypeMech type="5" mech="T32"/>
-              <TypeMech type="8" mech="T32"/>
-              <TypeMech type="5" mech="TL1"/>
-              <TypeMech type="8" mech="TL1"/>
-              <TypeMech type="5" mech="TU2"/>
-              <TypeMech type="8" mech="TU2"/>
-              <TypeMech type="5" mech="U01"/>
-              <TypeMech type="8" mech="U01"/>
-              <TypeMech type="5" mech="U09"/>
-              <TypeMech type="8" mech="U09"/>
-              <TypeMech type="5" mech="U10"/>
-              <TypeMech type="8" mech="U10"/>
-              <TypeMech type="5" mech="U13"/>
-              <TypeMech type="8" mech="U13"/>
-              <TypeMech type="5" mech="U19"/>
-              <TypeMech type="8" mech="U19"/>
-              <TypeMech type="5" mech="U24"/>
-              <TypeMech type="8" mech="U24"/>
-              <TypeMech type="5" mech="U43"/>
-              <TypeMech type="8" mech="U43"/>
-              <TypeMech type="5" mech="U44"/>
-              <TypeMech type="8" mech="U44"/>
-              <TypeMech type="5" mech="U54"/>
-              <TypeMech type="8" mech="U54"/>
-              <TypeMech type="5" mech="U56"/>
-              <TypeMech type="8" mech="U56"/>
-              <TypeMech type="5" mech="UL1"/>
-              <TypeMech type="8" mech="UL1"/>
-            </GrantTypeMechs>
-            <QText>Is Program Income box checked?</QText>
-            <QInstructions>Please answer this question</QInstructions>
-            <ResponseDefsList>
-              <ResponseDef id="DMNCQ_300_RD_CM_1" type="COMMENT"/>
-              <ResponseDef id="DMNCQ_300_RD_FL_1" type="FILE"/>
-              <ResponseDef id="DMNCQ_300_RD_RB_1" type="RADIO">
-                <SelectionDef id="SEL_8544">
-                  <Value>Yes</Value>
-                </SelectionDef>
-                <SelectionDef id="SEL_8545">
-                  <Value>No</Value>
-                </SelectionDef>
-                <SelectionDef id="SEL_8546">
-                  <Value>N/A</Value>
-                </SelectionDef>
-              </ResponseDef>
-            </ResponseDefsList>
-          </QuestionDef>
-          <QuestionDef id="DMNCQ_310">
-            <GrantTypeMechs>
-              <TypeMech type="5" mech="K01"/>
-              <TypeMech type="8" mech="K01"/>
-              <TypeMech type="5" mech="K04"/>
-              <TypeMech type="8" mech="K04"/>
-              <TypeMech type="5" mech="K05"/>
-              <TypeMech type="8" mech="K05"/>
-              <TypeMech type="5" mech="K07"/>
-              <TypeMech type="8" mech="K07"/>
-              <TypeMech type="5" mech="K08"/>
-              <TypeMech type="8" mech="K08"/>
-              <TypeMech type="5" mech="K11"/>
-              <TypeMech type="8" mech="K11"/>
-              <TypeMech type="5" mech="K12"/>
-              <TypeMech type="8" mech="K12"/>
-              <TypeMech type="5" mech="K14"/>
-              <TypeMech type="8" mech="K14"/>
-              <TypeMech type="5" mech="K22"/>
-              <TypeMech type="8" mech="K22"/>
-              <TypeMech type="5" mech="K23"/>
-              <TypeMech type="8" mech="K23"/>
-              <TypeMech type="5" mech="K24"/>
-              <TypeMech type="8" mech="K24"/>
-              <TypeMech type="5" mech="K25"/>
-              <TypeMech type="8" mech="K25"/>
-              <TypeMech type="5" mech="K99"/>
-              <TypeMech type="8" mech="K99"/>
-              <TypeMech type="5" mech="KL1"/>
-              <TypeMech type="8" mech="KL1"/>
-              <TypeMech type="5" mech="KL2"/>
-              <TypeMech type="8" mech="KL2"/>
-              <TypeMech type="5" mech="P01"/>
-              <TypeMech type="8" mech="P01"/>
-              <TypeMech type="5" mech="P20"/>
-              <TypeMech type="8" mech="P20"/>
-              <TypeMech type="5" mech="P30"/>
-              <TypeMech type="8" mech="P30"/>
-              <TypeMech type="5" mech="P50"/>
-              <TypeMech type="8" mech="P50"/>
-              <TypeMech type="5" mech="PL1"/>
-              <TypeMech type="8" mech="PL1"/>
-              <TypeMech type="5" mech="T15"/>
-              <TypeMech type="8" mech="T15"/>
-              <TypeMech type="5" mech="TL1"/>
-              <TypeMech type="8" mech="TL1"/>
-              <TypeMech type="5" mech="TU2"/>
-              <TypeMech type="8" mech="TU2"/>
-              <TypeMech type="5" mech="U01"/>
-              <TypeMech type="8" mech="U01"/>
-              <TypeMech type="5" mech="U09"/>
-              <TypeMech type="8" mech="U09"/>
-              <TypeMech type="5" mech="U10"/>
-              <TypeMech type="8" mech="U10"/>
-              <TypeMech type="5" mech="U13"/>
-              <TypeMech type="8" mech="U13"/>
-              <TypeMech type="5" mech="U19"/>
-              <TypeMech type="8" mech="U19"/>
-              <TypeMech type="5" mech="U24"/>
-              <TypeMech type="8" mech="U24"/>
-              <TypeMech type="5" mech="U43"/>
-              <TypeMech type="8" mech="U43"/>
-              <TypeMech type="5" mech="U44"/>
-              <TypeMech type="8" mech="U44"/>
-              <TypeMech type="5" mech="U54"/>
-              <TypeMech type="8" mech="U54"/>
-              <TypeMech type="5" mech="U56"/>
-              <TypeMech type="8" mech="U56"/>
-              <TypeMech type="5" mech="UL1"/>
-              <TypeMech type="8" mech="UL1"/>
-            </GrantTypeMechs>
-            <QText>Is Invention block checked?</QText>
-            <QInstructions>Please answer this question</QInstructions>
-            <ResponseDefsList>
-              <ResponseDef id="DMNCQ_310_RD_CM_1" type="COMMENT"/>
-              <ResponseDef id="DMNCQ_310_RD_FL_1" type="FILE"/>
-              <ResponseDef id="DMNCQ_310_RD_RB_1" type="RADIO">
-                <SelectionDef id="SEL_8547">
-                  <Value>Yes</Value>
-                </SelectionDef>
-                <SelectionDef id="SEL_8548">
-                  <Value>No</Value>
-                </SelectionDef>
-                <SelectionDef id="SEL_8549">
-                  <Value>N/A</Value>
-                </SelectionDef>
-              </ResponseDef>
-            </ResponseDefsList>
-          </QuestionDef>
         </SelectionDef>
-        <SelectionDef id="SEL_8543">
+        <SelectionDef id="SEL_8545">
           <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8546">
+          <Value>N/A</Value>
         </SelectionDef>
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
-  <QuestionDef id="DMNCQ_330">
+  <QuestionDef id="DMNCQ_310">
     <GrantTypeMechs>
-      <TypeMech type="5" mech="R41"/>
-      <TypeMech type="8" mech="R41"/>
-      <TypeMech type="5" mech="R42"/>
-      <TypeMech type="8" mech="R42"/>
-      <TypeMech type="5" mech="R43"/>
-      <TypeMech type="8" mech="R43"/>
-      <TypeMech type="5" mech="R44"/>
-      <TypeMech type="8" mech="R44"/>
-      <TypeMech type="5" mech="U43"/>
-      <TypeMech type="8" mech="U43"/>
-      <TypeMech type="5" mech="U44"/>
-      <TypeMech type="8" mech="U44"/>
+      <TypeMech type="5" mech="C06"/>
+      <TypeMech type="8" mech="C06"/>
+      <TypeMech type="5" mech="F30"/>
+      <TypeMech type="8" mech="F30"/>
+      <TypeMech type="5" mech="F31"/>
+      <TypeMech type="8" mech="F31"/>
+      <TypeMech type="5" mech="F32"/>
+      <TypeMech type="8" mech="F32"/>
+      <TypeMech type="5" mech="F33"/>
+      <TypeMech type="8" mech="F33"/>
+      <TypeMech type="5" mech="K01"/>
+      <TypeMech type="8" mech="K01"/>
+      <TypeMech type="5" mech="K04"/>
+      <TypeMech type="8" mech="K04"/>
+      <TypeMech type="5" mech="K05"/>
+      <TypeMech type="8" mech="K05"/>
+      <TypeMech type="5" mech="K07"/>
+      <TypeMech type="8" mech="K07"/>
+      <TypeMech type="5" mech="K08"/>
+      <TypeMech type="8" mech="K08"/>
+      <TypeMech type="5" mech="K11"/>
+      <TypeMech type="8" mech="K11"/>
+      <TypeMech type="5" mech="K12"/>
+      <TypeMech type="8" mech="K12"/>
+      <TypeMech type="5" mech="K14"/>
+      <TypeMech type="8" mech="K14"/>
+      <TypeMech type="5" mech="K22"/>
+      <TypeMech type="8" mech="K22"/>
+      <TypeMech type="5" mech="K23"/>
+      <TypeMech type="8" mech="K23"/>
+      <TypeMech type="5" mech="K24"/>
+      <TypeMech type="8" mech="K24"/>
+      <TypeMech type="5" mech="K25"/>
+      <TypeMech type="8" mech="K25"/>
+      <TypeMech type="5" mech="K99"/>
+      <TypeMech type="8" mech="K99"/>
+      <TypeMech type="5" mech="KL1"/>
+      <TypeMech type="8" mech="KL1"/>
+      <TypeMech type="5" mech="KL2"/>
+      <TypeMech type="8" mech="KL2"/>
+      <TypeMech type="5" mech="P01"/>
+      <TypeMech type="8" mech="P01"/>
+      <TypeMech type="5" mech="P20"/>
+      <TypeMech type="8" mech="P20"/>
+      <TypeMech type="5" mech="P30"/>
+      <TypeMech type="8" mech="P30"/>
+      <TypeMech type="5" mech="P50"/>
+      <TypeMech type="8" mech="P50"/>
+      <TypeMech type="5" mech="PL1"/>
+      <TypeMech type="8" mech="PL1"/>
+      <TypeMech type="5" mech="R00"/>
+      <TypeMech type="8" mech="R00"/>
+      <TypeMech type="5" mech="R01"/>
+      <TypeMech type="8" mech="R01"/>
+      <TypeMech type="5" mech="R03"/>
+      <TypeMech type="8" mech="R03"/>
+      <TypeMech type="5" mech="R13"/>
+      <TypeMech type="8" mech="R13"/>
+      <TypeMech type="5" mech="R15"/>
+      <TypeMech type="8" mech="R15"/>
+      <TypeMech type="5" mech="R18"/>
+      <TypeMech type="8" mech="R18"/>
+      <TypeMech type="5" mech="R21"/>
+      <TypeMech type="8" mech="R21"/>
+      <TypeMech type="5" mech="R24"/>
+      <TypeMech type="8" mech="R24"/>
     </GrantTypeMechs>
-    <QText>Small Business Financial/Management Systems Requirements information package sent?</QText>
-    <QInstructions>Please answer this question</QInstructions>
+    <QText>Is Invention block checked?</QText>
+    <QInstructions/>
     <ResponseDefsList>
-      <ResponseDef id="DMNCQ_330_RD_CM_1" type="COMMENT"/>
-      <ResponseDef id="DMNCQ_330_RD_FL_1" type="FILE"/>
-      <ResponseDef id="DMNCQ_330_RD_RB_1" type="RADIO">
-        <SelectionDef id="SEL_8552">
+      <ResponseDef id="DMNCQ_310_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMNCQ_310_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMNCQ_310_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8547">
           <Value>Yes</Value>
         </SelectionDef>
-        <SelectionDef id="SEL_8553">
+        <SelectionDef id="SEL_8548">
           <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8549">
+          <Value>N/A</Value>
         </SelectionDef>
       </ResponseDef>
     </ResponseDefsList>
@@ -2442,7 +1416,7 @@
       <TypeMech type="8" mech="F33"/>
     </GrantTypeMechs>
     <QText>Is Face Page signed and dated by required officials?</QText>
-    <QInstructions>Please answer this question</QInstructions>
+    <QInstructions/>
     <ResponseDefsList>
       <ResponseDef id="DMNCQ_340_RD_CM_1" type="COMMENT"/>
       <ResponseDef id="DMNCQ_340_RD_FL_1" type="FILE"/>
