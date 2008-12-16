@@ -1221,6 +1221,8 @@ Implementation/GsQuestions/trunk/scripts/CalendarMethods.js -text
 Implementation/GsQuestions/trunk/scripts/ClientSideMethods.js -text
 Implementation/GsQuestions/trunk/scripts/fancy.js -text
 Implementation/GsQuestions/trunk/stylesheets/GreensheetsStyleSheet.css -text
+Implementation/GsQuestions/trunk/xml/DC_Questions.xml -text
+Implementation/GsQuestions/trunk/xml/DNC_Questions.xml -text
 Implementation/GsQuestions/trunk/xml/NewQuestionSrc_PC.xml -text
 Implementation/GsQuestions/trunk/xml/NewQuestionSrc_PNC.xml -text
 Implementation/GsQuestions/trunk/xml/NewQuestionSrc_SC.xml -text
