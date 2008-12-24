@@ -287,6 +287,11 @@
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
+  
+  <!-- Question 270 "Financial Status Report in file?" was initially considered, but withdrawn, 
+       per e-mail from Terry Dunne, before DM greensheets were ever implemented in Production.
+  -->
+  <!--
   <QuestionDef id="DMCQ_270">
     <GrantTypeMechs></GrantTypeMechs>
     <QText>Financial Status Report in file?</QText>
@@ -307,6 +312,8 @@
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
+  -->
+  
   <QuestionDef id="DMCQ_280">
     <GrantTypeMechs></GrantTypeMechs>
     <QText>Summary Statement in file?</QText>
