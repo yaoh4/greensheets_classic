@@ -1958,6 +1958,10 @@
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
+  <!-- Question 270 "Financial Status Report in file?" was initially considered, but withdrawn, 
+       per e-mail from Terry Dunne, before DM greensheets were ever implemented in Production.
+  -->
+  <!--
   <QuestionDef id="DMNCQ_270">
     <GrantTypeMechs>
       <TypeMech type="5" mech="C06"/>
@@ -2026,6 +2030,7 @@
       <TypeMech type="8" mech="R21"/>
       <TypeMech type="5" mech="R24"/>
       <TypeMech type="8" mech="R24"/>
+      -- More TypeMechs would have to be here if Business did not decide to remove this question altogether.
     </GrantTypeMechs>
     <QText>Financial Status Report in file?</QText>
     <QInstructions/>
@@ -2045,6 +2050,7 @@
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
+  -->
   <QuestionDef id="DMNCQ_290">
     <GrantTypeMechs>
       <TypeMech type="5" mech="K12"/>
