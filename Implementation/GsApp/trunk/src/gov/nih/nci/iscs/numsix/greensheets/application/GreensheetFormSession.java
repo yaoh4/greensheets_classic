@@ -23,7 +23,6 @@ import org.apache.log4j.Logger;
  * multiple GreensheetFormSessions active if they are working/viewing multiple
  * greensheet forms at one time.
  * 
- * 
  * @author kpuscas, Number Six Software
  */
 public class GreensheetFormSession {
@@ -49,6 +48,8 @@ public class GreensheetFormSession {
 		String grp = null;
 		if (form.getGroupType().equals(GreensheetGroupType.PGM)) {
 			grp = "Program";
+		} else if (form.getGroupType().equals(GreensheetGroupType.DM)) {	// Abdul Latheef: Added the condition for the GPMATS enhancements
+			grp = "Document Management";			
 		} else {
 			grp = "Specialist";
 		}
