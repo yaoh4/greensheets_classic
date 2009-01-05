@@ -343,6 +343,8 @@ public class GsPdfRenderer {
 			groupType = "PROGRAM";
 		} else if (form.getGroupType().equals(GreensheetGroupType.SPEC)) {
 			groupType = "SPECIALIST";
+		} else if (form.getGroupType().equals(GreensheetGroupType.DM)) {	//Abdul Latheef: Added for the GPMATS enhancements
+			groupType = "DOCUMENT MANAGEMENT";			
 		}
 
 		formTitle.addText(groupType + " Greensheet Type:" + grant.getType()
