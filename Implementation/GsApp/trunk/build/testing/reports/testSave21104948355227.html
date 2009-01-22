@@ -21,14 +21,14 @@ function openHelp(){
 
 
          window.open('./help/GreensheetsPgmGuide.pdf');
-    
+
 }
 
 </script>
 
 <table cellspacing="0" width="100%" class="header">
 	<tr class="topRow">
-		<td class="logo"><a href="#"><img src="./images/LogoGreensheets.gif" title="Info jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = app1-cm1.nci.nih.gov)(PORT = 1610))) (CONNECT_DATA = (SERVICE_NAME = a1d2_at.nci.nih.gov) ) ) v1.0.5 b08.16.04" border="0" /></a></td>
+		<td class="logo"><a href="#"><img src="./images/LogoGreensheets.gif" title="Info jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = nci-oraclecm-dev.nci.nih.gov)(PORT = 1610))) (CONNECT_DATA = (SERVICE_NAME = i2et.nci.nih.gov) ) ) v1.0.5 b08.16.04" border="0" /></a></td>
 		<td class="align1 align4">&nbsp;v1.0.5 b08.16.04
 		ENV: TEST
 		</td>
@@ -42,7 +42,7 @@ function openHelp(){
         </td>
 		<td class="align1">
 			<form name="SimpleSearch" id="SimpleSearch" method="post" action="/greensheets/searchforgrant.do">
-				Search for 
+				Search for
 				<select name="searchType">
 					<option value="SEARCH_GS_NUMBER">Grant Number</option>
 					<option value="SEARCH_GS_NAME">PI Name</option>
