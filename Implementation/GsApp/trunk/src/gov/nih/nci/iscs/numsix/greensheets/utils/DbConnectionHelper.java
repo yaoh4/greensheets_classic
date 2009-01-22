@@ -223,8 +223,11 @@ public class DbConnectionHelper {
 			env = props.getProperty("oracle.environment");
 			if (env == null || env.equalsIgnoreCase("")) {
 				String s = props.getProperty(ORACLE_URL).toLowerCase();
-				if (s.toLowerCase().indexOf("_at".toLowerCase()) > -1) {
-					env = "TEST";
+				// Abdul Latheef: Changed the DB service name
+//				if (s.toLowerCase().indexOf("_at".toLowerCase()) > -1) {
+//					env = "TEST";
+				if (s.toLowerCase().indexOf("i2et".toLowerCase()) > -1) {
+					env = "TEST";				
 				} else if (s.toLowerCase().indexOf("_ap".toLowerCase()) > -1) {
 					env = "PROD";
 				}
