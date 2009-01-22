@@ -57,7 +57,7 @@ Author: Kevin A. Puscas - Number Six Software 2003
 
     <property name="database.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
     <property name="dev.database.url" value="jdbc:oracle:thin:@cii-server7.nci.nih.gov:1526:ciid" />
-    <property name="test.database.url" value="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = app1-cm1.nci.nih.gov)(PORT = 1610)))  (CONNECT_DATA = (SERVICE_NAME = a1d2_at.nci.nih.gov)))" />
+    <property name="test.database.url" value="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = nci-oraclecm-dev.nci.nih.gov)(PORT = 1610)))  (CONNECT_DATA = (SERVICE_NAME = i2et.nci.nih.gov)))" />
     <property name="database.userid" value="nci_app_user"/>
     <property name="database.password" value="orac1e"/>
        
