@@ -1422,7 +1422,7 @@
               <TypeMech type="9" mech="UL1"/>
               <TypeMech type="3" mech="UL1"/>
             </GrantTypeMechs>
-            <QText>Are human subjects involved?</QText>
+            <QText>Are Human Subjects involved?</QText>
             <QInstructions/>
             <ResponseDefsList>
               <ResponseDef id="DMCQ_140_RD_CM_1" type="COMMENT"/>
@@ -2386,6 +2386,9 @@
                       <ResponseDef id="DMCQ_160_RD_RB_1" type="RADIO">
                         <SelectionDef id="SEL_8014">
                           <Value>Yes</Value>
+                        </SelectionDef>
+                        <SelectionDef id="SEL_8015">
+                          <Value>No</Value>
                           <QuestionDef id="DMCQ_170">
                             <GrantTypeMechs>
                               <TypeMech type="1" mech="C06"/>
@@ -2866,9 +2869,6 @@
                               </ResponseDef>
                             </ResponseDefsList>
                           </QuestionDef>
-                        </SelectionDef>
-                        <SelectionDef id="SEL_8015">
-                          <Value>No</Value>
                         </SelectionDef>
                       </ResponseDef>
                     </ResponseDefsList>
