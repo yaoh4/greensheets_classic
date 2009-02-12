@@ -1,1 +1,1 @@
-java -mx128m -Droot="." -jar .\generateGsApp\generateGs.jar
+java -mx256m -Droot="." -jar .\generateGsApp\generateGs.jar
