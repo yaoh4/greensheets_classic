@@ -1425,7 +1425,7 @@
       <TypeMech type="9" mech="UL1"/>
       <TypeMech type="3" mech="UL1"/>
     </GrantTypeMechs>
-    <QText>Are human subjects involved?</QText>
+    <QText>Are Human Subjects involved?</QText>
     <QInstructions/>
     <ResponseDefsList>
       <ResponseDef id="DMCQ_140_RD_CM_1" type="COMMENT"/>

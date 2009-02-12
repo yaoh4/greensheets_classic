@@ -59,7 +59,7 @@
   </QuestionDef>
   <QuestionDef id="DMCQ_140">
     <GrantTypeMechs></GrantTypeMechs>
-    <QText>Are human subjects involved?</QText>
+    <QText>Are Human Subjects involved?</QText>
     <QInstructions/>
     <ResponseDefsList>
       <ResponseDef id="DMCQ_140_RD_CM_1" type="COMMENT"/>
