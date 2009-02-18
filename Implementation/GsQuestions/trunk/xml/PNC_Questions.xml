@@ -19303,10 +19303,13 @@
         <QText>Are there any publications cited in the Progress Report Summary 
             that appear not to be in compliance with the NIH Public Access 
             Policy?</QText>
-        <QInstructions>Answer Yes if, although the dates suggest that the 
-            publication(s) fall under the Public Access policy, none of the 
-            acceptable IDs or indications is provided (PMCID, NIHMSID, or 
-            "PMC Journal – In Process").</QInstructions>
+        <QInstructions>Answer Yes if one or more publications appear not to be 
+            in compliance. Although the dates suggest that the publication(s) fall 
+            under the Public Access policy, none of the acceptable IDs or 
+            indications is provided (PMCID, NIHMSID, or "PMC Journal – In Process"). 
+            Answer No if either all publications appear to be in compliance OR there 
+            are no publications reported.
+        </QInstructions>
         <ResponseDefsList>
             <ResponseDef id="PNCQ_200_RD_CM_1" type="COMMENT"/>
             <ResponseDef id="PNCQ_200_RD_FL_2" type="FILE"/>
@@ -19383,7 +19386,7 @@
                             <TypeMech type="5" mech="UL1"/>
                         </GrantTypeMechs>
                         <QText>Has the Public Access notification e-mail been sent to the PI and Business Official?</QText>
-                        <QInstructions/>
+                        <QInstructions>(If No, explanation required)</QInstructions>
                         <ResponseDefsList>
                             <ResponseDef id="PNCQ_2000_RD_CM_1" type="COMMENT"/>
                             <ResponseDef id="PNCQ_2000_RD_FL_2" type="FILE"/>
