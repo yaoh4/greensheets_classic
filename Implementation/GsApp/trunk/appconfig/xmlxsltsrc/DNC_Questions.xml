@@ -635,16 +635,6 @@
                       <TypeMech type="8" mech="KL1"/>
                       <TypeMech type="5" mech="KL2"/>
                       <TypeMech type="8" mech="KL2"/>
-                      <TypeMech type="5" mech="P01"/>
-                      <TypeMech type="8" mech="P01"/>
-                      <TypeMech type="5" mech="P20"/>
-                      <TypeMech type="8" mech="P20"/>
-                      <TypeMech type="5" mech="P30"/>
-                      <TypeMech type="8" mech="P30"/>
-                      <TypeMech type="5" mech="P50"/>
-                      <TypeMech type="8" mech="P50"/>
-                      <TypeMech type="5" mech="PL1"/>
-                      <TypeMech type="8" mech="PL1"/>
                       <TypeMech type="5" mech="R00"/>
                       <TypeMech type="8" mech="R00"/>
                       <TypeMech type="5" mech="R01"/>
@@ -697,36 +687,6 @@
                       <TypeMech type="8" mech="SC1"/>
                       <TypeMech type="5" mech="SC2"/>
                       <TypeMech type="8" mech="SC2"/>
-                      <TypeMech type="5" mech="T15"/>
-                      <TypeMech type="8" mech="T15"/>
-                      <TypeMech type="5" mech="T32"/>
-                      <TypeMech type="8" mech="T32"/>
-                      <TypeMech type="5" mech="TL1"/>
-                      <TypeMech type="8" mech="TL1"/>
-                      <TypeMech type="5" mech="TU2"/>
-                      <TypeMech type="8" mech="TU2"/>
-                      <TypeMech type="5" mech="U01"/>
-                      <TypeMech type="8" mech="U01"/>
-                      <TypeMech type="5" mech="U09"/>
-                      <TypeMech type="8" mech="U09"/>
-                      <TypeMech type="5" mech="U10"/>
-                      <TypeMech type="8" mech="U10"/>
-                      <TypeMech type="5" mech="U13"/>
-                      <TypeMech type="8" mech="U13"/>
-                      <TypeMech type="5" mech="U19"/>
-                      <TypeMech type="8" mech="U19"/>
-                      <TypeMech type="5" mech="U24"/>
-                      <TypeMech type="8" mech="U24"/>
-                      <TypeMech type="5" mech="U43"/>
-                      <TypeMech type="8" mech="U43"/>
-                      <TypeMech type="5" mech="U44"/>
-                      <TypeMech type="8" mech="U44"/>
-                      <TypeMech type="5" mech="U54"/>
-                      <TypeMech type="8" mech="U54"/>
-                      <TypeMech type="5" mech="U56"/>
-                      <TypeMech type="8" mech="U56"/>
-                      <TypeMech type="5" mech="UL1"/>
-                      <TypeMech type="8" mech="UL1"/>
                     </GrantTypeMechs>
                     <QText>Does IRB approval date precede institutional official's signature date?</QText>
                     <QInstructions/>
@@ -2418,6 +2378,9 @@
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
+
+  <!-- This question removed per Feb. 24, 2009 email from Terry Dunne.  -->
+  <!--
   <QuestionDef id="DMNCQ_340">
     <GrantTypeMechs>
       <TypeMech type="5" mech="F30"/>
@@ -2444,4 +2407,5 @@
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
+  -->
 </GreensheetQuestions>
