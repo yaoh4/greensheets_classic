@@ -428,6 +428,9 @@
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
+  
+  <!-- This question (340) is removed per Feb. 24, 2009 email from Terry Dunne. -->
+  <!-- 
   <QuestionDef id="DMCQ_340">
     <GrantTypeMechs></GrantTypeMechs>
     <QText>Is Face Page signed and dated by required officials?</QText>
@@ -445,4 +448,5 @@
       </ResponseDef>
     </ResponseDefsList>
   </QuestionDef>
+  -- >
 </GreensheetQuestions>

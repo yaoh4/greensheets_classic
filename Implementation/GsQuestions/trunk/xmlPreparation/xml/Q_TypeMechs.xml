@@ -2096,41 +2096,6 @@
       <TypeMech type="7" mech="KL2"/>
       <TypeMech type="9" mech="KL2"/>
       <TypeMech type="3" mech="KL2"/>
-      <TypeMech type="1" mech="P01"/>
-      <TypeMech type="2" mech="P01"/>
-      <TypeMech type="4" mech="P01"/>
-      <TypeMech type="6" mech="P01"/>
-      <TypeMech type="7" mech="P01"/>
-      <TypeMech type="9" mech="P01"/>
-      <TypeMech type="3" mech="P01"/>
-      <TypeMech type="1" mech="P20"/>
-      <TypeMech type="2" mech="P20"/>
-      <TypeMech type="4" mech="P20"/>
-      <TypeMech type="6" mech="P20"/>
-      <TypeMech type="7" mech="P20"/>
-      <TypeMech type="9" mech="P20"/>
-      <TypeMech type="3" mech="P20"/>
-      <TypeMech type="1" mech="P30"/>
-      <TypeMech type="2" mech="P30"/>
-      <TypeMech type="4" mech="P30"/>
-      <TypeMech type="6" mech="P30"/>
-      <TypeMech type="7" mech="P30"/>
-      <TypeMech type="9" mech="P30"/>
-      <TypeMech type="3" mech="P30"/>
-      <TypeMech type="1" mech="P50"/>
-      <TypeMech type="2" mech="P50"/>
-      <TypeMech type="4" mech="P50"/>
-      <TypeMech type="6" mech="P50"/>
-      <TypeMech type="7" mech="P50"/>
-      <TypeMech type="9" mech="P50"/>
-      <TypeMech type="3" mech="P50"/>
-      <TypeMech type="1" mech="PL1"/>
-      <TypeMech type="2" mech="PL1"/>
-      <TypeMech type="4" mech="PL1"/>
-      <TypeMech type="6" mech="PL1"/>
-      <TypeMech type="7" mech="PL1"/>
-      <TypeMech type="9" mech="PL1"/>
-      <TypeMech type="3" mech="PL1"/>
       <TypeMech type="1" mech="R00"/>
       <TypeMech type="2" mech="R00"/>
       <TypeMech type="4" mech="R00"/>
@@ -2313,111 +2278,6 @@
       <TypeMech type="7" mech="SC2"/>
       <TypeMech type="9" mech="SC2"/>
       <TypeMech type="3" mech="SC2"/>
-      <TypeMech type="1" mech="T15"/>
-      <TypeMech type="2" mech="T15"/>
-      <TypeMech type="4" mech="T15"/>
-      <TypeMech type="6" mech="T15"/>
-      <TypeMech type="7" mech="T15"/>
-      <TypeMech type="9" mech="T15"/>
-      <TypeMech type="3" mech="T15"/>
-      <TypeMech type="1" mech="T32"/>
-      <TypeMech type="2" mech="T32"/>
-      <TypeMech type="4" mech="T32"/>
-      <TypeMech type="6" mech="T32"/>
-      <TypeMech type="7" mech="T32"/>
-      <TypeMech type="9" mech="T32"/>
-      <TypeMech type="3" mech="T32"/>
-      <TypeMech type="1" mech="TL1"/>
-      <TypeMech type="2" mech="TL1"/>
-      <TypeMech type="4" mech="TL1"/>
-      <TypeMech type="6" mech="TL1"/>
-      <TypeMech type="7" mech="TL1"/>
-      <TypeMech type="9" mech="TL1"/>
-      <TypeMech type="3" mech="TL1"/>
-      <TypeMech type="1" mech="TU2"/>
-      <TypeMech type="2" mech="TU2"/>
-      <TypeMech type="4" mech="TU2"/>
-      <TypeMech type="6" mech="TU2"/>
-      <TypeMech type="7" mech="TU2"/>
-      <TypeMech type="9" mech="TU2"/>
-      <TypeMech type="3" mech="TU2"/>
-      <TypeMech type="1" mech="U01"/>
-      <TypeMech type="2" mech="U01"/>
-      <TypeMech type="4" mech="U01"/>
-      <TypeMech type="6" mech="U01"/>
-      <TypeMech type="7" mech="U01"/>
-      <TypeMech type="9" mech="U01"/>
-      <TypeMech type="3" mech="U01"/>
-      <TypeMech type="1" mech="U09"/>
-      <TypeMech type="2" mech="U09"/>
-      <TypeMech type="4" mech="U09"/>
-      <TypeMech type="6" mech="U09"/>
-      <TypeMech type="7" mech="U09"/>
-      <TypeMech type="9" mech="U09"/>
-      <TypeMech type="3" mech="U09"/>
-      <TypeMech type="1" mech="U10"/>
-      <TypeMech type="2" mech="U10"/>
-      <TypeMech type="4" mech="U10"/>
-      <TypeMech type="6" mech="U10"/>
-      <TypeMech type="7" mech="U10"/>
-      <TypeMech type="9" mech="U10"/>
-      <TypeMech type="3" mech="U10"/>
-      <TypeMech type="1" mech="U13"/>
-      <TypeMech type="2" mech="U13"/>
-      <TypeMech type="4" mech="U13"/>
-      <TypeMech type="6" mech="U13"/>
-      <TypeMech type="7" mech="U13"/>
-      <TypeMech type="9" mech="U13"/>
-      <TypeMech type="3" mech="U13"/>
-      <TypeMech type="1" mech="U19"/>
-      <TypeMech type="2" mech="U19"/>
-      <TypeMech type="4" mech="U19"/>
-      <TypeMech type="6" mech="U19"/>
-      <TypeMech type="7" mech="U19"/>
-      <TypeMech type="9" mech="U19"/>
-      <TypeMech type="3" mech="U19"/>
-      <TypeMech type="1" mech="U24"/>
-      <TypeMech type="2" mech="U24"/>
-      <TypeMech type="4" mech="U24"/>
-      <TypeMech type="6" mech="U24"/>
-      <TypeMech type="7" mech="U24"/>
-      <TypeMech type="9" mech="U24"/>
-      <TypeMech type="3" mech="U24"/>
-      <TypeMech type="1" mech="U43"/>
-      <TypeMech type="2" mech="U43"/>
-      <TypeMech type="4" mech="U43"/>
-      <TypeMech type="6" mech="U43"/>
-      <TypeMech type="7" mech="U43"/>
-      <TypeMech type="9" mech="U43"/>
-      <TypeMech type="3" mech="U43"/>
-      <TypeMech type="1" mech="U44"/>
-      <TypeMech type="2" mech="U44"/>
-      <TypeMech type="4" mech="U44"/>
-      <TypeMech type="6" mech="U44"/>
-      <TypeMech type="7" mech="U44"/>
-      <TypeMech type="9" mech="U44"/>
-      <TypeMech type="3" mech="U44"/>
-      <TypeMech type="1" mech="U54"/>
-      <TypeMech type="2" mech="U54"/>
-      <TypeMech type="4" mech="U54"/>
-      <TypeMech type="6" mech="U54"/>
-      <TypeMech type="7" mech="U54"/>
-      <TypeMech type="9" mech="U54"/>
-      <TypeMech type="3" mech="U54"/>
-      <TypeMech type="1" mech="U56"/>
-      <TypeMech type="2" mech="U56"/>
-      <TypeMech type="4" mech="U56"/>
-      <TypeMech type="6" mech="U56"/>
-      <TypeMech type="7" mech="U56"/>
-      <TypeMech type="9" mech="U56"/>
-      <TypeMech type="3" mech="U56"/>
-      <TypeMech type="1" mech="UL1"/>
-      <TypeMech type="2" mech="UL1"/>
-      <TypeMech type="4" mech="UL1"/>
-      <TypeMech type="6" mech="UL1"/>
-      <TypeMech type="7" mech="UL1"/>
-      <TypeMech type="9" mech="UL1"/>
-      <TypeMech type="3" mech="UL1"/>
       <TypeMech type="5" mech="C06"/>
       <TypeMech type="8" mech="C06"/>
       <TypeMech type="5" mech="F30"/>
@@ -2458,16 +2318,6 @@
       <TypeMech type="8" mech="KL1"/>
       <TypeMech type="5" mech="KL2"/>
       <TypeMech type="8" mech="KL2"/>
-      <TypeMech type="5" mech="P01"/>
-      <TypeMech type="8" mech="P01"/>
-      <TypeMech type="5" mech="P20"/>
-      <TypeMech type="8" mech="P20"/>
-      <TypeMech type="5" mech="P30"/>
-      <TypeMech type="8" mech="P30"/>
-      <TypeMech type="5" mech="P50"/>
-      <TypeMech type="8" mech="P50"/>
-      <TypeMech type="5" mech="PL1"/>
-      <TypeMech type="8" mech="PL1"/>
       <TypeMech type="5" mech="R00"/>
       <TypeMech type="8" mech="R00"/>
       <TypeMech type="5" mech="R01"/>
@@ -2520,36 +2370,6 @@
       <TypeMech type="8" mech="SC1"/>
       <TypeMech type="5" mech="SC2"/>
       <TypeMech type="8" mech="SC2"/>
-      <TypeMech type="5" mech="T15"/>
-      <TypeMech type="8" mech="T15"/>
-      <TypeMech type="5" mech="T32"/>
-      <TypeMech type="8" mech="T32"/>
-      <TypeMech type="5" mech="TL1"/>
-      <TypeMech type="8" mech="TL1"/>
-      <TypeMech type="5" mech="TU2"/>
-      <TypeMech type="8" mech="TU2"/>
-      <TypeMech type="5" mech="U01"/>
-      <TypeMech type="8" mech="U01"/>
-      <TypeMech type="5" mech="U09"/>
-      <TypeMech type="8" mech="U09"/>
-      <TypeMech type="5" mech="U10"/>
-      <TypeMech type="8" mech="U10"/>
-      <TypeMech type="5" mech="U13"/>
-      <TypeMech type="8" mech="U13"/>
-      <TypeMech type="5" mech="U19"/>
-      <TypeMech type="8" mech="U19"/>
-      <TypeMech type="5" mech="U24"/>
-      <TypeMech type="8" mech="U24"/>
-      <TypeMech type="5" mech="U43"/>
-      <TypeMech type="8" mech="U43"/>
-      <TypeMech type="5" mech="U44"/>
-      <TypeMech type="8" mech="U44"/>
-      <TypeMech type="5" mech="U54"/>
-      <TypeMech type="8" mech="U54"/>
-      <TypeMech type="5" mech="U56"/>
-      <TypeMech type="8" mech="U56"/>
-      <TypeMech type="5" mech="UL1"/>
-      <TypeMech type="8" mech="UL1"/>
     </GrantTypeMechs>
     <QText>Does IRB approval date precede institutional official's signature date?</QText>
     <QInstructions/>
@@ -8549,6 +8369,9 @@
       <ResponseDef id="DMCQ_330_RD_FL_1" type="FILE"/>
     </ResponseDefsList>
   </QuestionDef>
+  
+  <!-- Question about face page removed per Feb. 24, 2009 email from Terry Dunne. -->
+  <!--
   <QuestionDef id="DMCQ_340">
     <GrantTypeMechs>
       <TypeMech type="5" mech="F30"/>
@@ -8567,4 +8390,5 @@
       <ResponseDef id="DMCQ_340_RD_FL_1" type="FILE"/>
     </ResponseDefsList>
   </QuestionDef>
+  -->
 </GreensheetQuestions>
