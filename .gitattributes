@@ -171,6 +171,7 @@ Implementation/GsApp/trunk/appconfig/log4j.properties.test -text
 Implementation/GsApp/trunk/appconfig/log4j.properties.training -text
 Implementation/GsApp/trunk/appconfig/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/DC_Questions.xml -text
+Implementation/GsApp/trunk/appconfig/xmlxsltsrc/DNC_Questions.xml -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormToFoTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormXmlTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PC_Questions.3.23.05.xml -text
