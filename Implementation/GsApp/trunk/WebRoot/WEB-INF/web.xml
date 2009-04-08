@@ -6,11 +6,11 @@
 <web-app>
     <context-param>
         <param-name>appVersion</param-name>
-        <param-value>v2.0.3</param-value>
+        <param-value>v2.0.4</param-value>
     </context-param>
     <context-param>
         <param-name>appBuild</param-name>
-        <param-value>b02.28.09</param-value>
+        <param-value>b04.08.09</param-value>
     </context-param>
     <context-param>
         <param-name>showDebugOnError</param-name>
