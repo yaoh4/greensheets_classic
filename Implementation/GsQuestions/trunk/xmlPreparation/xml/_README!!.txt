@@ -11,3 +11,8 @@ After that, <ResponseDefs> are filled in manually using text editor, and the fil
 Then, two copies of DM_ResponseDefs.xml are made - one as "DC_Questions before nesting.xml" and the other as "DNC_Questions before nesting.xml".
 In the latter one, "DNC_Questions before nesting.xml", QuestionDef IDs and ResponseDef IDs are manually changed (via global search-and replace) from DMCQ_ to DMNCQ_, and SelectionDef IDs are changed from SEL_80xx to SEL_85xx.
 Then copies of those are made as DC_Questions.xml and DNC_Questions.xml (which will be the final file names), and sub-questions are nested into <SelectionDef> elemensts of their parent questions using XMLspy (see the document "Nesting questions using XML Spy.doc") in the directory one level above.
+
+=-=-=-=-=
+Note on April 8, 2009: Files in this directory do not yet have UH2 funding mechanism added; next time these files are used, it has to be added.
+It is already added directly to the final output files in their destination directories.
+=-=-=-=-=
