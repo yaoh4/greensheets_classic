@@ -8,17 +8,17 @@
 sax.parser=org.apache.xerces.parsers.SAXParser
 
 #Directory location where files attached to questions are stored
-attachemts.repository.path=/data/prod/greensheetsdocs
+attachemts.repository.path=C:/dev/tools/JRun4/servers/greensheets_attachments
 
 #URL of Grant Detail Viewer
-url.grantdetailviewer=https://i2e.nci.nih.gov/yourgrants/jsp/GrantDetails.jsp?applId
+url.grantdetailviewer=https://i2e-test.nci.nih.gov/yourgrants/jsp/GrantDetails.jsp?applId
 
 #URL for Workbench
-url.Workbench=https://i2e.nci.nih.gov/workbench/WorkbenchView
-    
+url.Workbench=https://i2e-test.nci.nih.gov/workbench/WorkbenchView
+	
 #URL for IMPACII
 url.Impac2=http://impacii.nih.gov/webapps/index.cfm
-
+ 
 #Grant Year (either a value like 2002 or current for current year 
 #grant.year=current
 

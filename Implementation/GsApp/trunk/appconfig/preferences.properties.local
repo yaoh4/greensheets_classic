@@ -1,0 +1,17 @@
+#
+# Greensheets Default System Values Preferences
+#
+# NOTE: Valid values for preferences are as follows:
+# preferences.grantSourcePd = myportfolio | mycanceractivity | allncigrants
+# preferences.grantSourcePa = myportfolio | mycanceractivity | allncigrants
+# preferences.grantType = competinggrants | noncompetinggrants | both 
+# preferences.mechanism =  any mechanism (e.g. K12, RO1, etc) or null for any mechanism
+# preferences.onlyGrantsWithinPayline= yes | no
+#
+preferences.grantSourcePd=myportfolio
+preferences.grantSourcePa=mycanceractivity
+preferences.grantType=both
+preferences.onlyGrantsWithinPayline=yes
+
+
+
