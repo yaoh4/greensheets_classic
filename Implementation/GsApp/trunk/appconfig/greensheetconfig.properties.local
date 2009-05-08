@@ -15,7 +15,7 @@ url.grantdetailviewer=https://i2e-test.nci.nih.gov/yourgrants/jsp/GrantDetails.j
 
 #URL for Workbench
 url.Workbench=https://i2e-test.nci.nih.gov/workbench/WorkbenchView
-	
+    
 #URL for IMPACII
 url.Impac2=http://impacii.nih.gov/webapps/index.cfm
  
@@ -36,3 +36,9 @@ file.attachment.size.limit=10
 
 #Minority Supplements Program Users
 minoritysupplements.userids=BROSENFELD,OGUNBIYIP
+
+#The Application Status Test User ID must be in the LDAP.
+statusTestUser=gs_pd
+appStatusTestsDir=appStatusTests
+checkDBStatus=Yes
+checkFilePermissions=Yes
