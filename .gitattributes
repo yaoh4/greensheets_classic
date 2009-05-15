@@ -160,7 +160,9 @@ Implementation/GsApp/trunk/WebRoot/stylesheets/fancy.css -text
 Implementation/GsApp/trunk/WebRoot/stylesheets/otherappsmenu.css -text
 Implementation/GsApp/trunk/WebRoot/stylesheets/outlook.css -text
 Implementation/GsApp/trunk/appconfig/db.properties -text
+Implementation/GsApp/trunk/appconfig/db.properties.dev -text
 Implementation/GsApp/trunk/appconfig/db.properties.local -text
+Implementation/GsApp/trunk/appconfig/db.properties.test -text
 Implementation/GsApp/trunk/appconfig/errormessages.properties -text
 Implementation/GsApp/trunk/appconfig/errormessages.properties.local -text
 Implementation/GsApp/trunk/appconfig/greensheetconfig.properties -text
