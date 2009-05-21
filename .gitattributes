@@ -1235,6 +1235,7 @@ Implementation/GsQuestions/trunk/xml/NewQuestionSrc_PNC.xml -text
 Implementation/GsQuestions/trunk/xml/NewQuestionSrc_SC.xml -text
 Implementation/GsQuestions/trunk/xml/NewQuestionSrc_SNC.xml -text
 Implementation/GsQuestions/trunk/xml/PC_Questions.xml -text
+Implementation/GsQuestions/trunk/xml/PNC_Questions.xml -text
 Implementation/GsQuestions/trunk/xml/PNC_Questions_orig.xml -text
 Implementation/GsQuestions/trunk/xml/SC_Questions.xml -text
 Implementation/GsQuestions/trunk/xml/SNCTotalTypeMechForXML.txt -text
