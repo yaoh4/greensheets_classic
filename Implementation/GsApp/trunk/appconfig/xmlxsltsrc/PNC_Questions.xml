@@ -941,7 +941,7 @@
                             <TypeMech type="5" mech="R35"/>
                         </GrantTypeMechs>
                         <QText>Research exempt from regulations under E4 (45 CFR 46)?</QText>
-                        <QInstructions>http://grants2.nih.gov/grants/funding/phs398/instructions2/p2_question2_exempt_research.htm</QInstructions>
+                        <QInstructions>http://www.hhs.gov/ohrp/humansubjects/guidance/45cfr46.htm#46.101(b)</QInstructions>
                         <ResponseDefsList>
                             <ResponseDef id="PNCQ_6_RD_RB_16" type="RADIO">
                                 <SelectionDef id="SEL_9">

@@ -2077,7 +2077,7 @@
                                             <TypeMech type="3" mech="U10"/>
                                         </GrantTypeMechs>
                                         <QText>Research exempt from regulations (45 CFR 46)?  </QText>
-                                        <QInstructions>(Enter exemption number or not exempt) http://grants2.nih.gov/grants/funding/phs398/instructions2/p2_question2_exempt_research.htm</QInstructions>
+                                        <QInstructions>(Enter exemption number or not exempt) http://www.hhs.gov/ohrp/humansubjects/guidance/45cfr46.htm#46.101(b)</QInstructions>
                                         <ResponseDefsList>
                                             <ResponseDef id="PCQ_426_RD_CM_985" type="COMMENT"/>
                                             <ResponseDef id="PCQ_426_RD_FL_986" type="FILE"/>
@@ -18045,7 +18045,7 @@
                             <TypeMech type="9" mech="U10"/>
                         </GrantTypeMechs>
                         <QText>Research exempt from regulations (45 CFR 46)?  </QText>
-                        <QInstructions>(Enter exemption number or not exempt) http://grants2.nih.gov/grants/funding/phs398/instructions2/p2_question2_exempt_research.htm</QInstructions>
+                        <QInstructions>(Enter exemption number or not exempt) http://www.hhs.gov/ohrp/humansubjects/guidance/45cfr46.htm#46.101(b)</QInstructions>
                         <ResponseDefsList>
                             <ResponseDef id="PCQ_26_RD_CM_76" type="COMMENT"/>
                             <ResponseDef id="PCQ_26_RD_FL_77" type="FILE"/>
