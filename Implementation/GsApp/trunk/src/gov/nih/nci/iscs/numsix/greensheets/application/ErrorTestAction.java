@@ -1,5 +1,6 @@
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
+import gov.nih.nci.iscs.i2e.greensheets.GreensheetsResourceException;
 import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetMgrFactory;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GreensheetUserMgr;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
@@ -44,6 +45,7 @@ public class ErrorTestAction extends Action {
 		ResultSet rs = null;
 		int fiscalYear = 0;
 		GsUser user = null;
+		String statusResponse = "<html><head><title>Greensheets Status</title></head><body>";
 		
 		// Get the LDAP user ID from the properties file.
 		Properties appProperties = (Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
@@ -201,12 +203,28 @@ public class ErrorTestAction extends Action {
 		}
 	
 		if (exceptionRaised) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, errorMsg);
+//			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, errorMsg);
+			statusResponse += errorMsg;
+			statusResponse += "</body></html>";
+            try {
+                resp.getWriter().write(statusResponse);
+            } catch (IOException ioExcep) {
+            	ioExcep.printStackTrace();
+                throw new GreensheetsResourceException(ioExcep.toString());
+            }			
 		} else {
-			if (LDAPStatusCheckPassed) httpResponseMsg += "\nPassed the LDAP connection test";
-			if (DBStatusCheckPassed) httpResponseMsg += "\nPassed the I2E Database connection test";
-			if (filePermissionsCheckPassed) httpResponseMsg += "\nPassed File permissions tests";
-			resp.sendError(HttpServletResponse.SC_OK, httpResponseMsg);				
+			if (LDAPStatusCheckPassed) httpResponseMsg += "<BR/>" + "Passed the LDAP connection test";
+			if (DBStatusCheckPassed) httpResponseMsg += "<BR/>" + "Passed the I2E Database connection test";
+			if (filePermissionsCheckPassed) httpResponseMsg += "<BR/>" + "Passed File permissions tests";
+//			resp.sendError(HttpServletResponse.SC_OK, httpResponseMsg);	
+			statusResponse += httpResponseMsg;
+			statusResponse += "</body></html>";
+            try {
+                resp.getWriter().write(statusResponse);
+            } catch (IOException ioExcep) {
+            	ioExcep.printStackTrace();
+                throw new GreensheetsResourceException(ioExcep.toString());
+            }			
 		}
 		return null;
 	}
