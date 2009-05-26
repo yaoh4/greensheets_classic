@@ -1,4 +1,4 @@
-To add tags for a new funding mechanism (RC1 in this example) immediately following the tags for a funding mechanism on which the new one is based:
+To add tags for a new funding mechanism (RC1 in this example) immediately following the tags for a funding mechanism on which the new one is based, use the following regular expressions doing a Search-and-Replace in Textpad:
 
 For "find what", use this:
 \(.*\)<TypeMech type="\([1-9]\)" mech="R01"/>
