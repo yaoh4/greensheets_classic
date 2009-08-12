@@ -48,7 +48,8 @@ public class GreensheetFormDataHelper {
 
 		logger.debug("getGreensheetFormForGrant() Begin");
 		Connection conn = null;
-		Statement stmt = null;
+//		Statement stmt = null;			// Rewrite the SQL to improve the performance in the Greensheets application
+		PreparedStatement pstmt = null;	// Rewrite the SQL to improve the performance in the Greensheets application
 		ResultSet rs = null;
 
 		GreensheetForm form = new GreensheetForm();
@@ -58,7 +59,7 @@ public class GreensheetFormDataHelper {
 		try {
 
 			conn = DbConnectionHelper.getInstance().getConnection();
-			stmt = conn.createStatement();
+//			stmt = conn.createStatement();	// Rewrite the SQL to improve the performance in the Greensheets application
 
 			String form_role_code = null;
 
@@ -71,48 +72,86 @@ public class GreensheetFormDataHelper {
 			}
 
 			int templateId = 0;
-
+//			 Commented out the following SQL: Rewrite the SQL to improve the performance in the Greensheets application
+//			String sqlTemplateId = "select ftm_id from form_grant_matrix_t "
+//					+ "WHERE form_role_code='" + form_role_code + "' AND "
+//					+ "appl_type_code='" + grant.getType()
+//					+ "' AND activity_code='" + grant.getMech() + "'";
 			String sqlTemplateId = "select ftm_id from form_grant_matrix_t "
-					+ "WHERE form_role_code='" + form_role_code + "' AND "
-					+ "appl_type_code='" + grant.getType()
-					+ "' AND activity_code='" + grant.getMech() + "'";
+				+ "WHERE form_role_code = ? AND "
+				+ "appl_type_code = ? AND "
+				+ "activity_code = ?";
+//			logger.debug("sqlTemplateId " + sqlTemplateId);
 
+//			stmt = conn.createStatement();	// Rewrite the SQL to improve the performance in the Greensheets application
+			pstmt = conn.prepareStatement(sqlTemplateId);
+			logger.debug("Within getGreensheetFormForGrant(), form_role_code = " + form_role_code);
+			logger.debug("Within getGreensheetFormForGrant(), grant.getType() = " + grant.getType());
+			logger.debug("Within getGreensheetFormForGrant(), grant.getMech() = " + grant.getMech());
+			pstmt.setString(1, form_role_code);
+			pstmt.setString(2, grant.getType());
+			pstmt.setString(3, grant.getMech());
+			
 			logger.debug("sqlTemplateId " + sqlTemplateId);
-
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sqlTemplateId);
-
+//			rs = stmt.executeQuery(sqlTemplateId);	// Rewrite the SQL to improve the performance in the Greensheets application
+			rs = pstmt.executeQuery();	// Rewrite the SQL to improve the performance in the Greensheets application
+			
 			while (rs.next()) {
 				templateId = rs.getInt(1);
+				logger.debug("Template ID read from the table form_grant_matrix_t is " + templateId);	// Rewrite the SQL to improve the performance in the Greensheets application
 			}
 
 			form.setTemplateId(templateId);
-
-			String sql = "select aft.frm_id, ft.form_status, ft.poc,ft.submitted_user_id, ft.last_change_user_id, ft.ftm_id, ft.submitted_date from appl_forms_t aft, forms_t ft where aft.frm_id=ft.id and ft.form_role_code= '"
-					+ form_role_code + "'and ";
-
-			if (grant.isDummyGrant()) {
-				sql = sql + "aft.control_full_grant_num='"
-						+ grant.getFullGrantNumber() + "'";
-
-			} else {
-				sql = sql + "aft.appl_id=" + grant.getApplId();
-
-			}
-
+//			 Commented out the following SQL: Rewrite the SQL to improve the performance in the Greensheets application
+//			String sql = "select aft.frm_id, ft.form_status, ft.poc,ft.submitted_user_id, ft.last_change_user_id, ft.ftm_id, ft.submitted_date from appl_forms_t aft, forms_t ft where aft.frm_id=ft.id and ft.form_role_code= '"
+//					+ form_role_code + "'and ";
+//			if (grant.isDummyGrant()) {
+//			sql = sql + "aft.control_full_grant_num='"
+//					+ grant.getFullGrantNumber() + "'";
+//
+//		} else {
+//			sql = sql + "aft.appl_id=" + grant.getApplId();
+//
+//		}
 			rs.close();
-			stmt.close();
+			pstmt.close();
+			
+			String sql = null;
+			if (grant.isDummyGrant()) {
+				sql = "select aft.frm_id, ft.form_status, ft.poc,ft.submitted_user_id, "
+						+ "ft.last_change_user_id, ft.ftm_id, ft.submitted_date "
+						+ "from appl_forms_t aft, forms_t ft "
+						+ "where aft.frm_id = ft.id and "
+						+ "ft.form_role_code = ? and "
+						+ "aft.control_full_grant_num = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, form_role_code);
+				pstmt.setString(2, grant.getFullGrantNumber());
+			} else {
+				sql = "select aft.frm_id, ft.form_status, ft.poc,ft.submitted_user_id, "
+						+ "ft.last_change_user_id, ft.ftm_id, ft.submitted_date "
+						+ "from appl_forms_t aft, forms_t ft "
+						+ "where aft.frm_id = ft.id and "
+						+ "ft.form_role_code = ? and "
+						+ "aft.appl_id = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, form_role_code);
+				pstmt.setInt(2, Integer.parseInt(grant.getApplId()));				
+			}
+//			rs.close();
+//			stmt.close();
 
+			
 			// Note that the latest template is used unless the greensheet is
 			// frozen. Then user
 			// the one that is saved with the form.
 
 			logger.debug("sql " + sql);
 
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
+//			stmt = conn.createStatement();	// Rewrite the SQL to improve the performance in the Greensheets application
+//			rs = stmt.executeQuery(sql);
+			rs = pstmt.executeQuery();	// Rewrite the SQL to improve the performance in the Greensheets application
 			while (rs.next()) {
-
 				form.setFormId(rs.getInt(1));
 				String status = rs.getString(2);
 				if (status.equalsIgnoreCase(GreensheetStatus.SAVED.getName())) {
@@ -146,7 +185,8 @@ public class GreensheetFormDataHelper {
 			logger.debug("TEMPL ID " + form.getTemplateId());
 
 			rs.close();
-			stmt.close();
+//			stmt.close();	// Rewrite the SQL to improve the performance in the Greensheets application
+			pstmt.close(); 	// Rewrite the SQL to improve the performance in the Greensheets application
 
 			logger.debug("status " + form.getStatusAsString());
 
@@ -162,8 +202,8 @@ public class GreensheetFormDataHelper {
 				if (rs != null)
 					rs.close();
 
-				if (stmt != null)
-					stmt.close();
+				if (pstmt != null)
+					pstmt.close();
 
 			} catch (SQLException se) {
 				throw new GreensheetBaseException("error.greensheetform", se);
@@ -233,15 +273,14 @@ public class GreensheetFormDataHelper {
 
 				String applSql = null;
 				if (grant.isDummyGrant()) {
-
 					applSql = "insert into appl_forms_t (id,frm_id,control_full_grant_num) values (?,?,?)";
+					
 					pstmt = conn.prepareStatement(applSql);
 					pstmt.setInt(1, afrId);
 					pstmt.setInt(2, formId);
 					pstmt.setString(3, grant.getFullGrantNumber());
 					logger.debug("grant.isDummyGrant() returns true." + "Full grant number passed to the SQL=" + grant.getFullGrantNumber()); // Abdul Latheef: For GPMATS
 				} else {
-
 					applSql = "insert into appl_forms_t (id,frm_id,appl_id) values (?,?,?)";
 
 					pstmt = conn.prepareStatement(applSql);
@@ -260,11 +299,10 @@ public class GreensheetFormDataHelper {
 
 				form.setStatus(GreensheetStatus.SAVED);
 				//form = new GreensheetForm();
-
 			} else {
 				formId = form.getFormId();
 
-				String formSql = "update forms_t set form_status = ?, ftm_id= ?, poc=? where id=?";
+				String formSql = "update forms_t set form_status = ?, ftm_id = ?, poc = ? where id = ?";
 
 				pstmt = conn.prepareStatement(formSql);
 				// Abdul Latheef: For GPMATS enhancements
@@ -291,9 +329,7 @@ public class GreensheetFormDataHelper {
 			}
 
 		} catch (SQLException se) {
-
-			throw new GreensheetBaseException("Error saving Greensheet values",
-					se);
+			throw new GreensheetBaseException("Error saving Greensheet values", se);
 		} finally {
 			try {
 				if (rs != null)
@@ -304,16 +340,13 @@ public class GreensheetFormDataHelper {
 
 				if (pstmt != null)
 					pstmt.close();
-
 			} catch (SQLException se) {
 				throw new GreensheetBaseException("error.greensheetform", se);
 			}
 
 			DbConnectionHelper.getInstance().freeConnection(conn);
-
 		}
 		logger.debug("saveGreensheetFormData() End");
-
 	}
 
 	void changeGreensheetFormStatus(GreensheetForm form,
@@ -324,30 +357,26 @@ public class GreensheetFormDataHelper {
 		try {
 			conn = DbConnectionHelper.getInstance().getConnection(
 					user.getOracleId());
-			String updateSql = "update forms_t set form_status =?, submitted_user_id =?, submitted_date=sysdate where id=?";
-			logger.debug("changeStatusSql and setSubmitterSql" + updateSql);
+			String updateSql = "update forms_t set form_status = ?, submitted_user_id = ?, submitted_date = sysdate where id = ?";
+			logger.debug("changeStatusSql and setSubmitterSql " + updateSql);
+			
 			pstmt = conn.prepareStatement(updateSql);
 			pstmt.setString(1, newStatus.getName());
 			pstmt.setString(2, user.getOracleId());
 			pstmt.setInt(3, form.getFormId());
 			pstmt.executeUpdate();
-
 		} catch (SQLException se) {
-			throw new GreensheetBaseException(
-					"Problem changing Greensheet Status", se);
+			throw new GreensheetBaseException("Problem changing Greensheet Status", se);
 		} finally {
 			try {
-
 				if (pstmt != null)
 					pstmt.close();
-
 			} catch (SQLException se) {
 				throw new GreensheetBaseException("error.greensheetform", se);
 			}
 
 			DbConnectionHelper.getInstance().freeConnection(conn);
 		}
-
 	}
 
 	/*
@@ -374,21 +403,27 @@ public class GreensheetFormDataHelper {
 			throws GreensheetBaseException {
 		logger.debug("getGreensheetFormAnswers() Begin");
 		Connection conn = null;
-		Statement stmt = null;
+//		Statement stmt = null;	// Rewrite the SQL to improve the performance in the Greensheets application
 		ResultSet rs = null;
 
 		Statement aStmt = null;
 		ResultSet rsA = null;
+		PreparedStatement pstmt = null;		// Rewrite the SQL to improve the performance in the Greensheets application
+		PreparedStatement pstmtA = null;	// Rewrite the SQL to improve the performance in the Greensheets application		
 
 		try {
-
 			conn = DbConnectionHelper.getInstance().getConnection();
-			stmt = conn.createStatement();
-
-			String sql = "select * from form_question_answers_t where frm_id ="
-					+ form.getFormId();
-
-			rs = stmt.executeQuery(sql);
+//			stmt = conn.createStatement(); //Rewrite the SQL to improve the performance in the Greensheets application
+//			 Commented out the following SQL: Rewrite the SQL to improve the performance in the Greensheets application
+//			String sql = "select * from form_question_answers_t where frm_id ="
+//					+ form.getFormId();
+			
+			String sql = "select * from form_question_answers_t where frm_id = ?";
+			pstmt = conn.prepareStatement(sql); // Rewrite the SQL to improve the performance in the Greensheets application
+			pstmt.setInt(1, form.getFormId());	// Rewrite the SQL to improve the performance in the Greensheets application
+//			rs = stmt.executeQuery(sql);		// Rewrite the SQL to improve the performance in the Greensheets application
+			logger.debug("Rewritten SQL submitted in getGreensheetFormAnswers() is " + sql);
+			rs = pstmt.executeQuery();		// Rewrite the SQL to improve the performance in the Greensheets application
 
 			QuestionResponseData qrd = new QuestionResponseData();
 
@@ -443,35 +478,35 @@ public class GreensheetFormDataHelper {
 
 					} else if (respDefId.indexOf("_FL_") > -1) {
 						qrd = new QuestionResponseData(fqaId);
-
-						String sqlAttachments = "select * from form_answer_attachments_t where fqa_id = "
-								+ fqaId;
-						aStmt = conn.createStatement();
-						rsA = aStmt.executeQuery(sqlAttachments);
-
+//						 Commented out: Rewrite the SQL to improve the performance in the Greensheets application
+//						String sqlAttachments = "select * from form_answer_attachments_t where fqa_id = "
+//								+ fqaId;
+//						aStmt = conn.createStatement();
+//						rsA = aStmt.executeQuery(sqlAttachments);
+						
+						String sqlAttachments = "select * from form_answer_attachments_t where fqa_id = ?";
+						logger.debug("Another Rewritten SQL submitted in getGreensheetFormAnswers() is " + sqlAttachments);
+						pstmtA = conn.prepareStatement(sqlAttachments);
+						pstmtA.setInt(1, fqaId);						
+						rsA = pstmtA.executeQuery();
 						while (rsA.next()) {
-
 							int id = rsA.getInt("id");
 							String fileName = rsA.getString("name");
 							String filePath = rsA.getString("file_location");
-							QuestionAttachment qa = QuestionAttachment
-									.createExistingAttachment(fileName,
-											filePath, id);
-							qrd.setFileResponseData(questionDefId, respDefId,
-									QuestionResponseData.FILE, qa);
+							QuestionAttachment qa = QuestionAttachment.createExistingAttachment(fileName, filePath, id);
+							qrd.setFileResponseData(questionDefId, respDefId, QuestionResponseData.FILE, qa);
 						}
-						rsA.close();
-						aStmt.close();
+						if (rsA != null)
+							rsA.close();
+						if (pstmtA != null)
+							pstmtA.close();
 
 					} else if (respDefId.indexOf("_CM_") > -1) {
 						qrd = new QuestionResponseData(fqaId);
 						String value = rs.getString("comment_value");
-						qrd.setInputResponseData(questionDefId, respDefId,
-								QuestionResponseData.COMMENT, DbUtils
-										.removeDupQuotes(value));
+						qrd.setInputResponseData(questionDefId, respDefId, QuestionResponseData.COMMENT, DbUtils.removeDupQuotes(value));
 					}
 				} else {
-
 					throw new GreensheetBaseException(
 							"error retreiveing form values. response def "
 									+ respDefId + " not found");
@@ -480,14 +515,28 @@ public class GreensheetFormDataHelper {
 				form.addQuestionResposeData(respDefId, qrd);
 
 			}
+			
+			// Rewrite the SQL to improve the performance in the Greensheets application
+			// Close the DB objects outside the while loop that reads the result set.
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+//			Commented out: Rewrite the SQL to improve the performance in the Greensheets application
+//			String sqlCbx = "select * from form_question_answers_t where (frm_id = "
+//					+ form.getFormId()
+//					+ ") and (extrnl_resp_def_id like '%_CB_%') order by extrnl_resp_def_id";
 
-			String sqlCbx = "select * from form_question_answers_t where (frm_id = "
-					+ form.getFormId()
-					+ ") and (extrnl_resp_def_id like '%_CB_%') order by extrnl_resp_def_id";
-
+			String sqlCbx = "select * from form_question_answers_t "
+				+ "where (frm_id = ?) and (extrnl_resp_def_id like '%_CB_%') "
+				+ "order by extrnl_resp_def_id";
+			
 			logger.debug("sqlCbx " + sqlCbx);
 
-			rs = stmt.executeQuery(sqlCbx);
+//			rs = stmt.executeQuery(sqlCbx);			// Rewrite the SQL to improve the performance in the Greensheets application
+			pstmtA = conn.prepareStatement(sqlCbx);	// Rewrite the SQL to improve the performance in the Greensheets application
+			pstmtA.setInt(1, form.getFormId());		// Rewrite the SQL to improve the performance in the Greensheets application
+			rs = pstmtA.executeQuery();				// Rewrite the SQL to improve the performance in the Greensheets application
 
 			String cbxValue = ",";
 			String cbxQuestionDefId = null;
@@ -518,7 +567,16 @@ public class GreensheetFormDataHelper {
 				}
 
 			}
-
+			
+			// Rewrite the SQL to improve the performance in the Greensheets application
+			// Close the DB objects outside the while loop that reads the result set.
+			if (rs != null)
+				rs.close();
+//			if (stmt != null)// Rewrite the SQL to improve the performance in the Greensheets application
+//				stmt.close();			
+			if (pstmtA != null)// Rewrite the SQL to improve the performance in the Greensheets application
+				pstmtA.close();	
+			
 			Iterator iter = tmpMap.entrySet().iterator();
 
 			while (iter.hasNext()) {
@@ -527,38 +585,38 @@ public class GreensheetFormDataHelper {
 				QuestionResponseData q = (QuestionResponseData) e.getValue();
 
 				form.addQuestionResposeData(key, q);
-
 			}
-
 		} catch (SQLException se) {
-			throw new GreensheetBaseException("error retreiveing form values",
-					se);
-
+			throw new GreensheetBaseException("error retreiveing form values", se);
 		} finally {
 			try {
 				if (rs != null)
 					rs.close();
 
-				if (stmt != null)
-					stmt.close();
+//				if (stmt != null) //Rewrite the SQL to improve the performance in the Greensheets application
+//					stmt.close();
 
 				if (rsA != null)
 					rsA.close();
 
 				if (aStmt != null)
 					aStmt.close();
-
+				
+				if (pstmtA != null)	// Rewrite the SQL to improve the performance in the Greensheets application
+					pstmtA.close();	
 			} catch (SQLException se) {
 				throw new GreensheetBaseException("error.greensheetform", se);
 			}
 
 			DbConnectionHelper.getInstance().freeConnection(conn);
-
 		}
 		logger.debug("getGreensheetFormAnswers() End");
-
 	}
-
+	
+// Rewrite the SQL to improve the performance in the Greensheets application
+// The methods entryExists() and createNewFormQuestionAnswer() defined in this class do not appear to be used anywhere here.
+// So they can safely be removed in a future release.
+	
 	private boolean entryExists(int respDefId, int formId, Connection conn)
 			throws SQLException {
 		boolean result = false;
@@ -641,18 +699,29 @@ public class GreensheetFormDataHelper {
 
 	private void checkBoxHandler(QuestionResponseData qrd, GreensheetForm form,
 			Connection conn) throws SQLException {
-		Statement stmt = null;
+//		Statement stmt = null; 			// Rewrite the SQL to improve the performance in the Greensheets application
+		PreparedStatement pstmt = null;	// Rewrite the SQL to improve the performance in the Greensheets application
+		
 		try {
+//			 Commented out the following SQL: Rewrite the SQL to improve the performance in the Greensheets application
+//			String sqlclearExisting = "delete from form_question_answers_t where extrnl_resp_def_id = '"
+//					+ qrd.getResponseDefId()
+//					+ "' and frm_id="
+//					+ form.getFormId();
+			
+			String sqlclearExisting = "delete from form_question_answers_t where extrnl_resp_def_id = ? and frm_id = ?";
+			
+//			stmt = conn.createStatement();	// Rewrite the SQL to improve the performance in the Greensheets application
+//			stmt.execute(sqlclearExisting);	// Rewrite the SQL to improve the performance in the Greensheets application
+			pstmt = conn.prepareStatement(sqlclearExisting);
 
-			String sqlclearExisting = "delete from form_question_answers_t where extrnl_resp_def_id = '"
-					+ qrd.getResponseDefId()
-					+ "' and frm_id="
-					+ form.getFormId();
-
+			pstmt.setString(1, qrd.getResponseDefId());
+			pstmt.setInt(2, form.getFormId());
 			logger.debug("Checkbox clearExisting " + sqlclearExisting);
-			stmt = conn.createStatement();
-			stmt.execute(sqlclearExisting);
-			stmt.close();
+
+			pstmt.execute();			
+//			stmt.close();	// Rewrite the SQL to improve the performance in the Greensheets application
+			pstmt.close();   // Rewrite the SQL to improve the performance in the Greensheets application
 
 			if (!qrd.getSelectionDefId().equalsIgnoreCase("")) {
 				String s1 = StringUtils.stripEnd(qrd.getSelectionDefId(), ",");
@@ -660,31 +729,43 @@ public class GreensheetFormDataHelper {
 				String[] vals = StringUtils.split(s2, ",");
 				for (int i = 0; i < vals.length; i++) {
 					int fqaId = DbUtils.getNewRowId(conn, "fqa_seq.nextval");
+//					 Rewrite the SQL to improve the performance in the Greensheets application
+//					String sqlInsert = "insert into form_question_answers_t "
+//							+ "(id, frm_id, extrnl_question_id, extrnl_resp_def_id, extrnl_selc_def_id)"
+//							+ " values(" + fqaId + "," + form.getFormId()
+//							+ ",'" + qrd.getQuestionDefId() + "','"
+//							+ qrd.getResponseDefId() + "','" + vals[i] + "')";
 					String sqlInsert = "insert into form_question_answers_t "
-							+ "(id, frm_id, extrnl_question_id, extrnl_resp_def_id, extrnl_selc_def_id)"
-							+ " values(" + fqaId + "," + form.getFormId()
-							+ ",'" + qrd.getQuestionDefId() + "','"
-							+ qrd.getResponseDefId() + "','" + vals[i] + "')";
+							+ "(id, "
+							+ "frm_id, "
+							+ "extrnl_question_id, " 
+							+ "extrnl_resp_def_id, " 
+							+ "extrnl_selc_def_id) "
+							+ "values(?, ?, ?, ?, ?)";					
 					logger.debug("Checkbox sqlInsert " + sqlInsert);
-					stmt = conn.createStatement();
-					stmt.execute(sqlInsert);
-					stmt.close();
+//					stmt = conn.createStatement();
+//					stmt.execute(sqlInsert);
+//					stmt.close();
+					pstmt = conn.prepareStatement(sqlInsert);
+					pstmt.setInt(1, fqaId);
+					pstmt.setInt(2, form.getFormId());
+					pstmt.setString(3, qrd.getQuestionDefId());
+					pstmt.setString(4, qrd.getResponseDefId());
+					pstmt.setString(5, vals[i]);
+					pstmt.execute();			
 				}
+				if (pstmt != null) pstmt.close();	//Moved out of the for loop: Rewrite the SQL to improve the performance in the Greensheets application
 			}
-
 		} catch (SQLException se) {
 			throw se;
 		} finally {
 			try {
-
-				if (stmt != null)
-					stmt.close();
-
+				if (pstmt != null) // Rewrite the SQL to improve the performance in the Greensheets application
+					pstmt.close();
 			} catch (SQLException se) {
 				throw se;
 			}
 		}
-
 	}
 
 	private void saveQuestionData(GreensheetForm form, GsUser user,
@@ -695,6 +776,7 @@ public class GreensheetFormDataHelper {
 		Connection conn = null;
 		Statement stmt = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmtToDel = null;	// Rewrite the SQL to improve the performance in the Greensheets application
 		try {
 
 			conn = DbConnectionHelper.getInstance().getConnection(
@@ -750,11 +832,15 @@ public class GreensheetFormDataHelper {
 				// Delete all question answers, except for file attachments.
 				// Create new answers for the data.
 				if (!isRDFile) {
-					String sql = "delete from form_question_answers_t where id="
-							+ qrd.getId();
-					stmt = conn.createStatement();
-					stmt.execute(sql);
-					stmt.close();
+					// Commented out the following SQL: Rewrite the SQL to improve the performance in the Greensheets application
+//					String sql = "delete from form_question_answers_t where id="
+//							+ qrd.getId();
+//					stmt = conn.createStatement();
+					String sql = "delete from form_question_answers_t where id = ?";
+					pstmtToDel = conn.prepareStatement(sql);// Rewrite the SQL to improve the performance in the Greensheets application
+					pstmtToDel.setInt(1, qrd.getId());// Rewrite the SQL to improve the performance in the Greensheets application
+					pstmtToDel.execute();	// Rewrite the SQL to improve the performance in the Greensheets application
+//					stmt.close();// Rewrite the SQL to improve the performance in the Greensheets application
 				}
 
 				// If File attachments, do nothing. handle later
@@ -855,6 +941,11 @@ public class GreensheetFormDataHelper {
 							+ fqaId + "  FormID = " + form.getFormId());
 				}
 			}
+			
+			// Rewrite the SQL to improve the performance in the Greensheets application
+			if (pstmtToDel != null)
+				pstmtToDel.close();
+			
 			conn.commit();
 
 			logger.debug("SAVING/DELETING THE ATTACHMENTS NOW.......");
@@ -898,7 +989,9 @@ public class GreensheetFormDataHelper {
 					stmt.close();
 				if (pstmt != null)
 					pstmt.close();
-
+				// Rewrite the SQL to improve the performance in the Greensheets application
+				if (pstmtToDel != null)
+					pstmtToDel.close();
 			} catch (SQLException se) {
 				throw new GreensheetBaseException("errorSavingData", se);
 			}
@@ -915,7 +1008,6 @@ public class GreensheetFormDataHelper {
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-
 			conn = DbConnectionHelper.getInstance().getConnection();
 
 			String type = form.getGroupTypeAsString();
@@ -925,9 +1017,7 @@ public class GreensheetFormDataHelper {
 			if (g.isDummyGrant()) {
 				sql = "select count(*) from appl_forms_t aft, forms_t ft where aft.frm_id=ft.id and aft.control_full_grant_num='"
 						+ grantNum + "' and FORM_ROLE_CODE='" + type + "'";
-
 			} else {
-
 				sql = "select count(*) from appl_forms_t aft, forms_t ft where aft.frm_id=ft.id and appl_id='"
 						+ applId + "' and FORM_ROLE_CODE='" + type + "'";
 			}
@@ -938,17 +1028,11 @@ public class GreensheetFormDataHelper {
 			while (rs.next()) {
 				int returned = rs.getInt(1);
 				if (returned > 0) {
-					throw new GreensheetBaseException(
-							"Error Saving Duplicate Greensheet Forms. Only one new Greensheetform for a grant can be created");
+					throw new GreensheetBaseException("Error Saving Duplicate Greensheet Forms. Only one new Greensheetform for a grant can be created");
 				}
-
 			}
-
 		} catch (SQLException se) {
-			throw new GreensheetBaseException(
-					"Error Saving Duplicate Greensheet Forms. Only one new Greensheetform for a grant can be created",
-					se);
-
+			throw new GreensheetBaseException("Error Saving Duplicate Greensheet Forms. Only one new Greensheetform for a grant can be created", se);
 		} finally {
 			try {
 				if (rs != null)
@@ -956,13 +1040,9 @@ public class GreensheetFormDataHelper {
 				if (stmt != null)
 					stmt.close();
 			} catch (SQLException se) {
-				throw new GreensheetBaseException("Database Connection Error",
-						se);
+				throw new GreensheetBaseException("Database Connection Error", se);
 			}
 			DbConnectionHelper.getInstance().freeConnection(conn);
-
 		}
-
 	}
-
 }
