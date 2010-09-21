@@ -26,7 +26,9 @@
             <TypeMech type="5" mech="K11"/>
             <TypeMech type="8" mech="K11"/>
             <TypeMech type="5" mech="K12"/>
+            <TypeMech type="5" mech="KM1"/>
             <TypeMech type="8" mech="K12"/>
+            <TypeMech type="8" mech="KM1"/>
             <TypeMech type="5" mech="K14"/>
             <TypeMech type="8" mech="K14"/>
             <TypeMech type="5" mech="K22"/>
@@ -190,7 +192,9 @@
                             <TypeMech type="5" mech="K11"/>
                             <TypeMech type="8" mech="K11"/>
                             <TypeMech type="5" mech="K12"/>
+                            <TypeMech type="5" mech="KM1"/>
                             <TypeMech type="8" mech="K12"/>
+                            <TypeMech type="8" mech="KM1"/>
                             <TypeMech type="5" mech="K14"/>
                             <TypeMech type="8" mech="K14"/>
                             <TypeMech type="5" mech="K22"/>
@@ -358,7 +362,9 @@
                             <TypeMech type="5" mech="K11"/>
                             <TypeMech type="8" mech="K11"/>
                             <TypeMech type="5" mech="K12"/>
+                            <TypeMech type="5" mech="KM1"/>
                             <TypeMech type="8" mech="K12"/>
+                            <TypeMech type="8" mech="KM1"/>
                             <TypeMech type="5" mech="K14"/>
                             <TypeMech type="8" mech="K14"/>
                             <TypeMech type="5" mech="K22"/>
@@ -529,7 +535,9 @@
                             <TypeMech type="5" mech="K11"/>
                             <TypeMech type="8" mech="K11"/>
                             <TypeMech type="5" mech="K12"/>
+                            <TypeMech type="5" mech="KM1"/>
                             <TypeMech type="8" mech="K12"/>
+                            <TypeMech type="8" mech="KM1"/>
                             <TypeMech type="5" mech="K14"/>
                             <TypeMech type="8" mech="K14"/>
                             <TypeMech type="5" mech="K22"/>
@@ -690,7 +698,9 @@
                                             <TypeMech type="5" mech="K11"/>
                                             <TypeMech type="8" mech="K11"/>
                                             <TypeMech type="5" mech="K12"/>
+                                            <TypeMech type="5" mech="KM1"/>
                                             <TypeMech type="8" mech="K12"/>
+                                            <TypeMech type="8" mech="KM1"/>
                                             <TypeMech type="5" mech="K14"/>
                                             <TypeMech type="8" mech="K14"/>
                                             <TypeMech type="5" mech="K22"/>
@@ -815,7 +825,9 @@
                                             <TypeMech type="5" mech="K11"/>
                                             <TypeMech type="8" mech="K11"/>
                                             <TypeMech type="5" mech="K12"/>
+                                            <TypeMech type="5" mech="KM1"/>
                                             <TypeMech type="8" mech="K12"/>
+                                            <TypeMech type="8" mech="KM1"/>
                                             <TypeMech type="5" mech="K14"/>
                                             <TypeMech type="8" mech="K14"/>
                                             <TypeMech type="5" mech="K22"/>
@@ -979,7 +991,9 @@
                                                             <TypeMech type="5" mech="K11"/>
                                                             <TypeMech type="8" mech="K11"/>
                                                             <TypeMech type="5" mech="K12"/>
+                                                            <TypeMech type="5" mech="KM1"/>
                                                             <TypeMech type="8" mech="K12"/>
+                                                            <TypeMech type="8" mech="KM1"/>
                                                             <TypeMech type="5" mech="K14"/>
                                                             <TypeMech type="8" mech="K14"/>
                                                             <TypeMech type="5" mech="K22"/>
@@ -1150,7 +1164,9 @@
                                                             <TypeMech type="5" mech="K11"/>
                                                             <TypeMech type="8" mech="K11"/>
                                                             <TypeMech type="5" mech="K12"/>
+                                                            <TypeMech type="5" mech="KM1"/>
                                                             <TypeMech type="8" mech="K12"/>
+                                                            <TypeMech type="8" mech="KM1"/>
                                                             <TypeMech type="5" mech="K14"/>
                                                             <TypeMech type="8" mech="K14"/>
                                                             <TypeMech type="5" mech="K22"/>
@@ -1329,7 +1345,9 @@
                             <TypeMech type="5" mech="K11"/>
                             <TypeMech type="8" mech="K11"/>
                             <TypeMech type="5" mech="K12"/>
+                            <TypeMech type="5" mech="KM1"/>
                             <TypeMech type="8" mech="K12"/>
+                            <TypeMech type="8" mech="KM1"/>
                             <TypeMech type="5" mech="K14"/>
                             <TypeMech type="8" mech="K14"/>
                             <TypeMech type="5" mech="K22"/>
@@ -1490,7 +1508,9 @@
                                             <TypeMech type="5" mech="K11"/>
                                             <TypeMech type="8" mech="K11"/>
                                             <TypeMech type="5" mech="K12"/>
+                                            <TypeMech type="5" mech="KM1"/>
                                             <TypeMech type="8" mech="K12"/>
+                                            <TypeMech type="8" mech="KM1"/>
                                             <TypeMech type="5" mech="K14"/>
                                             <TypeMech type="8" mech="K14"/>
                                             <TypeMech type="5" mech="K22"/>
@@ -1651,7 +1671,9 @@
                                                             <TypeMech type="5" mech="K11"/>
                                                             <TypeMech type="8" mech="K11"/>
                                                             <TypeMech type="5" mech="K12"/>
+                                                            <TypeMech type="5" mech="KM1"/>
                                                             <TypeMech type="8" mech="K12"/>
+                                                            <TypeMech type="8" mech="KM1"/>
                                                             <TypeMech type="5" mech="K14"/>
                                                             <TypeMech type="8" mech="K14"/>
                                                             <TypeMech type="5" mech="K22"/>
@@ -1822,7 +1844,9 @@
                                                             <TypeMech type="5" mech="K11"/>
                                                             <TypeMech type="8" mech="K11"/>
                                                             <TypeMech type="5" mech="K12"/>
+                                                            <TypeMech type="5" mech="KM1"/>
                                                             <TypeMech type="8" mech="K12"/>
+                                                            <TypeMech type="8" mech="KM1"/>
                                                             <TypeMech type="5" mech="K14"/>
                                                             <TypeMech type="8" mech="K14"/>
                                                             <TypeMech type="5" mech="K22"/>
@@ -1997,7 +2021,9 @@
                                             <TypeMech type="5" mech="K11"/>
                                             <TypeMech type="8" mech="K11"/>
                                             <TypeMech type="5" mech="K12"/>
+                                            <TypeMech type="5" mech="KM1"/>
                                             <TypeMech type="8" mech="K12"/>
+                                            <TypeMech type="8" mech="KM1"/>
                                             <TypeMech type="5" mech="K14"/>
                                             <TypeMech type="8" mech="K14"/>
                                             <TypeMech type="5" mech="K22"/>
@@ -2176,8 +2202,8 @@
       <TypeMech type="8" mech="K08"/>
       <TypeMech type="5" mech="K11"/>
       <TypeMech type="8" mech="K11"/>
-      <TypeMech type="5" mech="K12"/>
-      <TypeMech type="8" mech="K12"/>
+      <TypeMech type="5" mech="K12"/><TypeMech type="5" mech="KM1"/>
+      <TypeMech type="8" mech="K12"/><TypeMech type="8" mech="KM1"/>
       <TypeMech type="5" mech="K14"/>
       <TypeMech type="8" mech="K14"/>
       <TypeMech type="5" mech="K22"/>
@@ -2243,7 +2269,9 @@
     <QuestionDef id="DMNCQ_290">
         <GrantTypeMechs>
             <TypeMech type="5" mech="K12"/>
+            <TypeMech type="5" mech="KM1"/>
             <TypeMech type="8" mech="K12"/>
+            <TypeMech type="8" mech="KM1"/>
             <TypeMech type="5" mech="P01"/>
             <TypeMech type="8" mech="P01"/>
             <TypeMech type="5" mech="P20"/>
@@ -2331,7 +2359,9 @@
             <TypeMech type="5" mech="K11"/>
             <TypeMech type="8" mech="K11"/>
             <TypeMech type="5" mech="K12"/>
+            <TypeMech type="5" mech="KM1"/>
             <TypeMech type="8" mech="K12"/>
+            <TypeMech type="8" mech="KM1"/>
             <TypeMech type="5" mech="K14"/>
             <TypeMech type="8" mech="K14"/>
             <TypeMech type="5" mech="K22"/>
@@ -2502,7 +2532,9 @@
             <TypeMech type="5" mech="K11"/>
             <TypeMech type="8" mech="K11"/>
             <TypeMech type="5" mech="K12"/>
+            <TypeMech type="5" mech="KM1"/>
             <TypeMech type="8" mech="K12"/>
+            <TypeMech type="8" mech="KM1"/>
             <TypeMech type="5" mech="K14"/>
             <TypeMech type="8" mech="K14"/>
             <TypeMech type="5" mech="K22"/>
