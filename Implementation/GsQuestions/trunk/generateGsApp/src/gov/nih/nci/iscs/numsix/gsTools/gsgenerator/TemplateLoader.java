@@ -26,7 +26,7 @@ public class TemplateLoader {
 
     public TemplateLoader(String fileName, String qSrcFileName, String type, String mech, String group, String dbProperties)throws Exception {
 
- 	
+
 /*    	File f = new File(fileName);
     	if(f.length() <=0.0 ){
     		throw new IllegalStateException("Error with VM File. Size is" + f.length());
@@ -40,7 +40,7 @@ public class TemplateLoader {
     				+ f.getCanonicalPath()
 					+ "  Size is " + f.length());
     	}*/
-    	
+
 
     	this.fileName = fileName;
         this.qSrcFileName = qSrcFileName;
@@ -54,7 +54,7 @@ public class TemplateLoader {
         } else if (group.equals("DC") || group.equals("DNC")) {
             this.group = "DM";
         }
-        
+
 //        System.out.println(dbProperties);
         StringTokenizer st = new StringTokenizer(dbProperties, ",");
         url = (String) st.nextToken();
@@ -125,7 +125,7 @@ public class TemplateLoader {
             ops.setString(3, type);
             ops.setString(4, mech.substring(0, 1));
             ops.setString(5, mech);
-       
+
             ops.executeUpdate();
 
             conn.commit();
@@ -246,7 +246,7 @@ public class TemplateLoader {
 
             String sql =
                 "SELECT ft.template_html FROM form_templates_t ft,form_grant_matrix_t fg "
-                    + "WHERE ft.id=fg.ftm_id AND fg.form_role_code='"
+                    + " WHERE ft.id=fg.ftm_id AND fg.form_role_code='"
                     + group
                     + "' AND "
                     + "fg.appl_type_code='"
@@ -274,7 +274,7 @@ public class TemplateLoader {
 
                 String template = out.toString();
                 out.close();
-                File f = new File(System.getProperty("root") + "/checkfile.vm");
+                File f = new File(System.getProperty("root") + "/checkfile.vm");  // System property "root" is supposed to be set in the .bat file from which this program should be started.
 
                 FileOutputStream fos = new FileOutputStream(f);
                 fos.write(template.getBytes());
@@ -298,7 +298,7 @@ public class TemplateLoader {
 			conn = getConnection();
 			String sqlSelect = null;
 
-			sqlSelect = 
+			sqlSelect =
                 "SELECT ft.template_xml FROM form_templates_t ft,form_grant_matrix_t fg "
                 + "WHERE ft.id=fg.ftm_id AND fg.form_role_code='"
                 + group
