@@ -3703,6 +3703,77 @@
                                                             </ResponseDef>
                                                         </ResponseDefsList>
                                                     </QuestionDef>
+                                                    <QuestionDef id="SCQ_252">
+                                                        <GrantTypeMechs>
+                                                            <TypeMech type="1" mech="C06"/>
+                                                            <TypeMech type="1" mech="D43"/>
+                                                            <TypeMech type="1" mech="K01"/>
+                                                            <TypeMech type="1" mech="K02"/>
+                                                            <TypeMech type="1" mech="K04"/>
+                                                            <TypeMech type="1" mech="K05"/>
+                                                            <TypeMech type="1" mech="K07"/>
+                                                            <TypeMech type="1" mech="K08"/>
+                                                            <TypeMech type="1" mech="K12"/>
+                                                            <TypeMech type="1" mech="K22"/>
+                                                            <TypeMech type="1" mech="K23"/>
+                                                            <TypeMech type="1" mech="K24"/>
+                                                            <TypeMech type="1" mech="K25"/>
+                                                            <TypeMech type="1" mech="K99"/>
+                                                            <TypeMech type="1" mech="KL1"/>
+                                                            <TypeMech type="1" mech="KL2"/>
+                                                            <TypeMech type="1" mech="KM1"/>
+                                                            <TypeMech type="1" mech="P01"/>
+                                                            <TypeMech type="1" mech="P20"/>
+                                                            <TypeMech type="1" mech="P30"/>
+                                                            <TypeMech type="1" mech="P50"/>
+                                                            <TypeMech type="1" mech="PL1"/>
+                                                            <TypeMech type="1" mech="R00"/>
+                                                            <TypeMech type="1" mech="R01"/>
+                                                            <TypeMech type="1" mech="R03"/>
+                                                            <TypeMech type="1" mech="R13"/>
+                                                            <TypeMech type="1" mech="R15"/>
+                                                            <TypeMech type="1" mech="R18"/>
+                                                            <TypeMech type="1" mech="R21"/>
+                                                            <TypeMech type="1" mech="R24"/>
+                                                            <TypeMech type="1" mech="R25"/>
+                                                            <TypeMech type="1" mech="R30"/>
+                                                            <TypeMech type="1" mech="R33"/>
+                                                            <TypeMech type="1" mech="R37"/>
+                                                            <TypeMech type="1" mech="R55"/>
+                                                            <TypeMech type="1" mech="R56"/>
+                                                            <TypeMech type="1" mech="RC1"/>
+                                                            <TypeMech type="1" mech="RC2"/>
+                                                            <TypeMech type="1" mech="RC3"/>
+                                                            <TypeMech type="1" mech="RC4"/>
+                                                            <TypeMech type="1" mech="RL1"/>
+                                                            <TypeMech type="1" mech="RL2"/>
+                                                            <TypeMech type="1" mech="RL5"/>
+                                                            <TypeMech type="1" mech="RL9"/>
+                                                            <TypeMech type="1" mech="S06"/>
+                                                            <TypeMech type="1" mech="SC1"/>
+                                                            <TypeMech type="1" mech="SC2"/>
+                                                            <TypeMech type="1" mech="U01"/>
+                                                            <TypeMech type="1" mech="U10"/>
+                                                            <TypeMech type="1" mech="U13"/>
+                                                            <TypeMech type="1" mech="U19"/>
+                                                            <TypeMech type="1" mech="U24"/>
+                                                            <TypeMech type="1" mech="U41"/>
+                                                            <TypeMech type="1" mech="U42"/>
+                                                            <TypeMech type="1" mech="U54"/>
+                                                            <TypeMech type="1" mech="U56"/>
+                                                            <TypeMech type="1" mech="UC2"/>
+                                                            <TypeMech type="1" mech="UH2"/>
+                                                            <TypeMech type="1" mech="UH3"/>
+                                                            <TypeMech type="1" mech="UL1"/>
+                                                        </GrantTypeMechs>
+                                                        <QText>Enter the CCR expiration date.</QText>
+                                                        <QInstructions/>
+                                                        <ResponseDefsList>
+                                                            <ResponseDef id="SCQ_252_RD_CM_252" type="COMMENT"/>
+                                                            <ResponseDef id="SCQ_252_RD_FL_252" type="FILE"/>
+                                                            <ResponseDef id="SCQ_252_RD_DT_252" type="DATE"/>
+                                                        </ResponseDefsList>                                                    
+                                                    </QuestionDef>                                                    
                                                 </SelectionDef>
                                             </ResponseDef>
                                         </ResponseDefsList>
@@ -33588,6 +33659,80 @@
             </ResponseDef>
         </ResponseDefsList>
     </QuestionDef>
+    <QuestionDef id="SCQ_250">
+        <GrantTypeMechs>
+            <TypeMech type="1" mech="R41"/>
+            <TypeMech type="2" mech="R41"/>
+            <TypeMech type="3" mech="R41"/>
+            <TypeMech type="6" mech="R41"/>
+            <TypeMech type="7" mech="R41"/>
+            <TypeMech type="9" mech="R41"/>
+            <TypeMech type="1" mech="R42"/>
+            <TypeMech type="2" mech="R42"/>
+            <TypeMech type="3" mech="R42"/>
+            <TypeMech type="6" mech="R42"/>
+            <TypeMech type="7" mech="R42"/>
+            <TypeMech type="9" mech="R42"/>
+            <TypeMech type="1" mech="R43"/>
+            <TypeMech type="2" mech="R43"/>
+            <TypeMech type="3" mech="R43"/>
+            <TypeMech type="6" mech="R43"/>
+            <TypeMech type="7" mech="R43"/>
+            <TypeMech type="9" mech="R43"/>
+            <TypeMech type="1" mech="R44"/>
+            <TypeMech type="2" mech="R44"/>
+            <TypeMech type="3" mech="R44"/>
+            <TypeMech type="6" mech="R44"/>
+            <TypeMech type="7" mech="R44"/>
+            <TypeMech type="9" mech="R44"/>
+        </GrantTypeMechs>
+        <QText>Is the CCR Registration current for this organization?</QText>
+        <QInstructions/>
+        <ResponseDefsList>
+            <ResponseDef id="SCQ_250_RD_CM_250" type="COMMENT"/>
+            <ResponseDef id="SCQ_250_RD_FL_250" type="FILE"/>
+            <ResponseDef id="SCQ_250_RD_RB_250" type="RADIO">
+                <SelectionDef id="SEL_250">
+                    <Value>Yes</Value>
+                    <QuestionDef id="SCQ_251">
+                        <GrantTypeMechs>
+                            <TypeMech type="1" mech="R41"/>
+                            <TypeMech type="2" mech="R41"/>
+                            <TypeMech type="3" mech="R41"/>
+                            <TypeMech type="6" mech="R41"/>
+                            <TypeMech type="7" mech="R41"/>
+                            <TypeMech type="9" mech="R41"/>
+                            <TypeMech type="1" mech="R42"/>
+                            <TypeMech type="2" mech="R42"/>
+                            <TypeMech type="3" mech="R42"/>
+                            <TypeMech type="6" mech="R42"/>
+                            <TypeMech type="7" mech="R42"/>
+                            <TypeMech type="9" mech="R42"/>
+                            <TypeMech type="1" mech="R43"/>
+                            <TypeMech type="2" mech="R43"/>
+                            <TypeMech type="3" mech="R43"/>
+                            <TypeMech type="6" mech="R43"/>
+                            <TypeMech type="7" mech="R43"/>
+                            <TypeMech type="9" mech="R43"/>
+                            <TypeMech type="1" mech="R44"/>
+                            <TypeMech type="2" mech="R44"/>
+                            <TypeMech type="3" mech="R44"/>
+                            <TypeMech type="6" mech="R44"/>
+                            <TypeMech type="7" mech="R44"/>
+                            <TypeMech type="9" mech="R44"/>                        
+                        </GrantTypeMechs>
+                        <QText>Enter the CCR expiration date.</QText>
+                        <QInstructions/>
+                        <ResponseDefsList>
+                            <ResponseDef id="SCQ_251_RD_CM_251" type="COMMENT"/>
+                            <ResponseDef id="SCQ_251_RD_FL_251" type="FILE"/>
+                            <ResponseDef id="SCQ_251_RD_DT_251" type="DATE"/>
+                        </ResponseDefsList>
+                    </QuestionDef>
+                </SelectionDef>
+            </ResponseDef>
+        </ResponseDefsList>
+    </QuestionDef>    
     <QuestionDef id="SCQ_1">
         <GrantTypeMechs>
             <TypeMech type="1" mech="P01"/>

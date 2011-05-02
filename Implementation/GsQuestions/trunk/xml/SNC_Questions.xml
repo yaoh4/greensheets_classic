@@ -12951,6 +12951,48 @@
             </ResponseDef>
         </ResponseDefsList>
     </QuestionDef>
+    <QuestionDef id="SNCQ_250">
+        <GrantTypeMechs>
+            <TypeMech type="5" mech="R41"/>
+            <TypeMech type="8" mech="R41"/>
+            <TypeMech type="5" mech="R42"/>
+            <TypeMech type="8" mech="R42"/>
+            <TypeMech type="5" mech="R43"/>
+            <TypeMech type="8" mech="R43"/>
+            <TypeMech type="5" mech="R44"/>
+            <TypeMech type="8" mech="R44"/>
+        </GrantTypeMechs>
+        <QText>Is the CCR Registration current for this organization?</QText>
+        <QInstructions/>
+        <ResponseDefsList>
+            <ResponseDef id="SNCQ_250_RD_CM_250" type="COMMENT"/>
+            <ResponseDef id="SNCQ_250_RD_FL_250" type="FILE"/>
+            <ResponseDef id="SNCQ_250_RD_RB_250" type="RADIO">
+                <SelectionDef id="SEL_299">
+                    <Value>Yes</Value>
+                    <QuestionDef id="SNCQ_251">
+                        <GrantTypeMechs>
+                            <TypeMech type="5" mech="R41"/>
+                            <TypeMech type="8" mech="R41"/>
+                            <TypeMech type="5" mech="R42"/>
+                            <TypeMech type="8" mech="R42"/>
+                            <TypeMech type="5" mech="R43"/>
+                            <TypeMech type="8" mech="R43"/>
+                            <TypeMech type="5" mech="R44"/>
+                            <TypeMech type="8" mech="R44"/>
+                        </GrantTypeMechs>
+                        <QText>Enter the CCR expiration date.</QText>
+                        <QInstructions/>
+                        <ResponseDefsList>
+                            <ResponseDef id="SNCQ_251_RD_CM_251" type="COMMENT"/>
+                            <ResponseDef id="SNCQ_251_RD_FL_251" type="FILE"/>
+                            <ResponseDef id="SNCQ_251_RD_DT_251" type="DATE"/>
+                        </ResponseDefsList>
+                    </QuestionDef>
+                </SelectionDef>
+            </ResponseDef>
+        </ResponseDefsList>
+    </QuestionDef>
     <QuestionDef id="SNCQ_44">
         <GrantTypeMechs>
             <TypeMech type="4" mech="R01"/>
