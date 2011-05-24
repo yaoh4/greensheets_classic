@@ -12961,6 +12961,14 @@
             <TypeMech type="8" mech="R43"/>
             <TypeMech type="5" mech="R44"/>
             <TypeMech type="8" mech="R44"/>
+            <TypeMech type="5" mech="U41"/>
+            <TypeMech type="8" mech="U41"/>
+            <TypeMech type="5" mech="U42"/>
+            <TypeMech type="8" mech="U42"/>
+            <TypeMech type="5" mech="U43"/>
+            <TypeMech type="8" mech="U43"/>
+            <TypeMech type="5" mech="U44"/>
+            <TypeMech type="8" mech="U44"/>            
         </GrantTypeMechs>
         <QText>Is the CCR Registration current for this organization?</QText>
         <QInstructions/>
@@ -12980,6 +12988,14 @@
                             <TypeMech type="8" mech="R43"/>
                             <TypeMech type="5" mech="R44"/>
                             <TypeMech type="8" mech="R44"/>
+                            <TypeMech type="5" mech="U41"/>
+                            <TypeMech type="8" mech="U41"/>
+                            <TypeMech type="5" mech="U42"/>
+                            <TypeMech type="8" mech="U42"/>
+                            <TypeMech type="5" mech="U43"/>
+                            <TypeMech type="8" mech="U43"/>
+                            <TypeMech type="5" mech="U44"/>
+                            <TypeMech type="8" mech="U44"/>                            
                         </GrantTypeMechs>
                         <QText>Enter the CCR expiration date.</QText>
                         <QInstructions/>
