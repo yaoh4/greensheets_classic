@@ -7,7 +7,7 @@
 
 # Point to the oracle DB enviornment.
 oracle.environment=PROD
-oracle.url=jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = app1-db1.nci.nih.gov)(PORT = 1526)))  (CONNECT_DATA = (SERVICE_NAME = a1d1_ap.nci.nih.gov)))
+oracle.url=jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = nci-oraclecm-prod.nci.nih.gov)(PORT = 1610)))  (CONNECT_DATA = (SERVICE_NAME = i2ep.nci.nih.gov)))
 
 oracle.user=NCI_APP_USER
 oracle.password=ORAC1E
