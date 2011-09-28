@@ -140,7 +140,7 @@ directories.
 <target name="compile" depends="set_dev_structure"
         description="compiles the java source files using the classpath specified" >
         
-    <!-- create the classed dir -->
+    <!-- create the classes dir -->
     <mkdir dir="${java.classes.dir}"/>        
     
     <!-- compile the java source -->
@@ -148,6 +148,8 @@ directories.
         classpath="${project.classpath}" 
         srcdir="${src.java.dir}"
         destdir="${java.classes.dir}"
+    	source="1.4"
+        target="1.4"
 	    debug="${javac.debug}"/>
 	<!-- copies all resource files (e.g. *.properties, *.txt, etc) to the WEB-INF/classes dir -->
     	<copy todir="${java.classes.dir}">
