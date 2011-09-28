@@ -42,3 +42,6 @@ statusTestUser=gs_pd
 appStatusTestsDir=appStatusTests
 checkDBStatus=Yes
 checkFilePermissions=Yes
+
+#The format is MM-DD; see Jira issue 315
+fiscalYearCutOverDate=10-08
