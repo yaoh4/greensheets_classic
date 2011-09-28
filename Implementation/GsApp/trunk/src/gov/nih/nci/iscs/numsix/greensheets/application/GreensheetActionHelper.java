@@ -111,7 +111,16 @@ public class GreensheetActionHelper {
 			HttpServletRequest req) throws GreensheetBaseException {
 		GreensheetUserSession gus = (GreensheetUserSession) req.getSession()
 				.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
-		String remoteUserName = req.getRemoteUser();
+		String remoteUserName;
+		remoteUserName = req.getHeader("SM_USER");   // SM_USER is the header that will start being set by SiteMinder / iTrust in 2011: Jira issue 319
+		if (StringUtils.isNotEmpty(remoteUserName)) {
+			logger.debug("The value of http request header SM_USER, which is " + remoteUserName + ", will be used to determine who the user is.");
+		}
+		else {
+			remoteUserName = req.getRemoteUser();
+			logger.debug("HTTP request header SM_USER does not appear to be set, so traditional retRemoteUser() "
+					+ "will be used to determine who the user is - and it is \n\t" + remoteUserName);
+		}  // end of implementing Jira 319 (iTrust/SiteMinder authentication via SM_USER request header.
 		String userId = req.getParameter(GreensheetsKeys.KEY_USER_ID);
 		String testUser = req.getParameter(GreensheetsKeys.KEY_TEST_USER);
 		GreensheetUserMgr gsUserMgr = null;
