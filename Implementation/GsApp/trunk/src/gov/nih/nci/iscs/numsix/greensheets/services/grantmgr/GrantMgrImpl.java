@@ -47,6 +47,8 @@ public class GrantMgrImpl implements GrantMgr {
 
 	private static final Logger logger = Logger.getLogger(GrantMgrImpl.class);
 
+	private Properties configProperties = null;
+	
 	// Abdul Latheef: The following method fails if APPL ID is null, when the user tries to find the Grant by GRANT ID, not by the APPL ID.
 	// So, use the findGrantByGrantNumber() method for this case.
 	public GsGrant findGrantById(String applId, String grantNumber)
@@ -118,9 +120,6 @@ public class GrantMgrImpl implements GrantMgr {
 		try {
 			ViewGrantRetrieverImpl vgr = new ViewGrantRetrieverImpl();
 			vgr.setView("FORM_GRANT_VW");
-
-			Properties p = (Properties) AppConfigProperties.getInstance()
-					.getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
 
 			// Add the condition for Latest Budget Start Date.
 			vgr.addCondition(this.getLatestBudgetStartDateCriteria());
@@ -544,11 +543,31 @@ public class GrantMgrImpl implements GrantMgr {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date());
 		int iy = cal.get(Calendar.YEAR);
-		int im = cal.get(Calendar.MONTH);
-		// Returns the current fiscal year
-		if (im > 9) {
+		int im = cal.get(Calendar.MONTH) + 1;  /* *** This +1 is HUGE because January is month 0, not 1 !!! *** */
+		int id = cal.get(Calendar.DAY_OF_MONTH);
+		
+		retrievePropertiesIfNeeded();
+		String fyCutoverDayAsString = configProperties.getProperty("fiscalYearCutOverDate"); // expected format: MM-DD
+		String mm = fyCutoverDayAsString.substring(0, 2);
+		String dd = fyCutoverDayAsString.substring(3);
+		int refM = 10; int refD = 8;  // the defaults
+		try {
+			refM = Integer.parseInt(mm);
+			refD = Integer.parseInt(dd);
+		}
+		catch(NumberFormatException e) {
+			logger.warn(" Property fiscalYearCutOverDate, " + fyCutoverDayAsString + ", does not seem to "
+					+ "contain month and day in MM-DD format, so the default of 10-08 will be assumed.");
+		}
+		if ( refM < 1 || refM > 12 )  { refM = 10; }  // once again the defaults, basic validation
+		if ( refD < 1 || refD > 31 )  { refD = 8; }
+		
+		// Now, finally! - see what should be believed to be the current fiscal year
+		if ( (im > refM) || (im==refM && id>=refD) ) {
 			iy += 1;
 		}
+		
+		// Returns the current fiscal year
 		return iy;
 	}
 
@@ -727,9 +746,7 @@ public class GrantMgrImpl implements GrantMgr {
 	
 	// Bug # 4366 Introduced the method to filter the grants list on the basic requirements
 	private void addBaseFilterCriteria(ViewDataRetriever viewDataRetriever, GsUser user) throws Exception {
-		Properties p = (Properties) AppConfigProperties.getInstance()
-		.getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
-		
+
 		ValueToken vt = new ValueToken();
 		vt.setColumnKey("pgmFormStatus");
 		vt.setValue("SUBMITTED");
@@ -751,7 +768,8 @@ public class GrantMgrImpl implements GrantMgr {
 		vt4.setNegative(true);
 		viewDataRetriever.addCondition(vt4);
 
-		String minNames = p.getProperty("minoritysupplements.userids");
+		retrievePropertiesIfNeeded();
+		String minNames = configProperties.getProperty("minoritysupplements.userids");
 
 		if (StringUtils.contains(minNames, user.getOracleId())) {
 			ValueToken vt5 = new ValueToken();
@@ -774,6 +792,17 @@ public class GrantMgrImpl implements GrantMgr {
 
 	}	
 	
-	
+	private void retrievePropertiesIfNeeded() {
+		if (configProperties==null || configProperties.isEmpty()) {
+			configProperties = (Properties) AppConfigProperties.getInstance()
+				.getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
+			if ( StringUtils.isBlank(configProperties.getProperty("fiscalYearCutOverDate")) ) {   // Jira issue 315:  in case this 
+				configProperties.setProperty("fiscalYearCutOverDate", "10-08");  // property is not defined in the properties file, 
+			}                                                     // we set it to the default value here. The point of 
+			// this property is to define the day (October 8 is the default) on which grants from the "new" FY should
+			// begin to be displayed by default in a user's grant list, so they have some time (about a week by 
+			// default) to finish working with the previous FY's grants.
+		}
+	}
 	
 }
