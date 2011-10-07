@@ -14,10 +14,14 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.naming.NamingEnumeration;
+import javax.naming.NamingException;
 import javax.naming.directory.Attribute;
 import javax.naming.directory.Attributes;
 import javax.naming.directory.DirContext;
+import javax.naming.directory.SearchControls;
+import javax.naming.directory.SearchResult;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -88,8 +92,6 @@ public class NciPersonBuilder {
 	public NciPerson getPersonByUserName(String name)
 			throws GreensheetBaseException {
 
-		String distinguishedName = name;
-
 		DirContext context = null;
 		NciPerson person = null;
 		try {
@@ -100,11 +102,12 @@ public class NciPersonBuilder {
 			LdapConnectionHelper helper = new LdapConnectionHelper(p);
 			context = helper.getConnection();
 			person = new NciPerson();
-			if (distinguishedName.indexOf("ou=") == -1) {
-				person.setDistinguishedName("cn=" + distinguishedName
-						+ ",ou=EXT,ou=NCI,o=NIH");
+			// if (distinguishedName.indexOf("ou=") == -1) {
+			if (name.indexOf(",") == -1) { 		// Anatoli Oct. 2011: looks like this is just a username, not the full DN 
+												//Jira 319, supporting PIV card authentication
+				person.setDistinguishedName(getDistinguishedNameByCn(name, context));
 			} else {
-				person.setDistinguishedName(distinguishedName);
+				person.setDistinguishedName(name);
 			}
 
 			logger.debug("distinguished name " + person.getDistinguishedName());
@@ -239,5 +242,56 @@ public class NciPersonBuilder {
 		} catch (Exception e) {
 			throw new GreensheetBaseException("error.ldap", e);
 		}
+	}
+	
+	/**
+	 * Tries to find the distinguished name in a directory context based on just the username 
+	 * @param commonName a.k.a. <strong>cn</strong> - the username of the person whose full DN
+	 * we would like to find out 
+	 * @param context the naming context in which to perform the search
+	 * @return the full DN (distinguished name) of the person whose username is <code>commonName</code>
+	 */
+	public String getDistinguishedNameByCn(String commonName, DirContext context) throws NamingException {
+		String theFoundDN = "";
+		if (StringUtils.isNotBlank(commonName)) {
+			SearchControls searchControls = new SearchControls (
+					SearchControls.SUBTREE_SCOPE,
+					0, // return all matching entries
+					30000, // 30 seconds to wait for the LDAP server to respond, then time out
+					new String[] { "DN" }, // names of attributes we are interested in
+					false, // return the found object, not just its name(?)
+					false);
+			NamingEnumeration results = context.search("", //"ou=nci,o=nih",  // base DN: where the search should start
+					"(cn="+commonName+")",                 // filter condition
+					searchControls
+				);
+
+			if (results.hasMoreElements()) {
+				logger.debug("Searching in LDAP provider by just CN returned at least one match.");
+				Object obj = results.nextElement();
+				logger.debug("The match we found in LDAP directory is a  " + obj.getClass().toString());
+				if ( obj!= null && obj instanceof SearchResult ) {
+					SearchResult theLDAPentry = (SearchResult) obj;
+					theFoundDN = theLDAPentry.getName();
+					logger.debug("The DN for CN " + commonName + " is " + theFoundDN);
+				}
+				else {
+					logger.error("Weird: supposedly, the search for " + commonName + " in the LDAP context \n\t" + 
+							"returned some result(s) but we can't call getName() on it...");
+				}
+				if (results.hasMoreElements()) {
+					theFoundDN = "";
+					throw new NamingException("Username " + commonName + " seems to have more than one match " 
+							+ " in the directory from which the system retrieves NciOracleID. \n" +
+							 "    The system can not proceed due to the risk of allowing access to the wrong person.");
+				}
+			}
+			else {
+				logger.error("Searching for an entry with cn=" + commonName + " in our LDAP direcotry\n"
+						+ "     led to no results, so we are going to throw an exception :(.");
+				throw new NamingException("No entry for username " + commonName + " found in LDAP directory.");
+			}
+		}
+		return theFoundDN;
 	}
 }
