@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<SampleQuestionDefs>
+	<QuestionDef id="PCQ_ExplanationRequired">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="R01"/>
+		</GrantTypeMechs>
+		<QText>Explanation required </QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_XX_RD_CM_XX" type="COMMENT"/>
+			<ResponseDef id="PCQ_XX_RD_FL_XX" type="FILE"/>
+			<ResponseDef id="PCQ_XX_RD_TX_XX" type="TEXT"/>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_YesNo">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="R01"/>
+		</GrantTypeMechs>
+		<QText>A Yes No Question </QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_XX_RD_CM_XX" type="COMMENT"/>
+			<ResponseDef id="PCQ_XX_RD_FL_XX" type="FILE"/>
+			<ResponseDef id="PCQ_XX_RD_RB_XX" type="RADIO">
+				<SelectionDef id="SEL_XXX">
+					<Value>Yes</Value>
+				</SelectionDef>
+				<SelectionDef id="SEL_XXX">
+					<Value>No</Value>
+				</SelectionDef>
+			</ResponseDef>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_AttachedSentToGAB">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="R01"/>
+		</GrantTypeMechs>
+		<QText>Attached or Sent to GAB Question </QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_XX_RD_CM_XX" type="COMMENT"/>
+			<ResponseDef id="PCQ_XX_RD_FL_XX" type="FILE"/>
+			<ResponseDef id="PCQ_XX_RD_RB_XX" type="RADIO">
+				<SelectionDef id="SEL_XXX">
+					<Value>Yes, attached</Value>
+				</SelectionDef>
+				<SelectionDef id="SEL_XXX">
+					<Value>Yes, sent to GAB</Value>
+				</SelectionDef>
+			</ResponseDef>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_TEXT Response">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="R01"/>
+		</GrantTypeMechs>
+		<QText>Question with a Text Response </QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_XX_RD_CM_XX" type="COMMENT"/>
+			<ResponseDef id="PCQ_XX_RD_FL_XX" type="FILE"/>
+			<ResponseDef id="PCQ_XX_RD_TX_XX" type="TEXT"/>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_STRING Response">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="R01"/>
+		</GrantTypeMechs>
+		<QText>Question with a StringResponse </QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_XX_RD_CM_XX" type="COMMENT"/>
+			<ResponseDef id="PCQ_XX_RD_FL_XX" type="FILE"/>
+			<ResponseDef id="PCQ_XX_RD_ST_XX" type="STRING"/>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_NUMBER Response">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="R01"/>
+		</GrantTypeMechs>
+		<QText>Question with a Number Response </QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_XX_RD_CM_XX" type="COMMENT"/>
+			<ResponseDef id="PCQ_XX_RD_FL_XX" type="FILE"/>
+			<ResponseDef id="PCQ_XX_NU_ST_XX" type="NUMBER"/>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_DATE Response">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="R01"/>
+		</GrantTypeMechs>
+		<QText>Question with a Date Response </QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_XX_RD_CM_XX" type="COMMENT"/>
+			<ResponseDef id="PCQ_XX_RD_FL_XX" type="FILE"/>
+			<ResponseDef id="PCQ_XX_RD_DT_XX" type="DATE"/>
+		</ResponseDefsList>
+	</QuestionDef>
+	<QuestionDef id="PCQ_DROPDOWN">
+		<GrantTypeMechs>
+			<TypeMech type="1" mech="R01"/>
+		</GrantTypeMechs>
+		<QText>Question with a Drop Down </QText>
+		<QInstructions/>
+		<ResponseDefsList>
+			<ResponseDef id="PCQ_XX_RD_CM_XX" type="COMMENT"/>
+			<ResponseDef id="PCQ_XX_RD_FL_XX" type="FILE"/>
+			<ResponseDef id="PCQ_XX_RD_DD_XX" type="DROP_DOWN">
+				<SelectionDef id="SEL_XXX">
+					<Value>--Select an option--</Value>
+				</SelectionDef>
+				<SelectionDef id="SEL_XXX">
+					<Value>Yes</Value>
+				</SelectionDef>
+				<SelectionDef id="SEL_XXX">
+					<Value>No</Value>
+				</SelectionDef>
+			</ResponseDef>
+		</ResponseDefsList>
+	</QuestionDef>
+</SampleQuestionDefs>

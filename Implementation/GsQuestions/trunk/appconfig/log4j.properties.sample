@@ -1,0 +1,16 @@
+# Configuration for log4j
+
+log4j.rootLogger=INFO,C,A1
+log4j.logger.gov.nih.nci.iscs.numsix.greensheets.gsTools.gsgenerator=DEBUG
+
+log4j.appender.C=org.apache.log4j.ConsoleAppender
+log4j.appender.C.layout=org.apache.log4j.PatternLayout
+log4j.appender.C.layout.ConversionPattern=%d{DATE}  %p  %m%n
+
+log4j.appender.A1=org.apache.log4j.RollingFileAppender
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%d{DATE}  %p  %m%n
+
+log4j.appender.A1.file=C:/Users/kouzneta/Documents/NCI Software Dev/Greensheets/Implementation/GsQuestions/gsgenerator/logs/gsgenerator.log
+log4j.appender.A1.MaxFileSize=10MB
+

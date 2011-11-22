@@ -1,0 +1,9 @@
+To add tags for a new funding mechanism (RC1 in this example) immediately following the tags for a funding mechanism on which the new one is based, use the following regular expressions doing a Search-and-Replace in Textpad:
+
+For "find what", use this:
+\(.*\)<TypeMech type="\([1-9]\)" mech="R01"/>
+  
+For "replace with", use this:
+\1<TypeMech type="\2" mech="R01"/>\n\1<TypeMech type="\2" mech="RC1"/>
+
+This type of search-and-replace you need to run only once per source file. It accomplishes everything in one pass. Preserves the indentation at the beginning of the line and takes care of all types (as in type="1", type="2", etc., type="9") in one replace expression.

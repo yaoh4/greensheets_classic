@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GreensheetQuestions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\schema\GsForm.xsd">
+  <QuestionDef id="DMCQ_110">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Was this application received electronically?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_110_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_110_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_110_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8001">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8002">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_120">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Is application face page dated and signed?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_120_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_120_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_120_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8003">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8004">
+          <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8005">
+          <Value>N/A</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_130">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Are all SNAP questions answered?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_130_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_130_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_130_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8006">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8007">
+          <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8008">
+          <Value>N/A</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_140">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Are Human Subjects involved?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_140_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_140_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_140_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8009">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8010">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_150">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Does IRB approval date precede institutional official's signature date?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_150_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_150_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_150_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8011">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8012">
+          <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8013">
+          <Value>N/A</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_160">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Exemption number given?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_160_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_160_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_160_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8014">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8015">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_170">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>FWA/MPA number same as number on file with OHRP?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_170_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_170_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_170_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8016">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8017">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_180">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Exemption number OR IRB approval date given?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_180_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_180_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_180_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8018">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8019">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_190">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Is IRB approval date within 12 months prior to start date?</QText>
+    <QInstructions>(Choose N/A if what is given is an Exemption number rather than IRB Approval Date)</QInstructions>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_190_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_190_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_190_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8020">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8021">
+          <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8056">
+          <Value>N/A</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_200">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>FWA/MPA number same as number on file with OHRP?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_200_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_200_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_200_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8022">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8023">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_210">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Are Vertebrate Animals involved?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_210_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_210_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_210_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8024">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8025">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_220">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Is IACUC approval date given?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_220_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_220_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_220_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8026">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8027">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_230">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Does IACUC approval date precede institutional official's signature date?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_230_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_230_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_230_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8028">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8029">
+          <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8030">
+          <Value>N/A</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_240">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Is IACUC approval date within 36 months prior to start date?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_240_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_240_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_240_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8031">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8032">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_250">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Is Animal Welfare Assurance number given?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_250_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_250_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_250_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8033">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8034">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_260">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Misconduct in Science assurance on file with ORI?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_260_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_260_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_260_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8035">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8036">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  
+  <!-- Question 270 "Financial Status Report in file?" was initially considered, but withdrawn, 
+       per e-mail from Terry Dunne, before DM greensheets were ever implemented in Production.
+  -->
+  <!--
+  <QuestionDef id="DMCQ_270">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Financial Status Report in file?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_270_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_270_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_270_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8037">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8038">
+          <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8039">
+          <Value>N/A</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  -->
+  
+  <QuestionDef id="DMCQ_280">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Summary Statement in file?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_280_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_280_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_280_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8040">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8041">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_290">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Checklist included in application?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_290_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_290_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_290_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8042">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8043">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_300">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Is Program Income box checked?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_300_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_300_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_300_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8044">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8045">
+          <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8046">
+          <Value>N/A</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <QuestionDef id="DMCQ_310">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Is Invention block checked?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_310_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_310_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_310_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8047">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8048">
+          <Value>No</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8049">
+          <Value>N/A</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  <!-- Question 320 "Has JIT form letter been sent?" was initially considered, but withdrawn, 
+       per e-mail from Terry Dunne, before DM greensheets were ever implemented in Production.
+  -->
+  <!--   
+  <QuestionDef id="DMCQ_320">
+    <GrantTypeMechs>
+    </GrantTypeMechs>
+    <QText>Has JIT form letter been sent?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_320_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_320_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_320_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8050">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8051">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  -->
+  <QuestionDef id="DMCQ_330">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Small Business Financial/Management Systems Requirements information package sent?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_330_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_330_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_330_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8052">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8053">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  
+  <!-- This question (340) is removed per Feb. 24, 2009 email from Terry Dunne. -->
+  <!-- 
+  <QuestionDef id="DMCQ_340">
+    <GrantTypeMechs></GrantTypeMechs>
+    <QText>Is Face Page signed and dated by required officials?</QText>
+    <QInstructions/>
+    <ResponseDefsList>
+      <ResponseDef id="DMCQ_340_RD_CM_1" type="COMMENT"/>
+      <ResponseDef id="DMCQ_340_RD_FL_1" type="FILE"/>
+      <ResponseDef id="DMCQ_340_RD_RB_1" type="RADIO">
+        <SelectionDef id="SEL_8054">
+          <Value>Yes</Value>
+        </SelectionDef>
+        <SelectionDef id="SEL_8055">
+          <Value>No</Value>
+        </SelectionDef>
+      </ResponseDef>
+    </ResponseDefsList>
+  </QuestionDef>
+  -- >
+</GreensheetQuestions>
