@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--   The hint about schema location seems to confuse the transformer in one instance; but validation is still being done 
+       because the schema gets assigned in the code.
+<GreensheetQuestions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\schema\GsForm.xsd">
+-->
 <GreensheetQuestions>
     <QuestionDef id="PNCQ_1">
         <GrantTypeMechs>
@@ -3450,7 +3454,7 @@
                                             <ResponseDef id="PNCQ_25_RD_RB_71" type="RADIO">
                                                 <SelectionDef id="SEL_57">
                                                     <Value>Yes</Value>
-                                                    <QuestionDef id="PNCQ_2510">
+                                                    <QuestionDef id="PNCQ_2509">
                                                         <GrantTypeMechs>
                                                             <TypeMech type="4" mech="R01"/>
                                                             <TypeMech type="5" mech="R01"/>
@@ -3581,16 +3585,15 @@
                                                             <TypeMech type="4" mech="U44"/>
                                                             <TypeMech type="5" mech="R35"/>
                                                         </GrantTypeMechs>
-                                                        <QText>Does the progress report indicate applicable clinical trials have been registered in ClinicalTrials.gov?</QText>
+                                                        <QText>Are there any applicable clinical trials associated with this award?</QText>
                                                         <QInstructions/>
                                                         <ResponseDefsList>
-                                                            <ResponseDef id="PNCQ_2510_RD_RB_25101" type="RADIO">
-                                                                <SelectionDef id="SEL_251011">
+                                                            <ResponseDef id="PNCQ_2509_RD_CM_10" type="COMMENT"/>
+                                                            <ResponseDef id="PNCQ_2509_RD_FL_20" type="FILE"/>
+                                                            <ResponseDef id="PNCQ_2509_RD_RB_30" type="RADIO">
+                                                                <SelectionDef id="SEL_25091">
                                                                     <Value>Yes</Value>
-                                                                </SelectionDef>
-                                                                <SelectionDef id="SEL_251012">
-                                                                    <Value>No</Value>
-                                                                    <QuestionDef id="PNCQ_2510121">
+                                                                    <QuestionDef id="PNCQ_2510">
                                                                         <GrantTypeMechs>
                                                                             <TypeMech type="4" mech="R01"/>
                                                                             <TypeMech type="5" mech="R01"/>
@@ -3721,22 +3724,169 @@
                                                                             <TypeMech type="4" mech="U44"/>
                                                                             <TypeMech type="5" mech="R35"/>
                                                                         </GrantTypeMechs>
-                                                                        <QText>Has email been sent to PI and Business Official?</QText>
-                                                                        <QInstructions/>
+                                                                        <QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+                                                                        <QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
                                                                         <ResponseDefsList>
-                                                                            <ResponseDef id="PNCQ_2510121_RD_CB_25101211" type="CHECK_BOX">
-                                                                                <SelectionDef id="SEL_25101211">
-                                                                                    <Value>Yes, attached.</Value>
+                                                                            <ResponseDef id="PNCQ_2510_RD_RB_25101" type="RADIO">
+                                                                                <SelectionDef id="SEL_251011">
+                                                                                    <Value>Yes</Value>
+                                                                                </SelectionDef>
+                                                                                <SelectionDef id="SEL_251012">
+                                                                                    <Value>No</Value>
+                                                                                    <QuestionDef id="PNCQ_2510121">
+                                                                                        <GrantTypeMechs>
+                                                                                            <TypeMech type="4" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="RC3"/>
+                                                                                            <TypeMech type="5" mech="RC4"/>
+                                                                                            <TypeMech type="5" mech="RC1"/>
+                                                                                            <TypeMech type="5" mech="RC2"/>
+                                                                                            <TypeMech type="8" mech="RC2"/>
+                                                                                            <TypeMech type="5" mech="R00"/>
+                                                                                            <TypeMech type="8" mech="R00"/>
+                                                                                            <TypeMech type="5" mech="SC1"/>
+                                                                                            <TypeMech type="5" mech="SC2"/>
+                                                                                            <TypeMech type="5" mech="RL1"/>
+                                                                                            <TypeMech type="4" mech="P01"/>
+                                                                                            <TypeMech type="5" mech="P01"/>
+                                                                                            <TypeMech type="8" mech="P01"/>
+                                                                                            <TypeMech type="4" mech="R03"/>
+                                                                                            <TypeMech type="5" mech="R03"/>
+                                                                                            <TypeMech type="8" mech="R01"/>
+                                                                                            <TypeMech type="8" mech="RC3"/>
+                                                                                            <TypeMech type="8" mech="RC4"/>
+                                                                                            <TypeMech type="8" mech="RC1"/>
+                                                                                            <TypeMech type="8" mech="SC1"/>
+                                                                                            <TypeMech type="8" mech="SC2"/>
+                                                                                            <TypeMech type="8" mech="RL1"/>
+                                                                                            <TypeMech type="8" mech="R03"/>
+                                                                                            <TypeMech type="4" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="RL2"/>
+                                                                                            <TypeMech type="8" mech="R21"/>
+                                                                                            <TypeMech type="8" mech="RL2"/>
+                                                                                            <TypeMech type="5" mech="R29"/>
+                                                                                            <TypeMech type="8" mech="R29"/>
+                                                                                            <TypeMech type="5" mech="R30"/>
+                                                                                            <TypeMech type="8" mech="R30"/>
+                                                                                            <TypeMech type="5" mech="R33"/>
+                                                                                            <TypeMech type="8" mech="R33"/>
+                                                                                            <TypeMech type="5" mech="R37"/>
+                                                                                            <TypeMech type="8" mech="R37"/>
+                                                                                            <TypeMech type="5" mech="R41"/>
+                                                                                            <TypeMech type="8" mech="R41"/>
+                                                                                            <TypeMech type="5" mech="R42"/>
+                                                                                            <TypeMech type="8" mech="R42"/>
+                                                                                            <TypeMech type="5" mech="R43"/>
+                                                                                            <TypeMech type="5" mech="R44"/>
+                                                                                            <TypeMech type="8" mech="R44"/>
+                                                                                            <TypeMech type="5" mech="R55"/>
+                                                                                            <TypeMech type="8" mech="R55"/>
+                                                                                            <TypeMech type="5" mech="R56"/>
+                                                                                            <TypeMech type="8" mech="R56"/>
+                                                                                            <TypeMech type="5" mech="U01"/>
+                                                                                            <TypeMech type="5" mech="UC2"/>
+                                                                                            <TypeMech type="4" mech="UH3"/>
+                                                                                            <TypeMech type="5" mech="UH3"/>
+                                                                                            <TypeMech type="8" mech="UH3"/>
+                                                                                            <TypeMech type="4" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="UH2"/>
+                                                                                            <TypeMech type="8" mech="U01"/>
+                                                                                            <TypeMech type="8" mech="UC2"/>
+                                                                                            <TypeMech type="8" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="U19"/>
+                                                                                            <TypeMech type="8" mech="U19"/>
+                                                                                            <TypeMech type="5" mech="U41"/>
+                                                                                            <TypeMech type="8" mech="U41"/>
+                                                                                            <TypeMech type="5" mech="U42"/>
+                                                                                            <TypeMech type="8" mech="U42"/>
+                                                                                            <TypeMech type="5" mech="U43"/>
+                                                                                            <TypeMech type="8" mech="U43"/>
+                                                                                            <TypeMech type="5" mech="U44"/>
+                                                                                            <TypeMech type="8" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="P20"/>
+                                                                                            <TypeMech type="8" mech="P20"/>
+                                                                                            <TypeMech type="5" mech="P30"/>
+                                                                                            <TypeMech type="5" mech="PL1"/>
+                                                                                            <TypeMech type="8" mech="P30"/>
+                                                                                            <TypeMech type="8" mech="PL1"/>
+                                                                                            <TypeMech type="5" mech="P50"/>
+                                                                                            <TypeMech type="8" mech="P50"/>
+                                                                                            <TypeMech type="4" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="UL1"/>
+                                                                                            <TypeMech type="8" mech="U54"/>
+                                                                                            <TypeMech type="8" mech="UL1"/>
+                                                                                            <TypeMech type="5" mech="K01"/>
+                                                                                            <TypeMech type="5" mech="KL1"/>
+                                                                                            <TypeMech type="5" mech="K99"/>
+                                                                                            <TypeMech type="8" mech="K01"/>
+                                                                                            <TypeMech type="8" mech="KL1"/>
+                                                                                            <TypeMech type="8" mech="K99"/>
+                                                                                            <TypeMech type="5" mech="K07"/>
+                                                                                            <TypeMech type="8" mech="K07"/>
+                                                                                            <TypeMech type="5" mech="K08"/>
+                                                                                            <TypeMech type="8" mech="K08"/>
+                                                                                            <TypeMech type="5" mech="K12"/>
+                                                                                            <TypeMech type="5" mech="KM1"/>
+                                                                                            <TypeMech type="5" mech="KL2"/>
+                                                                                            <TypeMech type="8" mech="K12"/>
+                                                                                            <TypeMech type="8" mech="KM1"/>
+                                                                                            <TypeMech type="8" mech="KL2"/>
+                                                                                            <TypeMech type="5" mech="K22"/>
+                                                                                            <TypeMech type="8" mech="K22"/>
+                                                                                            <TypeMech type="5" mech="K23"/>
+                                                                                            <TypeMech type="8" mech="K23"/>
+                                                                                            <TypeMech type="5" mech="K25"/>
+                                                                                            <TypeMech type="8" mech="K25"/>
+                                                                                            <TypeMech type="5" mech="R15"/>
+                                                                                            <TypeMech type="8" mech="R15"/>
+                                                                                            <TypeMech type="5" mech="R18"/>
+                                                                                            <TypeMech type="8" mech="R18"/>
+                                                                                            <TypeMech type="5" mech="R24"/>
+                                                                                            <TypeMech type="8" mech="R24"/>
+                                                                                            <TypeMech type="5" mech="R25"/>
+                                                                                            <TypeMech type="5" mech="D43"/>
+                                                                                            <TypeMech type="5" mech="RL9"/>
+                                                                                            <TypeMech type="5" mech="RL5"/>
+                                                                                            <TypeMech type="8" mech="R25"/>
+                                                                                            <TypeMech type="8" mech="D43"/>
+                                                                                            <TypeMech type="8" mech="RL9"/>
+                                                                                            <TypeMech type="8" mech="RL5"/>
+                                                                                            <TypeMech type="5" mech="U24"/>
+                                                                                            <TypeMech type="8" mech="U24"/>
+                                                                                            <TypeMech type="5" mech="U56"/>
+                                                                                            <TypeMech type="8" mech="U56"/>
+                                                                                            <TypeMech type="4" mech="R33"/>
+                                                                                            <TypeMech type="4" mech="R42"/>
+                                                                                            <TypeMech type="4" mech="R44"/>
+                                                                                            <TypeMech type="4" mech="U42"/>
+                                                                                            <TypeMech type="4" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="R35"/>
+                                                                                        </GrantTypeMechs>
+                                                                                        <QText>Has email been sent to PI and Business Official?</QText>
+                                                                                        <QInstructions/>
+                                                                                        <ResponseDefsList>
+                                                                                            <ResponseDef id="PNCQ_2510121_RD_CB_25101211" type="CHECK_BOX">
+                                                                                                <SelectionDef id="SEL_25101211">
+                                                                                                    <Value>Yes, attached.</Value>
+                                                                                                </SelectionDef>
+                                                                                            </ResponseDef>
+                                                                                            <ResponseDef id="PNCQ_2510121_RD_CM_25101212" type="COMMENT"/>
+                                                                                            <ResponseDef id="PNCQ_2510121_RD_FL_25101213" type="FILE"/>
+                                                                                        </ResponseDefsList>
+                                                                                    </QuestionDef>
                                                                                 </SelectionDef>
                                                                             </ResponseDef>
-                                                                            <ResponseDef id="PNCQ_2510121_RD_CM_25101212" type="COMMENT"/>
-                                                                            <ResponseDef id="PNCQ_2510121_RD_FL_25101213" type="FILE"/>
+                                                                            <ResponseDef id="PNCQ_2510_RD_CM_25102" type="COMMENT"/>
+                                                                            <ResponseDef id="PNCQ_2510_RD_FL_25103" type="FILE"/>
                                                                         </ResponseDefsList>
                                                                     </QuestionDef>
+                                                                </SelectionDef> <!-- End of: Yes, there are clinical trials -->
+                                                                <SelectionDef id="SEL_25092">
+                                                                    <Value>No</Value>
                                                                 </SelectionDef>
                                                             </ResponseDef>
-                                                            <ResponseDef id="PNCQ_2510_RD_CM_25102" type="COMMENT"/>
-                                                            <ResponseDef id="PNCQ_2510_RD_FL_25103" type="FILE"/>
                                                         </ResponseDefsList>
                                                     </QuestionDef>
                                                     <QuestionDef id="PNCQ_26">
@@ -4221,7 +4371,7 @@
                                                 </SelectionDef>
                                                 <SelectionDef id="SEL_172">
                                                     <Value>Yes</Value>
-                                                    <QuestionDef id="PNCQ_931">
+                                                    <QuestionDef id="PNCQ_9309">
                                                         <GrantTypeMechs>
                                                             <TypeMech type="4" mech="R01"/>
                                                             <TypeMech type="5" mech="R01"/>
@@ -4352,16 +4502,15 @@
                                                             <TypeMech type="4" mech="U44"/>
                                                             <TypeMech type="5" mech="R35"/>
                                                         </GrantTypeMechs>
-                                                        <QText>Does the progress report indicate applicable clinical trials have been registered in ClinicalTrials.gov?</QText>
+                                                        <QText>Are there any applicable clinical trials associated with this award?</QText>
                                                         <QInstructions/>
                                                         <ResponseDefsList>
-                                                            <ResponseDef id="PNCQ_931_RD_RB_9310" type="RADIO">
-                                                                <SelectionDef id="SEL_9311">
+                                                            <ResponseDef id="PNCQ_9309_RD_CM_10" type="COMMENT"/>
+                                                            <ResponseDef id="PNCQ_9309_RD_FL_20" type="FILE"/>
+                                                            <ResponseDef id="PNCQ_9309_RD_RB_30" type="RADIO">
+                                                                <SelectionDef id="SEL_93091">
                                                                     <Value>Yes</Value>
-                                                                </SelectionDef>
-                                                                <SelectionDef id="SEL_9312">
-                                                                    <Value>No</Value>
-                                                                    <QuestionDef id="PNCQ_93121">
+                                                                    <QuestionDef id="PNCQ_931">
                                                                         <GrantTypeMechs>
                                                                             <TypeMech type="4" mech="R01"/>
                                                                             <TypeMech type="5" mech="R01"/>
@@ -4492,28 +4641,175 @@
                                                                             <TypeMech type="4" mech="U44"/>
                                                                             <TypeMech type="5" mech="R35"/>
                                                                         </GrantTypeMechs>
-                                                                        <QText>Has email been sent to PI and Business Official?</QText>
-                                                                        <QInstructions/>
+                                                                        <QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+                                                                        <QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
                                                                         <ResponseDefsList>
-                                                                            <ResponseDef id="PNCQ_93121_RD_CB_931210" type="CHECK_BOX">
-                                                                                <SelectionDef id="SEL_931211">
-                                                                                    <Value>Yes, attached.</Value>
+                                                                            <ResponseDef id="PNCQ_931_RD_RB_9310" type="RADIO">
+                                                                                <SelectionDef id="SEL_9311">
+                                                                                    <Value>Yes</Value>
+                                                                                </SelectionDef>
+                                                                                <SelectionDef id="SEL_9312">
+                                                                                    <Value>No</Value>
+                                                                                    <QuestionDef id="PNCQ_93121">
+                                                                                        <GrantTypeMechs>
+                                                                                            <TypeMech type="4" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="RC3"/>
+                                                                                            <TypeMech type="5" mech="RC4"/>
+                                                                                            <TypeMech type="5" mech="RC1"/>
+                                                                                            <TypeMech type="5" mech="RC2"/>
+                                                                                            <TypeMech type="8" mech="RC2"/>
+                                                                                            <TypeMech type="5" mech="R00"/>
+                                                                                            <TypeMech type="8" mech="R00"/>
+                                                                                            <TypeMech type="5" mech="SC1"/>
+                                                                                            <TypeMech type="5" mech="SC2"/>
+                                                                                            <TypeMech type="5" mech="RL1"/>
+                                                                                            <TypeMech type="4" mech="P01"/>
+                                                                                            <TypeMech type="5" mech="P01"/>
+                                                                                            <TypeMech type="8" mech="P01"/>
+                                                                                            <TypeMech type="4" mech="R03"/>
+                                                                                            <TypeMech type="5" mech="R03"/>
+                                                                                            <TypeMech type="8" mech="R01"/>
+                                                                                            <TypeMech type="8" mech="RC3"/>
+                                                                                            <TypeMech type="8" mech="RC4"/>
+                                                                                            <TypeMech type="8" mech="RC1"/>
+                                                                                            <TypeMech type="8" mech="SC1"/>
+                                                                                            <TypeMech type="8" mech="SC2"/>
+                                                                                            <TypeMech type="8" mech="RL1"/>
+                                                                                            <TypeMech type="8" mech="R03"/>
+                                                                                            <TypeMech type="4" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="RL2"/>
+                                                                                            <TypeMech type="8" mech="R21"/>
+                                                                                            <TypeMech type="8" mech="RL2"/>
+                                                                                            <TypeMech type="5" mech="R29"/>
+                                                                                            <TypeMech type="8" mech="R29"/>
+                                                                                            <TypeMech type="5" mech="R30"/>
+                                                                                            <TypeMech type="8" mech="R30"/>
+                                                                                            <TypeMech type="5" mech="R33"/>
+                                                                                            <TypeMech type="8" mech="R33"/>
+                                                                                            <TypeMech type="5" mech="R37"/>
+                                                                                            <TypeMech type="8" mech="R37"/>
+                                                                                            <TypeMech type="5" mech="R41"/>
+                                                                                            <TypeMech type="8" mech="R41"/>
+                                                                                            <TypeMech type="5" mech="R42"/>
+                                                                                            <TypeMech type="8" mech="R42"/>
+                                                                                            <TypeMech type="5" mech="R43"/>
+                                                                                            <TypeMech type="5" mech="R44"/>
+                                                                                            <TypeMech type="8" mech="R44"/>
+                                                                                            <TypeMech type="5" mech="R55"/>
+                                                                                            <TypeMech type="8" mech="R55"/>
+                                                                                            <TypeMech type="5" mech="R56"/>
+                                                                                            <TypeMech type="8" mech="R56"/>
+                                                                                            <TypeMech type="5" mech="U01"/>
+                                                                                            <TypeMech type="5" mech="UC2"/>
+                                                                                            <TypeMech type="4" mech="UH3"/>
+                                                                                            <TypeMech type="5" mech="UH3"/>
+                                                                                            <TypeMech type="8" mech="UH3"/>
+                                                                                            <TypeMech type="4" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="UH2"/>
+                                                                                            <TypeMech type="8" mech="U01"/>
+                                                                                            <TypeMech type="8" mech="UC2"/>
+                                                                                            <TypeMech type="8" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="U19"/>
+                                                                                            <TypeMech type="8" mech="U19"/>
+                                                                                            <TypeMech type="5" mech="U41"/>
+                                                                                            <TypeMech type="8" mech="U41"/>
+                                                                                            <TypeMech type="5" mech="U42"/>
+                                                                                            <TypeMech type="8" mech="U42"/>
+                                                                                            <TypeMech type="5" mech="U43"/>
+                                                                                            <TypeMech type="8" mech="U43"/>
+                                                                                            <TypeMech type="5" mech="U44"/>
+                                                                                            <TypeMech type="8" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="P20"/>
+                                                                                            <TypeMech type="8" mech="P20"/>
+                                                                                            <TypeMech type="5" mech="P30"/>
+                                                                                            <TypeMech type="5" mech="PL1"/>
+                                                                                            <TypeMech type="8" mech="P30"/>
+                                                                                            <TypeMech type="8" mech="PL1"/>
+                                                                                            <TypeMech type="5" mech="P50"/>
+                                                                                            <TypeMech type="8" mech="P50"/>
+                                                                                            <TypeMech type="4" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="UL1"/>
+                                                                                            <TypeMech type="8" mech="U54"/>
+                                                                                            <TypeMech type="8" mech="UL1"/>
+                                                                                            <TypeMech type="5" mech="K01"/>
+                                                                                            <TypeMech type="5" mech="KL1"/>
+                                                                                            <TypeMech type="5" mech="K99"/>
+                                                                                            <TypeMech type="8" mech="K01"/>
+                                                                                            <TypeMech type="8" mech="KL1"/>
+                                                                                            <TypeMech type="8" mech="K99"/>
+                                                                                            <TypeMech type="5" mech="K07"/>
+                                                                                            <TypeMech type="8" mech="K07"/>
+                                                                                            <TypeMech type="5" mech="K08"/>
+                                                                                            <TypeMech type="8" mech="K08"/>
+                                                                                            <TypeMech type="5" mech="K12"/>
+                                                                                            <TypeMech type="5" mech="KM1"/>
+                                                                                            <TypeMech type="5" mech="KL2"/>
+                                                                                            <TypeMech type="8" mech="K12"/>
+                                                                                            <TypeMech type="8" mech="KM1"/>
+                                                                                            <TypeMech type="8" mech="KL2"/>
+                                                                                            <TypeMech type="5" mech="K22"/>
+                                                                                            <TypeMech type="8" mech="K22"/>
+                                                                                            <TypeMech type="5" mech="K23"/>
+                                                                                            <TypeMech type="8" mech="K23"/>
+                                                                                            <TypeMech type="5" mech="K25"/>
+                                                                                            <TypeMech type="8" mech="K25"/>
+                                                                                            <TypeMech type="5" mech="R15"/>
+                                                                                            <TypeMech type="8" mech="R15"/>
+                                                                                            <TypeMech type="5" mech="R18"/>
+                                                                                            <TypeMech type="8" mech="R18"/>
+                                                                                            <TypeMech type="5" mech="R24"/>
+                                                                                            <TypeMech type="8" mech="R24"/>
+                                                                                            <TypeMech type="5" mech="R25"/>
+                                                                                            <TypeMech type="5" mech="D43"/>
+                                                                                            <TypeMech type="5" mech="RL9"/>
+                                                                                            <TypeMech type="5" mech="RL5"/>
+                                                                                            <TypeMech type="8" mech="R25"/>
+                                                                                            <TypeMech type="8" mech="D43"/>
+                                                                                            <TypeMech type="8" mech="RL9"/>
+                                                                                            <TypeMech type="8" mech="RL5"/>
+                                                                                            <TypeMech type="5" mech="U24"/>
+                                                                                            <TypeMech type="8" mech="U24"/>
+                                                                                            <TypeMech type="5" mech="U56"/>
+                                                                                            <TypeMech type="8" mech="U56"/>
+                                                                                            <TypeMech type="4" mech="R33"/>
+                                                                                            <TypeMech type="4" mech="R42"/>
+                                                                                            <TypeMech type="4" mech="R44"/>
+                                                                                            <TypeMech type="4" mech="U42"/>
+                                                                                            <TypeMech type="4" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="R35"/>
+                                                                                        </GrantTypeMechs>
+                                                                                        <QText>Has email been sent to PI and Business Official?</QText>
+                                                                                        <QInstructions/>
+                                                                                        <ResponseDefsList>
+                                                                                            <ResponseDef id="PNCQ_93121_RD_CB_931210" type="CHECK_BOX">
+                                                                                                <SelectionDef id="SEL_931211">
+                                                                                                    <Value>Yes, attached.</Value>
+                                                                                                </SelectionDef>
+                                                                                            </ResponseDef>
+                                                                                            <ResponseDef id="PNCQ_93121_RD_CM_931212" type="COMMENT"/>
+                                                                                            <ResponseDef id="PNCQ_93121_RD_FL_931213" type="FILE"/>
+                                                                                        </ResponseDefsList>
+                                                                                    </QuestionDef>
                                                                                 </SelectionDef>
                                                                             </ResponseDef>
-                                                                            <ResponseDef id="PNCQ_93121_RD_CM_931212" type="COMMENT"/>
-                                                                            <ResponseDef id="PNCQ_93121_RD_FL_931213" type="FILE"/>
+                                                                            <ResponseDef id="PNCQ_931_RD_CM_9312" type="COMMENT"/>
+                                                                            <ResponseDef id="PNCQ_931_RD_FL_9313" type="FILE"/>
                                                                         </ResponseDefsList>
                                                                     </QuestionDef>
+                                                                </SelectionDef>  <!-- End of:  Yes, there are clinical trials -->
+                                                                <SelectionDef id="SEL_93092">
+                                                                    <Value>No</Value>
                                                                 </SelectionDef>
                                                             </ResponseDef>
-                                                            <ResponseDef id="PNCQ_931_RD_CM_9312" type="COMMENT"/>
-                                                            <ResponseDef id="PNCQ_931_RD_FL_9313" type="FILE"/>
                                                         </ResponseDefsList>
-                                                    </QuestionDef>                                                    
+                                                    </QuestionDef>
                                                 </SelectionDef>
                                                 <SelectionDef id="SEL_173">
                                                     <Value>Yes, R25T or K12</Value>
-                                                    <QuestionDef id="PNCQ_932">
+                                                    <QuestionDef id="PNCQ_9319">
                                                         <GrantTypeMechs>
                                                             <TypeMech type="4" mech="R01"/>
                                                             <TypeMech type="5" mech="R01"/>
@@ -4644,16 +4940,15 @@
                                                             <TypeMech type="4" mech="U44"/>
                                                             <TypeMech type="5" mech="R35"/>
                                                         </GrantTypeMechs>
-                                                        <QText>Does the progress report indicate applicable clinical trials have been registered in ClinicalTrials.gov?</QText>
+                                                        <QText>Are there any applicable clinical trials associated with this award?</QText>
                                                         <QInstructions/>
                                                         <ResponseDefsList>
-                                                            <ResponseDef id="PNCQ_932_RD_RB_9320" type="RADIO">
-                                                                <SelectionDef id="SEL_9321">
+                                                            <ResponseDef id="PNCQ_9319_RD_CM_10" type="COMMENT"/>
+                                                            <ResponseDef id="PNCQ_9319_RD_FL_20" type="FILE"/>
+                                                            <ResponseDef id="PNCQ_9319_RD_RB_30" type="RADIO">
+                                                                <SelectionDef id="SEL_93191">
                                                                     <Value>Yes</Value>
-                                                                </SelectionDef>
-                                                                <SelectionDef id="SEL_9322">
-                                                                    <Value>No</Value>
-                                                                    <QuestionDef id="PNCQ_9321">
+                                                                    <QuestionDef id="PNCQ_932">
                                                                         <GrantTypeMechs>
                                                                             <TypeMech type="4" mech="R01"/>
                                                                             <TypeMech type="5" mech="R01"/>
@@ -4784,24 +5079,171 @@
                                                                             <TypeMech type="4" mech="U44"/>
                                                                             <TypeMech type="5" mech="R35"/>
                                                                         </GrantTypeMechs>
-                                                                        <QText>Has email been sent to PI and Business Official?</QText>
-                                                                        <QInstructions/>
+                                                                        <QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+                                                                        <QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
                                                                         <ResponseDefsList>
-                                                                            <ResponseDef id="PNCQ_9321_RD_CB_93210" type="CHECK_BOX">
-                                                                                <SelectionDef id="SEL_93210">
-                                                                                    <Value>Yes, attached.</Value>
+                                                                            <ResponseDef id="PNCQ_932_RD_RB_9320" type="RADIO">
+                                                                                <SelectionDef id="SEL_9321">
+                                                                                    <Value>Yes</Value>
+                                                                                </SelectionDef>
+                                                                                <SelectionDef id="SEL_9322">
+                                                                                    <Value>No</Value>
+                                                                                    <QuestionDef id="PNCQ_9321">
+                                                                                        <GrantTypeMechs>
+                                                                                            <TypeMech type="4" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="RC3"/>
+                                                                                            <TypeMech type="5" mech="RC4"/>
+                                                                                            <TypeMech type="5" mech="RC1"/>
+                                                                                            <TypeMech type="5" mech="RC2"/>
+                                                                                            <TypeMech type="8" mech="RC2"/>
+                                                                                            <TypeMech type="5" mech="R00"/>
+                                                                                            <TypeMech type="8" mech="R00"/>
+                                                                                            <TypeMech type="5" mech="SC1"/>
+                                                                                            <TypeMech type="5" mech="SC2"/>
+                                                                                            <TypeMech type="5" mech="RL1"/>
+                                                                                            <TypeMech type="4" mech="P01"/>
+                                                                                            <TypeMech type="5" mech="P01"/>
+                                                                                            <TypeMech type="8" mech="P01"/>
+                                                                                            <TypeMech type="4" mech="R03"/>
+                                                                                            <TypeMech type="5" mech="R03"/>
+                                                                                            <TypeMech type="8" mech="R01"/>
+                                                                                            <TypeMech type="8" mech="RC3"/>
+                                                                                            <TypeMech type="8" mech="RC4"/>
+                                                                                            <TypeMech type="8" mech="RC1"/>
+                                                                                            <TypeMech type="8" mech="SC1"/>
+                                                                                            <TypeMech type="8" mech="SC2"/>
+                                                                                            <TypeMech type="8" mech="RL1"/>
+                                                                                            <TypeMech type="8" mech="R03"/>
+                                                                                            <TypeMech type="4" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="RL2"/>
+                                                                                            <TypeMech type="8" mech="R21"/>
+                                                                                            <TypeMech type="8" mech="RL2"/>
+                                                                                            <TypeMech type="5" mech="R29"/>
+                                                                                            <TypeMech type="8" mech="R29"/>
+                                                                                            <TypeMech type="5" mech="R30"/>
+                                                                                            <TypeMech type="8" mech="R30"/>
+                                                                                            <TypeMech type="5" mech="R33"/>
+                                                                                            <TypeMech type="8" mech="R33"/>
+                                                                                            <TypeMech type="5" mech="R37"/>
+                                                                                            <TypeMech type="8" mech="R37"/>
+                                                                                            <TypeMech type="5" mech="R41"/>
+                                                                                            <TypeMech type="8" mech="R41"/>
+                                                                                            <TypeMech type="5" mech="R42"/>
+                                                                                            <TypeMech type="8" mech="R42"/>
+                                                                                            <TypeMech type="5" mech="R43"/>
+                                                                                            <TypeMech type="5" mech="R44"/>
+                                                                                            <TypeMech type="8" mech="R44"/>
+                                                                                            <TypeMech type="5" mech="R55"/>
+                                                                                            <TypeMech type="8" mech="R55"/>
+                                                                                            <TypeMech type="5" mech="R56"/>
+                                                                                            <TypeMech type="8" mech="R56"/>
+                                                                                            <TypeMech type="5" mech="U01"/>
+                                                                                            <TypeMech type="5" mech="UC2"/>
+                                                                                            <TypeMech type="4" mech="UH3"/>
+                                                                                            <TypeMech type="5" mech="UH3"/>
+                                                                                            <TypeMech type="8" mech="UH3"/>
+                                                                                            <TypeMech type="4" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="UH2"/>
+                                                                                            <TypeMech type="8" mech="U01"/>
+                                                                                            <TypeMech type="8" mech="UC2"/>
+                                                                                            <TypeMech type="8" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="U19"/>
+                                                                                            <TypeMech type="8" mech="U19"/>
+                                                                                            <TypeMech type="5" mech="U41"/>
+                                                                                            <TypeMech type="8" mech="U41"/>
+                                                                                            <TypeMech type="5" mech="U42"/>
+                                                                                            <TypeMech type="8" mech="U42"/>
+                                                                                            <TypeMech type="5" mech="U43"/>
+                                                                                            <TypeMech type="8" mech="U43"/>
+                                                                                            <TypeMech type="5" mech="U44"/>
+                                                                                            <TypeMech type="8" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="P20"/>
+                                                                                            <TypeMech type="8" mech="P20"/>
+                                                                                            <TypeMech type="5" mech="P30"/>
+                                                                                            <TypeMech type="5" mech="PL1"/>
+                                                                                            <TypeMech type="8" mech="P30"/>
+                                                                                            <TypeMech type="8" mech="PL1"/>
+                                                                                            <TypeMech type="5" mech="P50"/>
+                                                                                            <TypeMech type="8" mech="P50"/>
+                                                                                            <TypeMech type="4" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="UL1"/>
+                                                                                            <TypeMech type="8" mech="U54"/>
+                                                                                            <TypeMech type="8" mech="UL1"/>
+                                                                                            <TypeMech type="5" mech="K01"/>
+                                                                                            <TypeMech type="5" mech="KL1"/>
+                                                                                            <TypeMech type="5" mech="K99"/>
+                                                                                            <TypeMech type="8" mech="K01"/>
+                                                                                            <TypeMech type="8" mech="KL1"/>
+                                                                                            <TypeMech type="8" mech="K99"/>
+                                                                                            <TypeMech type="5" mech="K07"/>
+                                                                                            <TypeMech type="8" mech="K07"/>
+                                                                                            <TypeMech type="5" mech="K08"/>
+                                                                                            <TypeMech type="8" mech="K08"/>
+                                                                                            <TypeMech type="5" mech="K12"/>
+                                                                                            <TypeMech type="5" mech="KM1"/>
+                                                                                            <TypeMech type="5" mech="KL2"/>
+                                                                                            <TypeMech type="8" mech="K12"/>
+                                                                                            <TypeMech type="8" mech="KM1"/>
+                                                                                            <TypeMech type="8" mech="KL2"/>
+                                                                                            <TypeMech type="5" mech="K22"/>
+                                                                                            <TypeMech type="8" mech="K22"/>
+                                                                                            <TypeMech type="5" mech="K23"/>
+                                                                                            <TypeMech type="8" mech="K23"/>
+                                                                                            <TypeMech type="5" mech="K25"/>
+                                                                                            <TypeMech type="8" mech="K25"/>
+                                                                                            <TypeMech type="5" mech="R15"/>
+                                                                                            <TypeMech type="8" mech="R15"/>
+                                                                                            <TypeMech type="5" mech="R18"/>
+                                                                                            <TypeMech type="8" mech="R18"/>
+                                                                                            <TypeMech type="5" mech="R24"/>
+                                                                                            <TypeMech type="8" mech="R24"/>
+                                                                                            <TypeMech type="5" mech="R25"/>
+                                                                                            <TypeMech type="5" mech="D43"/>
+                                                                                            <TypeMech type="5" mech="RL9"/>
+                                                                                            <TypeMech type="5" mech="RL5"/>
+                                                                                            <TypeMech type="8" mech="R25"/>
+                                                                                            <TypeMech type="8" mech="D43"/>
+                                                                                            <TypeMech type="8" mech="RL9"/>
+                                                                                            <TypeMech type="8" mech="RL5"/>
+                                                                                            <TypeMech type="5" mech="U24"/>
+                                                                                            <TypeMech type="8" mech="U24"/>
+                                                                                            <TypeMech type="5" mech="U56"/>
+                                                                                            <TypeMech type="8" mech="U56"/>
+                                                                                            <TypeMech type="4" mech="R33"/>
+                                                                                            <TypeMech type="4" mech="R42"/>
+                                                                                            <TypeMech type="4" mech="R44"/>
+                                                                                            <TypeMech type="4" mech="U42"/>
+                                                                                            <TypeMech type="4" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="R35"/>
+                                                                                        </GrantTypeMechs>
+                                                                                        <QText>Has email been sent to PI and Business Official?</QText>
+                                                                                        <QInstructions/>
+                                                                                        <ResponseDefsList>
+                                                                                            <ResponseDef id="PNCQ_9321_RD_CB_93210" type="CHECK_BOX">
+                                                                                                <SelectionDef id="SEL_93210">
+                                                                                                    <Value>Yes, attached.</Value>
+                                                                                                </SelectionDef>
+                                                                                            </ResponseDef>
+                                                                                            <ResponseDef id="PNCQ_9321_RD_CM_93212" type="COMMENT"/>
+                                                                                            <ResponseDef id="PNCQ_9321_RD_FL_93213" type="FILE"/>
+                                                                                        </ResponseDefsList>
+                                                                                    </QuestionDef>
                                                                                 </SelectionDef>
                                                                             </ResponseDef>
-                                                                            <ResponseDef id="PNCQ_9321_RD_CM_93212" type="COMMENT"/>
-                                                                            <ResponseDef id="PNCQ_9321_RD_FL_93213" type="FILE"/>
+                                                                            <ResponseDef id="PNCQ_932_RD_CM_9322" type="COMMENT"/>
+                                                                            <ResponseDef id="PNCQ_932_RD_FL_9323" type="FILE"/>
                                                                         </ResponseDefsList>
                                                                     </QuestionDef>
+                                                                </SelectionDef>  <!-- End of: yes, there are clinical trials -->
+                                                                <SelectionDef id="SEL_93192">
+                                                                    <Value>No</Value>
                                                                 </SelectionDef>
                                                             </ResponseDef>
-                                                            <ResponseDef id="PNCQ_932_RD_CM_9322" type="COMMENT"/>
-                                                            <ResponseDef id="PNCQ_932_RD_FL_9323" type="FILE"/>
                                                         </ResponseDefsList>
-                                                    </QuestionDef>                                                    
+                                                    </QuestionDef>
                                                     <QuestionDef id="PNCQ_97">
                                                         <GrantTypeMechs>
                                                             <TypeMech type="5" mech="R25"/>
@@ -4840,7 +5282,7 @@
                                                 </SelectionDef>
                                                 <SelectionDef id="SEL_174">
                                                     <Value>Yes, R25E</Value>
-                                                    <QuestionDef id="PNCQ_933">
+                                                    <QuestionDef id="PNCQ_9329">
                                                         <GrantTypeMechs>
                                                             <TypeMech type="4" mech="R01"/>
                                                             <TypeMech type="5" mech="R01"/>
@@ -4971,16 +5413,15 @@
                                                             <TypeMech type="4" mech="U44"/>
                                                             <TypeMech type="5" mech="R35"/>
                                                         </GrantTypeMechs>
-                                                        <QText>Does the progress report indicate applicable clinical trials have been registered in ClinicalTrials.gov?</QText>
+                                                        <QText>Are there any applicable clinical trials associated with this award?</QText>
                                                         <QInstructions/>
                                                         <ResponseDefsList>
-                                                            <ResponseDef id="PNCQ_9331_RD_RB_93310" type="RADIO">
-                                                                <SelectionDef id="SEL_93311">
+                                                            <ResponseDef id="PNCQ_9329_RD_CM_10" type="COMMENT"/>
+                                                            <ResponseDef id="PNCQ_9329_RD_FL_20" type="FILE"/>
+                                                            <ResponseDef id="PNCQ_9329_RD_RB_30" type="RADIO">
+                                                                <SelectionDef id="SEL_93291">
                                                                     <Value>Yes</Value>
-                                                                </SelectionDef>
-                                                                <SelectionDef id="SEL_93312">
-                                                                    <Value>No</Value>
-                                                                    <QuestionDef id="PNCQ_93311">
+                                                                    <QuestionDef id="PNCQ_933">
                                                                         <GrantTypeMechs>
                                                                             <TypeMech type="4" mech="R01"/>
                                                                             <TypeMech type="5" mech="R01"/>
@@ -5111,24 +5552,171 @@
                                                                             <TypeMech type="4" mech="U44"/>
                                                                             <TypeMech type="5" mech="R35"/>
                                                                         </GrantTypeMechs>
-                                                                        <QText>Has email been sent to PI and Business Official?</QText>
-                                                                        <QInstructions/>
+                                                                        <QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+                                                                        <QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
                                                                         <ResponseDefsList>
-                                                                            <ResponseDef id="PNCQ_93311_RD_CB_93310" type="CHECK_BOX">
-                                                                                <SelectionDef id="SEL_93310">
-                                                                                    <Value>Yes, attached.</Value>
+                                                                            <ResponseDef id="PNCQ_9331_RD_RB_93310" type="RADIO">
+                                                                                <SelectionDef id="SEL_93311">
+                                                                                    <Value>Yes</Value>
+                                                                                </SelectionDef>
+                                                                                <SelectionDef id="SEL_93312">
+                                                                                    <Value>No</Value>
+                                                                                    <QuestionDef id="PNCQ_93311">
+                                                                                        <GrantTypeMechs>
+                                                                                            <TypeMech type="4" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="RC3"/>
+                                                                                            <TypeMech type="5" mech="RC4"/>
+                                                                                            <TypeMech type="5" mech="RC1"/>
+                                                                                            <TypeMech type="5" mech="RC2"/>
+                                                                                            <TypeMech type="8" mech="RC2"/>
+                                                                                            <TypeMech type="5" mech="R00"/>
+                                                                                            <TypeMech type="8" mech="R00"/>
+                                                                                            <TypeMech type="5" mech="SC1"/>
+                                                                                            <TypeMech type="5" mech="SC2"/>
+                                                                                            <TypeMech type="5" mech="RL1"/>
+                                                                                            <TypeMech type="4" mech="P01"/>
+                                                                                            <TypeMech type="5" mech="P01"/>
+                                                                                            <TypeMech type="8" mech="P01"/>
+                                                                                            <TypeMech type="4" mech="R03"/>
+                                                                                            <TypeMech type="5" mech="R03"/>
+                                                                                            <TypeMech type="8" mech="R01"/>
+                                                                                            <TypeMech type="8" mech="RC3"/>
+                                                                                            <TypeMech type="8" mech="RC4"/>
+                                                                                            <TypeMech type="8" mech="RC1"/>
+                                                                                            <TypeMech type="8" mech="SC1"/>
+                                                                                            <TypeMech type="8" mech="SC2"/>
+                                                                                            <TypeMech type="8" mech="RL1"/>
+                                                                                            <TypeMech type="8" mech="R03"/>
+                                                                                            <TypeMech type="4" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="RL2"/>
+                                                                                            <TypeMech type="8" mech="R21"/>
+                                                                                            <TypeMech type="8" mech="RL2"/>
+                                                                                            <TypeMech type="5" mech="R29"/>
+                                                                                            <TypeMech type="8" mech="R29"/>
+                                                                                            <TypeMech type="5" mech="R30"/>
+                                                                                            <TypeMech type="8" mech="R30"/>
+                                                                                            <TypeMech type="5" mech="R33"/>
+                                                                                            <TypeMech type="8" mech="R33"/>
+                                                                                            <TypeMech type="5" mech="R37"/>
+                                                                                            <TypeMech type="8" mech="R37"/>
+                                                                                            <TypeMech type="5" mech="R41"/>
+                                                                                            <TypeMech type="8" mech="R41"/>
+                                                                                            <TypeMech type="5" mech="R42"/>
+                                                                                            <TypeMech type="8" mech="R42"/>
+                                                                                            <TypeMech type="5" mech="R43"/>
+                                                                                            <TypeMech type="5" mech="R44"/>
+                                                                                            <TypeMech type="8" mech="R44"/>
+                                                                                            <TypeMech type="5" mech="R55"/>
+                                                                                            <TypeMech type="8" mech="R55"/>
+                                                                                            <TypeMech type="5" mech="R56"/>
+                                                                                            <TypeMech type="8" mech="R56"/>
+                                                                                            <TypeMech type="5" mech="U01"/>
+                                                                                            <TypeMech type="5" mech="UC2"/>
+                                                                                            <TypeMech type="4" mech="UH3"/>
+                                                                                            <TypeMech type="5" mech="UH3"/>
+                                                                                            <TypeMech type="8" mech="UH3"/>
+                                                                                            <TypeMech type="4" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="UH2"/>
+                                                                                            <TypeMech type="8" mech="U01"/>
+                                                                                            <TypeMech type="8" mech="UC2"/>
+                                                                                            <TypeMech type="8" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="U19"/>
+                                                                                            <TypeMech type="8" mech="U19"/>
+                                                                                            <TypeMech type="5" mech="U41"/>
+                                                                                            <TypeMech type="8" mech="U41"/>
+                                                                                            <TypeMech type="5" mech="U42"/>
+                                                                                            <TypeMech type="8" mech="U42"/>
+                                                                                            <TypeMech type="5" mech="U43"/>
+                                                                                            <TypeMech type="8" mech="U43"/>
+                                                                                            <TypeMech type="5" mech="U44"/>
+                                                                                            <TypeMech type="8" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="P20"/>
+                                                                                            <TypeMech type="8" mech="P20"/>
+                                                                                            <TypeMech type="5" mech="P30"/>
+                                                                                            <TypeMech type="5" mech="PL1"/>
+                                                                                            <TypeMech type="8" mech="P30"/>
+                                                                                            <TypeMech type="8" mech="PL1"/>
+                                                                                            <TypeMech type="5" mech="P50"/>
+                                                                                            <TypeMech type="8" mech="P50"/>
+                                                                                            <TypeMech type="4" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="UL1"/>
+                                                                                            <TypeMech type="8" mech="U54"/>
+                                                                                            <TypeMech type="8" mech="UL1"/>
+                                                                                            <TypeMech type="5" mech="K01"/>
+                                                                                            <TypeMech type="5" mech="KL1"/>
+                                                                                            <TypeMech type="5" mech="K99"/>
+                                                                                            <TypeMech type="8" mech="K01"/>
+                                                                                            <TypeMech type="8" mech="KL1"/>
+                                                                                            <TypeMech type="8" mech="K99"/>
+                                                                                            <TypeMech type="5" mech="K07"/>
+                                                                                            <TypeMech type="8" mech="K07"/>
+                                                                                            <TypeMech type="5" mech="K08"/>
+                                                                                            <TypeMech type="8" mech="K08"/>
+                                                                                            <TypeMech type="5" mech="K12"/>
+                                                                                            <TypeMech type="5" mech="KM1"/>
+                                                                                            <TypeMech type="5" mech="KL2"/>
+                                                                                            <TypeMech type="8" mech="K12"/>
+                                                                                            <TypeMech type="8" mech="KM1"/>
+                                                                                            <TypeMech type="8" mech="KL2"/>
+                                                                                            <TypeMech type="5" mech="K22"/>
+                                                                                            <TypeMech type="8" mech="K22"/>
+                                                                                            <TypeMech type="5" mech="K23"/>
+                                                                                            <TypeMech type="8" mech="K23"/>
+                                                                                            <TypeMech type="5" mech="K25"/>
+                                                                                            <TypeMech type="8" mech="K25"/>
+                                                                                            <TypeMech type="5" mech="R15"/>
+                                                                                            <TypeMech type="8" mech="R15"/>
+                                                                                            <TypeMech type="5" mech="R18"/>
+                                                                                            <TypeMech type="8" mech="R18"/>
+                                                                                            <TypeMech type="5" mech="R24"/>
+                                                                                            <TypeMech type="8" mech="R24"/>
+                                                                                            <TypeMech type="5" mech="R25"/>
+                                                                                            <TypeMech type="5" mech="D43"/>
+                                                                                            <TypeMech type="5" mech="RL9"/>
+                                                                                            <TypeMech type="5" mech="RL5"/>
+                                                                                            <TypeMech type="8" mech="R25"/>
+                                                                                            <TypeMech type="8" mech="D43"/>
+                                                                                            <TypeMech type="8" mech="RL9"/>
+                                                                                            <TypeMech type="8" mech="RL5"/>
+                                                                                            <TypeMech type="5" mech="U24"/>
+                                                                                            <TypeMech type="8" mech="U24"/>
+                                                                                            <TypeMech type="5" mech="U56"/>
+                                                                                            <TypeMech type="8" mech="U56"/>
+                                                                                            <TypeMech type="4" mech="R33"/>
+                                                                                            <TypeMech type="4" mech="R42"/>
+                                                                                            <TypeMech type="4" mech="R44"/>
+                                                                                            <TypeMech type="4" mech="U42"/>
+                                                                                            <TypeMech type="4" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="R35"/>
+                                                                                        </GrantTypeMechs>
+                                                                                        <QText>Has email been sent to PI and Business Official?</QText>
+                                                                                        <QInstructions/>
+                                                                                        <ResponseDefsList>
+                                                                                            <ResponseDef id="PNCQ_93311_RD_CB_93310" type="CHECK_BOX">
+                                                                                                <SelectionDef id="SEL_93310">
+                                                                                                    <Value>Yes, attached.</Value>
+                                                                                                </SelectionDef>
+                                                                                            </ResponseDef>
+                                                                                            <ResponseDef id="PNCQ_93311_RD_CM_93312" type="COMMENT"/>
+                                                                                            <ResponseDef id="PNCQ_93311_RD_FL_93313" type="FILE"/>
+                                                                                        </ResponseDefsList>
+                                                                                    </QuestionDef>
                                                                                 </SelectionDef>
                                                                             </ResponseDef>
-                                                                            <ResponseDef id="PNCQ_93311_RD_CM_93312" type="COMMENT"/>
-                                                                            <ResponseDef id="PNCQ_93311_RD_FL_93313" type="FILE"/>
+                                                                            <ResponseDef id="PNCQ_933_RD_CM_9332" type="COMMENT"/>
+                                                                            <ResponseDef id="PNCQ_933_RD_FL_9333" type="FILE"/>
                                                                         </ResponseDefsList>
                                                                     </QuestionDef>
+                                                                </SelectionDef>  <!-- End of: yes, there are clinical trials -->
+                                                                <SelectionDef id="SEL_93292">
+                                                                    <Value>No</Value>
                                                                 </SelectionDef>
                                                             </ResponseDef>
-                                                            <ResponseDef id="PNCQ_933_RD_CM_9332" type="COMMENT"/>
-                                                            <ResponseDef id="PNCQ_933_RD_FL_9333" type="FILE"/>
                                                         </ResponseDefsList>
-                                                    </QuestionDef>                                                    
+                                                    </QuestionDef>
                                                     <QuestionDef id="PNCQ_94">
                                                         <GrantTypeMechs>
                                                             <TypeMech type="5" mech="R25"/>
@@ -5371,7 +5959,7 @@
                                             <ResponseDef id="PNCQ_29_RD_RB_83" type="RADIO">
                                                 <SelectionDef id="SEL_68">
                                                     <Value>Yes</Value>
-                                                    <QuestionDef id="PNCQ_2910">
+                                                    <QuestionDef id="PNCQ_2909">
                                                         <GrantTypeMechs>
                                                             <TypeMech type="4" mech="R01"/>
                                                             <TypeMech type="5" mech="R01"/>
@@ -5502,16 +6090,15 @@
                                                             <TypeMech type="4" mech="U44"/>
                                                             <TypeMech type="5" mech="R35"/>
                                                         </GrantTypeMechs>
-                                                        <QText>Does the progress report indicate applicable clinical trials have been registered in ClinicalTrials.gov?</QText>
+                                                        <QText>Are there any applicable clinical trials associated with this award?</QText>
                                                         <QInstructions/>
                                                         <ResponseDefsList>
-                                                            <ResponseDef id="PNCQ_2910_RD_RB_29101" type="RADIO">
-                                                                <SelectionDef id="SEL_291011">
+                                                            <ResponseDef id="PNCQ_2909_RD_CM_10" type="COMMENT"/>
+                                                            <ResponseDef id="PNCQ_2909_RD_FL_20" type="FILE"/>
+                                                            <ResponseDef id="PNCQ_2909_RD_RB_30" type="RADIO">
+                                                                <SelectionDef id="SEL_29091">
                                                                     <Value>Yes</Value>
-                                                                </SelectionDef>
-                                                                <SelectionDef id="SEL_291012">
-                                                                    <Value>No</Value>
-                                                                    <QuestionDef id="PNCQ_2910121">
+                                                                    <QuestionDef id="PNCQ_2910">
                                                                         <GrantTypeMechs>
                                                                             <TypeMech type="4" mech="R01"/>
                                                                             <TypeMech type="5" mech="R01"/>
@@ -5642,24 +6229,171 @@
                                                                             <TypeMech type="4" mech="U44"/>
                                                                             <TypeMech type="5" mech="R35"/>
                                                                         </GrantTypeMechs>
-                                                                        <QText>Has email been sent to PI and Business Official?</QText>
-                                                                        <QInstructions/>
+                                                                        <QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+                                                                        <QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
                                                                         <ResponseDefsList>
-                                                                            <ResponseDef id="PNCQ_2910121_RD_CB_29101211" type="CHECK_BOX">
-                                                                                <SelectionDef id="SEL_29101211">
-                                                                                    <Value>Yes, attached.</Value>
+                                                                            <ResponseDef id="PNCQ_2910_RD_RB_29101" type="RADIO">
+                                                                                <SelectionDef id="SEL_291011">
+                                                                                    <Value>Yes</Value>
+                                                                                </SelectionDef>
+                                                                                <SelectionDef id="SEL_291012">
+                                                                                    <Value>No</Value>
+                                                                                    <QuestionDef id="PNCQ_2910121">
+                                                                                        <GrantTypeMechs>
+                                                                                            <TypeMech type="4" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="R01"/>
+                                                                                            <TypeMech type="5" mech="RC3"/>
+                                                                                            <TypeMech type="5" mech="RC4"/>
+                                                                                            <TypeMech type="5" mech="RC1"/>
+                                                                                            <TypeMech type="5" mech="RC2"/>
+                                                                                            <TypeMech type="8" mech="RC2"/>
+                                                                                            <TypeMech type="5" mech="R00"/>
+                                                                                            <TypeMech type="8" mech="R00"/>
+                                                                                            <TypeMech type="5" mech="SC1"/>
+                                                                                            <TypeMech type="5" mech="SC2"/>
+                                                                                            <TypeMech type="5" mech="RL1"/>
+                                                                                            <TypeMech type="4" mech="P01"/>
+                                                                                            <TypeMech type="5" mech="P01"/>
+                                                                                            <TypeMech type="8" mech="P01"/>
+                                                                                            <TypeMech type="4" mech="R03"/>
+                                                                                            <TypeMech type="5" mech="R03"/>
+                                                                                            <TypeMech type="8" mech="R01"/>
+                                                                                            <TypeMech type="8" mech="RC3"/>
+                                                                                            <TypeMech type="8" mech="RC4"/>
+                                                                                            <TypeMech type="8" mech="RC1"/>
+                                                                                            <TypeMech type="8" mech="SC1"/>
+                                                                                            <TypeMech type="8" mech="SC2"/>
+                                                                                            <TypeMech type="8" mech="RL1"/>
+                                                                                            <TypeMech type="8" mech="R03"/>
+                                                                                            <TypeMech type="4" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="R21"/>
+                                                                                            <TypeMech type="5" mech="RL2"/>
+                                                                                            <TypeMech type="8" mech="R21"/>
+                                                                                            <TypeMech type="8" mech="RL2"/>
+                                                                                            <TypeMech type="5" mech="R29"/>
+                                                                                            <TypeMech type="8" mech="R29"/>
+                                                                                            <TypeMech type="5" mech="R30"/>
+                                                                                            <TypeMech type="8" mech="R30"/>
+                                                                                            <TypeMech type="5" mech="R33"/>
+                                                                                            <TypeMech type="8" mech="R33"/>
+                                                                                            <TypeMech type="5" mech="R37"/>
+                                                                                            <TypeMech type="8" mech="R37"/>
+                                                                                            <TypeMech type="5" mech="R41"/>
+                                                                                            <TypeMech type="8" mech="R41"/>
+                                                                                            <TypeMech type="5" mech="R42"/>
+                                                                                            <TypeMech type="8" mech="R42"/>
+                                                                                            <TypeMech type="5" mech="R43"/>
+                                                                                            <TypeMech type="5" mech="R44"/>
+                                                                                            <TypeMech type="8" mech="R44"/>
+                                                                                            <TypeMech type="5" mech="R55"/>
+                                                                                            <TypeMech type="8" mech="R55"/>
+                                                                                            <TypeMech type="5" mech="R56"/>
+                                                                                            <TypeMech type="8" mech="R56"/>
+                                                                                            <TypeMech type="5" mech="U01"/>
+                                                                                            <TypeMech type="5" mech="UC2"/>
+                                                                                            <TypeMech type="4" mech="UH3"/>
+                                                                                            <TypeMech type="5" mech="UH3"/>
+                                                                                            <TypeMech type="8" mech="UH3"/>
+                                                                                            <TypeMech type="4" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="UH2"/>
+                                                                                            <TypeMech type="8" mech="U01"/>
+                                                                                            <TypeMech type="8" mech="UC2"/>
+                                                                                            <TypeMech type="8" mech="UH2"/>
+                                                                                            <TypeMech type="5" mech="U19"/>
+                                                                                            <TypeMech type="8" mech="U19"/>
+                                                                                            <TypeMech type="5" mech="U41"/>
+                                                                                            <TypeMech type="8" mech="U41"/>
+                                                                                            <TypeMech type="5" mech="U42"/>
+                                                                                            <TypeMech type="8" mech="U42"/>
+                                                                                            <TypeMech type="5" mech="U43"/>
+                                                                                            <TypeMech type="8" mech="U43"/>
+                                                                                            <TypeMech type="5" mech="U44"/>
+                                                                                            <TypeMech type="8" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="P20"/>
+                                                                                            <TypeMech type="8" mech="P20"/>
+                                                                                            <TypeMech type="5" mech="P30"/>
+                                                                                            <TypeMech type="5" mech="PL1"/>
+                                                                                            <TypeMech type="8" mech="P30"/>
+                                                                                            <TypeMech type="8" mech="PL1"/>
+                                                                                            <TypeMech type="5" mech="P50"/>
+                                                                                            <TypeMech type="8" mech="P50"/>
+                                                                                            <TypeMech type="4" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="U54"/>
+                                                                                            <TypeMech type="5" mech="UL1"/>
+                                                                                            <TypeMech type="8" mech="U54"/>
+                                                                                            <TypeMech type="8" mech="UL1"/>
+                                                                                            <TypeMech type="5" mech="K01"/>
+                                                                                            <TypeMech type="5" mech="KL1"/>
+                                                                                            <TypeMech type="5" mech="K99"/>
+                                                                                            <TypeMech type="8" mech="K01"/>
+                                                                                            <TypeMech type="8" mech="KL1"/>
+                                                                                            <TypeMech type="8" mech="K99"/>
+                                                                                            <TypeMech type="5" mech="K07"/>
+                                                                                            <TypeMech type="8" mech="K07"/>
+                                                                                            <TypeMech type="5" mech="K08"/>
+                                                                                            <TypeMech type="8" mech="K08"/>
+                                                                                            <TypeMech type="5" mech="K12"/>
+                                                                                            <TypeMech type="5" mech="KM1"/>
+                                                                                            <TypeMech type="5" mech="KL2"/>
+                                                                                            <TypeMech type="8" mech="K12"/>
+                                                                                            <TypeMech type="8" mech="KM1"/>
+                                                                                            <TypeMech type="8" mech="KL2"/>
+                                                                                            <TypeMech type="5" mech="K22"/>
+                                                                                            <TypeMech type="8" mech="K22"/>
+                                                                                            <TypeMech type="5" mech="K23"/>
+                                                                                            <TypeMech type="8" mech="K23"/>
+                                                                                            <TypeMech type="5" mech="K25"/>
+                                                                                            <TypeMech type="8" mech="K25"/>
+                                                                                            <TypeMech type="5" mech="R15"/>
+                                                                                            <TypeMech type="8" mech="R15"/>
+                                                                                            <TypeMech type="5" mech="R18"/>
+                                                                                            <TypeMech type="8" mech="R18"/>
+                                                                                            <TypeMech type="5" mech="R24"/>
+                                                                                            <TypeMech type="8" mech="R24"/>
+                                                                                            <TypeMech type="5" mech="R25"/>
+                                                                                            <TypeMech type="5" mech="D43"/>
+                                                                                            <TypeMech type="5" mech="RL9"/>
+                                                                                            <TypeMech type="5" mech="RL5"/>
+                                                                                            <TypeMech type="8" mech="R25"/>
+                                                                                            <TypeMech type="8" mech="D43"/>
+                                                                                            <TypeMech type="8" mech="RL9"/>
+                                                                                            <TypeMech type="8" mech="RL5"/>
+                                                                                            <TypeMech type="5" mech="U24"/>
+                                                                                            <TypeMech type="8" mech="U24"/>
+                                                                                            <TypeMech type="5" mech="U56"/>
+                                                                                            <TypeMech type="8" mech="U56"/>
+                                                                                            <TypeMech type="4" mech="R33"/>
+                                                                                            <TypeMech type="4" mech="R42"/>
+                                                                                            <TypeMech type="4" mech="R44"/>
+                                                                                            <TypeMech type="4" mech="U42"/>
+                                                                                            <TypeMech type="4" mech="U44"/>
+                                                                                            <TypeMech type="5" mech="R35"/>
+                                                                                        </GrantTypeMechs>
+                                                                                        <QText>Has email been sent to PI and Business Official?</QText>
+                                                                                        <QInstructions/>
+                                                                                        <ResponseDefsList>
+                                                                                            <ResponseDef id="PNCQ_2910121_RD_CB_29101211" type="CHECK_BOX">
+                                                                                                <SelectionDef id="SEL_29101211">
+                                                                                                    <Value>Yes, attached.</Value>
+                                                                                                </SelectionDef>
+                                                                                            </ResponseDef>
+                                                                                            <ResponseDef id="PNCQ_2910121_RD_CM_29101212" type="COMMENT"/>
+                                                                                            <ResponseDef id="PNCQ_2910121_RD_FL_29101213" type="FILE"/>
+                                                                                        </ResponseDefsList>
+                                                                                    </QuestionDef>
                                                                                 </SelectionDef>
                                                                             </ResponseDef>
-                                                                            <ResponseDef id="PNCQ_2910121_RD_CM_29101212" type="COMMENT"/>
-                                                                            <ResponseDef id="PNCQ_2910121_RD_FL_29101213" type="FILE"/>
+                                                                            <ResponseDef id="PNCQ_2910_RD_CM_29102" type="COMMENT"/>
+                                                                            <ResponseDef id="PNCQ_2910_RD_FL_29103" type="FILE"/>
                                                                         </ResponseDefsList>
                                                                     </QuestionDef>
+                                                                </SelectionDef>  <!-- End of: yes, there are clinical trials -->
+                                                                <SelectionDef id="SEL_29092">
+                                                                    <Value>No</Value>
                                                                 </SelectionDef>
                                                             </ResponseDef>
-                                                            <ResponseDef id="PNCQ_2910_RD_CM_29102" type="COMMENT"/>
-                                                            <ResponseDef id="PNCQ_2910_RD_FL_29103" type="FILE"/>
                                                         </ResponseDefsList>
-                                                    </QuestionDef>                                                    
+                                                    </QuestionDef>
                                                     <QuestionDef id="PNCQ_30">
                                                         <GrantTypeMechs>
                                                             <TypeMech type="4" mech="R01"/>
@@ -9921,7 +10655,7 @@
                                             <TypeMech type="4" mech="R44"/>
                                             <TypeMech type="4" mech="U42"/>
                                             <TypeMech type="4" mech="U44"/>
-                                            <TypeMech type="5" mech="R35"/>                                        
+                                            <TypeMech type="5" mech="R35"/>
                                         </GrantTypeMechs>
                                         <QText>Are cell lines listed on the hESC Registry?</QText>
                                         <QInstructions>(If no, explanation required.)</QInstructions>
@@ -10084,14 +10818,14 @@
                                                             <TypeMech type="4" mech="R44"/>
                                                             <TypeMech type="4" mech="U42"/>
                                                             <TypeMech type="4" mech="U44"/>
-                                                            <TypeMech type="5" mech="R35"/>                                                        
+                                                            <TypeMech type="5" mech="R35"/>
                                                         </GrantTypeMechs>
                                                         <QText>List Cell Lines Here:</QText>
                                                         <QInstructions/>
                                                         <ResponseDefsList>
                                                             <ResponseDef id="PNCQ_403_RD_TX_4031" type="TEXT"/>
                                                             <ResponseDef id="PNCQ_403_RD_CM_4032" type="COMMENT"/>
-                                                            <ResponseDef id="PNCQ_403_RD_FL_4033" type="FILE"/>                                                            
+                                                            <ResponseDef id="PNCQ_403_RD_FL_4033" type="FILE"/>
                                                         </ResponseDefsList>
                                                     </QuestionDef>
                                                 </SelectionDef>
@@ -10778,7 +11512,7 @@
                             <ResponseDef id="PNCQ_401_RD_CM_4012" type="COMMENT"/>
                             <ResponseDef id="PNCQ_401_RD_FL_4013" type="FILE"/>
                         </ResponseDefsList>
-                    </QuestionDef>                    
+                    </QuestionDef>
                 </SelectionDef>
                 <SelectionDef id="SEL_4002">
                     <Value>No</Value>
@@ -13155,7 +13889,7 @@
                                             <ResponseDef id="PNCQ_3151_RD_DT_31511" type="DATE"/>
                                             <ResponseDef id="PNCQ_3151_RD_CM_31512" type="COMMENT"/>
                                             <ResponseDef id="PNCQ_3151_RD_FL_31513" type="FILE"/>
-                                        </ResponseDefsList>                                        
+                                        </ResponseDefsList>
                                     </QuestionDef>
                                     <QuestionDef id="PNCQ_330">
                                         <GrantTypeMechs>
@@ -17284,7 +18018,7 @@
                             <ResponseDef id="PNCQ_411_RD_CM_4112" type="COMMENT"/>
                             <ResponseDef id="PNCQ_411_RD_FL_4113" type="FILE"/>
                         </ResponseDefsList>
-                    </QuestionDef><!-- End of PNCQ_411, Changes in leadership plan -->                    
+                    </QuestionDef><!-- End of PNCQ_411, Changes in leadership plan -->
                 </SelectionDef>
                 <SelectionDef id="SEL_4102">
                     <Value>No</Value>
@@ -20541,7 +21275,7 @@
                             <ResponseDef id="PNCQ_423_RD_CM_4232" type="COMMENT"/>
                             <ResponseDef id="PNCQ_423_RD_FL_4233" type="FILE"/>
                         </ResponseDefsList>
-                    </QuestionDef><!-- End of PNCQ_423, Has an acceptable report been received from the grantee? -->                    
+                    </QuestionDef><!-- End of PNCQ_423, Has an acceptable report been received from the grantee? -->
                 </SelectionDef><!-- End of SEL 4202, No - the progress report does not address instruction in responsible conduct -->
             </ResponseDef>
             <ResponseDef id="PNCQ_420_RD_CM_4202" type="COMMENT"/>
