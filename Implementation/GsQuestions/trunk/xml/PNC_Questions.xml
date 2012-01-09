@@ -21024,8 +21024,6 @@
             <ResponseDef id="PNCQ_80_RD_FL_219" type="FILE"/>
         </ResponseDefsList>
     </QuestionDef>
-    
-
     <QuestionDef id="PNCQ_420">
         <GrantTypeMechs>
             <TypeMech type="5" mech="K01"/>
@@ -21064,6 +21062,8 @@
             <TypeMech type="8" mech="F32"/>
             <TypeMech type="5" mech="F33"/>
             <TypeMech type="8" mech="F33"/>
+            <TypeMech type="5" mech="T32"/>
+            <TypeMech type="8" mech="T32"/>
         </GrantTypeMechs>
         <QText>Does the progress report address the Instruction in the Responsible Conduct of Research?</QText>
         <QInstructions/>
@@ -21109,6 +21109,8 @@
                             <TypeMech type="8" mech="F32"/>
                             <TypeMech type="5" mech="F33"/>
                             <TypeMech type="8" mech="F33"/>
+                            <TypeMech type="5" mech="T32"/>
+                            <TypeMech type="8" mech="T32"/>
                         </GrantTypeMechs>
                         <QText>Is information acceptable?</QText>
                         <QInstructions>If no, an explanation is required.</QInstructions>
@@ -21157,6 +21159,8 @@
                                             <TypeMech type="8" mech="F32"/>
                                             <TypeMech type="5" mech="F33"/>
                                             <TypeMech type="8" mech="F33"/>
+                                            <TypeMech type="5" mech="T32"/>
+                                            <TypeMech type="8" mech="T32"/>
                                         </GrantTypeMechs>
                                         <QText>Explanation Required:</QText>
                                         <QInstructions/>
@@ -21213,6 +21217,8 @@
                             <TypeMech type="8" mech="F32"/>
                             <TypeMech type="5" mech="F33"/>
                             <TypeMech type="8" mech="F33"/>
+                            <TypeMech type="5" mech="T32"/>
+                            <TypeMech type="8" mech="T32"/>
                         </GrantTypeMechs>
                         <QText>Has an acceptable report been received from the grantee?</QText>
                         <QInstructions>If no, an explanation is required.</QInstructions>
@@ -21261,6 +21267,8 @@
                                             <TypeMech type="8" mech="F32"/>
                                             <TypeMech type="5" mech="F33"/>
                                             <TypeMech type="8" mech="F33"/>
+                                            <TypeMech type="5" mech="T32"/>
+                                            <TypeMech type="8" mech="T32"/>
                                         </GrantTypeMechs>
                                         <QText>Explanation required:</QText>
                                         <QInstructions/>
