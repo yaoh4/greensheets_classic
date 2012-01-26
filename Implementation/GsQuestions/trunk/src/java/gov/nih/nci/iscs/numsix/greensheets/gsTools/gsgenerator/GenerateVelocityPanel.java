@@ -46,11 +46,12 @@ public class GenerateVelocityPanel {
 
         final JRadioButton rbLoadSingleTemplate = new JRadioButton("Load a single template");
         rbLoadSingleTemplate.setEnabled(false);
-        final JCheckBox cbxReplaceExisting = new JCheckBox("Replace templates if they already exist");
-        cbxReplaceExisting.setEnabled(false);
         final JRadioButton rbLoadAll = new JRadioButton("Load all templates in list file");
         rbLoadAll.setEnabled(false);
+        final JCheckBox cbxReplaceExisting = new JCheckBox("Replace templates if they already exist");
+        cbxReplaceExisting.setEnabled(false);
         final JCheckBox cbxValidationOn = new JCheckBox("Embed validation that all questions are answered");
+        cbxValidationOn.setSelected(true);
         cbxValidationOn.setEnabled(false);
 
         final JTextField txtType = new JTextField(4);
