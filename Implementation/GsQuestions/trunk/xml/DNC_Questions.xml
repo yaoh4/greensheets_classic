@@ -2273,7 +2273,9 @@
       <TypeMech type="8" mech="C06"/>
       <TypeMech type="5" mech="F30"/>
       <TypeMech type="8" mech="F30"/>
+      <TypeMech type="5" mech="F30"/>
       <TypeMech type="5" mech="F31"/>
+      <TypeMech type="8" mech="F30"/>
       <TypeMech type="8" mech="F31"/>
       <TypeMech type="5" mech="F32"/>
       <TypeMech type="8" mech="F32"/>
@@ -2798,7 +2800,9 @@
     <GrantTypeMechs>
       <TypeMech type="5" mech="F30"/>
       <TypeMech type="8" mech="F30"/>
+      <TypeMech type="5" mech="F30"/>
       <TypeMech type="5" mech="F31"/>
+      <TypeMech type="8" mech="F30"/>
       <TypeMech type="8" mech="F31"/>
       <TypeMech type="5" mech="F32"/>
       <TypeMech type="8" mech="F32"/>
