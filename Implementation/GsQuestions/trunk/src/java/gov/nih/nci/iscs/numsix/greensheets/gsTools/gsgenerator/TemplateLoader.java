@@ -371,7 +371,7 @@ public class TemplateLoader {
 	
 	/**
 	 * @param group  What kind of Question Source file it is - PC, SNC, etc.
-	 * @return  For each Type/Mech combo, the ID of is template (for the kind of form 
+	 * @return  For each Type/Mech combo, the ID of its template (for the kind of form 
 	 * specified by <code>group</code> - e.g., Program Competing, Specialist Non-competing, 
 	 * etc.) in the database. 
 	 */

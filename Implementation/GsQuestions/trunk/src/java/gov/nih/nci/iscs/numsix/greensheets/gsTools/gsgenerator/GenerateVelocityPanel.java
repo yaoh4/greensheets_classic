@@ -146,10 +146,10 @@ public class GenerateVelocityPanel {
 	                            Long existingTemplateID = existingTemplates.get(type + mech);
 	                            if (existingTemplateID != null && existingTemplateID.longValue() > 0l ) {
 	                            	if (cbxReplaceExisting.isSelected()) {
-			                            generateTemplate(type, mech, questionsSrcXml, dbProperties,
-			                                    true, true, questSrc, cbxValidationOn.isSelected());
 			                            logger.info("Existing " + type + mech + " " + questSrc + " template with ID "
 	                            				+ existingTemplateID.longValue() + " will be replaced with a new one.");  
+			                            generateTemplate(type, mech, questionsSrcXml, dbProperties,
+			                                    true, true, questSrc, cbxValidationOn.isSelected());
 	                            	}
 	                            	else {
 	                            		logger.warn("Existing " + type + mech + " " + questSrc + " template with ID "
