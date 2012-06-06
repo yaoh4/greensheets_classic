@@ -175,6 +175,11 @@ Implementation/GsApp/trunk/appconfig/log4j.properties.test -text
 Implementation/GsApp/trunk/appconfig/log4j.properties.training -text
 Implementation/GsApp/trunk/appconfig/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/preferences.properties.local -text
+Implementation/GsApp/trunk/appconfig/properties_PROD/db.properties -text
+Implementation/GsApp/trunk/appconfig/properties_PROD/errormessages.properties -text
+Implementation/GsApp/trunk/appconfig/properties_PROD/greensheetconfig.properties -text
+Implementation/GsApp/trunk/appconfig/properties_PROD/log4j.properties -text
+Implementation/GsApp/trunk/appconfig/properties_PROD/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormToFoTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/GsFormXmlTranslator.xslt -text
 Implementation/GsApp/trunk/appconfig/xmlxsltsrc/PC_Questions.3.23.05.xml -text
