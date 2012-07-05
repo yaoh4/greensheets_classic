@@ -97,7 +97,7 @@ public class FilesVerifier {
 		docRootDir = new File(docRootOnServer);
 		fileCollection = FileUtils.listFiles(docRootDir, null, true);
 		filesOnDiskItr = fileCollection.iterator();
-
+		
 		while (filesOnDiskItr.hasNext()) {
 			File file = (File) filesOnDiskItr.next();
 			long fileLastModified = 0L;
@@ -141,8 +141,8 @@ public class FilesVerifier {
 			logger.debug("Executing the Database query for Report Type:" + reportType);
 			rs = stmt.executeQuery();
 			
-			while (rs.next()) {
-				fileNameInDb = rs.getString(1);
+			while (rs.next()) {  
+				fileNameInDb = docRootPrefixInDb + rs.getString(1);
 				if (!rs.wasNull()) {
 					// Replace the docRootPrefixInDb with the docRootOnServer.
 					dbPrefix = fileNameInDb.substring(0, docRootPrefixInDbLen);
