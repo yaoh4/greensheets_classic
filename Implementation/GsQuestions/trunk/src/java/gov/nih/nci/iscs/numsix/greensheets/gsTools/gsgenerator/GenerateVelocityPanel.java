@@ -89,7 +89,7 @@ public class GenerateVelocityPanel {
                     rbLoadSingleTemplate.setEnabled(true);
                     rbLoadAll.setEnabled(true);
                     cbxReplaceExisting.setEnabled(true);
-                    cbxValidationOn.setEnabled(true);
+                    // cbxValidationOn.setEnabled(true);  // Commented out by Anatoli on Sep. 18, 2012 to make it harder to accidentally leave validation off
                     btnGenenerate.setText("Upload the Template(s)");
                 }else{
                     rbLoadSingleTemplate.setEnabled(false);
