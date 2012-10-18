@@ -33,7 +33,7 @@
         </name>
         <!-- Specify the date in the format of DD-MON-YYYY -->
         <build-date>20-NOV-2007</build-date>
-        <build-version>v2.0.1</build-version>
+        <build-version>v2.1.1</build-version>
 	</application>
 
 	<!-- 
@@ -62,7 +62,7 @@
 	
 	<report-recipients>
 		<sender>nciweb@mail.nih.gov</sender>
-		<subscribers-email>kouzneta@mail.nih.gov</subscribers-email>
+		<subscribers-email>kouzneta@mail.nih.gov;zhaos3@mail.nih.gov</subscribers-email>
 		<!-- <subscribers-email>alatheef@numbersix.com</subscribers-email> -->
 		<subject>Greensheets Attachments Reconciliation Report</subject>
 		<!-- 
