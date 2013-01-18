@@ -1,6 +1,7 @@
 Implementation/GsApp/trunk/*.class
 Implementation/GsApp/trunk/*.project
 Implementation/GsApp/trunk/.classpath
+Implementation/GsApp/trunk/.settings
 Implementation/GsQuestions/trunk/.classpath
 Implementation/GsQuestions/trunk/.externalToolBuilders
 Implementation/GsQuestions/trunk/.project
