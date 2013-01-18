@@ -69,4 +69,6 @@ public final class GreensheetsKeys {
 	
 	public static final String USER_NOT_FOUND = "USER_NOT_FOUND";
 
+	public static final String KEY_SESSION_INITIATING_RESOURCE_NAMES = "SESSION_INITIATING_RESOURCE_NAMES";
+
 }

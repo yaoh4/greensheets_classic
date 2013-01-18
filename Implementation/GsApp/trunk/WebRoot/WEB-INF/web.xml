@@ -21,12 +21,11 @@
   	</context-param>
     <context-param>
         <param-name>appVersion</param-name>
-        <!-- <param-value>v2.0.7</param-value> -->      <!-- Upgraded to run under Java 5 in JRun 4 Updater 6/7 -->
-        <param-value>v2.6.2</param-value>
+        <param-value>v2.7</param-value>
     </context-param>
     <context-param>
         <param-name>appBuild</param-name>
-        <param-value>b09.14.12</param-value>
+        <param-value>b01.02.13</param-value>
     </context-param>
     <context-param>
         <param-name>showDebugOnError</param-name>
@@ -105,9 +104,31 @@
         <url-pattern>/changeGreensheetLock</url-pattern>
     </servlet-mapping>
     
+    <filter>
+        <filter-name>SessionMaintenanceFilter</filter-name>
+        <filter-class>gov.nih.nci.iscs.numsix.greensheets.fwrk.SessionMaintenanceFilter</filter-class>
+        <init-param>
+            <description>URL fragments requests for which it is OK to service even when the
+                user-representing Java object is not present in the HTTP session; separate
+                by semicolons
+            </description>
+            <param-name>resources-not-needing-user-info</param-name>
+            <param-value>index.jsp;retrievegrants.do;SessionTimeOut.jsp;SessionExpired.jsp</param-value>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>SessionMaintenanceFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>SessionMaintenanceFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+
     <!-- Session Timeout setting -->
     <session-config>
-        <session-timeout>300</session-timeout>
+        <session-timeout>3</session-timeout> <!-- TODO: TEMPORARY - MUST CHANGE!!! -->
     </session-config>
     
     <error-page>
