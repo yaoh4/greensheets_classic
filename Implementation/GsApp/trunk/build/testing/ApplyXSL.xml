@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="applyXSL" default="full" basedir=".">
+    <property file="../../server.properties"/>
+    <!-- properties are intended to be overridden by caller -->
+    <property name="resultfile" value="results.xml"/>
+    <property name="resultfile.html" value="${reports.dir}/TestResultOverview.html"/>
+    <property name="style" value="${reports.dir}/reportFromSummary.xsl"/>
+    <property name="includes" value="results.xml"/>
+    <target name="onPath">
+        <condition property="path.ok">
+            <and>
+                <available classname="org.apache.xerces.jaxp.DocumentBuilderImpl"/>
+                <available classname="org.apache.xalan.processor.TransformerFactoryImpl"/>
+            </and>
+        </condition>
+    </target>
+    <target name="failIfBadPath" depends="onPath" unless="path.ok">
+        <fail message="Xalan missing on classpath. Put xalan.jar and xerces.jar to ant/lib."/>
+        <!-- note: classpath attribute or element does not work in style task -->
+    </target>
+    <target name="applyMulti" if="path.ok" depends="failIfBadPath">
+        <style basedir="." destdir="." includes="results.xml" extension=".html" processor="trax" style="report.xsl">
+            <param name="reporttime" expression="${report.time}"/>
+        </style>
+    </target>
+    <target name="applySingle" if="path.ok" depends="failIfBadPath">
+        <style in="${resultfile}" out="${resultfile.html}" processor="trax" style="${style}">
+            <param name="reporttime" expression="${report.time}"/>
+        </style>
+    </target>
+    <target name="full" depends="failIfBadPath"/>
+</project>

@@ -1,0 +1,80 @@
+			    I N S T A L L A T I O N
+ 			   
+                                  GREENSHEETS
+                                 Version 1.2.0
+                                 
+INTRODUCTION
+============
+This document contains the insallation and configuration instructions for this version of 
+the GREENSHEETS application. This document is primarily intended as a check-list for the 
+deployment team which may provide for additional deployment steps as needed for the respective 
+environment.
+
+
+PREREQUISITES
+=============
+N/A
+
+
+INSTALLATION
+============
+Please follow the steps listed below to install the distribution:
+
+1. Copy the 'greensheets.war' file into a server directory for the JRUN* server
+  
+2. Unzip the 'greensheetsAppConfig.zip' into JRUN's 'servers/conf/greensheets' directory. 
+   There should be a subdirectory called 'xmlxsltsrc' which contains all the *.xml and 
+   *.xslt files in the zip 
+
+
+CONFIGURATION
+=============
+Please follow the following steps to configure the application:
+
+1. Edit the 'greensheetconfig.properties' file to set the following properties for the
+   deployed environment:
+   
+   a. Provide the appropriate document root directory. This is the path where files uploaded 
+      by the GREENSHEETS application are stored:
+   
+   	attachemts.repository.path=<< enter value here >> (e.g. /data/test/greensheetsdocs)
+   	
+2. Edit the 'db.properties' file to set the following application database connection properties
+   for the deployed environment:
+
+	oracle.environment=<< enter value here >> (e.g. DEV, TEST, PROD)
+	oracle.url=<< enter value here >> (Example: see below) 
+	oracle.user=<< enter value here >> (e.g. NCI_APP_USER)
+	oracle.password=<< enter value here >>
+
+	Example** oracle.url:  
+	
+           jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)
+           (HOST=app1-cm1.nci.nih.gov)(PORT=1610)))(CONNECT_DATA=(SERVICE_NAME=A1D3_AD.nci.nih.gov)))
+
+3. Make sure the following entries are in the 'content-type.properties' file for the JRUN JDK being used. 
+   This file is usually found in the $JAVA_HOME\jre\lib directory and the values are as follows:
+
+	application/msword: \
+   	 description=MS Word doc;\
+   	 file_extensions=.doc,.rtf,.wp
+
+	application/msexcel: \
+   	 description=MS Excel file;\
+   	 file_extensions=.xls
+
+	application/pdf: \
+   	 description=Adobe PDF Format;\
+   	 file_extensions=.pdf
+
+
+KNOWN-ISSUES
+============
+N/A
+
+
+
+* NOTE: Please note that the JRUN server will need to be restarted for all 
+        changes to take effect
+        
+** NOTE: Note that this string should be one contiguous line        

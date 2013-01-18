@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+
+<project basedir=".." default="deploy" name="greensheets">
+	<!-- 
+	
+	Make the environment variables available to the build script. 
+	<property environment="env"/>
+	-->
+	
+	<!-- set location of user build properties file -->
+	<property file="${basedir}/build/build.properties"/>
+
+	<property name="app.name"               value="greensheets"/>
+	<property name="distribution.dir"       value="./dist"/>
+	<property name="app.config.dir"         value="./appconfig"/>
+	<property name="web.root.dir"           value="./WebRoot"/>
+	<property name="src.java.dir"           value="./src"/>
+	<property name="web.inf.dir"            value="${web.root.dir}/WEB-INF"/>
+	<property name="lib.dir"                value="${web.inf.dir}/lib"/>
+	<property name="java.classes.dir"       value="${web.inf.dir}/classes"/>
+	<property name="app.name.war"           value="${app.name}.war"/>
+	<property name="persistence.provider.dir" value="${persistence.provider.home}"/>
+
+	<!-- The following properties are not needed.
+	
+	<property name="package.root"           value="gov"/>
+	<property name="test.suite.file"        value="GsTestSuite.xml"/>
+	<property name="doc.dir"                value="./docs"/>
+	<property name="app.config.zip"         value="${app.name}AppConfig.zip"/>
+	-->
+	<path id="project.classpath">
+		<!-- <pathelement path="${classpath}"/> Check what this is for. This may represent the CLASSPATH environment variable, if the env variables are made available to this build script? -->
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+		<path location="${tomcat.home}/common/lib/jsp-api.jar" />
+		<path location="${tomcat.home}/common/lib/servlet-api.jar" />
+		<path location="${persistence.provider.dir}/jlib/eclipselink.jar" />
+		<path location="${persistence.provider.dir}/jlib/jpa/javax.persistence_2.0.0.v201002051058.jar" />
+	</path>
+	<property name="project.classpath" refid="project.classpath"/>
+
+	<!-- Needs more work here. -->
+	<target name="clean" description="Cleans all build files including .class, .jar, .war, and javadocs">
+		<delete includeemptydirs="true">
+			<fileset dir="${java.classes.dir}" includes="**/*"/> <!-- Deletes all files and subdirectories of classes, without classes itself. -->
+		</delete>
+		<delete includeemptydirs="true">
+			<fileset dir="${distribution.dir}" includes="**/*"/>
+		</delete>
+	</target>
+		
+	<target name="compile" description="Compiles the java source files using the classpath specified. Also copies any resource files that are in the java source directories.">
+		<!-- Create the classes dir -->
+		<mkdir dir="${java.classes.dir}" />
+
+		<!-- 
+		Abdul: Commented out the following and placed different one.
+
+	    <javac 
+	        classpath="${project.classpath}" 
+	        srcdir="${src.java.dir}"
+	        destdir="${java.classes.dir}"
+	       debug="${javac.debug}"/>
+   		-->
+		<!-- Compiles the .java source files using the classpath specified. -->
+		<echo message="${project.classpath}" />
+		<!--
+		<javac classpath="${project.classpath}" srcdir="${src.java.dir}" destdir="${java.classes.dir}" debug="${debug.enabled}" debuglevel="lines,vars,source" />
+		-->
+		<javac target="1.5" classpath="${project.classpath}" srcdir="${src.java.dir}" destdir="${java.classes.dir}" debug="on" debuglevel="lines,vars,source" />
+		<!-- Copies all resource files (e.g. *.properties, *.txt, etc) to the WEB-INF/classes dir -->
+		<copy todir="${java.classes.dir}">
+			<fileset dir="${src.java.dir}" excludes="**/*.java" />
+		</copy>
+		<copy file="${web.inf.dir}/applicationContext.xml" todir="${java.classes.dir}" />
+
+	</target>
+
+    <target name="build" depends="compile" description="Creates war file." >
+        <!-- Creates the war file. -->
+        <war warfile="${distribution.dir}/${app.name.war}" webxml="${web.inf.dir}/web.xml">
+            <fileset dir="${web.root.dir}">
+                <exclude name="${web.inf.dir}/web.xml" /> <!--
+				<include name ="${persistence.provider.dir}/jlib/eclipselink.jar" />
+				<include name ="${persistence.provider.dir}/jlib/jpa/javax.persistence_2.0.0.v201002051058.jar" />			-->	
+            </fileset>
+        </war>
+    </target>	
+
+    <!-- jsp_copy_direct -->
+    <target name="jsp_copy_direct">  <!-- depends="set_dev_structure" -->
+    
+        <property name="appserver_webapps_dir" value="${deploy.local.tomcat.dir}"/>
+        <property name="appserver_configs_dir" value="${deploy.local.tomcat.conf.dir}"/>
+    
+        <!-- Copy the JSPs directly to the local app server deployment directory -->
+        <copy todir="${appserver_webapps_dir}/${app.name}/jsp">
+            <fileset dir="${web.root.dir}/jsp">
+                <include name="**/*.jsp"/>
+                <exclude name="**/.svn/**"/>
+            </fileset>
+        </copy>
+    
+        <copy todir="${appserver_webapps_dir}/${app.name}/images">
+            <fileset dir="${web.root.dir}/images">
+                <include name="**/*.gif"/>
+                <include name="**/*.jpg"/>
+                <include name="**/*.png"/>
+                <exclude name="**/.svn/**"/>
+            </fileset>
+        </copy>
+    
+        <copy todir="${appserver_webapps_dir}/${app.name}/stylesheets">
+            <fileset dir="${web.root.dir}/stylesheets">
+                <include name="**/*.css"/>
+                <exclude name="**/.svn/**"/>
+            </fileset>
+        </copy>
+    
+        <copy todir="${appserver_webapps_dir}/${app.name}/scripts">
+            <fileset dir="${web.root.dir}/scripts">
+                <include name="**/*.js"/>
+                <exclude name="**/.svn/**"/>
+            </fileset>
+        </copy>
+    </target>
+
+	
+   <!-- Hot-deploy as uncompressed directory to the local app server -->
+    <target name="deploy" depends="compile" description="Hot-deploy as uncompressed directory to the local app server">
+
+        <property name="appserver_webapps_dir" value="${deploy.local.tomcat.dir}"/>
+        <property name="appserver_configs_dir" value="${deploy.local.tomcat.conf.dir}"/>
+
+        <!-- Copy properties files to the directory where Tomcat will look for them -->
+        <copy todir="${appserver_configs_dir}/${app.name}">
+            <fileset dir="${app.config.dir}" includes="*.properties"/>
+        </copy>
+
+        <!-- Copy the "exploded" contents of what would be the WAR file, but without zipping it up -->
+        <copy todir="${appserver_webapps_dir}/${app.name}">
+            <fileset dir="${web.root.dir}">
+                <include name="**/*"/>
+                <exclude name="**/.svn/**"/>
+            </fileset>
+        </copy>
+        <copy todir="${appserver_webapps_dir}/${app.name}/WEB-INF" overwrite="true"
+              file="${web.inf.dir}/web.xml"/>
+        <!-- This ^ ensures web.xml will be overwritten even if it's unchanged - which should cause
+             hot-redeployment on the fly, if the app server is configured to watch web.xml.
+         -->
+    </target>
+
+	<target name="deploy_war_local" depends="build" description="Deploys to the target/runtime environment specified in the user.properties file. " >
+		<copy file="${distribution.dir}/${app.name.war}" tofile="${deploy.local.tomcat.dir}/${app.name.war}"/>
+		<!-- Check the THE ANT-CONTRIB TASKS for the if/then/else logic -->		
+
+				<copy todir="${deploy.local.tomcat.conf.dir}/${app.name}" overwrite="true">
+					<fileset dir="${app.config.dir}/local" includes="*.*"/>
+				</copy>			
+		<!--
+		Needs work to prepare the distributbles for the other target/runtime environments.
+		
+		<if name="runtime.env" value="dev">
+		</if>
+		<if name="runtime.env" value="test">
+		</if>
+		<if name="runtime.env" value="training">
+		</if>
+		<if name="runtime.env" value="prod">
+		</if>		
+		-->
+	</target>
+	
+	<!-- 
+		Clean up the target runtime environment. Delete the following:
+		
+		AppConfig directory and its contents
+		Server log files.
+		Greensheets app specific log files.
+		Greensheets app specific Direcory and .war file in <TOMCAT_HOME>/webapps.
+		Greensheets app specific direcory under work/Catalina/localhost
+	-->
+	<target name="cleanuplocalserver" description="Cleans up the target runtime environment." >
+		<delete includeemptydirs="true">
+			<fileset dir="${deploy.local.tomcat.conf.dir}/${app.name}" includes="**/*"/>
+		</delete>
+		
+		<delete includeemptydirs="true">
+			<fileset dir="${tomcat.home}/logs" includes="**/*"/>
+		</delete>
+
+		<delete includeemptydirs="true">
+			<fileset dir="${tomcat.home}/nci_apps_logs" includes="**/*"/>
+		</delete>		
+
+		<delete dir="${deploy.local.tomcat.dir}/${app.name}" />
+		
+		<delete file="${deploy.local.tomcat.dir}/${app.name}.war"/>
+		
+		<delete dir="${tomcat.home}/work/Catalina/localhost/${app.name}" />
+	</target>
+	
+	<target name="echoProp">
+		<echo>Project CLASSPATH="${project.classpath}"</echo>
+	</target>
+</project>

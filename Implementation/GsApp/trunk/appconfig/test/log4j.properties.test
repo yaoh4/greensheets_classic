@@ -1,0 +1,27 @@
+#log4j.rootLogger=INFO, A1, GREENSHEETSLOG
+log4j.rootLogger=INFO, GREENSHEETSLOG
+  
+# A1 is set to be a ConsoleAppender. 
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+
+# GREENSHEETSLOG is set to be a File
+log4j.appender.GREENSHEETSLOG=org.apache.log4j.RollingFileAppender
+
+# The following line is used in the TEST environment.
+# Deb: Both Test & Training containers are on the same server.
+log4j.appender.GREENSHEETSLOG.File=/usr/local/jrun4/logs/greensheets_test.log
+
+log4j.appender.GREENSHEETSLOG.MaxFileSize=10MB
+# Keep backup files
+log4j.appender.GREENSHEETSLOG.MaxBackupIndex=10
+
+log4j.appender.GREENSHEETSLOG.layout=org.apache.log4j.PatternLayout
+log4j.appender.GREENSHEETSLOG.layout.ConversionPattern=%d{dd MMM yyyy HH:mm:ss} [%t] %-5p %c %x - %m%n
+
+# A1 uses PatternLayout.
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%d{dd MMM yyyy HH:mm:ss} [%t] %-5p %c %x - %m%n
+
+# Per Deb, the System Administrator, the level is changed to WARN from DEBUG (for PRODUCTION).
+log4j.logger.gov.nih.nci=DEBUG
+#log4j.logger.gov.nih.nci=WARN
