@@ -84,7 +84,7 @@ public class GreensheetFormServiceImpl implements GreensheetFormService {
 			}
 		} catch (GreensheetBaseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); /*  WHY ARE WE CATCHING IT AND NOT LETTING THE ERROR PAGE AND EMAIL NOTIFICATION TO HAPPEN?? - Anatoli  */
 			return null;
 		}		
 		
