@@ -140,6 +140,10 @@ public class QuestionAttachmentsAction extends DispatchAction {
             QuestionAttachmentsProxy qap = gfs
                     .getQuestionAttachmentProxy(respDefId);
 
+            if (qap == null) {
+                return mapping.findForward("sessionTimeOut");
+            }
+
             String maxSize = ((Properties) AppConfigProperties.getInstance()
                     .getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES))
                     .getProperty("file.attachment.size.limit");
@@ -394,11 +398,29 @@ public class QuestionAttachmentsAction extends DispatchAction {
             QuestionAttachmentsProxy qap = gfs
                     .getQuestionAttachmentProxy(respDefId);
 
-            logger.debug("Saving- Num of Attachments = "
-                    + qap.getAttachmentMap().size());
+            if (qap != null) {
+                if (qap.getAttachmentMap() != null) {
+                    logger.debug("Saving- Num of Attachments = "
+                            + qap.getAttachmentMap().size());
+                } else {
+                    logger.debug("Saving- Num of Attachments = 0");
+                }
+            } else {
+                logger.debug("Saving- QuestionAttachmentsProxy is null. ");
+            }
             logger.debug("RespDefId = " + respDefId);
-            req.setAttribute("NUM_OF_ATTACHMENTS", ""
-                    + qap.getAttachmentMap().size());
+
+            if (qap != null) {
+                if (qap.getAttachmentMap() != null) {
+                    req.setAttribute("NUM_OF_ATTACHMENTS", ""
+                            + qap.getAttachmentMap().size());
+                } else {
+                    req.setAttribute("NUM_OF_ATTACHMENTS", "0");
+                }
+            } else {
+                req.setAttribute("NUM_OF_ATTACHMENTS", "0");
+            }
+
             gfs.updateQRDQuestionAttachments(respDefId, qap.getAttachmentMap());
 
             gfs.removeQuestionAttachmentsProxy(respDefId);
