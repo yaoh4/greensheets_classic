@@ -5,6 +5,7 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgrImpl;
@@ -76,7 +77,11 @@ public class SaveSubmitCloseAction extends DispatchAction {
             GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); //For time being -- Abdul Latheef 
             mgr.saveForm(form, req.getParameterMap(), user, grant);
 
-            GreensheetActionHelper.setFormDisplayInfo(req, id);
+            try {
+                GreensheetActionHelper.setFormDisplayInfo(req, id);
+            } catch (GreensheetBaseException e) {
+                return mapping.findForward("sessionTimeOut");
+            }
 
             req.setAttribute(GreensheetsKeys.KEY_GRANT_ID, grant
                     .getFullGrantNumber());
@@ -138,10 +143,15 @@ public class SaveSubmitCloseAction extends DispatchAction {
 
             mgr.submitForm(form, req.getParameterMap(), user, grant);
 
-            req.setAttribute(GreensheetsKeys.KEY_ACTION_CONFIRM_MESSAGE,
-                    "The Greensheet Form for Grant "
-                            + gus.getFormSessionGrant(id).getFullGrantNumber()
-                            + " has been submitted");
+            try {
+                req.setAttribute(GreensheetsKeys.KEY_ACTION_CONFIRM_MESSAGE,
+                        "The Greensheet Form for Grant "
+                                + gus.getFormSessionGrant(id).getFullGrantNumber()
+                                + " has been submitted");
+            } catch (NullPointerException e) {
+
+                return mapping.findForward("sessionTimeOut");
+            }
 
             gus.removeGreensheetFormSession(id);
         }
