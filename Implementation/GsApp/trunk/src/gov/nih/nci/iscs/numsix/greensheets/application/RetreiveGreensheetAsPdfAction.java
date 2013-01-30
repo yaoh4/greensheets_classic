@@ -45,9 +45,12 @@ public class RetreiveGreensheetAsPdfAction extends GsBaseAction {
             return mapping.findForward(forward);
         } else {
 
+            String commentOption = "SHOW_WITH_QUESTION";
             String formUid = req.getParameter(GreensheetsKeys.KEY_FORM_UID);
-            String commentOption = req.getParameter("commentsDisplayOption")
-                    .trim();
+            if (req.getParameter("commentsDisplayOption") != null) {
+                commentOption = req.getParameter("commentsDisplayOption")
+                        .trim();
+            }
             String generateAllQuestions = req.getParameter(
                     "generateAllQuestions").trim();
 
