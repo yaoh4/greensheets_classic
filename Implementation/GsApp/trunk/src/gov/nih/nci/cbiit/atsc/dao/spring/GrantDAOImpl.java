@@ -1,6 +1,5 @@
 package gov.nih.nci.cbiit.atsc.dao.spring;
 
-import gov.nih.nci.cbiit.atsc.dao.FormGrant;
 import gov.nih.nci.cbiit.atsc.dao.GrantDAO;
 
 import java.text.SimpleDateFormat;
@@ -107,6 +106,21 @@ public class GrantDAOImpl implements GrantDAO {
         sqlParms.addValue("fullGrantNum", "%"
                 + fullGrantNum.trim().toUpperCase() + "%");
 
+        if (fullGrantNum.contains("-")) {
+            String suffixFullGrantNum = "";
+            String[] splits = fullGrantNum.split("-");
+            if (splits[1].toUpperCase().contains("S")) {
+                suffixFullGrantNum = replaceLast(fullGrantNum, "S", "W");
+            } else if (splits[1].toUpperCase().contains("W")) {
+                suffixFullGrantNum = replaceLast(fullGrantNum, "W", "S");
+
+            }
+            incrementalQuery += GrantDAOImpl.BLANK_SPACE
+                    + "AND UPPER(FULL_GRANT_NUM) LIKE :suffixFullGrantNum";
+            sqlParms.addValue("suffixFullGrantNum", "%"
+                    + suffixFullGrantNum.trim().toUpperCase() + "%");
+        }
+
         String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
         String completeQuery = incrementalQuery + " ORDER BY " + sortOrder;
@@ -116,6 +130,17 @@ public class GrantDAOImpl implements GrantDAO {
                 completeQuery, sqlParms, new FormGrantRowMapper());
 
         return formGrantsList;
+    }
+
+    public String replaceLast(String original, String target, String replacement) {
+
+        int index = original.lastIndexOf(target);
+
+        if (index == -1) {
+            return original;
+        }
+
+        return original.substring(0, index) + replacement + original.substring(index + target.length());
     }
 
     public List findGrantsByFullGrantNum(String fullGrantNum) {
@@ -130,6 +155,21 @@ public class GrantDAOImpl implements GrantDAO {
         incrementalQuery += "UPPER(FULL_GRANT_NUM) LIKE :fullGrantNum";
         sqlParms.addValue("fullGrantNum", fullGrantNum.trim().toUpperCase());
 
+        if (fullGrantNum.contains("-")) {
+            String suffixFullGrantNum = "";
+            String[] splits = fullGrantNum.split("-");
+            if (splits[1].toUpperCase().contains("S")) {
+                suffixFullGrantNum = replaceLast(fullGrantNum, "S", "W");
+            } else if (splits[1].toUpperCase().contains("W")) {
+                suffixFullGrantNum = replaceLast(fullGrantNum, "W", "S");
+
+            }
+            incrementalQuery += GrantDAOImpl.BLANK_SPACE
+                    + "AND UPPER(FULL_GRANT_NUM) LIKE :suffixFullGrantNum";
+            sqlParms.addValue("suffixFullGrantNum", "%"
+                    + suffixFullGrantNum.trim().toUpperCase() + "%");
+        }
+        
         String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
         String completeQuery = incrementalQuery + " ORDER BY " + sortOrder;
@@ -255,12 +295,8 @@ public class GrantDAOImpl implements GrantDAO {
                 sqlParms.addValue("pgmFormStatusFrozen", "FROZEN");
             }
 
-            if (applStatusGroupCode != null
-                    && !applStatusGroupCode.trim().equals("")) {
-                incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND APPL_STATUS_GROUP_CODE != :applStatusGroupCode";
-                sqlParms.addValue("applStatusGroupCode",
-                        applStatusGroupCode.trim());
-            }
+            incrementalQuery += GrantDAOImpl.BLANK_SPACE
+                    + "AND APPL_STATUS_GROUP_CODE IN ('PA', 'TP') AND (APPL_STATUS_GROUP_CODE = 'PC' AND APPL_STATUS_CODE != '25')";
 
         }
 
