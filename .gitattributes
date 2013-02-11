@@ -179,6 +179,7 @@ Implementation/GsApp/trunk/appconfig/local/log4j.properties -text
 Implementation/GsApp/trunk/appconfig/local/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/prod/db.properties -text
 Implementation/GsApp/trunk/appconfig/prod/greensheetconfig.properties -text
+Implementation/GsApp/trunk/appconfig/prod/ldap.properties -text
 Implementation/GsApp/trunk/appconfig/prod/log4j.properties -text
 Implementation/GsApp/trunk/appconfig/prod/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/test/db.properties.test -text
