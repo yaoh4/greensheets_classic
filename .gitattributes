@@ -136,6 +136,7 @@ Implementation/GsApp/trunk/WebRoot/jsp/DuplicateGreensheetsError.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/EditProgramPreferences.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/GuestUserGrantsList.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/GuestUserView.jsp -text
+Implementation/GsApp/trunk/WebRoot/jsp/InvalidFormStatus.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/LinkTest.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/PdfGenerationOptions.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/ProgramUserGrantsList.jsp -text
