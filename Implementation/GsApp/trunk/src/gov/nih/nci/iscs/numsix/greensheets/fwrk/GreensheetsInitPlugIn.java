@@ -49,6 +49,7 @@ public class GreensheetsInitPlugIn implements PlugIn {
 			AppConfigLoader.initAppConfigProperties(configPath);
 			AppConfigLoader.initDbProperties(configPath);
 			AppConfigLoader.initPreferences(configPath);
+			AppConfigLoader.initLdapProperties(configPath);
 			System.out.println("\n<<<<<<<<< App configuration complete >>>>>>>>\n");
 			
 			// Abdul: Tomcat/Java 5 migration. Add runtime-platform specific path separator.
