@@ -128,7 +128,7 @@
 
     <!-- Session Timeout setting -->
     <session-config>
-        <session-timeout>3</session-timeout> <!-- TODO: TEMPORARY - MUST CHANGE!!! -->
+        <session-timeout>300</session-timeout> <!-- TODO: TEMPORARY - MUST CHANGE!!! -->
     </session-config>
     
     <error-page>
