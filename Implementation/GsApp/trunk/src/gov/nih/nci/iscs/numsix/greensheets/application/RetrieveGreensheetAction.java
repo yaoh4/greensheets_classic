@@ -64,7 +64,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
      */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
+        
         String forward = null;
         logger.debug("execute() Begin");
 
@@ -100,6 +100,11 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                 req.setAttribute("MISSING_MECH", grant.getApplTypeCode());
                 forward = "templatenotfound";
             } else {
+                if (gsform.getStatus() == null) {
+                    String invalidFormStatusMsg = "Invalid form status detected on greensheet for grant " + grant.getFullGrantNum() + " (appl_id " + grant.getApplID()+ ", form id " + gsform.getFormId() + "). Please contact support to resolve.";
+                    req.getSession().setAttribute("invalidFormStatusMsg", invalidFormStatusMsg);
+                    return mapping.findForward("invalidFormStatus");
+                }
                 if (gsform.getStatus().equals(GreensheetStatus.FROZEN) || gsform.getStatus().equals(GreensheetStatus.SUBMITTED)) {
                     logger.debug("FROZEN GS");
                     req.setAttribute("TEMPLATE_ID",
@@ -123,6 +128,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             }
         }
         logger.debug("execute() End");
+        
         return (mapping.findForward(forward));
     }
 
