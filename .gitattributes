@@ -185,6 +185,7 @@ Implementation/GsApp/trunk/appconfig/prod/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/test/db.properties.test -text
 Implementation/GsApp/trunk/appconfig/test/errormessages.properties -text
 Implementation/GsApp/trunk/appconfig/test/greensheetconfig.properties -text
+Implementation/GsApp/trunk/appconfig/test/ldap.properties -text
 Implementation/GsApp/trunk/appconfig/test/log4j.properties.test -text
 Implementation/GsApp/trunk/appconfig/training/log4j.properties.training -text
 Implementation/GsApp/trunk/build/build.properties -text
