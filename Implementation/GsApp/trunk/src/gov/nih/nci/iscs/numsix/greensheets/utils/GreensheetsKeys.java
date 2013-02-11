@@ -21,6 +21,8 @@ public final class GreensheetsKeys {
 	public static final String KEY_USER_ID = "USER_ID";
 	
 	public static final String NEW_USER_ID = "NEW_USER_ID";
+	
+	public static final String ACTUAL_USER_SESSION = "ACTUAL_USER_SESSION";
 
 	public static final String KEY_GS_GROUP_TYPE = "GS_GROUP_TYPE";
 	
