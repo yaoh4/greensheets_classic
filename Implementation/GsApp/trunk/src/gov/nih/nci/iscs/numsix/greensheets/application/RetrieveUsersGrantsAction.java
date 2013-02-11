@@ -5,15 +5,21 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
 import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFormGrantsService;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
+import gov.nih.nci.salient.framework.bdo.LdapRecord;
+import gov.nih.nci.salient.framework.service.iface.IAuthorizationService;
+import gov.nih.nci.salient.framework.service.iface.IChangeUserService;
+import gov.nih.nci.salient.framework.service.impl.ChangeUserServiceImpl;
+import gov.nih.nci.salient.framework.util.Constants;
 
 import java.util.List;
+import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,6 +43,16 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
 
     static GreensheetsFormGrantsService greensheetsFormGrantsService;
 
+    IChangeUserService changeUserService;
+    IAuthorizationService authorizationService;
+
+    private String firstName;
+    private String lastName;
+    private String method;
+    private String selectedUser;
+
+    private List<LdapRecord> foundUsers;
+
     public GreensheetsFormGrantsService getGreensheetsFormGrantsService() {
         return greensheetsFormGrantsService;
     }
@@ -45,10 +61,6 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
             GreensheetsFormGrantsService greensheetsFormGrantsService) {
         this.greensheetsFormGrantsService = greensheetsFormGrantsService;
     }
-
-    /**
-     * @see org.apache.struts.action.Action#execute(ActionMapping, ActionForm, HttpServletRequest, HttpServletResponse)
-     */
 
     public ActionForward execute(ActionMapping mapping, ActionForm aForm,
             HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -61,18 +73,34 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
         // Check for session time out
         if (req.getSession().isNew()) {
             // set forward name
-            grantList = "sessionTimeOut";   // Why??? It should be still legit for users to request the
-            	// URL mapped to this action directly, as the very first request of their session...
+            grantList = "sessionTimeOut"; // Why??? It should be still legit for users to request the
+            // URL mapped to this action directly, as the very first request of their session...
         } else {
             HttpSession httpSession = req.getSession();
+          
             DynaActionForm form = (DynaActionForm) aForm;
+
             if (form != null) {
-                if (form.get("newUserName") != null) {
-                    String newUserName = (String) form.get("newUserName");
-                    req.setAttribute(GreensheetsKeys.NEW_USER_ID, newUserName.trim());
+                String method = (String) form.get("method");
+
+                if (method.equalsIgnoreCase("searchUser")) {
+                    firstName = (String) form.get("firstName");
+                    lastName = (String) form.get("lastName");
+
+                    Properties ldapProperties = (Properties) AppConfigProperties
+                            .getInstance().getProperty(Constants.LDAP_PROPERTIES);
+                    foundUsers = getChangeUserService().searchUser(firstName.trim(), lastName.trim(), ldapProperties);
+                    req.getSession().setAttribute("foundUsers", foundUsers);
+                    return mapping.findForward("changeUser");
+                }
+
+                if (method.equalsIgnoreCase("setUser")) {
+                    selectedUser = (String) form.get("selectedUser");
+                    req.setAttribute(GreensheetsKeys.NEW_USER_ID, selectedUser.trim());
+                    req.getSession().removeAttribute("foundUsers");
                 }
             }
-        	
+
             req.getSession().removeAttribute(GreensheetsKeys.USER_NOT_FOUND);
 
             GreensheetUserSession gus = GreensheetActionHelper
@@ -115,6 +143,41 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
                 grantList = "programGrantsList";
             }
         }
+
         return mapping.findForward(grantList);
     }
+
+    public List<LdapRecord> getFoundUsers() {
+        return foundUsers;
+    }
+
+    public void setFoundUsers(List<LdapRecord> foundUsers) {
+        this.foundUsers = foundUsers;
+    }
+
+    public IChangeUserService getChangeUserService() {
+        ChangeUserServiceImpl changeUserServiceImpl = new ChangeUserServiceImpl();
+        return changeUserServiceImpl;
+    }
+
+    public void setChangeUserService(IChangeUserService changeUserService) {
+        this.changeUserService = changeUserService;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public String getSelectedUser() {
+        return selectedUser;
+    }
+
+    public void setSelectedUser(String selectedUser) {
+        this.selectedUser = selectedUser;
+    }
+
 }
