@@ -43,6 +43,13 @@
          <form-bean name="changeusernameForm" type="org.apache.struts.action.DynaActionForm">
             <form-property name="newUserName" type="java.lang.String" />
         </form-bean>
+        
+         <form-bean name="searchuserForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="firstName" type="java.lang.String" />
+            <form-property name="lastName" type="java.lang.String" />
+            <form-property name="method" type="java.lang.String" />
+             <form-property name="selectedUser" type="java.lang.String" />
+        </form-bean>
     </form-beans>
 
     <!-- ========== Global Exceptions ========== -->
@@ -70,6 +77,7 @@
         <forward name="sessionTimeOut" path="/jsp/SessionTimeOut.jsp" />
         <forward name="viewCurrentPreferences" path="/jsp/ViewCurrentPreferences.jsp" />
         <forward name="duplicateGreensheetsError" path="/jsp/DuplicateGreensheetsError.jsp" />
+        <forward name="invalidFormStatus" path="/jsp/InvalidFormStatus.jsp" />
     </global-forwards>
 
     <!-- ========== Action Mapping Definitions ========== -->
@@ -93,6 +101,21 @@
              <forward name="changeUser" path="/jsp/ChangeUser.jsp" />
         </action>
 
+
+		<action path="/searchUser"
+            name="searchuserForm"
+            type="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveUsersGrantsAction"
+            input="/jsp/ChangeUser.jsp" scope="request">
+             <forward name="changeUser" path="/jsp/ChangeUser.jsp" />
+        </action>
+        
+        <action path="/setUser"
+            name="searchuserForm"
+            type="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveUsersGrantsAction"
+            input="/jsp/ChangeUser.jsp" scope="request">
+             <forward name="changeUser" path="/jsp/ChangeUser.jsp" />
+        </action>
+        
         <!--  Program Grants Actions -->
         <action path="/searchprogramgrants" parameter="method"
             name="programPreferencesForm"
