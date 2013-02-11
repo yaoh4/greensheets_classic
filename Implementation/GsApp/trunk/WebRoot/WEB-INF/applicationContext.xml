@@ -14,6 +14,7 @@
         <property name="locations">
             <list>
                 <value>file:${conf.dir}/greensheets/db.properties</value>
+                <value>file:${conf.dir}/greensheets/greensheetconfig.properties</value>
             </list>
         </property>
     </bean>
@@ -200,5 +201,36 @@
         <property name="greensheetsMiscServices" ref="greensheetsMiscServices"/> 
         <property name="greensheetsUserServices" ref="greensheetsUserServices"/>
     </bean>
+    
+    <!-- ===== Mail service ===== -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${smtp_server}" />
+		<property name="port" value="25" />
+		<property name="username" value="" />
+		<property name="password" value="" />
+		<property name="javaMailProperties">
+			<props>
+				<!-- Use SMTP-AUTH to authenticate to SMTP server -->
+				<prop key="mail.smtp.auth">false</prop>
+				<!-- Use TLS to encrypt communication with SMTP server -->
+				<prop key="mail.smtp.starttls.enable">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Mail message -->
+
+	<bean id="mailTemplate" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="${gs_email_from}" />
+		<property name="to" value="${gs_error_email_to}" />
+	</bean>
+	
+	<bean id="emailService"
+          class="gov.nih.nci.salient.framework.service.impl.EmailService">
+        <property name="mailSender">
+			<ref bean="mailSender" />
+		</property>
+    </bean>
+    
             
 </beans>
