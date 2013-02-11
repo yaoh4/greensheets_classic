@@ -123,12 +123,16 @@ public class GreensheetActionHelper {
 
         String newUserName = (String) req.getAttribute(GreensheetsKeys.NEW_USER_ID);
 
+        if (req.getSession().getAttribute(GreensheetsKeys.ACTUAL_USER_SESSION) == null) {
+            req.getSession().setAttribute(GreensheetsKeys.ACTUAL_USER_SESSION,(GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION));
+        }
+
         if (newUserName != null) {
-            boolean isSuperUser = ((GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION)).getUser()
+            boolean isSuperUser = ((GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.ACTUAL_USER_SESSION)).getUser()
                     .getNciPerson().isSuperUser();
             if (isSuperUser) {
                 logger.debug("The "
-                        + ((GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION)).getUser().getNciPerson()
+                        + ((GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.ACTUAL_USER_SESSION)).getUser().getNciPerson()
                                 .getFullName() + " is Supert User.");
                 if (greensheetsUserServices.getUserByUserName(newUserName) != null) {
                     if (gus != null) {
@@ -306,7 +310,7 @@ public class GreensheetActionHelper {
 
         GreensheetFormSession gfs = gus.getGreensheetFormSession(formUid);
         GsUser user = gus.getUser();
-        if(gfs==null){
+        if (gfs == null) {
             throw new GreensheetBaseException("sessionTimeOut.");
         }
         GreensheetFormProxy form = gfs.getForm();
