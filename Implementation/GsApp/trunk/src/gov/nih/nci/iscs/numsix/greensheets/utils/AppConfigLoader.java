@@ -6,6 +6,8 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.utils;
 
+import gov.nih.nci.salient.framework.util.Constants;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -39,6 +41,13 @@ public class AppConfigLoader {
 				GreensheetsKeys.KEY_ERROR_MESSAGES, p);
 
 	}
+	
+	public static void initLdapProperties(String path) throws Exception {
+        Properties p = new Properties();
+        p.load(new FileInputStream(path + "/ldap.properties"));
+        AppConfigProperties.getInstance().addProperty(
+                Constants.LDAP_PROPERTIES, p);
+    }
 
 	public static void initPreferences(String path) throws Exception {
 		Properties p = new Properties();
