@@ -1,6 +1,7 @@
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
 // import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetMgrFactory; //Abdul Latheef: Used new FormGrantProxy instead of the old GsGrant.
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgrImpl;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormProxy;
@@ -354,7 +355,12 @@ public class QuestionAttachmentsAction extends DispatchAction {
 
             GreensheetFormProxy gform = gfs.getForm();
 
-            GreensheetActionHelper.setFormDisplayInfo(req, formUid);
+            try {
+                GreensheetActionHelper.setFormDisplayInfo(req, formUid);
+            } catch (GreensheetBaseException e) {
+                if (e.getMessage().contains("sessionTimeOut"))
+                    return mapping.findForward("sessionTimeOut");
+            }
 
             req.setAttribute("TEMPLATE_ID", Integer.toString(gform
                     .getTemplateId()));
@@ -425,7 +431,13 @@ public class QuestionAttachmentsAction extends DispatchAction {
 
             gfs.removeQuestionAttachmentsProxy(respDefId);
 
-            GreensheetActionHelper.setFormDisplayInfo(req, formUid);
+            try {
+                GreensheetActionHelper.setFormDisplayInfo(req, formUid);
+            } catch (GreensheetBaseException e) {
+                if (e.getMessage().contains("sessionTimeOut"))
+                    return mapping.findForward("sessionTimeOut");
+            }
+
             req.setAttribute("TEMPLATE_ID", Integer.toString(gfs.getForm()
                     .getTemplateId()));
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, formUid);
