@@ -5,6 +5,7 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
 import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormService;
@@ -64,7 +65,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
      */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        
+
         String forward = null;
         logger.debug("execute() Begin");
 
@@ -101,7 +102,8 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                 forward = "templatenotfound";
             } else {
                 if (gsform.getStatus() == null) {
-                    String invalidFormStatusMsg = "Invalid form status detected on greensheet for grant " + grant.getFullGrantNum() + " (appl_id " + grant.getApplID()+ ", form id " + gsform.getFormId() + "). Please contact support to resolve.";
+                    String invalidFormStatusMsg = "Invalid form status detected on greensheet for grant " + grant.getFullGrantNum() + " (appl_id "
+                            + grant.getApplID() + ", form id " + gsform.getFormId() + "). Please contact support to resolve.";
                     req.getSession().setAttribute("invalidFormStatusMsg", invalidFormStatusMsg);
                     return mapping.findForward("invalidFormStatus");
                 }
@@ -122,13 +124,18 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 
                 req.getSession().setAttribute("VALIDATE_TRUE", dummy);
 
-                GreensheetActionHelper.setFormDisplayInfo(req, id);
+                try {
+                    GreensheetActionHelper.setFormDisplayInfo(req, id);
+                } catch (GreensheetBaseException e) {
+                    if (e.getMessage().contains("sessionTimeOut"))
+                        return mapping.findForward("sessionTimeOut");
+                }
 
                 forward = "vmid";
             }
         }
         logger.debug("execute() End");
-        
+
         return (mapping.findForward(forward));
     }
 
@@ -197,6 +204,12 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                 grant = (FormGrantProxy) formGrantsProxies.get(0);
             } else {
                 grant = null;
+            }
+        }
+        String group = req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE);
+        if (group != null && "DM".equalsIgnoreCase(group.trim())) {
+            if ((applId != null) && !(applId.trim().equalsIgnoreCase(""))) {
+                grant.setDummy("N");
             }
         }
 
