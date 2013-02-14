@@ -311,7 +311,7 @@ public class GreensheetActionHelper {
         GreensheetFormSession gfs = gus.getGreensheetFormSession(formUid);
         GsUser user = gus.getUser();
         if (gfs == null) {
-            throw new GreensheetBaseException("sessionTimeOut.");
+            throw new GreensheetBaseException("sessionTimeOut");
         }
         GreensheetFormProxy form = gfs.getForm();
         // GsGrant grant = gfs.getGrant(); //Abdul Latheef: Used new FormGrant
