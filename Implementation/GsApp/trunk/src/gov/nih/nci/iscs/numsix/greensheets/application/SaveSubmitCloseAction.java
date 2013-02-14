@@ -80,7 +80,8 @@ public class SaveSubmitCloseAction extends DispatchAction {
             try {
                 GreensheetActionHelper.setFormDisplayInfo(req, id);
             } catch (GreensheetBaseException e) {
-                return mapping.findForward("sessionTimeOut");
+                if (e.getMessage().contains("sessionTimeOut"))
+                    return mapping.findForward("sessionTimeOut");
             }
 
             req.setAttribute(GreensheetsKeys.KEY_GRANT_ID, grant
