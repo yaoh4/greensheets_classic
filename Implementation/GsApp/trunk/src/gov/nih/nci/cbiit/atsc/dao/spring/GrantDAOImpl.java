@@ -109,16 +109,20 @@ public class GrantDAOImpl implements GrantDAO {
         if (fullGrantNum.contains("-")) {
             String suffixFullGrantNum = "";
             String[] splits = fullGrantNum.split("-");
-            if (splits[1].toUpperCase().contains("S")) {
-                suffixFullGrantNum = replaceLast(fullGrantNum, "S", "W");
-            } else if (splits[1].toUpperCase().contains("W")) {
-                suffixFullGrantNum = replaceLast(fullGrantNum, "W", "S");
+            if (splits.length > 1) {
+                if (splits[1].toUpperCase().contains("S")) {
+                    suffixFullGrantNum = replaceLast(fullGrantNum, "S", "W");
+                } else if (splits[1].toUpperCase().contains("W")) {
+                    suffixFullGrantNum = replaceLast(fullGrantNum, "W", "S");
 
+                }
             }
-            incrementalQuery += GrantDAOImpl.BLANK_SPACE
-                    + "AND UPPER(FULL_GRANT_NUM) LIKE :suffixFullGrantNum";
-            sqlParms.addValue("suffixFullGrantNum", "%"
-                    + suffixFullGrantNum.trim().toUpperCase() + "%");
+            if (suffixFullGrantNum.length() > 0) {
+                incrementalQuery += GrantDAOImpl.BLANK_SPACE
+                        + "OR UPPER(FULL_GRANT_NUM) LIKE :suffixFullGrantNum";
+                sqlParms.addValue("suffixFullGrantNum", "%"
+                        + suffixFullGrantNum.trim().toUpperCase() + "%");
+            }
         }
 
         String sortOrder = "LATEST_BUDGET_START_DATE ASC";
@@ -158,18 +162,22 @@ public class GrantDAOImpl implements GrantDAO {
         if (fullGrantNum.contains("-")) {
             String suffixFullGrantNum = "";
             String[] splits = fullGrantNum.split("-");
-            if (splits[1].toUpperCase().contains("S")) {
-                suffixFullGrantNum = replaceLast(fullGrantNum, "S", "W");
-            } else if (splits[1].toUpperCase().contains("W")) {
-                suffixFullGrantNum = replaceLast(fullGrantNum, "W", "S");
+            if (splits.length > 1) {
+                if (splits[1].toUpperCase().contains("S")) {
+                    suffixFullGrantNum = replaceLast(fullGrantNum, "S", "W");
+                } else if (splits[1].toUpperCase().contains("W")) {
+                    suffixFullGrantNum = replaceLast(fullGrantNum, "W", "S");
 
+                }
             }
-            incrementalQuery += GrantDAOImpl.BLANK_SPACE
-                    + "AND UPPER(FULL_GRANT_NUM) LIKE :suffixFullGrantNum";
-            sqlParms.addValue("suffixFullGrantNum", "%"
-                    + suffixFullGrantNum.trim().toUpperCase() + "%");
+            if (suffixFullGrantNum.length() > 0) {
+                incrementalQuery += GrantDAOImpl.BLANK_SPACE
+                        + "OR UPPER(FULL_GRANT_NUM) LIKE :suffixFullGrantNum";
+                sqlParms.addValue("suffixFullGrantNum", "%"
+                        + suffixFullGrantNum.trim().toUpperCase() + "%");
+            }
         }
-        
+
         String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
         String completeQuery = incrementalQuery + " ORDER BY " + sortOrder;
@@ -390,8 +398,30 @@ public class GrantDAOImpl implements GrantDAO {
         }
 
         if (fullGrantNum != null && !("".equals(fullGrantNum.trim()))) {
+            //  incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND UPPER(FULL_GRANT_NUM) LIKE UPPER(:fullGrantNum)";
+            //  sqlParms.addValue("fullGrantNum", "%" + fullGrantNum.trim() + "%");
+            fullGrantNum = fullGrantNum.toUpperCase();
             incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND UPPER(FULL_GRANT_NUM) LIKE UPPER(:fullGrantNum)";
             sqlParms.addValue("fullGrantNum", "%" + fullGrantNum.trim() + "%");
+
+            if (fullGrantNum.contains("-")) {
+                String suffixFullGrantNum = "";
+                String[] splits = fullGrantNum.split("-");
+                if (splits.length > 1) {
+                    if (splits[1].toUpperCase().contains("S")) {
+                        suffixFullGrantNum = replaceLast(fullGrantNum, "S", "W");
+                    } else if (splits[1].toUpperCase().contains("W")) {
+                        suffixFullGrantNum = replaceLast(fullGrantNum, "W", "S");
+
+                    }
+                    if (suffixFullGrantNum.length() > 0) {
+                        incrementalQuery += GrantDAOImpl.BLANK_SPACE
+                                + "OR UPPER(FULL_GRANT_NUM) LIKE UPPER(:suffixFullGrantNum)";
+                        sqlParms.addValue("suffixFullGrantNum", "%"
+                                + suffixFullGrantNum.trim().toUpperCase() + "%");
+                    }
+                }
+            }
         }
 
         if (piLastName != null && !("".equals(piLastName.trim()))) {
