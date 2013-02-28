@@ -140,7 +140,7 @@ public class DbConnectionHelper {
             }
         } catch (SQLException sqle) {
             String exceptionMessage = sqle.getMessage().toLowerCase();
-            if (exceptionMessage.contains("Connection reset") || exceptionMessage.contains("Connection refused")) {
+            if (exceptionMessage.contains("connection reset") || exceptionMessage.contains("connection refused") || exceptionMessage.contains("connection closed")) {
                 try {
                     conn = ocacheimpl.getConnection();
                 } catch (SQLException sqle2) {
@@ -195,7 +195,7 @@ public class DbConnectionHelper {
             // logger.info("Got DB Connection!");
         } catch (SQLException sqle) {
             String exceptionMessage = sqle.getMessage().toLowerCase();
-            if (exceptionMessage.contains("Connection reset") || exceptionMessage.contains("Connection refused")) {
+            if (exceptionMessage.contains("connection reset") || exceptionMessage.contains("connection refused") || exceptionMessage.contains("connection closed")) {
                 try {
                     conn = ocacheimpl.getConnection();
                 } catch (SQLException sqle2) {
