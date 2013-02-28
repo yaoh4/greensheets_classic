@@ -87,7 +87,7 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
             List formGrantsProxies = null;
 
             if (grantId != null && (!"".equals(grantId.trim()))) {
-                formGrants = greensheetsFormGrantsService.findGrantsByFullGrantNum(grantId.trim());
+                formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId.trim());
                 
                 if(formGrants.size()>1){
                     return mapping.findForward("duplicateGreensheetsError");
