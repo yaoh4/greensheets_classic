@@ -194,7 +194,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                     || formGrantsProxies.size() > 1) {
                 if (grantId != null && (!"".equals(grantId.trim()))) {
                     formGrants = greensheetsFormGrantsService
-                            .findGrantsByGrantNum(grantId.trim());
+                            .retrieveGrantsByFullGrantNum(grantId.trim());
                     formGrantsProxies = GreensheetActionHelper
                             .getFormGrantProxyList(formGrants, gus.getUser());
                 }
