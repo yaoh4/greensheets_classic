@@ -22,7 +22,7 @@ public interface GreensheetsFormGrantsService {
 
     public List findGrantsByGrantNum(String fullGrantNum);
 
-    public List findGrantsByFullGrantNum(String fullGrantNum);
+    public List retrieveGrantsByFullGrantNum(String fullGrantNum);
 
     public List findGrantsByPiLastName(String piLastName, String adminPhsOrgCode);
 
