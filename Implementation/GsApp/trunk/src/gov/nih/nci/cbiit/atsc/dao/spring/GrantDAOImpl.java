@@ -147,7 +147,7 @@ public class GrantDAOImpl implements GrantDAO {
         return original.substring(0, index) + replacement + original.substring(index + target.length());
     }
 
-    public List findGrantsByFullGrantNum(String fullGrantNum) {
+    public List retrieveGrantsByFullGrantNum(String fullGrantNum) {
         String baseQuery = "SELECT " + GrantDAOImpl.FORM_GRANT_VW_SELECT_COLS
                 + " FROM " + GrantDAOImpl.SOURCE_DB_OBJECTS;
         MapSqlParameterSource sqlParms = new MapSqlParameterSource();
@@ -159,24 +159,6 @@ public class GrantDAOImpl implements GrantDAO {
         incrementalQuery += "UPPER(FULL_GRANT_NUM) LIKE :fullGrantNum";
         sqlParms.addValue("fullGrantNum", fullGrantNum.trim().toUpperCase());
 
-        if (fullGrantNum.contains("-")) {
-            String suffixFullGrantNum = "";
-            String[] splits = fullGrantNum.split("-");
-            if (splits.length > 1) {
-                if (splits[1].toUpperCase().contains("S")) {
-                    suffixFullGrantNum = replaceLast(fullGrantNum, "S", "W");
-                } else if (splits[1].toUpperCase().contains("W")) {
-                    suffixFullGrantNum = replaceLast(fullGrantNum, "W", "S");
-
-                }
-            }
-            if (suffixFullGrantNum.length() > 0) {
-                incrementalQuery += GrantDAOImpl.BLANK_SPACE
-                        + "OR UPPER(FULL_GRANT_NUM) LIKE :suffixFullGrantNum";
-                sqlParms.addValue("suffixFullGrantNum", "%"
-                        + suffixFullGrantNum.trim().toUpperCase() + "%");
-            }
-        }
 
         String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
