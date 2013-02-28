@@ -99,8 +99,8 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
         return formGrants;
     }
     
-    public List findGrantsByFullGrantNum(String fullGrantNum) {
-        List formGrants = grantDAO.findGrantsByFullGrantNum(fullGrantNum);
+    public List retrieveGrantsByFullGrantNum(String fullGrantNum) {
+        List formGrants = grantDAO.retrieveGrantsByFullGrantNum(fullGrantNum);
 
         return formGrants;
     }
