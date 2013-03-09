@@ -125,7 +125,7 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
                 GreensheetActionHelper.setMyPortfolioOption(req, gus);
 
                 List formGrants = greensheetsFormGrantsService.findGrants(
-                        gsUser.getOracleId(), true, true, true);
+                        gsUser, true, true, true);
                 List<FormGrantProxy> list = GreensheetActionHelper
                         .getFormGrantProxyList(formGrants, gus.getUser());
                 req.getSession().setAttribute("GRANT_LIST", list);

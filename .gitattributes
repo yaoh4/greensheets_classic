@@ -130,6 +130,7 @@ Implementation/GsApp/trunk/WebRoot/images/sort_down.gif -text
 Implementation/GsApp/trunk/WebRoot/images/sort_up.gif -text
 Implementation/GsApp/trunk/WebRoot/index.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/ActionConfirm.jsp -text
+Implementation/GsApp/trunk/WebRoot/jsp/ChangeCurrFY.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/ChangeUser.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/CloseDialog.jsp -text
 Implementation/GsApp/trunk/WebRoot/jsp/DuplicateGreensheetsError.jsp -text
@@ -262,6 +263,7 @@ Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/atsc/dao/spring/UserRoleDataDAO
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/GreensheetResourceManager.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/GreensheetsResourceException.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/velocity/GreenSheetResourceLoader.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/ChangeCurrFYAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/ChangeGreensheetLockAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/DateColumnDecorator.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/EditProgramPreferencesAction.java -text

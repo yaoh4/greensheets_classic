@@ -451,7 +451,7 @@ public class SearchProgramGrantsAction extends GsBaseDispatchAction {
                  pgmPrefForm.getLastName(), pgmPrefForm.getFirstName());
          */
         List formGrants = greensheetsFormGrantsService.findGrants(
-                gsUser.getOracleId(), false, true, true);
+                gsUser, false, true, true);
 
         List<FormGrantProxy> list = GreensheetActionHelper
                 .getFormGrantProxyList(formGrants, gsUser);

@@ -50,6 +50,13 @@
             <form-property name="method" type="java.lang.String" />
              <form-property name="selectedUser" type="java.lang.String" />
         </form-bean>
+
+         <form-bean name="changeFYform" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="newFY" type="java.lang.Integer" />
+            <form-property name="okButton" type="java.lang.String"/>
+            <form-property name="cancelButton" type="java.lang.String"/>
+        </form-bean>
+
     </form-beans>
 
     <!-- ========== Global Exceptions ========== -->
@@ -114,6 +121,14 @@
             type="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveUsersGrantsAction"
             input="/jsp/ChangeUser.jsp" scope="request">
              <forward name="changeUser" path="/jsp/ChangeUser.jsp" />
+        </action>
+        
+        <action path="/changeCurrFy"
+            name="changeFYform"
+            type="gov.nih.nci.iscs.numsix.greensheets.application.ChangeCurrFYAction"
+            input="/jsp/changeCurrFY.jsp" scope="request">
+                <!-- No special FORWARD here because the action will forward to the globally defined 
+                     forward 'retrievegrants' -->
         </action>
         
         <!--  Program Grants Actions -->
@@ -195,6 +210,9 @@
         <action path="/pdfgeneration" forward="/jsp/PdfGenerationOptions.jsp" />
         
          <action path="/changeUser" forward="/jsp/ChangeUser.jsp" />
+         
+         <action path="/editCurrFY" forward="/jsp/ChangeCurrFY.jsp" />
+         
     </action-mappings>
 
     <controller

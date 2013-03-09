@@ -5,7 +5,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import java.util.List;
 
 public interface GreensheetsFormGrantsService {
-    public List findGrants(String nciOracleId,
+    public List findGrants(GsUser user,
             boolean onControlFlag,
             boolean restrictedToOpenForms,
             boolean restrictedToLoggedinUser);

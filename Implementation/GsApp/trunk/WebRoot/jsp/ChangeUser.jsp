@@ -16,8 +16,7 @@
 </head>
 <body>
 	<%
-	    GreensheetUserSession gus = (GreensheetUserSession) session.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
-	    String userName = gus.getUser().getDisplayUserName();
+	    String userName="";
 	    String userNotFoundMsg = (String) session.getAttribute(GreensheetsKeys.USER_NOT_FOUND);
 	    List<LdapRecord> foundUsers = (List<LdapRecord>) session.getAttribute("foundUsers");
 	%>
@@ -25,15 +24,17 @@
 	<%@ include file="/jsp/common/GlobalHeader.jsp"%>
 
 	<br />
-	<H2>
-		Testing / Troubleshooting:<br /> <span>Search for a user whose
-			view of the system you would like to experience</span>
-	</H2>
-
+	<div class="TitlePrimary">
+		Testing / Troubleshooting:
+	</div>
+	<div class="TitleSecondary">Search for a user whose
+            view of the system you would like to experience
+    </div>
+    <div style="margin: 1em 0;"><!-- Formatting (line spacing) placeholder --></div>
 	<%
 	    if (userNotFoundMsg != null) {
 	%>
-	<li><font color="red">User not found. Please try again.</font></li>
+	<div class="TitleSecondary"><font color="red">User not found. Please try again.</font></div>
 	<%
 	    }
 	%>
@@ -44,16 +45,13 @@
 		<table style="width: 40%;" border="0" cellpadding="0" cellspacing="0">
 			<tr valign="bottom">
 			<tr>
-				<td valign="bottom"><label for="firstName">First Name:</label><input
-					type="text" name="firstName" value=" " /></td>
+				<td valign="bottom"><label for="firstName">First Name:</label> <input
+					type="text" name="firstName" value="" /></td>
 			</tr>
 			<tr>
-				<td valign="bottom"><label for="lastName">Last Name:</label><input
-					type="text" name="lastName" value=" " /></td>
+				<td valign="bottom"><label for="lastName">Last Name:</label> <input
+					type="text" name="lastName" value="" /></td>
 			</tr>
-
-			</tr>
-
 		</table>
 		<br> <input name="Search" type="submit" class="button"
 			id="Search" value="Search" />
@@ -68,7 +66,7 @@
 		<%
 		    if (foundUsers != null) {
 		%>
-		<h3>Search Results: (Max number of 100 users are displayed.)</h3>
+		<div class="TitleSecondary">Search Results: (Max number of 100 users are displayed.)</div>
 
 		<table style="width: 40%;" class="data" cellspacing="0">
 
@@ -117,46 +115,3 @@
 	<%@ include file="/jsp/common/GlobalFooter.jsp"%>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

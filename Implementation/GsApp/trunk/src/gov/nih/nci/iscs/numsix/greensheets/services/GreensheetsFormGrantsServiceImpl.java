@@ -9,7 +9,9 @@ import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
@@ -35,9 +37,12 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
         this.greensheetsMiscServices = greensheetsMiscServices;
     }
 
-    public List findGrants(String nciOracleId, boolean onControlFlag,
+    public List findGrants(GsUser user, boolean onControlFlag,
             boolean restrictedToOpenForms, boolean restrictedToLoggedinUser) {
-        ArrayList<Calendar> budgetDates = this.determineBudgetDates();
+        
+    	String nciOracleId = user.getOracleId();
+    	
+    	ArrayList<Calendar> budgetDates = this.determineBudgetDates(user);
 
         List formGrants = grantDAO.findGrants(nciOracleId, budgetDates.get(0),
                 budgetDates.get(1), onControlFlag, restrictedToOpenForms,
@@ -82,7 +87,7 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
         boolean restrictedToOpenForms = true; // Restrict the forms that are
         // open.
 
-        ArrayList<Calendar> budgetDates = this.determineBudgetDates();
+        ArrayList<Calendar> budgetDates = this.determineBudgetDates(user);
 
         List formGrants = grantDAO.findGrants(budgetDates.get(0),
                 budgetDates.get(1), restrictedToOpenForms, applStatusGroupCode,
@@ -118,7 +123,17 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
         return formGrants;
     }
 
-    private ArrayList<Calendar> determineBudgetDates() {
+    private ArrayList<Calendar> determineBudgetDates(GsUser user) {
+    	
+    	String currentFYtoAssume = "";
+    	if (user!=null) {
+    		Map<String, String> userPreferences = user.getUserPreferences();
+    		if (userPreferences!=null) {
+    			currentFYtoAssume = userPreferences.get("FY_TO_ASSUME");
+    		}
+    	}
+    	if (currentFYtoAssume==null)  { currentFYtoAssume = ""; }
+    	
         Calendar currentTimestamp = Calendar.getInstance();
 
         Calendar startDate = Calendar.getInstance(), endDate = Calendar
@@ -128,6 +143,14 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
         currentTimestamp.setTime((Date) greensheetsMiscServices
                 .getCurrentTimsestamp());
         int currentYear = currentTimestamp.get(Calendar.YEAR);
+        
+        /* The overriding of system-date-based current FY with what the testing user may 
+         * have specified instead:  */
+        if (!"".equals(currentFYtoAssume)) {
+        	currentYear = Integer.parseInt(currentFYtoAssume);
+        	currentTimestamp.set(GregorianCalendar.YEAR, currentYear);
+        }
+        
         int currentMonth = currentTimestamp.get(Calendar.MONTH);
         int fiscalStartYear = -99, fiscalEndYear = -99; // Should be set to a
         // valid values.

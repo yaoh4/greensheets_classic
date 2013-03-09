@@ -6,7 +6,8 @@
 <%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tlds/struts-bean.tld" prefix="bean" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
 <head>
 	<title>Greensheets</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
@@ -73,7 +74,7 @@ String userName = gus.getUser().getDisplayUserName();
 	</tr>
 	<tr>
 		<td colspan="2" width="100%" >
-			<p>"There are no pending greensheets assigned to you. According to the system you are a 'guest user'. If you think this is an error, please send an e-mail to the <a href="mailto:nci-now-l@list.nih.gov?subject=Greensheets">NOW Comments List</a>. You may view a read-only version of a greensheet for a particular grant by using the search field above"</p>
+			<p>There are no pending greensheets assigned to you. According to the system you are a 'guest user'. If you think this is an error, please send an e-mail to the <a href="mailto:nci-now-l@list.nih.gov?subject=Greensheets">NOW Comments List</a>. You may view a read-only version of a greensheet for a particular grant by using the search field above.</p>
 		</td>
 	</tr>
 </table>
@@ -81,47 +82,4 @@ String userName = gus.getUser().getDisplayUserName();
 
 <%@ include file="/jsp/common/GlobalFooter.jsp"%>
 </body>
-</html> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>

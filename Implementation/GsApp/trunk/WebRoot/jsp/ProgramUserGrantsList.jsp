@@ -3,64 +3,58 @@
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic"%>
-<script language="javascript" src="./scripts/ClientSideMethods.js"></script>
-
-<%
-GreensheetUserSession gus = (GreensheetUserSession) session.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
-String userName = gus.getUser().getDisplayUserName();
-%>
-
 <!DOCTYPE HTML PUBLIC "-//w3c//dtd html 4.0 transitional//en">
-
-<html:hidden property="method" value="error" />
-
-<script>
-function toggleCriteriaPanelDisplay(divId, imgId)
-	{		
-		// Get the div element. 
-		var divElement = document.getElementById(divId);	
-		// If element is not null, toggle the display of the element.
-		if( (divElement != null) && (divElement != 'undefined') )
-		{
-			//set up the variables.
-			var displayText = "block";
-			var imgSrc = "./images/IconOpen.gif";
-			
-			if(divElement.style.display == "block")
-			{
-				displayText = "none";
-				imgSrc = "./images/IconClosed.gif";			
-			}
-
-			// Show or hide the Div Area
-			divElement.style.display = displayText;			
-			
-			// Change the icon 
-			// First get the image element
-			var imgElement = document.getElementById(imgId);
-			if( (imgElement != null) && (imgElement != 'undefined') )
-			{
-				imgElement.src = imgSrc;	
-			}		
-		}		
-	}	
-	
-function setMethod(target) {
-   document.forms[0].method.value=target;
-}
-</script>
-
 <html>
 	<head>
 		<title>Greensheets</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link rel="stylesheet" href="./stylesheets/otherappsmenu.css" type="text/css" />
 		<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
+        
+        <script language="javascript" src="./scripts/ClientSideMethods.js"></script>
+		<script>
+		function toggleCriteriaPanelDisplay(divId, imgId)
+		    {       
+		        // Get the div element. 
+		        var divElement = document.getElementById(divId);    
+		        // If element is not null, toggle the display of the element.
+		        if( (divElement != null) && (divElement != 'undefined') )
+		        {
+		            //set up the variables.
+		            var displayText = "block";
+		            var imgSrc = "./images/IconOpen.gif";
+		            
+		            if(divElement.style.display == "block")
+		            {
+		                displayText = "none";
+		                imgSrc = "./images/IconClosed.gif";         
+		            }
+		
+		            // Show or hide the Div Area
+		            divElement.style.display = displayText;         
+		            
+		            // Change the icon 
+		            // First get the image element
+		            var imgElement = document.getElementById(imgId);
+		            if( (imgElement != null) && (imgElement != 'undefined') )
+		            {
+		                imgElement.src = imgSrc;    
+		            }       
+		        }       
+		    }   
+		    
+		function setMethod(target) {
+		   document.forms[0].method.value=target;
+		}
+		</script>
 	</head>
 	<body>
+<%
+    String userName = "";
+%>	
 		<table border="0" width="100%">
 			<tr>
-				<td border="0" width="100%">
+				<td width="100%">
 					<%@ include file="/jsp/common/GlobalHeader.jsp"%>
 				</td>
 			</tr>
@@ -72,6 +66,7 @@ function setMethod(target) {
 								<a href="javascript:toggleCriteriaPanelDisplay('divId1', 'imgDivId1')"> <img border="0" id="imgDivId1" name="imgDivId1" src="./images/IconOpen.gif" onClick="" /> </a>
 								<div id="divId1" name="divId1" style="display:block">
 									<html:form action="searchprogramgrantsdispatch">
+									   <html:hidden property="method" value="error" /> <%-- Moved here from outside the form, where it was being ignored - AK Mar-08-2013 --%>
 										<TABLE bgcolor="#CCCCCC" border="0" width="100%" cellpadding="3">
 											<TR>
 												<TD>

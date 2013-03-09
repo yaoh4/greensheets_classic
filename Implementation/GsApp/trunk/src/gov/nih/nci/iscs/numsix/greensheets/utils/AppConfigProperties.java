@@ -55,8 +55,8 @@ public class AppConfigProperties {
 				Map.Entry me = (Map.Entry) iter.next();
 				if (me.getValue() instanceof java.util.Properties) {
 					Properties p = (Properties) me.getValue();
-					if (p.contains(key)) {
-						result = props.get(key);
+					if (p.containsKey(key)) {
+						result = p.get(key);
 						break;
 					}
 				}

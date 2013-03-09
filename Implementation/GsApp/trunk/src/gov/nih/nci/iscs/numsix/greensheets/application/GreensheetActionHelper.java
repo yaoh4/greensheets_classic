@@ -21,6 +21,7 @@ import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -116,6 +117,14 @@ public class GreensheetActionHelper {
         // String remoteUserName = req.getRemoteUser();
         String remoteUserName = null;
 
+        /** FY to assume for retrieving grants list in DEV and TEST environments with
+         *  old data - change-able via UI only by super-users and stored in GreensheetUserSessions */
+        String currentFYtoAssume = "";
+        if (gus!=null) {
+        	currentFYtoAssume = gus.getUser().getUserPreferences().get("FY_TO_ASSUME");
+        	if (currentFYtoAssume==null)  { currentFYtoAssume = ""; }
+        }
+        
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
         GreensheetsUserServices greensheetsUserServices = (GreensheetsUserServices) context
@@ -227,6 +236,17 @@ public class GreensheetActionHelper {
                                 user.getRoleAsString());
                 user.setUserPreferences(userPreferences);
             }
+            Map<String, String> userPreferences = user.getUserPreferences();
+            if (userPreferences==null) {
+            	userPreferences = new HashMap<String, String>();
+            }
+            if (currentFYtoAssume!=null && !"".equals(currentFYtoAssume)) {
+            	userPreferences.put("FY_TO_ASSUME", currentFYtoAssume);
+            	// ^ Only super-users can change the 'current FY' to something other than the actual FY.
+            	// The above ensures that even after super-user performed the "change user" action and 
+            	// started acting as a regular, non-super, user, the change of FY will still be in effect. 
+            }
+            user.setUserPreferences(userPreferences);
 
             if (loggedInUserID.indexOf(",") > -1) {
                 loggedInUserID = loggedInUserID.substring(0,
