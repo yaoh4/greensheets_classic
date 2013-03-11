@@ -248,7 +248,7 @@ public class GrantDAOImpl implements GrantDAO {
         // Should be the first condition because the AND keyword is not prefixed
         // to the predicate.
 
-        incrementalQuery += "BUDGET_START_DATE >= TO_DATE('01/06/2004','DD-MM-YYYY')";
+        incrementalQuery += "LATEST_BUDGET_START_DATE >= TO_DATE('01/06/2004','DD-MM-YYYY')";
 
         if ((fullGrantNum == null && piLastName == null && piFirstName == null)
                 || (fullGrantNum.trim().length() == 0 && piLastName.trim().length() == 0 && piFirstName.trim().length() == 0)) {
