@@ -73,7 +73,7 @@
 		<copy todir="${java.classes.dir}">
 			<fileset dir="${src.java.dir}" excludes="**/*.java" />
 		</copy>
-		<copy file="${web.inf.dir}/applicationContext.xml" todir="${java.classes.dir}" />
+		<copy file="${src.java.dir}/applicationContext.xml" todir="${java.classes.dir}" />
 
 	</target>
 
