@@ -1,0 +1,236 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+      
+
+    <bean id="propertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="locations">
+            <list>
+                <value>file:${conf.dir}/greensheets/db.properties</value>
+                <value>file:${conf.dir}/greensheets/greensheetconfig.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="contextSourceTarget" class="org.springframework.ldap.core.support.LdapContextSource">
+        <!-- <property name="url" value="ldap://ncids4a.nci.nih.gov:389/"/> -->
+        <property name="urls">
+            <list>
+                <value>ldap://ncids4a.nci.nih.gov:389/</value>
+                <!-- <value>ldap://ncids5a.nci.nih.gov:636/</value> --> <!-- Check for Network params fails. -->
+                <!-- <value>ldap://ncids2b.nci.nih.gov:636/</value> --> <!-- Check for Network params fails. -->
+                <!-- <value>ldap://ncids4a.nci.nih.gov:636/</value> --> <!-- Check for Network params Ok. Authentication fails. -->
+            </list>
+        </property>
+        <property name="base" value="" />
+        <!-- Deprecated. Use setUserDn(String) instead. -->
+        <!-- <property name="userName" value="cn=NCILDAPAdmin,OU=NCI,O=NIH" /> -->
+        <!-- <property name="userDn" value="cn=NCILDAPAdmin,OU=NCI,O=NIH" /> -->
+        <!-- <property name="password" value="p0ohbe@r" /> -->
+        <property name="userDn" value="${userDn}" />
+        <property name="password" value="${password}" />
+        <property name="pooled" value="false" />
+    </bean>
+
+    <bean id="dirContextValidator"
+        class="org.springframework.ldap.pool.validation.DefaultDirContextValidator" />
+
+    <bean id="contextSource"
+        class="org.springframework.ldap.pool.factory.PoolingContextSource">
+        <property name="contextSource" ref="contextSourceTarget" />
+        <property name="dirContextValidator" ref="dirContextValidator" />
+        <property name="testOnBorrow" value="true" />
+        <property name="testOnReturn" value="true" />
+        <property name="testWhileIdle" value="true" />
+    </bean>
+
+    <bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="contextSource" />
+    </bean>
+
+    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+        <property name="URL">
+            <value>${db.url}</value>
+        </property>
+        <property name="user">
+            <value>${db.user}</value>
+        </property>
+        <property name="password">
+            <value>${db.password}</value>
+        </property>
+    </bean>
+        
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    
+    <!--  Configure Persistence provider -->
+<!-- 
+    <bean id="eclipseLinkAdapter" class="org.springframework.orm.jpa.vendor.TopLinkJpaVendorAdapter">
+       <property name="databasePlatform" value="${platform}"/>
+       <property name="showSql" value="true"/>
+       <property name="generateDdl" value="true"/>
+    </bean> 
+-->    
+    <!-- 
+    <bean id="I2EEmf"
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="loadTimeWeaver">
+            <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+        </property>
+    </bean>
+    -->
+    <!-- <property name="jpaVendorAdapter" ref="eclipseLinkAdapter"/> -->   
+        
+    <!-- Configure DAO -->
+    <bean id="nciPersonDAO"
+        class="gov.nih.nci.cbiit.atsc.dao.ldap.NCIPersonDAOImpl">
+        <property name="ldapTemplate" ref="ldapTemplate" />
+    </bean>
+
+    <bean id="miscDataDAO"
+        class="gov.nih.nci.cbiit.atsc.dao.spring.MiscDataDAOImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="userRoleDataDAO"
+        class="gov.nih.nci.cbiit.atsc.dao.spring.UserRoleDataDAOImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean> 
+    
+    <bean id="greensheetQuestionsDAO"
+        class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetQuestionsDAOImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+        
+    <!-- Configure Business Service -->
+    <bean id="greensheetsMiscServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsMiscServicesImpl">
+        <property name="miscDataDAO" ref="miscDataDAO" />
+    </bean>
+    
+    <bean id="greensheetsQuestionsServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsQuestionsServicesImpl">
+        <property name="greensheetQuestionsDAO" ref="greensheetQuestionsDAO" />
+    </bean>
+
+    <bean id="greensheetsUserPreferencesDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetsUserPreferencesDAOImpl">
+        <property name="dataSource" ref="dataSource" /> 
+    </bean>
+
+    <bean id="greensheetsUserPreferencesServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserPreferencesServicesImpl">
+        <property name="greensheetsUserPreferencesDAO" ref="greensheetsUserPreferencesDAO" />
+    </bean> 
+            
+    <bean id="greensheetsUserServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserServicesImpl">
+        <property name="nciPersonDAO" ref="nciPersonDAO" />
+        <property name="userRoleDataDAO" ref="userRoleDataDAO" />
+        <property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices" />
+    </bean>     
+    
+    <bean id="grantDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GrantDAOImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>  
+    
+    <bean id="greensheetFormDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetFormDAOImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>    
+    
+    <bean id="greensheetFormTemplateDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetFormTemplateDAOImpl">
+         <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>        
+    
+    <bean id="greensheetsFormGrantsService"
+        class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFormGrantsServiceImpl">
+        <property name="greensheetsMiscServices">
+            <ref bean="greensheetsMiscServices"></ref>
+        </property>
+        <property name="grantDAO">
+            <ref bean="grantDAO"></ref>
+        </property>   
+    </bean>
+    
+    <bean id="greensheetFormTemplateService" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormTemplateServiceImpl">
+        <property name="greensheetFormTemplateDAO" ref="greensheetFormTemplateDAO" />
+    </bean>   
+    
+    <bean id="greensheetFormService" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormServiceImpl">
+        <property name="greensheetFormDAO" ref="greensheetFormDAO" />
+    </bean>      
+    
+    <!-- Spring Struts Integration -->
+    
+     
+    <bean name="/retrievegrants" class="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveUsersGrantsAction" >
+        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/>
+    </bean>
+    
+    <bean name="/searchprogramgrants" class="gov.nih.nci.iscs.numsix.greensheets.application.SearchProgramGrantsAction">
+        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/>
+    </bean>
+    
+    <bean name="/editprogrampreferences" class="gov.nih.nci.iscs.numsix.greensheets.application.EditProgramPreferencesAction">
+        <property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices"/>
+    </bean>
+    
+    <bean name="/saveprogrampreferences" class="gov.nih.nci.iscs.numsix.greensheets.application.SaveProgramPreferencesAction">
+        <property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices"/>
+    </bean>
+    
+    <bean name="/searchforgrant" class="gov.nih.nci.iscs.numsix.greensheets.application.SearchForGrantAction">
+        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/>
+    </bean>
+    
+    <bean name="/retrievegreensheet" class="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveGreensheetAction">
+        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/> 
+        <property name="greensheetFormService" ref="greensheetFormService"/>
+    </bean>
+    
+    <bean name="/changelock" class="gov.nih.nci.iscs.numsix.greensheets.application.ChangeGreensheetLockAction">
+        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/>
+    </bean>
+    
+     <bean name="/status" class="gov.nih.nci.iscs.numsix.greensheets.application.ErrorTestAction">
+        <property name="greensheetsMiscServices" ref="greensheetsMiscServices"/> 
+        <property name="greensheetsUserServices" ref="greensheetsUserServices"/>
+    </bean>
+    
+    <!-- ===== Mail service ===== -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${smtp_server}" />
+		<property name="port" value="25" />
+		<property name="username" value="" />
+		<property name="password" value="" />
+		<property name="javaMailProperties">
+			<props>
+				<!-- Use SMTP-AUTH to authenticate to SMTP server -->
+				<prop key="mail.smtp.auth">false</prop>
+				<!-- Use TLS to encrypt communication with SMTP server -->
+				<prop key="mail.smtp.starttls.enable">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Mail message -->
+
+	<bean id="mailTemplate" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="${gs_email_from}" />
+		<property name="to" value="${gs_error_email_to}" />
+	</bean>
+	
+	<bean id="emailService"
+          class="gov.nih.nci.salient.framework.service.impl.EmailService">
+        <property name="mailSender">
+			<ref bean="mailSender" />
+		</property>
+    </bean>
+    
+            
+</beans>
