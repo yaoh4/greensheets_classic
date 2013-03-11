@@ -309,7 +309,6 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/Gree
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/GreensheetsUserPreferencesServicesImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/GreensheetsUserServices.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/GreensheetsUserServicesImpl.java -text
-Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/WEB-INF/web.xml -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetformmgr/AttachmentHelper.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetformmgr/GreensheetFormDataHelper.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/services/greensheetformmgr/GreensheetFormMgr.java -text
