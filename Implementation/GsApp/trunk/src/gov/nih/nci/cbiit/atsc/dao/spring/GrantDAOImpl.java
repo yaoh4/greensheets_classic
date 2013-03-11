@@ -102,7 +102,7 @@ public class GrantDAOImpl implements GrantDAO {
         if (fullGrantNum == null || "".equals(fullGrantNum.trim())) {
             return null;
         }
-        incrementalQuery += "UPPER(FULL_GRANT_NUM) LIKE :fullGrantNum";
+        incrementalQuery += "(UPPER(FULL_GRANT_NUM) LIKE :fullGrantNum";
         sqlParms.addValue("fullGrantNum", "%"
                 + fullGrantNum.trim().toUpperCase() + "%");
 
@@ -125,6 +125,8 @@ public class GrantDAOImpl implements GrantDAO {
             }
         }
 
+        incrementalQuery += ")";
+        
         String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
         String completeQuery = incrementalQuery + " ORDER BY " + sortOrder;
@@ -286,7 +288,7 @@ public class GrantDAOImpl implements GrantDAO {
             }
 
             incrementalQuery += GrantDAOImpl.BLANK_SPACE
-                    + "AND APPL_STATUS_GROUP_CODE IN ('PA', 'TP') AND (APPL_STATUS_GROUP_CODE = 'PC' AND APPL_STATUS_CODE != '25')";
+                    + "AND (APPL_STATUS_GROUP_CODE IN ('PA', 'TP') OR (APPL_STATUS_GROUP_CODE = 'PC' AND APPL_STATUS_CODE != '25'))";
 
         }
 
@@ -380,10 +382,8 @@ public class GrantDAOImpl implements GrantDAO {
         }
 
         if (fullGrantNum != null && !("".equals(fullGrantNum.trim()))) {
-            //  incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND UPPER(FULL_GRANT_NUM) LIKE UPPER(:fullGrantNum)";
-            //  sqlParms.addValue("fullGrantNum", "%" + fullGrantNum.trim() + "%");
             fullGrantNum = fullGrantNum.toUpperCase();
-            incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND UPPER(FULL_GRANT_NUM) LIKE UPPER(:fullGrantNum)";
+            incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND (UPPER(FULL_GRANT_NUM) LIKE UPPER(:fullGrantNum)";
             sqlParms.addValue("fullGrantNum", "%" + fullGrantNum.trim() + "%");
 
             if (fullGrantNum.contains("-")) {
@@ -404,6 +404,8 @@ public class GrantDAOImpl implements GrantDAO {
                     }
                 }
             }
+            
+            incrementalQuery += ")";
         }
 
         if (piLastName != null && !("".equals(piLastName.trim()))) {
