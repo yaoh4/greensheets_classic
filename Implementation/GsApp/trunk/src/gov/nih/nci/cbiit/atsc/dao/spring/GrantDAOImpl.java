@@ -288,7 +288,8 @@ public class GrantDAOImpl implements GrantDAO {
             }
 
             incrementalQuery += GrantDAOImpl.BLANK_SPACE
-                    + "AND (APPL_STATUS_GROUP_CODE IN ('PA', 'TP') OR (APPL_STATUS_GROUP_CODE = 'PC' AND APPL_STATUS_CODE != '25'))";
+                    + "AND (APPL_STATUS_GROUP_CODE IN ('PA', 'TP') OR (APPL_STATUS_GROUP_CODE = 'PC' AND APPL_STATUS_CODE != '25')" +
+                    		" OR DUMMY_FLAG = 'Y')";
 
         }
 
