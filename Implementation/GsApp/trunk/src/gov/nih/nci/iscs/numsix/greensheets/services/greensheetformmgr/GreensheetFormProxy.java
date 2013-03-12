@@ -38,7 +38,10 @@ public class GreensheetFormProxy extends GreensheetForm {
 	}
 
 	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
+		// return ToStringBuilder.reflectionToString(this);
+		// ^ was not really working... - Anatoli
+		return this.group.getName() + " greensheet form with id " + this.getId() 
+				+ " for appl_id " + this.getApplId() + " [" + status.getName() +"]"; 
 	}
 
 	public String getSubmittedDateAsString() {

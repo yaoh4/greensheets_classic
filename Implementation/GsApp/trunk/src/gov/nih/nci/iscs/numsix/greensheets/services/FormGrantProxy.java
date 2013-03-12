@@ -401,7 +401,9 @@ public class FormGrantProxy extends FormGrant {
 	
 	// Task to do: See if we can continue the old style.
 	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
+		// return ToStringBuilder.reflectionToString(this);
+		// ^ Was not working... - Anatoli March 2013
+		return "Form Grant Proxy <" + super.toString() + ">";
 	}
 	
 	/**

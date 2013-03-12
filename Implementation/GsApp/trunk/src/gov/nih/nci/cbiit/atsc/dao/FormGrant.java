@@ -545,7 +545,6 @@ public class FormGrant implements Serializable {
     }
 
     public String toString() {
-        // TODO Auto-generated method stub
-        return "";
+        return "Grant " + fullGrantNum + " (" + applId + ")" + (dummy ? " [dummy]" : "");
     }
 }

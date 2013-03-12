@@ -171,4 +171,9 @@ public class GreensheetFormSession {
 			}
 		}
 	}
+	
+	public String toString() {
+		return this.form.getFormRoleCode() + " greensheet for " + this.grant.getFullGrantNum() +
+				"(" + this.grant.getApplId() + ") [" + this.form.getFormStatus() + "]"; 
+	}
 }

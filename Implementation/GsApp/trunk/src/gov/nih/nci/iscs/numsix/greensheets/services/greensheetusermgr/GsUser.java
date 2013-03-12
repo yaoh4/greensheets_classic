@@ -258,4 +258,9 @@ public class GsUser {
 	public void setUserName(String userID) {
 		this.userName = userID;
 	}
+	
+	public String toString() {
+		return "user " + this.remoteUserName + " [" + this.userName + "/" + this.oracleId + ": " +
+			this.getRoleAsString() + "]";
+	}
 }
