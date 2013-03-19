@@ -153,6 +153,15 @@ public class RetrieveGreensheetAction extends GsBaseAction {
         String grantIda = (String) req
                 .getAttribute(GreensheetsKeys.KEY_GRANT_ID);
         String applId = (String) req.getParameter(GreensheetsKeys.KEY_APPL_ID);
+        if (applId == null || "".equals(applId)) {
+        	Object applIdObj = req.getAttribute(GreensheetsKeys.KEY_APPL_ID); 
+        	if (applIdObj!=null && applIdObj instanceof Long) {
+        		applId = ((Long)applIdObj).toString();
+        	}
+        	else if(applIdObj!=null && applIdObj instanceof String) {
+        		applId = (String)applIdObj;
+        	}
+        }
         String grantId = null;
         // GsGrant grant = null; //Abdul Latheef: Used FormGrant instead of
         // GsGrant.
@@ -208,7 +217,11 @@ public class RetrieveGreensheetAction extends GsBaseAction {
 //            } else {
 //                grant = null;
 //            }
-            String group = req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE).trim();
+            String group = req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE);
+            if (group == null || "".equals(group)) {
+            	group = (String) req.getAttribute(GreensheetsKeys.KEY_GS_GROUP_TYPE);
+            }
+            if (group != null)  { group = group.trim(); }
             if (group == null || "".equals(group)) {
             	GreensheetBaseException newException = new GreensheetBaseException("The request to retrieve " +
             			"a greensheet that you submitted does not specify what kind of greensheet (e.g., " +
