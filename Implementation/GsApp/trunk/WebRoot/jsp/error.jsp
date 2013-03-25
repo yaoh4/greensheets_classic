@@ -24,7 +24,10 @@
 
 <%
 GreensheetUserSession gus = (GreensheetUserSession) session.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
-String userName = gus.getUser().getDisplayUserName();
+String userName = "";
+if (gus!=null && gus.getUser()!=null) {
+	userName = gus.getUser().getDisplayUserName();
+}
 if (userName == null) { userName = ""; }
 %>
 <script>
