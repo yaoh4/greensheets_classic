@@ -8,6 +8,7 @@ package gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr;
 
 import gov.nih.nci.iscs.numsix.greensheets.application.GreensheetUserSession;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,9 @@ import org.apache.commons.lang.StringUtils;
  * 
  * @author kpuscas, Number Six Software
  */
-public class GsUser {
+public class GsUser implements Serializable {
+
+	private static final long serialVersionUID = -1251126806314707178L;
 
 	private GsUserRole role;
 

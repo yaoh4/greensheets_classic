@@ -2,12 +2,15 @@ package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
 import gov.nih.nci.cbiit.atsc.dao.GreensheetForm;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class GreensheetFormProxy extends GreensheetForm {
+public class GreensheetFormProxy extends GreensheetForm implements Serializable {
+
+	private static final long serialVersionUID = 8535948425115382757L;
 
 	private GreensheetStatus status;
 

@@ -9,6 +9,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,8 +22,11 @@ import org.apache.log4j.Logger;
 /**
  * @author kpuscas, Number Six Software
  */
-public class GreensheetUserSession implements HttpSessionBindingListener {
-    private Map greensheetFormSessions = new HashMap();
+public class GreensheetUserSession implements HttpSessionBindingListener, Serializable {
+
+	private static final long serialVersionUID = -7209209641340843953L;
+
+	private Map greensheetFormSessions = new HashMap();
 
     private GsUser user;
 

@@ -12,6 +12,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.Greensheet
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionAttachment;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -26,7 +27,9 @@ import org.apache.log4j.Logger;
  *
  * @author kpuscas, Number Six Software
  */
-public class GreensheetFormSession {
+public class GreensheetFormSession implements Serializable {
+
+	private static final long serialVersionUID = -857899665752991073L;
 
 	private GreensheetFormProxy form;
 

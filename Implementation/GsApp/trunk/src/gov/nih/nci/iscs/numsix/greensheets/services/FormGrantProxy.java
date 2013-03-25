@@ -8,11 +8,15 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
+import java.io.Serializable;
 import java.util.Properties;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class FormGrantProxy extends FormGrant {
+public class FormGrantProxy extends FormGrant implements Serializable {
+
+	private static final long serialVersionUID = 7119954869318323823L;
+
 	private GsUser user;
 
 	public FormGrantProxy(GsUser user) {
