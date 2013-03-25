@@ -19,8 +19,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
@@ -42,6 +45,162 @@ class AttachmentHelper {
      * Constructor for AttachmentHelper.
      */
     AttachmentHelper() {
+    }
+    
+    /**
+     * Deletes from the database the records of attachments that are not among the attachments of 
+     * the form being saved when this method is called.  With proper concurrency/record versioning
+     * control, this method should not be necessary - it is a quick patch for the fact that for
+     * now, users totally can be saving the same form simultaneously. It does not commit anything,
+     * and should be run inside a broader transaction of saving the form, which is why it should 
+     * not be obtaining its own connection, but should receive one as an argument.
+     * @param dbConn - Connection within which the larger transaction is running.
+     * @param formId - the DB ID of the greensheet form whose orphan attachments we need to delete 
+     * @param questionsMap - questions that have attachment-type answers in the in-memory form the 
+     *        user is trying to save.
+     */
+    void deleteOrphanAttachments(Connection dbConn, int formId, Map questionsMap) throws SQLException {
+    	if (dbConn != null && !dbConn.isClosed()) {
+    		
+    		// Get database IDs of all attachment records currently saved in the database for this form.
+    		String sqlGetRecordIds = "SELECT faa.id, faa.name, faa.file_location, faa.fqa_id, faa.create_user_id, " +
+    				"to_char(faa.create_date, 'YYYY-MM-DD HH24:MI:SS') as create_date_str " +
+    				"FROM form_answer_attachments_t FAA  JOIN  form_question_answers_t FQA  on faa.fqa_id = fqa.id " +
+    				"WHERE fqa.frm_id = ?";
+    		PreparedStatement selRecsStmt = dbConn.prepareStatement(sqlGetRecordIds);
+    		selRecsStmt.setInt(1, formId);
+    		ResultSet rs = selRecsStmt.executeQuery();
+    		ArrayList<QuestionAttachment> existingAttachmentsForForm = new ArrayList<QuestionAttachment>();
+    		Set<Integer> fileTypeRespRecIds = new HashSet<Integer>();
+    		while (rs!=null && rs.next()) {
+    			QuestionAttachment attchEntry = QuestionAttachment.createNewAttachment();
+    			attchEntry.setDbId(rs.getInt("ID"));
+    			attchEntry.setFilename(rs.getString("NAME"));
+    			attchEntry.setFilePath(rs.getString("FILE_LOCATION"));
+    			attchEntry.setFqaId(rs.getInt("FQA_ID"));
+    			attchEntry.setCreateUserId(rs.getString("CREATE_USER_ID"));
+    			attchEntry.setCreateDateAsString(rs.getString("CREATE_DATE_STR"));
+    			existingAttachmentsForForm.add(attchEntry);
+    			fileTypeRespRecIds.add(new Integer(rs.getInt("FQA_ID")));
+    		}
+    		if (rs!=null) {
+    			rs.close();
+    			rs = null;
+    		}
+    		if (selRecsStmt!=null) {
+    			selRecsStmt.close();
+    			selRecsStmt = null;
+    		}
+    		
+    		// Get database IDs of all attachment records contained in the in-memory bean representing the greensheet 
+    		// form the user is trying to save.
+    		Map<Integer, QuestionAttachment> attsBeingSaved = new HashMap<Integer, QuestionAttachment>();
+    		Set<Integer> fileTypeRespRecsBeingSaved = new HashSet<Integer>();
+    		Iterator<QuestionResponseData> itr = (Iterator<QuestionResponseData>) questionsMap.values().iterator();
+    		while (itr!=null && itr.hasNext()) {
+    			QuestionResponseData responseData = itr.next();
+    			fileTypeRespRecsBeingSaved.add(new Integer(responseData.getId()));
+    			Iterator<QuestionAttachment> attsItr = 
+    					(Iterator<QuestionAttachment>) responseData.getQuestionAttachments().values().iterator();
+    			while (attsItr!=null && attsItr.hasNext()) {
+    				QuestionAttachment att = attsItr.next();
+    				int dbId = att.getDbId();
+    				if (dbId!=0) {
+    					attsBeingSaved.put(new Integer(dbId), att);
+    				}
+    			}
+    		}
+    		
+    		// Build a list of attachment records that exist in the database but are not among the "existing" 
+    		// attachments that were loaded when the user loaded the form - those should be deleted as they are orphaned.
+    		ArrayList<QuestionAttachment> attRecsToDelete = new ArrayList<QuestionAttachment>();
+    		for (int i=0; i < existingAttachmentsForForm.size(); i++) {
+    			QuestionAttachment dbRec = existingAttachmentsForForm.get(i);
+    			int dbId = dbRec.getDbId();
+    			if (!attsBeingSaved.containsKey(new Integer(dbId))) {
+    				attRecsToDelete.add(dbRec);
+    			}
+    		}
+    		Set<Integer> fileTypeRespRecsToDelete = new HashSet<Integer>();
+    		Iterator<Integer> itrQArecs = fileTypeRespRecIds.iterator();
+    		while (itrQArecs!=null && itrQArecs.hasNext()) {
+    			Integer oneId = itrQArecs.next();
+    			if (!fileTypeRespRecsBeingSaved.contains(oneId)) {
+    				fileTypeRespRecsToDelete.add(oneId);
+    			}
+    		}
+
+    		
+    		// Let's clean up a little before we move on...
+    		attsBeingSaved.clear();
+    		attsBeingSaved = null;
+    		existingAttachmentsForForm.clear();
+    		existingAttachmentsForForm = null;
+    		
+    		// OK, now all that's left to do is delete the actual orphan attachments:
+    		String delOrphanAttchSql = "DELETE FROM form_answer_attachments_t WHERE fqa_id = ? and ID = ?";
+    		PreparedStatement delOrhpanAttchStmt = dbConn.prepareStatement(delOrphanAttchSql);
+
+    		Properties p = (Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
+    		String repositoryPath = "";
+    		if (p!=null) {
+    			repositoryPath = p.getProperty("attachemts.repository.path"); // TODO: this is misspelled - fix it one day?
+    			if (!repositoryPath.endsWith(File.separator)) {
+    				repositoryPath = repositoryPath + File.separator;
+    			}
+    		}
+    		for (int i = 0; i < attRecsToDelete.size(); i++) {
+    			QuestionAttachment recToDelete = attRecsToDelete.get(i);
+    			delOrhpanAttchStmt.setInt(1, recToDelete.getFqaId());
+    			delOrhpanAttchStmt.setInt(2, recToDelete.getDbId());
+    			logger.info("\n - About to delete the record for the orphaned attachment (" +
+    					recToDelete.getFilename() + ") \n\twith ID " + recToDelete.getDbId() +
+    					" for the answer " + recToDelete.getFqaId() + " that was created by " +
+    					recToDelete.getCreateUserId() + " on " + recToDelete.getCreateDateAsString());
+    			delOrhpanAttchStmt.executeUpdate();
+
+    			// delete the actual file form the filesystem
+    			File f = new File(repositoryPath + recToDelete.getFilePath());
+				if (f.delete()) {
+					logger.info("\n - Also deleted " + recToDelete.getFilePath());
+				}
+				else {
+    				logger.warn(" * *  Deleting from the filesystem the orphan attachment with ID " +
+    						recToDelete.getDbId() + " at location " + recToDelete.getFilePath() + 
+    						" was not successful.");
+				}
+    			logger.info("   - - done deleting.");
+    		}
+    		if (delOrhpanAttchStmt!=null) {
+    			delOrhpanAttchStmt.close();
+    			delOrhpanAttchStmt = null;
+    		}
+    		
+    		// And finally, also delete the records from answers table whose child attachment records
+    		// we just deleted:
+    		String delOrphanAnswerRecSql = "DELETE FROM form_question_answers_t WHERE frm_id = ? and id = ?";
+    		if (fileTypeRespRecsToDelete.size() > 0) {
+    			PreparedStatement delOrphanAnswerRecStmt = dbConn.prepareStatement(delOrphanAnswerRecSql);
+    			itrQArecs = fileTypeRespRecsToDelete.iterator();
+    			while (itrQArecs!=null && itrQArecs.hasNext()) {
+    				Integer oneId = itrQArecs.next();
+    				delOrphanAnswerRecStmt.setInt(1, formId);
+    				delOrphanAnswerRecStmt.setInt(2, oneId.intValue());
+    				logger.info(" * * *  Also about to delete the ANSWER record with ID " + oneId + 
+    						" for form " + formId + ".");
+    				int rowCount = delOrphanAnswerRecStmt.executeUpdate();
+    				logger.info(" * * *  ... and, " + rowCount + " answer record(s) deleted.");
+    			}
+    			if (delOrphanAnswerRecStmt!=null) {
+    				delOrphanAnswerRecStmt.close();
+    				delOrphanAnswerRecStmt = null;
+    			}
+    		}
+    	}
+    	else {
+    		logger.error("  !! In the method to delete orphan attachments for form " + formId +
+    				", database connection passed as a parameter is not open/usable.");
+    	}
     }
 
     /**
@@ -193,7 +352,7 @@ class AttachmentHelper {
                     if (qa.isToBeDeleted()) {
                         // First, delete the record, then delete the file.
                         try {
-                            conn.setAutoCommit(false);
+                            // conn.setAutoCommit(false);
                             sqlAction = "delete from form_answer_attachments_t where id=?";
                             logger.debug("Deleting the attachment ,sql is :");
                             logger.debug(sqlAction);
@@ -205,7 +364,7 @@ class AttachmentHelper {
 
                             pstmt.execute();
                             pstmt.close();
-                            conn.commit();
+                            // conn.commit();  Commented out by Anatoli Mar. 24, 2013: we need only one commit per saving the whole form!
 
                             // Now delete the file
                             f.delete();
@@ -433,4 +592,5 @@ class AttachmentHelper {
         }
         qa.setDocData(bytes);
     }
+    
 }

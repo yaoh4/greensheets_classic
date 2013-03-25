@@ -25,7 +25,7 @@
     </context-param>
     <context-param>
         <param-name>appBuild</param-name>
-        <param-value>b01.02.13</param-value>
+        <param-value>b25.03.2013</param-value>
     </context-param>
     <context-param>
         <param-name>showDebugOnError</param-name>

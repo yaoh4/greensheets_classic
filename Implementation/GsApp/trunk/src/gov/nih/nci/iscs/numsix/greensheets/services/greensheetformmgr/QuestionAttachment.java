@@ -33,6 +33,10 @@ public class QuestionAttachment {
     private String memId;
 
     private int status;
+    
+    private int fqaId; // DB ID of the question to which this file is attached
+    private String createUserId;
+    private String createDateAsString;
 
     private static final int EXISTING = 0; // indicates that the attachment
                                            // exists in the database.
@@ -294,7 +298,31 @@ public class QuestionAttachment {
         this.subDir = subDir;
     }
 
-    /**
+    public int getFqaId() {
+		return fqaId;
+	}
+
+	public void setFqaId(int fqaId) {
+		this.fqaId = fqaId;
+	}
+
+	public String getCreateUserId() {
+		return createUserId;
+	}
+
+	public void setCreateUserId(String createUserId) {
+		this.createUserId = createUserId;
+	}
+
+	public String getCreateDateAsString() {
+		return createDateAsString;
+	}
+
+	public void setCreateDateAsString(String createDateAsString) {
+		this.createDateAsString = createDateAsString;
+	}
+
+	/**
      * @see java.lang.Object#toString()
      */
     public String toString() {

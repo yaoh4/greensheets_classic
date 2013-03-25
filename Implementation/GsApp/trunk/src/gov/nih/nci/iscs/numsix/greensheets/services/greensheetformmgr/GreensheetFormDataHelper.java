@@ -234,12 +234,14 @@ public class GreensheetFormDataHelper {
 
             conn = DbConnectionHelper.getInstance().getConnection(
                     user.getOracleId());
+            boolean autoCommitStatus = conn.getAutoCommit();
+            conn.setAutoCommit(false);  //  ***** TRANSACTION BEGINS ****
 
             // Insert or Update the Forms_T table and Appl_Forms_T
 
             if (form.getFormId() == 0) {
 
-                checkForDuplicateNewForms(form, grant);
+                checkForDuplicateNewForms(form, grant, conn);
 
                 stmt = conn.createStatement();
 
@@ -300,7 +302,7 @@ public class GreensheetFormDataHelper {
                 pstmt.execute();
                 pstmt.close();
                 form.setFormId(formId);
-                this.saveQuestionData(form, user, grant);
+                this.saveQuestionData(form, user, grant, conn);
 
                 form.setStatus(GreensheetStatus.SAVED);
                 //form = new GreensheetFormProxy();
@@ -330,8 +332,12 @@ public class GreensheetFormDataHelper {
                 pstmt.execute();
                 pstmt.close();
 
-                this.saveQuestionData(form, user, grant);
+                this.saveQuestionData(form, user, grant, conn);
             }
+
+            conn.commit(); //  ***** TRANSACTION ENDS ***** 
+            conn.setAutoCommit(autoCommitStatus);
+            // ^ Added by Anatoli Mar. 24, 2013: only one commit at the very end of saving the form.
 
         } catch (SQLException se) {
             throw new GreensheetBaseException("Error saving Greensheet values", se);
@@ -702,21 +708,38 @@ public class GreensheetFormDataHelper {
     }
 
     private void saveQuestionData(GreensheetFormProxy form, GsUser user,
-            FormGrantProxy grant) throws GreensheetBaseException {
+            FormGrantProxy grant, Connection conn) throws GreensheetBaseException {
         //			GsGrant grant) throws GreensheetBaseException { //Abdul Latheef: Used new FormGrantProxy instead of the old GsGrant.
 
         logger.debug("saveQuestionData() Begin");
 
-        Connection conn = null;
+        // Connection conn = null;
         Statement stmt = null;
         PreparedStatement pstmt = null;
         PreparedStatement pstmtToDel = null; // Rewrite the SQL to improve the performance in the Greensheets application
         try {
 
-            conn = DbConnectionHelper.getInstance().getConnection(
+            /*
+        	conn = DbConnectionHelper.getInstance().getConnection(
                     user.getOracleId());
             conn.setAutoCommit(false);
+            */
 
+            // Here we delete all existing answers associated with this form ID here - not just specific 
+            // question/answer IDs. This, in absence of better mechanisms like unique constraints on FORM_ID+question_id+
+            // response_def_id, should avoid saving duplicate and sometimes conflicting answers to the same questions under
+            // the same form's ID number if two users are editing the same form simultaneously, or even the same user in 
+            // two windows. But we don't want to reupload the file attachments, so a smarter solution is needed...
+            
+        	String delPreviousAnswers = "DELETE FROM form_question_answers_t WHERE FRM_ID = ? " +
+        			"AND extrnl_resp_def_id NOT LIKE '%_RD_FL_%'";
+        	// Leaving the file-attachment answers alone and dealing with them later...
+        	pstmtToDel = conn.prepareStatement(delPreviousAnswers);
+        	pstmtToDel.setInt(1, form.getFormId());
+        	int oldAnswersDeletedCount = pstmtToDel.executeUpdate();
+        	logger.debug(" * To delete previously-saved attachments, just ran this SQL with frm_id=" + form.getFormId()
+        			+ ": " + delPreviousAnswers + "\n, and it affected " + oldAnswersDeletedCount + " rows.");
+        	
             Collection qrdList = form.getQuestionResponsDataMap().values();
             Iterator iter = qrdList.iterator();
 
@@ -761,6 +784,9 @@ public class GreensheetFormDataHelper {
 
                 // Delete all question answers, except for file attachments.
                 // Create new answers for the data.
+                /*
+                 * This code to delete one answer at a time was commented out by Anatoli on Mar. 23, 2013 because he added a different
+                 * statement to delete all answers pertaining to this form above, outside of the loop.
                 if (!isRDFile) {
                     // Commented out the following SQL: Rewrite the SQL to improve the performance in the Greensheets application
                     //					String sql = "delete from form_question_answers_t where id="
@@ -772,6 +798,7 @@ public class GreensheetFormDataHelper {
                     pstmtToDel.execute(); // Rewrite the SQL to improve the performance in the Greensheets application
                     //					stmt.close();// Rewrite the SQL to improve the performance in the Greensheets application
                 }
+                */
 
                 // If File attachments, do nothing. handle later
                 if (isRDFile) {
@@ -876,11 +903,16 @@ public class GreensheetFormDataHelper {
             if (pstmtToDel != null)
                 pstmtToDel.close();
 
-            conn.commit();
+            // conn.commit();  Commented out by Anatoli Mar. 23, 2013: we need only 1 commit at the
+               // end of saving the whole form!
 
             logger.debug("SAVING/DELETING THE ATTACHMENTS NOW.......");
 
             if (qaMap != null) { // attachments exist
+            	
+            	AttachmentHelper ah = new AttachmentHelper();
+            	ah.deleteOrphanAttachments(conn, form.getFormId(), qaMap);
+            	
                 // Handle each file attachment separately
                 logger.debug("Number of QRD with Files = " + qaMap.size());
 
@@ -890,7 +922,7 @@ public class GreensheetFormDataHelper {
                     logger.debug("QRD #" + count);
                     QuestionResponseData qrd = (QuestionResponseData) iterAttachments
                             .next();
-                    AttachmentHelper ah = new AttachmentHelper();
+                    /* AttachmentHelper ah = new AttachmentHelper(); */
                     ah.saveAttachments(qrd, grant, form, conn);
 
                     count++;
@@ -925,21 +957,23 @@ public class GreensheetFormDataHelper {
             } catch (SQLException se) {
                 throw new GreensheetBaseException("errorSavingData", se);
             }
+            /*
             if (conn != null) {
                 DbConnectionHelper.getInstance().freeConnection(conn);
             }
+            */
         }
         logger.debug("saveQuestionData() End");
     }
 
     //	private void checkForDuplicateNewForms(GreensheetFormProxy form, GsGrant g) //Abdul Latheef: Used new FormGrantProxy instead of the old GsGrant.
-    private void checkForDuplicateNewForms(GreensheetFormProxy form, FormGrantProxy g)
+    private void checkForDuplicateNewForms(GreensheetFormProxy form, FormGrantProxy g, Connection conn)
             throws GreensheetBaseException {
-        Connection conn = null;
+        // Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
         try {
-            conn = DbConnectionHelper.getInstance().getConnection();
+            // conn = DbConnectionHelper.getInstance().getConnection();
 
             String type = form.getGroupTypeAsString();
             int applId = Integer.parseInt(g.getApplID()); //Abdul Latheef: Use getApplID() for time being instead of getApplId() 
@@ -974,7 +1008,7 @@ public class GreensheetFormDataHelper {
             } catch (SQLException se) {
                 throw new GreensheetBaseException("Database Connection Error", se);
             }
-            DbConnectionHelper.getInstance().freeConnection(conn);
+            // DbConnectionHelper.getInstance().freeConnection(conn);
         }
     }
 }
