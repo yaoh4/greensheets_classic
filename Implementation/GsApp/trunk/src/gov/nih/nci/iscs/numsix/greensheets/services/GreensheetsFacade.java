@@ -19,6 +19,10 @@ public class GreensheetsFacade implements ServletContextListener {
 
 	}
 
+	/* 
+	 * The registration of this listener class is commented out in web.xml, so it looks 
+	 * like this is a leftover experimental piece of code that's not actually used.
+	 */
 	public void contextInitialized(ServletContextEvent sce) {
 		// TODO Auto-generated method stub
 		   ServletContext context = sce.getServletContext();
