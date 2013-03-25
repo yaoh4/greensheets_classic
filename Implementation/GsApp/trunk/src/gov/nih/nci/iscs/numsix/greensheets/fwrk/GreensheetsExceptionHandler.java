@@ -25,6 +25,7 @@ import java.util.Properties;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.Globals;
@@ -37,7 +38,8 @@ import org.apache.struts.action.DynaActionForm;
 import org.apache.struts.action.ExceptionHandler;
 import org.apache.struts.config.ExceptionConfig;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+//import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.mail.SimpleMailMessage;
 
 /**
@@ -120,7 +122,13 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
                 .getFullStackTrace(ex));
         // send notification only if session is not expired
         if (!req.getSession().isNew()) {
-            sendEmailNotification(ex, req);
+        	try {
+            	sendEmailNotification(ex, req);
+        	}
+        	catch (GreensheetBaseException gse) {
+        		logger.error("\n * * * *  SENDING E-MAIL NOTIFICATION ABOUT SOME ERROR FAILED: \n " +
+        				gse);
+        	}
         } else {
             return mapping.findForward("sessionTimeOut");
         }
@@ -130,7 +138,7 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
     }
 
-    private void sendEmailNotification(Exception ex, HttpServletRequest req) {
+    private void sendEmailNotification(Exception ex, HttpServletRequest req) throws GreensheetBaseException {
 
         if (sendEmail != null) {
             if (!Boolean.parseBoolean(sendEmail))
@@ -356,14 +364,23 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
                 String subject = envString + " Error in Greensheets application  " + errorTime;
 
-                ApplicationContext context = new ClassPathXmlApplicationContext(
-                        "applicationContext.xml");
-                mailTemplate = (SimpleMailMessage) context
-                        .getBean("mailTemplate");
-
-                emailService = (EmailService) context
-                        .getBean("emailService");
-
+                ApplicationContext context = null; //new ClassPathXmlApplicationContext(
+                        // "applicationContext.xml");
+                HttpSession session = req.getSession();
+                if (session != null) {
+                	context = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
+                }
+                if (context != null) {
+                    mailTemplate = (SimpleMailMessage) context.getBean("mailTemplate");
+                    emailService = (EmailService) context.getBean("emailService");
+                }
+                else {
+                	GreensheetBaseException e = new GreensheetBaseException("Java beans for e-mail service and e-mail template " +
+                			"could not be retrieved from the web application's context when expected.");
+                	throw e;
+                }
+                session = null;
+                
                 SimpleMailMessage message = new SimpleMailMessage(mailTemplate);
 
                 try {

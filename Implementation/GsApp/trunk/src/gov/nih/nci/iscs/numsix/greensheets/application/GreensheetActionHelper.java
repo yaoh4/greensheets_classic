@@ -29,12 +29,15 @@ import java.util.Properties;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+//import org.springframework.context.support.ClassPathXmlApplicationContext;
+//import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * Utility methods used by the action classes.
@@ -125,11 +128,24 @@ public class GreensheetActionHelper {
         	if (currentFYtoAssume==null)  { currentFYtoAssume = ""; }
         }
         
-        ApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml");
-        GreensheetsUserServices greensheetsUserServices = (GreensheetsUserServices) context
-                .getBean("greensheetsUserServices");
-
+//        ApplicationContext context = new ClassPathXmlApplicationContext(
+//                "applicationContext.xml");
+        ApplicationContext context = null;
+        HttpSession session = req.getSession();
+        if (session!=null) {
+        	context = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
+        }
+        GreensheetsUserServices greensheetsUserServices = null;
+        if (context!=null) {
+        	greensheetsUserServices = (GreensheetsUserServices) context.getBean("greensheetsUserServices");
+        }
+        if (greensheetsUserServices==null) {
+        	GreensheetBaseException e = new GreensheetBaseException("Greensheets User Service was not retrieved " +
+        			"from the web application's context when expected.");
+        	throw e;
+        }
+        session = null;
+        
         String newUserName = (String) req.getAttribute(GreensheetsKeys.NEW_USER_ID);
 
         if (req.getSession().getAttribute(GreensheetsKeys.ACTUAL_USER_SESSION) == null) {
