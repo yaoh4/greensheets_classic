@@ -27,11 +27,11 @@ import org.apache.log4j.Logger;
  */
 public class DbConnectionHelper {
 
-    private static final String ORACLE_URL = "oracle.url";
+    private static final String DB_URL = "db.url";
 
-    private static final String ORACLE_USER = "oracle.user";
+    private static final String DB_USER = "db.user";
 
-    private static final String ORACLE_PASSWD = "oracle.password";
+    private static final String DB_PASSWD = "db.password";
 
     private static Logger logger = Logger.getLogger(DbConnectionHelper.class
             .getName());
@@ -82,9 +82,9 @@ public class DbConnectionHelper {
                 logger.debug("Loading db properties into Connection Pool...");
 
                 ocp = new OracleConnectionPoolDataSource();
-                ocp.setURL(props.getProperty(ORACLE_URL));
-                ocp.setUser(props.getProperty(ORACLE_USER));
-                ocp.setPassword(props.getProperty(ORACLE_PASSWD));
+                ocp.setURL(props.getProperty(DB_URL));
+                ocp.setUser(props.getProperty(DB_USER));
+                ocp.setPassword(props.getProperty(DB_PASSWD));
                 pc = ocp.getPooledConnection();
 
                 ocacheimpl = new OracleConnectionCacheImpl(ocp);
@@ -109,8 +109,8 @@ public class DbConnectionHelper {
     private Connection getTestConn() throws SQLException {
 
         Connection conn = DriverManager.getConnection(props
-                .getProperty(ORACLE_URL), props.getProperty(ORACLE_USER), props
-                .getProperty(ORACLE_PASSWD));
+                .getProperty(DB_URL), props.getProperty(DB_USER), props
+                .getProperty(DB_PASSWD));
         return conn;
 
     }
@@ -235,9 +235,10 @@ public class DbConnectionHelper {
     public static String getDbEnvironment() {
         String env = null;
         if (props != null) {
-            env = props.getProperty("oracle.environment");
+            // env = props.getProperty("oracle.environment");  // This really should be coming not from the free-standing
+        		// String in the properties file, but derived from the connection String, always.
             if (env == null || env.equalsIgnoreCase("")) {
-                String s = props.getProperty(ORACLE_URL).toLowerCase();
+                String s = props.getProperty(DB_URL).toLowerCase();
                 // Abdul Latheef: Changed the DB service name
                 if (s.toLowerCase().indexOf("i2ed".toLowerCase()) > -1) {
                     env = "DEV";
