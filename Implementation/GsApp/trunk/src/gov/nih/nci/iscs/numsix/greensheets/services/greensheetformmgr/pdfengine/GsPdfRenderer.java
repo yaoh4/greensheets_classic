@@ -134,7 +134,8 @@ public class GsPdfRenderer {
 
 			Document questionsXml = null;
 			
-			ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+			ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");  // TODO: Have Spring load this 
+				// class (the renderer), inject into it the needed service, get the rendeder where it is used from the Spring IOC context.
 			GreensheetsQuestionsServices greensheetsQuestionsServices = (GreensheetsQuestionsServices) context.getBean("greensheetsQuestionsServices");
 			
 			if (srcKey != null) {
