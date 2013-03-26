@@ -124,6 +124,13 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 		logger.debug("getGreensheetFormAsPdf() Begin");
 		GsPdfRenderer rend = new GsPdfRenderer(form, grant, commentOption,
 				commentOptionSepPage, generateAllQuestions);
+		// TODO: couldn't this ^^ be changed to obtain the Renderer instance from the 
+		// main Spring-managed application context, then before calling .generatePdf()
+		// on it, call another init-type method to set all these values in it? 
+		// The advantage of having Spring build you a GsPdfRenderer is in that it would
+		// inject into it the service-provider object it needs, and all of its 
+		// dependencies.
+		
 		logger.debug("getGreensheetFormAsPdf() End");
 		return rend.generatePdf();
 	}

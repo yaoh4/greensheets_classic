@@ -235,6 +235,8 @@ Implementation/GsApp/trunk/build/testing/webtestTaskdefs.properties -text
 Implementation/GsApp/trunk/docs/INSTALL.txt -text
 Implementation/GsApp/trunk/docs/RELEASE-NOTES.txt -text
 Implementation/GsApp/trunk/src/ApplicationResources.properties -text
+Implementation/GsApp/trunk/src/GS_PDF_rendering.xml -text
+Implementation/GsApp/trunk/src/GS_Velocity_ResourceMgmt.xml -text
 Implementation/GsApp/trunk/src/applicationContext.xml -text
 Implementation/GsApp/trunk/src/displaytag.properties -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/atsc/dao/FormGrant.java -text

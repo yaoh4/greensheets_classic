@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+    <!-- This file is to create a mini-context (a mini IoC container) and use it inside
+         GsPdfRenderer, which is a class that GreensheetFormMgrImpl instantiates directly 
+         instead of obtaining it from the main Spring-created context (which is perhaps
+         not the best design), and which needs an instance of a service provider class that, 
+         in turn, needs its DAO object, etc. - so it's good to have Spring inject all these 
+         dependencies. 
+    -->
+
+
+    <bean id="propertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="locations">
+            <list>
+                <value>file:${conf.dir}/greensheets/db.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="greensheetsQuestionsServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsQuestionsServicesImpl">
+        <property name="greensheetQuestionsDAO" ref="greensheetQuestionsDAO" />
+    </bean>
+
+    <bean id="greensheetQuestionsDAO"
+        class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetQuestionsDAOImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+        <property name="URL">
+            <value>${db.url}</value>
+        </property>
+        <property name="user">
+            <value>${db.user}</value>
+        </property>
+        <property name="password">
+            <value>${db.password}</value>
+        </property>
+    </bean>
+
+</beans>

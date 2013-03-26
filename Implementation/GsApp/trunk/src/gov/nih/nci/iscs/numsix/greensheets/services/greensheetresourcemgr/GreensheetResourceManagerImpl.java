@@ -45,12 +45,13 @@ public class GreensheetResourceManagerImpl implements GreensheetResourceManager 
         //			throw new GreensheetsResourceException();
         //		}
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        // TODO: have this class loaded by Spring into IoC container, have the service injected into it,
-        // have classes that use it get it from the container aka App Context.
+        // ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("GS_Velocity_ResourceMgmt.xml");
+        // This is a much more compact context that contains only the few beans this class needs.
         
         GreensheetFormTemplateService greensheetFormTemplateService = (GreensheetFormTemplateService) context
                 .getBean("greensheetFormTemplateService");
+
         String formTemplate = greensheetFormTemplateService.loadGreensheetFormTemplate(id, this.frozen);
 
         tw = new GreensheetTemplateWrapper(Integer.parseInt(id), formTemplate);
