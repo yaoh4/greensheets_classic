@@ -306,8 +306,14 @@ public class GreensheetFormDataHelper {
 
                 form.setStatus(GreensheetStatus.SAVED);
                 //form = new GreensheetFormProxy();
-            } else {
+            } else {		// i.e., not a new form - UPDATE rather than INSERT...
                 formId = form.getFormId();
+                
+                /* TODO: Do "manual" (i.e., raw JDBC without any help from higher-level tools) version 
+                 * checking here (based on FORMS_T.UPDATE_STAMP) as a part of optimistic locking 
+                 * implementation - to avoid updating the form if, since we first retrieved it for 
+                 * editing, its record in the database was updated by someone else.
+                */     
 
                 String formSql = "update forms_t set form_status = ?, ftm_id = ?, poc = ? where id = ?";
 
