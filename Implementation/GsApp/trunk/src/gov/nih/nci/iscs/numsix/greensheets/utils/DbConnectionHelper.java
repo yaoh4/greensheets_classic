@@ -139,8 +139,14 @@ public class DbConnectionHelper {
                 }
             }
         } catch (SQLException sqle) {
-            String exceptionMessage = sqle.getMessage().toLowerCase();
-            if (exceptionMessage.contains("connection reset") || exceptionMessage.contains("connection refused") || exceptionMessage.contains("connection closed")) {
+            String exceptionMessage = sqle.getMessage();
+            if (exceptionMessage!=null) {
+            	exceptionMessage = exceptionMessage.toLowerCase();
+            }
+            else  { exceptionMessage = ""; }
+            if (exceptionMessage.contains("connection reset") || exceptionMessage.contains("connection refused") 
+            			|| exceptionMessage.contains("connection closed") 
+            			|| exceptionMessage.contains("closed connection")) {
                 try {
                     conn = ocacheimpl.getConnection();
                 } catch (SQLException sqle2) {
@@ -194,8 +200,14 @@ public class DbConnectionHelper {
             }
             // logger.info("Got DB Connection!");
         } catch (SQLException sqle) {
-            String exceptionMessage = sqle.getMessage().toLowerCase();
-            if (exceptionMessage.contains("connection reset") || exceptionMessage.contains("connection refused") || exceptionMessage.contains("connection closed")) {
+            String exceptionMessage = sqle.getMessage();
+            if (exceptionMessage!=null) {
+            	exceptionMessage = exceptionMessage.toLowerCase();
+            }
+            else  { exceptionMessage = ""; }
+            if (exceptionMessage.contains("connection reset") || exceptionMessage.contains("connection refused") 
+            			|| exceptionMessage.contains("connection closed") 
+            			|| exceptionMessage.contains("closed connection")) {
                 try {
                     conn = ocacheimpl.getConnection();
                 } catch (SQLException sqle2) {
@@ -223,7 +235,7 @@ public class DbConnectionHelper {
 
         try {
             // logger.info("Closing DB Connection...");
-            if (con != null)
+            if (con != null && !con.isClosed())
                 con.close();
             // logger.info("DB Connection closed!");
         } catch (Exception e) {
