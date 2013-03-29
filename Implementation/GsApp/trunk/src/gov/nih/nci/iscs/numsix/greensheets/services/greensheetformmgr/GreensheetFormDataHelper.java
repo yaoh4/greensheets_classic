@@ -385,7 +385,10 @@ public class GreensheetFormDataHelper {
             throws GreensheetBaseException {
         /*  TODO: it would be great to check for optimistic locking failure before changing form status as well, 
          *  like we do before saving updates to the form.  We should add this later, but we are rushing to get
-         *  the build out with most pressing fixes, so we are leaving it for later...   
+         *  the build out with most pressing fixes, so we are leaving it for later...
+         *  It would be also great to run saveGreensheetFormData() and changeGreensheetFormStatus() within one 
+         *  transaction when a user is submitting the form... But... it takes time to refactor it this way, and 
+         *  it has never worked that way in years...   
          */
     	Connection conn = null;
         PreparedStatement pstmt = null;

@@ -417,7 +417,7 @@ class AttachmentHelper {
                                                          // delete the file
                                                          // maybe.
 
-                            conn.setAutoCommit(false);
+                            // conn.setAutoCommit(false);  // It is already false since we started saving the whole form
                             sqlAction = "insert into form_answer_attachments_t (id,fqa_id,name,file_location) values(faa_seq.nextval,?,?,?)";
                             pstmt = conn.prepareStatement(sqlAction);
                             pstmt.setInt(1, qrd.getId());
@@ -435,28 +435,25 @@ class AttachmentHelper {
 
                             pstmt.execute();
                             pstmt.close();
-                            conn.commit();
+                            // conn.commit();  // Commented out by Anatoli Mar. 29, 2013: we need only one commit per saving the whole form!  
                         } catch (SQLException se) {
                             conn.rollback();
 
-                            logger
-                                    .debug("Sql Exception when creating a new file attachment record in the DB.");
+                            logger.debug("Sql Exception when creating a new file attachment record in the DB.");
                             logger.debug("Sql is = " + sqlDebug);
                             throw new GreensheetBaseException(
                                     "error.savefile.sql", se);
                         } catch (FileNotFoundException fe) {
                             conn.rollback();
 
-                            logger
-                                    .debug("Sql Exception when creating a new file on the file system.");
+                            logger.debug("Sql Exception when creating a new file on the file system.");
                             logger.debug("Sql is = " + sqlDebug);
                             throw new GreensheetBaseException(
                                     "error.savefile.fe", fe);
                         } catch (IOException ie) {
                             conn.rollback();
 
-                            logger
-                                    .debug("Error in Creating a new file attachment. IO Exception occurred.");
+                            logger.debug("Error in Creating a new file attachment. IO Exception occurred.");
                             logger.debug("Sql is = " + sqlDebug);
                             throw new GreensheetBaseException(
                                     "error.savefile.io", ie);
@@ -493,14 +490,14 @@ class AttachmentHelper {
                 // If this flag is false, there are no file attachments in the
                 // db for this QRD. Hence, delete the parent record.
                 if (!fileAttachmentsPresentInDb) {
-                    conn.setAutoCommit(false);
+                    // conn.setAutoCommit(false); // It is already false since when we started saving the whole form
                     String sqlDelete = "delete from form_question_answers_t where id =?";
                     pstmt = conn.prepareStatement(sqlDelete);
                     pstmt.setInt(1, qrd.getId());
 
                     pstmt.execute();
                     pstmt.close();
-                    conn.commit();
+                    // conn.commit(); //Commented out by Anatoli Mar. 29, 2013: we need only one commit per saving the whole form!
                 }
             }
         } catch (SQLException se) {
