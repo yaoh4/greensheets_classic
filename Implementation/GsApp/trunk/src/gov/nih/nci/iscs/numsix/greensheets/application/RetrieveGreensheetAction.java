@@ -16,6 +16,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.Greensheet
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
+import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,10 @@ public class RetrieveGreensheetAction extends GsBaseAction {
     static GreensheetsFormGrantsService greensheetsFormGrantsService;
 
     static GreensheetFormService greensheetFormService;
+    
+    private static EmailNotification emailHelper;  // must be static or else, even though Spring injects it
+    	// at web app startup, by the time execute() runs it is null because the instance of this Action 
+    	// class when execute() runs is a different one, not the one that was created by Spring at startup...
 
     public GreensheetsFormGrantsService getGreensheetsFormGrantsService() {
         return greensheetsFormGrantsService;
@@ -63,7 +68,15 @@ public class RetrieveGreensheetAction extends GsBaseAction {
         this.greensheetFormService = greensheetFormService;
     }
 
-    /**
+    public void setEmailHelper(EmailNotification emailHelper) {
+		this.emailHelper = emailHelper;
+	}
+
+	public EmailNotification getEmailHelper() {
+		return emailHelper;
+	}
+
+	/**
      * @see org.apache.struts.action.Action#execute(ActionMapping, ActionForm, HttpServletRequest, HttpServletResponse)
      */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -290,11 +303,30 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             	throw newException;            	
             }
     		if (formGrants!=null && formGrants.size() > 1) {
+    			/*
     			GreensheetBaseException newException = new GreensheetBaseException("Your request " +
-    					"to retrieve a " + GreensheetGroupType.DM.getName() + " greensheet for " +
+    					"to retrieve a " + group + " greensheet for " +
     					grantId + " (appl_id " + applId + ") unexpectedly found more than one grant " +
     					"with this grant number, which is invalid. Please contact support.");
     			throw newException;
+    			*/
+    			logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    			StringBuffer msgText = new StringBuffer();
+    			msgText.append("In 'retrievegreensheet' action, method getGrant(), ").append(
+    					"with parameters \n\tappl_id = ").append(applId).append(", full grant number ");
+    			msgText.append(grantId).append(
+    					", \n\tgreensheet type = " + group + ", more than one grant met the criteria, ")
+    					.append("likely meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM.");
+    			msgText.append("\n\tThis is not normal, and OGA probably should be contacted to delete the ")
+    				.append("extra actions. However, the user of Greensheets is probably able to continue.");
+    			logger.error("\t" + msgText);
+    			logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    			if (emailHelper!=null) {
+    				emailHelper.sendTextToSupportEmail(msgText);
+    			}
+    			grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
+    				// we should change the data model to support multiple GPMATS actions per the same 
+    				// full grant number.  But that's not an especially quick undertaking.
     		}
     		else if (formGrants!=null && formGrants.size() == 1) {
     			grant = (FormGrantProxy) formGrantsProxies.get(0);

@@ -138,6 +138,9 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
     }
 
+    //TODO: this method here seems redundant with .greensheets.utils.EmailNotification.sendEmailNotification()
+    // it's not clear why two copies are needed. This Action class, from execute(), should probably call the
+    // method in .greensheets.utils.EmailNotification.
     private void sendEmailNotification(Exception ex, HttpServletRequest req) throws GreensheetBaseException {
 
         if (sendEmail != null) {

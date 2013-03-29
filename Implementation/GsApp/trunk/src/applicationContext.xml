@@ -191,6 +191,7 @@
     <bean name="/retrievegreensheet" class="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveGreensheetAction">
         <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/> 
         <property name="greensheetFormService" ref="greensheetFormService"/>
+        <property name="emailHelper" ref="emailHelper"/>
     </bean>
     
     <bean name="/changelock" class="gov.nih.nci.iscs.numsix.greensheets.application.ChangeGreensheetLockAction">
@@ -203,6 +204,12 @@
     </bean>
     
     <!-- ===== Mail service ===== -->
+    <bean id="emailHelper" class="gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification">
+        <property name="emailService" ref="emailService"/>
+        <property name="mailTemplate" ref="mailTemplate"/>
+        <property name="sendingOfEmailsEnabled" value="${gs_send_mail}"/>
+    </bean>
+    
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="${smtp_server}" />
 		<property name="port" value="25" />
