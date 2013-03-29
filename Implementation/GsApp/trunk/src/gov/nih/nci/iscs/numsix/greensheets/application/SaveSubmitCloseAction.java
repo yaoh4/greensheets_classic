@@ -6,6 +6,7 @@
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsStaleDataException;
 import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgrImpl;
@@ -75,7 +76,19 @@ public class SaveSubmitCloseAction extends DispatchAction {
             //			GreensheetFormMgr mgr = GreensheetMgrFactory	//Abdul Latheef: Used new FormGrantProxy instead of the old GsGrant.
             //					.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
             GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); //For time being -- Abdul Latheef 
-            mgr.saveForm(form, req.getParameterMap(), user, grant);
+            try {
+            	mgr.saveForm(form, req.getParameterMap(), user, grant);
+            }
+            catch (GsStaleDataException gsde) {
+            	// When we tried to save the greensheet we detected that someone beat us to it, 
+            	// so we need to tell the user who it was and when, and tell them to re-retrieve
+            	// the greensheet.
+            	req.setAttribute(GreensheetsKeys.KEY_STALEDATA_USERNAME, gsde.getUsername());
+            	req.setAttribute(GreensheetsKeys.KEY_STALEDATA_TIMESTAMP, gsde.getLastUpdateDateAsString());
+            	logger.info("Stale data (optimistic locking failure) detected when trying to save " +
+            			"a greensheet... Forwarding to the page informing the user of that.");
+            	return mapping.findForward("staleDataRedirect");
+            }
 
             try {
                 GreensheetActionHelper.setFormDisplayInfo(req, id);
@@ -185,7 +198,19 @@ public class SaveSubmitCloseAction extends DispatchAction {
             //					.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
             GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); //For time being -- Abdul Latheef
 
-            mgr.submitForm(form, req.getParameterMap(), user, grant);
+            try {
+            	mgr.submitForm(form, req.getParameterMap(), user, grant); 
+            }
+            catch (GsStaleDataException gsde) {
+            	// When we tried to submitthe greensheet we detected that someone beat us to saving it, 
+            	// so we need to tell the user who it was and when, and tell them to re-retrieve
+            	// the greensheet.
+            	req.setAttribute(GreensheetsKeys.KEY_STALEDATA_USERNAME, gsde.getUsername());
+            	req.setAttribute(GreensheetsKeys.KEY_STALEDATA_TIMESTAMP, gsde.getLastUpdateDateAsString());
+            	logger.info("Stale data (optimistic locking failure) detected when trying to submit " +
+            			"a greensheet... Forwarding to the page informing the user of that.");
+            	return mapping.findForward("staleDataRedirect");
+            }
 
             try {
                 req.setAttribute(GreensheetsKeys.KEY_ACTION_CONFIRM_MESSAGE,

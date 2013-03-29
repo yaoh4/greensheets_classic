@@ -181,7 +181,9 @@
 
         <action path="/savesubmit"
             type="gov.nih.nci.iscs.numsix.greensheets.application.SaveSubmitCloseAction"
-            parameter="method" scope="request" />
+            parameter="method" scope="request">
+            <forward name="staleDataRedirect" path="/jsp/StaleDataReRetrieve.jsp"/>
+        </action>
 
         <action path="/questionattachments" name="attachmentsForm"
             type="gov.nih.nci.iscs.numsix.greensheets.application.QuestionAttachmentsAction"

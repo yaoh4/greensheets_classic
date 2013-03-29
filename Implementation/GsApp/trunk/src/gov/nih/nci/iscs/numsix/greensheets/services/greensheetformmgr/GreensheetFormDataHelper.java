@@ -6,6 +6,7 @@
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsStaleDataException;
 import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
@@ -309,11 +310,24 @@ public class GreensheetFormDataHelper {
             } else {		// i.e., not a new form - UPDATE rather than INSERT...
                 formId = form.getFormId();
                 
-                /* TODO: Do "manual" (i.e., raw JDBC without any help from higher-level tools) version 
-                 * checking here (based on FORMS_T.UPDATE_STAMP) as a part of optimistic locking 
+                /* Here we do "manual" (i.e., raw JDBC without any help from higher-level tools)  
+                 * version checking (based on FORMS_T.UPDATE_STAMP) as a part of optimistic locking 
                  * implementation - to avoid updating the form if, since we first retrieved it for 
                  * editing, its record in the database was updated by someone else.
-                */     
+                */
+                StringBuilder username = new StringBuilder(); 
+                StringBuilder updateTimestamp = new StringBuilder(); 
+                if (isFormStateStale(formId, form.getUpdateStamp(), username, updateTimestamp, conn)) {
+                	GsStaleDataException gsde = new GsStaleDataException();
+                	gsde.setMessage("The greensheet you are trying to " +
+                			"save has been updated in the database since " + 
+                			"you retrieved it in order to work on it in this window. \n" +
+                			"You need to re-retrieve this greensheet before making changes.");
+                	gsde.setUsername(username.toString());
+                	gsde.setLastUpdateDateAsString(updateTimestamp.toString());
+                	conn.rollback();
+                	throw gsde;
+                }
 
                 String formSql = "update forms_t set form_status = ?, ftm_id = ?, poc = ? where id = ?";
 
@@ -369,7 +383,11 @@ public class GreensheetFormDataHelper {
     void changeGreensheetFormStatus(GreensheetFormProxy form,
             GreensheetStatus newStatus, GsUser user)
             throws GreensheetBaseException {
-        Connection conn = null;
+        /*  TODO: it would be great to check for optimistic locking failure before changing form status as well, 
+         *  like we do before saving updates to the form.  We should add this later, but we are rushing to get
+         *  the build out with most pressing fixes, so we are leaving it for later...   
+         */
+    	Connection conn = null;
         PreparedStatement pstmt = null;
         try {
             conn = DbConnectionHelper.getInstance().getConnection(
@@ -1016,5 +1034,70 @@ public class GreensheetFormDataHelper {
             }
             // DbConnectionHelper.getInstance().freeConnection(conn);
         }
+    }
+    
+    // we use StringBuilders as parameters because Strings are immutable, and we want to 
+    // return values through these parameters
+    private boolean isFormStateStale(int formId, int updateStamp, 
+    			StringBuilder username, StringBuilder lastUpdateDate, Connection dbConn) 
+    		throws SQLException, GreensheetBaseException {
+    	boolean staleStateDetected = true;
+    	
+    	PreparedStatement stmt = null;
+    	ResultSet rs = null;
+    	try {
+	    	if (dbConn != null && !dbConn.isClosed()) {
+	    		int reRetrievedUpdateStamp = 0;
+	    		String formReRetrieveSql = "SELECT to_char(last_change_date, 'YYYY-MON-DD HH:MI:SS PM') as change_date, " +
+	    				"last_change_user_id, update_stamp FROM forms_t WHERE id = ?";
+	    		stmt = dbConn.prepareStatement(formReRetrieveSql);
+	    		stmt.setInt(1, formId);
+	    		rs = stmt.executeQuery();
+	    		int rowCount = 0;
+	    		if (rs!=null) {
+	    			while (rs.next()) {
+	    				rowCount++;
+	    				reRetrievedUpdateStamp = rs.getInt("UPDATE_STAMP");
+	    				lastUpdateDate.append(rs.getString("CHANGE_DATE"));
+	    				username.append(rs.getString("LAST_CHANGE_USER_ID"));
+	    			}
+	    			if (rowCount > 1) {
+	    				GreensheetBaseException newE = new GreensheetBaseException("Retrieving a " +
+	    						"greensheet form with ID " + formId + " to check for stale state, " +
+	    						"the system unexpectedly encountered multiple form entries.");
+	    				throw newE;
+	    			}
+	    			
+	    			/* *** THIS IS THE KEY - CHECK IF THE VERSION NUMBER IS STILL THE SAME *** */
+	    			if ( reRetrievedUpdateStamp == updateStamp ) {
+	    				staleStateDetected = false;
+	    			}
+	    			/* ^^^ THIS IS THE KEY - CHECK IF THE VERSION NUMBER IS STILL THE SAME ^^^ */
+	    		}
+	    	}
+    	}
+    	catch (SQLException sqle) {
+    		logger.error("  * * * Checking whether greensheet form with ID " + formId + " has not been "
+    				+ "updated since we had retrieved it, before we'd try to save updates to it, "
+    				+ "failed with the following SQL Exception: \n\t"
+    				+ sqle);
+    	}
+    	finally {
+    		try {
+    			if (rs!=null) {
+    				rs.close();
+    				rs = null;
+    			}
+    			if (stmt!=null) {
+    				stmt.close();
+    				stmt = null;
+    			}
+    		}
+    		catch (SQLException e) {
+    			throw e;
+    		}
+    	}
+    	
+    	return staleStateDetected;
     }
 }
