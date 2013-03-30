@@ -50,9 +50,11 @@ public class RetreiveGreensheetAsPdfAction extends GsBaseAction {
             if (req.getParameter("commentsDisplayOption") != null) {
                 commentOption = req.getParameter("commentsDisplayOption")
                         .trim();
+            };
+            String generateAllQuestions = req.getParameter("generateAllQuestions");
+            if (generateAllQuestions != null) {
+                    generateAllQuestions = generateAllQuestions.trim();
             }
-            String generateAllQuestions = req.getParameter(
-                    "generateAllQuestions").trim();
 
             String commentOptionSepPage = "NO";
 

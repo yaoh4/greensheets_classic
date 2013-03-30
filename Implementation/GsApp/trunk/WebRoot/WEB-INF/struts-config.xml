@@ -3,6 +3,19 @@
 <!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
 "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
 
+<!--
+   NOTE THAT INTEGRATION of this Struts 1 configuration with Spring IoC container has never been 
+   completed. It "works" only because both Struts machinery and Spring's listener get to run 
+   when the web app is started, and so Spring creates instances of Struts 1 Action classes, puts them
+   into Spring's IoC container (from where they are never retrieved and never used) - but, it also
+   calls "normal" non-static setters on Action objects' static fields.  And so when totally different
+   instances of Struts 1 Action classes are created later, on the fly, by Struts 1 itself without 
+   any use of the ones hanging around in the Spring's IoC container in the Web App's context - 
+   the static fields of those Action objects have the values from when Spring created first objects
+   of those Action classes.
+   TODO: FIX THIS AND CONFIGURE NORMAL, PROPER INTEGRATION!    
+-->
+
 <struts-config>
     <!-- ========== Form Beans ========== -->
     <form-beans>
@@ -183,6 +196,7 @@
             type="gov.nih.nci.iscs.numsix.greensheets.application.SaveSubmitCloseAction"
             parameter="method" scope="request">
             <forward name="staleDataRedirect" path="/jsp/StaleDataReRetrieve.jsp"/>
+            <forward name="formAlreadyExistsNotification" path="/jsp/FormAlreadyExists.jsp"/>
         </action>
 
         <action path="/questionattachments" name="attachmentsForm"

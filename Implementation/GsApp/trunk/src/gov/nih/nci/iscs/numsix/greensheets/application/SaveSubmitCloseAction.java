@@ -6,6 +6,7 @@
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsDuplicateFormsException;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsStaleDataException;
 import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr;
@@ -88,6 +89,9 @@ public class SaveSubmitCloseAction extends DispatchAction {
             	logger.info("Stale data (optimistic locking failure) detected when trying to save " +
             			"a greensheet... Forwarding to the page informing the user of that.");
             	return mapping.findForward("staleDataRedirect");
+            }
+            catch (GsDuplicateFormsException dupeExcp) {
+            	return mapping.findForward("formAlreadyExistsNotification");
             }
 
             try {
@@ -210,6 +214,9 @@ public class SaveSubmitCloseAction extends DispatchAction {
             	logger.info("Stale data (optimistic locking failure) detected when trying to submit " +
             			"a greensheet... Forwarding to the page informing the user of that.");
             	return mapping.findForward("staleDataRedirect");
+            }
+            catch (GsDuplicateFormsException dupeExcp) {
+            	return mapping.findForward("formAlreadyExistsNotification");
             }
 
             try {

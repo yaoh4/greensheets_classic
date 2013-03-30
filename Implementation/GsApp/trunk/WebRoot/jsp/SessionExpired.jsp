@@ -44,7 +44,7 @@
 	<div class="TitleSecondary">
 	We are sorry, it appears that your user session has timed out. <br>
 	Please select the Reload Greensheets button, or close any pop-up Greensheets windows,
-	return to the window where you have Greensheets home page open, and reload it.
+	return to the window where you have the Greensheets home page open, and reload it.
 	</div>
 </div>
 

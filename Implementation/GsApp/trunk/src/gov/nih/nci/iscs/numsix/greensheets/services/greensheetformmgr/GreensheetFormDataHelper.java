@@ -6,6 +6,7 @@
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsDuplicateFormsException;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsStaleDataException;
 import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
@@ -36,7 +37,7 @@ import org.apache.log4j.Logger;
 
 /**
  * Class handles database access operations for the GreensheetFormMgr
- * 
+ *
  * @author kpuscas, Number Six Software
  */
 public class GreensheetFormDataHelper {
@@ -69,14 +70,21 @@ public class GreensheetFormDataHelper {
 
             String form_role_code = null;
 
-            if (type.equals(GreensheetGroupType.SPEC)) {
-                form_role_code = "SPEC";
-            } else if (type.equals(GreensheetGroupType.PGM)) {
-                form_role_code = "PGM";
-            } else if (type.equals(GreensheetGroupType.DM)) { //Abdul Latheef: Added the condition for GPMATS
-                form_role_code = "DM";
+            if (type != null) {
+	            if (type.equals(GreensheetGroupType.SPEC)) {  //TODO: Once a NullPtrExcp was thrown here
+	                form_role_code = "SPEC";
+	            } else if (type.equals(GreensheetGroupType.PGM)) {
+	                form_role_code = "PGM";
+	            } else if (type.equals(GreensheetGroupType.DM)) { //Abdul Latheef: Added the condition for GPMATS
+	                form_role_code = "DM";
+	            }
             }
 
+            if (form_role_code == null) {
+            	throw new GreensheetBaseException("Your request for a greensheet did not specify a proper " +
+            			"greensheet type (Program or Specialist or Document Management Checklist.)");
+            }
+            
             int templateId = 0;
             //			 Commented out the following SQL: Rewrite the SQL to improve the performance in the Greensheets application
             //			String sqlTemplateId = "select ftm_id from form_grant_matrix_t "
@@ -142,7 +150,7 @@ public class GreensheetFormDataHelper {
                         + "aft.appl_id = ?";
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, form_role_code);
-                pstmt.setInt(2, Integer.parseInt(grant.getApplID())); //Abdul Latheef: Use getApplID() instead of getApplId() for time being. 			
+                pstmt.setInt(2, Integer.parseInt(grant.getApplID())); //Abdul Latheef: Use getApplID() instead of getApplId() for time being.
             }
             //			rs.close();
             //			stmt.close();
@@ -222,7 +230,7 @@ public class GreensheetFormDataHelper {
 
     }
 
-    //	void saveGreensheetFormData(GreensheetFormProxy form, GsGrant grant, GsUser user) 
+    //	void saveGreensheetFormData(GreensheetFormProxy form, GsGrant grant, GsUser user)
     void saveGreensheetFormData(GreensheetFormProxy form, FormGrantProxy grant, GsUser user)
             throws GreensheetBaseException {
         logger.debug("saveGreensheetFormData() Begin");
@@ -294,7 +302,7 @@ public class GreensheetFormDataHelper {
                     pstmt = conn.prepareStatement(applSql);
                     pstmt.setInt(1, afrId);
                     pstmt.setInt(2, formId);
-                    pstmt.setString(3, grant.getApplID()); //Abdul Latheef: Use getApplID() for time being instead of getApplId() 
+                    pstmt.setString(3, grant.getApplID()); //Abdul Latheef: Use getApplID() for time being instead of getApplId()
                     logger.debug("grant.isDummyGrant() returns false." + "APPL ID passed to the SQL=" + grant.getApplId()); // Abdul Latheef: For GPMATS
                 }
 
@@ -309,18 +317,18 @@ public class GreensheetFormDataHelper {
                 //form = new GreensheetFormProxy();
             } else {		// i.e., not a new form - UPDATE rather than INSERT...
                 formId = form.getFormId();
-                
-                /* Here we do "manual" (i.e., raw JDBC without any help from higher-level tools)  
-                 * version checking (based on FORMS_T.UPDATE_STAMP) as a part of optimistic locking 
-                 * implementation - to avoid updating the form if, since we first retrieved it for 
+
+                /* Here we do "manual" (i.e., raw JDBC without any help from higher-level tools)
+                 * version checking (based on FORMS_T.UPDATE_STAMP) as a part of optimistic locking
+                 * implementation - to avoid updating the form if, since we first retrieved it for
                  * editing, its record in the database was updated by someone else.
                 */
-                StringBuilder username = new StringBuilder(); 
-                StringBuilder updateTimestamp = new StringBuilder(); 
+                StringBuilder username = new StringBuilder();
+                StringBuilder updateTimestamp = new StringBuilder();
                 if (isFormStateStale(formId, form.getUpdateStamp(), username, updateTimestamp, conn)) {
                 	GsStaleDataException gsde = new GsStaleDataException();
                 	gsde.setMessage("The greensheet you are trying to " +
-                			"save has been updated in the database since " + 
+                			"save has been updated in the database since " +
                 			"you retrieved it in order to work on it in this window. \n" +
                 			"You need to re-retrieve this greensheet before making changes.");
                 	gsde.setUsername(username.toString());
@@ -334,7 +342,7 @@ public class GreensheetFormDataHelper {
                 pstmt = conn.prepareStatement(formSql);
                 // Abdul Latheef: For GPMATS enhancements
                 // When the user saves the DM Checklist when the form is in UNSUBMITTED state, put it in SAVED status.
-                // Restrict the change only to DM Checklist as PGM, SPEC greensheet users do not have such issue. 
+                // Restrict the change only to DM Checklist as PGM, SPEC greensheet users do not have such issue.
                 // Note: Use caution. Though changeGreensheetFormStatus() appears to be generic, its code is used for form SUBMISSION only.
                 if (form.getGroupType().equals(GreensheetGroupType.DM)) {
                     logger.debug("Putting the DM Checklist in " + GreensheetStatus.SAVED.getName() + " status.");
@@ -355,12 +363,12 @@ public class GreensheetFormDataHelper {
                 this.saveQuestionData(form, user, grant, conn);
             }
 
-            conn.commit(); //  ***** TRANSACTION ENDS ***** 
+            conn.commit(); //  ***** TRANSACTION ENDS *****
             conn.setAutoCommit(autoCommitStatus);
             // ^ Added by Anatoli Mar. 24, 2013: only one commit at the very end of saving the form.
 
-        } catch (SQLException se) {
-            throw new GreensheetBaseException("Error saving Greensheet values", se);
+        } catch (SQLException se) {  
+            throw new GreensheetBaseException("Error saving the greensheet", se);
         } finally {
             try {
                 if (rs != null)
@@ -383,12 +391,12 @@ public class GreensheetFormDataHelper {
     void changeGreensheetFormStatus(GreensheetFormProxy form,
             GreensheetStatus newStatus, GsUser user)
             throws GreensheetBaseException {
-        /*  TODO: it would be great to check for optimistic locking failure before changing form status as well, 
+        /*  TODO: it would be great to check for optimistic locking failure before changing form status as well,
          *  like we do before saving updates to the form.  We should add this later, but we are rushing to get
          *  the build out with most pressing fixes, so we are leaving it for later...
-         *  It would be also great to run saveGreensheetFormData() and changeGreensheetFormStatus() within one 
-         *  transaction when a user is submitting the form... But... it takes time to refactor it this way, and 
-         *  it has never worked that way in years...   
+         *  It would be also great to run saveGreensheetFormData() and changeGreensheetFormStatus() within one
+         *  transaction when a user is submitting the form... But... it takes time to refactor it this way, and
+         *  it has never worked that way in years...
          */
     	Connection conn = null;
         PreparedStatement pstmt = null;
@@ -410,7 +418,7 @@ public class GreensheetFormDataHelper {
             }
             pstmt.setInt(4, form.getFormId());
             pstmt.executeUpdate();
-        } catch (SQLException se) {
+        } catch (SQLException se) { 
             throw new GreensheetBaseException("Problem changing Greensheet Status", se);
         } finally {
             try {
@@ -457,7 +465,7 @@ public class GreensheetFormDataHelper {
         Statement aStmt = null;
         ResultSet rsA = null;
         PreparedStatement pstmt = null; // Rewrite the SQL to improve the performance in the Greensheets application
-        PreparedStatement pstmtA = null; // Rewrite the SQL to improve the performance in the Greensheets application		
+        PreparedStatement pstmtA = null; // Rewrite the SQL to improve the performance in the Greensheets application
 
         try {
             conn = DbConnectionHelper.getInstance().getConnection();
@@ -622,7 +630,7 @@ public class GreensheetFormDataHelper {
             if (rs != null)
                 rs.close();
             //			if (stmt != null)// Rewrite the SQL to improve the performance in the Greensheets application
-            //				stmt.close();			
+            //				stmt.close();
             if (pstmtA != null)// Rewrite the SQL to improve the performance in the Greensheets application
                 pstmtA.close();
 
@@ -752,12 +760,12 @@ public class GreensheetFormDataHelper {
             conn.setAutoCommit(false);
             */
 
-            // Here we delete all existing answers associated with this form ID here - not just specific 
+            // Here we delete all existing answers associated with this form ID here - not just specific
             // question/answer IDs. This, in absence of better mechanisms like unique constraints on FORM_ID+question_id+
             // response_def_id, should avoid saving duplicate and sometimes conflicting answers to the same questions under
-            // the same form's ID number if two users are editing the same form simultaneously, or even the same user in 
+            // the same form's ID number if two users are editing the same form simultaneously, or even the same user in
             // two windows. But we don't want to reupload the file attachments, so a smarter solution is needed...
-            
+
         	String delPreviousAnswers = "DELETE FROM form_question_answers_t WHERE FRM_ID = ? " +
         			"AND extrnl_resp_def_id NOT LIKE '%_RD_FL_%'";
         	// Leaving the file-attachment answers alone and dealing with them later...
@@ -766,7 +774,7 @@ public class GreensheetFormDataHelper {
         	int oldAnswersDeletedCount = pstmtToDel.executeUpdate();
         	logger.debug(" * To delete previously-saved attachments, just ran this SQL with frm_id=" + form.getFormId()
         			+ ": " + delPreviousAnswers + "\n, and it affected " + oldAnswersDeletedCount + " rows.");
-        	
+
             Collection qrdList = form.getQuestionResponsDataMap().values();
             Iterator iter = qrdList.iterator();
 
@@ -936,10 +944,10 @@ public class GreensheetFormDataHelper {
             logger.debug("SAVING/DELETING THE ATTACHMENTS NOW.......");
 
             if (qaMap != null) { // attachments exist
-            	
+
             	AttachmentHelper ah = new AttachmentHelper();
             	ah.deleteOrphanAttachments(conn, form.getFormId(), qaMap);
-            	
+
                 // Handle each file attachment separately
                 logger.debug("Number of QRD with Files = " + qaMap.size());
 
@@ -1003,7 +1011,7 @@ public class GreensheetFormDataHelper {
             // conn = DbConnectionHelper.getInstance().getConnection();
 
             String type = form.getGroupTypeAsString();
-            int applId = Integer.parseInt(g.getApplID()); //Abdul Latheef: Use getApplID() for time being instead of getApplId() 
+            int applId = Integer.parseInt(g.getApplID()); //Abdul Latheef: Use getApplID() for time being instead of getApplId()
             String grantNum = g.getFullGrantNumber();
             String sql = null;
             if (g.isDummyGrant()) {
@@ -1020,12 +1028,16 @@ public class GreensheetFormDataHelper {
             while (rs.next()) {
                 int returned = rs.getInt(1);
                 if (returned > 0) {
-                    throw new GreensheetBaseException(
-                            "Error Saving Duplicate Greensheet Forms. Only one new Greensheetform for a grant can be created");
+                	conn.rollback();
+                    throw new GsDuplicateFormsException(
+                            "Error Saving Duplicate Greensheet Forms. " +
+                            "Only one new greensheet form for a grant can be created");
                 }
             }
         } catch (SQLException se) {
-            throw new GreensheetBaseException("Error Saving Duplicate Greensheet Forms. Only one new Greensheetform for a grant can be created", se);
+            throw new GreensheetBaseException("Database error occurred when trying to check for the " +
+            		"presence of already-saved greensheet forms before proceeding with an expected " +
+            		"initial save.", se);
         } finally {
             try {
                 if (rs != null)
@@ -1038,14 +1050,14 @@ public class GreensheetFormDataHelper {
             // DbConnectionHelper.getInstance().freeConnection(conn);
         }
     }
-    
-    // we use StringBuilders as parameters because Strings are immutable, and we want to 
+
+    // we use StringBuilders as parameters because Strings are immutable, and we want to
     // return values through these parameters
-    private boolean isFormStateStale(int formId, int updateStamp, 
-    			StringBuilder username, StringBuilder lastUpdateDate, Connection dbConn) 
+    private boolean isFormStateStale(int formId, int updateStamp,
+    			StringBuilder username, StringBuilder lastUpdateDate, Connection dbConn)
     		throws SQLException, GreensheetBaseException {
     	boolean staleStateDetected = true;
-    	
+
     	PreparedStatement stmt = null;
     	ResultSet rs = null;
     	try {
@@ -1070,7 +1082,7 @@ public class GreensheetFormDataHelper {
 	    						"the system unexpectedly encountered multiple form entries.");
 	    				throw newE;
 	    			}
-	    			
+
 	    			/* *** THIS IS THE KEY - CHECK IF THE VERSION NUMBER IS STILL THE SAME *** */
 	    			if ( reRetrievedUpdateStamp == updateStamp ) {
 	    				staleStateDetected = false;
@@ -1100,7 +1112,7 @@ public class GreensheetFormDataHelper {
     			throw e;
     		}
     	}
-    	
+
     	return staleStateDetected;
     }
 }

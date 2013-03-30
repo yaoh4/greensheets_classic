@@ -158,7 +158,7 @@ public class GrantDAOImpl implements GrantDAO {
         if (fullGrantNum == null || "".equals(fullGrantNum.trim())) {
             return null;
         }
-        incrementalQuery += "UPPER(FULL_GRANT_NUM) LIKE :fullGrantNum";
+        incrementalQuery += "UPPER(FULL_GRANT_NUM) = :fullGrantNum";
         sqlParms.addValue("fullGrantNum", fullGrantNum.trim().toUpperCase());
 
 

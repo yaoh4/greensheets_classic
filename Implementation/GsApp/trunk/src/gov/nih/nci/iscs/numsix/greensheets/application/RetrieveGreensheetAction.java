@@ -49,6 +49,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
     private static EmailNotification emailHelper;  // must be static or else, even though Spring injects it
     	// at web app startup, by the time execute() runs it is null because the instance of this Action 
     	// class when execute() runs is a different one, not the one that was created by Spring at startup...
+    	// WHICH IS BECAUSE WE DON'T HAVE STRUTS1-SPRING INTEGRATION SET UP AT ALL!
 
     public GreensheetsFormGrantsService getGreensheetsFormGrantsService() {
         return greensheetsFormGrantsService;
@@ -315,10 +316,10 @@ public class RetrieveGreensheetAction extends GsBaseAction {
     			msgText.append("In 'retrievegreensheet' action, method getGrant(), ").append(
     					"with parameters \n\tappl_id = ").append(applId).append(", full grant number ");
     			msgText.append(grantId).append(
-    					", \n\tgreensheet type = " + group + ", more than one grant met the criteria, ")
-    					.append("likely meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM.");
+    					", \n\tgreensheet type = " + group + ", more than one grant met the criteria, likely ")
+    					.append("meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM.");
     			msgText.append("\n\tThis is not normal, and OGA probably should be contacted to delete the ")
-    				.append("extra actions. However, the user of Greensheets is probably able to continue.");
+    				.append("extra action(s). However, the user of Greensheets is probably able to continue.");
     			logger.error("\t" + msgText);
     			logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     			if (emailHelper!=null) {

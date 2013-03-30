@@ -21,11 +21,11 @@
   	</context-param>
     <context-param>
         <param-name>appVersion</param-name>
-        <param-value>v2.7</param-value>
+        <param-value>2.7</param-value>
     </context-param>
     <context-param>
         <param-name>appBuild</param-name>
-        <param-value>b25.03.2013</param-value>
+        <param-value>b29.03.2013</param-value>
     </context-param>
     <context-param>
         <param-name>showDebugOnError</param-name>
@@ -85,6 +85,7 @@
     <servlet>
         <servlet-name>changeGreensheetLock</servlet-name>
         <servlet-class>gov.nih.nci.iscs.numsix.greensheets.application.ChangeLockServlet</servlet-class>
+        <!--  THERE IS NO ChangeLockServlet!!  - Anatoli, 2013  -->
     </servlet>
     
     <!-- Action Servlet Mapping -->
@@ -102,6 +103,7 @@
     <servlet-mapping>
         <servlet-name>changeGreensheetLock</servlet-name>
         <url-pattern>/changeGreensheetLock</url-pattern>
+        <!--  THERE IS NO ChangeLockServlet!!  - Anatoli, 2013  -->
     </servlet-mapping>
     
     <filter>
@@ -165,6 +167,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>    
   -->
+    <!-- The same thing ^ is at the top of the file, where it is not commented out. -->
     
     <!--
     

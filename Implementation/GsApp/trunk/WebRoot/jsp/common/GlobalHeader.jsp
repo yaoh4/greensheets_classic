@@ -32,6 +32,7 @@
 
     String appEnv = DbConnectionHelper.getDbEnvironment();
     String appVersion = application.getInitParameter("appVersion");
+    String appBuild = application.getInitParameter("appBuild");
     String emailLink = "mailto:" + application.getInitParameter("commentsEmail") + "?subject=Greensheets";
     String urlWorkbench = ((Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES)).getProperty("url.Workbench");
     String urlImpac2 = ((Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES)).getProperty("url.Impac2");
@@ -47,6 +48,8 @@
     <%}%>
 }
 </script>
+    <!-- Version: <%=appVersion%> -->
+    <!-- Build: <%=appBuild%> -->
 	<table width="100%">
 		<tr>
 			<td>

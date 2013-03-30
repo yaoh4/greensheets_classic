@@ -214,7 +214,7 @@ public class QuestionAttachmentsAction extends DispatchAction {
                     .getQuestionAttachmentProxy(respDefId);
 
             // delete or mark the attachment for deletion
-            qap.removeAttachment(fileMemoryId);
+            qap.removeAttachment(fileMemoryId);   // Once, a NullPtrExcp was thrown here
 
             req.setAttribute("QA_PROXY", qap);
             req.setAttribute("VALID_FILE_NAMES", qap.getValidFileNames());
@@ -268,13 +268,16 @@ public class QuestionAttachmentsAction extends DispatchAction {
             QuestionAttachmentsProxy qap = gfs
                     .getQuestionAttachmentProxy(respDefId);
 
-            QuestionAttachment qa = qap.getAttachment(fileMemoryId);
+            QuestionAttachment qa = null;
+            if (qap!=null) {
+            	qa = qap.getAttachment(fileMemoryId);
+            }
             if (qa != null) {
                 byte[] byst = null;
                 if (qa.getDocData() == null) {
                     //					GreensheetFormMgr mgr = GreensheetMgrFactory //Abdul Latheef: Used new FormGrantProxy instead of the old GsGrant.
                     //							.createGreensheetFormMgr(GreensheetMgrFactory.PROD);
-                    GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); //For time being -- Abdul Latheef 
+                    GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); //For time being -- Abdul Latheef
                     mgr.getQuestionAttachmentData(qa);
                     byst = qa.getDocData();
                 } else {
