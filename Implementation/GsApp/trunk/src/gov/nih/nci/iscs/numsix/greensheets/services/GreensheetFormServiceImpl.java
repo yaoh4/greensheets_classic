@@ -16,7 +16,8 @@ public class GreensheetFormServiceImpl implements GreensheetFormService {
 		this.greensheetFormDAO = greensheetFormDAO;
 	}
 
-	public GreensheetFormProxy getGreensheetForm(FormGrantProxy formGrantProxy, String formRoleCode) {
+	public GreensheetFormProxy getGreensheetForm(FormGrantProxy formGrantProxy, String formRoleCode) 
+			throws GreensheetBaseException {
 		FormGrant formGrant = null;
 		String formStatus = "";
 		GreensheetForm greensheetForm = null;

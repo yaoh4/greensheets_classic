@@ -13,12 +13,14 @@
 
 <%@ include file="/jsp/common/DialogHeader.jsp"%> 
 <!-- begin body content -->
-<h1>Greensheet Not Found</h1>
+<h1>Greensheet Questionnaire Not Found</h1>
 <p>
-	A Greensheet was not found for the requested Grant Type and Mechanism<br />
-	Type <%=request.getAttribute("MISSING_TYPE")%><br />
-	Mechanism <%=request.getAttribute("MISSING_MECH")%><br/>
-    Please e-mail the NCI GAB Greensheets e-mail group (in the Global Address List) if you feel that it should be included
+	Greensheet questionnaire definition was not found for 
+	type <strong><%=request.getAttribute("MISSING_TYPE")%></strong>
+	<strong><%=request.getAttribute("MISSING_MECH")%></strong> grants.
+</p>
+<p>
+    Please contact support if you feel that greensheet questionnaires for such grants should be defined.
 </p>
 <!-- end body content -->
 <%@ include file="/jsp/common/DialogFooter.jsp"%>

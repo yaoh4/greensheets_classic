@@ -3,6 +3,8 @@ package gov.nih.nci.cbiit.atsc.dao.spring;
 import gov.nih.nci.cbiit.atsc.dao.FormGrant;
 import gov.nih.nci.cbiit.atsc.dao.GreensheetForm;
 import gov.nih.nci.cbiit.atsc.dao.GreensheetFormDAO;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsNoTemplateDefException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
@@ -21,7 +24,7 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 
-    public GreensheetForm getGreensheetForm(FormGrant grant, String formtype) {
+    public GreensheetForm getGreensheetForm(FormGrant grant, String formtype) throws GreensheetBaseException {
         MapSqlParameterSource sqlParms = new MapSqlParameterSource();
         String formRoleCode = null;
         GreensheetForm greensheetForm = null;
@@ -43,7 +46,16 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
         sqlParms.addValue("grantMech", grant.getActivityCode()); //Mech
 
         logger.debug("SQL: " + formGrantMatrixSql);
-        int formTemplateId = this.namedParameterJdbcTemplate.queryForInt(formGrantMatrixSql, sqlParms);
+        int formTemplateId = 0;
+        try {
+        	formTemplateId = this.namedParameterJdbcTemplate.queryForInt(formGrantMatrixSql, sqlParms);
+        }
+        catch(EmptyResultDataAccessException e) {
+        	GsNoTemplateDefException noTmplExcp = new GsNoTemplateDefException("Greensheet questionnaires " +
+        			"for this kind of grant have not been defined.");
+        	noTmplExcp.initCause(e);
+        	throw noTmplExcp;
+        }
         logger.debug("The Greensheet Form Template ID read from the DB is: " + formTemplateId);
 
         String greensheetFormSql = "";

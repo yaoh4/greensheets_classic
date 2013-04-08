@@ -8,6 +8,7 @@ package gov.nih.nci.iscs.numsix.greensheets.application;
 import gov.nih.nci.cbiit.atsc.dao.FormGrant;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsNoTemplateDefException;
 import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormService;
 import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFormGrantsService;
@@ -103,7 +104,15 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                 return mapping.findForward("sessionTimeOut");
             }
 
-            GreensheetFormProxy gsform = this.getForm(req, grant);
+            GreensheetFormProxy gsform = null;
+            try {
+            	gsform = this.getForm(req, grant);
+            }
+            catch (GsNoTemplateDefException noTmplE) {
+                req.setAttribute("MISSING_TYPE", grant.getApplTypeCode());
+                req.setAttribute("MISSING_MECH", grant.getActivityCode());
+            	return mapping.findForward("templatenotfound");
+            }
 
             if (gsform == null) {
                 return mapping.findForward("sessionTimeOut");
@@ -114,6 +123,10 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             String id = gus.addGreensheetFormSession(gfs);
 
             if (gsform.getFtmId() <= 0) {
+            	// This branch of code no longer runs after converting from plain JDBC
+            	// database access to one based on the Spring JDBC template, because
+            	// instead of returning 0 items an exception is thrown, so we are now 
+            	// doing the same by caching the GsNoTemplateDefException exception, above 
                 req.setAttribute("MISSING_TYPE", grant.getApplTypeCode());
                 req.setAttribute("MISSING_MECH", grant.getApplTypeCode());
                 forward = "templatenotfound";
