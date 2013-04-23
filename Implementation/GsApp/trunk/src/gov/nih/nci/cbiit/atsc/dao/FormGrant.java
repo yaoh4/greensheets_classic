@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class FormGrant implements Serializable {
-    private boolean dummy;
+
+	private static final long serialVersionUID = 4610315833175617525L;
+	
+	private boolean dummy;
     private boolean onControl;
     private boolean electronicallySubmitted;
     private long applId;
