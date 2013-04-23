@@ -69,14 +69,15 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
         // FormGrantProxy instead of the old GsGrant.GsGrant;
         // .createGrantMgr(GreensheetMgrFactory.PROD);
         String grantList = null;
-
+/*
         // Check for session time out
         if (req.getSession().isNew()) {
             // set forward name
             grantList = "sessionTimeOut"; // Why??? It should be still legit for users to request the
             // URL mapped to this action directly, as the very first request of their session...
         } else {
-            HttpSession httpSession = req.getSession();
+*/
+        	HttpSession httpSession = req.getSession();
           
             DynaActionForm form = (DynaActionForm) aForm;
 
@@ -142,8 +143,9 @@ public class RetrieveUsersGrantsAction extends GsBaseAction {
                 // set forward name
                 grantList = "programGrantsList";
             }
-        }
-
+/*  this was the end of the block "do this if the session is not new"
+    	}
+*/
         return mapping.findForward(grantList);
     }
 
