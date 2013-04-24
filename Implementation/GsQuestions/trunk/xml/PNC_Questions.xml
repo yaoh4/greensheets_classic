@@ -23504,7 +23504,6 @@
 			<TypeMech type="8" mech="K24"/>
 			<TypeMech type="8" mech="KL2"/>
 			<TypeMech type="8" mech="R03"/>
-			<TypeMech type="8" mech="R41"/>
 			<TypeMech type="8" mech="R56"/>
 			<TypeMech type="5" mech="DP1"/>
 			<TypeMech type="5" mech="F32"/>
@@ -23512,7 +23511,6 @@
 			<TypeMech type="5" mech="R00"/>
 			<TypeMech type="5" mech="R30"/>
 			<TypeMech type="5" mech="R37"/>
-			<TypeMech type="5" mech="R41"/>
 			<TypeMech type="5" mech="RC3"/>
 			<TypeMech type="5" mech="RL1"/>
 			<TypeMech type="5" mech="TU2"/>
@@ -23607,7 +23605,6 @@
 			<TypeMech type="4" mech="U54"/>
 			<TypeMech type="4" mech="R21"/>
 		</GrantTypeMechs>
-
 		<QText>Are there any FCOI concerns?</QText>
 		<QInstructions/>
 		<ResponseDefsList>
@@ -23636,7 +23633,6 @@
 							<TypeMech type="8" mech="K07"/>
 							<TypeMech type="8" mech="KL1"/>
 							<TypeMech type="8" mech="R00"/>
-							<TypeMech type="8" mech="R43"/>
 							<TypeMech type="8" mech="R55"/>
 							<TypeMech type="5" mech="K18"/>
 							<TypeMech type="5" mech="KM1"/>
@@ -23662,7 +23658,6 @@
 							<TypeMech type="5" mech="K23"/>
 							<TypeMech type="5" mech="R03"/>
 							<TypeMech type="5" mech="R18"/>
-							<TypeMech type="5" mech="R43"/>
 							<TypeMech type="5" mech="RL2"/>
 							<TypeMech type="5" mech="SC1"/>
 							<TypeMech type="5" mech="SC2"/>
@@ -23693,7 +23688,6 @@
 							<TypeMech type="8" mech="K24"/>
 							<TypeMech type="8" mech="KL2"/>
 							<TypeMech type="8" mech="R03"/>
-							<TypeMech type="8" mech="R41"/>
 							<TypeMech type="8" mech="R56"/>
 							<TypeMech type="5" mech="DP1"/>
 							<TypeMech type="5" mech="F32"/>
@@ -23701,7 +23695,6 @@
 							<TypeMech type="5" mech="R00"/>
 							<TypeMech type="5" mech="R30"/>
 							<TypeMech type="5" mech="R37"/>
-							<TypeMech type="5" mech="R41"/>
 							<TypeMech type="5" mech="RC3"/>
 							<TypeMech type="5" mech="RL1"/>
 							<TypeMech type="5" mech="TU2"/>
