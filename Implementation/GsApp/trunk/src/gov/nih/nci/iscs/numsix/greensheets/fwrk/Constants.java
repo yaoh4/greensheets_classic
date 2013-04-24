@@ -61,6 +61,7 @@ public interface Constants {
 	public static final String PREFERENCES_GRANT_PI_FIRST_NAME_KEY = "preferences.firstName";	// Bug#4204 Abdul: Added the new field firstName
 
 	public static final String SESS_MAINT_FLTR_INIT_PARAM_NAME = "resources-not-needing-user-info";
+	public static final String SESS_MAINT_FLTR_INIT_PARAM_PRELOAD_AND_SVC = "resources-to-preload-user-info-and-then-service";
 	public static final String SESSION_EXPIRED_PAGE = "/jsp/SessionExpired.jsp";
 
 }

@@ -342,6 +342,7 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/utils/DbUtils
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/utils/EmailNotification.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/utils/GreensheetsKeys.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/utils/Log4J.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/utils/RedundantEmailPreventer.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/velocity/tools/view/servlet/VelocityViewIdServlet.java -text
 Implementation/GsDocChecker/trunk/build/RunDocChecker_LINUX.txt -text
 Implementation/GsDocChecker/trunk/build/RunDocChecker_Win.txt -text

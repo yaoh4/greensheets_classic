@@ -9,6 +9,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.NciPerson;
 import gov.nih.nci.salient.framework.service.impl.EmailService;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
@@ -31,6 +32,9 @@ public class EmailNotification {
     private static final Logger logger = Logger
             .getLogger(EmailNotification.class);
 
+    private static final SimpleDateFormat timeFormatter = 
+    		new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+    
     private String sendingOfEmailsEnabled = "";
     private String environment = "";
     
@@ -381,7 +385,7 @@ public class EmailNotification {
             	if (environment!=null && !"".equals(environment) && !environment.toUpperCase().contains("PROD")) {
             		envString = envString + " - " + environment;
             	}
-            	envString += "]";
+            	envString += " " + timeFormatter.format(new Date()) + "]";
                 emailMsg.setSubject(envString + " ISSUE: Redundant grant records detected when retrieving a greensheet");
 
                 text.insert(0, "This is an automated message from Greensheets application.\n" +

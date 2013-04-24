@@ -18,6 +18,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.Greensheet
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
+import gov.nih.nci.iscs.numsix.greensheets.utils.RedundantEmailPreventer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -172,6 +173,12 @@ public class RetrieveGreensheetAction extends GsBaseAction {
     // private GsGrant getGrant(HttpServletRequest req) throws Exception {
     // //Abdul Latheef: Used new FormGrantProxy instead of the old GsGrant.
     private FormGrantProxy getGrant(HttpServletRequest req) throws Exception {
+    	
+    	// TODO: after the various combinations of request parameters and sources 
+    	// of requests were accounted for, this method ended up having a decent 
+    	// amount of copy-pasted repetitive code.  It could well use some 
+    	// refactoring for reuse and better clarity.  - Anatoli, April 2013
+    	
         logger.debug("getGrant() Begin");
         GreensheetUserSession gus = (GreensheetUserSession) req.getSession()
                 .getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
@@ -256,11 +263,18 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             	throw newException;
             }
             else if (group.equalsIgnoreCase(GreensheetGroupType.DM.getName())) {
-            	if ((applId==null || "".equals(applId)) && grantId!=null && !"".equals(grantId)) {
-            		// GPMATS determined that this is a dummy grant, formed the URL with grant number 
-            		// rather than appl_id
+            	/* *** Dealing with a request for a "DM checklist" greensheet *** */
+            	if (grantId!=null && !"".equals(grantId)) {
+            		// Either (a) GPMATS determined that this is a dummy grant, formed the URL with grant 
+            		// number rather than appl_id, or (b) the request is from eGrants
             		formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
             		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
+            		/*
+            		 *  This force-setting of the dummy flag was in place while I (Anatoli) had a mistaken belief
+            		 *  that a request for a DM checklist can come only from GPMATS and if it includes a grant 
+            		 *  number parameter rather than appl_id, GPMATS thinks it is dummy... but it turned out that 
+            		 *  eGrants forms URLs to get DM checklists and includes both grant number and appl_id as 
+            		 *  parameters, for real grants as well. 
             		if (formGrants!=null && formGrants.size() > 0) {
             			for (Object oneGrant : formGrants) {
             				if ( ((FormGrant) oneGrant).isDummy() == false ) {
@@ -270,10 +284,11 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             				}
             			}
             		}
+            		*/
             	}
-            	else if ((grantId==null || "".equals(grantId)) && applId!=null && !"".equals(applId)) {
-            		// GPMATS determined that this is a real, non-dummy, grant and formed the URL 
-            		// with appl_id rather than grant number
+            	else if (applId!=null && !"".equals(applId)) {
+            		// GPMATS determined that this is a real, non-dummy, grant and formed the URL with 
+            		// appl_id rather than grant number
             		formGrants = greensheetsFormGrantsService.findGrantsByApplId(Long.parseLong(applId));
             		if (formGrants!=null && formGrants.size() > 0) {
             			List nonDummyFormGrants = new ArrayList();
@@ -304,11 +319,42 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             }
             else if (group.equalsIgnoreCase(GreensheetGroupType.PGM.getName()) || 
             		group.equalsIgnoreCase(GreensheetGroupType.SPEC.getName())) {
-            	// Request parameters apparently always include BOTH appl_id and grant number; because a 
-            	// query by appl_id might return two or even more grants (real plus dummy(ies)), we should 
-            	// always get the grant by the full grant number and disregard the appl_id
-        		formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
-        		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());            	
+            	/* Request parameters include BOTH appl_id and grant number when request URLs are composed
+            	   by Greensheets itself or by eGrants; because a query by appl_id might return two or even 
+            	   more grants (real plus dummy(ies)), we should always get the grant by the full grant number 
+            	   and disregard the appl_id when we can.
+            	   However, as it turns out, request URLs generated by YourGrants include appl_id only, so 
+            	   to deal with the possibility of multiple grants per appl_id we should probably limit the 
+            	   list to real grants and suppress the dummies.
+            	*/            	
+        		if (grantId!=null && !"".equals(grantId)) {
+        			// request from inside Greensheets or from eGrants
+	            	formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
+	        		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
+        		}
+        		else if (applId!=null && !"".equals(applId)) {
+        			// requested from YourGrants
+            		formGrants = greensheetsFormGrantsService.findGrantsByApplId(Long.parseLong(applId));
+            		if (formGrants!=null && formGrants.size() > 0) {
+            			List nonDummyFormGrants = new ArrayList();
+            			for ( Object oneGrant : formGrants ) {
+            				if ( ((FormGrant)oneGrant).isDummy() ) {
+            					logger.info("YourGrants requested a " + group + " greensheet for appl_id " 
+            							+ applId + ", but in the database there is at least one dummy grant"
+            							+ "for this appl_id, too. So we will NOT ADD it to the list \n\t" 
+            							+ "of non-dummy grants that we will use as the utimate list.");
+            				}
+            				else {
+            					nonDummyFormGrants.add(oneGrant);
+            				}
+            			}
+            			formGrants = nonDummyFormGrants; // replacing the original list, which includes all 
+            				// entries with the same appl_id, with the "filtered" list that should only have 
+            				// one, non-dummy, grant. 
+            			nonDummyFormGrants = null;
+            		}
+            		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
+        		}
             }
             else {
             	GreensheetBaseException newException = new GreensheetBaseException("The request to retrieve " +
@@ -335,8 +381,15 @@ public class RetrieveGreensheetAction extends GsBaseAction {
     				.append("extra action(s). However, the user of Greensheets is probably able to continue.");
     			logger.error("\t" + msgText);
     			logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    			if (emailHelper!=null) {
-    				emailHelper.sendTextToSupportEmail(msgText);
+    			RedundantEmailPreventer redundantEmailPreventer = (RedundantEmailPreventer) req.getSession()
+    					.getServletContext().getAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER);
+    			if (redundantEmailPreventer!=null && 
+    					!redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId) && 
+    					!redundantEmailPreventer.applIdNotificationAlreadySent(applId)) {
+        			if (emailHelper!=null) {
+        				emailHelper.sendTextToSupportEmail(msgText);
+        				redundantEmailPreventer.recordTheSending((FormGrantProxy)formGrantsProxies.get(0));
+        			}
     			}
     			grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
     				// we should change the data model to support multiple GPMATS actions per the same 

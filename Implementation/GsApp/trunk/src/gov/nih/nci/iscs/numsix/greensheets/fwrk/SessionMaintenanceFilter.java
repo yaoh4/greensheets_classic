@@ -1,6 +1,8 @@
 package gov.nih.nci.iscs.numsix.greensheets.fwrk;
 
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
+import gov.nih.nci.iscs.numsix.greensheets.application.GreensheetActionHelper;
+import gov.nih.nci.iscs.numsix.greensheets.application.GreensheetUserSession;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -67,10 +69,51 @@ public class SessionMaintenanceFilter implements Filter {
 						filterChain.doFilter(servletRequest, resp);
 					}
 					else {
-						logger.warn("  ****** No user-representing object in session - REDIRECTING TO 'EXPIRED' PAGE!!! ");
-						// logger.debug("  . . . . . . but for now, we will let it slide...");
-						((HttpServletResponse)resp).sendRedirect(request.getContextPath() +
-								Constants.SESSION_EXPIRED_PAGE);
+						logger.debug("  ****** No user-representing object in session... What do we do??");
+						/* We check if the requested resource is such that requires us to just create 
+						 * the user-representing bean, save it in the session, and move on with processing 
+						 * the request. */
+						boolean preloadAndServiceMatchFound = false;
+						Object preloadAndServiceResourceNames = session.getServletContext()
+								.getAttribute(GreensheetsKeys.KEY_PRELOAD_USERINFO_AND_SVC_RS_NAMES);
+						if (preloadAndServiceResourceNames!=null && preloadAndServiceResourceNames 
+								instanceof List<?>) {
+							Iterator<String> i2 = ((List<String>)preloadAndServiceResourceNames).iterator();
+							while (i2.hasNext() && !preloadAndServiceMatchFound) {
+								String preloadAndSvcRsName = i2.next();
+								if (requestedURL.indexOf(preloadAndSvcRsName) != -1) {
+									preloadAndServiceMatchFound = true;
+								}
+							}
+						}
+						if (preloadAndServiceMatchFound) {
+							logger.debug("   ***  The requested URL requires us to pre-load a " +
+									"user-representing object before servicing the request, so " +
+									"we'll do that.");
+							// Well... create and save in the session the user-representing bean here:
+							try {
+								GreensheetUserSession newUserInfoBean = 
+										GreensheetActionHelper.getGreensheetUserSession(request);
+								request.getSession().setAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION, 
+										newUserInfoBean);
+								filterChain.doFilter(servletRequest, resp);
+							}
+							catch (GreensheetBaseException gbe) {
+								ServletException se = new ServletException("Error while establishing " +
+										"the session and saving the user information object in it.", gbe);
+								throw se;
+							}
+						}
+						else {
+							// No user-representing object in the session, and the URL requested is neither
+							// one of session-initiating ones (that can be serviced without it) nor one
+							// that requires us to pre-load the user object and continue servicing - so, we 
+							// are goign to redirect to the "session expired" page.
+							logger.warn("  ****** Based on no user-representing bean in the session already " +
+									"and the URL requested, we redirect to the 'SESSION EXPIRED' page. *** ");
+							((HttpServletResponse)resp).sendRedirect(request.getContextPath() +
+									Constants.SESSION_EXPIRED_PAGE);
+						}
 					}
 				}
 				else {
@@ -108,6 +151,26 @@ public class SessionMaintenanceFilter implements Filter {
 				}
 				filterConfig.getServletContext().setAttribute(
 						GreensheetsKeys.KEY_SESSION_INITIATING_RESOURCE_NAMES, initialResourceNames);
+			}
+			/* Added later... Same thing but resource names for which, even if a user-representing 
+			 * object is not yet in the session, we should go ahead and load it, place it in the 
+			 * session, and then continue to service the request. 
+			 */
+			else if (paramName!=null && 
+					Constants.SESS_MAINT_FLTR_INIT_PARAM_PRELOAD_AND_SVC.equals(paramName)) {
+				String paramValue = filterConfig.getInitParameter(
+						Constants.SESS_MAINT_FLTR_INIT_PARAM_PRELOAD_AND_SVC);
+				filterConfig.getServletContext().removeAttribute(GreensheetsKeys.KEY_PRELOAD_USERINFO_AND_SVC_RS_NAMES);
+				StringTokenizer tokenizer = new StringTokenizer(paramValue, ";");
+				List<String> preloadThenServiceResourceNames = new LinkedList<String>();
+				while (tokenizer.hasMoreTokens()) {
+					String token = tokenizer.nextToken();
+					if (token!=null && !"".equals(token)) {
+						preloadThenServiceResourceNames.add(token);
+					}
+				}
+				filterConfig.getServletContext().setAttribute(
+						GreensheetsKeys.KEY_PRELOAD_USERINFO_AND_SVC_RS_NAMES, preloadThenServiceResourceNames);
 			}
 		}
 	}

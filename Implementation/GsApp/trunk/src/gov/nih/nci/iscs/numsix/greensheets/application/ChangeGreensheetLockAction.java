@@ -16,6 +16,8 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.Greensheet
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
 import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
+import gov.nih.nci.iscs.numsix.greensheets.utils.RedundantEmailPreventer;
 
 import java.util.List;
 
@@ -113,8 +115,14 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
     				.append("extra action(s). However, the user of Greensheets is probably able to continue.");
     			logger.error("\t" + msgText);
     			logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    			if (emailHelper!=null) {
-    				emailHelper.sendTextToSupportEmail(msgText);
+    			RedundantEmailPreventer redundantEmailPreventer = (RedundantEmailPreventer) req.getSession()
+    					.getServletContext().getAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER);
+    			if (redundantEmailPreventer!=null && 
+    					!redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId)) {
+	    			if (emailHelper!=null) {
+	    				emailHelper.sendTextToSupportEmail(msgText);
+	    				redundantEmailPreventer.recordTheSending((FormGrantProxy)formGrantsProxies.get(0));
+	    			}
     			}
     			grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
     				// we should change the data model to support multiple GPMATS actions per the same 

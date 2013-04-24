@@ -10,6 +10,7 @@ import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigLoader;
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.DbConnectionHelper;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
+import gov.nih.nci.iscs.numsix.greensheets.utils.RedundantEmailPreventer;
 
 import java.io.File;
 import java.util.HashMap;
@@ -60,6 +61,9 @@ public class GreensheetsInitPlugIn implements PlugIn {
 			System.out.println("\n<<<<<<<<<< Database configuration complete >>>>>>>>\n");
 
 			AppConfigProperties.getInstance().addProperty("TEMPLATE_RESOURCE_MAP", new HashMap());
+			
+			serv.getServletContext().setAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER
+					, new RedundantEmailPreventer()); // Added by Anatoli April 23, 2013
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}

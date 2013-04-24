@@ -21,11 +21,11 @@
   	</context-param>
     <context-param>
         <param-name>appVersion</param-name>
-        <param-value>2.7</param-value>
+        <param-value>2.7.1</param-value>
     </context-param>
     <context-param>
         <param-name>appBuild</param-name>
-        <param-value>b29.03.2013</param-value>
+        <param-value>b24.04.2013</param-value>
     </context-param>
     <context-param>
         <param-name>showDebugOnError</param-name>
@@ -37,7 +37,7 @@
     </context-param>
     <context-param>
         <param-name>commentsEmail</param-name>
-        <param-value>NCI-NOW-L@LIST.NIH.GOV</param-value>
+        <param-value>nci-now-l@list.nih.gov</param-value>
     </context-param>
     <context-param>
         <param-name>log4j-init-file</param-name>
@@ -116,6 +116,15 @@
             </description>
             <param-name>resources-not-needing-user-info</param-name>
             <param-value>index.jsp;retrievegrants.do;SessionTimeOut.jsp;SessionExpired.jsp</param-value>
+        </init-param>
+        <init-param>
+        	<description>URL fragments requests for which require pre-loading the 
+        		user-representing Java object if it is not already in the session, 
+        		but then continuing to service the request instead of redirecting 
+        		to home page. Again, separate by semicolons.
+        	</description>
+        	<param-name>resources-to-preload-user-info-and-then-service</param-name>
+        	<param-value>retrievegreensheet</param-value>
         </init-param>
     </filter>
     
