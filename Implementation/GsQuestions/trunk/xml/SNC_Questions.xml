@@ -14902,7 +14902,7 @@
 			<TypeMech type="4" mech="R21"/>
 		</GrantTypeMechs>
 		<QText> Are there any reports in the FCOI database?</QText>
-		<QInstructions/>
+		<QInstructions>http://oerdb.od.nih.gov/cfdocs/compliance/fcoi/index_nih_staff.htm</QInstructions>
 		<ResponseDefsList>
 			<ResponseDef id="SNCQ_410_RD_CM_3101" type="COMMENT"/>
 			<ResponseDef id="SNCQ_410_RD_FL_3102" type="FILE"/>
@@ -15456,7 +15456,7 @@
 															<TypeMech type="4" mech="U54"/>
 															<TypeMech type="4" mech="R21"/>
 														</GrantTypeMechs>
-														<QText>Has the annual FCOI report been submitted?</QText>
+														<QText>Has the 2011 annual FCOI report been submitted and approved?</QText>
 														<QInstructions/>
 														<ResponseDefsList>
 															<ResponseDef id="SNCQ_611_RD_CM_3111" type="COMMENT"/>
@@ -15464,7 +15464,10 @@
 															<ResponseDef id="SNCQ_611_RD_RB_3110" type="RADIO">
 																<SelectionDef id="SEL_6111">
 																	<Value>Yes</Value>
-																	<QuestionDef id="SNCQ_711">
+																</SelectionDef>
+																<SelectionDef id="SEL_4112">
+																	<Value>No</Value>
+																	<QuestionDef id="SCQ_711">
 																		<GrantTypeMechs>
 																			<TypeMech type="8" mech="K14"/>
 																			<TypeMech type="8" mech="K99"/>
@@ -15641,17 +15644,14 @@
 																			<TypeMech type="4" mech="U54"/>
 																			<TypeMech type="4" mech="R21"/>
 																		</GrantTypeMechs>
-																		<QText>Date of report submission:</QText>
+																		<QText>Explanation required.</QText>
 																		<QInstructions/>
 																		<ResponseDefsList>
-																			<ResponseDef id="SNCQ_711_RD_CM_10" type="COMMENT"/>
-																			<ResponseDef id="SNCQ_711_RD_FL_11" type="FILE"/>
-																			<ResponseDef id="SNCQ_711_RD_DT_12" type="DATE"/>
+																			<ResponseDef id="SCQ_711_RD_CM_9" type="COMMENT"/>
+																			<ResponseDef id="SCQ_711_RD_FL_10" type="FILE"/>
+																			<ResponseDef id="SCQ_711_RD_TX_11" type="TEXT"/>
 																		</ResponseDefsList>
 																	</QuestionDef>
-																</SelectionDef>
-																<SelectionDef id="SEL_4112">
-																	<Value>No</Value>
 																</SelectionDef>
 															</ResponseDef>
 														</ResponseDefsList>
@@ -15843,7 +15843,7 @@
 											<TypeMech type="4" mech="U54"/>
 											<TypeMech type="4" mech="R21"/>
 										</GrantTypeMechs>
-										<QText>Has the Annual FCOI report been submitted?</QText>
+										<QText>Has the Annual FCOI report been submitted and approved?</QText>
 										<QInstructions/>
 										<ResponseDefsList>
 											<ResponseDef id="SNCQ_422_RD_CM_3111" type="COMMENT"/>
@@ -15851,7 +15851,10 @@
 											<ResponseDef id="SNCQ_422_RD_RB_3110" type="RADIO">
 												<SelectionDef id="SEL_4222">
 													<Value>Yes</Value>
-													<QuestionDef id="SNCQ_811">
+												</SelectionDef>
+												<SelectionDef id="SEL_4223">
+													<Value>No</Value>
+													<QuestionDef id="SCQ_811">
 														<GrantTypeMechs>
 															<TypeMech type="8" mech="K14"/>
 															<TypeMech type="8" mech="K99"/>
@@ -16028,17 +16031,14 @@
 															<TypeMech type="4" mech="U54"/>
 															<TypeMech type="4" mech="R21"/>
 														</GrantTypeMechs>
-														<QText>Date of report submission:</QText>
+														<QText>Explanation required.</QText>
 														<QInstructions/>
 														<ResponseDefsList>
-															<ResponseDef id="SNCQ_811_RD_CM_10" type="COMMENT"/>
-															<ResponseDef id="SNCQ_811_RD_FL_11" type="FILE"/>
-															<ResponseDef id="SNCQ_811_RD_DT_12" type="DATE"/>
+															<ResponseDef id="SCQ_811_RD_CM_9" type="COMMENT"/>
+															<ResponseDef id="SCQ_811_RD_FL_10" type="FILE"/>
+															<ResponseDef id="SCQ_811_RD_TX_11" type="TEXT"/>
 														</ResponseDefsList>
 													</QuestionDef>
-												</SelectionDef>
-												<SelectionDef id="SEL_4223">
-													<Value>No</Value>
 												</SelectionDef>
 											</ResponseDef>
 										</ResponseDefsList>
