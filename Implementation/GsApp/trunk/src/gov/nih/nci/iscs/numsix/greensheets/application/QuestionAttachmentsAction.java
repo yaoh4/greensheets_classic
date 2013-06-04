@@ -426,11 +426,10 @@ public class QuestionAttachmentsAction extends DispatchAction {
                 } else {
                     req.setAttribute("NUM_OF_ATTACHMENTS", "0");
                 }
+                gfs.updateQRDQuestionAttachments(respDefId, qap.getAttachmentMap());
             } else {
                 req.setAttribute("NUM_OF_ATTACHMENTS", "0");
             }
-
-            gfs.updateQRDQuestionAttachments(respDefId, qap.getAttachmentMap());
 
             gfs.removeQuestionAttachmentsProxy(respDefId);
 
