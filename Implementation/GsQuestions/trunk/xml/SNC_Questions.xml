@@ -11423,7 +11423,7 @@
 												<SelectionDef id="SEL_71">
 													<Value>End-of-Year Animals</Value>
 												</SelectionDef>
-												<SelectionDef id="SEL_75">
+												<SelectionDef id="SEL_88">
 													<Value>Public Access </Value>
 												</SelectionDef>
 												<SelectionDef id="SEL_72">
@@ -11608,7 +11608,7 @@
 											<ResponseDef id="SNCQ_43_RD_CM_100" type="COMMENT"/>
 											<ResponseDef id="SNCQ_43_RD_FL_101" type="FILE"/>
 											<ResponseDef id="SNCQ_43_RD_RB_102" type="RADIO">
-												<SelectionDef id="SEL_95">
+												<SelectionDef id="SEL_75">
 													<Value>Yes</Value>
 												</SelectionDef>
 											</ResponseDef>
