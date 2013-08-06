@@ -61,7 +61,12 @@ public class FormGrantProxy extends FormGrant implements Serializable {
 	 */
 	@Deprecated		
 	public String getBackupSpecialist() { //Task to do: See if this could be renamed getBackUpSpecialist(), if it is right. Check GsPdfRenderer class.
-		return this.getBkupGmsUserId(); 
+		//return this.getBkupGmsUserId(); 
+	    if (this.getBkupGmsLastName() == null || this.getBkupGmsFirstName() == null) {
+            return "";
+        } else {
+            return this.getBkupGmsLastName() + "," + this.getBkupGmsFirstName();
+        }
 	}	
 	
 	/**
