@@ -108,7 +108,7 @@ public class SessionMaintenanceFilter implements Filter {
 							// No user-representing object in the session, and the URL requested is neither
 							// one of session-initiating ones (that can be serviced without it) nor one
 							// that requires us to pre-load the user object and continue servicing - so, we 
-							// are goign to redirect to the "session expired" page.
+							// are going to redirect to the "session expired" page.
 							logger.warn("  ****** Based on no user-representing bean in the session already " +
 									"and the URL requested, we redirect to the 'SESSION EXPIRED' page. *** ");
 							((HttpServletResponse)resp).sendRedirect(request.getContextPath() +
