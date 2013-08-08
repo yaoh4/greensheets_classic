@@ -214,10 +214,13 @@ public class QuestionAttachmentsAction extends DispatchAction {
                     .getQuestionAttachmentProxy(respDefId);
 
             // delete or mark the attachment for deletion
-            qap.removeAttachment(fileMemoryId);   // Once, a NullPtrExcp was thrown here
-
-            req.setAttribute("QA_PROXY", qap);
-            req.setAttribute("VALID_FILE_NAMES", qap.getValidFileNames());
+            if (qap!=null){
+                if(fileMemoryId != null) {
+                qap.removeAttachment(fileMemoryId);
+            }// Once, a NullPtrExcp was thrown here
+                req.setAttribute("QA_PROXY", qap);
+                req.setAttribute("VALID_FILE_NAMES", qap.getValidFileNames());   
+            }
             req.setAttribute("RESP_DEF_ID", respDefId);
 
             /*req.setAttribute("NUM_OF_ATTACHMENTS", ""
@@ -269,8 +272,8 @@ public class QuestionAttachmentsAction extends DispatchAction {
                     .getQuestionAttachmentProxy(respDefId);
 
             QuestionAttachment qa = null;
-            if (qap!=null) {
-            	qa = qap.getAttachment(fileMemoryId);
+            if (qap != null) {
+                qa = qap.getAttachment(fileMemoryId);
             }
             if (qa != null) {
                 byte[] byst = null;
