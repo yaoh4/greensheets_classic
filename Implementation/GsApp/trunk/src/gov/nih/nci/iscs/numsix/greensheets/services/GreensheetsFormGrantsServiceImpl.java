@@ -1,7 +1,9 @@
 package gov.nih.nci.iscs.numsix.greensheets.services;
 
 import gov.nih.nci.cbiit.atsc.dao.GrantDAO;
+import gov.nih.nci.cbiit.atsc.dao.GreensheetFormDAO;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
@@ -23,6 +25,11 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
 
     private GreensheetsMiscServices greensheetsMiscServices = null;
     private GrantDAO grantDAO;
+    private GreensheetFormDAO greensheetFormDAO;
+
+    public void setGreensheetFormDAO(GreensheetFormDAO greensheetFormDAO) {
+        this.greensheetFormDAO = greensheetFormDAO;
+    }
 
     public void setGrantDAO(GrantDAO grantDAO) {
         this.grantDAO = grantDAO;
@@ -221,5 +228,15 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
         datesRange.add(endDate);
 
         return datesRange;
+    }
+    
+    public boolean checkActionStatusByApplId(String applId) throws GreensheetBaseException{
+        return greensheetFormDAO.checkActionStatusByApplId(applId);
+    }
+    
+    public boolean checkActionStatusByGrantId(String grantId) throws GreensheetBaseException{
+        
+        return greensheetFormDAO.checkActionStatusByGrantId(grantId);
+        
     }
 }
