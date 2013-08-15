@@ -6,7 +6,12 @@ import gov.nih.nci.cbiit.atsc.dao.GreensheetFormDAO;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsNoTemplateDefException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
+import gov.nih.nci.iscs.numsix.greensheets.utils.DbConnectionHelper;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -48,13 +53,12 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
         logger.debug("SQL: " + formGrantMatrixSql);
         int formTemplateId = 0;
         try {
-        	formTemplateId = this.namedParameterJdbcTemplate.queryForInt(formGrantMatrixSql, sqlParms);
-        }
-        catch(EmptyResultDataAccessException e) {
-        	GsNoTemplateDefException noTmplExcp = new GsNoTemplateDefException("Greensheet questionnaires " +
-        			"for this kind of grant have not been defined.");
-        	noTmplExcp.initCause(e);
-        	throw noTmplExcp;
+            formTemplateId = this.namedParameterJdbcTemplate.queryForInt(formGrantMatrixSql, sqlParms);
+        } catch (EmptyResultDataAccessException e) {
+            GsNoTemplateDefException noTmplExcp = new GsNoTemplateDefException("Greensheet questionnaires " +
+                    "for this kind of grant have not been defined.");
+            noTmplExcp.initCause(e);
+            throw noTmplExcp;
         }
         logger.debug("The Greensheet Form Template ID read from the DB is: " + formTemplateId);
 
@@ -119,6 +123,87 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
         //		GreensheetFormProxy form = dh.getGreensheetFormForGrant(grant, type);		
 
         return greensheetForm;
+    }
+
+    public boolean checkActionStatusByApplId(String applId) throws GreensheetBaseException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DbConnectionHelper.getInstance().getConnection();
+            String sql = "select gascv.code from appl_gm_actions_t agat, appl_gm_action_statuses_t agast, gm_action_status_codes_vw gascv where agat.action_type=? and agat.id = agast.agt_id and gascv.id=agast.gst_id and agat.appl_id=? group by gascv.code";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, "AWARD");
+            pstmt.setString(2, applId);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                String statusCode = rs.getString(1);
+                if (statusCode.equalsIgnoreCase("CANCELLED") || statusCode.equalsIgnoreCase("CLOSED")) {
+                    return false;
+                }
+            }
+        } catch (SQLException se) {
+            throw new GreensheetBaseException("error.greensheetform", se);
+
+        } finally {
+            try {
+                if (rs != null)
+                    rs.close();
+
+                if (pstmt != null)
+                    pstmt.close();
+
+            } catch (SQLException se) {
+                throw new GreensheetBaseException("error.greensheetform", se);
+            }
+
+            DbConnectionHelper.getInstance().freeConnection(conn);
+        }
+
+        return true;
+    }
+
+    public boolean checkActionStatusByGrantId(String grantId) throws GreensheetBaseException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DbConnectionHelper.getInstance().getConnection();
+            String sql = "select gascv.code from appl_gm_actions_t agat, appl_gm_action_statuses_t agast, gm_action_status_codes_vw gascv where agat.action_type=? and agat.id = agast.agt_id and gascv.id=agast.gst_id and agat.expected_grant_num= ? group by gascv.code";
+          
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,"AWARD");
+            pstmt.setString(2, grantId);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                String statusCode = rs.getString(1);
+                System.out.println("######### the statusCode is " + statusCode);
+                if (statusCode.equalsIgnoreCase("CANCELLED") || statusCode.equalsIgnoreCase("CLOSED")) {
+                    return false;
+                }
+            }
+        } catch (SQLException se) {
+            throw new GreensheetBaseException("error.greensheetform", se);
+
+        } finally {
+            try {
+                if (rs != null)
+                    rs.close();
+
+                if (pstmt != null)
+                    pstmt.close();
+
+            } catch (SQLException se) {
+                throw new GreensheetBaseException("error.greensheetform", se);
+            }
+
+            DbConnectionHelper.getInstance().freeConnection(conn);
+        }
+
+        return true;
+
     }
 
 }
