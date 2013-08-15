@@ -180,6 +180,8 @@ public class RetrieveGreensheetAction extends GsBaseAction {
     	// refactoring for reuse and better clarity.  - Anatoli, April 2013
     	
         logger.debug("getGrant() Begin");
+        boolean checkActionStatus=true;
+        
         GreensheetUserSession gus = (GreensheetUserSession) req.getSession()
                 .getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
         String grantIdp = (String) req
@@ -269,6 +271,9 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             		// number rather than appl_id, or (b) the request is from eGrants
             		formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
             		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
+            		if (formGrants!=null && formGrants.size() > 1) {
+            		    checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
+            		}
             		/*
             		 *  This force-setting of the dummy flag was in place while I (Anatoli) had a mistaken belief
             		 *  that a request for a DM checklist can come only from GPMATS and if it includes a grant 
@@ -290,6 +295,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             		// GPMATS determined that this is a real, non-dummy, grant and formed the URL with 
             		// appl_id rather than grant number
             		formGrants = greensheetsFormGrantsService.findGrantsByApplId(Long.parseLong(applId));
+            		
             		if (formGrants!=null && formGrants.size() > 0) {
             			List nonDummyFormGrants = new ArrayList();
             			for ( Object oneGrant : formGrants ) {
@@ -306,6 +312,9 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             			formGrants = nonDummyFormGrants; // replacing the original list, which includes all 
             				// entries with the same appl_id, with the "filtered" list that should only have 
             				// one, non-dummy, grant. 
+            			if (formGrants!=null && formGrants.size() > 1) {
+                            checkActionStatus = greensheetsFormGrantsService.checkActionStatusByApplId(applId);
+                        }
             			nonDummyFormGrants = null;
             		}
             		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
@@ -331,6 +340,9 @@ public class RetrieveGreensheetAction extends GsBaseAction {
         			// request from inside Greensheets or from eGrants
 	            	formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
 	        		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
+	        		if (formGrants!=null && formGrants.size() > 1) {
+                        checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
+                    }
         		}
         		else if (applId!=null && !"".equals(applId)) {
         			// requested from YourGrants
@@ -351,6 +363,9 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             			formGrants = nonDummyFormGrants; // replacing the original list, which includes all 
             				// entries with the same appl_id, with the "filtered" list that should only have 
             				// one, non-dummy, grant. 
+            			if (formGrants!=null && formGrants.size() > 1) {
+                            checkActionStatus = greensheetsFormGrantsService.checkActionStatusByApplId(applId);
+                        }
             			nonDummyFormGrants = null;
             		}
             		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
@@ -362,6 +377,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             			"Program or Specialist or OGA Document Management), and therefore it cannot be completed.");
             	throw newException;            	
             }
+            
     		if (formGrants!=null && formGrants.size() > 1) {
     			/*
     			GreensheetBaseException newException = new GreensheetBaseException("Your request " +
@@ -386,8 +402,9 @@ public class RetrieveGreensheetAction extends GsBaseAction {
     			if (redundantEmailPreventer!=null && 
     					!redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId) && 
     					!redundantEmailPreventer.applIdNotificationAlreadySent(applId)) {
-        			if (emailHelper!=null) {
+        			if (emailHelper!=null && checkActionStatus ) {
         				emailHelper.sendTextToSupportEmail(msgText);
+        				 System.out.println("############ Email sent.");
         				redundantEmailPreventer.recordTheSending((FormGrantProxy)formGrantsProxies.get(0));
         			}
     			}
