@@ -155,6 +155,9 @@
         <property name="grantDAO">
             <ref bean="grantDAO"></ref>
         </property>   
+        <property name="greensheetFormDAO">
+            <ref bean="greensheetFormDAO"></ref>
+        </property>  
     </bean>
     
     <bean id="greensheetFormTemplateService" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormTemplateServiceImpl">
