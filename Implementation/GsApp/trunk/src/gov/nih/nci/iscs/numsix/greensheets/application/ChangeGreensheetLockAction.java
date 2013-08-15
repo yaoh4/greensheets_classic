@@ -43,10 +43,10 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
             .getLogger(ChangeGreensheetLockAction.class);
 
     private static EmailNotification emailHelper; // must be static or else, even though Spring injects it
-	// at web app startup, by the time execute() runs it is null because the instance of this Action 
-	// class when execute() runs is a different one, not the one that was created by Spring at startup...
+    // at web app startup, by the time execute() runs it is null because the instance of this Action 
+    // class when execute() runs is a different one, not the one that was created by Spring at startup...
     // WHICH IS BECAUSE WE DON'T HAVE STRUTS1-SPRING INTEGRATION SET UP AT ALL!
-    
+
     static GreensheetsFormGrantsService greensheetsFormGrantsService;
 
     public GreensheetsFormGrantsService getGreensheetsFormGrantsService() {
@@ -65,6 +65,7 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
             HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
         String forward = null;
+        boolean checkActionStatus = true;
 
         if (req.getSession().isNew()) {
             forward = "sessionTimeOut";
@@ -96,37 +97,44 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
 
             if (grantId != null && (!"".equals(grantId.trim()))) {
                 formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId.trim());
-                
-//                if(formGrants.size()>1){
-//                    return mapping.findForward("duplicateGreensheetsError"); TODO: remove that mapping and JSP?
-//                }
+
+                //                if(formGrants.size()>1){
+                //                    return mapping.findForward("duplicateGreensheetsError"); TODO: remove that mapping and JSP?
+                //                }
                 formGrantsProxies = GreensheetActionHelper
                         .getFormGrantProxyList(formGrants, gus.getUser());
+                
+                if (formGrants != null && formGrants.size() > 1) {
+                    checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
+                }
+
             }
-            if (formGrantsProxies!=null && formGrantsProxies.size() > 1) {
-    			logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    			StringBuffer msgText = new StringBuffer();
-    			msgText.append("In 'changelock' action, method execute(), ").append(
-    					"with parameters \n\tfull grant number ");
-    			msgText.append(grantId).append(
-    					", \n\tgreensheet type = " + groupType + ", more than one grant met the criteria, likely ")
-    					.append("meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM.");
-    			msgText.append("\n\tThis is not normal, and OGA probably should be contacted to delete the ")
-    				.append("extra action(s). However, the user of Greensheets is probably able to continue.");
-    			logger.error("\t" + msgText);
-    			logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    			RedundantEmailPreventer redundantEmailPreventer = (RedundantEmailPreventer) req.getSession()
-    					.getServletContext().getAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER);
-    			if (redundantEmailPreventer!=null && 
-    					!redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId)) {
-	    			if (emailHelper!=null) {
-	    				emailHelper.sendTextToSupportEmail(msgText);
-	    				redundantEmailPreventer.recordTheSending((FormGrantProxy)formGrantsProxies.get(0));
-	    			}
-    			}
-    			grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
-    				// we should change the data model to support multiple GPMATS actions per the same 
-    				// full grant number.  But that's not an especially quick undertaking.            	
+            if (formGrantsProxies != null && formGrantsProxies.size() > 1 ) {
+
+                logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                StringBuffer msgText = new StringBuffer();
+                msgText.append("In 'changelock' action, method execute(), ").append(
+                        "with parameters \n\tfull grant number ");
+                msgText.append(grantId).append(
+                        ", \n\tgreensheet type = " + groupType + ", more than one grant met the criteria, likely ")
+                        .append("meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM.");
+                msgText.append("\n\tThis is not normal, and OGA probably should be contacted to delete the ")
+                        .append("extra action(s). However, the user of Greensheets is probably able to continue.");
+                logger.error("\t" + msgText);
+                logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                RedundantEmailPreventer redundantEmailPreventer = (RedundantEmailPreventer) req.getSession()
+                        .getServletContext().getAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER);
+                if (redundantEmailPreventer != null &&
+                        !redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId)) {
+                    if (emailHelper != null && checkActionStatus ) {
+                        emailHelper.sendTextToSupportEmail(msgText);
+                        System.out.println("############ Email sent.");
+                        redundantEmailPreventer.recordTheSending((FormGrantProxy) formGrantsProxies.get(0));
+                    }
+                }
+                grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
+                // we should change the data model to support multiple GPMATS actions per the same 
+                // full grant number.  But that's not an especially quick undertaking.            	
             }
             else if (formGrantsProxies != null && formGrantsProxies.size() == 1) {
                 grant = (FormGrantProxy) formGrantsProxies.get(0);
@@ -163,12 +171,12 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
 
     }
 
-	public static EmailNotification getEmailHelper() {
-		return emailHelper;
-	}
+    public static EmailNotification getEmailHelper() {
+        return emailHelper;
+    }
 
-	public void setEmailHelper(EmailNotification emailHelper) {
-		this.emailHelper = emailHelper;
-	}
+    public void setEmailHelper(EmailNotification emailHelper) {
+        this.emailHelper = emailHelper;
+    }
 
 }
