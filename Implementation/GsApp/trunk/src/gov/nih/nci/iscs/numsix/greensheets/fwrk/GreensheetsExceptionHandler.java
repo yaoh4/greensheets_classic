@@ -108,11 +108,18 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
             }
         } else {
-            if (ex != null && ex.getMessage()!=null) {
-                if (ex.getMessage().contains("ClientAbortException") || ex.getMessage().contains("java.net.SocketException")) {
+            if (ex != null) {
+                if (ex instanceof java.net.SocketException) {
                     sendEmail = "false";
+                } else {
+                    if (ex.getMessage() != null) {
+                        if (ex.getMessage().contains("ClientAbortException") || ex.getMessage().contains("java.net.SocketException")) {
+                            sendEmail = "false";
+                        }
+                    }
                 }
             }
+
             error = new ActionError("error.exception",
                     "A System Error Occurred");
             property = error.getKey();
