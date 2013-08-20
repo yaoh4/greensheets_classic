@@ -108,18 +108,9 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
             }
         } else {
-            if (ex != null) {
-                if (ex instanceof java.net.SocketException) {
-                    sendEmail = "false";
-                } else {
-                    if (ex.getMessage() != null) {
-                        if (ex.getMessage().contains("ClientAbortException") || ex.getMessage().contains("java.net.SocketException")) {
-                            sendEmail = "false";
-                        }
-                    }
-                }
-            }
-
+            
+            checkRootException(ex);
+            
             error = new ActionError("error.exception",
                     "A System Error Occurred");
             property = error.getKey();
@@ -146,6 +137,18 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
         return mapping.findForward("error");
 
+    }
+    
+    public static Throwable checkRootException(Throwable th) {
+  
+        if (th instanceof java.net.SocketException) {
+            sendEmail = "false";
+            return null;
+        }else if (th.getCause() != null) {
+            return checkRootException(th.getCause());
+        }else {
+            return null;
+        }
     }
 
     //TODO: this method here seems redundant with .greensheets.utils.EmailNotification.sendEmailNotification()
