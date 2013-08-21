@@ -392,9 +392,11 @@ public class RetrieveGreensheetAction extends GsBaseAction {
     					"with parameters \n\tappl_id = ").append(applId).append(", full grant number ");
     			msgText.append(grantId).append(
     					", \n\tgreensheet type = " + group + ", more than one grant met the criteria, likely ")
-    					.append("meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM.");
+    					.append("meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM \n\tor ")
+    					.append("there are dupliate greensheets caused by an unreconciled award.");
     			msgText.append("\n\tThis is not normal, and OGA probably should be contacted to delete the ")
-    				.append("extra action(s). However, the user of Greensheets is probably able to continue.");
+    				.append("extra action(s) \n\tor the duplicate greensheets should be de-duplicated. " +
+    						"However, the user of Greensheets is probably able to continue.");
     			logger.error("\t" + msgText);
     			logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     			RedundantEmailPreventer redundantEmailPreventer = (RedundantEmailPreventer) req.getSession()

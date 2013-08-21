@@ -129,23 +129,24 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+        int nonCancelledOrClosedActionsCount = 0;
 
         try {
             conn = DbConnectionHelper.getInstance().getConnection();
-            String sql = "select gascv.code from appl_gm_actions_t agat, appl_gm_action_statuses_t agast, gm_action_status_codes_vw gascv where agat.action_type=? and agat.id = agast.agt_id and gascv.id=agast.gst_id and agat.appl_id=? group by gascv.code";
+            String sql = "select gascv.code from appl_gm_actions_t agat, appl_gm_action_statuses_t agast, gm_action_status_codes_vw gascv where agat.action_type=? and agast.active_flag='Y' and agat.id = agast.agt_id and gascv.id=agast.gst_id and agat.appl_id=? ";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, "AWARD");
             pstmt.setString(2, applId);
             rs = pstmt.executeQuery();
             while (rs.next()) {
                 String statusCode = rs.getString(1);
-                if (statusCode.equalsIgnoreCase("CANCELLED") || statusCode.equalsIgnoreCase("CLOSED")) {
-                    return false;
+                if ( !(statusCode.equalsIgnoreCase("CANCELLED")) && !(statusCode.equalsIgnoreCase("CLOSED"))) {
+                	nonCancelledOrClosedActionsCount++;
                 }
             }
         } catch (SQLException se) {
+        	logger.error(" * *  DB problem checking action statuses when extra FORM_GRANT_VW rows are determined", se);
             throw new GreensheetBaseException("error.greensheetform", se);
-
         } finally {
             try {
                 if (rs != null)
@@ -155,23 +156,25 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
                     pstmt.close();
 
             } catch (SQLException se) {
+            	logger.error(" * *  DB problem cleaning up after checking action statuses when extra FORM_GRANT_VW " +
+            			"rows are determined", se);
                 throw new GreensheetBaseException("error.greensheetform", se);
             }
 
             DbConnectionHelper.getInstance().freeConnection(conn);
         }
-
-        return true;
+        return (nonCancelledOrClosedActionsCount > 1);
     }
 
     public boolean checkActionStatusByGrantId(String grantId) throws GreensheetBaseException {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+        int nonCancelledOrClosedActionsCount = 0;
 
         try {
             conn = DbConnectionHelper.getInstance().getConnection();
-            String sql = "select gascv.code from appl_gm_actions_t agat, appl_gm_action_statuses_t agast, gm_action_status_codes_vw gascv where agat.action_type=? and agat.id = agast.agt_id and gascv.id=agast.gst_id and agat.expected_grant_num= ? group by gascv.code";
+            String sql = "select gascv.code from appl_gm_actions_t agat, appl_gm_action_statuses_t agast, gm_action_status_codes_vw gascv where agat.action_type=? and agat.id = agast.agt_id and agast.active_flag='Y' and gascv.id=agast.gst_id and agat.expected_grant_num= ? ";
           
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1,"AWARD");
@@ -180,11 +183,12 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
             while (rs.next()) {
                 String statusCode = rs.getString(1);
                 System.out.println("######### the statusCode is " + statusCode);
-                if (statusCode.equalsIgnoreCase("CANCELLED") || statusCode.equalsIgnoreCase("CLOSED")) {
-                    return false;
+                if (!(statusCode.equalsIgnoreCase("CANCELLED")) && !(statusCode.equalsIgnoreCase("CLOSED"))) {
+                    nonCancelledOrClosedActionsCount++;
                 }
             }
         } catch (SQLException se) {
+        	logger.error(" * *  DB problem checking action statuses when extra FORM_GRANT_VW rows are determined", se);
             throw new GreensheetBaseException("error.greensheetform", se);
 
         } finally {
@@ -196,13 +200,15 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
                     pstmt.close();
 
             } catch (SQLException se) {
+            	logger.error(" * *  DB problem cleaning up after checking action statuses when extra FORM_GRANT_VW " +
+            			"rows are determined", se);
                 throw new GreensheetBaseException("error.greensheetform", se);
             }
 
             DbConnectionHelper.getInstance().freeConnection(conn);
         }
 
-        return true;
+        return (nonCancelledOrClosedActionsCount > 1);
 
     }
 

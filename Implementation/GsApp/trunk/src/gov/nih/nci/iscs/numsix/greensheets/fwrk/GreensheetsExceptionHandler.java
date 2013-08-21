@@ -142,13 +142,21 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
     public static Throwable checkRootException(Throwable th) {
   
         if (th instanceof java.net.SocketException) {
-            sendEmail = "false";
-            return null;
-        }else if (th.getCause() != null) {
+        	String theMessage = th.getMessage();
+        	if (theMessage != null) {
+        		if (theMessage.equalsIgnoreCase("connection reset") || 
+        				theMessage.equalsIgnoreCase("broken pipe")) {
+                    sendEmail = "false";
+                    return null;        			
+        		}
+        		else if (th.getCause()!=null) {
+        			return checkRootException(th.getCause());
+        		}
+        	}
+        } else if (th.getCause() != null) {
             return checkRootException(th.getCause());
-        }else {
-            return null;
         }
+        return null;
     }
 
     //TODO: this method here seems redundant with .greensheets.utils.EmailNotification.sendEmailNotification()
