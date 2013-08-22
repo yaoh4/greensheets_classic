@@ -43,7 +43,7 @@ public class EmailNotification {
 
     /*
     public static Properties appProperties = (Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
-    public String sendEmail = appProperties.getProperty("gs_send_mail");
+    public String sendEmailConfigSetting = appProperties.getProperty("gs_send_mail");
     public static String from = appProperties.getProperty("gs_email_from");
     public static String to = appProperties.getProperty("gs_error_email_to");
     public static String host = appProperties.getProperty("smtp_server");

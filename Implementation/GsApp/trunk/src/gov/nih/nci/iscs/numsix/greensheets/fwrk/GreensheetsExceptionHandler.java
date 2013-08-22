@@ -54,7 +54,7 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
     private EmailService emailService;
 
     public static Properties appProperties = (Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
-    public static String sendEmail = appProperties.getProperty("gs_send_mail");
+    public static String sendEmailConfigSetting = appProperties.getProperty("gs_send_mail");
     public static String environment = appProperties.getProperty("enviroment");
 
     /**
@@ -108,9 +108,6 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
             }
         } else {
-            
-            checkRootException(ex);
-            
             error = new ActionError("error.exception",
                     "A System Error Occurred");
             property = error.getKey();
@@ -125,7 +122,7 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
         // send notification only if session is not expired
         if (!req.getSession().isNew()) {
             try {
-                sendEmailNotification(ex, req);
+                recordExceptionEvent(ex, req);
             } catch (GreensheetBaseException gse) {
                 logger.error("\n * * * *  SENDING E-MAIL NOTIFICATION ABOUT SOME ERROR FAILED: \n " +
                         gse);
@@ -139,22 +136,22 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
     }
     
-    public static Throwable checkRootException(Throwable th) {
+    public Throwable checkRootException(Throwable th, Boolean sendEmailThisTime) {
   
         if (th instanceof java.net.SocketException) {
         	String theMessage = th.getMessage();
         	if (theMessage != null) {
         		if (theMessage.equalsIgnoreCase("connection reset") || 
         				theMessage.equalsIgnoreCase("broken pipe")) {
-                    sendEmail = "false";
+                    sendEmailThisTime = new Boolean(false);
                     return null;        			
         		}
         		else if (th.getCause()!=null) {
-        			return checkRootException(th.getCause());
+        			return checkRootException(th.getCause(), sendEmailThisTime);
         		}
         	}
         } else if (th.getCause() != null) {
-            return checkRootException(th.getCause());
+            return checkRootException(th.getCause(), sendEmailThisTime);
         }
         return null;
     }
@@ -162,13 +159,15 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
     //TODO: this method here seems redundant with .greensheets.utils.EmailNotification.sendEmailNotification()
     // it's not clear why two copies are needed. This Action class, from execute(), should probably call the
     // method in .greensheets.utils.EmailNotification.
-    private void sendEmailNotification(Exception ex, HttpServletRequest req) throws GreensheetBaseException {
+    private void recordExceptionEvent(Exception ex, HttpServletRequest req) throws GreensheetBaseException {
 
-        if (sendEmail != null) {
-            if (!Boolean.parseBoolean(sendEmail))
-                return;
-        }
-
+    	Boolean sendEmailThisTime = new Boolean(true);
+    	if (sendEmailConfigSetting!=null) {
+    		sendEmailThisTime = Boolean.parseBoolean(sendEmailConfigSetting);
+    	}
+    	
+    	checkRootException(ex, sendEmailThisTime);
+    	
         if (!req.getSession().isNew()) {
 
             /* We are going to send an e-mail to the "Support" e-mail address, about some 
@@ -382,7 +381,8 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
                  * include in the e-mail message, and here we start actually putting the message 
                  * together. 
                  */
-                StringBuffer content = new StringBuffer("");
+                StringBuffer content = new StringBuffer(""), 
+                		emailContent = new StringBuffer(), logMessageContent = new StringBuffer();
                 String errorTime = DateFormat.getInstance().format(new Date());
                 String envString = environment.equalsIgnoreCase("Production") ? "[GS]" : "[GS-" + environment.toUpperCase() + "]";
 
@@ -417,12 +417,19 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
                         }
                     }
 
-                    content.append("This is  an automated message from Greensheets application.");
-                    content.append("\n\nIt may be sent on behalf of some user, but even then, it is sent automatically by the system.\n");
+                    emailContent.append("This is  an automated message from Greensheets application.");
+                    emailContent.append("\n\nIt may be sent on behalf of some user, but even then, it is sent automatically by the system.\n");
 
-                    content.append("\n\nDetails :");
-                    content.append("\n" + paddUnderscore(50) + "\n");
-
+                    emailContent.append("\n\nDetails :");
+                    emailContent.append("\n" + paddUnderscore(50) + "\n");
+                    
+                    logMessageContent.append(" = = = The following exception occurred.");
+                    if ( !sendEmailThisTime ) {
+                    	logMessageContent.append(" (No e-mail to Support will be sent, according to rules.)");
+                    }
+                    logMessageContent.append("\n\t = = = Session state when exception occurred: \n\t");
+                    logMessageContent.append(paddUnderscore(50)).append("\n\t");
+                    
                     if (fullName != null) {
                         content.append("\n\nUser Name: " + fullName);
                     } else {
@@ -456,14 +463,23 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
                     content.append(org.apache.commons.lang.exception.ExceptionUtils
                             .getFullStackTrace(ex));
 
-                    content.append("\n\n\n\n");
-                    content.append("\nNCI CBIIT - Rockville MD");
-
-                    emailService.sendEmail(from, message.getTo(), subject, content.toString());
+                    emailContent.append(content);
+                    logMessageContent.append(content);
+                    
+                    emailContent.append("\n\n\n\n");
+                    emailContent.append("\nNCI CBIIT - Rockville MD");
+                    logMessageContent.append(paddUnderscore(50)).append("\n\t");
+                    
+                    logger.warn(logMessageContent);
+                    
+                    if (sendEmailThisTime) {
+                    	emailService.sendEmail(from, message.getTo(), subject, emailContent.toString());
+                    }
+                    
                 } catch (Throwable e) {
                     logger.error(" + + + +  The following error occurred when composing an \n\t" +
-                            "e-mail message to the Support e-mail address about some other " +
-                            "exception: \n\t" + e);
+                            "e-mail message to the Support e-mail address (or just a log message) " + 
+                    		"about some other exception: \n\t" + e);
                 }
             } // End of what we do if we have a not-null GreensheetsUserSession object
         } //  End of what we do if the session is not new  
