@@ -136,7 +136,7 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
 
     }
     
-    public Throwable checkRootException(Throwable th, Boolean sendEmailThisTime) {
+    public boolean checkRootException(Throwable th, boolean sendEmailThisTime) {
   
         if (th instanceof java.net.SocketException) {
         	String theMessage = th.getMessage();
@@ -144,7 +144,7 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
         		if (theMessage.equalsIgnoreCase("connection reset") || 
         				theMessage.equalsIgnoreCase("broken pipe")) {
                     sendEmailThisTime = new Boolean(false);
-                    return null;        			
+                    return sendEmailThisTime;        			
         		}
         		else if (th.getCause()!=null) {
         			return checkRootException(th.getCause(), sendEmailThisTime);
@@ -153,20 +153,21 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
         } else if (th.getCause() != null) {
             return checkRootException(th.getCause(), sendEmailThisTime);
         }
-        return null;
+        return true;
     }
-
+    
+  
     //TODO: this method here seems redundant with .greensheets.utils.EmailNotification.sendEmailNotification()
     // it's not clear why two copies are needed. This Action class, from execute(), should probably call the
     // method in .greensheets.utils.EmailNotification.
     private void recordExceptionEvent(Exception ex, HttpServletRequest req) throws GreensheetBaseException {
 
-    	Boolean sendEmailThisTime = new Boolean(true);
+        Boolean sendEmailThisTime = new Boolean(true);
     	if (sendEmailConfigSetting!=null) {
     		sendEmailThisTime = Boolean.parseBoolean(sendEmailConfigSetting);
     	}
-    	
-    	checkRootException(ex, sendEmailThisTime);
+    
+    	sendEmailThisTime = checkRootException(ex, sendEmailThisTime);
     	
         if (!req.getSession().isNew()) {
 
@@ -493,6 +494,7 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
         }
     }
 
+   
     /**
      * @see org.apache.struts.action.ExceptionHandler#storeException(HttpServletRequest, String, ActionError, ActionForward, String)
      */
