@@ -66,6 +66,7 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
 
         String forward = null;
         boolean checkActionStatus = true;
+        boolean duplicateGs = false;
 
         if (req.getSession().isNew()) {
             forward = "sessionTimeOut";
@@ -103,13 +104,15 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
                 //                }
                 formGrantsProxies = GreensheetActionHelper
                         .getFormGrantProxyList(formGrants, gus.getUser());
-                
+
                 if (formGrants != null && formGrants.size() > 1) {
                     checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
                 }
 
             }
-            if (formGrantsProxies != null && formGrantsProxies.size() > 1 ) {
+            if (formGrantsProxies != null && formGrantsProxies.size() > 1) {
+
+                duplicateGs = true;
 
                 logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 StringBuffer msgText = new StringBuffer();
@@ -126,7 +129,7 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
                         .getServletContext().getAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER);
                 if (redundantEmailPreventer != null &&
                         !redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId)) {
-                    if (emailHelper != null && checkActionStatus ) {
+                    if (emailHelper != null && checkActionStatus) {
                         emailHelper.sendTextToSupportEmail(msgText);
                         System.out.println("############ Email sent.");
                         redundantEmailPreventer.recordTheSending((FormGrantProxy) formGrantsProxies.get(0));
@@ -135,8 +138,7 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
                 grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
                 // we should change the data model to support multiple GPMATS actions per the same 
                 // full grant number.  But that's not an especially quick undertaking.            	
-            }
-            else if (formGrantsProxies != null && formGrantsProxies.size() == 1) {
+            } else if (formGrantsProxies != null && formGrantsProxies.size() == 1) {
                 grant = (FormGrantProxy) formGrantsProxies.get(0);
             } else {
                 grant = null;
@@ -147,18 +149,23 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
                 // GreensheetFormMgr mgr = GreensheetMgrFactory //Abdul Latheef:
                 // Used new FormGrantProxy instead of the old GsGrant.
                 // .createGreensheetFormMgr(GreensheetMgrFactory.PROD);
-                GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); // For time
-                                                                     // being
-                                                                     // --
-                                                                     // Abdul
-                                                                     // Latheef
 
-                GreensheetFormProxy gForm = mgr.findGreensheetForGrant(grant,
-                        GreensheetGroupType.getGreensheetGroupType(groupType));
+                if (!duplicateGs) {
+                    GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); // For time
+                                                                         // being
+                                                                         // --
+                                                                         // Abdul
+                                                                         // Latheef
 
-                mgr.changeLock(gForm, user);
+                    GreensheetFormProxy gForm = mgr.findGreensheetForGrant(grant,
+                            GreensheetGroupType.getGreensheetGroupType(groupType));
 
-                forward = "retrievegrants";
+                    mgr.changeLock(gForm, user);
+
+                    forward = "retrievegrants";
+                } else {
+                    forward = "duplicateGreensheetsError";
+                }
             } else {
                 throw new GreensheetBaseException("The user "
                         + user.getDisplayUserName()
