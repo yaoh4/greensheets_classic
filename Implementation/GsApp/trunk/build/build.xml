@@ -19,6 +19,7 @@
 	<property name="lib.dir"                value="${web.inf.dir}/lib"/>
 	<property name="java.classes.dir"       value="${web.inf.dir}/classes"/>
 	<property name="app.name.war"           value="${app.name}.war"/>
+	<property name="non.war.lib.dir"        value="${basedir}/build/build_libs"/>
 	<property name="persistence.provider.dir" value="${persistence.provider.home}"/>
 
 	<!-- The following properties are not needed.
@@ -33,10 +34,14 @@
 		<fileset dir="${lib.dir}">
 			<include name="*.jar"/>
 		</fileset>
+		<!--
 		<path location="${tomcat.home}/common/lib/jsp-api.jar" />
 		<path location="${tomcat.home}/common/lib/servlet-api.jar" />
 		<path location="${persistence.provider.dir}/jlib/eclipselink.jar" />
 		<path location="${persistence.provider.dir}/jlib/jpa/javax.persistence_2.0.0.v201002051058.jar" />
+		-->
+		<path location="${non.war.lib.dir}/jsp-api.jar" />
+		<path location="${non.war.lib.dir}/servlet-api.jar" />
 	</path>
 	<property name="project.classpath" refid="project.classpath"/>
 
@@ -68,13 +73,12 @@
 		<!--
 		<javac classpath="${project.classpath}" srcdir="${src.java.dir}" destdir="${java.classes.dir}" debug="${debug.enabled}" debuglevel="lines,vars,source" />
 		-->
-		<javac target="1.5" classpath="${project.classpath}" srcdir="${src.java.dir}" destdir="${java.classes.dir}" debug="on" debuglevel="lines,vars,source" />
+		<javac source="1.5" target="1.5" classpath="${project.classpath}" srcdir="${src.java.dir}" destdir="${java.classes.dir}" debug="on" debuglevel="lines,vars,source" />
 		<!-- Copies all resource files (e.g. *.properties, *.txt, etc) to the WEB-INF/classes dir -->
 		<copy todir="${java.classes.dir}">
 			<fileset dir="${src.java.dir}" excludes="**/*.java" />
 		</copy>
 		<copy file="${src.java.dir}/applicationContext.xml" todir="${java.classes.dir}" />
-
 	</target>
 
     <target name="build" depends="compile" description="Creates war file." >
