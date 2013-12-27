@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GreensheetForm form_id="PC_form_61">
+   <UseFrequency>2</UseFrequency>
+   <Applicability>1U13, 6U13</Applicability>
+   <ApproxCategory>Competing conference cooperative agreement</ApproxCategory>
+   <GreensheetQuestions>
+      <QuestionDef id="PCQ_8">
+         <QText>Human subjects involved?</QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_8_RD_CM_22" type="COMMENT"/>
+            <ResponseDef id="PCQ_8_RD_FL_23" type="FILE"/>
+            <ResponseDef id="PCQ_8_RD_RB_24" type="RADIO">
+               <SelectionDef id="SEL_18">
+                  <Value>Yes</Value>
+               </SelectionDef>
+               <SelectionDef id="SEL_87">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_41">
+         <QText>Live Vertebrate Animals involved? </QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_41_RD_CM_155" type="COMMENT"/>
+            <ResponseDef id="PCQ_41_RD_FL_156" type="FILE"/>
+            <ResponseDef id="PCQ_41_RD_RB_121" type="RADIO">
+               <SelectionDef id="SEL_88">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_42">
+                     <QText>Summary Statement review of animal welfare:</QText>
+                     <QInstructions>http://odoerdb2.od.nih.gov/oer/offices/olaw/4206_codes.htm</QInstructions>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_42_RD_CM_132" type="COMMENT"/>
+                        <ResponseDef id="PCQ_42_RD_FL_133" type="FILE"/>
+                        <ResponseDef id="PCQ_42_RD_DD_122" type="DROP_DOWN">
+                           <SelectionDef id="SEL_X_11">
+                              <Value>--Select an option--</Value>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_90">
+                              <Value>Neither concern nor comment</Value>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_91">
+                              <Value>Concern, resolved</Value>
+                              <QuestionDef id="PCQ_43">
+                                 <QText>All related correspondence and concurrence from OLAW to remove bar</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_43_RD_CM_123" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_43_RD_FL_124" type="FILE"/>
+                                    <ResponseDef id="PCQ_43_RD_RB_125" type="RADIO">
+                                       <SelectionDef id="SEL_92">
+                                          <Value>Attached</Value>
+                                       </SelectionDef>
+                                       <SelectionDef id="SEL_93">
+                                          <Value>Sent to OGA</Value>
+                                       </SelectionDef>
+                                    </ResponseDef>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_94">
+                              <Value>Concern, not resolved</Value>
+                              <QuestionDef id="PCQ_44">
+                                 <QText>OLAW approval memo to issue restricted award attached?</QText>
+                                 <QInstructions>(If no approval, award will be held.)</QInstructions>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_44_RD_CM_127" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_44_RD_FL_128" type="FILE"/>
+                                    <ResponseDef id="PCQ_44_RD_DD_126" type="DROP_DOWN">
+                                       <SelectionDef id="SEL_X_5">
+                                          <Value>--Select an option--</Value>
+                                       </SelectionDef>
+                                       <SelectionDef id="SEL_95">
+                                          <Value>Approval attached</Value>
+                                       </SelectionDef>
+                                       <SelectionDef id="SEL_96">
+                                          <Value>Approval sent to OGA</Value>
+                                       </SelectionDef>
+                                    </ResponseDef>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_97">
+                              <Value>Comment</Value>
+                              <QuestionDef id="PCQ_45">
+                                 <QText>Explanation Required:</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_45_RD_TX_129" type="TEXT"/>
+                                    <ResponseDef id="PCQ_45_RD_CM_130" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_45_RD_FL_131" type="FILE"/>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+                  <QuestionDef id="PCQ_46">
+                     <QText>Does awardee have approved assurance? </QText>
+                     <QInstructions>(Award will be held until all sites have assurance or OLAW approval received for restricted award. Grantee must have an assurance even if all research involving live vertebrate animals is at other performance sites.) http://grants2.nih.gov/grants/olaw/assurance/300index.htm</QInstructions>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_46_RD_CM_138" type="COMMENT"/>
+                        <ResponseDef id="PCQ_46_RD_FL_139" type="FILE"/>
+                        <ResponseDef id="PCQ_46_RD_RB_134" type="RADIO">
+                           <SelectionDef id="SEL_98">
+                              <Value>Yes</Value>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_99">
+                              <Value>No</Value>
+                              <QuestionDef id="PCQ_47">
+                                 <QText>Date documents sent to OLAW:</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_47_RD_DT_135" type="DATE"/>
+                                    <ResponseDef id="PCQ_47_RD_CM_136" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_47_RD_FL_137" type="FILE"/>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+                  <QuestionDef id="PCQ_48">
+                     <QText>Are there other performance site(s) other than awardee engaged in animal   research?  </QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_48_RD_CM_153" type="COMMENT"/>
+                        <ResponseDef id="PCQ_48_RD_FL_154" type="FILE"/>
+                        <ResponseDef id="PCQ_48_RD_RB_140" type="RADIO">
+                           <SelectionDef id="SEL_100">
+                              <Value>Yes</Value>
+                              <QuestionDef id="PCQ_49">
+                                 <QText>Does performance site(s) have approved assurance(s)? </QText>
+                                 <QInstructions>http://grants2.nih.gov/grants/olaw/assurance/300index.htm</QInstructions>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_49_RD_CM_151" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_49_RD_FL_152" type="FILE"/>
+                                    <ResponseDef id="PCQ_49_RD_RB_141" type="RADIO">
+                                       <SelectionDef id="SEL_101">
+                                          <Value>Yes</Value>
+                                       </SelectionDef>
+                                       <SelectionDef id="SEL_102">
+                                          <Value>No</Value>
+                                          <QuestionDef id="PCQ_50">
+                                             <QText>Site(s) needing assurance(s):</QText>
+                                             <QInstructions>(Award will be held until all sites have assurance or OLAW approval received for restricted award.)</QInstructions>
+                                             <ResponseDefsList>
+                                                <ResponseDef id="PCQ_50_RD_TX_142" type="TEXT"/>
+                                                <ResponseDef id="PCQ_50_RD_CM_143" type="COMMENT"/>
+                                                <ResponseDef id="PCQ_50_RD_FL_144" type="FILE"/>
+                                             </ResponseDefsList>
+                                          </QuestionDef>
+                                          <QuestionDef id="PCQ_51">
+                                             <QText>If site does not receive assurance, will project still be viable? </QText>
+                                             <QInstructions/>
+                                             <ResponseDefsList>
+                                                <ResponseDef id="PCQ_51_RD_RB_145" type="RADIO">
+                                                   <SelectionDef id="SEL_103">
+                                                      <Value>Yes</Value>
+                                                   </SelectionDef>
+                                                   <SelectionDef id="SEL_104">
+                                                      <Value>No</Value>
+                                                   </SelectionDef>
+                                                </ResponseDef>
+                                                <ResponseDef id="PCQ_51_RD_CM_146" type="COMMENT"/>
+                                                <ResponseDef id="PCQ_51_RD_FL_147" type="FILE"/>
+                                             </ResponseDefsList>
+                                          </QuestionDef>
+                                          <QuestionDef id="PCQ_52">
+                                             <QText>Date documents sent to OLAW:</QText>
+                                             <QInstructions/>
+                                             <ResponseDefsList>
+                                                <ResponseDef id="PCQ_52_RD_DT_148" type="DATE"/>
+                                                <ResponseDef id="PCQ_52_RD_CM_149" type="COMMENT"/>
+                                                <ResponseDef id="PCQ_52_RD_FL_150" type="FILE"/>
+                                             </ResponseDefsList>
+                                          </QuestionDef>
+                                       </SelectionDef>
+                                    </ResponseDef>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_105">
+                              <Value>No</Value>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_106">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_54">
+         <QText>Other support approved?</QText>
+         <QInstructions>(If No, explanation required.)</QInstructions>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_54_RD_CM_160" type="COMMENT"/>
+            <ResponseDef id="PCQ_54_RD_FL_161" type="FILE"/>
+            <ResponseDef id="PCQ_54_RD_DD_162" type="DROP_DOWN">
+               <SelectionDef id="SEL_X_10">
+                  <Value>--Select an option--</Value>
+               </SelectionDef>
+               <SelectionDef id="SEL_110">
+                  <Value>Yes, attached</Value>
+               </SelectionDef>
+               <SelectionDef id="SEL_111">
+                  <Value>Yes, sent to OGA (from Grantee or Program)</Value>
+               </SelectionDef>
+               <SelectionDef id="SEL_112">
+                  <Value>No</Value>
+                  <QuestionDef id="PCQ_55">
+                     <QText>Explanation required.</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_55_RD_CM_163" type="COMMENT"/>
+                        <ResponseDef id="PCQ_55_RD_FL_164" type="FILE"/>
+                        <ResponseDef id="PCQ_55_RD_TX_165" type="TEXT"/>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_56">
+         <QText>Is there any scientific overlap?</QText>
+         <QInstructions>(If Yes, explanation required.)</QInstructions>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_56_RD_RB_166" type="RADIO">
+               <SelectionDef id="SEL_113">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_57">
+                     <QText>Explanation Required:</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_57_RD_TX_167" type="TEXT"/>
+                        <ResponseDef id="PCQ_57_RD_CM_168" type="COMMENT"/>
+                        <ResponseDef id="PCQ_57_RD_FL_169" type="FILE"/>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_114">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+            <ResponseDef id="PCQ_56_RD_CM_170" type="COMMENT"/>
+            <ResponseDef id="PCQ_56_RD_FL_171" type="FILE"/>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_58">
+         <QText>Has CSR received an amendment to this application? </QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_58_RD_CM_179" type="COMMENT"/>
+            <ResponseDef id="PCQ_58_RD_FL_180" type="FILE"/>
+            <ResponseDef id="PCQ_58_RD_RB_172" type="RADIO">
+               <SelectionDef id="SEL_115">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_59">
+                     <QText>Has amended application been reviewed by IRG?  </QText>
+                     <QInstructions>(If No, award will be held.)</QInstructions>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_59_RD_CM_177" type="COMMENT"/>
+                        <ResponseDef id="PCQ_59_RD_FL_178" type="FILE"/>
+                        <ResponseDef id="PCQ_59_RD_RB_173" type="RADIO">
+                           <SelectionDef id="SEL_116">
+                              <Value>Yes</Value>
+                              <QuestionDef id="PCQ_60">
+                                 <QText>The funding exception memo is:</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_60_RD_CM_175" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_60_RD_FL_176" type="FILE"/>
+                                    <ResponseDef id="PCQ_60_RD_RB_174" type="RADIO">
+                                       <SelectionDef id="SEL_117">
+                                          <Value>Attached</Value>
+                                       </SelectionDef>
+                                       <SelectionDef id="SEL_118">
+                                          <Value>Sent to OGA</Value>
+                                       </SelectionDef>
+                                    </ResponseDef>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_119">
+                              <Value>No</Value>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_120">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_68">
+         <QText>Are there any other program concerns, not covered above, that should be resolved prior to issuing an award?  </QText>
+         <QInstructions>  (If Yes, explanation required.)</QInstructions>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_68_RD_CM_206" type="COMMENT"/>
+            <ResponseDef id="PCQ_68_RD_FL_207" type="FILE"/>
+            <ResponseDef id="PCQ_68_RD_RB_202" type="RADIO">
+               <SelectionDef id="SEL_135">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_69">
+                     <QText>Explanation Required:</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_69_RD_TX_203" type="TEXT"/>
+                        <ResponseDef id="PCQ_69_RD_CM_204" type="COMMENT"/>
+                        <ResponseDef id="PCQ_69_RD_FL_205" type="FILE"/>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_136">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_79">
+         <QText>Are Special Terms and Conditions of Award available in the Special Requirements section of the RFA published in the NIH Guide?</QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_79_RD_CM_235" type="COMMENT"/>
+            <ResponseDef id="PCQ_79_RD_FL_236" type="FILE"/>
+            <ResponseDef id="PCQ_79_RD_RB_237" type="RADIO">
+               <SelectionDef id="SEL_156">
+                  <Value>Terms attached</Value>
+               </SelectionDef>
+               <SelectionDef id="SEL_157">
+                  <Value>Terms sent to OGA</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_724">
+         <QText>Is a Resource Sharing Plan required for this application?</QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_724_RD_CM_1879" type="COMMENT"/>
+            <ResponseDef id="PCQ_724_RD_FL_1880" type="FILE"/>
+            <ResponseDef id="PCQ_724_RD_RB_1881" type="RADIO">
+               <SelectionDef id="SEL_1112">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_725">
+                     <QText>Identify sharing plan(s) required:</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_725_RD_CM_1882" type="COMMENT"/>
+                        <ResponseDef id="PCQ_725_RD_FL_1883" type="FILE"/>
+                        <ResponseDef id="PCQ_725_RD_CB_1884" type="CHECK_BOX">
+                           <SelectionDef id="SEL_7251">
+                              <Value>Data Sharing Plan</Value>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_7252">
+                              <Value>Model Organisms</Value>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_7253">
+                              <Value>GWAS</Value>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+                  <QuestionDef id="PCQ_7251">
+                     <QText>Is any other resource sharing plan, besides those listed above, required for this application?</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_7251_RD_CM_10" type="COMMENT"/>
+                        <ResponseDef id="PCQ_7251_RD_FL_20" type="FILE"/>
+                        <ResponseDef id="PCQ_7251_RD_RB_30" type="RADIO">
+                           <SelectionDef id="SEL_72511">
+                              <Value>Yes</Value>
+                              <QuestionDef id="PCQ_111613">
+                                 <QText>What is the "other" plan required?</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_111613_RD_CM_690" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_111613_RD_FL_691" type="FILE"/>
+                                    <ResponseDef id="PCQ_111613_RD_ST_692" type="STRING"/>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_72512">
+                              <Value>No</Value>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+                  <QuestionDef id="PCQ_1114">
+                     <QText>Is the plan(s) acceptable?</QText>
+                     <QInstructions>If no, explanation required</QInstructions>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_1114_RD_FL_114" type="FILE"/>
+                        <ResponseDef id="PCQ_1114_RD_CM_115" type="COMMENT"/>
+                        <ResponseDef id="PCQ_1114_RD_RB_116" type="RADIO">
+                           <SelectionDef id="SEL_11141">
+                              <Value>Yes</Value>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_11142">
+                              <Value>No</Value>
+                              <QuestionDef id="PCQ_11142">
+                                 <QText>Explanation Required:</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_11142_RD_CM_690" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_11142_RD_FL_691" type="FILE"/>
+                                    <ResponseDef id="PCQ_11142_RD_TX_692" type="TEXT"/>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_1113">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="SCQ_246124">
+         <QText>Are there any FCOI concerns?</QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
+            <ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
+            <ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
+               <SelectionDef id="SEL_501124">
+                  <Value>Yes</Value>
+                  <QuestionDef id="SCQ_2461232">
+                     <QText>Has the concern been resolved?</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="SCQ_2461232_RD_CM_249" type="COMMENT"/>
+                        <ResponseDef id="SCQ_2461232_RD_FL_250" type="FILE"/>
+                        <ResponseDef id="SCQ_2461232_RD_RB_251" type="RADIO">
+                           <SelectionDef id="SEL_2461233">
+                              <Value>Yes</Value>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_502124">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_233">
+         <QText>Additional comments:</QText>
+         <QInstructions>(Select comment icon and enter text in box.)</QInstructions>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_233_RD_CM_690" type="COMMENT"/>
+            <ResponseDef id="PCQ_233_RD_FL_691" type="FILE"/>
+         </ResponseDefsList>
+      </QuestionDef>
+   </GreensheetQuestions>
+</GreensheetForm>

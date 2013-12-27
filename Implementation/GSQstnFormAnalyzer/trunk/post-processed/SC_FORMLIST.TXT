@@ -1,0 +1,177 @@
+SC_form_4: first read from SC_1_R01_qstns.xml
+   > Times filled out in last 5 FYs: 2811
+   > Applicability: 1R01
+SC_form_1: first read from SC_1_C06_qstns.xml
+   > Times filled out in last 5 FYs: 1889
+   > Applicability: 1C06, 1D43, 1DP1, 1DP2, 1K01, 1K05, 1K07, 1K08, 1K12, 1K18, 1K22, 1K23, 1K24, 1K25, 1K99, 1KL1, 1KL2, 1KM1, 1P01, 1P20, 1P30, 1P50, 1PL1, 1R00, 1R03, 1R15, 1R18, 1R24, 1R25, 1R30, 1R37, 1R55, 1R56, 1RC1, 1RC2, 1RC3, 1RC4, 1RL1, 1RL2, 1RL5, 1RL9, 1S06, 1SC1, 1SC2, 1U01, 1U19, 1U24, 1U54, 1U56, 1UC2, 1UH2, 1UH3, 1UL1, 1UM1
+SC_form_6: first read from SC_1_R21_qstns.xml
+   > Times filled out in last 5 FYs: 1487
+   > Applicability: 1R21, 1R33
+SC_form_19: first read from SC_2_R01_qstns.xml
+   > Times filled out in last 5 FYs: 1090
+   > Applicability: 2R01
+SC_form_36: first read from SC_3_R01_qstns.xml
+   > Times filled out in last 5 FYs: 855
+   > Applicability: 3R01
+SC_form_55: first read from SC_6_R01_qstns.xml
+   > Times filled out in last 5 FYs: 706
+   > Applicability: 6R01, 7R01, 9R01
+SC_form_33: first read from SC_3_D43_qstns.xml
+   > Times filled out in last 5 FYs: 689
+   > Applicability: 3D43, 3DP1, 3DP2, 3K01, 3K05, 3K07, 3K08, 3K18, 3K22, 3K23, 3K24, 3K25, 3K99, 3KL1, 3KL2, 3KM1, 3P01, 3P20, 3P30, 3P50, 3PL1, 3R00, 3R15, 3R18, 3R24, 3R25, 3R30, 3R37, 3R56, 3RC1, 3RC2, 3RC3, 3RC4, 3RL1, 3RL2, 3RL5, 3RL9, 3S06, 3SC1, 3SC2, 3U01, 3U19, 3U24, 3U54, 3U56, 3UA5, 3UC2, 3UH2, 3UH3, 3UL1, 3UM1
+SC_form_2: first read from SC_1_F30_qstns.xml
+   > Times filled out in last 5 FYs: 687
+   > Applicability: 1F30, 1F31, 1F32, 1F33, 2F30, 2F31, 2F32, 2F33, 6F30, 6F31, 6F32, 6F33, 7F30, 7F31, 7F32, 7F33, 9F30, 9F31, 9F32, 9F33
+SC_form_17: first read from SC_1_UA5_qstns.xml
+   > Times filled out in last 5 FYs: 404
+   > Applicability: 1UA5, 2UA5, 4R00, 6C06, 6D43, 6DP1, 6DP2, 6K01, 6K05, 6K07, 6K08, 6K12, 6K18, 6K22, 6K23, 6K24, 6K25, 6K99, 6KL1, 6KL2, 6KM1, 6P01, 6P20, 6P30, 6P50, 6PL1, 6R00, 6R03, 6R15, 6R18, 6R24, 6R25, 6R30, 6R37, 6R55, 6R56, 6RC1, 6RC2, 6RC3, 6RC4, 6RL1, 6RL2, 6RL5, 6RL9, 6S06, 6SC1, 6SC2, 6U01, 6U19, 6U24, 6U54, 6U56, 6UA5, 6UC2, 6UH2, 6UH3, 6UL1, 6UM1, 7C06, 7D43, 7DP1, 7DP2, 7K01, 7K05, 7K07, 7K08, 7K12, 7K18, 7K22, 7K23, 7K24, 7K25, 7K99, 7KL1, 7KL2, 7KM1, 7P01, 7P20, 7P30, 7P50, 7PL1, 7R00, 7R03, 7R15, 7R18, 7R24, 7R25, 7R29, 7R30, 7R37, 7R55, 7R56, 7RC1, 7RC2, 7RC3, 7RC4, 7RL1, 7RL2, 7RL5, 7RL9, 7S06, 7SC1, 7SC2, 7U01, 7U19, 7U24, 7U54, 7U56, 7UA5, 7UC2, 7UH2, 7UH3, 7UL1, 7UM1, 9C06, 9D43, 9DP1, 9DP2, 9K01, 9K05, 9K07, 9K08, 9K12, 9K18, 9K22, 9K23, 9K24, 9K25, 9K99, 9KL1, 9KL2, 9KM1, 9P01, 9P20, 9P30, 9P50, 9PL1, 9R00, 9R03, 9R15, 9R18, 9R24, 9R25, 9R30, 9R37, 9R55, 9R56, 9RC1, 9RC2, 9RC3, 9RC4, 9RL1, 9RL2, 9RL5, 9RL9, 9S06, 9SC1, 9SC2, 9U01, 9U19, 9U24, 9U54, 9U56, 9UA5, 9UC2, 9UH2, 9UH3, 9UL1, 9UM1
+SC_form_18: first read from SC_2_C06_qstns.xml
+   > Times filled out in last 5 FYs: 399
+   > Applicability: 2C06, 2D43, 2DP1, 2DP2, 2K01, 2K05, 2K07, 2K08, 2K12, 2K18, 2K22, 2K23, 2K24, 2K25, 2K99, 2KL1, 2KL2, 2KM1, 2P01, 2P20, 2P30, 2P50, 2PL1, 2R00, 2R03, 2R15, 2R18, 2R24, 2R25, 2R30, 2R37, 2R55, 2R56, 2RC1, 2RC2, 2RC3, 2RC4, 2RL1, 2RL5, 2RL9, 2S06, 2SC1, 2SC2, 2U01, 2U19, 2U24, 2U54, 2U56, 2UC2, 2UH2, 2UH3, 2UL1, 2UM1
+SC_form_9: first read from SC_1_R43_qstns.xml
+   > Times filled out in last 5 FYs: 357
+   > Applicability: 1R43, 6R43, 7R43, 9R43
+SC_form_5: first read from SC_1_R13_qstns.xml
+   > Times filled out in last 5 FYs: 223
+   > Applicability: 1R13, 6R13, 7R13, 9R13
+SC_form_27: first read from SC_2_U10_qstns.xml
+   > Times filled out in last 5 FYs: 116
+   > Applicability: 2U10
+SC_form_26: first read from SC_2_T15_qstns.xml
+   > Times filled out in last 5 FYs: 112
+   > Applicability: 2T15, 2T32, 2TL1, 2TU2
+SC_form_25: first read from SC_2_R44_qstns.xml
+   > Times filled out in last 5 FYs: 109
+   > Applicability: 2R44
+SC_form_56: first read from SC_6_R21_qstns.xml
+   > Times filled out in last 5 FYs: 106
+   > Applicability: 6R21, 6R33, 7R21, 7R33, 9R21, 9R33
+SC_form_7: first read from SC_1_R41_qstns.xml
+   > Times filled out in last 5 FYs: 75
+   > Applicability: 1R41, 6R41, 7R41, 9R41
+SC_form_47: first read from SC_3_T32_qstns.xml
+   > Times filled out in last 5 FYs: 65
+   > Applicability: 3T32, 3TL1, 3TU2
+SC_form_39: first read from SC_3_R21_qstns.xml
+   > Times filled out in last 5 FYs: 37
+   > Applicability: 3R21, 3R33
+SC_form_49: first read from SC_3_U10_qstns.xml
+   > Times filled out in last 5 FYs: 37
+   > Applicability: 3U10
+SC_form_10: first read from SC_1_R44_qstns.xml
+   > Times filled out in last 5 FYs: 36
+   > Applicability: 1R44
+SC_form_11: first read from SC_1_T15_qstns.xml
+   > Times filled out in last 5 FYs: 28
+   > Applicability: 1T15, 1T32, 1TL1, 1TU2, 6T15, 6T32, 6TL1, 6TU2, 7T15, 7T32, 7TL1, 7TU2, 9T15, 9T32, 9TL1, 9TU2
+SC_form_20: first read from SC_2_R13_qstns.xml
+   > Times filled out in last 5 FYs: 21
+   > Applicability: 2R13
+SC_form_24: first read from SC_2_R42_qstns.xml
+   > Times filled out in last 5 FYs: 18
+   > Applicability: 2R42
+SC_form_58: first read from SC_6_U10_qstns.xml
+   > Times filled out in last 5 FYs: 15
+   > Applicability: 6U10, 7U10, 9U10
+SC_form_12: first read from SC_1_U10_qstns.xml
+   > Times filled out in last 5 FYs: 12
+   > Applicability: 1U10
+SC_form_16: first read from SC_1_U44_qstns.xml
+   > Times filled out in last 5 FYs: 12
+   > Applicability: 1U44, 6R44, 6U44, 7R44, 7U44, 9R44, 9U44
+SC_form_35: first read from SC_3_K12_qstns.xml
+   > Times filled out in last 5 FYs: 11
+   > Applicability: 3K12
+SC_form_3: first read from SC_1_K04_qstns.xml
+   > Times filled out in last 5 FYs: 10
+   > Applicability: 1K04, 1K11, 1K14, 1R29, 1R35, 1S15, 1U09, 2K04, 2K11, 2K14, 2R29, 2R35, 2RL2, 2S15, 2U09, 3K04, 3K11, 3K14, 3R55, 3S15, 4C06, 4D43, 4DP2, 4F30, 4F31, 4F32, 4F33, 4K01, 4K04, 4K05, 4K07, 4K08, 4K11, 4K12, 4K14, 4K22, 4K23, 4K24, 4K25, 4K99, 4KL1, 4KL2, 4KM1, 4P20, 4P30, 4P50, 4PL1, 4R13, 4R15, 4R18, 4R24, 4R25, 4R29, 4R35, 4R55, 4R56, 4RC1, 4RC2, 4RC3, 4RC4, 4RL1, 4RL2, 4RL5, 4RL9, 4S15, 4SC1, 4SC2, 4T15, 4T32, 4TL1, 4TU2, 4U01, 4U09, 4U10, 4U13, 4U19, 4U24, 4U43, 4U56, 4UA5, 4UL1, 4UM1, 6K04, 6K11, 6K14, 6R29, 6R35, 6S15, 6U09, 7K04, 7K11, 7K14, 7R35, 7S15, 9K04, 9K11, 9K14, 9R29, 9R35, 9S15, 9U09
+SC_form_8: first read from SC_1_R42_qstns.xml
+   > Times filled out in last 5 FYs: 9
+   > Applicability: 1R42
+SC_form_45: first read from SC_3_R44_qstns.xml
+   > Times filled out in last 5 FYs: 9
+   > Applicability: 3R44, 3U44
+SC_form_42: first read from SC_3_R41_qstns.xml
+   > Times filled out in last 5 FYs: 8
+   > Applicability: 3R41
+SC_form_15: first read from SC_1_U43_qstns.xml
+   > Times filled out in last 5 FYs: 7
+   > Applicability: 1U43, 6U43, 7U43, 9U43
+SC_form_43: first read from SC_3_R42_qstns.xml
+   > Times filled out in last 5 FYs: 4
+   > Applicability: 3R42
+SC_form_13: first read from SC_1_U13_qstns.xml
+   > Times filled out in last 5 FYs: 3
+   > Applicability: 1U13, 6U13, 7U13, 9U13
+SC_form_34: first read from SC_3_F30_qstns.xml
+   > Times filled out in last 5 FYs: 3
+   > Applicability: 3F30, 3F31, 3F32, 3F33
+SC_form_31: first read from SC_2_U44_qstns.xml
+   > Times filled out in last 5 FYs: 2
+   > Applicability: 2U44
+SC_form_37: first read from SC_3_R03_qstns.xml
+   > Times filled out in last 5 FYs: 1
+   > Applicability: 3R03
+SC_form_44: first read from SC_3_R43_qstns.xml
+   > Times filled out in last 5 FYs: 1
+   > Applicability: 3R43
+SC_form_14: first read from SC_1_U41_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 1U41, 1U42, 6U41, 6U42, 7U41, 7U42, 9U41, 9U42
+SC_form_21: first read from SC_2_R21_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 2R21
+SC_form_22: first read from SC_2_R33_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 2R33
+SC_form_23: first read from SC_2_R41_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 2R41, 2R43
+SC_form_28: first read from SC_2_U13_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 2U13
+SC_form_29: first read from SC_2_U42_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 2U42
+SC_form_30: first read from SC_2_U43_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 2U43
+SC_form_32: first read from SC_3_C06_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3C06
+SC_form_38: first read from SC_3_R13_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3R13
+SC_form_40: first read from SC_3_R29_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3R29
+SC_form_41: first read from SC_3_R35_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3R35
+SC_form_46: first read from SC_3_T15_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3T15
+SC_form_48: first read from SC_3_U09_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3U09
+SC_form_50: first read from SC_3_U13_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3U13
+SC_form_51: first read from SC_3_U41_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3U41
+SC_form_52: first read from SC_3_U42_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3U42
+SC_form_53: first read from SC_3_U43_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 3U43
+SC_form_54: first read from SC_4_R41_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 4R41, 4R43
+SC_form_57: first read from SC_6_R42_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 6R42, 7R42, 9R42
+SC_form_59: first read from SC_7_U09_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 7U09

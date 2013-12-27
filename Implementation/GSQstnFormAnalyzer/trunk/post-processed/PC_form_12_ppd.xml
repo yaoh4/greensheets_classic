@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GreensheetForm form_id="PC_form_12">
+   <UseFrequency>225</UseFrequency>
+   <Applicability>1R13, 6R13</Applicability>
+   <ApproxCategory>Conference grants</ApproxCategory>
+   <GreensheetQuestions>
+      <QuestionDef id="PCQ_8">
+         <QText>Human subjects involved?</QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_8_RD_CM_22" type="COMMENT"/>
+            <ResponseDef id="PCQ_8_RD_FL_23" type="FILE"/>
+            <ResponseDef id="PCQ_8_RD_RB_24" type="RADIO">
+               <SelectionDef id="SEL_18">
+                  <Value>Yes</Value>
+               </SelectionDef>
+               <SelectionDef id="SEL_87">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_41">
+         <QText>Live Vertebrate Animals involved? </QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_41_RD_CM_155" type="COMMENT"/>
+            <ResponseDef id="PCQ_41_RD_FL_156" type="FILE"/>
+            <ResponseDef id="PCQ_41_RD_RB_121" type="RADIO">
+               <SelectionDef id="SEL_88">
+                  <Value>Yes</Value>
+               </SelectionDef>
+               <SelectionDef id="SEL_106">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_56">
+         <QText>Is there any scientific overlap?</QText>
+         <QInstructions>(If Yes, explanation required.)</QInstructions>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_56_RD_RB_166" type="RADIO">
+               <SelectionDef id="SEL_113">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_57">
+                     <QText>Explanation Required:</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_57_RD_TX_167" type="TEXT"/>
+                        <ResponseDef id="PCQ_57_RD_CM_168" type="COMMENT"/>
+                        <ResponseDef id="PCQ_57_RD_FL_169" type="FILE"/>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_114">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+            <ResponseDef id="PCQ_56_RD_CM_170" type="COMMENT"/>
+            <ResponseDef id="PCQ_56_RD_FL_171" type="FILE"/>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_58">
+         <QText>Has CSR received an amendment to this application? </QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_58_RD_CM_179" type="COMMENT"/>
+            <ResponseDef id="PCQ_58_RD_FL_180" type="FILE"/>
+            <ResponseDef id="PCQ_58_RD_RB_172" type="RADIO">
+               <SelectionDef id="SEL_115">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_59">
+                     <QText>Has amended application been reviewed by IRG?  </QText>
+                     <QInstructions>(If No, award will be held.)</QInstructions>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_59_RD_CM_177" type="COMMENT"/>
+                        <ResponseDef id="PCQ_59_RD_FL_178" type="FILE"/>
+                        <ResponseDef id="PCQ_59_RD_RB_173" type="RADIO">
+                           <SelectionDef id="SEL_116">
+                              <Value>Yes</Value>
+                              <QuestionDef id="PCQ_60">
+                                 <QText>The funding exception memo is:</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_60_RD_CM_175" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_60_RD_FL_176" type="FILE"/>
+                                    <ResponseDef id="PCQ_60_RD_RB_174" type="RADIO">
+                                       <SelectionDef id="SEL_117">
+                                          <Value>Attached</Value>
+                                       </SelectionDef>
+                                       <SelectionDef id="SEL_118">
+                                          <Value>Sent to OGA</Value>
+                                       </SelectionDef>
+                                    </ResponseDef>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_119">
+                              <Value>No</Value>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_120">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_68">
+         <QText>Are there any other program concerns, not covered above, that should be resolved prior to issuing an award?  </QText>
+         <QInstructions>  (If Yes, explanation required.)</QInstructions>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_68_RD_CM_206" type="COMMENT"/>
+            <ResponseDef id="PCQ_68_RD_FL_207" type="FILE"/>
+            <ResponseDef id="PCQ_68_RD_RB_202" type="RADIO">
+               <SelectionDef id="SEL_135">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_69">
+                     <QText>Explanation Required:</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_69_RD_TX_203" type="TEXT"/>
+                        <ResponseDef id="PCQ_69_RD_CM_204" type="COMMENT"/>
+                        <ResponseDef id="PCQ_69_RD_FL_205" type="FILE"/>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_136">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="SCQ_246124">
+         <QText>Are there any FCOI concerns?</QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
+            <ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
+            <ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
+               <SelectionDef id="SEL_501124">
+                  <Value>Yes</Value>
+                  <QuestionDef id="SCQ_2461232">
+                     <QText>Has the concern been resolved?</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="SCQ_2461232_RD_CM_249" type="COMMENT"/>
+                        <ResponseDef id="SCQ_2461232_RD_FL_250" type="FILE"/>
+                        <ResponseDef id="SCQ_2461232_RD_RB_251" type="RADIO">
+                           <SelectionDef id="SEL_2461233">
+                              <Value>Yes</Value>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_502124">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="PCQ_233">
+         <QText>Additional comments:</QText>
+         <QInstructions>(Select comment icon and enter text in box.)</QInstructions>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_233_RD_CM_690" type="COMMENT"/>
+            <ResponseDef id="PCQ_233_RD_FL_691" type="FILE"/>
+         </ResponseDefsList>
+      </QuestionDef>
+   </GreensheetQuestions>
+</GreensheetForm>

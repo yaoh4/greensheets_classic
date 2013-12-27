@@ -1,0 +1,150 @@
+PNC_form_10: first read from PNC_5_DP1_qstns.xml
+   > Times filled out in last 5 FYs: 15877
+   > Applicability: 5DP1, 5R00, 5R01, 5R03, 5R15, 5R29, 5R37, 5RC2, 5SC1, 5SC2, 8DP1, 8R00, 8R01, 8R03, 8R15, 8R29, 8R37, 8RC2, 8SC1, 8SC2
+PNC_form_28: first read from PNC_5_R21_qstns.xml
+   > Times filled out in last 5 FYs: 1826
+   > Applicability: 5R21, 5R33, 5R42, 5R44, 8R21, 8R33, 8R42, 8R44
+PNC_form_40: first read from PNC_5_U01_qstns.xml
+   > Times filled out in last 5 FYs: 732
+   > Applicability: 5U01, 5UM1
+PNC_form_11: first read from PNC_5_F30_qstns.xml
+   > Times filled out in last 5 FYs: 690
+   > Applicability: 5F30, 5F31, 5F32, 8F30, 8F31, 8F32
+PNC_form_38: first read from PNC_5_T32_qstns.xml
+   > Times filled out in last 5 FYs: 672
+   > Applicability: 5T32, 8T32
+PNC_form_23: first read from PNC_5_P01_qstns.xml
+   > Times filled out in last 5 FYs: 610
+   > Applicability: 5P01, 5P20, 8P01, 8P20
+PNC_form_16: first read from PNC_5_K07_qstns.xml
+   > Times filled out in last 5 FYs: 600
+   > Applicability: 5K07, 5K23, 5K25, 8K07, 8K23, 8K25
+PNC_form_42: first read from PNC_5_U10_qstns.xml
+   > Times filled out in last 5 FYs: 510
+   > Applicability: 5U10
+PNC_form_45: first read from PNC_5_U54_qstns.xml
+   > Times filled out in last 5 FYs: 378
+   > Applicability: 5U54, 8U54
+PNC_form_13: first read from PNC_5_K01_qstns.xml
+   > Times filled out in last 5 FYs: 369
+   > Applicability: 5K01, 5K99, 8K01, 8K99
+PNC_form_29: first read from PNC_5_R25_qstns.xml
+   > Times filled out in last 5 FYs: 360
+   > Applicability: 5R25
+PNC_form_17: first read from PNC_5_K08_qstns.xml
+   > Times filled out in last 5 FYs: 348
+   > Applicability: 5K08, 8K08
+PNC_form_25: first read from PNC_5_P50_qstns.xml
+   > Times filled out in last 5 FYs: 291
+   > Applicability: 5P50, 8P50
+PNC_form_1: first read from PNC_4_DP1_qstns.xml
+   > Times filled out in last 5 FYs: 247
+   > Applicability: 4DP1, 4R01, 4R03, 5R18, 5R24, 5R30, 5R56, 5RC1, 5RC3, 5RC4, 5RL1, 8R18, 8R24, 8R30, 8R56, 8RC1, 8RC3, 8RC4, 8RL1
+PNC_form_24: first read from PNC_5_P30_qstns.xml
+   > Times filled out in last 5 FYs: 245
+   > Applicability: 5P30, 8P30
+PNC_form_44: first read from PNC_5_U19_qstns.xml
+   > Times filled out in last 5 FYs: 213
+   > Applicability: 5U19, 5U24, 5U44, 5U56, 8U19, 8U24, 8U44, 8U56
+PNC_form_15: first read from PNC_5_K05_qstns.xml
+   > Times filled out in last 5 FYs: 156
+   > Applicability: 5K05, 5K24, 8K05, 8K24
+PNC_form_27: first read from PNC_5_R13_qstns.xml
+   > Times filled out in last 5 FYs: 138
+   > Applicability: 5R13, 8R13
+PNC_form_20: first read from PNC_5_K22_qstns.xml
+   > Times filled out in last 5 FYs: 104
+   > Applicability: 5K22, 8K22
+PNC_form_18: first read from PNC_5_K12_qstns.xml
+   > Times filled out in last 5 FYs: 73
+   > Applicability: 5K12, 8K12
+PNC_form_32: first read from PNC_5_R43_qstns.xml
+   > Times filled out in last 5 FYs: 49
+   > Applicability: 5R43, 8R41
+PNC_form_3: first read from PNC_4_R21_qstns.xml
+   > Times filled out in last 5 FYs: 47
+   > Applicability: 4R21, 4R42, 4R44, 5RL2, 8RL2
+PNC_form_7: first read from PNC_4_UH2_qstns.xml
+   > Times filled out in last 5 FYs: 19
+   > Applicability: 4UH2, 4UH3, 5UC2, 5UH2, 5UH3, 8UH3
+PNC_form_9: first read from PNC_5_D43_qstns.xml
+   > Times filled out in last 5 FYs: 17
+   > Applicability: 5D43, 8D43
+PNC_form_37: first read from PNC_5_T15_qstns.xml
+   > Times filled out in last 5 FYs: 16
+   > Applicability: 5T15
+PNC_form_4: first read from PNC_4_R33_qstns.xml
+   > Times filled out in last 5 FYs: 11
+   > Applicability: 4R33
+PNC_form_31: first read from PNC_5_R41_qstns.xml
+   > Times filled out in last 5 FYs: 9
+   > Applicability: 5R41
+PNC_form_6: first read from PNC_4_U54_qstns.xml
+   > Times filled out in last 5 FYs: 4
+   > Applicability: 4U54, 5UL1, 8UL1
+PNC_form_2: first read from PNC_4_P01_qstns.xml
+   > Times filled out in last 5 FYs: 3
+   > Applicability: 4P01
+PNC_form_21: first read from PNC_5_KL1_qstns.xml
+   > Times filled out in last 5 FYs: 3
+   > Applicability: 5KL1, 8KL1
+PNC_form_34: first read from PNC_5_RL5_qstns.xml
+   > Times filled out in last 5 FYs: 3
+   > Applicability: 5RL5, 8RL5
+PNC_form_39: first read from PNC_5_TL1_qstns.xml
+   > Times filled out in last 5 FYs: 3
+   > Applicability: 5TL1, 5TU2, 8TL1, 8TU2
+PNC_form_35: first read from PNC_5_RL9_qstns.xml
+   > Times filled out in last 5 FYs: 2
+   > Applicability: 5RL9, 8R25, 8RL9
+PNC_form_5: first read from PNC_4_U42_qstns.xml
+   > Times filled out in last 5 FYs: 1
+   > Applicability: 4U42, 4U44, 5U41, 5U42, 5U43, 8U41, 8U42, 8U43
+PNC_form_19: first read from PNC_5_K18_qstns.xml
+   > Times filled out in last 5 FYs: 1
+   > Applicability: 5K18, 8K18
+PNC_form_8: first read from PNC_5_C06_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5C06, 5S15, 8C06, 8R35, 8S15
+PNC_form_12: first read from PNC_5_F33_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5F33, 8F33
+PNC_form_14: first read from PNC_5_K04_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5K04, 5K11, 5K14, 8K04, 8K11, 8K14
+PNC_form_22: first read from PNC_5_KL2_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5KL2, 5KM1, 8KL2, 8KM1
+PNC_form_26: first read from PNC_5_PL1_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5PL1, 8PL1
+PNC_form_30: first read from PNC_5_R35_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5R35
+PNC_form_33: first read from PNC_5_R55_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5R55, 8R55
+PNC_form_36: first read from PNC_5_S06_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5S06, 8S06
+PNC_form_41: first read from PNC_5_U09_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5U09, 8U09
+PNC_form_43: first read from PNC_5_U13_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 5U13, 8U13
+PNC_form_46: first read from PNC_8_R43_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 8R43
+PNC_form_47: first read from PNC_8_T15_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 8T15
+PNC_form_48: first read from PNC_8_U01_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 8U01, 8UM1
+PNC_form_49: first read from PNC_8_U10_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 8U10
+PNC_form_50: first read from PNC_8_UC2_qstns.xml
+   > Times filled out in last 5 FYs: 0
+   > Applicability: 8UC2, 8UH2

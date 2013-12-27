@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GreensheetForm form_id="PC_form_47">
+   <UseFrequency>10</UseFrequency>
+   <Applicability>2C06, 2F30, 2F31, 2F32, 2F33, 2K04, 2K11, 2K14, 2R21, 2R29, 2R35, 2RL2, 2S15, 2U43, 4C06, 4D43, 4DP2, 4F30, 4F31, 4F32, 4F33, 4K01, 4K04, 4K05, 4K07, 4K08, 4K11, 4K12, 4K14, 4K22, 4K23, 4K24, 4K25, 4K99, 4KL1, 4KL2, 4P20, 4P30, 4P50, 4PL1, 4R13, 4R15, 4R18, 4R24, 4R25, 4R29, 4R35, 4R55, 4R56, 4RC1, 4RC2, 4RC3, 4RC4, 4RL1, 4RL2, 4RL5, 4RL9, 4S15, 4SC1, 4SC2, 4T15, 4T32, 4TL1, 4TU2, 4U01, 4U09, 4U10, 4U13, 4U19, 4U24, 4U43, 4U56, 4UL1, 4UM1, 7C06, 7K04, 7K11, 7K14, 7S15, 7T15, 9K04, 9K11, 9K14, 9R29, 9R35, 9S15, 9T15</Applicability>
+   <ApproxCategory>"Continuation" competing fellowship grants for post-doctoral fellows</ApproxCategory>
+   <GreensheetQuestions>
+      <QuestionDef id="PCQ_232">
+         <QText>Are there any publications cited in the Progress Report Summary
+            that appear not to be in compliance with the NIH Public Access 
+            Policy?
+		</QText>
+         <QInstructions>Answer Yes if one or more publications appear not to be
+            in compliance. Although the dates suggest that the publication(s) fall 
+            under the Public Access policy, none of the acceptable IDs or 
+            indications is provided (PMCID, NIHMSID, or "PMC Journal - In Process"). 
+            Answer No if either all publications appear to be in compliance OR there 
+            are no publications reported.
+		</QInstructions>
+         <ResponseDefsList>
+            <ResponseDef id="PCQ_232_RD_CM_1" type="COMMENT"/>
+            <ResponseDef id="PCQ_232_RD_FL_2" type="FILE"/>
+            <ResponseDef id="PCQ_232_RD_RB_3" type="RADIO">
+               <SelectionDef id="SEL_23231">
+                  <Value>Yes</Value>
+                  <QuestionDef id="PCQ_2320">
+                     <QText>Has the Public Access notification e-mail been sent to the PI and Business Official?</QText>
+                     <QInstructions>(If No, explanation required)</QInstructions>
+                     <ResponseDefsList>
+                        <ResponseDef id="PCQ_2320_RD_CM_1" type="COMMENT"/>
+                        <ResponseDef id="PCQ_2320_RD_FL_2" type="FILE"/>
+                        <ResponseDef id="PCQ_2320_RD_RB_3" type="RADIO">
+                           <SelectionDef id="SEL_232031">
+                              <Value>Yes</Value>
+                              <QuestionDef id="PCQ_23201">
+                                 <QText>Please attach the e-mail message to the greensheet:</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_23201_RD_CM_1" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_23201_RD_FL_2" type="FILE"/>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_232032">
+                              <Value>No</Value>
+                              <QuestionDef id="PCQ_23202">
+                                 <QText>Explanation required:</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="PCQ_23202_RD_CM_1" type="COMMENT"/>
+                                    <ResponseDef id="PCQ_23202_RD_FL_2" type="FILE"/>
+                                    <ResponseDef id="PCQ_23202_RD_TX_3" type="TEXT"/>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_23232">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+      <QuestionDef id="SCQ_246124">
+         <QText>Are there any FCOI concerns?</QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
+            <ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
+            <ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
+               <SelectionDef id="SEL_501124">
+                  <Value>Yes</Value>
+                  <QuestionDef id="SCQ_2461232">
+                     <QText>Has the concern been resolved?</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="SCQ_2461232_RD_CM_249" type="COMMENT"/>
+                        <ResponseDef id="SCQ_2461232_RD_FL_250" type="FILE"/>
+                        <ResponseDef id="SCQ_2461232_RD_RB_251" type="RADIO">
+                           <SelectionDef id="SEL_2461233">
+                              <Value>Yes</Value>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_502124">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+   </GreensheetQuestions>
+</GreensheetForm>

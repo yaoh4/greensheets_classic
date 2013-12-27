@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GreensheetForm form_id="SC_form_29">
+   <UseFrequency>10</UseFrequency>
+   <Applicability>1K04, 1K11, 1K14, 1R29, 1R35, 1S15, 1U09, 2K04, 2K11, 2K14, 2R29, 2R35, 2RL2, 2S15, 2U09, 3K04, 3K11, 3K14, 3R55, 3S15, 4C06, 4D43, 4DP2, 4F30, 4F31, 4F32, 4F33, 4K01, 4K04, 4K05, 4K07, 4K08, 4K11, 4K12, 4K14, 4K22, 4K23, 4K24, 4K25, 4K99, 4KL1, 4KL2, 4KM1, 4P20, 4P30, 4P50, 4PL1, 4R13, 4R15, 4R18, 4R24, 4R25, 4R29, 4R35, 4R55, 4R56, 4RC1, 4RC2, 4RC3, 4RC4, 4RL1, 4RL2, 4RL5, 4RL9, 4S15, 4SC1, 4SC2, 4T15, 4T32, 4TL1, 4TU2, 4U01, 4U09, 4U10, 4U13, 4U19, 4U24, 4U43, 4U56, 4UA5, 4UL1, 4UM1, 6K04, 6K11, 6K14, 6R29, 6R35, 6S15, 6U09, 7K04, 7K11, 7K14, 7R35, 7S15, 9K04, 9K11, 9K14, 9R29, 9R35, 9S15, 9U09</Applicability>
+   <ApproxCategory>Competing career development (?) grants</ApproxCategory>
+   <GreensheetQuestions>
+      <QuestionDef id="SCQ_246123">
+         <QText>Has the PD identified any FCOI Concerns?</QText>
+         <QInstructions/>
+         <ResponseDefsList>
+            <ResponseDef id="SCQ_246123_RD_CM_470" type="COMMENT"/>
+            <ResponseDef id="SCQ_246123_RD_FL_471" type="FILE"/>
+            <ResponseDef id="SCQ_246123_RD_RB_472" type="RADIO">
+               <SelectionDef id="SEL_501123">
+                  <Value>Yes</Value>
+                  <QuestionDef id="SCQ_2461231">
+                     <QText>Has the concern been resolved?</QText>
+                     <QInstructions/>
+                     <ResponseDefsList>
+                        <ResponseDef id="SCQ_2461231_RD_CM_249" type="COMMENT"/>
+                        <ResponseDef id="SCQ_2461231_RD_FL_250" type="FILE"/>
+                        <ResponseDef id="SCQ_2461231_RD_RB_251" type="RADIO">
+                           <SelectionDef id="SEL_2461232">
+                              <Value>Yes</Value>
+                           </SelectionDef>
+                           <SelectionDef id="SEL_2461233">
+                              <Value>No</Value>
+                              <QuestionDef id="SCQ_2461233">
+                                 <QText>Explanation required.</QText>
+                                 <QInstructions/>
+                                 <ResponseDefsList>
+                                    <ResponseDef id="SCQ_2461233_RD_CM_9" type="COMMENT"/>
+                                    <ResponseDef id="SCQ_2461233_RD_FL_10" type="FILE"/>
+                                    <ResponseDef id="SCQ_2461233_RD_TX_11" type="TEXT"/>
+                                 </ResponseDefsList>
+                              </QuestionDef>
+                           </SelectionDef>
+                        </ResponseDef>
+                     </ResponseDefsList>
+                  </QuestionDef>
+               </SelectionDef>
+               <SelectionDef id="SEL_502123">
+                  <Value>No</Value>
+               </SelectionDef>
+            </ResponseDef>
+         </ResponseDefsList>
+      </QuestionDef>
+   </GreensheetQuestions>
+</GreensheetForm>

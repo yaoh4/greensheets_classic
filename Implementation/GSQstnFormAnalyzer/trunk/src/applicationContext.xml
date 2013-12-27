@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	
+    <!-- This "bean" (object) will read some runtime configuration from properties files -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="file:config/*.properties"/>
+        <!-- 'file:' tells it to look in the filesystem rather than classpath -->
+    </bean>
+    
+    <bean id="flowController" 
+        	class="gov.nih.nci.cbiit.scimgmt.greensheets.qstnfrmanalyzer.FlowController">
+        <property name="inputFilesDir" value="${inputfiles.dir}"/>
+        <property name="outputDir" value="${output.dir}"/>
+        <property name="xmlProcessor" ref="xmlProcessor"/>
+        <property name="formComparer" ref="formComparer"/>
+    </bean>
+    
+    <bean id="xmlProcessor"
+        	class="gov.nih.nci.cbiit.scimgmt.greensheets.qstnfrmanalyzer.xmlxform.XmlProcessor"
+        	init-method="init">
+        <property name="inputFilesDir" value="${inputfiles.dir}"/>
+        <property name="outputDir" value="${output.dir}"/>
+        <property name="postProcessDir" value="${postprocess.dir}"/>
+        <property name="xsltFileName" value="${xslt.file.name}"/>
+        <property name="summaryFileName" value="${summary.file.name}"/>
+    </bean>
+    
+    <bean id="formComparer"
+        	class="gov.nih.nci.cbiit.scimgmt.greensheets.qstnfrmanalyzer.FormComparer">
+        <property name="outputDir" value="${output.dir}"/>
+        <property name="formListFile" value="${formlist.file.name}"/>
+        <property name="i2eFormDAO" ref="i2eFormDAO"/>
+    </bean>
+    
+    <bean id="i2eFormDAO" 
+        	class="gov.nih.nci.cbiit.scimgmt.greensheets.qstnfrmanalyzer.dataaccess.I2EformDAO">
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+    
+    <bean id="datasource" 
+        	class="oracle.jdbc.pool.OracleDataSource">
+        <property name="URL" value="${db.url}"/>
+        <property name="user" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+    
+</beans>
