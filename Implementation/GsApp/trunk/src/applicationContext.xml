@@ -23,7 +23,8 @@
         <!-- <property name="url" value="ldap://ncids4a.nci.nih.gov:389/"/> -->
         <property name="urls">
             <list>
-                <value>ldap://ncids4a.nci.nih.gov:389/</value>
+                <!-- <value>ldap://ncids4a.nci.nih.gov:389/</value> -->
+                <value>ldaps://nciweb-ldap-6116.nci.nih.gov:636/</value>
                 <!-- <value>ldap://ncids5a.nci.nih.gov:636/</value> --> <!-- Check for Network params fails. -->
                 <!-- <value>ldap://ncids2b.nci.nih.gov:636/</value> --> <!-- Check for Network params fails. -->
                 <!-- <value>ldap://ncids4a.nci.nih.gov:636/</value> --> <!-- Check for Network params Ok. Authentication fails. -->
@@ -31,9 +32,6 @@
         </property>
         <property name="base" value="" />
         <!-- Deprecated. Use setUserDn(String) instead. -->
-        <!-- <property name="userName" value="cn=NCILDAPAdmin,OU=NCI,O=NIH" /> -->
-        <!-- <property name="userDn" value="cn=NCILDAPAdmin,OU=NCI,O=NIH" /> -->
-        <!-- <property name="password" value="p0ohbe@r" /> -->
         <property name="userDn" value="${userDn}" />
         <property name="password" value="${password}" />
         <property name="pooled" value="false" />
