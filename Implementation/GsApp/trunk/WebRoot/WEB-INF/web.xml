@@ -21,11 +21,11 @@
   	</context-param>
     <context-param>
         <param-name>appVersion</param-name>
-        <param-value>2.7.2</param-value>
+        <param-value>2.7.2-r</param-value>
     </context-param>
     <context-param>
         <param-name>appBuild</param-name>
-        <param-value>b22.08.2013</param-value>
+        <param-value>b12.03.2014</param-value>
     </context-param>
     <context-param>
         <param-name>showDebugOnError</param-name>
