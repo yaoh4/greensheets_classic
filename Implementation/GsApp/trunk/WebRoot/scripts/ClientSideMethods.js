@@ -95,8 +95,24 @@ function fileAttachments(formUid,respDefId)
 {
 
 	var params = "?FORM_UID="+ formUid + "&RESP_DEF_ID=" + respDefId + "&method=findAttachments";
-	openNewWindow("/greensheets/questionattachments.do" + params);
+	var windowName = "Attachemtn"+ formUid + respDefId;
+	var message = "You already have attachments for this greensheet open in another window. Please switch windows to that other window to continue to work on attachments for this greensheet.";
 
+	myOpenWindow("/greensheets/questionattachments.do" + params,windowName,'',message);
+
+}
+
+var myOpenWindow = function(URL, windowName,displayString, message) {
+    var playerUrl = URL;
+    var myOpenedWindow= window.open('', windowName,displayString) ;
+  
+    if(myOpenedWindow.location == 'about:blank' ){
+    	
+    	myOpenedWindow.location = playerUrl ;
+    }else{
+    	alert(message);
+    }
+    myOpenedWindow.focus();
 }
 
 /*
@@ -232,11 +248,14 @@ function retreieveGreensheet(grantNum, applId, group, oracleId){
 	var menubarDisplay = "menubar=no";
 	var directoryDisplay = "directories=no";
 	var showMaximizeButton = "resizable=yes";
-	var windowName = "_blank";  // display a new unnamed window every time.
-
+	var windowName ="RetreieveGreensheet" + applId +group + oracleId;
+	var message = "You already have this greensheet open in another window. Please switch windows to that other window to continue to work on this greensheet."; 
 
 	var displayString = toolbarDisplay + "," + showMaximizeButton + "," + statusbarDisplay + "," + scrollbarDisplay + "," + locationbarDisplay + "," + menubarDisplay + "," + directoryDisplay;
-	window.open(url, windowName , displayString);
+
+	
+	myOpenWindow(url,windowName,displayString,message);
+	
 
 }
 
