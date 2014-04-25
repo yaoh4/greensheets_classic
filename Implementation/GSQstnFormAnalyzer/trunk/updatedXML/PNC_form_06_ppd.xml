@@ -2,6 +2,7 @@
 <GreensheetForm form_id="PNC_form_6">
 	<UseFrequency>610</UseFrequency>
 	<Applicability>5P01, 5P20, 8P01, 8P20, 5D43, 8D43, 4P01</Applicability>
+	<!-- Why did the spreadsheet say that applicability should also include , 7DP1, 7DP2, 7R00, 7R01, 7R56, 7RC1, 7RC2, 7RC3, 7RC4, 7RL1, 7SC1, 7SC2 ?? -->
 	<ApproxCategory>Noncompeting Program Project (including SPORE) grants</ApproxCategory>
 	<GreensheetQuestions>
 		<QuestionDef id="PNCQ_1">
