@@ -1,0 +1,3896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GreensheetForm form_id="PC_form_15">
+	<UseFrequency>121</UseFrequency>
+	<Applicability>2U10, 1U10, 6U10, 7U10</Applicability>
+	<ApproxCategory>"Continuation" competing Clinical Trial (U10) grants</ApproxCategory>
+	<GreensheetQuestions>
+		<QuestionDef id="PCQ_1">
+			<QText>Funding level. Award at:</QText>
+			<QInstructions/>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_1_RD_CM_1" type="COMMENT"/>
+				<ResponseDef id="PCQ_1_RD_FL_2" type="FILE"/>
+				<ResponseDef id="PCQ_1_RD_DD_3" type="DROP_DOWN">
+					<SelectionDef id="SEL_X_39">
+						<Value>--Select an option--</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_2">
+						<Value>Current NCI Funding Policy</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_3">
+						<Value>% of adjusted requested level</Value>
+						<QuestionDef id="PCQ_2">
+							<QText>Enter the percent</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_2_RD_CM_4" type="COMMENT"/>
+								<ResponseDef id="PCQ_2_RD_FL_5" type="FILE"/>
+								<ResponseDef id="PCQ_2_RD_NU_6" type="NUMBER"/>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_4">
+						<Value>Decrease direct costs from adjusted requested level</Value>
+						<QuestionDef id="PCQ_3">
+							<QText>Decrease by:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_3_RD_CM_7" type="COMMENT"/>
+								<ResponseDef id="PCQ_3_RD_FL_8" type="FILE"/>
+								<ResponseDef id="PCQ_3_RD_NU_9" type="NUMBER"/>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_5">
+						<Value>Delete items and corresponding dollars</Value>
+						<QuestionDef id="PCQ_4">
+							<QText>Names of items:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_4_RD_CM_10" type="COMMENT"/>
+								<ResponseDef id="PCQ_4_RD_FL_11" type="FILE"/>
+								<ResponseDef id="PCQ_4_RD_TX_12" type="TEXT"/>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_5">
+							<QText>Term needed to prohibit rebudgeting for deleted items?</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_5_RD_CM_13" type="COMMENT"/>
+								<ResponseDef id="PCQ_5_RD_FL_14" type="FILE"/>
+								<ResponseDef id="PCQ_5_RD_RB_15" type="RADIO">
+									<SelectionDef id="SEL_6">
+										<Value>Yes</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_7">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_8">
+						<Value>Special funding recommendation</Value>
+						<QuestionDef id="PCQ_6">
+							<QText>Special funding recommendation is:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_6_RD_CM_16" type="COMMENT"/>
+								<ResponseDef id="PCQ_6_RD_FL_17" type="FILE"/>
+								<ResponseDef id="PCQ_6_RD_RB_18" type="RADIO">
+									<SelectionDef id="SEL_9">
+										<Value>Attached</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_10">
+										<Value> Sent to OGA</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_7">
+			<QText>Should competitive segment be reduced?</QText>
+			<QInstructions> (If Yes, justification must be provided.)</QInstructions>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_7_RD_CM_19" type="COMMENT"/>
+				<ResponseDef id="PCQ_7_RD_FL_20" type="FILE"/>
+				<ResponseDef id="PCQ_7_RD_DD_21" type="DROP_DOWN">
+					<SelectionDef id="SEL_X_35">
+						<Value>--Select an option--</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_12">
+						<Value>No</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_13">
+						<Value>Yes, by 1 year</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_14">
+						<Value>Yes, by 2 years</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_15">
+						<Value>Yes, by 3 years</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_16">
+						<Value>Yes, by 4 years</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_17">
+						<Value>Yes, by 5 years</Value>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_8">
+			<QText>Human subjects involved?</QText>
+			<QInstructions/>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_8_RD_CM_22" type="COMMENT"/>
+				<ResponseDef id="PCQ_8_RD_FL_23" type="FILE"/>
+				<ResponseDef id="PCQ_8_RD_RB_24" type="RADIO">
+					<SelectionDef id="SEL_18">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_9">
+							<QText>Summary Statement review of human subjects:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_9_RD_CM_25" type="COMMENT"/>
+								<ResponseDef id="PCQ_9_RD_FL_26" type="FILE"/>
+								<ResponseDef id="PCQ_9_RD_DD_27" type="DROP_DOWN">
+									<SelectionDef id="SEL_X_73">
+										<Value>--Select an option--</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_20">
+										<Value>Neither concern nor comment</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_21">
+										<Value>Concern, resolved</Value>
+										<QuestionDef id="PCQ_10">
+											<QText>All related correspondence and concurrence from  OEP/OER/NIH to remove bar:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_10_RD_CM_28" type="COMMENT"/>
+												<ResponseDef id="PCQ_10_RD_FL_29" type="FILE"/>
+												<ResponseDef id="PCQ_10_RD_RB_30" type="RADIO">
+													<SelectionDef id="SEL_22">
+														<Value>Attached</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_23">
+														<Value>Sent to OGA</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_24">
+										<Value>Concern, not resolved</Value>
+										<QuestionDef id="PCQ_11">
+											<QText>OEP/OER/NIH approval memo to issue restricted award attached? </QText>
+											<QInstructions>(If No, award cannot be issued.)</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_11_RD_CM_31" type="COMMENT"/>
+												<ResponseDef id="PCQ_11_RD_FL_32" type="FILE"/>
+												<ResponseDef id="PCQ_11_RD_RB_33" type="RADIO">
+													<SelectionDef id="SEL_25">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_26">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_27">
+										<Value>Comment</Value>
+										<QuestionDef id="PCQ_12">
+											<QText>Explanation required.</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_12_RD_TX_34" type="TEXT"/>
+												<ResponseDef id="PCQ_12_RD_CM_35" type="COMMENT"/>
+												<ResponseDef id="PCQ_12_RD_FL_36" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_13">
+							<QText>Gender Code needs to be changed from summary statement or assigned?</QText>
+							<QInstructions>http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_13_RD_CM_37" type="COMMENT"/>
+								<ResponseDef id="PCQ_13_RD_FL_38" type="FILE"/>
+								<ResponseDef id="PCQ_13_RD_RB_39" type="RADIO">
+									<SelectionDef id="SEL_28">
+										<Value>Yes</Value>
+										<QuestionDef id="PCQ_14">
+											<QText>New Gender Code:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_14_RD_CM_40" type="COMMENT"/>
+												<ResponseDef id="PCQ_14_RD_FL_41" type="FILE"/>
+												<ResponseDef id="PCQ_14_RD_ST_42" type="STRING"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_15">
+											<QText>Was Gender Code initially "U"?</QText>
+											<QInstructions>http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_15_RD_CM_43" type="COMMENT"/>
+												<ResponseDef id="PCQ_15_RD_FL_44" type="FILE"/>
+												<ResponseDef id="PCQ_15_RD_RB_45" type="RADIO">
+													<SelectionDef id="SEL_29">
+														<Value>Yes</Value>
+														<QuestionDef id="PCQ_16">
+															<QText>Approval memo to change code:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_16_RD_CM_46" type="COMMENT"/>
+																<ResponseDef id="PCQ_16_RD_FL_47" type="FILE"/>
+																<ResponseDef id="PCQ_16_RD_RB_48" type="RADIO">
+																	<SelectionDef id="SEL_30">
+																		<Value>Attached</Value>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_31">
+																		<Value>Sent to OGA</Value>
+																	</SelectionDef>
+																</ResponseDef>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+													<SelectionDef id="SEL_32">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_33">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_17">
+							<QText>Minority Code needs to be changed from summary statement or assigned?</QText>
+							<QInstructions>http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_17_RD_CM_49" type="COMMENT"/>
+								<ResponseDef id="PCQ_17_RD_FL_50" type="FILE"/>
+								<ResponseDef id="PCQ_17_RD_RB_51" type="RADIO">
+									<SelectionDef id="SEL_34">
+										<Value>Yes</Value>
+										<QuestionDef id="PCQ_18">
+											<QText>New Minority Code:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_18_RD_CM_52" type="COMMENT"/>
+												<ResponseDef id="PCQ_18_RD_FL_53" type="FILE"/>
+												<ResponseDef id="PCQ_18_RD_ST_54" type="STRING"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_19">
+											<QText>Was Minority Code initially "U"?</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_19_RD_CM_55" type="COMMENT"/>
+												<ResponseDef id="PCQ_19_RD_FL_56" type="FILE"/>
+												<ResponseDef id="PCQ_19_RD_RB_57" type="RADIO">
+													<SelectionDef id="SEL_35">
+														<Value>Yes</Value>
+														<QuestionDef id="PCQ_20">
+															<QText>Approval memo to change code:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_20_RD_CM_58" type="COMMENT"/>
+																<ResponseDef id="PCQ_20_RD_FL_59" type="FILE"/>
+																<ResponseDef id="PCQ_20_RD_RB_60" type="RADIO">
+																	<SelectionDef id="SEL_36">
+																		<Value>Attached</Value>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_37">
+																		<Value>Sent to OGA</Value>
+																	</SelectionDef>
+																</ResponseDef>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+													<SelectionDef id="SEL_38">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_39">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_21">
+							<QText>Children Code needs to be changed from summary statement or assigned?</QText>
+							<QInstructions>http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_21_RD_CM_61" type="COMMENT"/>
+								<ResponseDef id="PCQ_21_RD_FL_62" type="FILE"/>
+								<ResponseDef id="PCQ_21_RD_RB_63" type="RADIO">
+									<SelectionDef id="SEL_40">
+										<Value>Yes</Value>
+										<QuestionDef id="PCQ_22">
+											<QText>New Children Code:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_22_RD_CM_64" type="COMMENT"/>
+												<ResponseDef id="PCQ_22_RD_FL_65" type="FILE"/>
+												<ResponseDef id="PCQ_22_RD_ST_66" type="STRING"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_23">
+											<QText>Was Children Code initially "U"?</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_23_RD_CM_67" type="COMMENT"/>
+												<ResponseDef id="PCQ_23_RD_FL_68" type="FILE"/>
+												<ResponseDef id="PCQ_23_RD_RB_69" type="RADIO">
+													<SelectionDef id="SEL_41">
+														<Value>Yes</Value>
+														<QuestionDef id="PCQ_24">
+															<QText>Approval memo to change code:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_24_RD_CM_70" type="COMMENT"/>
+																<ResponseDef id="PCQ_24_RD_FL_71" type="FILE"/>
+																<ResponseDef id="PCQ_24_RD_RB_72" type="RADIO">
+																	<SelectionDef id="SEL_42">
+																		<Value>Attached</Value>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_43">
+																		<Value>Sent to OGA</Value>
+																	</SelectionDef>
+																</ResponseDef>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+													<SelectionDef id="SEL_44">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_45">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_25">
+							<QText>Exception to tracking code:</QText>
+							<QInstructions>http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_25_RD_CM_73" type="COMMENT"/>
+								<ResponseDef id="PCQ_25_RD_FL_74" type="FILE"/>
+								<ResponseDef id="PCQ_25_RD_DD_75" type="DROP_DOWN">
+									<SelectionDef id="SEL_X_74">
+										<Value>--Select an option--</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_47">
+										<Value>00 = Must be tracked</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_48">
+										<Value>SS = Small Sample Size (&lt; 10 subjects)</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_49">
+										<Value>DR = Duplication of Reporting</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_50">
+										<Value>PR = Parent Records</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_51">
+										<Value>SA = Secondary Analysis</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_52">
+										<Value>ET = Early Stage of Technology Development</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_53">
+										<Value>NC = Not Clinical Research</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_54">
+										<Value>IC = IC Defined Reason</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_949">
+										<Value>E4 = No Tracking Code</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_26">
+							<QText>Research exempt from regulations (45 CFR 46)?  </QText>
+							<QInstructions>(Enter exemption number or not exempt) http://www.hhs.gov/ohrp/humansubjects/guidance/45cfr46.htm#46.101(b)</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_26_RD_CM_76" type="COMMENT"/>
+								<ResponseDef id="PCQ_26_RD_FL_77" type="FILE"/>
+								<ResponseDef id="PCQ_26_RD_DD_78" type="DROP_DOWN">
+									<SelectionDef id="SEL_X_34">
+										<Value>--Select an option--</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_56">
+										<Value>E1</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_57">
+										<Value>E2</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_58">
+										<Value>E3</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_59">
+										<Value>E4</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_60">
+										<Value>E5</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_61">
+										<Value>E6</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_62">
+										<Value>Not exempt</Value>
+										<QuestionDef id="PCQ_189">
+											<QText>Is this U10 grant application for</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_189_RD_CM_557" type="COMMENT"/>
+												<ResponseDef id="PCQ_189_RD_FL_558" type="FILE"/>
+												<ResponseDef id="PCQ_189_RD_DD_559" type="DROP_DOWN">
+													<SelectionDef id="SEL_X_33">
+														<Value>--Select an option--</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_397">
+														<Value>DCTD Clinical Trials Cooperative Group</Value>
+														<QuestionDef id="PCQ_130">
+															<QText>Is this U10 DCTD Clinical Trials Cooperative Group a:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_130_RD_CM_384" type="COMMENT"/>
+																<ResponseDef id="PCQ_130_RD_FL_385" type="FILE"/>
+																<ResponseDef id="PCQ_130_RD_DD_386" type="DROP_DOWN">
+																	<SelectionDef id="SEL_X_32">
+																		<Value>--Select an option--</Value>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_303">
+																		<Value>DCTD Clinical Trials Cooperative Group Headquarters</Value>
+																		<QuestionDef id="PCQ_131">
+																			<QText>Does awardee have approved human subjects assurance?</QText>
+																			<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_131_RD_CM_387" type="COMMENT"/>
+																				<ResponseDef id="PCQ_131_RD_FL_388" type="FILE"/>
+																				<ResponseDef id="PCQ_131_RD_RB_389" type="RADIO">
+																					<SelectionDef id="SEL_306">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_307">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_132">
+																							<QText>Date PI referred to OHRP website</QText>
+																							<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_132_RD_CM_390" type="COMMENT"/>
+																								<ResponseDef id="PCQ_132_RD_FL_391" type="FILE"/>
+																								<ResponseDef id="PCQ_132_RD_DT_392" type="DATE"/>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_133">
+																			<QText>Consortium performance site(s) engaged in research involving human subjects</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_133_RD_CM_393" type="COMMENT"/>
+																				<ResponseDef id="PCQ_133_RD_FL_394" type="FILE"/>
+																				<ResponseDef id="PCQ_133_RD_RB_395" type="RADIO">
+																					<SelectionDef id="SEL_308">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_134">
+																							<QText>Does consortium site(s) have approved assurance(s)?</QText>
+																							<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_134_RD_CM_396" type="COMMENT"/>
+																								<ResponseDef id="PCQ_134_RD_FL_397" type="FILE"/>
+																								<ResponseDef id="PCQ_134_RD_RB_398" type="RADIO">
+																									<SelectionDef id="SEL_310">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_311">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_135">
+																											<QText>Names of sites needing assurances:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_135_RD_CM_399" type="COMMENT"/>
+																												<ResponseDef id="PCQ_135_RD_FL_400" type="FILE"/>
+																												<ResponseDef id="PCQ_135_RD_TX_401" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_136">
+																											<QText>Is the project viable if the site does not receive assurance?</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_136_RD_CM_402" type="COMMENT"/>
+																												<ResponseDef id="PCQ_136_RD_FL_403" type="FILE"/>
+																												<ResponseDef id="PCQ_136_RD_RB_404" type="RADIO">
+																													<SelectionDef id="SEL_312">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_313">
+																														<Value>No</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_137">
+																											<QText>Date PI referred to the OHRP website:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_137_RD_CM_405" type="COMMENT"/>
+																												<ResponseDef id="PCQ_137_RD_FL_406" type="FILE"/>
+																												<ResponseDef id="PCQ_137_RD_DT_407" type="DATE"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_138">
+																											<QText>Are accrual sites involved?</QText>
+																											<QInstructions>(If accrual sites are involved, a special term of award will be used making Headquarters responsible for ensuring that every site has assurance prior to patient accrual.)</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_138_RD_CM_408" type="COMMENT"/>
+																												<ResponseDef id="PCQ_138_RD_FL_409" type="FILE"/>
+																												<ResponseDef id="PCQ_138_RD_RB_410" type="RADIO">
+																													<SelectionDef id="SEL_314">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_315">
+																														<Value>No</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_309">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_155">
+																			<QText>Is research a candidate for "Certificate of Confidentiality'?</QText>
+																			<QInstructions>(If Yes, informational term of award will be used.)</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_155_RD_CM_464" type="COMMENT"/>
+																				<ResponseDef id="PCQ_155_RD_FL_465" type="FILE"/>
+																				<ResponseDef id="PCQ_155_RD_RB_466" type="RADIO">
+																					<SelectionDef id="SEL_338">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_339">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_156">
+																			<QText>Does the application support a Phase I/Phase II or a Phase III low-risk behavioral or nutritional trial?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_156_RD_CM_467" type="COMMENT"/>
+																				<ResponseDef id="PCQ_156_RD_FL_468" type="FILE"/>
+																				<ResponseDef id="PCQ_156_RD_RB_469" type="RADIO">
+																					<SelectionDef id="SEL_340">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_1561">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_1561_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_1561_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_1561_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_15611">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_15611">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_15611_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_15611_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_15611_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_156110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_156112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_156111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_156111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_156111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_156111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_156111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_1561110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_156113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_15612">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_157">
+																							<QText>Data and safety monitoring (DSM) conducted by NCI or NCI-approved contractor? </QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_157_RD_CM_470" type="COMMENT"/>
+																								<ResponseDef id="PCQ_157_RD_FL_471" type="FILE"/>
+																								<ResponseDef id="PCQ_157_RD_RB_472" type="RADIO">
+																									<SelectionDef id="SEL_342">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_343">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_158">
+																											<QText>Is the Group DSM plan approved by NCI?</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_158_RD_CM_473" type="COMMENT"/>
+																												<ResponseDef id="PCQ_158_RD_FL_474" type="FILE"/>
+																												<ResponseDef id="PCQ_158_RD_DD_475" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_31">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_345">
+																														<Value>Yes, and in application</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_346">
+																														<Value>Yes, and attached</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_347">
+																														<Value>Yes, and sent to OGA</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_341">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_167">
+																			<QText>Does the application support a Phase III Clinical Trial (other than a low-risk behavioral or nutritional trial)?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_167_RD_CM_497" type="COMMENT"/>
+																				<ResponseDef id="PCQ_167_RD_FL_498" type="FILE"/>
+																				<ResponseDef id="PCQ_167_RD_RB_499" type="RADIO">
+																					<SelectionDef id="SEL_360">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_1671">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_1671_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_1671_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_1671_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_16711">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_16711">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_16711_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_16711_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_16711_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_167110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_167112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_167111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_167111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_167111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_167111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_167111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_1671110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_167113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_16712">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_168">
+																							<QText>Are the DSM Board members approved (by the Associate Director, CTEP or designee) and documented?</QText>
+																							<QInstructions>The documentation needed is a statement of approval by Associate Director, CTEP or designee.</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_168_RD_CM_500" type="COMMENT"/>
+																								<ResponseDef id="PCQ_168_RD_FL_501" type="FILE"/>
+																								<ResponseDef id="PCQ_168_RD_DD_502" type="DROP_DOWN">
+																									<SelectionDef id="SEL_X_30">
+																										<Value>--Select an option--</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_363">
+																										<Value>Not Approved</Value>
+																										<QuestionDef id="PCQ_169">
+																											<QText>Explanation required.</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_169_RD_CM_503" type="COMMENT"/>
+																												<ResponseDef id="PCQ_169_RD_FL_504" type="FILE"/>
+																												<ResponseDef id="PCQ_169_RD_TX_505" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_364">
+																										<Value>Approved and documentation is attached</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_365">
+																										<Value>Approved and documentation sent to OGA</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_361">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_173">
+																			<QText>An on-site audit report has been approved by CTMB and the approval memo is:</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_173_RD_CM_512" type="COMMENT"/>
+																				<ResponseDef id="PCQ_173_RD_FL_513" type="FILE"/>
+																				<ResponseDef id="PCQ_173_RD_DD_514" type="DROP_DOWN">
+																					<SelectionDef id="SEL_X_29">
+																						<Value>--Select an option--</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_370">
+																						<Value>Approved and memo attached</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_476">
+																						<Value>Approved and memo sent to OGA</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_188">
+																			<QText>Special Terms and Conditions of Award are available in:</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_188_RD_CM_557" type="COMMENT"/>
+																				<ResponseDef id="PCQ_188_RD_FL_558" type="FILE"/>
+																				<ResponseDef id="PCQ_188_RD_DD_559" type="DROP_DOWN">
+																					<SelectionDef id="SEL_X_28">
+																						<Value>--Select an option--</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_394">
+																						<Value>The Clinical Trials Cooperative Group Guidelines</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_396">
+																						<Value>Attached</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_180">
+																			<QText>The Annual Statement of program involvement in Group awards for the prior budget period is:</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_180_RD_CM_533" type="COMMENT"/>
+																				<ResponseDef id="PCQ_180_RD_FL_534" type="FILE"/>
+																				<ResponseDef id="PCQ_180_RD_RB_535" type="RADIO">
+																					<SelectionDef id="SEL_379">
+																						<Value>Attached</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_380">
+																						<Value>Sent to OGA</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_304">
+																		<Value>DCTD Statistical Center</Value>
+																		<QuestionDef id="PCQ_139">
+																			<QText>Does awardee have approved human subjects assurance?</QText>
+																			<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_139_RD_CM_411" type="COMMENT"/>
+																				<ResponseDef id="PCQ_139_RD_FL_412" type="FILE"/>
+																				<ResponseDef id="PCQ_139_RD_RB_413" type="RADIO">
+																					<SelectionDef id="SEL_316">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_317">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_140">
+																							<QText>Date PI referred to OHRP website</QText>
+																							<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_140_RD_CM_414" type="COMMENT"/>
+																								<ResponseDef id="PCQ_140_RD_FL_415" type="FILE"/>
+																								<ResponseDef id="PCQ_140_RD_DT_416" type="DATE"/>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_141">
+																			<QText>Consortium performance site(s) engaged in research involving human subjects</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_141_RD_CM_417" type="COMMENT"/>
+																				<ResponseDef id="PCQ_141_RD_FL_418" type="FILE"/>
+																				<ResponseDef id="PCQ_141_RD_RB_419" type="RADIO">
+																					<SelectionDef id="SEL_318">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_142">
+																							<QText>Does consortium site(s) have approved assurance(s)?</QText>
+																							<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_142_RD_CM_420" type="COMMENT"/>
+																								<ResponseDef id="PCQ_142_RD_FL_421" type="FILE"/>
+																								<ResponseDef id="PCQ_142_RD_RB_422" type="RADIO">
+																									<SelectionDef id="SEL_320">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_321">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_143">
+																											<QText>Names of sites needing assurances:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_143_RD_CM_423" type="COMMENT"/>
+																												<ResponseDef id="PCQ_143_RD_FL_424" type="FILE"/>
+																												<ResponseDef id="PCQ_143_RD_TX_425" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_144">
+																											<QText>Is the project viable if the site does not receive assurance?</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_144_RD_CM_426" type="COMMENT"/>
+																												<ResponseDef id="PCQ_144_RD_FL_427" type="FILE"/>
+																												<ResponseDef id="PCQ_144_RD_RB_428" type="RADIO">
+																													<SelectionDef id="SEL_322">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_323">
+																														<Value>No</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_145">
+																											<QText>Date PI referred to the OHRP website:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_145_RD_CM_429" type="COMMENT"/>
+																												<ResponseDef id="PCQ_145_RD_FL_430" type="FILE"/>
+																												<ResponseDef id="PCQ_145_RD_DT_431" type="DATE"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_319">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_159">
+																			<QText>Is all documentation required for data and safety monitoring for Group Phase I/Phase II studies included on the Headquarters control form?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_159_RD_CM_476" type="COMMENT"/>
+																				<ResponseDef id="PCQ_159_RD_FL_477" type="FILE"/>
+																				<ResponseDef id="PCQ_159_RD_RB_478" type="RADIO">
+																					<SelectionDef id="SEL_348">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_349">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_160">
+																							<QText>Should this funding be held?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_160_RD_CM_479" type="COMMENT"/>
+																								<ResponseDef id="PCQ_160_RD_FL_480" type="FILE"/>
+																								<ResponseDef id="PCQ_160_RD_RB_481" type="RADIO">
+																									<SelectionDef id="SEL_350">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_165">
+																			<QText>Is all documentation required for DSMBs for Phase III research on the Headquarters control form?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_165_RD_CM_493" type="COMMENT"/>
+																				<ResponseDef id="PCQ_165_RD_FL_494" type="FILE"/>
+																				<ResponseDef id="PCQ_165_RD_RB_495" type="RADIO">
+																					<SelectionDef id="SEL_357">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_358">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_166">
+																							<QText>Should this funding be held?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_166_RD_CM_496" type="COMMENT"/>
+																								<ResponseDef id="PCQ_166_RD_FL_497" type="FILE"/>
+																								<ResponseDef id="PCQ_166_RD_RB_498" type="RADIO">
+																									<SelectionDef id="SEL_359">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_187">
+																			<QText>Special Terms and Conditions of Award are available in:</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_187_RD_CM_554" type="COMMENT"/>
+																				<ResponseDef id="PCQ_187_RD_FL_555" type="FILE"/>
+																				<ResponseDef id="PCQ_187_RD_DD_556" type="DROP_DOWN">
+																					<SelectionDef id="SEL_X_27">
+																						<Value>--Select an option--</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_390">
+																						<Value>The Clinical Trials Cooperative Group Guidelines</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_392">
+																						<Value>Attached</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_176">
+																			<QText>Is documentation related to the CTMB review of the on-site audit report on the Headquarters control form?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_176_RD_CM_521" type="COMMENT"/>
+																				<ResponseDef id="PCQ_176_RD_FL_522" type="FILE"/>
+																				<ResponseDef id="PCQ_176_RD_RB_523" type="RADIO">
+																					<SelectionDef id="SEL_373">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_181">
+																			<QText>Is the Annual Statement of program involvement for the prior budget period in the Headquarters file?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_181_RD_CM_536" type="COMMENT"/>
+																				<ResponseDef id="PCQ_181_RD_FL_537" type="FILE"/>
+																				<ResponseDef id="PCQ_181_RD_RB_538" type="RADIO">
+																					<SelectionDef id="SEL_381">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_305">
+																		<Value>DCTD Institutional Award</Value>
+																		<QuestionDef id="PCQ_147">
+																			<QText>Does awardee have approved human subjects assurance?</QText>
+																			<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_147_RD_CM_440" type="COMMENT"/>
+																				<ResponseDef id="PCQ_147_RD_FL_441" type="FILE"/>
+																				<ResponseDef id="PCQ_147_RD_RB_442" type="RADIO">
+																					<SelectionDef id="SEL_326">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_327">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_148">
+																							<QText>Date PI referred to OHRP website</QText>
+																							<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_148_RD_CM_443" type="COMMENT"/>
+																								<ResponseDef id="PCQ_148_RD_FL_444" type="FILE"/>
+																								<ResponseDef id="PCQ_148_RD_DT_445" type="DATE"/>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_149">
+																			<QText>Consortium performance site(s) engaged in research involving human subjects</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_149_RD_CM_446" type="COMMENT"/>
+																				<ResponseDef id="PCQ_149_RD_FL_447" type="FILE"/>
+																				<ResponseDef id="PCQ_149_RD_RB_448" type="RADIO">
+																					<SelectionDef id="SEL_328">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_150">
+																							<QText>Does consortium site(s) have approved assurance(s)?</QText>
+																							<QInstructions>(http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_150_RD_CM_449" type="COMMENT"/>
+																								<ResponseDef id="PCQ_150_RD_FL_450" type="FILE"/>
+																								<ResponseDef id="PCQ_150_RD_RB_451" type="RADIO">
+																									<SelectionDef id="SEL_330">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_331">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_151">
+																											<QText>Names of sites needing assurances:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_151_RD_CM_452" type="COMMENT"/>
+																												<ResponseDef id="PCQ_151_RD_FL_453" type="FILE"/>
+																												<ResponseDef id="PCQ_151_RD_TX_454" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_152">
+																											<QText>Is the project viable if the site does not receive assurance?</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_152_RD_CM_455" type="COMMENT"/>
+																												<ResponseDef id="PCQ_152_RD_FL_456" type="FILE"/>
+																												<ResponseDef id="PCQ_152_RD_RB_457" type="RADIO">
+																													<SelectionDef id="SEL_332">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_333">
+																														<Value>No</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_153">
+																											<QText>Date PI referred to the OHRP website:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_153_RD_CM_458" type="COMMENT"/>
+																												<ResponseDef id="PCQ_153_RD_FL_459" type="FILE"/>
+																												<ResponseDef id="PCQ_153_RD_DT_460" type="DATE"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_329">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_161">
+																			<QText>Is all documentation required for data and safety monitoring for Group Phase I/Phase II studies included on the Headquarters control form?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_161_RD_CM_481" type="COMMENT"/>
+																				<ResponseDef id="PCQ_161_RD_FL_482" type="FILE"/>
+																				<ResponseDef id="PCQ_161_RD_RB_483" type="RADIO">
+																					<SelectionDef id="SEL_351">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_352">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_162">
+																							<QText>Should this funding be held? </QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_162_RD_CM_484" type="COMMENT"/>
+																								<ResponseDef id="PCQ_162_RD_FL_485" type="FILE"/>
+																								<ResponseDef id="PCQ_162_RD_RB_486" type="RADIO">
+																									<SelectionDef id="SEL_353">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_163">
+																			<QText>Is all documentation required for DSMBs for Phase III research on the Headquarters control form?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_163_RD_CM_487" type="COMMENT"/>
+																				<ResponseDef id="PCQ_163_RD_FL_488" type="FILE"/>
+																				<ResponseDef id="PCQ_163_RD_RB_489" type="RADIO">
+																					<SelectionDef id="SEL_354">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_355">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_164">
+																							<QText>Should this funding be held?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_164_RD_CM_490" type="COMMENT"/>
+																								<ResponseDef id="PCQ_164_RD_FL_491" type="FILE"/>
+																								<ResponseDef id="PCQ_164_RD_RB_492" type="RADIO">
+																									<SelectionDef id="SEL_356">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_186">
+																			<QText>Special Terms and Conditions of Award are available in:</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_186_RD_CM_551" type="COMMENT"/>
+																				<ResponseDef id="PCQ_186_RD_FL_552" type="FILE"/>
+																				<ResponseDef id="PCQ_186_RD_DD_553" type="DROP_DOWN">
+																					<SelectionDef id="SEL_X_26">
+																						<Value>--Select an option--</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_386">
+																						<Value>The Clinical Trials Cooperative Group Guidelines</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_388">
+																						<Value>Attached</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_178">
+																			<QText>Is documentation related to the CTMB review of the on-site audit report on the Headquarters control form?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_178_RD_CM_527" type="COMMENT"/>
+																				<ResponseDef id="PCQ_178_RD_FL_528" type="FILE"/>
+																				<ResponseDef id="PCQ_178_RD_RB_529" type="RADIO">
+																					<SelectionDef id="SEL_376">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_182">
+																			<QText>Is the Annual Statement of program involvement for the prior budget period in the Headquarters file?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_182_RD_CM_539" type="COMMENT"/>
+																				<ResponseDef id="PCQ_182_RD_FL_540" type="FILE"/>
+																				<ResponseDef id="PCQ_182_RD_RB_541" type="RADIO">
+																					<SelectionDef id="SEL_383">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_482">
+																		<Value>DCTD Other</Value>
+																		<QuestionDef id="PCQ_253">
+																			<QText>Grantee has approved human subjects assurance?</QText>
+																			<QInstructions>(Grantee must have assurance even if all research involving human subjects is conducted at other performance sites. If No, award will be held for assurance and IRB approval.) </QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_253_RD_CM_742" type="COMMENT"/>
+																				<ResponseDef id="PCQ_253_RD_FL_743" type="FILE"/>
+																				<ResponseDef id="PCQ_253_RD_RB_744" type="RADIO">
+																					<SelectionDef id="SEL_525">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_526">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_254">
+																							<QText>Date PI referred to OHRP website:</QText>
+																							<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_254_RD_CM_745" type="COMMENT"/>
+																								<ResponseDef id="PCQ_254_RD_FL_746" type="FILE"/>
+																								<ResponseDef id="PCQ_254_RD_DT_747" type="DATE"/>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_255">
+																			<QText>Performance site(s) other than grantee engaged in research involving human subjects? </QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_255_RD_CM_748" type="COMMENT"/>
+																				<ResponseDef id="PCQ_255_RD_FL_749" type="FILE"/>
+																				<ResponseDef id="PCQ_255_RD_RB_750" type="RADIO">
+																					<SelectionDef id="SEL_527">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_256">
+																							<QText>Does performance site(s) have approved assurance(s)?</QText>
+																							<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_256_RD_CM_772" type="COMMENT"/>
+																								<ResponseDef id="PCQ_256_RD_FL_773" type="FILE"/>
+																								<ResponseDef id="PCQ_256_RD_RB_774" type="RADIO">
+																									<SelectionDef id="SEL_529">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_530">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_257">
+																											<QText>Names of site(s) needing assurance:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_257_RD_CM_751" type="COMMENT"/>
+																												<ResponseDef id="PCQ_257_RD_FL_752" type="FILE"/>
+																												<ResponseDef id="PCQ_257_RD_TX_753" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_258">
+																											<QText>Is the project viable if the site(s) does not receive assurance?</QText>
+																											<QInstructions>(If No, award will be held for assurance and IRB approval)</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_258_RD_CM_754" type="COMMENT"/>
+																												<ResponseDef id="PCQ_258_RD_FL_755" type="FILE"/>
+																												<ResponseDef id="PCQ_258_RD_RB_756" type="RADIO">
+																													<SelectionDef id="SEL_531">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_532">
+																														<Value>No</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_259">
+																											<QText>Date PI referred to OHRP website:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_259_RD_DT_775" type="DATE"/>
+																												<ResponseDef id="PCQ_259_RD_CM_776" type="COMMENT"/>
+																												<ResponseDef id="PCQ_259_RD_FL_777" type="FILE"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_528">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_266">
+																			<QText>Is research a candidate for "Certificate of Confidentiality"? </QText>
+																			<QInstructions> (If Yes, informational term of award will be used.)</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_266_RD_CM_778" type="COMMENT"/>
+																				<ResponseDef id="PCQ_266_RD_FL_779" type="FILE"/>
+																				<ResponseDef id="PCQ_266_RD_RB_780" type="RADIO">
+																					<SelectionDef id="SEL_535">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_549">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_267">
+																			<QText>Does the application support a Phase I/Phase II or a Phase III low-risk behavioral or nutritional trial?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_267_RD_CM_781" type="COMMENT"/>
+																				<ResponseDef id="PCQ_267_RD_FL_782" type="FILE"/>
+																				<ResponseDef id="PCQ_267_RD_RB_783" type="RADIO">
+																					<SelectionDef id="SEL_548">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_2671">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_2671_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_2671_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_2671_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_26711">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_26711">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_26711_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_26711_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_26711_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_267110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_267112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_267111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_267111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_267111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_267111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_267111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_2671110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_267113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_26712">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_268">
+																							<QText>Data and safety monitoring (DSM) conducted by NCI or NCI-approved contractor? </QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_268_RD_CM_784" type="COMMENT"/>
+																								<ResponseDef id="PCQ_268_RD_FL_785" type="FILE"/>
+																								<ResponseDef id="PCQ_268_RD_RB_786" type="RADIO">
+																									<SelectionDef id="SEL_550">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_551">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_269">
+																											<QText>DSM plan approved by NCI?</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_269_RD_CM_787" type="COMMENT"/>
+																												<ResponseDef id="PCQ_269_RD_FL_788" type="FILE"/>
+																												<ResponseDef id="PCQ_269_RD_DD_789" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_25">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_553">
+																														<Value>Yes, and in application</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_554">
+																														<Value>Yes, and attached</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_555">
+																														<Value>Yes, and sent to OGA</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_80">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_270">
+																			<QText>Does the application support a Phase III Clinical Trial (other than a low-risk behavioral or nutritional trial)?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_270_RD_CM_790" type="COMMENT"/>
+																				<ResponseDef id="PCQ_270_RD_FL_791" type="FILE"/>
+																				<ResponseDef id="PCQ_270_RD_RB_792" type="RADIO">
+																					<SelectionDef id="SEL_556">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_2701">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_2701_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_2701_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_2701_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_27011">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_27011">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_27011_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_27011_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_27011_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_270110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_270112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_270111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_270111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_270111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_270111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_270111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_2701110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_270113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_27012">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_271">
+																							<QText>Are the DSM Board members approved (by Associate Director, CTEP, or designee) and documented? </QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_271_RD_CM_793" type="COMMENT"/>
+																								<ResponseDef id="PCQ_271_RD_FL_794" type="FILE"/>
+																								<ResponseDef id="PCQ_271_RD_DD_794" type="DROP_DOWN">
+																									<SelectionDef id="SEL_X_24">
+																										<Value>--Select an option--</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_559">
+																										<Value>Not approved</Value>
+																										<QuestionDef id="PCQ_272">
+																											<QText>Explanation Required:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_272_RD_TX_794" type="TEXT"/>
+																												<ResponseDef id="PCQ_272_RD_CM_795" type="COMMENT"/>
+																												<ResponseDef id="PCQ_272_RD_FL_796" type="FILE"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_560">
+																										<Value>Approved and documentation sent to OGA</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_561">
+																										<Value>Approved and documentation is attached</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_557">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																	</SelectionDef>
+																</ResponseDef>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+													<SelectionDef id="SEL_398">
+														<Value>DCP Community Clinical Oncology Program (CCOP)</Value>
+														<QuestionDef id="PCQ_190">
+															<QText>Is this U10 DCP Community Clinical Oncology Program (CCOP) a:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_190_RD_CM_560" type="COMMENT"/>
+																<ResponseDef id="PCQ_190_RD_FL_561" type="FILE"/>
+																<ResponseDef id="PCQ_190_RD_DD_562" type="DROP_DOWN">
+																	<SelectionDef id="SEL_X_75">
+																		<Value>--Select an option--</Value>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_940">
+																		<Value>DCP CCOP Research Base</Value>
+																		<QuestionDef id="PCQ_191">
+																			<QText>Does Grantee have approved human subjects assurance?</QText>
+																			<QInstructions>(Grantee must have assurance even if all research involving human subjects is conducted at other performance sites)</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_191_RD_CM_563" type="COMMENT"/>
+																				<ResponseDef id="PCQ_191_RD_FL_564" type="FILE"/>
+																				<ResponseDef id="PCQ_191_RD_RB_565" type="RADIO">
+																					<SelectionDef id="SEL_401">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_402">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_192">
+																							<QText>Date PI referred to OHRP website:</QText>
+																							<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_192_RD_CM_566" type="COMMENT"/>
+																								<ResponseDef id="PCQ_192_RD_FL_567" type="FILE"/>
+																								<ResponseDef id="PCQ_192_RD_DT_568" type="DATE"/>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_193">
+																			<QText>Are performance site(s) other than grantee engaged in research involving human subjects?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_193_RD_CM_569" type="COMMENT"/>
+																				<ResponseDef id="PCQ_193_RD_FL_570" type="FILE"/>
+																				<ResponseDef id="PCQ_193_RD_RB_571" type="RADIO">
+																					<SelectionDef id="SEL_403">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_194">
+																							<QText>Does performace site(s) have approved assurance?</QText>
+																							<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_194_RD_CM_572" type="COMMENT"/>
+																								<ResponseDef id="PCQ_194_RD_FL_573" type="FILE"/>
+																								<ResponseDef id="PCQ_194_RD_RB_574" type="RADIO">
+																									<SelectionDef id="SEL_405">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_406">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_195">
+																											<QText>Names of site(s) needing assurance:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_195_RD_CM_575" type="COMMENT"/>
+																												<ResponseDef id="PCQ_195_RD_FL_576" type="FILE"/>
+																												<ResponseDef id="PCQ_195_RD_TX_577" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_196">
+																											<QText>Is the project viable if the site(s) does not receive assurance?</QText>
+																											<QInstructions>If No, award will be held for assurance and IRB approval.)</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_196_RD_CM_578" type="COMMENT"/>
+																												<ResponseDef id="PCQ_196_RD_FL_579" type="FILE"/>
+																												<ResponseDef id="PCQ_196_RD_RB_580" type="RADIO">
+																													<SelectionDef id="SEL_407">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_408">
+																														<Value>No</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_197">
+																											<QText>Date PI referred to the OHRP website:</QText>
+																											<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_197_RD_CM_581" type="COMMENT"/>
+																												<ResponseDef id="PCQ_197_RD_FL_582" type="FILE"/>
+																												<ResponseDef id="PCQ_197_RD_DT_583" type="DATE"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_404">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_198">
+																			<QText>Is research a candidate for "Certificate of Confidentiality'?</QText>
+																			<QInstructions>(If Yes, informational term of award will be used.)</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_198_RD_CM_584" type="COMMENT"/>
+																				<ResponseDef id="PCQ_198_RD_FL_585" type="FILE"/>
+																				<ResponseDef id="PCQ_198_RD_RB_586" type="RADIO">
+																					<SelectionDef id="SEL_409">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_410">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_199">
+																			<QText>Does the application support a Phase I/Phase II or a Phase III low-risk behavioral or nutritional trial?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_199_RD_CM_587" type="COMMENT"/>
+																				<ResponseDef id="PCQ_199_RD_FL_588" type="FILE"/>
+																				<ResponseDef id="PCQ_199_RD_RB_589" type="RADIO">
+																					<SelectionDef id="SEL_411">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_1991">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_1991_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_1991_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_1991_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_19911">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_19911">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_19911_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_19911_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_19911_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_199110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_199112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_199111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_199111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_199111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_199111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_199111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_1991110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_199113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_19912">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_200">
+																							<QText>Research Base data and safety monitoring (DSM) conducted by NCI or NCI-approved contractor? </QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_200_RD_CM_590" type="COMMENT"/>
+																								<ResponseDef id="PCQ_200_RD_FL_591" type="FILE"/>
+																								<ResponseDef id="PCQ_200_RD_RB_592" type="RADIO">
+																									<SelectionDef id="SEL_413">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_414">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_201">
+																											<QText>Is the Research Base DSM plan approved by NCI?</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_201_RD_CM_593" type="COMMENT"/>
+																												<ResponseDef id="PCQ_201_RD_FL_594" type="FILE"/>
+																												<ResponseDef id="PCQ_201_RD_DD_595" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_23">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_416">
+																														<Value>Yes, and in application</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_417">
+																														<Value>Yes, and attached</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_418">
+																														<Value>Yes, and sent to OGA</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_412">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_202">
+																			<QText>Does the application support a Phase III Clinical Trial (other than a low-risk behavioral or nutritional trial)?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_202_RD_CM_596" type="COMMENT"/>
+																				<ResponseDef id="PCQ_202_RD_FL_597" type="FILE"/>
+																				<ResponseDef id="PCQ_202_RD_RB_598" type="RADIO">
+																					<SelectionDef id="SEL_419">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_2021">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_2021_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_2021_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_2021_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_20211">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_20211">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_20211_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_20211_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_20211_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_202110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_202112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_202111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_202111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_202111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_202111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_202111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_2021110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_202113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_20212">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_203">
+																							<QText>Are the DSM Board members approved (by Associate Director, DCP or designee) and documented?</QText>
+																							<QInstructions>The documentation needed is a statement of approval from the Associate Director, DCP or designee.</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_203_RD_CM_599" type="COMMENT"/>
+																								<ResponseDef id="PCQ_203_RD_FL_600" type="FILE"/>
+																								<ResponseDef id="PCQ_203_RD_DD_601" type="DROP_DOWN">
+																									<SelectionDef id="SEL_X_22">
+																										<Value>--Select an option--</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_422">
+																										<Value>Not Approved</Value>
+																										<QuestionDef id="PCQ_204">
+																											<QText>Explanation required.</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_204_RD_CM_602" type="COMMENT"/>
+																												<ResponseDef id="PCQ_204_RD_FL_602" type="FILE"/>
+																												<ResponseDef id="PCQ_204_RD_TX_602" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_423">
+																										<Value>Approved and documentation is attached</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_424">
+																										<Value>Approved and documentation sent to OGA</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_420">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_205">
+																			<QText>Are clinical trial audits required?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_205_RD_CM_605" type="COMMENT"/>
+																				<ResponseDef id="PCQ_205_RD_FL_606" type="FILE"/>
+																				<ResponseDef id="PCQ_205_RD_RB_607" type="RADIO">
+																					<SelectionDef id="SEL_425">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_206">
+																							<QText>Have all required audits been conducted?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_206_RD_CM_608" type="COMMENT"/>
+																								<ResponseDef id="PCQ_206_RD_FL_609" type="FILE"/>
+																								<ResponseDef id="PCQ_206_RD_DD_610" type="DROP_DOWN">
+																									<SelectionDef id="SEL_X_21">
+																										<Value>--Select an option--</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_427">
+																										<Value>No audits conducted</Value>
+																										<QuestionDef id="PCQ_207">
+																											<QText>Explanation required.</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_207_RD_CM_611" type="COMMENT"/>
+																												<ResponseDef id="PCQ_207_RD_FL_612" type="FILE"/>
+																												<ResponseDef id="PCQ_207_RD_TX_613" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_428">
+																										<Value>Yes and report documents in COPTRG or DCTD Group Headquarters</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_429">
+																										<Value>Audits conducted but no report documentation in COPTRG</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_208">
+																							<QText>Are reports acceptable for funding?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_208_RD_CM_614" type="COMMENT"/>
+																								<ResponseDef id="PCQ_208_RD_FL_615" type="FILE"/>
+																								<ResponseDef id="PCQ_208_RD_RB_616" type="RADIO">
+																									<SelectionDef id="SEL_431">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_432">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_430">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_209">
+																			<QText>The Annual Statement of Program involvement for the prior budget period is:</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_209_RD_CM_617" type="COMMENT"/>
+																				<ResponseDef id="PCQ_209_RD_FL_618" type="FILE"/>
+																				<ResponseDef id="PCQ_209_RD_RB_619" type="RADIO">
+																					<SelectionDef id="SEL_433">
+																						<Value>Attached</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_434">
+																						<Value>Sent to OGA</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_939">
+																		<Value>DCP CCOP Institutional Award</Value>
+																		<QuestionDef id="PCQ_210">
+																			<QText>Does Grantee have approved human subjects assurance?</QText>
+																			<QInstructions>(Grantee must have assurance even if all research involving human subjects is conducted at other performance sites)</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_210_RD_CM_620" type="COMMENT"/>
+																				<ResponseDef id="PCQ_210_RD_FL_621" type="FILE"/>
+																				<ResponseDef id="PCQ_210_RD_RB_622" type="RADIO">
+																					<SelectionDef id="SEL_435">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_436">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_211">
+																							<QText>Date PI referred to OHRP website:</QText>
+																							<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_211_RD_CM_623" type="COMMENT"/>
+																								<ResponseDef id="PCQ_211_RD_FL_624" type="FILE"/>
+																								<ResponseDef id="PCQ_211_RD_DT_625" type="DATE"/>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_212">
+																			<QText>Are performance site(s) other than grantee engaged in research involving human subjects?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_212_RD_CM_626" type="COMMENT"/>
+																				<ResponseDef id="PCQ_212_RD_FL_627" type="FILE"/>
+																				<ResponseDef id="PCQ_212_RD_RB_628" type="RADIO">
+																					<SelectionDef id="SEL_437">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_213">
+																							<QText>Does performace site(s) have approved assurance?</QText>
+																							<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_213_RD_CM_629" type="COMMENT"/>
+																								<ResponseDef id="PCQ_213_RD_FL_630" type="FILE"/>
+																								<ResponseDef id="PCQ_213_RD_RB_631" type="RADIO">
+																									<SelectionDef id="SEL_439">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_440">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_214">
+																											<QText>Names of site(s) needing assurance:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_214_RD_CM_632" type="COMMENT"/>
+																												<ResponseDef id="PCQ_214_RD_FL_633" type="FILE"/>
+																												<ResponseDef id="PCQ_214_RD_TX_634" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_215">
+																											<QText>Is the project viable if the site(s) does not receive assurance?</QText>
+																											<QInstructions>If No, award will be held for assurance and IRB approval.)</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_215_RD_CM_635" type="COMMENT"/>
+																												<ResponseDef id="PCQ_215_RD_FL_636" type="FILE"/>
+																												<ResponseDef id="PCQ_215_RD_RB_637" type="RADIO">
+																													<SelectionDef id="SEL_441">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_442">
+																														<Value>No</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_216">
+																											<QText>Date PI referred to the OHRP website:</QText>
+																											<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_216_RD_CM_638" type="COMMENT"/>
+																												<ResponseDef id="PCQ_216_RD_FL_639" type="FILE"/>
+																												<ResponseDef id="PCQ_216_RD_DT_640" type="DATE"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_438">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_228">
+																			<QText>Does the application support a Phase I/Phase II or a Phase III low-risk behavioral or nutritional trial?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_228_RD_CM_675" type="COMMENT"/>
+																				<ResponseDef id="PCQ_228_RD_FL_676" type="FILE"/>
+																				<ResponseDef id="PCQ_228_RD_RB_677" type="RADIO">
+																					<SelectionDef id="SEL_445">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_2281">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_2281_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_2281_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_2281_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_22811">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_22811">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_22811_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_22811_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_22811_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_228110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_228112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_228111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_228111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_228111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_228111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_228111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_2281110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_228113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_22812">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_227">
+																							<QText>Data and safety monitoring (DSM) conducted by NCI or NCI-approved contractor? </QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_227_RD_CM_672" type="COMMENT"/>
+																								<ResponseDef id="PCQ_227_RD_FL_673" type="FILE"/>
+																								<ResponseDef id="PCQ_227_RD_RB_674" type="RADIO">
+																									<SelectionDef id="SEL_463">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_464">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_229">
+																											<QText>Is all documentation required for DSM for Phase I/Phase II studies documented on Research Base control form?</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_229_RD_CM_678" type="COMMENT"/>
+																												<ResponseDef id="PCQ_229_RD_FL_679" type="FILE"/>
+																												<ResponseDef id="PCQ_229_RD_RB_680" type="RADIO">
+																													<SelectionDef id="SEL_469">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_470">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_230">
+																															<QText>Should this funding be held?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_230_RD_CM_681" type="COMMENT"/>
+																																<ResponseDef id="PCQ_230_RD_FL_682" type="FILE"/>
+																																<ResponseDef id="PCQ_230_RD_RB_683" type="RADIO">
+																																	<SelectionDef id="SEL_471">
+																																		<Value>No</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_446">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_225">
+																			<QText>Is all documentation required for DSMBs for Phase III research on the Research Base and/or DCTD Group Headquarters control form?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_225_RD_CM_666" type="COMMENT"/>
+																				<ResponseDef id="PCQ_225_RD_FL_667" type="FILE"/>
+																				<ResponseDef id="PCQ_225_RD_RB_668" type="RADIO">
+																					<SelectionDef id="SEL_447">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_222">
+																			<QText>Are clinical trial audits required?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_222_RD_CM_657" type="COMMENT"/>
+																				<ResponseDef id="PCQ_222_RD_FL_658" type="FILE"/>
+																				<ResponseDef id="PCQ_222_RD_RB_659" type="RADIO">
+																					<SelectionDef id="SEL_453">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_220">
+																							<QText>Have all required audits been conducted?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_220_RD_CM_651" type="COMMENT"/>
+																								<ResponseDef id="PCQ_220_RD_FL_652" type="FILE"/>
+																								<ResponseDef id="PCQ_220_RD_DD_653" type="DROP_DOWN">
+																									<SelectionDef id="SEL_X_19">
+																										<Value>--Select an option--</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_455">
+																										<Value>No audits conducted</Value>
+																										<QuestionDef id="PCQ_221">
+																											<QText>Explanation required.</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_221_RD_CM_654" type="COMMENT"/>
+																												<ResponseDef id="PCQ_221_RD_FL_655" type="FILE"/>
+																												<ResponseDef id="PCQ_221_RD_TX_656" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_456">
+																										<Value>Yes and report documents in COPTRG or DCTD Group Headquarters</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_457">
+																										<Value>Audits conducted but no report documentation in COPTRG</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_219">
+																							<QText>Are reports acceptable for funding?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_219_RD_CM_648" type="COMMENT"/>
+																								<ResponseDef id="PCQ_219_RD_FL_649" type="FILE"/>
+																								<ResponseDef id="PCQ_219_RD_RB_650" type="RADIO">
+																									<SelectionDef id="SEL_458">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_459">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_462">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_218">
+																			<QText>The Annual Statement of Program involvement for the prior budget period is:</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_218_RD_CM_645" type="COMMENT"/>
+																				<ResponseDef id="PCQ_218_RD_FL_646" type="FILE"/>
+																				<ResponseDef id="PCQ_218_RD_RB_647" type="RADIO">
+																					<SelectionDef id="SEL_460">
+																						<Value>Attached</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_461">
+																						<Value>Sent to OGA</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_979">
+																		<Value>DCP CCOP Cancer Center Research</Value>
+																		<QuestionDef id="PCQ_595">
+																			<QText>Does Grantee have approved human subjects assurance?</QText>
+																			<QInstructions>(Grantee must have assurance even if all research involving human subjects is conducted at other performance sites)</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_595_RD_CM_1504" type="COMMENT"/>
+																				<ResponseDef id="PCQ_595_RD_FL_1505" type="FILE"/>
+																				<ResponseDef id="PCQ_595_RD_RB_1506" type="RADIO">
+																					<SelectionDef id="SEL_980">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_981">
+																						<Value>No</Value>
+																						<QuestionDef id="PCQ_596">
+																							<QText>Date PI referred to OHRP website:</QText>
+																							<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_596_RD_CM_1507" type="COMMENT"/>
+																								<ResponseDef id="PCQ_596_RD_FL_1508" type="FILE"/>
+																								<ResponseDef id="PCQ_596_RD_DT_1509" type="DATE"/>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_597">
+																			<QText>Are performance site(s) other than grantee engaged in research involving human subjects?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_597_RD_CM_1510" type="COMMENT"/>
+																				<ResponseDef id="PCQ_597_RD_FL_1511" type="FILE"/>
+																				<ResponseDef id="PCQ_597_RD_RB_1512" type="RADIO">
+																					<SelectionDef id="SEL_1027">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_598">
+																							<QText>Does performace site(s) have approved assurance?</QText>
+																							<QInstructions>http://ohrp.cit.nih.gov/search/asearch.asp</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_598_RD_CM_1513" type="COMMENT"/>
+																								<ResponseDef id="PCQ_598_RD_FL_1514" type="FILE"/>
+																								<ResponseDef id="PCQ_598_RD_RB_1515" type="RADIO">
+																									<SelectionDef id="SEL_983">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_984">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_599">
+																											<QText>Names of site(s) needing assurance:</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_599_RD_CM_1516" type="COMMENT"/>
+																												<ResponseDef id="PCQ_599_RD_FL_1517" type="FILE"/>
+																												<ResponseDef id="PCQ_599_RD_TX_1518" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_600">
+																											<QText>Is the project viable if the site(s) does not receive assurance?</QText>
+																											<QInstructions>If No, award will be held for assurance and IRB approval.)</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_600_RD_CM_1519" type="COMMENT"/>
+																												<ResponseDef id="PCQ_600_RD_FL_1520" type="FILE"/>
+																												<ResponseDef id="PCQ_600_RD_RB_1521" type="RADIO">
+																													<SelectionDef id="SEL_985">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_986">
+																														<Value>No</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																										<QuestionDef id="PCQ_601">
+																											<QText>Date PI referred to the OHRP website:</QText>
+																											<QInstructions>http://www.hhs.gov/ohrp/assurances/assurances_index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_601_RD_CM_1522" type="COMMENT"/>
+																												<ResponseDef id="PCQ_601_RD_FL_1523" type="FILE"/>
+																												<ResponseDef id="PCQ_601_RD_DT_1524" type="DATE"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_982">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_602">
+																			<QText>Is research a candidate for "Certificate of Confidentiality'?</QText>
+																			<QInstructions>(If Yes, informational term of award will be used.)</QInstructions>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_602_RD_CM_1530" type="COMMENT"/>
+																				<ResponseDef id="PCQ_602_RD_FL_1531" type="FILE"/>
+																				<ResponseDef id="PCQ_602_RD_RB_1532" type="RADIO">
+																					<SelectionDef id="SEL_987">
+																						<Value>Yes</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_988">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_603">
+																			<QText>Does the application support a Phase I/Phase II or a Phase III low-risk behavioral or nutritional trial?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_603_RD_CM_1533" type="COMMENT"/>
+																				<ResponseDef id="PCQ_603_RD_FL_1534" type="FILE"/>
+																				<ResponseDef id="PCQ_603_RD_RB_1535" type="RADIO">
+																					<SelectionDef id="SEL_989">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_6031">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_6031_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_6031_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_6031_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_60311">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_60311">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_60311_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_60311_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_60311_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_603110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_603112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_603111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_603111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_603111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_603111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_603111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_6031110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_603113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_60312">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_604">
+																							<QText>Research Base data and safety monitoring (DSM) conducted by NCI or NCI-approved contractor? </QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_604_RD_CM_1536" type="COMMENT"/>
+																								<ResponseDef id="PCQ_604_RD_FL_1537" type="FILE"/>
+																								<ResponseDef id="PCQ_604_RD_RB_1538" type="RADIO">
+																									<SelectionDef id="SEL_991">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_992">
+																										<Value>No</Value>
+																										<QuestionDef id="PCQ_627">
+																											<QText>Is the Research Base DSM plan approved by NCI?</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_627_RD_CM_1597" type="COMMENT"/>
+																												<ResponseDef id="PCQ_627_RD_FL_1598" type="FILE"/>
+																												<ResponseDef id="PCQ_627_RD_DD_1595" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_81">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_1030">
+																														<Value>Yes, and in application</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_1029">
+																														<Value>Yes, and attached</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_1028">
+																														<Value>Yes, and sent to OGA</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_990">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_626">
+																			<QText>Does the application support a Phase III Clinical Trial (other than a low-risk behavioral or nutritional trial)?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_626_RD_CM_1539" type="COMMENT"/>
+																				<ResponseDef id="PCQ_626_RD_FL_1540" type="FILE"/>
+																				<ResponseDef id="PCQ_626_RD_RB_1541" type="RADIO">
+																					<SelectionDef id="SEL_993">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_6261">
+																							<QText>Are there any applicable clinical trials associated with this award?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_6261_RD_CM_10" type="COMMENT"/>
+																								<ResponseDef id="PCQ_6261_RD_FL_20" type="FILE"/>
+																								<ResponseDef id="PCQ_6261_RD_RB_30" type="RADIO">
+																									<SelectionDef id="SEL_62611">
+																										<Value>Yes</Value>
+																										<QuestionDef id="PCQ_62611">
+																											<QText>Have the applicable clinical trials been registered in ClinicalTrials.gov?</QText>
+																											<QInstructions>http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html</QInstructions>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_62611_RD_CM_10" type="COMMENT"/>
+																												<ResponseDef id="PCQ_62611_RD_FL_20" type="FILE"/>
+																												<ResponseDef id="PCQ_62611_RD_DD_30" type="DROP_DOWN">
+																													<SelectionDef id="SEL_X_626110">
+																														<Value>--Select an option--</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_626112">
+																														<Value>Yes</Value>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_626111">
+																														<Value>No</Value>
+																														<QuestionDef id="PCQ_626111">
+																															<QText>Has email been sent to PI and Business Official?</QText>
+																															<QInstructions/>
+																															<ResponseDefsList>
+																																<ResponseDef id="PCQ_626111_RD_CM_10" type="COMMENT"/>
+																																<ResponseDef id="PCQ_626111_RD_FL_20" type="FILE"/>
+																																<ResponseDef id="PCQ_626111_RD_CB_30" type="CHECK_BOX">
+																																	<SelectionDef id="SEL_6261110">
+																																		<Value>Yes, attached</Value>
+																																	</SelectionDef>
+																																</ResponseDef>
+																															</ResponseDefsList>
+																														</QuestionDef>
+																													</SelectionDef>
+																													<SelectionDef id="SEL_626113">
+																														<Value>N/A (Type 1 ONLY)</Value>
+																													</SelectionDef>
+																												</ResponseDef>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_62612">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_605">
+																							<QText>Are the DSM Board members approved (by Associate Director, DCP or designee) and documented?</QText>
+																							<QInstructions>The documentation needed is a statement of approval from the Associate Director, DCP or designee.</QInstructions>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_605_RD_CM_1542" type="COMMENT"/>
+																								<ResponseDef id="PCQ_605_RD_FL_1543" type="FILE"/>
+																								<ResponseDef id="PCQ_605_RD_DD_1544" type="DROP_DOWN">
+																									<SelectionDef id="SEL_X_80">
+																										<Value>--Select an option--</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_995">
+																										<Value>Not Approved</Value>
+																										<QuestionDef id="PCQ_606">
+																											<QText>Explanation required.</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_606_RD_CM_1542" type="COMMENT"/>
+																												<ResponseDef id="PCQ_606_RD_FL_1543" type="FILE"/>
+																												<ResponseDef id="PCQ_606_RD_TX_1544" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_996">
+																										<Value>Approved and documentation is attached</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_997">
+																										<Value>Approved and documentation sent to OGA</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_994">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_607">
+																			<QText>Are clinical trial audits required?</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_607_RD_CM_1545" type="COMMENT"/>
+																				<ResponseDef id="PCQ_607_RD_FL_1546" type="FILE"/>
+																				<ResponseDef id="PCQ_607_RD_RB_1547" type="RADIO">
+																					<SelectionDef id="SEL_1025">
+																						<Value>Yes</Value>
+																						<QuestionDef id="PCQ_608">
+																							<QText>Have all required audits been conducted?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_608_RD_CM_1548" type="COMMENT"/>
+																								<ResponseDef id="PCQ_608_RD_FL_1549" type="FILE"/>
+																								<ResponseDef id="PCQ_608_RD_DD_1550" type="DROP_DOWN">
+																									<SelectionDef id="SEL_X_77">
+																										<Value>--Select an option--</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_999">
+																										<Value>No audits conducted</Value>
+																										<QuestionDef id="PCQ_609">
+																											<QText>Explanation required.</QText>
+																											<QInstructions/>
+																											<ResponseDefsList>
+																												<ResponseDef id="PCQ_609_RD_CM_1551" type="COMMENT"/>
+																												<ResponseDef id="PCQ_609_RD_FL_1552" type="FILE"/>
+																												<ResponseDef id="PCQ_609_RD_TX_1553" type="TEXT"/>
+																											</ResponseDefsList>
+																										</QuestionDef>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_1000">
+																										<Value>Yes and report documents in COPTRG or DCTD Group Headquarters</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_1001">
+																										<Value>Audits conducted but no report documentation in COPTRG</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																						<QuestionDef id="PCQ_610">
+																							<QText>Are reports acceptable for funding?</QText>
+																							<QInstructions/>
+																							<ResponseDefsList>
+																								<ResponseDef id="PCQ_610_RD_CM_1555" type="COMMENT"/>
+																								<ResponseDef id="PCQ_610_RD_FL_1556" type="FILE"/>
+																								<ResponseDef id="PCQ_610_RD_RB_1557" type="RADIO">
+																									<SelectionDef id="SEL_1002">
+																										<Value>Yes</Value>
+																									</SelectionDef>
+																									<SelectionDef id="SEL_1003">
+																										<Value>No</Value>
+																									</SelectionDef>
+																								</ResponseDef>
+																							</ResponseDefsList>
+																						</QuestionDef>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_1026">
+																						<Value>No</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																		<QuestionDef id="PCQ_611">
+																			<QText>The Annual Statement of Program involvement for the prior budget period is:</QText>
+																			<QInstructions/>
+																			<ResponseDefsList>
+																				<ResponseDef id="PCQ_611_RD_CM_1557" type="COMMENT"/>
+																				<ResponseDef id="PCQ_611_RD_FL_1558" type="FILE"/>
+																				<ResponseDef id="PCQ_611_RD_RB_1559" type="RADIO">
+																					<SelectionDef id="SEL_1004">
+																						<Value>Attached</Value>
+																					</SelectionDef>
+																					<SelectionDef id="SEL_1005">
+																						<Value>Sent to OGA</Value>
+																					</SelectionDef>
+																				</ResponseDef>
+																			</ResponseDefsList>
+																		</QuestionDef>
+																	</SelectionDef>
+																</ResponseDef>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_87">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_41">
+			<QText>Live Vertebrate Animals involved? </QText>
+			<QInstructions/>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_41_RD_CM_155" type="COMMENT"/>
+				<ResponseDef id="PCQ_41_RD_FL_156" type="FILE"/>
+				<ResponseDef id="PCQ_41_RD_RB_121" type="RADIO">
+					<SelectionDef id="SEL_88">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_42">
+							<QText>Summary Statement review of animal welfare:</QText>
+							<QInstructions>http://odoerdb2.od.nih.gov/oer/offices/olaw/4206_codes.htm</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_42_RD_CM_132" type="COMMENT"/>
+								<ResponseDef id="PCQ_42_RD_FL_133" type="FILE"/>
+								<ResponseDef id="PCQ_42_RD_DD_122" type="DROP_DOWN">
+									<SelectionDef id="SEL_X_11">
+										<Value>--Select an option--</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_90">
+										<Value>Neither concern nor comment</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_91">
+										<Value>Concern, resolved</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_94">
+										<Value>Concern, not resolved</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_97">
+										<Value>Comment</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_46">
+							<QText>Does awardee have approved assurance? </QText>
+							<QInstructions>(Award will be held until all sites have assurance or OLAW approval received for restricted award. Grantee must have an assurance even if all research involving live vertebrate animals is at other performance sites.) http://grants2.nih.gov/grants/olaw/assurance/300index.htm</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_46_RD_CM_138" type="COMMENT"/>
+								<ResponseDef id="PCQ_46_RD_FL_139" type="FILE"/>
+								<ResponseDef id="PCQ_46_RD_RB_134" type="RADIO">
+									<SelectionDef id="SEL_98">
+										<Value>Yes</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_99">
+										<Value>No</Value>
+										<QuestionDef id="PCQ_47">
+											<QText>Date documents sent to OLAW:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_47_RD_DT_135" type="DATE"/>
+												<ResponseDef id="PCQ_47_RD_CM_136" type="COMMENT"/>
+												<ResponseDef id="PCQ_47_RD_FL_137" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_48">
+							<QText>Are there other performance site(s) other than awardee engaged in animal   research?  </QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_48_RD_CM_153" type="COMMENT"/>
+								<ResponseDef id="PCQ_48_RD_FL_154" type="FILE"/>
+								<ResponseDef id="PCQ_48_RD_RB_140" type="RADIO">
+									<SelectionDef id="SEL_100">
+										<Value>Yes</Value>
+										<QuestionDef id="PCQ_49">
+											<QText>Does performance site(s) have approved assurance(s)? </QText>
+											<QInstructions>http://grants2.nih.gov/grants/olaw/assurance/300index.htm</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_49_RD_CM_151" type="COMMENT"/>
+												<ResponseDef id="PCQ_49_RD_FL_152" type="FILE"/>
+												<ResponseDef id="PCQ_49_RD_RB_141" type="RADIO">
+													<SelectionDef id="SEL_101">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_102">
+														<Value>No</Value>
+														<QuestionDef id="PCQ_50">
+															<QText>Site(s) needing assurance(s):</QText>
+															<QInstructions>(Award will be held until all sites have assurance or OLAW approval received for restricted award.)</QInstructions>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_50_RD_TX_142" type="TEXT"/>
+																<ResponseDef id="PCQ_50_RD_CM_143" type="COMMENT"/>
+																<ResponseDef id="PCQ_50_RD_FL_144" type="FILE"/>
+															</ResponseDefsList>
+														</QuestionDef>
+														<QuestionDef id="PCQ_51">
+															<QText>If site does not receive assurance, will project still be viable? </QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_51_RD_RB_145" type="RADIO">
+																	<SelectionDef id="SEL_103">
+																		<Value>Yes</Value>
+																	</SelectionDef>
+																	<SelectionDef id="SEL_104">
+																		<Value>No</Value>
+																	</SelectionDef>
+																</ResponseDef>
+																<ResponseDef id="PCQ_51_RD_CM_146" type="COMMENT"/>
+																<ResponseDef id="PCQ_51_RD_FL_147" type="FILE"/>
+															</ResponseDefsList>
+														</QuestionDef>
+														<QuestionDef id="PCQ_52">
+															<QText>Date documents sent to OLAW:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_52_RD_DT_148" type="DATE"/>
+																<ResponseDef id="PCQ_52_RD_CM_149" type="COMMENT"/>
+																<ResponseDef id="PCQ_52_RD_FL_150" type="FILE"/>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_105">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_106">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_5311">
+			<QText>Does this project use Human Embryonic Stem Cells (hESC)?</QText>
+			<QInstructions/>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_5311_RD_RB_157" type="RADIO">
+					<SelectionDef id="SEL_1071">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_5312">
+							<QText>Is hESC use appropriate for this project? </QText>
+							<QInstructions>http://odoerdb2.od.nih.gov/gmac/how-to/hs_stem_cell_awards_hesc.html </QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_5312_RD_FL_114" type="FILE"/>
+								<ResponseDef id="PCQ_5312_RD_CM_115" type="COMMENT"/>
+								<ResponseDef id="PCQ_5312_RD_RB_116" type="RADIO">
+									<SelectionDef id="SEL_5311">
+										<Value>Yes</Value>
+										<QuestionDef id="PCQ_5313">
+											<QText>Are cell lines listed on the hESC Registry? </QText>
+											<QInstructions>http://grants.nih.gov/stem_cells/registry/current.htm </QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_5313_RD_FL_114" type="FILE"/>
+												<ResponseDef id="PCQ_5313_RD_CM_115" type="COMMENT"/>
+												<ResponseDef id="PCQ_5313_RD_RB_116" type="RADIO">
+													<SelectionDef id="SEL_53111">
+														<Value>Yes</Value>
+														<QuestionDef id="PCQ_5314">
+															<QText>List Cell Line Here:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_5314_RD_CM_690" type="COMMENT"/>
+																<ResponseDef id="PCQ_5314_RD_FL_691" type="FILE"/>
+																<ResponseDef id="PCQ_5314_RD_TX_692" type="TEXT"/>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+													<SelectionDef id="SEL_53112">
+														<Value>No</Value>
+														<QuestionDef id="PCQ_5315">
+															<QText>Explanation Required:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_5315_RD_CM_690" type="COMMENT"/>
+																<ResponseDef id="PCQ_5315_RD_FL_691" type="FILE"/>
+																<ResponseDef id="PCQ_5315_RD_TX_692" type="TEXT"/>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_5312">
+										<Value>No</Value>
+										<QuestionDef id="PCQ_53121">
+											<QText>Explanation Required:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_53121_RD_CM_531211" type="COMMENT"/>
+												<ResponseDef id="PCQ_53121_RD_FL_531212" type="FILE"/>
+												<ResponseDef id="PCQ_53121_RD_TX_531213" type="TEXT"/>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_1081">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+				<ResponseDef id="PCQ_5311_RD_CM_158" type="COMMENT"/>
+				<ResponseDef id="PCQ_5311_RD_FL_159" type="FILE"/>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_53">
+			<QText>Are there any biohazards involved?</QText>
+			<QInstructions>(If Yes, informational term will be used.)  </QInstructions>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_53_RD_RB_157" type="RADIO">
+					<SelectionDef id="SEL_107">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_5316">
+							<QText>Were there any concerns noted? </QText>
+							<QInstructions>(If not resolved, explanation required.)</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_5316_RD_CM_127" type="COMMENT"/>
+								<ResponseDef id="PCQ_5316_RD_FL_128" type="FILE"/>
+								<ResponseDef id="PCQ_5316_RD_DD_126" type="DROP_DOWN">
+									<SelectionDef id="SEL_X_5316">
+										<Value>--Select an option--</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_5316">
+										<Value>Neither concern nor comment</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_5317">
+										<Value>Concern, resolved </Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_5318">
+										<Value>Concern, not resolved</Value>
+										<QuestionDef id="PCQ_5317">
+											<QText>Explanation Required:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_5317_RD_CM_690" type="COMMENT"/>
+												<ResponseDef id="PCQ_5317_RD_FL_691" type="FILE"/>
+												<ResponseDef id="PCQ_5317_RD_TX_692" type="TEXT"/>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_108">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+				<ResponseDef id="PCQ_53_RD_CM_158" type="COMMENT"/>
+				<ResponseDef id="PCQ_53_RD_FL_159" type="FILE"/>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_54">
+			<QText>Other support approved?</QText>
+			<QInstructions>(If No, explanation required.)</QInstructions>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_54_RD_CM_160" type="COMMENT"/>
+				<ResponseDef id="PCQ_54_RD_FL_161" type="FILE"/>
+				<ResponseDef id="PCQ_54_RD_DD_162" type="DROP_DOWN">
+					<SelectionDef id="SEL_X_10">
+						<Value>--Select an option--</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_110">
+						<Value>Yes, attached</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_111">
+						<Value>Yes, sent to OGA (from Grantee or Program)</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_112">
+						<Value>No</Value>
+						<QuestionDef id="PCQ_55">
+							<QText>Explanation required.</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_55_RD_CM_163" type="COMMENT"/>
+								<ResponseDef id="PCQ_55_RD_FL_164" type="FILE"/>
+								<ResponseDef id="PCQ_55_RD_TX_165" type="TEXT"/>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_56">
+			<QText>Is there any scientific overlap?</QText>
+			<QInstructions>(If Yes, explanation required.)</QInstructions>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_56_RD_RB_166" type="RADIO">
+					<SelectionDef id="SEL_113">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_57">
+							<QText>Explanation Required:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_57_RD_TX_167" type="TEXT"/>
+								<ResponseDef id="PCQ_57_RD_CM_168" type="COMMENT"/>
+								<ResponseDef id="PCQ_57_RD_FL_169" type="FILE"/>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_114">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+				<ResponseDef id="PCQ_56_RD_CM_170" type="COMMENT"/>
+				<ResponseDef id="PCQ_56_RD_FL_171" type="FILE"/>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_58">
+			<QText>Has CSR received an amendment to this application? </QText>
+			<QInstructions/>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_58_RD_CM_179" type="COMMENT"/>
+				<ResponseDef id="PCQ_58_RD_FL_180" type="FILE"/>
+				<ResponseDef id="PCQ_58_RD_RB_172" type="RADIO">
+					<SelectionDef id="SEL_115">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_59">
+							<QText>Has amended application been reviewed by IRG?  </QText>
+							<QInstructions>(If No, award will be held.)</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_59_RD_CM_177" type="COMMENT"/>
+								<ResponseDef id="PCQ_59_RD_FL_178" type="FILE"/>
+								<ResponseDef id="PCQ_59_RD_RB_173" type="RADIO">
+									<SelectionDef id="SEL_116">
+										<Value>Yes</Value>
+										<QuestionDef id="PCQ_60">
+											<QText>The funding exception memo is:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_60_RD_CM_175" type="COMMENT"/>
+												<ResponseDef id="PCQ_60_RD_FL_176" type="FILE"/>
+												<ResponseDef id="PCQ_60_RD_RB_174" type="RADIO">
+													<SelectionDef id="SEL_117">
+														<Value>Attached</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_118">
+														<Value>Sent to OGA</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_119">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_120">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_61">
+			<QText>Is this an award to a foreign institution or an award to a domestic institution that includes one or more approved foreign component(s)? </QText>
+			<QInstructions/>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_61_RD_CM_200" type="COMMENT"/>
+				<ResponseDef id="PCQ_61_RD_FL_201" type="FILE"/>
+				<ResponseDef id="PCQ_61_RD_DD_181" type="DROP_DOWN">
+					<SelectionDef id="SEL_X_9">
+						<Value>--Select an option--</Value>
+					</SelectionDef>
+					<SelectionDef id="SEL_122">
+						<Value>Yes, foreign grant</Value>
+						<QuestionDef id="PCQ_62">
+							<QText>Name of Foreign Site (Country):</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_62_RD_CM_182" type="COMMENT"/>
+								<ResponseDef id="PCQ_62_RD_FL_183" type="FILE"/>
+								<ResponseDef id="PCQ_62_RD_ST_184" type="STRING"/>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_63">
+							<QText>Date Entered into Foreign Tracking System:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_63_RD_CM_185" type="COMMENT"/>
+								<ResponseDef id="PCQ_63_RD_FL_186" type="FILE"/>
+								<ResponseDef id="PCQ_63_RD_DT_187" type="DATE"/>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_6311">
+							<QText>Did the application go the the NCAB special review for approval?</QText>
+							<QInstructions>If no, award must be held.</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_6311_RD_FL_185" type="FILE"/>
+								<ResponseDef id="PCQ_6311_RD_CM_186" type="COMMENT"/>
+								<ResponseDef id="PCQ_6311_RD_RB_187" type="RADIO">
+									<SelectionDef id="SEL_6311">
+										<Value>Yes</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_6312">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_6312">
+							<QText>Is project viable without approval?</QText>
+							<QInstructions>If No, award will be held.</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_6312_RD_FL_185" type="FILE"/>
+								<ResponseDef id="PCQ_6312_RD_CM_186" type="COMMENT"/>
+								<ResponseDef id="PCQ_6312_RD_RB_187" type="RADIO">
+									<SelectionDef id="SEL_6313">
+										<Value>Yes</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_6314">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_127">
+						<Value>Yes, domestic grant with foreign involvement</Value>
+						<QuestionDef id="PCQ_64">
+							<QText>Name of foreign site (Country):</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_64_RD_ST_188" type="STRING"/>
+								<ResponseDef id="PCQ_64_RD_CM_189" type="COMMENT"/>
+								<ResponseDef id="PCQ_64_RD_FL_190" type="FILE"/>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_628">
+							<QText>Date Entered into Foreign Tracking System:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_628_RD_CM_185" type="COMMENT"/>
+								<ResponseDef id="PCQ_628_RD_FL_186" type="FILE"/>
+								<ResponseDef id="PCQ_628_RD_DT_187" type="DATE"/>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_6322">
+							<QText>Is project viable without approval?</QText>
+							<QInstructions>If No, award will be held.</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_6322_RD_FL_185" type="FILE"/>
+								<ResponseDef id="PCQ_6322_RD_CM_186" type="COMMENT"/>
+								<ResponseDef id="PCQ_6322_RD_RB_187" type="RADIO">
+									<SelectionDef id="SEL_6323">
+										<Value>Yes</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_6324">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_632">
+							<QText>Are any other countries involved?</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_632_RD_CM_1611" type="COMMENT"/>
+								<ResponseDef id="PCQ_632_RD_FL_1612" type="FILE"/>
+								<ResponseDef id="PCQ_632_RD_DD_1613" type="DROP_DOWN">
+									<SelectionDef id="SEL_X_84">
+										<Value>--Select an option--</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_956">
+										<Value>No</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_953">
+										<Value>Yes, 1 more</Value>
+										<QuestionDef id="PCQ_631">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_631_RD_ST_1614" type="STRING"/>
+												<ResponseDef id="PCQ_631_RD_CM_1615" type="COMMENT"/>
+												<ResponseDef id="PCQ_631_RD_FL_1616" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6333">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6333_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_6333_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_6333_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6332">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6332_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_6332_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_6332_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_6333">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_6334">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_954">
+										<Value>Yes, 2 more</Value>
+										<QuestionDef id="PCQ_639">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_639_RD_ST_1635" type="STRING"/>
+												<ResponseDef id="PCQ_639_RD_CM_1636" type="COMMENT"/>
+												<ResponseDef id="PCQ_639_RD_FL_1637" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_640">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_640_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_640_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_640_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6432">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6432_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_6432_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_6432_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_6433">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_6434">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_646">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_646_RD_ST_1656" type="STRING"/>
+												<ResponseDef id="PCQ_646_RD_CM_1657" type="COMMENT"/>
+												<ResponseDef id="PCQ_646_RD_FL_1658" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_647">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_647_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_647_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_647_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6472">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6472_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_6472_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_6472_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_6473">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_6474">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_955">
+										<Value>Yes, 3 more</Value>
+										<QuestionDef id="PCQ_653">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_653_RD_ST_1677" type="STRING"/>
+												<ResponseDef id="PCQ_653_RD_CM_1678" type="COMMENT"/>
+												<ResponseDef id="PCQ_653_RD_FL_1679" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_654">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_654_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_654_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_654_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6532">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6532_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_6532_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_6532_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_6533">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_6534">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_655">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_655_RD_ST_1698" type="STRING"/>
+												<ResponseDef id="PCQ_655_RD_CM_1699" type="COMMENT"/>
+												<ResponseDef id="PCQ_655_RD_FL_1700" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_656">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_656_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_656_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_656_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6562">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6562_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_6562_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_6562_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_6563">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_6564">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_657">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_657_RD_ST_1719" type="STRING"/>
+												<ResponseDef id="PCQ_657_RD_CM_1720" type="COMMENT"/>
+												<ResponseDef id="PCQ_657_RD_FL_1721" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_658">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_658_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_658_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_658_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6582">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6582_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_6582_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_6582_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_6583">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_6584">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_9551">
+										<Value>Yes, 4 more</Value>
+										<QuestionDef id="PCQ_6531">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6531_RD_ST_1677" type="STRING"/>
+												<ResponseDef id="PCQ_6531_RD_CM_1678" type="COMMENT"/>
+												<ResponseDef id="PCQ_6531_RD_FL_1679" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6541">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6541_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_6541_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_6541_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_65321">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_65321_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_65321_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_65321_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_65331">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_65341">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6551">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6551_RD_ST_1698" type="STRING"/>
+												<ResponseDef id="PCQ_6551_RD_CM_1699" type="COMMENT"/>
+												<ResponseDef id="PCQ_6551_RD_FL_1700" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6561">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6561_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_6561_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_6561_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_65621">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_65621_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_65621_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_65621_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_65631">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_65641">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6571">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6571_RD_ST_1719" type="STRING"/>
+												<ResponseDef id="PCQ_6571_RD_CM_1720" type="COMMENT"/>
+												<ResponseDef id="PCQ_6571_RD_FL_1721" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_6581">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_6581_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_6581_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_6581_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_65821">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_65821_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_65821_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_65821_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_65831">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_65841">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_65711">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_65711_RD_ST_1719" type="STRING"/>
+												<ResponseDef id="PCQ_65711_RD_CM_1720" type="COMMENT"/>
+												<ResponseDef id="PCQ_65711_RD_FL_1721" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_65811">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_65811_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_65811_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_65811_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_658211">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_658211_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_658211_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_658211_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_658311">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_658411">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_9552">
+										<Value>Yes, 5 more</Value>
+										<QuestionDef id="PCQ_63271">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63271_RD_ST_1677" type="STRING"/>
+												<ResponseDef id="PCQ_63271_RD_CM_1678" type="COMMENT"/>
+												<ResponseDef id="PCQ_63271_RD_FL_1679" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_63272">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63272_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_63272_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_63272_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_63273">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63273_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_63273_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_63273_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_632731">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_632732">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_63274">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63274_RD_ST_1698" type="STRING"/>
+												<ResponseDef id="PCQ_63274_RD_CM_1699" type="COMMENT"/>
+												<ResponseDef id="PCQ_63274_RD_FL_1700" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_63275">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63275_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_63275_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_63275_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_63276">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63276_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_63276_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_63276_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_65632">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_65642">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_63277">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63277_RD_ST_1719" type="STRING"/>
+												<ResponseDef id="PCQ_63277_RD_CM_1720" type="COMMENT"/>
+												<ResponseDef id="PCQ_63277_RD_FL_1721" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_63278">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63278_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_63278_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_63278_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_63279">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_63279_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_63279_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_63279_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_65832">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_65842">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_632710">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_632710_RD_ST_1719" type="STRING"/>
+												<ResponseDef id="PCQ_632710_RD_CM_1720" type="COMMENT"/>
+												<ResponseDef id="PCQ_632710_RD_FL_1721" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_632711">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_632711_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_632711_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_632711_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_632712">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_632712_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_632712_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_632712_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_65833">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_65843">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_632713">
+											<QText>Name of foreign site (Country):</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_632713_RD_ST_1719" type="STRING"/>
+												<ResponseDef id="PCQ_632713_RD_CM_1720" type="COMMENT"/>
+												<ResponseDef id="PCQ_632713_RD_FL_1721" type="FILE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_632714">
+											<QText>Date Entered into Foreign Tracking System:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_632714_RD_CM_185" type="COMMENT"/>
+												<ResponseDef id="PCQ_632714_RD_FL_186" type="FILE"/>
+												<ResponseDef id="PCQ_632714_RD_DT_187" type="DATE"/>
+											</ResponseDefsList>
+										</QuestionDef>
+										<QuestionDef id="PCQ_632715">
+											<QText>Is project viable without approval?</QText>
+											<QInstructions>If No, award will be held.</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_632715_RD_FL_185" type="FILE"/>
+												<ResponseDef id="PCQ_632715_RD_CM_186" type="COMMENT"/>
+												<ResponseDef id="PCQ_632715_RD_RB_187" type="RADIO">
+													<SelectionDef id="SEL_65834">
+														<Value>Yes</Value>
+													</SelectionDef>
+													<SelectionDef id="SEL_65844">
+														<Value>No</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_134">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_68">
+			<QText>Are there any other program concerns, not covered above, that should be resolved prior to issuing an award?  </QText>
+			<QInstructions>  (If Yes, explanation required.)</QInstructions>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_68_RD_CM_206" type="COMMENT"/>
+				<ResponseDef id="PCQ_68_RD_FL_207" type="FILE"/>
+				<ResponseDef id="PCQ_68_RD_RB_202" type="RADIO">
+					<SelectionDef id="SEL_135">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_69">
+							<QText>Explanation Required:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_69_RD_TX_203" type="TEXT"/>
+								<ResponseDef id="PCQ_69_RD_CM_204" type="COMMENT"/>
+								<ResponseDef id="PCQ_69_RD_FL_205" type="FILE"/>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_136">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_724">
+			<QText>Is a Resource Sharing Plan required for this application?</QText>
+			<QInstructions/>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_724_RD_CM_1879" type="COMMENT"/>
+				<ResponseDef id="PCQ_724_RD_FL_1880" type="FILE"/>
+				<ResponseDef id="PCQ_724_RD_RB_1881" type="RADIO">
+					<SelectionDef id="SEL_1112">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_725">
+							<QText>Identify sharing plan(s) required:</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_725_RD_CM_1882" type="COMMENT"/>
+								<ResponseDef id="PCQ_725_RD_FL_1883" type="FILE"/>
+								<ResponseDef id="PCQ_725_RD_CB_1884" type="CHECK_BOX">
+									<SelectionDef id="SEL_7251">
+										<Value>Data Sharing Plan</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_7252">
+										<Value>Model Organisms</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_7253">
+										<Value>GWAS</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_7251">
+							<QText>Is any other resource sharing plan, besides those listed above, required for this application?</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_7251_RD_CM_10" type="COMMENT"/>
+								<ResponseDef id="PCQ_7251_RD_FL_20" type="FILE"/>
+								<ResponseDef id="PCQ_7251_RD_RB_30" type="RADIO">
+									<SelectionDef id="SEL_72511">
+										<Value>Yes</Value>
+										<QuestionDef id="PCQ_111613">
+											<QText>What is the "other" plan required?</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_111613_RD_CM_690" type="COMMENT"/>
+												<ResponseDef id="PCQ_111613_RD_FL_691" type="FILE"/>
+												<ResponseDef id="PCQ_111613_RD_ST_692" type="STRING"/>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_72512">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="PCQ_1114">
+							<QText>Is the plan(s) acceptable?</QText>
+							<QInstructions>If no, explanation required</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_1114_RD_FL_114" type="FILE"/>
+								<ResponseDef id="PCQ_1114_RD_CM_115" type="COMMENT"/>
+								<ResponseDef id="PCQ_1114_RD_RB_116" type="RADIO">
+									<SelectionDef id="SEL_11141">
+										<Value>Yes</Value>
+									</SelectionDef>
+									<SelectionDef id="SEL_11142">
+										<Value>No</Value>
+										<QuestionDef id="PCQ_11142">
+											<QText>Explanation Required:</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_11142_RD_CM_690" type="COMMENT"/>
+												<ResponseDef id="PCQ_11142_RD_FL_691" type="FILE"/>
+												<ResponseDef id="PCQ_11142_RD_TX_692" type="TEXT"/>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_1113">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_246125">
+			<QText>Is this a renewal (competing continuation) application?</QText>
+			<QInstructions/>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_246125_RD_CM_470" type="COMMENT"/>
+				<ResponseDef id="PCQ_246125_RD_FL_471" type="FILE"/>
+				<ResponseDef id="PCQ_246125_RD_RB_472" type="RADIO">
+					<SelectionDef id="SEL_501124">
+						<Value>Yes</Value>
+						<QuestionDef id="PCQ_232">
+							<QText>Are there any publications cited in the Progress Report Summary
+            that appear not to be in compliance with the NIH Public Access 
+            Policy?
+							</QText>
+							<QInstructions>Answer Yes if one or more publications appear not to be
+            in compliance. Although the dates suggest that the publication(s) fall 
+            under the Public Access policy, none of the acceptable IDs or 
+            indications is provided (PMCID, NIHMSID, or "PMC Journal - In Process"). 
+            Answer No if either all publications appear to be in compliance OR there 
+            are no publications reported.
+							</QInstructions>
+							<ResponseDefsList>
+								<ResponseDef id="PCQ_232_RD_CM_1" type="COMMENT"/>
+								<ResponseDef id="PCQ_232_RD_FL_2" type="FILE"/>
+								<ResponseDef id="PCQ_232_RD_RB_3" type="RADIO">
+									<SelectionDef id="SEL_23231">
+										<Value>Yes</Value>
+										<QuestionDef id="PCQ_2320">
+											<QText>Has the Public Access notification e-mail been sent to the PI and Business Official?</QText>
+											<QInstructions>(If No, explanation required)</QInstructions>
+											<ResponseDefsList>
+												<ResponseDef id="PCQ_2320_RD_CM_1" type="COMMENT"/>
+												<ResponseDef id="PCQ_2320_RD_FL_2" type="FILE"/>
+												<ResponseDef id="PCQ_2320_RD_RB_3" type="RADIO">
+													<SelectionDef id="SEL_232031">
+														<Value>Yes</Value>
+														<QuestionDef id="PCQ_23201">
+															<QText>Please attach the e-mail message to the greensheet:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_23201_RD_CM_1" type="COMMENT"/>
+																<ResponseDef id="PCQ_23201_RD_FL_2" type="FILE"/>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+													<SelectionDef id="SEL_232032">
+														<Value>No</Value>
+														<QuestionDef id="PCQ_23202">
+															<QText>Explanation required:</QText>
+															<QInstructions/>
+															<ResponseDefsList>
+																<ResponseDef id="PCQ_23202_RD_CM_1" type="COMMENT"/>
+																<ResponseDef id="PCQ_23202_RD_FL_2" type="FILE"/>
+																<ResponseDef id="PCQ_23202_RD_TX_3" type="TEXT"/>
+															</ResponseDefsList>
+														</QuestionDef>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_23232">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+						<QuestionDef id="SCQ_246124">
+							<QText>Are there any FCOI concerns?</QText>
+							<QInstructions/>
+							<ResponseDefsList>
+								<ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
+								<ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
+								<ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
+									<SelectionDef id="SEL_501124">
+										<Value>Yes</Value>
+										<QuestionDef id="SCQ_2461232">
+											<QText>Has the concern been resolved?</QText>
+											<QInstructions/>
+											<ResponseDefsList>
+												<ResponseDef id="SCQ_2461232_RD_CM_249" type="COMMENT"/>
+												<ResponseDef id="SCQ_2461232_RD_FL_250" type="FILE"/>
+												<ResponseDef id="SCQ_2461232_RD_RB_251" type="RADIO">
+													<SelectionDef id="SEL_2461233">
+														<Value>Yes</Value>
+													</SelectionDef>
+												</ResponseDef>
+											</ResponseDefsList>
+										</QuestionDef>
+									</SelectionDef>
+									<SelectionDef id="SEL_502124">
+										<Value>No</Value>
+									</SelectionDef>
+								</ResponseDef>
+							</ResponseDefsList>
+						</QuestionDef>
+					</SelectionDef>
+					<SelectionDef id="SEL_502124">
+						<Value>No</Value>
+					</SelectionDef>
+				</ResponseDef>
+			</ResponseDefsList>
+		</QuestionDef>
+		<QuestionDef id="PCQ_233">
+			<QText>Additional comments:</QText>
+			<QInstructions>(Select comment icon and enter text in box.)</QInstructions>
+			<ResponseDefsList>
+				<ResponseDef id="PCQ_233_RD_CM_690" type="COMMENT"/>
+				<ResponseDef id="PCQ_233_RD_FL_691" type="FILE"/>
+			</ResponseDefsList>
+		</QuestionDef>
+	</GreensheetQuestions>
+</GreensheetForm>
