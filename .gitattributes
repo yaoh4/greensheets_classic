@@ -419,6 +419,8 @@ Implementation/GSQstnFormAnalyzer/trunk/updatedXML/PNC_form_16_ppd.xml -text
 Implementation/GSQstnFormAnalyzer/trunk/updatedXML/PNC_form_17_ppd.xml -text
 Implementation/GSQstnFormAnalyzer/trunk/updatedXML/PNC_form_20_ppd.xml -text
 Implementation/GSQstnFormAnalyzer/trunk/updatedXML/PNC_form_26_ppd.xml -text
+Implementation/GSQstnFormAnalyzer/trunk/updatedXML/outputXML/PC_Questions.xml -text
+Implementation/GSQstnFormAnalyzer/trunk/updatedXML/outputXML/PNC_Questions.xml -text
 Implementation/GSQstnFormAnalyzer/trunk/xslt/xformForOneTypeMech.xsl -text
 Implementation/GsApp/trunk/WebRoot/META-INF/MANIFEST.MF -text
 Implementation/GsApp/trunk/WebRoot/WEB-INF/classes/ApplicationResources.properties -text
