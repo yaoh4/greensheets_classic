@@ -2167,7 +2167,7 @@
 								<ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
 								<ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
 								<ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
-									<SelectionDef id="SEL_501124">
+									<SelectionDef id="SEL_50112422">
 										<Value>Yes</Value>
 										<QuestionDef id="SCQ_2461232">
 											<QText>Has the concern been resolved?</QText>
@@ -2189,81 +2189,8 @@
 								</ResponseDef>
 							</ResponseDefsList>
 						</QuestionDef>
-						<QuestionDef id="PCQ_97">
-							<QText>Trainees are:</QText>
-							<QInstructions/>
-							<ResponseDefsList>
-								<ResponseDef id="PCQ_97_RD_CM_287" type="COMMENT"/>
-								<ResponseDef id="PCQ_97_RD_FL_288" type="FILE"/>
-								<ResponseDef id="PCQ_97_RD_DD_289" type="DROP_DOWN">
-									<SelectionDef id="SEL_X_14">
-										<Value>--Select an option--</Value>
-									</SelectionDef>
-									<SelectionDef id="SEL_190">
-										<Value>Permanent resident</Value>
-										<QuestionDef id="PCQ_592">
-											<QText>The documentation is:</QText>
-											<QInstructions/>
-											<ResponseDefsList>
-												<ResponseDef id="PCQ_592_RD_CM_1486" type="COMMENT"/>
-												<ResponseDef id="PCQ_592_RD_FL_1487" type="FILE"/>
-												<ResponseDef id="PCQ_592_RD_RB_1488" type="RADIO">
-													<SelectionDef id="SEL_562">
-														<Value>Attached</Value>
-													</SelectionDef>
-													<SelectionDef id="SEL_563">
-														<Value>Sent to OGA</Value>
-													</SelectionDef>
-												</ResponseDef>
-											</ResponseDefsList>
-										</QuestionDef>
-									</SelectionDef>
-									<SelectionDef id="SEL_191">
-										<Value>Non citizen National</Value>
-										<QuestionDef id="PCQ_273">
-											<QText>The documentation is:</QText>
-											<QInstructions/>
-											<ResponseDefsList>
-												<ResponseDef id="PCQ_273_RD_CM_813" type="COMMENT"/>
-												<ResponseDef id="PCQ_273_RD_FL_814" type="FILE"/>
-												<ResponseDef id="PCQ_273_RD_RB_815" type="RADIO">
-													<SelectionDef id="SEL_195">
-														<Value>Attached</Value>
-													</SelectionDef>
-													<SelectionDef id="SEL_196">
-														<Value>Sent to OGA</Value>
-													</SelectionDef>
-												</ResponseDef>
-											</ResponseDefsList>
-										</QuestionDef>
-									</SelectionDef>
-									<SelectionDef id="SEL_192">
-										<Value>Foreign national</Value>
-										<QuestionDef id="PCQ_100">
-											<QText>NCI approval is:</QText>
-											<QInstructions/>
-											<ResponseDefsList>
-												<ResponseDef id="PCQ_100_RD_CM_296" type="COMMENT"/>
-												<ResponseDef id="PCQ_100_RD_FL_297" type="FILE"/>
-												<ResponseDef id="PCQ_100_RD_RB_298" type="RADIO">
-													<SelectionDef id="SEL_197">
-														<Value>Attached</Value>
-													</SelectionDef>
-													<SelectionDef id="SEL_198">
-														<Value>Sent to OGA</Value>
-													</SelectionDef>
-												</ResponseDef>
-											</ResponseDefsList>
-										</QuestionDef>
-									</SelectionDef>
-									<SelectionDef id="SEL_947">
-										<Value>Trainees Unknown (Type 1 Only)</Value>
-									</SelectionDef>
-								</ResponseDef>
-							</ResponseDefsList>
-						</QuestionDef>
 					</SelectionDef>
-					<SelectionDef id="SEL_502124">
+					<SelectionDef id="SEL_50212444">
 						<Value>No</Value>
 					</SelectionDef>
 				</ResponseDef>

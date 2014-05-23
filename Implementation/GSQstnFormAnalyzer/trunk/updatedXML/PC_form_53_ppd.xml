@@ -1874,28 +1874,6 @@
 				</ResponseDef>
 			</ResponseDefsList>
 		</QuestionDef>
-		<QuestionDef id="PCQ_73">
-			<QText>The Commercialization Plan (formerly known as the Product Development Plan) is:</QText>
-			<QInstructions/>
-			<ResponseDefsList>
-				<ResponseDef id="PCQ_73_RD_CM_217" type="COMMENT"/>
-				<ResponseDef id="PCQ_73_RD_FL_218" type="FILE"/>
-				<ResponseDef id="PCQ_73_RD_DD_219" type="DROP_DOWN">
-					<SelectionDef id="SEL_X_4">
-						<Value>--Select an option--</Value>
-					</SelectionDef>
-					<SelectionDef id="SEL_141">
-						<Value>Attached</Value>
-					</SelectionDef>
-					<SelectionDef id="SEL_142">
-						<Value>Sent to OGA</Value>
-					</SelectionDef>
-					<SelectionDef id="SEL_480">
-						<Value>In application</Value>
-					</SelectionDef>
-				</ResponseDef>
-			</ResponseDefsList>
-		</QuestionDef>
 		<QuestionDef id="PCQ_79">
 			<QText>Are Special Terms and Conditions of Award available in the Special Requirements section of the RFA published in the NIH Guide?</QText>
 			<QInstructions/>
@@ -2071,7 +2049,7 @@
 								<ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
 								<ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
 								<ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
-									<SelectionDef id="SEL_501124">
+									<SelectionDef id="SEL_50112422">
 										<Value>Yes</Value>
 										<QuestionDef id="SCQ_2461232">
 											<QText>Has the concern been resolved?</QText>
@@ -2094,7 +2072,7 @@
 							</ResponseDefsList>
 						</QuestionDef>
 					</SelectionDef>
-					<SelectionDef id="SEL_502124">
+					<SelectionDef id="SEL_50212444">
 						<Value>No</Value>
 					</SelectionDef>
 				</ResponseDef>

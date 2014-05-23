@@ -2008,7 +2008,7 @@
 								<ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
 								<ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
 								<ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
-									<SelectionDef id="SEL_501124">
+									<SelectionDef id="SEL_50112422">
 										<Value>Yes</Value>
 										<QuestionDef id="SCQ_2461232">
 											<QText>Has the concern been resolved?</QText>
@@ -2030,24 +2030,8 @@
 								</ResponseDef>
 							</ResponseDefsList>
 						</QuestionDef>
-						<QuestionDef id="PCQ_80">
-							<QText>The Annual Statement of program involvement for the prior budget period is:</QText>
-							<QInstructions/>
-							<ResponseDefsList>
-								<ResponseDef id="PCQ_80_RD_CM_238" type="COMMENT"/>
-								<ResponseDef id="PCQ_80_RD_FL_239" type="FILE"/>
-								<ResponseDef id="PCQ_80_RD_RB_240" type="RADIO">
-									<SelectionDef id="SEL_158">
-										<Value>Attached</Value>
-									</SelectionDef>
-									<SelectionDef id="SEL_159">
-										<Value>Sent to OGA</Value>
-									</SelectionDef>
-								</ResponseDef>
-							</ResponseDefsList>
-						</QuestionDef>
 					</SelectionDef>
-					<SelectionDef id="SEL_502124">
+					<SelectionDef id="SEL_50212444">
 						<Value>No</Value>
 					</SelectionDef>
 				</ResponseDef>

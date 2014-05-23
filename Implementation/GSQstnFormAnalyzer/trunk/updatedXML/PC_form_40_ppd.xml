@@ -1986,7 +1986,7 @@
 								<ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
 								<ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
 								<ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
-									<SelectionDef id="SEL_501124">
+									<SelectionDef id="SEL_50112422">
 										<Value>Yes</Value>
 										<QuestionDef id="SCQ_2461232">
 											<QText>Has the concern been resolved?</QText>
@@ -2009,7 +2009,7 @@
 							</ResponseDefsList>
 						</QuestionDef>
 					</SelectionDef>
-					<SelectionDef id="SEL_502124">
+					<SelectionDef id="SEL_50212444">
 						<Value>No</Value>
 					</SelectionDef>
 				</ResponseDef>

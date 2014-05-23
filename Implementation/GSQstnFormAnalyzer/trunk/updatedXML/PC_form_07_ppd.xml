@@ -1050,7 +1050,7 @@
 				<ResponseDef id="SCQ_2461251_RD_CM_470" type="COMMENT"/>
 				<ResponseDef id="SCQ_2461251_RD_FL_471" type="FILE"/>
 				<ResponseDef id="SCQ_2461251_RD_RB_472" type="RADIO">
-					<SelectionDef id="SEL_5011251">
+					<SelectionDef id="SEL_50112511">
 						<Value>Yes</Value>
 						<QuestionDef id="PCQ_184">
 							<QText>Date MD/PhD requirements completed:</QText>

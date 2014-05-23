@@ -143,7 +143,7 @@
 				<ResponseDef id="PCQ_246125_RD_RB_472" type="RADIO">
 					<SelectionDef id="SEL_501124">
 						<Value>Yes</Value>
-						<QuestionDef id="PCQ_2322">
+						<QuestionDef id="PCQ_232">
 							<QText>Are there any publications cited in the Progress Report Summary
             that appear not to be in compliance with the NIH Public Access 
             Policy?
@@ -156,38 +156,38 @@
             are no publications reported.
 							</QInstructions>
 							<ResponseDefsList>
-								<ResponseDef id="PCQ_2322_RD_CM_1" type="COMMENT"/>
-								<ResponseDef id="PCQ_2322_RD_FL_2" type="FILE"/>
-								<ResponseDef id="PCQ_2322_RD_RB_3" type="RADIO">
+								<ResponseDef id="PCQ_232_RD_CM_1" type="COMMENT"/>
+								<ResponseDef id="PCQ_232_RD_FL_2" type="FILE"/>
+								<ResponseDef id="PCQ_232_RD_RB_3" type="RADIO">
 									<SelectionDef id="SEL_23231">
 										<Value>Yes</Value>
-										<QuestionDef id="PCQ_23201">
+										<QuestionDef id="PCQ_2320">
 											<QText>Has the Public Access notification e-mail been sent to the PI and Business Official?</QText>
 											<QInstructions>(If No, explanation required)</QInstructions>
 											<ResponseDefsList>
-												<ResponseDef id="PCQ_23201_RD_CM_1" type="COMMENT"/>
-												<ResponseDef id="PCQ_23201_RD_FL_2" type="FILE"/>
-												<ResponseDef id="PCQ_23201_RD_RB_3" type="RADIO">
-													<SelectionDef id="SEL_2320312">
+												<ResponseDef id="PCQ_2320_RD_CM_1" type="COMMENT"/>
+												<ResponseDef id="PCQ_2320_RD_FL_2" type="FILE"/>
+												<ResponseDef id="PCQ_2320_RD_RB_3" type="RADIO">
+													<SelectionDef id="SEL_232031">
 														<Value>Yes</Value>
-														<QuestionDef id="PCQ_232012">
+														<QuestionDef id="PCQ_23201">
 															<QText>Please attach the e-mail message to the greensheet:</QText>
 															<QInstructions/>
 															<ResponseDefsList>
-																<ResponseDef id="PCQ_232012_RD_CM_1" type="COMMENT"/>
-																<ResponseDef id="PCQ_232012_RD_FL_2" type="FILE"/>
+																<ResponseDef id="PCQ_23201_RD_CM_1" type="COMMENT"/>
+																<ResponseDef id="PCQ_23201_RD_FL_2" type="FILE"/>
 															</ResponseDefsList>
 														</QuestionDef>
 													</SelectionDef>
-													<SelectionDef id="SEL_2320321">
+													<SelectionDef id="SEL_232032">
 														<Value>No</Value>
-														<QuestionDef id="PCQ_232021">
+														<QuestionDef id="PCQ_23202">
 															<QText>Explanation required:</QText>
 															<QInstructions/>
 															<ResponseDefsList>
-																<ResponseDef id="PCQ_232021_RD_CM_1" type="COMMENT"/>
-																<ResponseDef id="PCQ_232021_RD_FL_2" type="FILE"/>
-																<ResponseDef id="PCQ_232021_RD_TX_3" type="TEXT"/>
+																<ResponseDef id="PCQ_23202_RD_CM_1" type="COMMENT"/>
+																<ResponseDef id="PCQ_23202_RD_FL_2" type="FILE"/>
+																<ResponseDef id="PCQ_23202_RD_TX_3" type="TEXT"/>
 															</ResponseDefsList>
 														</QuestionDef>
 													</SelectionDef>
@@ -195,43 +195,43 @@
 											</ResponseDefsList>
 										</QuestionDef>
 									</SelectionDef>
-									<SelectionDef id="SEL_232321">
+									<SelectionDef id="SEL_23232">
 										<Value>No</Value>
 									</SelectionDef>
 								</ResponseDef>
 							</ResponseDefsList>
 						</QuestionDef>
-						<QuestionDef id="SCQ_2461241">
+						<QuestionDef id="SCQ_246124">
 							<QText>Are there any FCOI concerns?</QText>
 							<QInstructions/>
 							<ResponseDefsList>
-								<ResponseDef id="SCQ_2461241_RD_CM_470" type="COMMENT"/>
-								<ResponseDef id="SCQ_2461241_RD_FL_471" type="FILE"/>
-								<ResponseDef id="SCQ_2461241_RD_RB_472" type="RADIO">
-									<SelectionDef id="SEL_5011241">
+								<ResponseDef id="SCQ_246124_RD_CM_470" type="COMMENT"/>
+								<ResponseDef id="SCQ_246124_RD_FL_471" type="FILE"/>
+								<ResponseDef id="SCQ_246124_RD_RB_472" type="RADIO">
+									<SelectionDef id="SEL_50112422">
 										<Value>Yes</Value>
-										<QuestionDef id="SCQ_24612321">
+										<QuestionDef id="SCQ_2461232">
 											<QText>Has the concern been resolved?</QText>
 											<QInstructions/>
 											<ResponseDefsList>
-												<ResponseDef id="SCQ_24612321_RD_CM_249" type="COMMENT"/>
-												<ResponseDef id="SCQ_24612321_RD_FL_250" type="FILE"/>
-												<ResponseDef id="SCQ_24612321_RD_RB_251" type="RADIO">
-													<SelectionDef id="SEL_24612331">
+												<ResponseDef id="SCQ_2461232_RD_CM_249" type="COMMENT"/>
+												<ResponseDef id="SCQ_2461232_RD_FL_250" type="FILE"/>
+												<ResponseDef id="SCQ_2461232_RD_RB_251" type="RADIO">
+													<SelectionDef id="SEL_2461233">
 														<Value>Yes</Value>
 													</SelectionDef>
 												</ResponseDef>
 											</ResponseDefsList>
 										</QuestionDef>
 									</SelectionDef>
-									<SelectionDef id="SEL_5021241">
+									<SelectionDef id="SEL_502124">
 										<Value>No</Value>
 									</SelectionDef>
 								</ResponseDef>
 							</ResponseDefsList>
 						</QuestionDef>
 					</SelectionDef>
-					<SelectionDef id="SEL_502124">
+					<SelectionDef id="SEL_50212444">
 						<Value>No</Value>
 					</SelectionDef>
 				</ResponseDef>
