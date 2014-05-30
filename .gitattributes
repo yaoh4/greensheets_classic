@@ -612,6 +612,12 @@ Implementation/GsApp/trunk/appconfig/prod/greensheetconfig.properties -text
 Implementation/GsApp/trunk/appconfig/prod/ldap.properties -text
 Implementation/GsApp/trunk/appconfig/prod/log4j.properties -text
 Implementation/GsApp/trunk/appconfig/prod/preferences.properties -text
+Implementation/GsApp/trunk/appconfig/stage/db.properties -text
+Implementation/GsApp/trunk/appconfig/stage/errormessages.properties -text
+Implementation/GsApp/trunk/appconfig/stage/greensheetconfig.properties -text
+Implementation/GsApp/trunk/appconfig/stage/ldap.properties -text
+Implementation/GsApp/trunk/appconfig/stage/log4j.properties -text
+Implementation/GsApp/trunk/appconfig/stage/preferences.properties -text
 Implementation/GsApp/trunk/appconfig/test/db.properties -text
 Implementation/GsApp/trunk/appconfig/test/errormessages.properties -text
 Implementation/GsApp/trunk/appconfig/test/greensheetconfig.properties -text
