@@ -148,6 +148,7 @@
 			<TypeMech type="5" mech="S06"/>
 			<TypeMech type="8" mech="S06"/>
 			<TypeMech type="5" mech="U09"/>
+			<TypeMech type="5" mech="UG1"/>
 			<TypeMech type="5" mech="U10"/>
 			<TypeMech type="5" mech="U13"/>
 			<TypeMech type="8" mech="U13"/>
@@ -257,6 +258,7 @@
 							<TypeMech type="8" mech="UC2"/>
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -503,6 +505,7 @@
 							<TypeMech type="8" mech="UC2"/>
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -2454,6 +2457,7 @@
 											<TypeMech type="8" mech="R44"/>
 											<TypeMech type="5" mech="R56"/>
 											<TypeMech type="8" mech="R56"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="UM1"/>
 											<TypeMech type="5" mech="U2C"/>
@@ -6312,6 +6316,7 @@
 					</QuestionDef>
 					<QuestionDef id="SNCQ_105">
 						<GrantTypeMechs>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 						</GrantTypeMechs>
 						<QText>What type of U10 is this?</QText>
@@ -6325,6 +6330,7 @@
 									<Value>DCTD Clinical Trials Cooperative Group</Value>
 									<QuestionDef id="SNCQ_95">
 										<GrantTypeMechs>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Funding level: </QText>
@@ -6343,6 +6349,7 @@
 													<Value>Group Specific Funding Plan (Type 5 Redistribution)</Value>
 													<QuestionDef id="SNCQ_116">
 														<GrantTypeMechs>
+															<TypeMech type="5" mech="UG1"/>
 															<TypeMech type="5" mech="U10"/>
 														</GrantTypeMechs>
 														<QText>Is this in the Headquarters file as required?</QText>
@@ -6366,6 +6373,7 @@
 									</QuestionDef>
 									<QuestionDef id="SNCQ_98">
 										<GrantTypeMechs>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Certification of education in protection of human subjects for key personnel in Headquarters file? </QText>
@@ -6385,6 +6393,7 @@
 									</QuestionDef>
 									<QuestionDef id="SNCQ_99">
 										<GrantTypeMechs>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Terms of Award?</QText>
@@ -6410,6 +6419,7 @@
 									<Value>DCP Community Clinical Oncology Program (CCOP) </Value>
 									<QuestionDef id="SNCQ_117">
 										<GrantTypeMechs>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Funding level: </QText>
@@ -6435,6 +6445,7 @@
 									</QuestionDef>
 									<QuestionDef id="SNCQ_96">
 										<GrantTypeMechs>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 										</GrantTypeMechs>
 										<QText>Special funding recommendation received? </QText>
@@ -6933,6 +6944,7 @@
 							<TypeMech type="8" mech="UC2"/>
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -7112,6 +7124,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -7304,6 +7317,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -7559,6 +7573,7 @@
 							<TypeMech type="8" mech="UC2"/>
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -7738,6 +7753,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -7924,6 +7940,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -8103,6 +8120,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -8285,6 +8303,7 @@
 															<TypeMech type="8" mech="UC2"/>
 															<TypeMech type="8" mech="UH2"/>
 															<TypeMech type="5" mech="U09"/>
+															<TypeMech type="5" mech="UG1"/>
 															<TypeMech type="5" mech="U10"/>
 															<TypeMech type="5" mech="U19"/>
 															<TypeMech type="8" mech="U19"/>
@@ -8475,6 +8494,7 @@
 							<TypeMech type="8" mech="UC2"/>
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -8663,6 +8683,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -8845,6 +8866,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -9012,6 +9034,7 @@
 							<TypeMech type="8" mech="R44"/>
 							<TypeMech type="5" mech="R56"/>
 							<TypeMech type="8" mech="R56"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="UM1"/>
 							<TypeMech type="5" mech="U2C"/>
@@ -9184,6 +9207,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -9352,6 +9376,7 @@
 															<TypeMech type="8" mech="UC2"/>
 															<TypeMech type="8" mech="UH2"/>
 															<TypeMech type="5" mech="U09"/>
+															<TypeMech type="5" mech="UG1"/>
 															<TypeMech type="5" mech="U10"/>
 															<TypeMech type="5" mech="U19"/>
 															<TypeMech type="8" mech="U19"/>
@@ -9528,6 +9553,7 @@
 							<TypeMech type="8" mech="UC2"/>
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -9701,6 +9727,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -9879,6 +9906,7 @@
 															<TypeMech type="8" mech="UC2"/>
 															<TypeMech type="8" mech="UH2"/>
 															<TypeMech type="5" mech="U09"/>
+															<TypeMech type="5" mech="UG1"/>
 															<TypeMech type="5" mech="U10"/>
 															<TypeMech type="5" mech="U19"/>
 															<TypeMech type="8" mech="U19"/>
@@ -10060,6 +10088,7 @@
 															<TypeMech type="8" mech="UC2"/>
 															<TypeMech type="8" mech="UH2"/>
 															<TypeMech type="5" mech="U09"/>
+															<TypeMech type="5" mech="UG1"/>
 															<TypeMech type="5" mech="U10"/>
 															<TypeMech type="5" mech="U19"/>
 															<TypeMech type="8" mech="U19"/>
@@ -10253,6 +10282,7 @@
 																			<TypeMech type="8" mech="UC2"/>
 																			<TypeMech type="8" mech="UH2"/>
 																			<TypeMech type="5" mech="U09"/>
+																			<TypeMech type="5" mech="UG1"/>
 																			<TypeMech type="5" mech="U10"/>
 																			<TypeMech type="5" mech="U19"/>
 																			<TypeMech type="8" mech="U19"/>
@@ -10437,6 +10467,7 @@
 																			<TypeMech type="8" mech="UC2"/>
 																			<TypeMech type="8" mech="UH2"/>
 																			<TypeMech type="5" mech="U09"/>
+																			<TypeMech type="5" mech="UG1"/>
 																			<TypeMech type="5" mech="U10"/>
 																			<TypeMech type="5" mech="U19"/>
 																			<TypeMech type="8" mech="U19"/>
@@ -10624,6 +10655,7 @@
 							<TypeMech type="8" mech="R44"/>
 							<TypeMech type="5" mech="R56"/>
 							<TypeMech type="8" mech="R56"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="UM1"/>
 							<TypeMech type="5" mech="U2C"/>
@@ -10817,6 +10849,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -11024,6 +11057,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -11215,7 +11249,9 @@
 							<TypeMech type="8" mech="R44"/>
 							<TypeMech type="5" mech="R56"/>
 							<TypeMech type="8" mech="R56"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
+							<TypeMech type="8" mech="UG1"/>
 							<TypeMech type="8" mech="U10"/>
 							<TypeMech type="5" mech="UM1"/>
 							<TypeMech type="5" mech="U2C"/>
@@ -11400,7 +11436,9 @@
 											<TypeMech type="8" mech="R44"/>
 											<TypeMech type="5" mech="R56"/>
 											<TypeMech type="8" mech="R56"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
+											<TypeMech type="8" mech="UG1"/>
 											<TypeMech type="8" mech="U10"/>
 											<TypeMech type="5" mech="UM1"/>
 											<TypeMech type="5" mech="U2C"/>
@@ -11617,6 +11655,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="8" mech="UH2"/>
 											<TypeMech type="5" mech="U09"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U19"/>
 											<TypeMech type="8" mech="U19"/>
@@ -12302,6 +12341,7 @@
 							<TypeMech type="8" mech="UC2"/>
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -13607,6 +13647,7 @@
 			<TypeMech type="8" mech="UH2"/>
 			<TypeMech type="3" mech="U09"/>
 			<TypeMech type="5" mech="U09"/>
+			<TypeMech type="5" mech="UG1"/>
 			<TypeMech type="5" mech="U10"/>
 			<TypeMech type="5" mech="U19"/>
 			<TypeMech type="8" mech="U19"/>
@@ -13787,6 +13828,7 @@
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="3" mech="U09"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -13978,6 +14020,7 @@
 			<TypeMech type="8" mech="UH2"/>
 			<TypeMech type="3" mech="U09"/>
 			<TypeMech type="5" mech="U09"/>
+			<TypeMech type="5" mech="UG1"/>
 			<TypeMech type="5" mech="U10"/>
 			<TypeMech type="5" mech="U19"/>
 			<TypeMech type="8" mech="U19"/>
@@ -14158,6 +14201,7 @@
 							<TypeMech type="8" mech="UH2"/>
 							<TypeMech type="3" mech="U09"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="8" mech="U19"/>
@@ -14303,6 +14347,7 @@
 			<TypeMech type="5" mech="P30"/>
 			<TypeMech type="5" mech="PL1"/>
 			<TypeMech type="5" mech="T15"/>
+			<TypeMech type="5" mech="UG1"/>
 			<TypeMech type="5" mech="U10"/>
 			<TypeMech type="5" mech="U43"/>
 			<TypeMech type="5" mech="U56"/>
@@ -14392,6 +14437,7 @@
 			<TypeMech type="8" mech="UC2"/>
 			<TypeMech type="5" mech="UL1"/>
 			<TypeMech type="8" mech="S15"/>
+			<TypeMech type="8" mech="UG1"/>
 			<TypeMech type="8" mech="U10"/>
 			<TypeMech type="8" mech="F31"/>
 			<TypeMech type="8" mech="F33"/>
@@ -14490,6 +14536,7 @@
 							<TypeMech type="5" mech="P30"/>
 							<TypeMech type="5" mech="PL1"/>
 							<TypeMech type="5" mech="T15"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U43"/>
 							<TypeMech type="5" mech="U56"/>
@@ -14579,6 +14626,7 @@
 							<TypeMech type="8" mech="UC2"/>
 							<TypeMech type="5" mech="UL1"/>
 							<TypeMech type="8" mech="S15"/>
+							<TypeMech type="8" mech="UG1"/>
 							<TypeMech type="8" mech="U10"/>
 							<TypeMech type="8" mech="F31"/>
 							<TypeMech type="8" mech="F33"/>
@@ -14677,6 +14725,7 @@
 											<TypeMech type="5" mech="P30"/>
 											<TypeMech type="5" mech="PL1"/>
 											<TypeMech type="5" mech="T15"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U43"/>
 											<TypeMech type="5" mech="U56"/>
@@ -14766,6 +14815,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="5" mech="UL1"/>
 											<TypeMech type="8" mech="S15"/>
+											<TypeMech type="8" mech="UG1"/>
 											<TypeMech type="8" mech="U10"/>
 											<TypeMech type="8" mech="F31"/>
 											<TypeMech type="8" mech="F33"/>
@@ -14864,6 +14914,7 @@
 															<TypeMech type="5" mech="P30"/>
 															<TypeMech type="5" mech="PL1"/>
 															<TypeMech type="5" mech="T15"/>
+															<TypeMech type="5" mech="UG1"/>
 															<TypeMech type="5" mech="U10"/>
 															<TypeMech type="5" mech="U43"/>
 															<TypeMech type="5" mech="U56"/>
@@ -14953,6 +15004,7 @@
 															<TypeMech type="8" mech="UC2"/>
 															<TypeMech type="5" mech="UL1"/>
 															<TypeMech type="8" mech="S15"/>
+															<TypeMech type="8" mech="UG1"/>
 															<TypeMech type="8" mech="U10"/>
 															<TypeMech type="8" mech="F31"/>
 															<TypeMech type="8" mech="F33"/>
@@ -15054,6 +15106,7 @@
 																			<TypeMech type="5" mech="P30"/>
 																			<TypeMech type="5" mech="PL1"/>
 																			<TypeMech type="5" mech="T15"/>
+																			<TypeMech type="5" mech="UG1"/>
 																			<TypeMech type="5" mech="U10"/>
 																			<TypeMech type="5" mech="U43"/>
 																			<TypeMech type="5" mech="U56"/>
@@ -15143,6 +15196,7 @@
 																			<TypeMech type="8" mech="UC2"/>
 																			<TypeMech type="5" mech="UL1"/>
 																			<TypeMech type="8" mech="S15"/>
+																			<TypeMech type="8" mech="UG1"/>
 																			<TypeMech type="8" mech="U10"/>
 																			<TypeMech type="8" mech="F31"/>
 																			<TypeMech type="8" mech="F33"/>
@@ -15255,6 +15309,7 @@
 											<TypeMech type="5" mech="P30"/>
 											<TypeMech type="5" mech="PL1"/>
 											<TypeMech type="5" mech="T15"/>
+											<TypeMech type="5" mech="UG1"/>
 											<TypeMech type="5" mech="U10"/>
 											<TypeMech type="5" mech="U43"/>
 											<TypeMech type="5" mech="U56"/>
@@ -15344,6 +15399,7 @@
 											<TypeMech type="8" mech="UC2"/>
 											<TypeMech type="5" mech="UL1"/>
 											<TypeMech type="8" mech="S15"/>
+											<TypeMech type="8" mech="UG1"/>
 											<TypeMech type="8" mech="U10"/>
 											<TypeMech type="8" mech="F31"/>
 											<TypeMech type="8" mech="F33"/>
@@ -15445,6 +15501,7 @@
 															<TypeMech type="5" mech="P30"/>
 															<TypeMech type="5" mech="PL1"/>
 															<TypeMech type="5" mech="T15"/>
+															<TypeMech type="5" mech="UG1"/>
 															<TypeMech type="5" mech="U10"/>
 															<TypeMech type="5" mech="U43"/>
 															<TypeMech type="5" mech="U56"/>
@@ -15534,6 +15591,7 @@
 															<TypeMech type="8" mech="UC2"/>
 															<TypeMech type="5" mech="UL1"/>
 															<TypeMech type="8" mech="S15"/>
+															<TypeMech type="8" mech="UG1"/>
 															<TypeMech type="8" mech="U10"/>
 															<TypeMech type="8" mech="F31"/>
 															<TypeMech type="8" mech="F33"/>
@@ -15703,6 +15761,7 @@
 			<TypeMech type="5" mech="U2C"/>
 			<TypeMech type="5" mech="U01"/>
 			<TypeMech type="5" mech="U09"/>
+			<TypeMech type="5" mech="UG1"/>
 			<TypeMech type="5" mech="U10"/>
 			<TypeMech type="5" mech="U19"/>
 			<TypeMech type="5" mech="U24"/>
@@ -15723,6 +15782,7 @@
 			<TypeMech type="8" mech="U2C"/>
 			<TypeMech type="8" mech="U01"/>
 			<TypeMech type="8" mech="U09"/>
+			<TypeMech type="8" mech="UG1"/>
 			<TypeMech type="8" mech="U10"/>
 			<TypeMech type="8" mech="U19"/>
 			<TypeMech type="8" mech="U24"/>
@@ -15823,6 +15883,7 @@
 							<TypeMech type="5" mech="U2C"/>
 							<TypeMech type="5" mech="U01"/>
 							<TypeMech type="5" mech="U09"/>
+							<TypeMech type="5" mech="UG1"/>
 							<TypeMech type="5" mech="U10"/>
 							<TypeMech type="5" mech="U19"/>
 							<TypeMech type="5" mech="U24"/>
@@ -15843,6 +15904,7 @@
 							<TypeMech type="8" mech="U2C"/>
 							<TypeMech type="8" mech="U01"/>
 							<TypeMech type="8" mech="U09"/>
+							<TypeMech type="8" mech="UG1"/>
 							<TypeMech type="8" mech="U10"/>
 							<TypeMech type="8" mech="U19"/>
 							<TypeMech type="8" mech="U24"/>
@@ -15937,6 +15999,7 @@
 			<TypeMech type="8" mech="UC2"/>
 			<TypeMech type="8" mech="UH2"/>
 			<TypeMech type="5" mech="U09"/>
+			<TypeMech type="5" mech="UG1"/>
 			<TypeMech type="5" mech="U10"/>
 			<TypeMech type="5" mech="U19"/>
 			<TypeMech type="8" mech="U19"/>
