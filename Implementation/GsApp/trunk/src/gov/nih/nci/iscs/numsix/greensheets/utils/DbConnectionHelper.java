@@ -252,11 +252,11 @@ public class DbConnectionHelper {
             if (env == null || env.equalsIgnoreCase("")) {
                 String s = props.getProperty(DB_URL).toLowerCase();
                 // Abdul Latheef: Changed the DB service name
-                if (s.toLowerCase().indexOf("i2ed".toLowerCase()) > -1) {
+                if (s.toLowerCase().indexOf("i2esgd".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2ed".toLowerCase()) > -1) {
                     env = "DEV";
-                } else if (s.toLowerCase().indexOf("i2et".toLowerCase()) > -1) {
+                } else if (s.toLowerCase().indexOf("i2esgt".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2et".toLowerCase()) > -1) {
                     env = "TEST";
-                } else if (s.toLowerCase().indexOf("i2ep".toLowerCase()) > -1) {
+                } else if (s.toLowerCase().indexOf("i2esgp".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2ep".toLowerCase()) > -1) {
                     env = "PROD";
                 }
             }
