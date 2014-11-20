@@ -14,7 +14,7 @@ String userName = gus.getUser().getDisplayUserName();
 <html>
 	<head>
 		<title>Greensheets</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="./stylesheets/otherappsmenu.css" type="text/css" />
 		<link rel="stylesheet" href="./stylesheets/GreensheetsStyleSheet.css" type="text/css" />
 	</head>

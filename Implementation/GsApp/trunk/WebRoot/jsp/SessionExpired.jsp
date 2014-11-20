@@ -10,7 +10,7 @@
 <html>
 <head>
 	<title>Greensheets</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/stylesheets/GreensheetsStyleSheet.css" type="text/css" />
 	<script language="javascript" src="<%=request.getContextPath()%>/scripts/ClientSideMethods.js"></script>
 </head>
