@@ -18,7 +18,12 @@
             </list>
         </property>
     </bean>
+    <!-- ===== -->
+	 <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<property name="jndiName" value="${jdbc.datasource}" />
+     </bean>
 
+	<!-- ===== -->
     <bean id="contextSourceTarget" class="org.springframework.ldap.core.support.LdapContextSource">
         <!-- <property name="url" value="ldap://ncids4a.nci.nih.gov:389/"/> -->
         <property name="urls">
