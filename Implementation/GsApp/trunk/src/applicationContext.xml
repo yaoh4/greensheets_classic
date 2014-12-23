@@ -52,7 +52,7 @@
     <bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
         <constructor-arg ref="contextSource" />
     </bean>
-
+<!--
     <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
         <property name="URL">
             <value>${db.url}</value>
@@ -69,12 +69,12 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-	<!--
+	--> 
         
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource" />
     </bean>
-    -->
+    
     
     <!--  Configure Persistence provider -->
 <!-- 
