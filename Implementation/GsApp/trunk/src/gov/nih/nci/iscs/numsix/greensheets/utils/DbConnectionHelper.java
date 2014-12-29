@@ -259,6 +259,9 @@ public class DbConnectionHelper {
                 } else if (s.toLowerCase().indexOf("i2esgp".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2ep".toLowerCase()) > -1) {
                     env = "PROD";
                 }
+				} else if (s.toLowerCase().indexOf("I2ESGS".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2es".toLowerCase()) > -1) {
+                    env = "STAGE";
+                }
             }
         } else {
             env = "U";
