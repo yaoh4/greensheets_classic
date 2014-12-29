@@ -244,7 +244,7 @@ public class DbConnectionHelper {
 
     }
 
-    public static String getDbEnvironment() {
+   public static String getDbEnvironment() {
         String env = null;
         if (props != null) {
             // env = props.getProperty("oracle.environment");  // This really should be coming not from the free-standing
@@ -258,7 +258,7 @@ public class DbConnectionHelper {
                     env = "TEST";
                 } else if (s.toLowerCase().indexOf("i2esgp".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2ep".toLowerCase()) > -1) {
                     env = "PROD";
-                }
+                
 				} else if (s.toLowerCase().indexOf("I2ESGS".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2es".toLowerCase()) > -1) {
                     env = "STAGE";
                 }
