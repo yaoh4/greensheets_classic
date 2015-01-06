@@ -15,6 +15,9 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Properties;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 import javax.sql.PooledConnection;
 
 import oracle.jdbc.pool.OracleConnectionCacheImpl;
@@ -37,7 +40,7 @@ public class DbConnectionHelper {
             .getName());
 
     private static DbConnectionHelper instance = new DbConnectionHelper();
-
+    private DataSource dc; 
     private OracleConnectionPoolDataSource ocp;
 
     private OracleConnectionCacheImpl ocacheimpl;
@@ -63,49 +66,7 @@ public class DbConnectionHelper {
         return instance;
     }
 
-    /**
-     * Method initOracleConnectionPool.
-     * 
-     * @param properties
-     * @throws GritsException
-     *             This method initializes the OracleConnectionPool with the given properties. It only needs to be called once - the properties are
-     *             then stored and the DbConnectionHelper Singleton maintains them throughout the life of the object.
-     */
-    public void initOracleConnectionPool(Properties properties)
-            throws GreensheetBaseException {
-
-        if (initPool == false) {
-
-            props = properties;
-
-            try {
-                logger.debug("Loading db properties into Connection Pool...");
-
-                ocp = new OracleConnectionPoolDataSource();
-                ocp.setURL(props.getProperty(DB_URL));
-                ocp.setUser(props.getProperty(DB_USER));
-                ocp.setPassword(props.getProperty(DB_PASSWD));
-                pc = ocp.getPooledConnection();
-
-                ocacheimpl = new OracleConnectionCacheImpl(ocp);
-                ocacheimpl.setMaxLimit(5);
-                ocacheimpl
-                        .setCacheScheme(OracleConnectionCacheImpl.DYNAMIC_SCHEME);
-
-                // Init GsGrant Query Mechanism
-                OracleConnectionFactory.initializeConnectionFactory(ocp);
-
-                initPool = true;
-
-            } catch (SQLException e) {
-                throw new GreensheetBaseException("error.dbconnection", e);
-            } catch (Exception e) {
-                throw new GreensheetBaseException("error.dbconnection", e);
-            }
-
-        }
-    }
-
+   
     private Connection getTestConn() throws SQLException {
 
         Connection conn = DriverManager.getConnection(props
@@ -127,13 +88,16 @@ public class DbConnectionHelper {
 
         Connection conn = null;
         try {
-            initOracleConnectionPool(props);
+           // initOracleConnectionPool(props);
             // logger.info("Getting DB Connection...");
-            conn = ocacheimpl.getConnection();
+            Context initCtx = new InitialContext();
+			Context envCtx = (Context) initCtx.lookup("java:comp/env");
+			dc = (DataSource) envCtx.lookup("jdbc/OracleDataSource");
+			conn = dc.getConnection();
             // conn = pc.getConnection();
             for (int i = 0; i < 8; i++) {
                 if (conn.isClosed()) {
-                    conn = ocacheimpl.getConnection();
+                    conn = dc.getConnection();
                 } else {
                     break;
                 }
@@ -148,7 +112,7 @@ public class DbConnectionHelper {
             			|| exceptionMessage.contains("connection closed") 
             			|| exceptionMessage.contains("closed connection")) {
                 try {
-                    conn = ocacheimpl.getConnection();
+                    conn = dc.getConnection();
                 } catch (SQLException sqle2) {
                     throw new GreensheetBaseException("error.dbconnection", sqle2);
                 }
@@ -187,13 +151,16 @@ public class DbConnectionHelper {
 
         Connection conn = null;
         try {
-            initOracleConnectionPool(props);
+           // initOracleConnectionPool(props);
             // logger.info("Getting DB Connection...");
-            conn = ocacheimpl.getConnection();
+        	Context initCtx = new InitialContext();
+			Context envCtx = (Context) initCtx.lookup("java:comp/env");
+			dc = (DataSource) envCtx.lookup("jdbc/OracleDataSource");
+			conn = dc.getConnection();
             // conn = pc.getConnection();
             for (int i = 0; i < 8; i++) {
                 if (conn.isClosed()) {
-                    conn = ocacheimpl.getConnection();
+                    conn = dc.getConnection();
                 } else {
                     break;
                 }
@@ -209,7 +176,7 @@ public class DbConnectionHelper {
             			|| exceptionMessage.contains("connection closed") 
             			|| exceptionMessage.contains("closed connection")) {
                 try {
-                    conn = ocacheimpl.getConnection();
+                    conn = dc.getConnection();
                 } catch (SQLException sqle2) {
                     throw new GreensheetBaseException("error.dbconnection", sqle2);
                 }
@@ -244,7 +211,7 @@ public class DbConnectionHelper {
 
     }
 
-   public static String getDbEnvironment() {
+    public static String getDbEnvironment() {
         String env = null;
         if (props != null) {
             // env = props.getProperty("oracle.environment");  // This really should be coming not from the free-standing
