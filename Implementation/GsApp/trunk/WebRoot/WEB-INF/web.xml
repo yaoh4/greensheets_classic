@@ -116,7 +116,7 @@
                 by semicolons
             </description>
             <param-name>resources-not-needing-user-info</param-name>
-            <param-value>index.jsp;retrievegrants.do;SessionTimeOut.jsp;SessionExpired.jsp</param-value>
+            <param-value>index.jsp;retrievegrants.do;status.do;SessionTimeOut.jsp;SessionExpired.jsp</param-value>
         </init-param>
         <init-param>
         	<description>URL fragments requests for which require pre-loading the 
