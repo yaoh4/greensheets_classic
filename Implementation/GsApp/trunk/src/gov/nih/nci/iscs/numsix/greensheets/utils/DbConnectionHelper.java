@@ -218,6 +218,7 @@ public class DbConnectionHelper {
         		// String in the properties file, but derived from the connection String, always.
             if (env == null || env.equalsIgnoreCase("")) {
                 String s = props.getProperty(DB_URL).toLowerCase();
+                logger.info("############# the props != null and s is " +  s);
                 // Abdul Latheef: Changed the DB service name
                 if (s.toLowerCase().indexOf("i2esgd".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2ed".toLowerCase()) > -1) {
                     env = "DEV";
@@ -231,6 +232,7 @@ public class DbConnectionHelper {
                 }
             }
         } else {
+            logger.info("############# props is not null ");
             env = "U";
         }
         return env;
