@@ -233,7 +233,7 @@ public class DbConnectionHelper {
             }
         } else {
             logger.info("############# props is not null ");
-            env = "U";
+            env = "PROD";
         }
         return env;
     }
