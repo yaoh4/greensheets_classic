@@ -66,6 +66,24 @@ public class DbConnectionHelper {
         return instance;
     }
 
+    /**
+     * Method initConfigFile.
+     * 
+     * @param properties
+     * @throws GritsException
+     *             This method initializes the OracleConnectionPool with the given properties. It only needs to be called once - the properties are
+     *             then stored and the DbConnectionHelper Singleton maintains them throughout the life of the object.
+     */
+    public void initConfigFile(Properties properties)
+            throws GreensheetBaseException {
+
+        if (initPool == false) {
+
+            props = properties;
+
+         }
+    }
+
    
     private Connection getTestConn() throws SQLException {
 
@@ -218,7 +236,7 @@ public class DbConnectionHelper {
         		// String in the properties file, but derived from the connection String, always.
             if (env == null || env.equalsIgnoreCase("")) {
                 String s = props.getProperty(DB_URL).toLowerCase();
-                logger.info("############# the props != null and s is " +  s);
+               // logger.info("############# the props != null and s is " +  s);
                 // Abdul Latheef: Changed the DB service name
                 if (s.toLowerCase().indexOf("i2esgd".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2ed".toLowerCase()) > -1) {
                     env = "DEV";
@@ -233,7 +251,7 @@ public class DbConnectionHelper {
             }
         } else {
             logger.info("############# props is not null ");
-            env = "PROD";
+            env = "U";
         }
         return env;
     }
