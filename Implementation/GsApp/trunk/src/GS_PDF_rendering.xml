@@ -41,16 +41,11 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
-        <property name="URL">
-            <value>${db.url}</value>
-        </property>
-        <property name="user">
-            <value>${db.user}</value>
-        </property>
-        <property name="password">
-            <value>${db.password}</value>
-        </property>
-    </bean>
+   
+
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<property name="jndiName" value="${jdbc.datasource}" />
+     </bean>
+	 
 
 </beans>
