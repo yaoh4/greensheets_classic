@@ -20,7 +20,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import javax.sql.PooledConnection;
 
-import oracle.jdbc.pool.OracleConnectionCacheImpl;
+//import oracle.jdbc.pool.OracleConnectionCacheImpl;
 import oracle.jdbc.pool.OracleConnectionPoolDataSource;
 
 import org.apache.log4j.Logger;
@@ -43,7 +43,7 @@ public class DbConnectionHelper {
     private DataSource dc; 
     private OracleConnectionPoolDataSource ocp;
 
-    private OracleConnectionCacheImpl ocacheimpl;
+   // private OracleConnectionCacheImpl ocacheimpl;
 
     private PooledConnection pc;
 
