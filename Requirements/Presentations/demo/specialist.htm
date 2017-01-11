@@ -1,0 +1,434 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>Greensheets</title>
+<script src="scripts/jquery-1.12.3.min.js"></script>
+<script src="scripts/jquery-1.12.4.js"></script>
+<script src="scripts/bootstrap-3.3.6.min.js"></script>
+<script src="scripts/bootbox-4.4.0.min.js"></script>
+<script src="scripts/bootstrap-datepicker.js"></script>
+<script src="scripts/bootstrapValidator.js"></script>
+
+<script src="scripts/jquery.validate-1.15.0.min.js"></script>
+
+
+<script src="specialistcontroller.js"></script>
+<script src="validator.js"></script>
+<script src="dropzone.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<link href="stylesheets/dropzone.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen">
+
+<link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,700,700italic,900,900italic,400italic" rel="stylesheet" type="text/css">
+<link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
+
+<script src="dist/alt-dtables.js"></script>
+
+</head>
+
+<body style="background-color: #fff;">
+	<!-- Header -->
+
+
+
+
+<div id="wrap"> 
+	<div class="navbar ">
+		<div class="row header">
+			<div style="height: 50px; margin-top: -1px;">
+				<div id="logo" class="logoImage" style="padding-top: 5px;">
+				    <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
+				    <div style="float: right; margin-right: 15px;">
+					    <br>  
+					  
+				   
+				   </div>
+				    
+				</div>
+			</div>
+			<!-- Fixed navbar -->
+      <div class="stickyDiv"     style="border-bottom: 7px solid #4cb471;">
+      
+
+
+
+
+
+    
+     
+
+        <!--Page Header -->
+        
+        
+          
+            <div class="pageHeader" id="pageHeader" ><div style="display:inline-block;"> <button type="button" class="btn btn-primary has-spinner" id="WorkBenchHome" onclick="" style="font-size: 18px; padding: 2px 5px; margin-left: 15px; margin-bottom: 5px; margin-right: 0px;" data-toggle="tooltip" title="WorkBench Home" data-placement="right">WB</button></div><div class="titleWrapper" style="margin-left: -3px; display:inline-block;"><h3>| &nbsp;GREENSHEETS</h3></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
+                  Welcome:
+                <div id="loginID" class="login">
+                  
+                    Janene Nusraty
+                  
+                </div><div style="display:inline-block;"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></div>
+              </div>
+          
+         
+<div  class="row">
+
+
+
+
+          
+      
+    </div>
+  </div>
+  </div>
+
+
+  <!-- end Header -->
+
+	
+
+	<!-- Content start -->
+
+		
+
+
+	
+	    
+
+    
+     
+      
+      <!-- Begin Panel -->
+      <div class="col-md-12">  
+        <br/>
+      
+
+
+<div style="margin-bottom: 10px;"><h3 style="margin-top: 5px;">Grant List for Janene Nusraty</h3></div>
+
+
+
+  <div style="float: right; display: inline; margin-bottom: 15px;">
+        <form class="form-inline">
+  <div class="form-group">
+    <span>Search for:</span>
+    <select class="form-control" id="exampleSelect1">
+                <option>Grants</option>
+                <option>PI Name</option>
+               
+                </select>
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control">
+  </div>
+  <button type="button" class="btn btn-primary has-spinner" id="search-btn"><i class="fa fa-spinner fa-spin"></i>Search</button><br/>
+   <div style="display: block; float: right; margin-top: 15px;"><input id="search-form_navigateToSearch" name="action:navigateToSearch" value=" Refresh Grant List " class="btn btn-default" type="reset"></div>
+</form>
+
+
+
+      </div>
+ 
+<br/>
+
+        <h3>Search Results</h3>
+      <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Grant Number</th>
+                <th>CA</th>
+                <th>Budget<br/>Start Date</th> 
+                <th>PD</th>
+                <th>PI</th>
+                <th>Specialist</th>
+                <th>Backup<br/> Specialist</th>
+                <th class="no-sort">Pgm GS</th>
+                <th class="status">Pgm GS<br/> Status</th>
+                <th>Submitted<br/> On:</th>
+                <th class="no-sort">GMS GS</th>
+                <th class="status">GMS GS<br/> Status</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+           <tr>
+                <td><a href="#">5R01CA195654-04</a></td>
+                <td>TB</td>
+                <td>01/01/2017</td>
+                
+
+                <td>Greene, Jack</td>
+                
+                <td>Smith, Meghan</td>
+                 <td>Haddad, Jennifer</td>
+                <td></td>
+                <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+            </tr>
+
+            <tr>
+                <td><a href="#">5R01CA193829-03</a></td>
+                <td>TB</td>
+                <td>12/01/2017</td>
+                <td>Sathyamoorthy, Neeraja</td>
+                
+                <td>Smith, Gary</td>
+                 <td>Edwards, Jennifer</td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+            </tr>
+            <tr>
+                <td><a href="#">5F31CA213985-02</a></td>
+                <td>MB</td>
+                <td>09/30/2017</td>
+                <td>McNeil, Nicole</td>
+                
+                <td>Smith, Aleisha</td>
+                <td>Parker, Teresa</td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"> </td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+            </tr>
+            <tr>
+                <td><a href="#">1R03CA212935-01</a></td>
+                <td>NC</td>
+                <td>12/01/2016</td>
+                <td>Carruthers, Renee</td>
+                
+                <td>Flores, Roberto</td>
+                <td>Edwards, Jennifer</td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+            <tr>
+                <td><a href="#">5R01CA193829-02</a></td>
+                <td>NC</td>
+                <td>12/01/2016</td>
+                <td>Sathyamoorthy, Neeraja</td>
+                
+                <td>Smith, Gary</td>
+                <td>Murphy, Connie </td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+            </tr>
+            <tr>
+                <td><a href="#">1R50CA211428-01</a></td>
+                <td>DC</td>
+                <td>09/30/2016</td>
+                <td>Sharman, Anu</td>
+                
+                <td>Smith, Edwin</td>
+                <td>Williams,Ted</td>
+                <td></td>
+
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right"></td>
+            
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+            </tr>
+
+             <tr>
+                <td><a href="#">4F31CA174316-05</a></td>
+                <td>MB</td>
+                <td>09/12/2016</td>
+                <td>McNeil, Nicole</td>
+                
+                <td>Smith,Iris</td>
+                <td>Brown, Linda</td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+            </tr>
+            <tr>
+                <td><a href="#">4K24CA121990-10</a></td>
+                <td>TR</td>
+                <td>08/01/2016</td>
+                <td>Radaev, Sergey</td>
+                
+                <td>Smith, David</td>
+                <td>Williams,Ted</td>
+                <td>Fisher,Barbara</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                 <td>05/20/2016</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                 <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+            </tr>
+            <tr>
+                <td><a href="#">4R01CA116352-10</a></td>
+                <td>DC</td>
+                <td>07/01/2016</td>
+                <td>Witkin, Keren</td>
+                
+                <td>Smith, Bethany</td>
+                <td>Fisher,Barbara</td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+            </tr>
+            <tr>
+                <td><a href="#">4R01CA116352-10</a></td>
+                <td>DC</td>
+                <td>06/01/2016</td>
+                <td>Witkin, Keren</td>
+                
+                <td>Smith, Bethany</td>
+                <td>Linde, Emily</td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+            </tr>
+            <tr>
+                <td><a href="#">1R01CA212138-01</a></td>
+                <td>DI</td>
+                <td>09/01/2016</td>
+                <td>Henderson, Lori</td>
+                
+                <td>Smith, Barbara</td>
+                <td>Dunne, Debbie</td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                  <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+            </tr>
+
+            <tr>
+                <td><a href="#">4R01CA116352-10</a></td>
+                <td>RA</td>
+                <td>05/01/2016</td>
+                <td>Nguyen, Long</td>
+                
+                <td>Capala, Jacek</td>
+                <td>Linde, Emily</td>
+                <td>Dunne, Debbie</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                 
+                 <td>09/13/2016</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                  <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+            </tr>
+
+       
+        </tbody>
+    </table>   
+      
+   <br/>
+	
+	</div>
+    
+  	
+
+
+ 
+
+
+
+	
+
+<!-- Footer -->
+	
+
+<!-- Footer -->
+<footer class="site-footer">
+	<div class="container" style="margin-top: 15px;">
+		
+				<div class="row">
+					<div>
+						<ul>
+							<li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li>
+							<li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li>
+							<li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li>
+							<li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li>
+
+						</ul>
+						<ul>
+							<li><a href="http://www.hhs.gov" target="_blank">U.S. Department of
+									Health and Human Services</a></li>
+							<li><a href="http://www.nih.gov" target="_blank">National Institutes of
+									Health</a></li>
+							<li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a></li>
+							<li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li>
+						</ul>
+					</div>
+				</div>
+        </div>
+				
+				</div>
+				<!--back to top arrow-->
+				<a href="#" class="back-to-top" style="display: none;">TOP</a>
+			</footer></div>
+		
+
+<!-- end Footer -->
+ 
+
+	<!-- end Footer -->
+	</div>
+
+
+
+
+
+<!-- /container -->
+
+
+	<!-- end Content -->
+
+
+
+
+
+
+
+
+
+	
+
+
+
+</body></html>
