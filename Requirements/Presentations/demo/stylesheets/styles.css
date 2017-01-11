@@ -1,0 +1,114 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+/* 
+BrowseCell styles: formats the A-Z Browsing blocks 
+*/
+
+.BrowseCellOn {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #ff6600;
+	border: 2px solid #000000;
+	width: 13px;
+	text-align: center;
+	padding: 3px;
+}
+
+.BrowseCellEmpty {
+	font-weight: bold;
+	color: #999999;
+	border: 2px solid #FFFFFF;
+	width: 13px;
+	text-align: center;
+	padding: 3px;
+}
+
+.BrowseCellOff {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #dddddd;
+	border: 2px solid #999999;
+	width: 13px;
+	text-align: center;
+	padding: 3px;
+}
+
+ul.frm_readonly {
+	clear: both;
+	margin-top: -10px;
+	list-style-type: none;
+}
+
+ul.frm_readonly {
+	font-size: 14px;
+	color: #666;
+	padding: 0 0 15px 15px;
+}
+
+ul.frm_readonly li {
+	margin-top: 15px;
+}
+
+ul.frm_readonly li.qstn {
+	margin-bottom: -15px;
+}
+
+ul.frm_readonly li a {
+	color: #666;
+	font-weight: bold;
+}
+
+ul.frm_readonly	 a.indent {
+	color: #666;
+	font-weight: normal;
+	font-size: 11px;
+}
+
+ul.frm_readonly label {
+	width: 150px;
+	text-align: right;
+	padding-top: 3px;
+}
+
+ul.frm_readonly span,span.frm_readonly {
+	background-color: #eee;
+	padding: 2px 7px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	color: #333;
+	font-size: 13px;
+	display: inline-block;
+}
+
+ul.frm_readonly span {
+	display: inline-block;
+	width: 230px;
+}
+
+ul.frm_readonly div {
+	display: block;
+	clear: both;
+	margin: 0 0 0 155px;
+}
+
+ul.frm_readonly div input {
+	font-weight: bold;
+	padding: 3px;
+	margin-bottom: 10px;
+}
+
+/*footer */
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
