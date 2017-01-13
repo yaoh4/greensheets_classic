@@ -2416,6 +2416,9 @@ Requirements/Presentations/demo/dist/css/bootstrap-dialog.css -text
 Requirements/Presentations/demo/dist/css/bootstrap-treefy.css -text
 Requirements/Presentations/demo/dist/css/bootstrap-treefy.css.map -text
 Requirements/Presentations/demo/dist/css/bootstrap-treefy.min.css -text
+Requirements/Presentations/demo/dist/css/chosen-sprite.png -text
+Requirements/Presentations/demo/dist/css/chosen-sprite@2x.png -text
+Requirements/Presentations/demo/dist/css/chosen.css -text
 Requirements/Presentations/demo/dist/less/bootstrap-treefy.less -text
 Requirements/Presentations/demo/dist/less/variables.less -text
 Requirements/Presentations/demo/dropzone.js -text
