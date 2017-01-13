@@ -4,10 +4,9 @@
 
 $(document).ready(function(){
 
-  $(document).ready(function() {
-    $('#example').DataTable();
-} );
 
+ 
+ 
 
   $('.panel-heading span.clickable').click (function(){
     var $this = $(this);
@@ -133,6 +132,7 @@ $('#infoBox').click(function(){
  
   }
   else {
+     $("#main2").addClass("treetable-collapsed")
     $("#2sub").attr("style", "display:table-row");
      $("#main2").find('span').removeClass("fa-plus-circle");
       $("#main2").find('span').addClass("fa");
@@ -146,8 +146,13 @@ $('#infoBox').click(function(){
      $('[data-toggle="tooltip"]').tooltip();   
 
 
-
+ 
     
+});
+
+$(window).on('load', function() {
+
+  $("#main2").find('span').removeClass("fa-plus-circle");
 });
 
 

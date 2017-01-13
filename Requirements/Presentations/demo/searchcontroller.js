@@ -6,6 +6,9 @@ $(document).ready(function(){
 
   $(".chosen-select").chosen();
 
+ 
+
+
   $( ".no-sort" ).removeClass( ".sorting" );
 
 $('#example').dataTable( {
@@ -17,22 +20,7 @@ $('#example').dataTable( {
     } );
 
  
-  $("#editSave").click(function(){
 
-     BootstrapDialog.show({
-            title: 'Saved!',
-            message: 'Your Search Preferences have been Saved.',
-            type: 'type-success',
-            buttons: [{
-              
-                label: 'Close',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }],
-
-
-        }); 
 
       
 
@@ -82,7 +70,9 @@ $('[data-toggle="tooltip"]').tooltip();
   }
 });
 
- });   
+ }); 
+
+ 
 
 
 
