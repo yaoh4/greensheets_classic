@@ -4,6 +4,8 @@
 
 $(document).ready(function(){
 
+  $(".chosen-select").chosen();
+
   $( ".no-sort" ).removeClass( ".sorting" );
 
 $('#example').dataTable( {
@@ -23,13 +25,7 @@ $('[data-toggle="tooltip"]').tooltip();
 
 
 
- $("#editButton").click(function(){
-  
-     $('.panel-body').attr('style', 'background-color: rgba(253, 245, 154, 0.64)');
-     $('#searchDiv').attr('style','display: none');
-      $('#editDiv').attr('style','display: block');
-  
-    });
+
 
  $("#restore").click(function(){
   

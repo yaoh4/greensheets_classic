@@ -116,7 +116,7 @@ $('.notes').click(function(){
 
 
 $('#infoBox').click(function(){
-     $(this).closest('i').toggleClass("fa-minus-circle  fa-plus-circle"); 
+     $(this).find('i').toggleClass("fa-minus-circle fa-plus-circle"); 
 });
 
 

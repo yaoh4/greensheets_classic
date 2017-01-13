@@ -12,11 +12,12 @@
 <script src="scripts/bootstrapValidator.js"></script>
 
 <script src="scripts/jquery.validate-1.15.0.min.js"></script>
-
+<script src="dist/chosen.jquery.js"></script>
 
 <script src="searchcontroller.js"></script>
 <script src="validator.js"></script>
 <script src="dropzone.js"></script>
+
 
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
@@ -31,6 +32,9 @@
 <link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
 
 <script src="dist/alt-dtables.js"></script>
+
+<link href="dist/css/chosen.css" rel="stylesheet" type="text/css" media="screen">
+
 
 </head>
 
@@ -115,10 +119,10 @@
 
     <div class="panel-heading">
         <span class="clickable"><i class="fa fa-minus-circle" aria-hidden="true"></i></span>
-        <div class="pheader" style="display:inline;"><h4>My Search Preferences</h4></div>
+        <div class="pheader" style="display:inline;"><h4>Search Criteria</h4></div>
         
-          <div style="display:inline; float: right;"> <button type="button" class="btn btn-default btn-sm"  id="editButton">Edit Search Preferences</button>
-            <button type="reset" class="btn btn-default btn-sm" id="restore">Restore Search Preferences</button>
+          <div style="display:inline; float: right;"> <button type="button" class="btn btn-default btn-sm"  id="editButton">Save Search Preferences</button>
+            <button type="reset" class="btn btn-default btn-sm" id="restore">Load Search Preferences</button>
            
            
            
@@ -148,17 +152,44 @@
           <label for="projectTitle">Grant Type:</label> 
          <select name="grantType" class="c-select form-control"><option value="competinggrants">Competing Grants</option>
 <option value="noncompetinggrants">Non-Competing Grants</option>
-<option value="both" selected="selected">Both Competing and Non-Competing Grants</option></select>
-<input name="criteria.excludeCompleted" value="true" id="exclude" type="checkbox" checked><input id="__checkbox_exclude" name="__checkbox_criteria.excludeCompleted" value="true" type="hidden" > 
-          <label for="exclude" style="font-weight: 600;">Show only Competing Grants within the Payline &nbsp;</label>
-                            
+<option value="both" selected="selected">Both Competing and Non-Competing Grants</option>
+<option value="payline">Competing Grants within the Payline</option></select>
+
                          
 </div>
 
 
 <div class="col-xs-4">
           <label for="investigator">Mechanism:</label>
-          <input name="criteria.piFirstOrLastName" maxlength="120" value="" id="investigator" class="form-control" type="text" placeholder="Example R01"><span style="color:#999; font-weight:bold; font-size: 11px;">&nbsp;&nbsp;<i>Leaving Mechanism blank will return all Mechanisms</i></span> 
+          <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Mechanism(s)">
+          <option value=""></option>
+          <option value="">D43</option>
+          <option value="">DP1</option>
+          <option value="">DP2</option>
+          <option value="">F30</option>
+          <option value="">F31</option>
+          <option value="">F32</option>
+          <option value="">F33</option>
+          <option value="">F99</option>
+          <option value="">K01</option>
+          <option value="">K05</option>
+          <option value="">K07</option>
+          <option value="">K08</option>
+          <option value="">K12</option>
+          <option value="">K18</option>
+          <option value="">K22</option>
+          <option value="">K23</option>
+          <option value="">K24</option>
+          <option value="">K25</option>
+          <option value="">K99</option>
+          <option value="">KL1</option>
+          <option value="">KM1</option>
+          <option value="">P01</option>
+          </select>
+
+
+
+            <span style="color:#999; font-weight:bold; font-size: 11px;">&nbsp;&nbsp;<i>Leaving Mechanism blank will return all Mechanisms</i></span> 
         </div>
 </div>
 
@@ -180,7 +211,7 @@
           <input name="criteria.piFirstOrLastName" maxlength="120" value="" id="investigator" class="form-control" type="text" placeholder="Enter PI Last Name"></div>
            <div style="display: inline-block; margin-left: 30px; width:37%;">
           <label for="investigator">PI's First Name:</label>
-          <input name="criteria.piFirstOrLastName" maxlength="120" value="" id="investigator" class="form-control" type="text" placeholder="Enter PI Last Name"></div>
+          <input name="criteria.piFirstOrLastName" maxlength="120" value="" id="investigator" class="form-control" type="text" placeholder="Enter PI First Name"></div>
         </div>
         
 
@@ -188,7 +219,7 @@
 
       <div class="form-group row" style="margin-top: 20px;">
         <div class="col-xs-10"><br/>
-          <i class="fa fa-asterisk" aria-hidden="true" style="color:red;"></i><span style="color:#4b4b4b; font-weight:bold;">NOTE: Selection of ALL NCI Grants, Both Competing and Non-Competing Grants, and leaving the Payline checkbox unchecked will result in all grants being returned within the multi-page list. This will slow system response.</span>
+          <i class="fa fa-asterisk" aria-hidden="true" style="color:red;"></i><span style="color:#4b4b4b; font-weight:bold;">NOTE: Selection of Grants From "ALL NCI Grants" AND Grant Type of "Both Competing and Non-Competing Grants" will result in all grants being returned within the multi-page list. This will slow system response.</span>
           
         </div>
       </div>
@@ -231,14 +262,15 @@
       <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
+              <th class="no-sort">Pgm GS</th>
+                <th class="status">Pgm GS<br/> Status</th>
+                <th>#Days in<br/> GPMATS</th>
                 <th>Grant Number</th>
                 <th>CA</th>
                 <th>Budget<br/>Start Date</th>
                 <th>PD</th>
                 <th>PI</th>
-                <th class="no-sort">Pgm GS</th>
-                <th class="status">Pgm GS<br/> Status</th>
-                <th>#Days in<br/> GPMATS</th>
+                
                  <th>Score</th>
                  <th>%</th>
                  <th>Board Date</th>
@@ -249,15 +281,16 @@
         
         <tbody>
            <tr>
+             <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 <td>10</td>
                 <td><a href="#">5R01CA195654-04</a></td>
                 <td>TB</td>
                 <td>01/01/2017</td>
-                <td>Greene, Jack</td>
+                <td><a href="mailto:">Greene, Jack</a></td>
                 
-                <td>Smith, Meghan</td>
-                <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
-                 <td>10</td>
+                <td><a href="mailto:">Smith, Meghan</a></td>
+               
                  <td>16</td>
                  <td>0.0%</td>
                  <td>03/21/2017</td>
@@ -266,15 +299,16 @@
             </tr>
 
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                 <td>21</td>
                 <td><a href="#">5R01CA193829-03</a></td>
                 <td>TB</td>
                 <td>12/01/2017</td>
-                <td>Sathyamoorthy, Neeraja</td>
+                <td><a href="mailto:">Sathyamoorthy, Neeraja</a></td>
                 
-                <td>Smith, Gary</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
-                 <td>21</td>
+                <td><a href="mailto:">Smith, Gary</a></td>
+                
                   <td>20</td>
                  <td>0.0%</td>
                  <td></td>
@@ -282,15 +316,16 @@
                 <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
             </tr>
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"> </td>
+                 <td>10</td>
                 <td><a href="#">5F31CA213985-02</a></td>
                 <td>MB</td>
                 <td>09/30/2017</td>
-                <td>McNeil, Nicole</td>
+                <td><a href="mailto:">McNeil, Nicole</a></td>
                 
-                <td>Smith, Aleisha</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"> </td>
-                 <td>10</td>
+                <td><a href="mailto:">Smith, Aleisha</a></td>
+                
                     <td>12</td>
                  <td>0.0%</td>
                  <td></td>
@@ -298,30 +333,32 @@
                 <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
             </tr>
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 <td>0</td>
                 <td><a href="#">1R03CA212935-01</a></td>
                 <td>NC</td>
                 <td>12/01/2016</td>
-                <td>Carruthers, Renee</td>
+                <td><a href="mailto:">Carruthers, Renee</a></td>
                 
-                <td>Flores, Roberto</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
-                 <td>0</td>
+                <td><a href="mailto:">Flores, Roberto</a></td>
+                
                     <td>0</td>
                  <td>5.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                 <td>28</td>
                 <td><a href="#">5R01CA193829-02</a></td>
                 <td>NC</td>
                 <td>12/01/2016</td>
-                <td>Sathyamoorthy, Neeraja</td>
+                <td><a href="mailto:">Sathyamoorthy, Neeraja</a></td>
                 
-                <td>Smith, Gary</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
-                 <td>28</td>
+                <td><a href="mailto:">Smith, Gary</a></td>
+                
                     <td>14</td>
                  <td>0.0%</td>
                  <td></td>
@@ -329,15 +366,16 @@
                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
             </tr>
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right"></td>
+                 <td>10</td>
                 <td><a href="#">1R50CA211428-01</a></td>
                 <td>DC</td>
                 <td>09/30/2016</td>
-                <td>Sharman, Anu</td>
+                <td><a href="mailto:">Sharman, Anu</a></td>
                 
-                <td>Smith, Edwin</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right"></td>
-                 <td>10</td>
+                <td><a href="mailto:">Smith, Edwin</a></td>
+                
                     <td>0</td>
                  <td>0.0%</td>
                  <td></td>
@@ -346,15 +384,16 @@
             </tr>
 
              <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                 <td>19</td>
                 <td><a href="#">4F31CA174316-05</a></td>
                 <td>MB</td>
                 <td>09/12/2016</td>
-                <td>McNeil, Nicole</td>
+                <td><a href="mailto:">McNeil, Nicole</a></td>
                 
-                <td>Smith,Iris</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
-                 <td>19</td>
+                <td><a href="mailto:">Smith,Iris</a></td>
+                
                     <td>23</td>
                  <td>9.0%</td>
                  <td></td>
@@ -362,15 +401,16 @@
                 <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
             </tr>
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                 <td>19</td>
                 <td><a href="#">4K24CA121990-10</a></td>
                 <td>TR</td>
                 <td>08/01/2016</td>
-                <td>Radaev, Sergey</td>
+                <td><a href="mailto:">Radaev, Sergey</a></td>
                 
-                <td>Smith, David</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
-                 <td>19</td>
+                <td><a href="mailto:">Smith, David</a></td>
+                
                     <td>10</td>
                  <td>0.0%</td>
                  <td>05/20/2017</td>
@@ -378,15 +418,16 @@
                  <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
             </tr>
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
+                 <td>209</td>
                 <td><a href="#">4R01CA116352-10</a></td>
                 <td>DC</td>
                 <td>07/01/2016</td>
-                <td>Witkin, Keren</td>
+                <td><a href="mailto:">Witkin, Keren</a></td>
                 
-                <td>Smith, Bethany</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
-                 <td>209</td>
+                <td><a href="mailto:">Smith, Bethany</a></td>
+                
                     <td>25</td>
                  <td>3.0%</td>
                  <td></td>
@@ -394,15 +435,16 @@
                  <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
             </tr>
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
+                 <td>99</td>
                 <td><a href="#">4R01CA116352-10</a></td>
                 <td>DC</td>
                 <td>06/01/2016</td>
-                <td>Witkin, Keren</td>
+                <td><a href="mailto:">Witkin, Keren</a></td>
                 
-                <td>Smith, Bethany</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
-                 <td>99</td>
+                <td><a href="mailto:">Smith, Bethany</a></td>
+                
                     <td>20</td>
                  <td>0.0%</td>
                  <td></td>
@@ -410,15 +452,16 @@
                  <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
             </tr>
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 <td>88</td>
                 <td><a href="#">1R01CA212138-01</a></td>
                 <td>DI</td>
                 <td>09/01/2016</td>
-                <td>Henderson, Lori</td>
+                <td><a href="mailto:">Henderson, Lori</a></td>
                 
-                <td>Smith, Barbara</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
-                 <td>88</td>
+                <td><a href="mailto:">Smith, Barbara</a></td>
+                
                     <td>19</td>
                  <td>0.0%</td>
                  <td></td>
@@ -427,15 +470,16 @@
             </tr>
 
             <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                 <td>72</td>
                 <td><a href="#">4R01CA116352-10</a></td>
                 <td>RA</td>
                 <td>05/01/2016</td>
-                <td>Nguyen, Long</td>
+                <td><a href="mailto:">Nguyen, Long</a></td>
                 
-                <td>Capala, Jacek</td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
-                 <td>72</td>
+                <td><a href="mailto:">Capala, Jacek</a></td>
+                
                     <td>16</td>
                  <td>5.0%</td>
                  <td></td>
