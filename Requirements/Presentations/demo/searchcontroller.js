@@ -17,7 +17,22 @@ $('#example').dataTable( {
     } );
 
  
-   
+  $("#editSave").click(function(){
+
+     BootstrapDialog.show({
+            title: 'Saved!',
+            message: 'Your Search Preferences have been Saved.',
+            type: 'type-success',
+            buttons: [{
+              
+                label: 'Close',
+                action: function(dialogItself){
+                    dialogItself.close();
+                }
+            }],
+
+
+        }); 
 
       
 
