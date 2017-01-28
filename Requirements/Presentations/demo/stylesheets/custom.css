@@ -1399,3 +1399,8 @@ table.dataTable thead .sorting:after {
     opacity: 0.5;
     content: "\e150";
 }
+
+.searchButton2 {
+  margin-top: 34px;
+  margin-left: 15px;
+}

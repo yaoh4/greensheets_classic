@@ -34,8 +34,6 @@
 <script src="dist/alt-dtables.js"></script>
 
 <link href="dist/css/chosen.css" rel="stylesheet" type="text/css" media="screen">
-<link rel="stylesheet" href="dist/css/bootstrap-dialog.css">
-
 
 
 </head>
@@ -203,18 +201,14 @@
 
 <div class="form-group row" style="margin-top: 20px;">
         <div class="col-xs-4">
-          <label for="investigator">Grant Number:</label>
-          <input name="criteria.piFirstOrLastName" maxlength="120" value="" id="investigator" class="form-control" type="text" placeholder="Enter Grant Number">
+
+          <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="options" id="grantNumber" value="Grant Number" checked >
+                &nbsp;Grant Number &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="options" id="PIname" value="PI Name" >&nbsp; PI Name
+                </label>
+          <input  maxlength="120" value="" id="searchCriteria" class="form-control" type="text" placeholder="Enter Grant Number">
         </div>
-          <div class="col-xs-8">
-            <strong>OR</strong>&nbsp;
-            <div style="display: inline-block; width:37%; margin-left: 30px;">
-          <label for="investigator">PI's Last Name:</label>
-          <input name="criteria.piFirstOrLastName" maxlength="120" value="" id="investigator" class="form-control" type="text" placeholder="Enter PI Last Name"></div>
-           <div style="display: inline-block; margin-left: 30px; width:37%;">
-          <label for="investigator">PI's First Name:</label>
-          <input name="criteria.piFirstOrLastName" maxlength="120" value="" id="investigator" class="form-control" type="text" placeholder="Enter PI First Name"></div>
-        </div>
+       
         
 
       </div>

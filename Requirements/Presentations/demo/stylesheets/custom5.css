@@ -72,6 +72,7 @@ h6 {
     color: #fff;
     display: inline-block;
     margin-right: 15px;
+    font-weight: bold;
   }
 
   label {
@@ -1173,7 +1174,9 @@ border-color:#fff transparent;
 position: relative !important; 
 }
 
-
+.checkbox input[type=checkbox] {
+position: relative !important; 
+}
 
 input[type="file"] {
     display: block;
@@ -1359,7 +1362,7 @@ ul.actionMessage {
   top: 0;
   z-index: 100;
   border-top: 0;
-  background-color: #4b4b4b;
+  background-color: #6d8eb3;
 }
 
 
@@ -1445,7 +1448,7 @@ table .collapse.in {
 
 .form-control {
     display: block;
-    width: 95%;
+    width: 100%;
     /* height: 34px; */
     padding: 3px 6px;
     font-size: 14px;
@@ -1506,7 +1509,7 @@ text-align: right;
 }
 
 .input {
-
+  padding-left: 25px !important;
   width: 35%;
 }
 
@@ -1521,7 +1524,7 @@ text-align: right;
 
 /* Navigation bar */
 #main_navbar .navbar-default, .dropdown-menu {
-  background-color: #cbcbcb;
+  background-color: #fff;
   border-color: transparent;
   border-radius: 0 !important;
   -moz-border-radius: 0 !important;
@@ -1595,7 +1598,7 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
 }
 
 .header {
-   background-image: url("../images/background.gif");
+   background-image: url("../images/background3.gif");
    background-color: #4b4b4b;
  }
 
@@ -1622,40 +1625,23 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
   border-color: #a94442;
 }
 
-.checkbox {
-    position: relative;
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 0px;
-    padding-left: 0px !important;
-}
-      
 
-#gsTable td {
-  border-bottom: 1px solid #CCC;
-}
+#main_navbar .dropdown li:hover:after {
+    content: ' ';
+    position: absolute;
+    border: solid 10px transparent;
+    border-top: solid 0px transparent;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent transparent transparent;
+    left: 50%;
+    top: 80%;
+    margin-left: -10px;
+} 
 
-textarea {
-    resize: none;
-}
 
-.comments {
-  font-size: 12px;
-  font-style: italic;
-  margin-right: 35px;
-  margin-bottom: 10px;
-}
+#main_navbar .dropdown-menu li:focus:after {
+ background-color: #CCC;
+}      
 
-.textBox {
-  font-size: 12px;
-  font-style: italic;
-  margin-right: 27px;
-  margin-bottom: 10px;
-}
 
-.searchButton2 {
-  margin-top: 50px;
-  margin-left: 15px;
-}
 

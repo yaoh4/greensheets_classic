@@ -69,14 +69,7 @@
     		
     		
     			
-    				<div class="pageHeader" id="pageHeader" ><div style="display:inline-block;"> <button type="button" class="btn btn-primary has-spinner" id="WorkBenchHome" onclick="" style="font-size: 18px; padding: 2px 5px; margin-left: 15px; margin-bottom: 5px; margin-right: 0px;" data-toggle="tooltip" title="WorkBench Home" data-placement="right">WorkBench</button></div><div class="titleWrapper" style="margin-left: -3px; display:inline-block;"><h3>| &nbsp;GREENSHEETS</h3></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
-                  Welcome:
-                <div id="loginID" class="login">
-                  
-                    Janene Nusraty
-                  
-                </div><div style="display:inline-block;"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></div>
-              </div>
+    				<div class="pageHeader" id="pageHeader" ><div style="display:inline-block;"> <div class="titleWrapper" style="margin-left: -3px; display:inline-block;"><h3>GREENSHEETS</h3></div></div></div>
     			
       	 
 <div id="secNav" class="row">
@@ -110,7 +103,7 @@
       <div class="col-md-12">  
         <br/>
       
-<div style="display:inline; float:left" <button type="button" class="btn btn-default"><a href="search.htm"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Search</a></button></div>
+
 <div class="well well-sm" style="display:inline; float:right;"><span>Related Links:</span>&nbsp;&nbsp;
 <a href="#">IMS</a>&nbsp; | &nbsp;<a href="#">FCOI</a>&nbsp; | &nbsp;<a href="#">FACTS</a>
 </div>
@@ -177,7 +170,7 @@
                                                      <button type="button" class="btn btn-default allNotes">Clear All Answers</button> 
               <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
                <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
-              <!--<a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit untill the ACTION to AWARD is created in GPMATS">--><button type="button" class="btn btn-default submit">Submit</button> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+              <a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit untill the ACTION to AWARD is created in GPMATS"><button type="button" class="btn btn-default disabled" id="reset" ">Submit</button></a> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
             </div>
           </div>
@@ -874,10 +867,9 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 <button type="button" class="btn btn-default allSubs">Expand All</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 
                                                     <button type="button" class="btn btn-default allNotes">Clear All Answers</button>
-      <button type="button" class="btn btn-primary has-spinner" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
+      <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
          <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
-              <button type="button" class="btn btn-default submit">Submit</button> 
-              <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+              <a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit untill the ACTION to AWARD is created in GPMATS"><button type="button" class="btn btn-default disabled" id="reset" ">Submit</button></a> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
 </div>
                                             </div>
@@ -886,68 +878,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 </div>
 </form>
 
-	<!-- Modal for Roles -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Attachments</h4>
-      </div>
-      <div class="modal-body" style="max-height: 900px">
-        
-            	<div style="width:600px;">
-          <div style="margin-left: 15px; float:left; width: 18%"><p class="question">
-          <!-- <i class="fa fa-asterisk asterisk" aria-hidden="true">&nbsp;</i>-->
-            Upload File:
-          </p></div>
-          <!--BEGIN Uploader-->
-          <div class="qSpacing" id="bsiDiv" style="margin-bottom: 30px; float: left; width: 35%;">
-            <div>
-              <div class="input-group" style="width: 94px;">
-                <label class="input-group-btn"> <span class="btn btn-primary">
-                    Choose File <input name="bsi" value="" id="bsi" style="display: none;" type="file">
-                </span>
-                </label>
-              </div>
-            </div>  
-
-            </div>      
-            
-            <div class="loadFileHistory" style="clear:both; width: 784px;"><p></p>
-
-
-  <table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
-    <tbody><tr>
-      
-      <th class="tableHeader" align="center" width="10%">File Name</th>
-      <th class="tableHeader" align="center" width="10%">Date</th>
-      <th class="tableHeader" align="center" width="10%">Uploaded By</th>
-      <th class="tableHeader" align="center" width="5%">Action</th>
-    </tr>
-    <tr>
-     
-      <td>
-          <a href="javascript:openDocument(691)">Track Project Submission.docx</a>
-        </td>
-      <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
-      <td>Janene Nusraty</td>
-      <td><a href="javascript:removeDocument(691, 415)"><i class="fa fa-trash fa-lg" aria-hidden="true" alt="delete" title="delete"></i></a></td>
-    </tr>
-  </tbody></table></div>
-          </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-
-  </div>
-</div>
+	
 
 
 <!-- Footer -->

@@ -112,30 +112,59 @@
       
 
 
-<div style="margin-bottom: 10px;"><h3 style="margin-top: 5px;">Grant List for Janene Nusraty</h3></div>
+<div class="panel panel-default" style="margin-right: 15px; margin-left: 15px;">
 
+    <div class="panel-heading">
+        
+        <div class="pheader" style="display:inline;"><h4>Search Criteria</h4></div>
+        
+          
+        
+          
+      </div>
 
+      <!--end panel header-->
+    <div class="panel-body">
 
-  <div style="float: right; display: inline; margin-bottom: 15px;">
-        <form class="form-inline">
-  <div class="form-group">
-    <span>Search for:</span>
-    <select class="form-control" id="exampleSelect1">
-                <option>Grants</option>
-                <option>PI Name</option>
-               
-                </select>
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control">
-  </div>
-  <button type="button" class="btn btn-primary has-spinner" id="search-btn"><i class="fa fa-spinner fa-spin"></i>Search</button><br/>
-   <div style="display: block; float: right; margin-top: 15px;"><input id="search-form_navigateToSearch" name="action:navigateToSearch" value=" Refresh Grant List " class="btn btn-default" type="reset"></div>
-</form>
+      
+<div class="form-group row" style="margin-top: 20px;">
+        <div class="col-xs-4">
 
-
+          <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="options" id="grantNumber" value="Grant Number" checked >
+                &nbsp;Grant Number &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="options" id="PIname" value="PI Name" >&nbsp; PI Name
+                </label>
+          <input  maxlength="120" value="" id="searchCriteria" class="form-control" type="text" placeholder="Enter Grant Number">
+        </div>
+       
+         <div class="searchButton2" id="searchDiv">
+        
+        <button type="button" class="btn btn-primary has-spinner" id="search-btn"><i class="fa fa-spinner fa-spin"></i>Search</button>
+        
+        <input id="search-form_navigateToSearch" name="action:navigateToSearch" value=" Clear " class="btn btn-default" type="submit">
 
       </div>
+
+      </div>
+
+     
+
+
+
+      <!--end form group-->
+     
+
+        
+</form>  
+    
+  
+
+</div>
+
+
+  
+    <!--end panel body-->
+  </div>
  
 <br/>
 
@@ -143,18 +172,19 @@
       <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Grant Number</th>
+                <th style="white-space: nowrap;">Grant Number</th>
                 <th>CA</th>
                 <th>Budget<br/>Start Date</th> 
                 <th>PD</th>
                 <th>PI</th>
                 <th>Specialist</th>
                 <th>Backup<br/> Specialist</th>
-                <th class="no-sort">Pgm GS</th>
+                <th class="no-sort">Pgm<br/> GS</th>
                 <th class="status">Pgm GS<br/> Status</th>
-                <th>Submitted<br/> On:</th>
-                <th class="no-sort">GMS GS</th>
+                <th width="5%">Pgm Submitted<br/> Date:</th>
+                <th class="no-sort">GMS<br/> GS</th>
                 <th class="status">GMS GS<br/> Status</th>
+                <th width="5%">GMS GS Submitted<br/> Date:</th>
             </tr>
         </thead>
         
@@ -175,6 +205,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td></td>
             </tr>
 
             <tr>
@@ -192,6 +223,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                   <td></td>
             </tr>
             <tr>
                 <td><a href="#">5F31CA213985-02</a></td>
@@ -207,6 +239,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                   <td></td>
             </tr>
             <tr>
                 <td><a href="#">1R03CA212935-01</a></td>
@@ -222,6 +255,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                   <td></td>
             <tr>
                 <td><a href="#">5R01CA193829-02</a></td>
                 <td>NC</td>
@@ -237,6 +271,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                   <td></td>
             </tr>
             <tr>
                 <td><a href="#">1R50CA211428-01</a></td>
@@ -254,6 +289,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                   <td></td>
             </tr>
 
              <tr>
@@ -271,6 +307,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                   <td></td>
             </tr>
             <tr>
                 <td><a href="#">4K24CA121990-10</a></td>
@@ -286,6 +323,7 @@
                  <td>05/20/2016</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                  <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                    <td></td>
             </tr>
             <tr>
                 <td><a href="#">4R01CA116352-10</a></td>
@@ -302,6 +340,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                  <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                    <td></td>
             </tr>
             <tr>
                 <td><a href="#">4R01CA116352-10</a></td>
@@ -318,6 +357,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                  <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                    <td></td>
             </tr>
             <tr>
                 <td><a href="#">1R01CA212138-01</a></td>
@@ -334,6 +374,7 @@
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                   <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                     <td></td>
             </tr>
 
             <tr>
@@ -351,6 +392,7 @@
                  <td>09/13/2016</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                   <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                     <td>10/10/2016</td>
             </tr>
 
        

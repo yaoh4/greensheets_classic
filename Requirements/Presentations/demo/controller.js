@@ -4,9 +4,10 @@
 
 $(document).ready(function(){
 
+  $(document).ready(function() {
+    $('#example').DataTable();
+} );
 
- 
- 
 
   $('.panel-heading span.clickable').click (function(){
     var $this = $(this);
@@ -29,22 +30,15 @@ $(document).ready(function(){
 
         });
 
-$("#submit").click(function(){
 
-     BootstrapDialog.show({
-            title: 'Warning!',
-            message: 'Errors indicated on the form must be corrected before submission.',
-            type: 'type-danger',
-            buttons: [{
-              
-                label: 'Close',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }],
+//Submit & Validate Function 
+
+$(".submit").click(function(){
 
 
-        });
+ $("#error").attr("style", "inline");
+ $('html, body').animate({ scrollTop: 0 }, 0);
+
 
     $("#1, #6-1, #8-1, #Textarea1, #Textarea6, #Textarea8, #12-2-1-1-1, #Textarea12-2-1-1-1, #12-2-1-1-2, #radio12-2-1-1-1, #sub12-2-1-1-3, #date, .warning1").addClass("has-error");
     $(".warning1").attr('style', 'display: block');
@@ -56,6 +50,10 @@ $("#submit").click(function(){
        
  });
 
+//Save Alert Function
+$("#saveButton").click(function(){
+  $("#success").attr("style", "inline");
+});
 
 $('.datepicker').datepicker();
 
@@ -65,12 +63,37 @@ $('.datepicker').datepicker();
         if ($(this).text() == "View All Comments") 
   { 
      $(this).text("Hide All Comments"); 
+
+      $("#main11, #sub11-1").removeClass("treetable-collapsed");
+     $("#main11, #sub11-1" ).addClass("treetable-expanded");
+     $("#sub11-1, #sub11-1-1").attr('style','display: table-row');
+       $("#main11").find('span').toggleClass("fa-minus-circle fa-plus-circle"); 
+       $("#sub11-1").find('.treetable-expander').toggleClass("fa-minus-circle fa-plus-circle"); 
+ 
+
   } 
   else 
   { 
      $(this).text("View All Comments"); 
+     $("#main11, #sub11-1").removeClass("treetable-expanded");
+     $("#main11, #sub11-1" ).addClass("treetable-collapsed");
+     $("#sub11-1, #sub11-1-1").attr('style','display: none');
+       $("#main11").find('span').toggleClass("fa-plus-circle fa-minus-circle"); 
+       $("#sub11-1").find('.treetable-expander').toggleClass("fa-plus-circle fa-minus-circle"); 
   }; 
     });
+
+
+    //Comment box counter
+
+$(function(){
+var text_max = 2000;
+    $('.exampleTextarea').on('keyup', function(){
+        var wordsLength = $(this).val().length;
+        var text_remaining = text_max - wordsLength;
+        $(this).next().find('.count_message').html(text_remaining);
+    });
+});
 
 
 
@@ -82,12 +105,12 @@ $('.datepicker').datepicker();
   { 
   
 
-     $(this).text("CollapseAll"); 
+     $(this).text("Collapse All"); 
      $('tr').removeClass("treetable-collapsed");
      $('tr').addClass("treetable-expanded");
      $('.sub').attr('style','display: table-row');
       $('.lastSub').attr('style','display: table-row');
-       $('.fa-plus-circle').toggleClass("fa-plus-circle fa-minus-circle"); 
+       $('.fa-plus-circle:not(.details)').toggleClass("fa-plus-circle fa-minus-circle"); 
 
 
   } 
@@ -132,7 +155,6 @@ $('#infoBox').click(function(){
  
   }
   else {
-     $("#main2").addClass("treetable-collapsed")
     $("#2sub").attr("style", "display:table-row");
      $("#main2").find('span').removeClass("fa-plus-circle");
       $("#main2").find('span').addClass("fa");
@@ -146,13 +168,8 @@ $('#infoBox').click(function(){
      $('[data-toggle="tooltip"]').tooltip();   
 
 
- 
+
     
-});
-
-$(window).on('load', function() {
-
-  $("#main2").find('span').removeClass("fa-plus-circle");
 });
 
 

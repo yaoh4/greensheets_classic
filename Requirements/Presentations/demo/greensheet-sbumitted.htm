@@ -116,10 +116,10 @@
 </div>
 <div style="display:block; margin-bottom: 20px;">&nbsp;</div>
 <!--success alert box -->
-    <div class="col-md-12" style="display:none;" id="success">    
+    <div class="col-md-12"  id="success">    
    <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Successfully Saved!</strong> Changes to the greensheet have been successfully saved.
+  <strong>Successfully Submitted!</strong> The greensheet has been successfully submitted and is now locked.  No additioanl edits can be made.
 </div>
 </div>
 <!--Error alert box -->
@@ -139,7 +139,7 @@
           <table width="100%">
           <tr><td width="50%">
          <strong>Grant Number:</strong> <a href="#">5R01CA195654-04</a></span></td>
-        <td width="50%"><strong>Status:</strong> Saved</td></tr>
+        <td width="50%"><strong>Status:</strong> Submitted</td></tr>
       </table>
   </td>
   </tr>   
@@ -147,7 +147,11 @@
       <td>&nbsp;</td>
       <td>
           <table width="100%">
-            <tr><td width="50%"><strong>Last Changed By:</strong> HUNTY0</td>
+               <tr><td width="50%"><strong>Submitted By:</strong> Meghan Smith</td>
+          <td width="50%"><strong>Submitted on:</strong> 01/23/2014 </td></tr>
+          
+          <tr>
+            <tr><td width="50%"><strong>Last Changed By:</strong> smithm</td>
           <td width="50%"><strong>Institution:</strong> Yale University </td></tr>
           
           <tr>
@@ -174,10 +178,8 @@
   <div style="float:right;  margin-bottom: 10px;display:block;">
                                                 <button type="button" class="btn btn-default allSubs">Expand All</button>
                                             		 <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                     <button type="button" class="btn btn-default allNotes">Clear All Answers</button> 
-              <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
-               <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
-              <!--<a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit untill the ACTION to AWARD is created in GPMATS">--><button type="button" class="btn btn-default submit">Submit</button> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+                                                    
+              <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
             </div>
           </div>
@@ -876,8 +878,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                                                     <button type="button" class="btn btn-default allNotes">Clear All Answers</button>
       <button type="button" class="btn btn-primary has-spinner" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
          <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
-              <button type="button" class="btn btn-default submit">Submit</button> 
-              <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+              <a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit untill the ACTION to AWARD is created in GPMATS"><button type="button" class="btn btn-default disabled" id="reset" ">Submit</button></a> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
 </div>
                                             </div>

@@ -71,6 +71,17 @@ $('[data-toggle="tooltip"]').tooltip();
   }
 });
 
+
+  $("input:radio[name=options]").on( "change", function() {
+         if($(this).val() == 'PI Name'){
+       $('#searchCriteria').attr('placeholder', 'Enter PI Name');
+    }
+
+    else {
+      $('#searchCriteria').attr('placeholder', 'Enter Grant Number');
+    }
+});
+
  });   
 
 
