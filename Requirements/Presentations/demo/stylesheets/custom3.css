@@ -422,7 +422,7 @@ font-weight:600;
 
 
 .titleWrapper h3 {
-  margin: 0 0 0 15px;
+  margin: 0px 0px  0px  0px !important;
     font-size:22px;
     font-weight:300; 
 }
@@ -432,7 +432,7 @@ font-weight:600;
 
 .site-footer {
   
- margin-top: 340px;
+ margin-top: 50px;
  padding-top: 15px;
 height: 200px;
 clear: both;
@@ -494,12 +494,16 @@ text-align: center;
     padding: 10px 5px 0;
 }
 
-.site-footer a, .site-footer a:hover, .site-footer a:focus {
-    color: #000;
+.site-footer a,  .site-footer a:focus {
+    color: #555;
     font-weight: 700;
    text-align: middle;
      
 
+}
+
+.site-footer a:hover {
+    color: #2d699e;
 }
 
 .site-footer .back-to-top:hover:before {
@@ -1657,5 +1661,10 @@ textarea {
 .searchButton2 {
   margin-top: 50px;
   margin-left: 15px;
+}
+
+.mainLinks a {
+  color: #FFF;
+
 }
 
