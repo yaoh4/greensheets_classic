@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormGrant" table="FORM_GRANT_VW" schema="NCI" optimistic-lock="version">
+        <composite-id name="id" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormGrantId">
+            <key-property name="dummyFlag" type="yes_no">
+                <column name="DUMMY_FLAG" length="1" />
+            </key-property>
+            <key-property name="onControlFlag" type="yes_no">
+                <column name="ON_CONTROL_FLAG" length="1" />
+            </key-property>
+            <key-property name="electronicSubmissionFlag" type="yes_no">
+                <column name="ELECTRONIC_SUBMISSION_FLAG" length="1" />
+            </key-property>
+            <key-property name="applId" type="integer">
+                <column name="APPL_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="fullGrantNum" type="string">
+                <column name="FULL_GRANT_NUM" length="19" />
+            </key-property>
+            <key-property name="rfaPaNumber" type="string">
+                <column name="RFA_PA_NUMBER" length="10" />
+            </key-property>
+            <key-property name="councilMeetingDate" type="string">
+                <column name="COUNCIL_MEETING_DATE" length="6" />
+            </key-property>
+            <key-property name="firstName" type="string">
+                <column name="FIRST_NAME" length="30" />
+            </key-property>
+            <key-property name="miName" type="string">
+                <column name="MI_NAME" length="30" />
+            </key-property>
+            <key-property name="lastName" type="string">
+                <column name="LAST_NAME" length="30" />
+            </key-property>
+            <key-property name="piName" type="string">
+                <column name="PI_NAME" length="93" />
+            </key-property>
+            <key-property name="irgPercentileNum" type="integer">
+                <column name="IRG_PERCENTILE_NUM" precision="22" scale="0" />
+            </key-property>
+            <key-property name="priorityScoreNum" type="integer">
+                <column name="PRIORITY_SCORE_NUM" precision="22" scale="0" />
+            </key-property>
+            <key-property name="applTypeCode" type="string">
+                <column name="APPL_TYPE_CODE" length="1" />
+            </key-property>
+            <key-property name="adminPhsOrgCode" type="string">
+                <column name="ADMIN_PHS_ORG_CODE" length="2" />
+            </key-property>
+            <key-property name="activityCode" type="string">
+                <column name="ACTIVITY_CODE" length="3" />
+            </key-property>
+            <key-property name="serialNum" type="integer">
+                <column name="SERIAL_NUM" precision="6" scale="0" />
+            </key-property>
+            <key-property name="supportYear" type="integer">
+                <column name="SUPPORT_YEAR" precision="2" scale="0" />
+            </key-property>
+            <key-property name="suffixCode" type="string">
+                <column name="SUFFIX_CODE" length="4" />
+            </key-property>
+            <key-property name="applStatusCode" type="string">
+                <column name="APPL_STATUS_CODE" length="2" />
+            </key-property>
+            <key-property name="applStatusGroupCode" type="string">
+                <column name="APPL_STATUS_GROUP_CODE" length="2" />
+            </key-property>
+            <key-property name="formerNum" type="string">
+                <column name="FORMER_NUM" length="19" />
+            </key-property>
+            <key-property name="budgetStartDate" type="timestamp">
+                <column name="BUDGET_START_DATE" length="7" />
+            </key-property>
+            <key-property name="latestBudgetStartDate" type="timestamp">
+                <column name="LATEST_BUDGET_START_DATE" length="7" />
+            </key-property>
+            <key-property name="fy" type="integer">
+                <column name="FY" precision="4" scale="0" />
+            </key-property>
+            <key-property name="ipf" type="integer">
+                <column name="IPF" precision="22" scale="0" />
+            </key-property>
+            <key-property name="orgName" type="string">
+                <column name="ORG_NAME" length="120" />
+            </key-property>
+            <key-property name="withinPaylineFlag" type="string">
+                <column name="WITHIN_PAYLINE_FLAG" length="4000" />
+            </key-property>
+            <key-property name="cayCode" type="string">
+                <column name="CAY_CODE" length="8" />
+            </key-property>
+            <key-property name="roleUsageCode" type="string">
+                <column name="ROLE_USAGE_CODE" length="2" />
+            </key-property>
+            <key-property name="pdNpeId" type="integer">
+                <column name="PD_NPE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="pdNpnId" type="integer">
+                <column name="PD_NPN_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="pdLastName" type="string">
+                <column name="PD_LAST_NAME" length="30" />
+            </key-property>
+            <key-property name="pdFirstName" type="string">
+                <column name="PD_FIRST_NAME" length="30" />
+            </key-property>
+            <key-property name="pdMiName" type="string">
+                <column name="PD_MI_NAME" length="30" />
+            </key-property>
+            <key-property name="pdUserId" type="string">
+                <column name="PD_USER_ID" length="30" />
+            </key-property>
+            <key-property name="gmsCode" type="string">
+                <column name="GMS_CODE" length="2" />
+            </key-property>
+            <key-property name="gmsNpeId" type="integer">
+                <column name="GMS_NPE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="gmsNpnId" type="integer">
+                <column name="GMS_NPN_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="gmsLastName" type="string">
+                <column name="GMS_LAST_NAME" length="30" />
+            </key-property>
+            <key-property name="gmsFirstName" type="string">
+                <column name="GMS_FIRST_NAME" length="30" />
+            </key-property>
+            <key-property name="gmsMiName" type="string">
+                <column name="GMS_MI_NAME" length="30" />
+            </key-property>
+            <key-property name="gmsUserId" type="string">
+                <column name="GMS_USER_ID" length="30" />
+            </key-property>
+            <key-property name="bkupGmsCode" type="string">
+                <column name="BKUP_GMS_CODE" length="2" />
+            </key-property>
+            <key-property name="bkupGmsNpeId" type="integer">
+                <column name="BKUP_GMS_NPE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="bkupGmsNpnId" type="integer">
+                <column name="BKUP_GMS_NPN_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="bkupGmsLastName" type="string">
+                <column name="BKUP_GMS_LAST_NAME" length="30" />
+            </key-property>
+            <key-property name="bkupGmsFirstName" type="string">
+                <column name="BKUP_GMS_FIRST_NAME" length="30" />
+            </key-property>
+            <key-property name="bkupGmsMiName" type="string">
+                <column name="BKUP_GMS_MI_NAME" length="30" />
+            </key-property>
+            <key-property name="bkupGmsUserId" type="string">
+                <column name="BKUP_GMS_USER_ID" length="30" />
+            </key-property>
+            <key-property name="allGmsUserids" type="string">
+                <column name="ALL_GMS_USERIDS" length="61" />
+            </key-property>
+            <key-property name="pgmFormStatus" type="string">
+                <column name="PGM_FORM_STATUS" length="50" />
+            </key-property>
+            <key-property name="pgmFormSubmittedDate" type="timestamp">
+                <column name="PGM_FORM_SUBMITTED_DATE" length="7" />
+            </key-property>
+            <key-property name="specFormStatus" type="string">
+                <column name="SPEC_FORM_STATUS" length="50" />
+            </key-property>
+            <key-property name="specFormSubmittedDate" type="timestamp">
+                <column name="SPEC_FORM_SUBMITTED_DATE" length="7" />
+            </key-property>
+            <key-property name="dmFormStatus" type="string">
+                <column name="DM_FORM_STATUS" length="50" />
+            </key-property>
+            <key-property name="mbMinorityFlag" type="yes_no">
+                <column name="MB_MINORITY_FLAG" length="1" />
+            </key-property>
+            <key-property name="pgmGsReadyFlag" type="string">
+                <column name="PGM_GS_READY_FLAG" length="3" />
+            </key-property>
+            <key-property name="gpmatsDayCountNum" type="string">
+                <column name="GPMATS_DAY_COUNT_NUM" length="40" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

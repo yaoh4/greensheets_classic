@@ -16,7 +16,8 @@ public interface GrantDAO {
             String grantMechanism,
             String fullGrantNum,
             String piLastName,
-            String piFirstName
+            String piFirstName,
+            boolean filterCancelled
             );
 
     public List findGrants(String nciOracleId,
@@ -24,7 +25,8 @@ public interface GrantDAO {
             Calendar latestBudgetEndDate,
             boolean onControlFlag,
             boolean restrictedToOpenForms,
-            boolean restrictedToLoggedinUser);
+            boolean restrictedToLoggedinUser,
+            boolean filterCancelled);
 
     public List findGrantsByGrantNum(String fullGrantNum);
 

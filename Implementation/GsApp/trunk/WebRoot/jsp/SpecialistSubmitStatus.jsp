@@ -1,4 +1,3 @@
-<%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.reports.*" %>
 <%@ page import="java.util.*" %>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,8 +29,6 @@
 <%
 
 if(session.getAttribute("list") == null || request.getParameter("refreshList")!= null){
-    List list = SpecialistStatusDAO.getSpecialistStatusData();
-    session.setAttribute("list",list);
 }
 %>
 

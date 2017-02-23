@@ -28,6 +28,8 @@ public class GsUser implements Serializable {
 	private static final long serialVersionUID = -1251126806314707178L;
 
 	private GsUserRole role;
+	
+	private GsUserRole formBuilderRole;
 
 	private String remoteUserName;
 
@@ -265,5 +267,13 @@ public class GsUser implements Serializable {
 	public String toString() {
 		return "user " + this.remoteUserName + " [" + this.userName + "/" + this.oracleId + ": " +
 			this.getRoleAsString() + "]";
+	}
+	
+	public GsUserRole getFormBuilderRole() {
+		return formBuilderRole;
+	}
+
+	public void setFormBuilderRole(GsUserRole formBuilderRole) {
+		this.formBuilderRole = formBuilderRole;
 	}
 }

@@ -9,4 +9,11 @@ public interface GreensheetFormDAO {
 
     public boolean checkActionStatusByGrantId(String grantId) throws GreensheetBaseException;
 
+    /**
+     * GREENSHEET-495
+     * 
+     * Is a given APPL_ID a Type 6 Grant with Award Type 1, 2, 4, 5,8 9 in same FY?
+     */
+	public boolean isValidGrantType(String applId, StringBuffer gn) throws GreensheetBaseException;
+
 }

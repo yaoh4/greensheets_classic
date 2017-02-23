@@ -66,6 +66,7 @@ public class GreensheetFormDataHelper {
         try {
 
             conn = DbConnectionHelper.getInstance().getConnection();
+            logger.debug("Using connection: " + conn);
             //			stmt = conn.createStatement();	// Rewrite the SQL to improve the performance in the Greensheets application
 
             String form_role_code = null;
@@ -241,8 +242,8 @@ public class GreensheetFormDataHelper {
         int formId = 0;
         try {
 
-            conn = DbConnectionHelper.getInstance().getConnection(
-                    user.getOracleId());
+            conn = DbConnectionHelper.getInstance().getConnection(user.getOracleId());
+            logger.debug("Using connection: " + conn);
             boolean autoCommitStatus = conn.getAutoCommit();
             conn.setAutoCommit(false);  //  ***** TRANSACTION BEGINS ****
 
@@ -401,8 +402,8 @@ public class GreensheetFormDataHelper {
     	Connection conn = null;
         PreparedStatement pstmt = null;
         try {
-            conn = DbConnectionHelper.getInstance().getConnection(
-                    user.getOracleId());
+            conn = DbConnectionHelper.getInstance().getConnection(user.getOracleId());
+            logger.debug("Using connection: " + conn);
             //String updateSql = "update forms_t set form_status = ?, submitted_user_id = ?, submitted_date = sysdate where id = ?";
             String updateSql = "update forms_t set form_status = ?, submitted_user_id = ?, submitted_date = ? where id = ?";
             logger.debug("changeStatusSql and setSubmitterSql " + updateSql);
@@ -469,6 +470,7 @@ public class GreensheetFormDataHelper {
 
         try {
             conn = DbConnectionHelper.getInstance().getConnection();
+            logger.debug("Using connection: " + conn);
             //			stmt = conn.createStatement(); //Rewrite the SQL to improve the performance in the Greensheets application
             //			 Commented out the following SQL: Rewrite the SQL to improve the performance in the Greensheets application
             //			String sql = "select * from form_question_answers_t where frm_id ="

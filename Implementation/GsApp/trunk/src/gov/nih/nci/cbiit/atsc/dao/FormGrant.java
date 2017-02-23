@@ -64,6 +64,8 @@ public class FormGrant implements Serializable {
     private Date specFormSubmittedDate;
     private String dmFormStatus;
     private boolean minority;
+    private String pgmGsReadyFlag;
+    private String gpmatsDayCountNum;
 
     public boolean isDummy() {
         return dummy;
@@ -535,6 +537,22 @@ public class FormGrant implements Serializable {
         } else {
             this.minority = false;
         }
+    }
+    
+    public String getPgmGsReadyFlag() {
+        return pgmGsReadyFlag;
+    }
+
+    public void setPgmGsReadyFlag(String pgmGsReadyFlag) {
+        this.pgmGsReadyFlag = pgmGsReadyFlag;
+    }
+    
+    public String getGpmatsDayCountNum() {
+        return gpmatsDayCountNum;
+    }
+
+    public void setGpmatsDayCountNum(String gpmatsDayCountNum) {
+        this.gpmatsDayCountNum = gpmatsDayCountNum;
     }
 
     public boolean equals(Object object) {

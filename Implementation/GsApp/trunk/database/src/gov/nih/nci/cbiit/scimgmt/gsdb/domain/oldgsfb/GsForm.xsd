@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Purpose: XML Schema Definition file for the new Form XML format.  
+	Author: Krishna M. Kanchinadam
+	Company: Number Six Software
+	Date: 09/03/2003
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<!-- Definition of Basic Data Types - Start -->
+	<xs:simpleType name="dataType_string_1">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_String_10">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_String_20">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_String_50">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_String_100">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_String_200">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_String_250">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="250"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_String_65534">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="65534"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_Decimal">
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_Double">
+		<xs:restriction base="xs:double"/>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_PositiveInteger">
+		<xs:restriction base="xs:positiveInteger"/>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_Date">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="dataType_Boolean">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<!-- Definition of Basic Data Types - End -->
+	<!-- Definition of Simple Data Types - Start -->
+	<xs:simpleType name="GreensheetFormId">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="QuestionDefId">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([A-Z])+[_][1-9]([0-9])*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResponseDefId">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([A-Z])+[_][1-9]([0-9])*[_][R][D][_](TX|NU|ST|DT|RB|DD|CB|FL|CM)[_][1-9]([0-9])*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SelectionDefId">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([S][E][L][_][X_]*[1-9]([0-9])*)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GrantType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="GrantMech">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="QuestionText">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="QuestionInstructions">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="SelectionValue">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ResponseTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="COMMENT"/>
+			<xs:enumeration value="CHECK_BOX"/>
+			<xs:enumeration value="DATE"/>
+			<xs:enumeration value="DROP_DOWN"/>
+			<xs:enumeration value="FILE"/>
+			<xs:enumeration value="NUMBER"/>
+			<xs:enumeration value="RADIO"/>
+			<xs:enumeration value="STRING"/>
+			<xs:enumeration value="TEXT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definition of Simple Data Types - End -->
+	<!-- Definition of Simple Elements - Start -->
+	<!-- These simple elements are being declared here with the appropriate type. The elements would be used in constructing the XML document. Defining elements in this manner 
+		promotes re-use of the same element from multiple locations in the XML document.  -->
+	<xs:complexType name="SelectionDefElement">
+		<xs:sequence>
+			<xs:element name="Value" type="SelectionValue"/>
+			<xs:element name="QuestionDef" type="QuestionDefElement" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="SelectionDefId" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ResponseDefElement">
+		<xs:sequence>
+			<xs:element name="SelectionDef" type="SelectionDefElement" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="ResponseDefId" use="required"/>
+		<xs:attribute name="type" type="ResponseTypes" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ResponseDefsListElement">
+		<xs:sequence>
+			<xs:element name="ResponseDef" type="ResponseDefElement" maxOccurs="3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GrantTypeMechsElement">
+		<xs:sequence>
+			<xs:element name="TypeMech" type="TypeMechElement" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QuestionDefElement">
+		<xs:sequence>
+			<xs:element name="GrantTypeMechs" type="GrantTypeMechsElement">
+				<xs:key name="keyTypeMech">
+					<xs:selector xpath="./TypeMech"></xs:selector>
+					<xs:field xpath="@type"></xs:field>
+					<xs:field xpath="@mech"></xs:field>				
+				</xs:key>
+			</xs:element>
+			<xs:element name="QText" type="QuestionText"/>
+			<xs:element name="QInstructions" type="QuestionInstructions"/>
+			<xs:element name="ResponseDefsList" type="ResponseDefsListElement"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="QuestionDefId" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="TypeMechElement">
+		<xs:attribute name="type" type="GrantType" use="required"/>
+		<xs:attribute name="mech" type="GrantMech" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="GreensheetQuestionsElement">
+		<xs:sequence>
+			<xs:element name="QuestionDef" type="QuestionDefElement" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="GreensheetFormId"/>
+	</xs:complexType>
+	<xs:complexType name="GreensheetFormElement">
+		<xs:sequence>
+			<xs:element name="GreensheetQuestions" type="GreensheetQuestionsElement">
+				<xs:key name="keyQuestionDefId">
+					<xs:selector xpath=".//QuestionDef"/>
+					<xs:field xpath="@id"/>
+				</xs:key>
+				<xs:key name="keyResponseDefId">
+					<xs:selector xpath=".//ResponseDef"/>
+					<xs:field xpath="@id"/>
+				</xs:key>
+				<xs:key name="keySelectionDefId">
+					<xs:selector xpath=".//SelectionDef"/>
+					<xs:field xpath="@id"/>
+				</xs:key>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GreensheetForm" type="GreensheetFormElement">
+	</xs:element>
+</xs:schema>

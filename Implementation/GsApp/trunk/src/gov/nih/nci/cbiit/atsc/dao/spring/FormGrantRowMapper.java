@@ -1,17 +1,17 @@
 package gov.nih.nci.cbiit.atsc.dao.spring;
 
-import gov.nih.nci.cbiit.atsc.dao.FormGrant;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import gov.nih.nci.cbiit.atsc.dao.FormGrant;
+
 public class FormGrantRowMapper implements RowMapper {
 
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		FormGrant formGrant = new FormGrant();
-		
+
 		formGrant.setDummy(rs.getString("DUMMY_FLAG"));
 		formGrant.setOnControl(rs.getString("ON_CONTROL_FLAG"));
 		formGrant.setElectronicallySubmitted(rs.getString("ELECTRONIC_SUBMISSION_FLAG"));
@@ -69,6 +69,14 @@ public class FormGrantRowMapper implements RowMapper {
 		formGrant.setSpecFormSubmittedDate(rs.getDate("SPEC_FORM_SUBMITTED_DATE"));
 		formGrant.setDmFormStatus(rs.getString("DM_FORM_STATUS"));
 		formGrant.setMinority(rs.getString("MB_MINORITY_FLAG"));
+		formGrant.setPgmGsReadyFlag(rs.getString("PGM_GS_READY_FLAG"));
+		int GpmatsDayCountNum = rs.getInt("GPMATS_DAY_COUNT_NUM");
+
+		if (rs.wasNull()) {
+			formGrant.setGpmatsDayCountNum(null);
+		} else {
+			formGrant.setGpmatsDayCountNum(GpmatsDayCountNum + "");
+		}
 
 		return formGrant;
 	}

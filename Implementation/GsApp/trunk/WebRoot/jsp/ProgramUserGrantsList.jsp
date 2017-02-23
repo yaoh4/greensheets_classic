@@ -149,8 +149,9 @@
 			</tr>
 			<tr>
 				<td width="100%">
-					<display:table name="sessionScope.GRANT_LIST" requestURI="" class="data" id="row" defaultsort="3" sort="list" pagesize="50" cellspacing="0" style="width: 100%;">
+					<display:table name="sessionScope.GRANT_LIST" requestURI="" class="data" id="row" defaultsort="4" sort="list" pagesize="50" cellspacing="0" style="width: 100%;">
 						<display:column sortable="true" property="programGreensheet" title="Pgm GS" />
+						<display:column sortable="true" property="gpmatsDayCountNum" title="# of Days in GPMATS" />
 						<display:column sortable="true" property="grantNumberSort" title="Grant Number" />
 						<display:column sortable="true" property="latestBudgetStartDate" title="Budget Start Date" decorator="gov.nih.nci.iscs.numsix.greensheets.application.DateColumnDecorator" />
 						<display:column sortable="true" property="pd" title="PD" />

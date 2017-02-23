@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormElements" table="FORM_ELEMENTS_T" schema="NCI" optimistic-lock="version">
+        <id name="id" type="integer">
+            <column name="ID" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="formTemplates" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormTemplates" fetch="select">
+            <column name="TEMPLATE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="formAnswers" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormAnswers" fetch="select">
+            <column name="PARENT_ANSWER_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="formQuestions" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormQuestions" fetch="select">
+            <column name="QUESTION_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="formElements" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormElements" fetch="select">
+            <column name="PARENT_ELEMENT_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="elementUuid" type="string">
+            <column name="ELEMENT_UUID" length="36" />
+        </property>
+        <property name="order" type="integer">
+            <column name="ORDER_NUM" precision="10" scale="0" />
+        </property>
+        <property name="hierarchicalOrder" type="integer">
+            <column name="HIERARCHICAL_ORDER" precision="10" scale="0" />
+        </property>
+        <property name="required" type="yes_no">
+            <column name="REQUIRED_FLAG" length="3" />
+        </property>
+        <property name="readonly" type="yes_no">
+            <column name="READONLY_FLAG" length="3" />
+        </property>
+        <property name="learnMore" type="string">
+            <column name="LEARN_MORE" length="2000" />
+        </property>
+        <property name="text" type="string">
+            <column name="TEXT" length="2000" />
+        </property>
+        <property name="gsfbChangedUserId" type="string">
+            <column name="GSFB_CHANGED_USER_ID" length="25" />
+        </property>
+        <property name="gsfbChangeDate" type="timestamp">
+            <column name="GSFB_CHANGE_DATE" length="7" />
+        </property>
+        <property name="updateStamp" type="integer">
+            <column name="UPDATE_STAMP" precision="5" scale="0" />
+        </property>
+        <set name="formElementses" table="FORM_ELEMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="PARENT_ELEMENT_ID" precision="10" scale="0" not-null="true"/>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormElements" />
+        </set>
+    </class>
+</hibernate-mapping>

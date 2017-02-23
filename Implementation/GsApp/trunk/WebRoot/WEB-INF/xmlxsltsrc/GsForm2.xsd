@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by Leonid Kagan (private) -->
+<!-- Copyright (C) 2013 HealthCare IT, Inc. - All Rights Reserved Unauthorized copying or redistribution of this file in 
+	source and binary forms via any medium is strictly prohibited Proprietary and confidential -->
+<xs:schema xmlns:gsf="http://greensheets.lifedatasystems.com/GsForms" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://greensheets.lifedatasystems.com/GsForms" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="TagType">
+		<xs:sequence>
+			<xs:element name="name">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="description" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QuestionType">
+		<xs:sequence>
+			<xs:element name="shortName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="250"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="answer">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:annotation>
+								<xs:documentation>An anser element can have either a description (additional label for text fields) or a list of answerValues for enumerated answers</xs:documentation>
+							</xs:annotation>
+							<xs:element name="description" type="gsf:LongTextType" minOccurs="0"/>
+							<xs:element name="answerValue" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:all>
+										<xs:element name="label">
+											<xs:annotation>
+												<xs:documentation>this is equivalent with a value element in SelectionDef in old schema</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="250"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:all>
+					 				<xs:attribute name="gsid" type="gsf:GsidType" use="required">
+										<xs:annotation>
+											<xs:documentation>This is equivalent with SelectionDef identifier (SEL) in the old schema</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="uuid" type="gsf:UuidType" use="required"/>
+									<xs:attribute name="order" type="xs:int" use="required"/>
+									<xs:attribute name="isDefault" type="xs:boolean"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+						<xs:element name="displayStyle" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Medium"/>
+									<xs:enumeration value="Long"/>
+									<xs:enumeration value="Short"/>
+									<xs:enumeration value="Horizontal"/>
+									<xs:enumeration value="Vertical"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="valueConstraint" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>min/max values for numeric fields in the format of 'min:1;max:134'  or max length for text fields with a simple numeric value</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="100"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="gsid" type="gsf:GsidType" use="required">
+						<xs:annotation>
+							<xs:documentation>This is equivalent to a ResponseDef (_RD_) identifier in the old schema</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="type" type="gsf:GsAnswerType" use="required"/>
+					<xs:attribute name="uuid" type="gsf:UuidType" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="modifiedBy" type="gsf:UserNameType"/>
+			<xs:element name="modifiedOn" type="xs:dateTime"/>
+		</xs:sequence>
+		<xs:attribute name="qType">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="tableQuestion"/>
+					<xs:enumeration value="question"/>
+					<xs:enumeration value=""/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="answerType" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="SINGLE_ANSWER"/>
+					<xs:enumeration value="MULTI_ANSWER"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="FormElementType" abstract="true">
+		<xs:sequence>
+			<xs:element name="modifiedBy" type="gsf:UserNameType"/>
+			<xs:element name="modifiedOn" type="xs:dateTime"/>
+			<xs:element name="skipRule" type="gsf:SkipRuleType" minOccurs="0"/>
+			<xs:element name="learnMore" type="gsf:LongTextType" minOccurs="0"/>
+			<xs:element name="description" type="gsf:LongTextType">
+				<xs:annotation>
+					<xs:documentation>Question or table text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tags" type="gsf:TagType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="gsid" type="gsf:GsidType" use="required">
+			<xs:annotation>
+				<xs:documentation>This is equivalent  to a QuestionDef identifier (Q) in the old schema</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="uuid" type="gsf:UuidType" use="required"/>
+		<xs:attribute name="order" type="xs:int" use="required">
+			<xs:annotation>
+				<xs:documentation>Specifies order of this element within a form</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isRequired" type="xs:boolean" use="required"/>
+		<xs:attribute name="isReadonly" type="xs:boolean" default="false"/>
+		<xs:attribute name="isVisible" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="QuestionElementType">
+		<xs:complexContent>
+			<xs:extension base="gsf:FormElementType">
+				<xs:sequence>
+					<xs:element name="question" type="gsf:QuestionType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContentElementType">
+		<xs:complexContent>
+			<xs:extension base="gsf:FormElementType">
+				<xs:sequence>
+					<xs:element name="description" type="gsf:LongTextType"/>
+				</xs:sequence>
+				<xs:attribute name="displayStyle" use="optional" default="HEADING">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="CUSTOM"/>
+							<xs:enumeration value="REGULAR"/>
+							<xs:enumeration value="SUBHEADING"/>
+							<xs:enumeration value="HEADING"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TableElementType">
+		<xs:complexContent>
+			<xs:extension base="gsf:FormElementType">
+				<xs:sequence>
+					<xs:element name="tableShortName">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="250"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="question" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="gsf:QuestionType">
+									<xs:sequence>
+										<xs:element name="description" type="gsf:LongTextType">
+											<xs:annotation>
+												<xs:documentation>Text for question that represents a row or a column in the table</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="gsid" type="gsf:GsidType" use="required"/>
+									<xs:attribute name="uuid" type="gsf:UuidType" use="required"/>
+									<xs:attribute name="order" type="xs:int" use="required">
+										<xs:annotation>
+											<xs:documentation>Specifies order of questions within a simple tables</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="isIdentifying" type="xs:boolean"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="tableType" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="SIMPLE"/>
+							<xs:enumeration value="DYNAMIC"/>
+							<xs:enumeration value="STATIC"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FormType">
+		<xs:sequence>
+			<xs:element name="name" type="gsf:LongTextType"/>
+			<xs:element name="description" type="gsf:LongTextType" minOccurs="0"/>
+			<xs:element name="createdBy" type="gsf:UserNameType" minOccurs="1"/>
+			<xs:element name="modifiedBy" type="gsf:UserNameType" minOccurs="1"/>
+			<xs:element name="modifiedOn" type="xs:dateTime"/>
+			<xs:element name="formRole" type="gsf:FormRoleType" minOccurs="0"/>
+			<xs:element name="typeMechs" type="gsf:TypeMechType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="questionElement" type="gsf:QuestionElementType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="tableElement" type="gsf:TableElementType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="contentElement" type="gsf:ContentElementType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="uuid" type="gsf:UuidType" use="required"/>
+	</xs:complexType>
+	<xs:element name="gsForms">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="form" type="gsf:FormType" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="SkipLogicalOpType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AND"/>
+			<xs:enumeration value="OR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FormRoleType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PGM"/>
+			<xs:enumeration value="SPEC"/>
+			<xs:enumeration value="REV"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LongTextType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UserNameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UuidType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GsidType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GsAnswerType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="POSITIVE_FLOAT"/>
+			<xs:enumeration value="POSITIVE_INTEGER"/>
+			<xs:enumeration value="INTEGER"/>
+			<xs:enumeration value="RADIO"/>
+			<xs:enumeration value="NUMBER"/>
+			<xs:enumeration value="STRING"/>
+			<xs:enumeration value="DROP_DOWN"/>
+			<xs:enumeration value="CHECK_BOX"/>
+			<xs:enumeration value="YEAR"/>
+			<xs:enumeration value="MONTH_YEAR"/>
+			<xs:enumeration value="DATE"/>
+			<xs:enumeration value="TEXT_AREA"/>
+			<xs:enumeration value="CHECK_MARK"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SkipRuleType">
+		<xs:annotation>
+			<xs:documentation>Skip rule defines all aspects of a ruyles that make a parent(skip target) element visible or hidden</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="questionSkipRule" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Question Skip Riule defines a source question an answer (or answers) to which trigger skip logic</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="answerSkipRule" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Answer skip rule defines a specific answer wich triggers skip logic</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:attribute name="answerValueUUID" type="xs:string" use="required"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="ruleValue"/>
+					<xs:attribute name="logicalOp" type="gsf:SkipLogicalOpType" use="required">
+						<xs:annotation>
+							<xs:documentation>The value of this attribute conrtols the logical operation unifying all answerSkipRules within this questionSipRule</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="triggerQuestionUUID" type="xs:string" use="required"/>
+					<xs:attribute name="triggerFormUUID" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="logicalOp" type="gsf:SkipLogicalOpType" use="required">
+			<xs:annotation>
+				<xs:documentation>The value of this attribute conrtols the logical operation unifying all questionSkipRules</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TypeMechType">
+		<xs:attribute name="grantType" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:minInclusive value="1"/>
+					<xs:maxInclusive value="9"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="grantMechanism" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="3"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

@@ -1,212 +1,328 @@
 <?xml version="1.0"?>
 
-<project basedir=".." default="deploy" name="greensheets">
-	<!-- 
-	
-	Make the environment variables available to the build script. 
-	<property environment="env"/>
+<project name="greensheets" default="compile" basedir="..">
+	<!-- ANT build.xml.
+	Target               			   	Description
+	clean       		           		Deletes all relevant dirs
+	make_deployment_dirs	       	Creates all relevant deployment dirs
+	compile			           				Compiles the java source code
+	copy_properties_files         Copy configuration files into conf.dir
+	javadoc                       Creates java documentation
+	war                           Creates war archive
 	-->
-	
-	<!-- set location of user build properties file -->
-	<property file="${basedir}/build/build.properties"/>
+
+	<tstamp>
+		<format property="start.timestamp" pattern="dd-MMM-yy HH:mm:ss"/>
+	</tstamp>
+	<echo message="Build started: ${start.timestamp}"></echo>
+	<echo message="Ant Java version: ${ant.java.version}"></echo>
+	<echo message="System Java version: ${java.version}"></echo>
+
+	<!-- Defined Environment & property files -->
+
+	<property environment="env"/>
+	<property file="${basedir}/build/user.properties"/>
+	<property file="${basedir}/build/env.properties"/>
+
+	<!-- Define project deployment properties -->
 
 	<property name="app.name"               value="greensheets"/>
-	<property name="distribution.dir"       value="./dist"/>
-	<property name="app.config.dir"         value="./appconfig"/>
-	<property name="web.root.dir"           value="./WebRoot"/>
-	<property name="src.java.dir"           value="./src"/>
-	<property name="web.inf.dir"            value="${web.root.dir}/WEB-INF"/>
-	<property name="lib.dir"                value="${web.inf.dir}/lib"/>
-	<property name="java.classes.dir"       value="${web.inf.dir}/classes"/>
-	<property name="app.name.war"           value="${app.name}.war"/>
-	<property name="non.war.lib.dir"        value="${basedir}/build/build_libs"/>
-	<property name="persistence.provider.dir" value="${persistence.provider.home}"/>
-
-	<!-- The following properties are not needed.
-	
 	<property name="package.root"           value="gov"/>
-	<property name="test.suite.file"        value="GsTestSuite.xml"/>
-	<property name="doc.dir"                value="./docs"/>
-	<property name="app.config.zip"         value="${app.name}AppConfig.zip"/>
-	-->
+	<property name="distribution.dir"       value="./dist" />
+	<property name="webcontent.dir"		    	value="./WebRoot" />
+	<property name="properties.dir"		    	value="./appconfig" />
+	<property name="javadoc.dir"            value="./docs/javadoc" />
+	<property name="web.inf.dir"            value="${webcontent.dir}/WEB-INF" />
+	<property name="global.lib.dir"					value="./lib" />
+	<property name="lib.dir"								value="${web.inf.dir}/lib" />
+	<property name="src.dir"                value="./src" />
+	<property name="test.dir"               value="./test" />
+	<property name="build.test.dir"         value="./build/test-classes" />
+	<property name="build.instrumented.dir" value="./build/instrumented-classes" />
+	<property name="test.report.dir"        value="./build/test-reports" />
+	<property name="cobertura.report.dir"   value="./build/cobertura-reports" />
+
+	<property name="build.dir"              value="./build" />
+	<property name="build.war.dir"          value="./build/war" />
+	<property name="java.classes.dir"				value="${web.inf.dir}/classes" />
+	<property name="app.war.dir"            value="${build.war.dir}/${app.name}"/>
+	<property name="app.war.inf"            value="${app.war.dir}/WEB-INF"/>
+	<property name="app.war.images"         value="${app.war.dir}/images"/>
+	<property name="app.distribution.dir"   value="${distribution.dir}"/>
+	<property name="app.name.war"           value="${app.name}.war"/>
+	<property name="env.properties.dir"  		value="${properties.dir}/${build.env}"/>
+	<property name="build.properties.dir"  	value="${properties.dir}"/>
+	<property name="pmd.buildrules"         value="${build.dir}/pmdrules.xml"/>
+
+
+	<echo message="************************************************************"></echo>
+	<echo message="Build started: ${start.timestamp}"></echo>
+	<echo message="Building application for   '${build.env}' Environment"></echo>
+	<echo message="************************************************************"></echo>
+
+
+	<!-- Define the project Classpath Settings -->
 	<path id="project.classpath">
-		<!-- <pathelement path="${classpath}"/> Check what this is for. This may represent the CLASSPATH environment variable, if the env variables are made available to this build script? -->
+		<!--<pathelement path="${classpath}"/>-->
 		<fileset dir="${lib.dir}">
 			<include name="*.jar"/>
 		</fileset>
-		<!--
-		<path location="${tomcat.home}/common/lib/jsp-api.jar" />
-		<path location="${tomcat.home}/common/lib/servlet-api.jar" />
-		<path location="${persistence.provider.dir}/jlib/eclipselink.jar" />
-		<path location="${persistence.provider.dir}/jlib/jpa/javax.persistence_2.0.0.v201002051058.jar" />
-		-->
-		<path location="${non.war.lib.dir}/jsp-api.jar" />
-		<path location="${non.war.lib.dir}/servlet-api.jar" />
+		<fileset erroronmissingdir="false" dir="${global.lib.dir}" includes="**/*.jar"/>
 	</path>
+
 	<property name="project.classpath" refid="project.classpath"/>
 
-	<!-- Needs more work here. -->
-	<target name="clean" description="Cleans all build files including .class, .jar, .war, and javadocs">
-		<delete includeemptydirs="true">
-			<fileset dir="${java.classes.dir}" includes="**/*"/> <!-- Deletes all files and subdirectories of classes, without classes itself. -->
+	<path id="junit-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${global.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<!-- Create deployment dirs make_deployment_dirs -->
+	<target name="make_deployment_dirs" description="create deployment dirs">
+		<mkdir dir="${java.classes.dir}"/>
+		<mkdir dir="${javadoc.dir}"/>
+		<mkdir dir="${distribution.dir}"/>
+		<mkdir dir="${app.distribution.dir}"/>
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.test.dir}"/>
+		<mkdir dir="${build.instrumented.dir}"/>
+		<mkdir dir="${test.report.dir}"/>
+		<mkdir dir="${global.lib.dir}"/>
+		<mkdir dir="${build.war.dir}"/>
+		<mkdir dir="${conf.dir}/${app.name}"/>
+		<mkdir dir="${app.war.inf}"/>
+		<mkdir dir="${app.war.images}"/>
+	</target>
+
+	<!-- remove deployment dirs before deoplyment -->
+	<target name="clean" description="remove deployment dirs before deploymemt">
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${java.classes.dir}" includes="**/*"/>
 		</delete>
-		<delete includeemptydirs="true">
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${javadoc.dir}" includes="**/*"/>
+		</delete>
+		<delete includeEmptyDirs="true" failonerror="false">
 			<fileset dir="${distribution.dir}" includes="**/*"/>
 		</delete>
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${build.war.dir}" includes="**/*"/>
+		</delete>
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${test.report.dir}"/>
+		</delete>
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${build.test.dir}"/>
+		</delete>
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${build.instrumented.dir}"/>
+		</delete>
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${cobertura.report.dir}"/>
+		</delete>
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${conf.dir}/${app.name}" includes="**/*"/>
+		</delete>
 	</target>
-		
-	<target name="compile" description="Compiles the java source files using the classpath specified. Also copies any resource files that are in the java source directories.">
-		<!-- Create the classes dir -->
-		<mkdir dir="${java.classes.dir}" />
 
-		<!-- 
-		Abdul: Commented out the following and placed different one.
 
-	    <javac 
-	        classpath="${project.classpath}" 
-	        srcdir="${src.java.dir}"
-	        destdir="${java.classes.dir}"
-	       debug="${javac.debug}"/>
-   		-->
-		<!-- Compiles the .java source files using the classpath specified. -->
-		<echo message="${project.classpath}" />
-		<!--
-		<javac classpath="${project.classpath}" srcdir="${src.java.dir}" destdir="${java.classes.dir}" debug="${debug.enabled}" debuglevel="lines,vars,source" />
-		-->
-		<javac source="1.5" target="1.5" classpath="${project.classpath}" srcdir="${src.java.dir}" destdir="${java.classes.dir}" debug="on" debuglevel="lines,vars,source" />
-		<!-- Copies all resource files (e.g. *.properties, *.txt, etc) to the WEB-INF/classes dir -->
+	<!-- compile project source -->
+	<target name="compile" depends="make_deployment_dirs"
+		description="compiles the java source files" >
+		<javac includeantruntime="false" debug="on"
+			classpath="${project.classpath}"
+			srcdir="${src.dir}"
+		destdir="${java.classes.dir}" />
 		<copy todir="${java.classes.dir}">
-			<fileset dir="${src.java.dir}" excludes="**/*.java" />
+			<fileset dir="${src.dir}" excludes="**/*.java"/>
 		</copy>
-		<copy file="${src.java.dir}/applicationContext.xml" todir="${java.classes.dir}" />
 	</target>
 
-    <target name="build" depends="compile" description="Creates war file." >
-        <!-- Creates the war file. -->
-        <war warfile="${distribution.dir}/${app.name.war}" webxml="${web.inf.dir}/web.xml">
-            <fileset dir="${web.root.dir}">
-                <exclude name="${web.inf.dir}/web.xml" /> <!--
-				<include name ="${persistence.provider.dir}/jlib/eclipselink.jar" />
-				<include name ="${persistence.provider.dir}/jlib/jpa/javax.persistence_2.0.0.v201002051058.jar" />			-->	
-            </fileset>
-        </war>
-    </target>	
-
-    <!-- jsp_copy_direct -->
-    <target name="jsp_copy_direct">  <!-- depends="set_dev_structure" -->
-    
-        <property name="appserver_webapps_dir" value="${deploy.local.tomcat.dir}"/>
-        <property name="appserver_configs_dir" value="${deploy.local.tomcat.conf.dir}"/>
-    
-        <!-- Copy the JSPs directly to the local app server deployment directory -->
-        <copy todir="${appserver_webapps_dir}/${app.name}/jsp">
-            <fileset dir="${web.root.dir}/jsp">
-                <include name="**/*.jsp"/>
-                <exclude name="**/.svn/**"/>
-            </fileset>
-        </copy>
-    
-        <copy todir="${appserver_webapps_dir}/${app.name}/images">
-            <fileset dir="${web.root.dir}/images">
-                <include name="**/*.gif"/>
-                <include name="**/*.jpg"/>
-                <include name="**/*.png"/>
-                <exclude name="**/.svn/**"/>
-            </fileset>
-        </copy>
-    
-        <copy todir="${appserver_webapps_dir}/${app.name}/stylesheets">
-            <fileset dir="${web.root.dir}/stylesheets">
-                <include name="**/*.css"/>
-                <exclude name="**/.svn/**"/>
-            </fileset>
-        </copy>
-    
-        <copy todir="${appserver_webapps_dir}/${app.name}/scripts">
-            <fileset dir="${web.root.dir}/scripts">
-                <include name="**/*.js"/>
-                <exclude name="**/.svn/**"/>
-            </fileset>
-        </copy>
-    </target>
-
-	
-   <!-- Hot-deploy as uncompressed directory to the local app server -->
-    <target name="deploy" depends="compile" description="Hot-deploy as uncompressed directory to the local app server">
-
-        <property name="appserver_webapps_dir" value="${deploy.local.tomcat.dir}"/>
-        <property name="appserver_configs_dir" value="${deploy.local.tomcat.conf.dir}"/>
-
-        <!-- Copy properties files to the directory where Tomcat will look for them -->
-        <copy todir="${appserver_configs_dir}/${app.name}">
-            <fileset dir="${app.config.dir}" includes="*.properties"/>
-        </copy>
-
-        <!-- Copy the "exploded" contents of what would be the WAR file, but without zipping it up -->
-        <copy todir="${appserver_webapps_dir}/${app.name}">
-            <fileset dir="${web.root.dir}">
-                <include name="**/*"/>
-                <exclude name="**/.svn/**"/>
-            </fileset>
-        </copy>
-        <copy todir="${appserver_webapps_dir}/${app.name}/WEB-INF" overwrite="true"
-              file="${web.inf.dir}/web.xml"/>
-        <!-- This ^ ensures web.xml will be overwritten even if it's unchanged - which should cause
-             hot-redeployment on the fly, if the app server is configured to watch web.xml.
-         -->
-    </target>
-
-	<target name="deploy_war_local" depends="build" description="Deploys to the target/runtime environment specified in the user.properties file. " >
-		<copy file="${distribution.dir}/${app.name.war}" tofile="${deploy.local.tomcat.dir}/${app.name.war}"/>
-		<!-- Check the THE ANT-CONTRIB TASKS for the if/then/else logic -->		
-
-				<copy todir="${deploy.local.tomcat.conf.dir}/${app.name}" overwrite="true">
-					<fileset dir="${app.config.dir}/local" includes="*.*"/>
-				</copy>			
-		<!--
-		Needs work to prepare the distributbles for the other target/runtime environments.
-		
-		<if name="runtime.env" value="dev">
-		</if>
-		<if name="runtime.env" value="test">
-		</if>
-		<if name="runtime.env" value="training">
-		</if>
-		<if name="runtime.env" value="prod">
-		</if>		
-		-->
+	<target name="compile-test" depends="compile" description="compiles the java unit test source files using the classpath specified">
+		<!-- compile source for junit -->
+		<javac srcdir="${test.dir}" destdir="${build.test.dir}" debug="true" optimize="false" failonerror="true" includeantruntime="false">
+			<classpath refid="junit-classpath" />
+			<classpath location="${java.classes.dir}" />
+		</javac>
+		<copy todir="${build.test.dir}">
+			<fileset dir="${test.dir}">
+				<include name="**/*.xml" />
+			</fileset>
+		</copy>
 	</target>
-	
-	<!-- 
-		Clean up the target runtime environment. Delete the following:
-		
-		AppConfig directory and its contents
-		Server log files.
-		Greensheets app specific log files.
-		Greensheets app specific Direcory and .war file in <TOMCAT_HOME>/webapps.
-		Greensheets app specific direcory under work/Catalina/localhost
-	-->
-	<target name="cleanuplocalserver" description="Cleans up the target runtime environment." >
-		<delete includeemptydirs="true">
-			<fileset dir="${deploy.local.tomcat.conf.dir}/${app.name}" includes="**/*"/>
-		</delete>
-		
-		<delete includeemptydirs="true">
-			<fileset dir="${tomcat.home}/logs" includes="**/*"/>
-		</delete>
 
-		<delete includeemptydirs="true">
-			<fileset dir="${tomcat.home}/nci_apps_logs" includes="**/*"/>
-		</delete>		
+	<!--  copy various proerties files to required directories -->
+	<target name="copy_properties_files" depends="make_deployment_dirs"
+		description="copies properties files to deployment folders" >
+		<!-- copy other properties to conf folder -->
+		<echo message="copying property files from : ${build.properties.dir}" />
 
-		<delete dir="${deploy.local.tomcat.dir}/${app.name}" />
-		
-		<delete file="${deploy.local.tomcat.dir}/${app.name}.war"/>
-		
-		<delete dir="${tomcat.home}/work/Catalina/localhost/${app.name}" />
+		<copy todir="${conf.dir}/${app.name}">
+			<!--			<fileset dir="${build.properties.dir}">
+			<include name="**/*.properties"/>
+		</fileset>-->
+			<fileset dir="${env.properties.dir}">
+				<include name="**/*.properties"/>
+			</fileset>
+		</copy>
 	</target>
-	
-	<target name="echoProp">
-		<echo>Project CLASSPATH="${project.classpath}"</echo>
+
+	<!-- creat javadoc from the java source files -->
+<target name="javadoc" depends="make_deployment_dirs" >
+	<javadoc classpath="${project.classpath}"
+		destdir="${javadoc.dir}"
+		sourcepath="${src.dir}"
+	packagenames="${package.root}/*"/>
+</target>
+<!-- for backward compatibility w AntHill Pro -->
+<target name="build" depends="war">
+</target>
+
+<!--  build the web archive -->
+<target name="war" depends="compile" description="create war file">
+	<copy todir="${app.war.dir}">
+		<fileset dir="${webcontent.dir}">
+			<include name="**/*"/>
+		</fileset>
+	</copy>
+
+	<!-- create war file -->
+	<war destfile="${app.distribution.dir}/${app.name.war}" webxml="${app.war.inf}/web.xml">
+		<fileset dir="${app.war.dir}">
+			<exclude name="**/web.xml"/>
+		</fileset>
+		<classes dir="${java.classes.dir}"/>
+		<!-- TODO: /WEB-INF/lib should NOT include any jars that aren't meant to go in the war.  Those belong in /lib -->
+		<lib dir="${lib.dir}" >
+			<exclude name="jasper-runtime.jar"/>
+			<exclude name="catalina-ant.jar"/>
+			<exclude name="ant-contrib-1.0b2.jar"/>
+			<exclude name="activation.jar"/>
+			<exclude name="mail.jar"/>
+			<exclude name="tomcat/*.jar"/>
+			<exclude name="tomcat"/>
+		</lib>
+	</war>
+</target>
+
+<!-- junit -->
+<target name="junit" depends="compile-test">
+	<junit showoutput="true" printsummary="yes" fork="true" haltonfailure="no">
+		<sysproperty key="net.sourceforge.cobertura.datafile" file="${basedir}/cobertura.ser"/>
+		<classpath>
+			<pathelement location="${build.test.dir}"/>
+		</classpath>
+		<classpath refid="junit-classpath" />
+		<classpath location="${build.dir}" />
+		<classpath location="${web.inf.dir}" />
+		<classpath location="${java.classes.dir}" />
+		<formatter type="xml"/>
+		<batchtest fork="yes" todir="${test.report.dir}">
+			<fileset dir="${test.dir}" includes="**/*Test.java"/>
+		</batchtest>
+	</junit>
+</target>
+
+<!-- junit with code coverage (COBERTURA 2.1.1) -->
+	<target name="junit-coverage" depends="compile-test">
+
+		<fail unless="COBERTURA_HOME" message="ERROR: COBERTURA_HOME variable is not set"/>
+
+		<property name="cobertura.dir" value="${COBERTURA_HOME}"/>
+		<path id="cobertura.classpath">
+			<fileset dir="${cobertura.dir}">
+				<include name="cobertura-2.1.1.jar"/>
+				<include name="lib/**/*.jar"/>
+			</fileset>
+		</path>
+
+		<taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+
+		<cobertura-instrument todir="${build.instrumented.dir}">
+			<ignore regex="org.apache.log4j.*" />
+			<fileset dir="${java.classes.dir}">
+				<include name="**/*.class" />
+				<exclude name="**/*Test.class" />
+			</fileset>
+		</cobertura-instrument>
+
+		<copy todir="${build.instrumented.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.xml" />
+				<include name="**/*.properties" />
+			</fileset>
+		</copy>
+
+		<junit showoutput="true" printsummary="yes" fork="true" haltonfailure="no">
+			<sysproperty key="net.sourceforge.cobertura.datafile" file="${basedir}/cobertura.ser"/>
+			<classpath>
+				<pathelement location="${build.test.dir}"/>
+			</classpath>
+			<classpath refid="junit-classpath" />
+			<classpath location="${build.instrumented.dir}" />
+			<classpath location="${build.dir}" />
+			<classpath location="${web.inf.dir}" />
+			<classpath location="${java.classes.dir}" />
+			<classpath refid="cobertura.classpath" />
+			<formatter type="xml"/>
+			<batchtest fork="yes" todir="${test.report.dir}">
+				<fileset dir="${test.dir}" includes="**/*Test.java"/>
+			</batchtest>
+		</junit>
+		<cobertura-report format="xml" destdir="${cobertura.report.dir}" srcdir="${java.src.dir}" />
 	</target>
+
+<!-- ================== PMD : static analysis checks on code =================== -->
+<target name="pmd">
+
+	<fail unless="PMD_HOME" message="ERROR: PMD_HOME variable is not set"/>
+
+	<echo message="PMD DIR: ${PMD_HOME}"></echo>
+	<property name="pmd.dir" value="${PMD_HOME}" />
+	<path id="pmd.classpath">
+		<fileset dir="${pmd.dir}/lib/">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath" />
+
+	<pmd failOnRuleViolation="no" >
+		<ruleset>rulesets/java/basic.xml</ruleset>
+		<ruleset>rulesets/java/braces.xml</ruleset>
+		<ruleset>rulesets/java/design.xml</ruleset>
+		<ruleset>rulesets/java/imports.xml</ruleset>
+		<ruleset>rulesets/java/strings.xml</ruleset>
+		<ruleset>rulesets/java/unusedcode.xml</ruleset>
+		<formatter type="xml" toFile="pmd.xml"/>
+		<fileset dir="${src.dir}">
+			<include name="**/*.java"/>
+		</fileset>
+	</pmd>
+</target>
+
+<!-- ================== PMD : static analysis checks on code =================== -->
+<target name="findbugs">
+
+	<fail unless="FINDBUGS_HOME" message="ERROR: FINDBUGS_HOME variable is not set"/>
+
+	<echo message="FindBugs HOME: ${FINDBUGS_HOME}"></echo>
+	<property name="findbugs.dir" value="${FINDBUGS_HOME}" />
+	<path id="findbugs.classpath">
+		<fileset dir="${findbugs.dir}/lib/">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="findbugs.classpath" />
+
+	<findbugs home="${findbugs.dir}" output="xml" outputFile="findbugs.xml">
+		<auxClasspath path="${project.classpath}"/>
+		<sourcePath path="${src.dir}" />
+		<class location="${java.classes.dir}" />
+	</findbugs>
+</target>
+
 </project>

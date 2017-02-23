@@ -1,7 +1,7 @@
 <%@ page language="java"%>
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.application.*"%>
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*"%>
-<%@ page import="gov.nih.nci.salient.framework.bdo.LdapRecord"%>
+<%@ page import="gov.nih.nci.cbiit.scimgmt.common.bdo.UserRecord"%>
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tlds/struts-logic.tld" prefix="logic"%>
@@ -18,7 +18,7 @@
 	<%
 	    String userName="";
 	    String userNotFoundMsg = (String) session.getAttribute(GreensheetsKeys.USER_NOT_FOUND);
-	    List<LdapRecord> foundUsers = (List<LdapRecord>) session.getAttribute("foundUsers");
+	    List<UserRecord> foundUsers = (List<UserRecord>) session.getAttribute("foundUsers");
 	%>
 
 	<%@ include file="/jsp/common/GlobalHeader.jsp"%>
@@ -82,11 +82,11 @@
 			<tbody>
 
 				<%
-				    LdapRecord ladpUser = null;
+				UserRecord ladpUser = null;
 
 				        for (int i = 0; i < foundUsers.size(); i++) {
 
-				            ladpUser = (LdapRecord) foundUsers.get(i);
+				            ladpUser = (UserRecord) foundUsers.get(i);
 				%>
 				<tr class="even">
 					<!-- This could look better with using real DisplayTag odd/even ordering -->

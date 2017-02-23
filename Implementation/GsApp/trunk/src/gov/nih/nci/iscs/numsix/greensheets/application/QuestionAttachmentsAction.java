@@ -142,9 +142,9 @@ public class QuestionAttachmentsAction extends DispatchAction {
                     .getQuestionAttachmentProxy(respDefId);
 
             if (qap == null) {
-                return mapping.findForward("sessionTimeOut");
+                return mapping.findForward("error");
             }
-
+           
             String maxSize = ((Properties) AppConfigProperties.getInstance()
                     .getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES))
                     .getProperty("file.attachment.size.limit");

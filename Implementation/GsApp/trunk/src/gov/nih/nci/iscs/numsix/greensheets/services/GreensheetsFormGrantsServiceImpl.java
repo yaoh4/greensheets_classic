@@ -45,7 +45,7 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
     }
 
     public List findGrants(GsUser user, boolean onControlFlag,
-            boolean restrictedToOpenForms, boolean restrictedToLoggedinUser) {
+            boolean restrictedToOpenForms, boolean restrictedToLoggedinUser, boolean filterCancelled) {
         
     	String nciOracleId = user.getOracleId();
     	
@@ -53,14 +53,14 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
 
         List formGrants = grantDAO.findGrants(nciOracleId, budgetDates.get(0),
                 budgetDates.get(1), onControlFlag, restrictedToOpenForms,
-                restrictedToLoggedinUser);
+                restrictedToLoggedinUser,filterCancelled);
 
         return formGrants;
     }
 
     public List findGrants(GsUser user, String grantsRange, String grantType,
             boolean includeOnlyGrantsWithinPayline, String grantMechanism,
-            String fullGrantNum, String piLastName, String piFirstName) {
+            String fullGrantNum, String piLastName, String piFirstName, boolean filterCancelled) {
 
         String applStatusGroupCode = "A"; // Default
         boolean minoritySupplIncluded = false;
@@ -100,7 +100,7 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
                 budgetDates.get(1), restrictedToOpenForms, applStatusGroupCode,
                 minoritySupplIncluded, userPortfolioIds, userCancerActivities,
                 grantType, includeOnlyGrantsWithinPayline, grantMechanism,
-                fullGrantNum, piLastName, piFirstName);
+                fullGrantNum, piLastName, piFirstName, filterCancelled);
 
         return formGrants;
     }
@@ -239,4 +239,15 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
         return greensheetFormDAO.checkActionStatusByGrantId(grantId);
         
     }
+
+    /**
+     * GREENSHEET-495
+     * 
+     * Is a given APPL_ID a Type 6 Grant with Award Type 1, 2, 4, 5,8 9 in same FY?
+     */
+	public boolean isValidGrantType(String applId, StringBuffer gn) throws GreensheetBaseException{
+		return greensheetFormDAO.isValidGrantType(applId, gn);
+	}
+	
+
 }

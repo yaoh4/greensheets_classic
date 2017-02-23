@@ -63,5 +63,31 @@ public interface Constants {
 	public static final String SESS_MAINT_FLTR_INIT_PARAM_NAME = "resources-not-needing-user-info";
 	public static final String SESS_MAINT_FLTR_INIT_PARAM_PRELOAD_AND_SVC = "resources-to-preload-user-info-and-then-service";
 	public static final String SESSION_EXPIRED_PAGE = "/jsp/SessionExpired.jsp";
+	
+	//Draft Greensheets Keys
+	
+	public static final String DRAFT_MODULE_NAME = "moduleNames";
+	public static final String DRAFT_TYPE = "draftTypes";
+	public static final String DRAFT_MECHANISM = "draftMechs";
+	public static final String DRAFT_UPDATE = "draftUpdateDropDown";
+	public static final String DRAFT_ADDITION_LIST = "draftAdditions";
+	public static final String DRAFT_DELETION_LIST = "draftDeletions";
+	public static final String DRAFT_ADDITION_DELETION_LIST = "draftAddDelMsg";
+	public static final String DRAFT_DELETION_ADDITION_MSG = "draftAddDeletions";
+	public static final String DRAFT_IS_REVIEW_MODULE = "isReviewModule";
+	public static final String SELECTED_DRAFT_MODULE = "selectedModule";
+	public static final String SELECTED_DRAFT_TYPE = "selectedType";
+	public static final String SELECTED_DRAFT_MECHANISM = "selectedMechanism";
+	public static final String UPDATE_DROP_DOWN_OPTION_ALL= "View All";
+	public static final String UPDATE_DROP_DOWN_OPTION_UPDATE = "Updated Only";
+	
+	
+	public static final int OK_STATUS = 200;
+	public static final int VALIDATION_FAILED_STATUS = 301;
+	public static final int BAD_REQUEST_STATUS = 400;
+	public static final int UNAUTHORIZED_STATUS = 401;
+	public static final int INTERNAL_SERVER_ERROR_STATUS = 500;
+	
+	
 
 }

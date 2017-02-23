@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormGrantMatrix" table="FORM_GRANT_MATRIX_T" schema="NCI" optimistic-lock="version">
+        <comment>The matrix that defines the form to be used based on the grant type, major activity code, activity code and user group</comment>
+        <id name="id" type="integer">
+            <column name="ID" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="formTemplates" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormTemplates" fetch="select">
+            <column name="FTM_ID" precision="10" scale="0" not-null="true">
+                <comment>The unique identifier for the form template</comment>
+            </column>
+        </many-to-one>
+        <property name="formRoleCode" type="string">
+            <column name="FORM_ROLE_CODE" length="5" not-null="true">
+                <comment>The role code of the user group completing the form</comment>
+            </column>
+        </property>
+        <property name="applTypeCode" type="string">
+            <column name="APPL_TYPE_CODE" length="1" not-null="true">
+                <comment>The code representing the type of grant</comment>
+            </column>
+        </property>
+        <property name="majorActivityCode" type="string">
+            <column name="MAJOR_ACTIVITY_CODE" length="1" not-null="true">
+                <comment>The code representing the major activity of the grant</comment>
+            </column>
+        </property>
+        <property name="activityCode" type="string">
+            <column name="ACTIVITY_CODE" length="3" not-null="true">
+                <comment>The code representing the major activity of the grant</comment>
+            </column>
+        </property>
+        <property name="updateStamp" type="integer">
+            <column name="UPDATE_STAMP" precision="5" scale="0">
+                <comment>The number of times the record was modified</comment>
+            </column>
+        </property>
+        <property name="otherCriteria" type="string">
+            <column name="OTHER_CRITERIA" length="100">
+                <comment>Other criteria used to determine the correct form template to use</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

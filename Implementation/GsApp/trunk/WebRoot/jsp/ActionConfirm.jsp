@@ -1,7 +1,7 @@
 <%@ page language="java" %>
 
 <!DOCTYPE HTML PUBLIC "-//w3c//dtd html 4.0 transitional//en">
-<html>
+<html lang="en">
 <head>
 	<title>Greensheets</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

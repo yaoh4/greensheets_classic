@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<project name="greensheets_deploy" default="tomcat.deploy" basedir="..">
+	<import file="build.xml" />
+
+	<path id="tomcat.classpath">
+		<fileset dir="${catalina.home}/lib">
+			<include name="catalina-ant.jar"/>
+			<include name="jasper.jar"/>
+			<include name="tomcat-coyote.jar"/>
+			<include name="tomcat-util.jar"/>
+		</fileset>
+		<fileset dir="${catalina.home}/bin">
+			<include name="tomcat-juli.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="deploy.classpath">
+		<path refid="project.classpath"/>
+		<path refid="tomcat.classpath"/>
+	</path>
+
+	<taskdef resource="org/apache/catalina/ant/catalina.tasks" classpathref="deploy.classpath" />
+
+	<target name="tomcat.undeploy">
+		<undeploy url="${tomcat.url}" failonerror="false"
+			username="${tomcat.user}" password="${tomcat.password}"
+		path="/${app.name}"/>
+	</target>
+
+	<target name="tomcat.deploy" depends="tomcat.undeploy,war,junit" >
+		<deploy url="${tomcat.url}" username="${tomcat.user}"
+			password="${tomcat.password}" path="/${app.name}"
+		war="${basedir}/${app.distribution.dir}/${app.name.war}"/>
+	</target>
+
+</project>

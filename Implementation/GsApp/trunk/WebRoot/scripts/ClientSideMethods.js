@@ -104,7 +104,7 @@ function fileAttachments(formUid,respDefId)
 
 var myOpenWindow = function(URL, windowName,displayString, message) {
     var playerUrl = URL;
-    var myOpenedWindow= window.open('', windowName,displayString) ;
+	var myOpenedWindow= window.open("", windowName,displayString) ;
   
     if(myOpenedWindow.location == 'about:blank' ){
     	
@@ -158,7 +158,21 @@ function saveSubmitClose(selection)
 	}
 }
 */
+function disableAllLinks (){
 
+
+	var links = document.getElementsByTagName("a");
+	for(var i = 0; i<links.length; i++) {
+
+	if(links[i].href== "javascript:saveSubmitClose('SAVE')" ){
+	   links[i].href = "#";
+	   links[i].style.background ="white";
+	  }else if (links[i].href== "javascript:saveSubmitClose('SUBMIT')"){
+	   links[i].href = "##";
+	   links[i].style.background ="white";
+	  }
+	}
+}
 
 function saveSubmitClose(selection)
 {
@@ -177,6 +191,7 @@ function saveSubmitClose(selection)
 		var val = ValidateFormValues('GreensheetForm', false); // second parameter signifies whether the operation is SUBMIT or not. 
 		if(val)
 		{
+			disableAllLinks();
 			document.GreensheetForm.method.value="save";
 			document.GreensheetForm.submit();
 		}
@@ -194,6 +209,7 @@ function saveSubmitClose(selection)
 		var val = ValidateFormValues('GreensheetForm', true); // second parameter signifies whether the operation is SUBMIT or not. 
 		if(val)
 		{
+			disableAllLinks();
 			document.GreensheetForm.method.value="submit";
 			document.GreensheetForm.submit();
 			//alert("Submitting the form..actual code commented out.");
@@ -249,6 +265,31 @@ function retreieveGreensheet(grantNum, applId, group, oracleId){
 	var directoryDisplay = "directories=no";
 	var showMaximizeButton = "resizable=yes";
 	var windowName ="RetreieveGreensheet" + applId +group + oracleId;
+	var message = "You already have this greensheet open in another window. Please switch windows to that other window to continue to work on this greensheet."; 
+
+	var displayString = toolbarDisplay + "," + showMaximizeButton + "," + statusbarDisplay + "," + scrollbarDisplay + "," + locationbarDisplay + "," + menubarDisplay + "," + directoryDisplay;
+
+	
+	myOpenWindow(url,windowName,displayString,message);
+	
+
+}
+
+function retreieveDraftGreensheet(){
+	var type = document.reviewDraftGreensheetsForm.type.value;
+	var mech = document.reviewDraftGreensheetsForm.mechanism.value;
+	var moduleName = document.reviewDraftGreensheetsForm.moduleName.value;
+    var params = "?TYPE="+ type + "&MECH=" + mech + "&MODULE_NAME=" + moduleName;   
+    var url = "/greensheets/previewDraftGreensheets.do" + params
+     //var toolbarDisplay = "width=900, height=500, toolbar=no";
+    var toolbarDisplay = "toolbar=no";
+	var statusbarDisplay = "status=yes";
+	var scrollbarDisplay = "scrollbars=yes";
+	var locationbarDisplay = "location=no";
+	var menubarDisplay = "menubar=no";
+	var directoryDisplay = "directories=no";
+	var showMaximizeButton = "resizable=yes";
+	var windowName ="RetreieveDraftGreensheet";
 	var message = "You already have this greensheet open in another window. Please switch windows to that other window to continue to work on this greensheet."; 
 
 	var displayString = toolbarDisplay + "," + showMaximizeButton + "," + statusbarDisplay + "," + scrollbarDisplay + "," + locationbarDisplay + "," + menubarDisplay + "," + directoryDisplay;
@@ -1106,3 +1147,4 @@ function toggleDivAreaDisplay(divId, imgId)
 
 	
 }
+

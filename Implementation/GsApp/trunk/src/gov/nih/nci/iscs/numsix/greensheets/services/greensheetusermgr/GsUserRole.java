@@ -30,6 +30,10 @@ public class GsUserRole extends ValuedEnum {
 	public static final int GS_GUEST_VALUE = 6;
 
 	public static final int NO_SYSTEM_ROLE_VALUE = 5;
+	
+	public static final int GS_DRAFT_VIEW_VALUE = 7;
+	
+	public static final int GS_DRAFT_ADMIN = 8;
 
 	public static final GsUserRole PGM_DIR = new GsUserRole("PGM_DIR",
 			PGM_DIR_VALUE);
@@ -47,8 +51,13 @@ public class GsUserRole extends ValuedEnum {
 	public static final GsUserRole GS_GUEST = new GsUserRole("GS_GUEST",
 			GS_GUEST_VALUE);
 
+	public static final GsUserRole GS_DV = new GsUserRole("GS_DV",
+			GS_DRAFT_VIEW_VALUE);
+	public static final GsUserRole GS_DA = new GsUserRole("GS_DA",
+			GS_DRAFT_ADMIN);
 	public static final GsUserRole NO_SYSTEM_ROLE = new GsUserRole(
 			"NO_SYSTEM_ROLE", NO_SYSTEM_ROLE_VALUE);
+	
 
 	/**
 	 * Constructor for GsUserRole.

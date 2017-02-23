@@ -17,4 +17,9 @@ public class GreensheetFormTemplateServiceImpl implements
 	public String loadGreensheetFormTemplate(String templateId, boolean frozen) {
 		return greensheetFormTemplateDAO.getGreensheetFormTemplate(templateId, frozen);
 	}
+	
+	public String loadGreensheetFormDraftTemplate(String templateId, boolean frozen) {
+        return greensheetFormTemplateDAO.getGreensheetFormDraftTemplate(templateId, frozen);
+    }
+	
 }

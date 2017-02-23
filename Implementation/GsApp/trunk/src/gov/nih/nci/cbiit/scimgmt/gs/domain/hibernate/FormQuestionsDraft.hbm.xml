@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormQuestionsDraft" table="FORM_QUESTIONS_DRAFT_T" schema="NCI" optimistic-lock="version">
+        <id name="id" type="integer">
+            <column name="ID" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="gsQuestionId" type="string">
+            <column name="GS_QUESTION_ID" length="500" />
+        </property>
+        <property name="gsResponseId" type="string">
+            <column name="GS_RESPONSE_ID" length="500" />
+        </property>
+        <property name="questionUuid" type="string">
+            <column name="QUESTION_UUID" length="36" />
+        </property>
+        <property name="shortName" type="string">
+            <column name="SHORT_NAME" length="250" />
+        </property>
+        <property name="text" type="string">
+            <column name="TEXT" length="2000" />
+        </property>
+        <property name="answerText" type="string">
+            <column name="ANSWER_TEXT" length="2000" />
+        </property>
+        <property name="displayStyle" type="string">
+            <column name="DISPLAY_STYLE" length="60" />
+        </property>
+        <property name="answerConstraint" type="string">
+            <column name="ANSWER_CONSTRAINT" length="100" />
+        </property>
+        <property name="answerType" type="string">
+            <column name="ANSWER_TYPE" length="60" />
+        </property>
+        <property name="gsfbChangedUserId" type="string">
+            <column name="GSFB_CHANGED_USER_ID" length="25" />
+        </property>
+        <property name="gsfbChangeDate" type="timestamp">
+            <column name="GSFB_CHANGE_DATE" length="7" />
+        </property>
+        <set name="formElementsDrafts" table="FORM_ELEMENTS_DRAFT_T" inverse="true" lazy="true" fetch="select" >
+            <key>
+                <column name="QUESTION_ID" precision="10" scale="0" not-null="true"/>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormElementsDraft" />
+        </set>
+        <set name="formAnswersDrafts" table="FORM_ANSWERS_DRAFT_T" lazy="true" fetch="select" cascade="all" inverse="true">
+            <key>
+                <column name="QUESTION_ID" precision="10" scale="0" not-null="true"/>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormAnswersDraft" />
+        </set>
+    </class>
+</hibernate-mapping>

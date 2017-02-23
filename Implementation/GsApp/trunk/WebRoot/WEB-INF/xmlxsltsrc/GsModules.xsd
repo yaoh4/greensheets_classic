@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by Leonid Kagan (private) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gsm="http://greensheets.lifedatasystems.com/GsModule" xmlns:gsf="http://greensheets.lifedatasystems.com/GsForms" targetNamespace="http://greensheets.lifedatasystems.com/GsModule" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://greensheets.lifedatasystems.com/GsForms" schemaLocation="GsForm2.xsd"/>
+	<xs:element name="module" type="gsm:ModuleType">
+		<xs:annotation>
+			<xs:documentation>A module</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ModuleType">
+		<xs:sequence>
+			<xs:element ref="gsf:gsForms"/>
+			<xs:element name="description" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="moduleName">
+				<xs:simpleType>
+	 				<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="showPleaseSelectOptionInDropDown" type="xs:boolean"/>
+			<xs:element name="insertCheckAllThatApplyForMultiSelectAnswers" type="xs:boolean"/>
+		</xs:sequence>
+		<xs:attribute name="uuid" type="gsf:UuidType" use="required"/>
+	</xs:complexType>
+</xs:schema>

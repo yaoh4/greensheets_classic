@@ -5,7 +5,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
 import org.apache.velocity.Template;
 import org.apache.velocity.context.Context;
 import org.apache.velocity.exception.ResourceNotFoundException;
@@ -16,10 +15,12 @@ import org.apache.velocity.exception.ResourceNotFoundException;
 public class VelocityViewIdServlet extends
         org.apache.velocity.tools.view.servlet.VelocityViewServlet {
 
-    private static String templateIdParamName = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private static final Logger logger = Logger
-            .getLogger(VelocityViewIdServlet.class);
+	private static String templateIdParamName = null;
 
     public void init(ServletConfig config) throws ServletException {
         // log.debug("Init starting.");
@@ -37,14 +38,29 @@ public class VelocityViewIdServlet extends
         if (tIdStr == null)
             tIdStr = (String) request.getAttribute(templateIdParamName);
         if (tIdStr == null)
-            tIdStr = (String) request.getSession().getAttribute(
-                    templateIdParamName);
+            tIdStr = (String) request.getSession().getAttribute(templateIdParamName);
         if (tIdStr == null)
-            tIdStr = (String) request.getSession().getServletContext()
-                    .getAttribute(templateIdParamName);
+            tIdStr = (String) request.getSession().getServletContext().getAttribute(templateIdParamName);
         if (tIdStr == null)
             throw new ResourceNotFoundException("Template ID not specified.");
 
-        return getTemplate(tIdStr);
+        String tMech = "";
+        String tType = "";
+        
+        if(request.getAttribute("MISSING_TYPE") != null){	
+        	tType = (String) request.getAttribute("MISSING_TYPE");
+        	tMech = (String) request.getAttribute("MISSING_MECH");
+        }
+        else {
+        	tMech = (String) request.getAttribute("ACTIVITY_CODE");
+        	tType = (String) request.getAttribute("APPL_TYPE_CODE");
+        	
+        	if(tMech == null || tType == null) {
+            	tMech = request.getParameter("MECH");
+            	tType = request.getParameter("TYPE");
+        	}
+        }
+                
+		return getTemplate(tIdStr + "," + tType + "," + tMech);
     }
 }

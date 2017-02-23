@@ -52,7 +52,7 @@ function showHideError(){
 	<p>Please include in the body of the e-mail the error message shown
 	below, and describe what you were attempting to do when you received 
 	the	error. Please include the grant number if applicable.</p>
-	
+<!--  
 	<logic:messagesPresent>
 		<bean:message key="errors.header" />
 		<ul>
@@ -65,7 +65,7 @@ function showHideError(){
 	   <div style="margin-left: 4em;">The system is unable to provide any additional information 
 	   about the error.</div>
 	</logic:messagesNotPresent>
-
+-->
 </div>
 
 <%-- And this below allows for the full stack trace to still be included in the page,

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormModules" table="FORM_MODULES_T" schema="NCI" optimistic-lock="version">
+        <id name="id" type="integer">
+            <column name="ID" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="moduleUuid" type="string">
+            <column name="MODULE_UUID" length="36" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="300" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="200" />
+        </property>
+        <property name="showDdEmptyoptionText" type="yes_no">
+            <column name="SHOW_DD_EMPTYOPTION_TEXT_FLAG" length="3" />
+        </property>
+        <property name="showCheckAll" type="yes_no">
+            <column name="SHOW_CHECK_ALL_FLAG" length="3" />
+        </property>
+        <set name="formTemplateses" table="FORM_TEMPLATES_T" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="MODULE_ID" precision="10" scale="0" not-null="true"/>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormTemplates" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -5,13 +5,13 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetresourcemgr;
 
-import gov.nih.nci.iscs.i2e.greensheets.GreensheetResourceManager;
-import gov.nih.nci.iscs.i2e.greensheets.GreensheetsResourceException;
-import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormTemplateService;
-
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import gov.nih.nci.iscs.i2e.greensheets.GreensheetResourceManager;
+import gov.nih.nci.iscs.i2e.greensheets.GreensheetsResourceException;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormTemplateService;
 
 /**
  * Production Implementation of GreensheetResourceManager interface
@@ -32,12 +32,19 @@ public class GreensheetResourceManagerImpl implements GreensheetResourceManager 
     public String getResource(String id, int type)
             throws GreensheetsResourceException {
 
-        if (id.indexOf("F") > -1) {
+    	String[] split = id.split(",");
+		String templateId = split[0];
+		String applTypeCode = split[1];
+		String activityCode = split[2];
+		
+		if (templateId.indexOf("F") > -1) {
             this.frozen = true;
-            id = id.substring(1, id.length());
-            logger.debug("New String Id = " + id);
+            templateId = templateId.substring(1, templateId.length());
+            logger.debug("New String Id = " + templateId);
         }
 
+		id = templateId + "," + applTypeCode + "," + activityCode;
+		
         GreensheetTemplateWrapper tw = null;
         //		try {
         //			tw = this.loadVelocityTemplate(id);
@@ -52,11 +59,27 @@ public class GreensheetResourceManagerImpl implements GreensheetResourceManager 
         GreensheetFormTemplateService greensheetFormTemplateService = (GreensheetFormTemplateService) context
                 .getBean("greensheetFormTemplateService");
 
-        String formTemplate = greensheetFormTemplateService.loadGreensheetFormTemplate(id, this.frozen);
+        //application.getAttribute("draftData");
+       // HttpServletRequest req = sra.getRequest();     
+        //System.out.println("Inside GreensheetResourceManagerImpl.java requestAtt is " +requestAtt);
+        //HttpServletRequest req = requestAtt.getRequest();
+       // System.out.println("Inside GreensheetResourceManagerImpl.java request is " +request);
+        String isDraft = "No";
+        String formTemplate = null;
+      //  if (request.getSession().getAttribute("draftDisplay") != null){
+        	//isDraft = (String)request.getSession().getAttribute("draftDisplay");
+       // }
+        
+        //System.out.println("Inside GreensheetResourceManagerImpl.java isDraft is " +isDraft);
+    // id = "1723";
+        formTemplate = greensheetFormTemplateService.loadGreensheetFormTemplate(id, this.frozen);
+       // System.out.println("Inside GreensheetResourceManagerImpl.java formTemplate is " +formTemplate);
+        
+        //write a new method by checking session value 
 
-        tw = new GreensheetTemplateWrapper(Integer.parseInt(id), formTemplate);
-
-        return tw.getTemplate();
+       tw = new GreensheetTemplateWrapper(Integer.parseInt(templateId), formTemplate);
+      // System.out.println("Inside GreensheetResourceManagerImpl.java tw is " +tw);
+        return formTemplate;
     }
 
 }

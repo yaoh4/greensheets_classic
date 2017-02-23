@@ -5,255 +5,166 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.utils;
 
-import gov.nih.nci.iscs.i2e.oracle.common.data.persistence.util.OracleConnectionFactory;
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
-
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Properties;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import javax.sql.PooledConnection;
-
-//import oracle.jdbc.pool.OracleConnectionCacheImpl;
-import oracle.jdbc.pool.OracleConnectionPoolDataSource;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.datasource.DataSourceUtils;
+
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 
 /**
  * @author kpuscas, Number Six Software
  */
 public class DbConnectionHelper {
 
-    private static final String DB_URL = "db.url";
+	private static final String DB_URL = "db.url";
 
-    private static final String DB_USER = "db.user";
+	private static Logger logger = Logger.getLogger(DbConnectionHelper.class);
 
-    private static final String DB_PASSWD = "db.password";
+	private static DbConnectionHelper instance = new DbConnectionHelper();
+	private DataSource dc;
+	
 
-    private static Logger logger = Logger.getLogger(DbConnectionHelper.class
-            .getName());
+	// private OracleConnectionCacheImpl ocacheimpl;
 
-    private static DbConnectionHelper instance = new DbConnectionHelper();
-    private DataSource dc; 
-    private OracleConnectionPoolDataSource ocp;
+	private static Properties props;
 
-   // private OracleConnectionCacheImpl ocacheimpl;
+	private boolean initPool = false;
 
-    private PooledConnection pc;
+	/**
+	 * Constructor for DbConnectionHelper.
+	 */
+	private DbConnectionHelper() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		dc = (DataSource) context.getBean("dataSource");
+	}
 
-    private static Properties props;
+	/**
+	 * Method getInstance.
+	 * 
+	 * @return DbConnectionHelper Returns an instance of the DbConnection
+	 *         Singleton.
+	 */
+	public static DbConnectionHelper getInstance() {
+		return instance;
+	}
+	
+	private Connection internalGetConnection() {
+		Connection conn = DataSourceUtils.getConnection(dc);
+		logger.debug("Get connection: " + conn);
+		
+		return conn;
+	}
 
-    private boolean initPool = false;
+	/**
+	 * Method initConfigFile.
+	 * 
+	 * @param properties
+	 * @throws GritsException
+	 *             This method initializes the OracleConnectionPool with the
+	 *             given properties. It only needs to be called once - the
+	 *             properties are then stored and the DbConnectionHelper
+	 *             Singleton maintains them throughout the life of the object.
+	 */
+	public void initConfigFile(Properties properties) throws GreensheetBaseException {
 
-    /**
-     * Constructor for DbConnectionHelper.
-     */
-    private DbConnectionHelper() {
-    }
+		if (initPool == false) {
+			props = properties;
+		}
+	}
 
-    /**
-     * Method getInstance.
-     * 
-     * @return DbConnectionHelper Returns an instance of the DbConnection Singleton.
-     */
-    public static DbConnectionHelper getInstance() {
-        return instance;
-    }
+	/**
+	 * Method getConnection.
+	 * 
+	 * @return Connection
+	 * @throws GreensheetBaseException
+	 *             This method returns a Connection from the Pool.
+	 */
+	public Connection getConnection(String userID) throws GreensheetBaseException {
 
-    /**
-     * Method initConfigFile.
-     * 
-     * @param properties
-     * @throws GritsException
-     *             This method initializes the OracleConnectionPool with the given properties. It only needs to be called once - the properties are
-     *             then stored and the DbConnectionHelper Singleton maintains them throughout the life of the object.
-     */
-    public void initConfigFile(Properties properties)
-            throws GreensheetBaseException {
+		Connection conn = internalGetConnection();
 
-        if (initPool == false) {
+		try {
+			String callStr = "call dbms_application_info.set_client_info(?)";
+			CallableStatement cs = conn.prepareCall(callStr);
+			if (userID != null) {
+				cs.setString(1, userID);
+			} else {
+				cs.setNull(1, Types.VARCHAR);
+			}
+			cs.execute();
 
-            props = properties;
+			// logger.info("Got DB Connection!");
+		} catch (Exception e) {
+			throw new GreensheetBaseException("error.dbconnection", e);
+		}
+		return conn;
+	}
 
-         }
-    }
 
-   
-    private Connection getTestConn() throws SQLException {
+	/**
+	 * Method getConnection.
+	 * 
+	 * @return Connection
+	 * @throws GreensheetBaseException
+	 *             This method returns a Connection from the Pool.
+	 */
+	public Connection getConnection() throws GreensheetBaseException {		
+		return internalGetConnection();
+	}
 
-        Connection conn = DriverManager.getConnection(props
-                .getProperty(DB_URL), props.getProperty(DB_USER), props
-                .getProperty(DB_PASSWD));
-        return conn;
+	/**
+	 * Method freeConnection.
+	 * 
+	 * @param con
+	 * @throws GritsException
+	 *             This method serves as a wrapper for Connection.close(). It
+	 *             simply closes the Connection and allows the
+	 *             OracleConnectionPool to return the Connection to the pool.
+	 */
+	public void freeConnection(Connection conn) throws GreensheetBaseException {
+		logger.debug("Free connection: " + conn);
+		DataSourceUtils.releaseConnection(conn, dc);
+	}
 
-    }
+	public static String getDbEnvironment() {
+		String env = null;
+		if (props != null) {
+			// env = props.getProperty("oracle.environment"); // This really
+			// should be coming not from the free-standing
+			// String in the properties file, but derived from the connection
+			// String, always.
+			if (env == null || env.equalsIgnoreCase("")) {
+				String s = props.getProperty(DB_URL).toLowerCase();
+				// logger.info("############# the props != null and s is " + s);
+				// Abdul Latheef: Changed the DB service name
+				if (s.toLowerCase().indexOf("i2esgd".toLowerCase()) > -1
+						|| s.toLowerCase().indexOf("i2ed".toLowerCase()) > -1) {
+					env = "DEV";
+				} else if (s.toLowerCase().indexOf("i2esgt".toLowerCase()) > -1
+						|| s.toLowerCase().indexOf("i2et".toLowerCase()) > -1) {
+					env = "TEST";
+				} else if (s.toLowerCase().indexOf("i2esgp".toLowerCase()) > -1
+						|| s.toLowerCase().indexOf("i2ep".toLowerCase()) > -1) {
+					env = "PROD";
 
-    /**
-     * Method getConnection.
-     * 
-     * @return Connection
-     * @throws GreensheetBaseException
-     *             This method returns a Connection from the Pool.
-     */
-    public Connection getConnection(String userID)
-            throws GreensheetBaseException {
-
-        Connection conn = null;
-        try {
-           // initOracleConnectionPool(props);
-            // logger.info("Getting DB Connection...");
-            Context initCtx = new InitialContext();
-			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-			dc = (DataSource) envCtx.lookup("jdbc/OracleDataSource");
-			conn = dc.getConnection();
-            // conn = pc.getConnection();
-            for (int i = 0; i < 8; i++) {
-                if (conn.isClosed()) {
-                    conn = dc.getConnection();
-                } else {
-                    break;
-                }
-            }
-        } catch (SQLException sqle) {
-            String exceptionMessage = sqle.getMessage();
-            if (exceptionMessage!=null) {
-            	exceptionMessage = exceptionMessage.toLowerCase();
-            }
-            else  { exceptionMessage = ""; }
-            if (exceptionMessage.contains("connection reset") || exceptionMessage.contains("connection refused") 
-            			|| exceptionMessage.contains("connection closed") 
-            			|| exceptionMessage.contains("closed connection")) {
-                try {
-                    conn = dc.getConnection();
-                } catch (SQLException sqle2) {
-                    throw new GreensheetBaseException("error.dbconnection", sqle2);
-                }
-            } else {
-                throw new GreensheetBaseException("error.dbconnection", sqle);
-            }
-        } catch (Exception e) {
-            throw new GreensheetBaseException("error.dbconnection", e);
-        }
-
-        try {
-            String callStr = "call dbms_application_info.set_client_info(?)";
-            CallableStatement cs = conn.prepareCall(callStr);
-            if (userID != null) {
-                cs.setString(1, userID);
-            } else {
-                cs.setNull(1, Types.VARCHAR);
-            }
-            cs.execute();
-
-            // logger.info("Got DB Connection!");
-        } catch (Exception e) {
-            throw new GreensheetBaseException("error.dbconnection", e);
-        }
-        return conn;
-    }
-
-    /**
-     * Method getConnection.
-     * 
-     * @return Connection
-     * @throws GreensheetBaseException
-     *             This method returns a Connection from the Pool.
-     */
-    public Connection getConnection() throws GreensheetBaseException {
-
-        Connection conn = null;
-        try {
-           // initOracleConnectionPool(props);
-            // logger.info("Getting DB Connection...");
-        	Context initCtx = new InitialContext();
-			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-			dc = (DataSource) envCtx.lookup("jdbc/OracleDataSource");
-			conn = dc.getConnection();
-            // conn = pc.getConnection();
-            for (int i = 0; i < 8; i++) {
-                if (conn.isClosed()) {
-                    conn = dc.getConnection();
-                } else {
-                    break;
-                }
-            }
-            // logger.info("Got DB Connection!");
-        } catch (SQLException sqle) {
-            String exceptionMessage = sqle.getMessage();
-            if (exceptionMessage!=null) {
-            	exceptionMessage = exceptionMessage.toLowerCase();
-            }
-            else  { exceptionMessage = ""; }
-            if (exceptionMessage.contains("connection reset") || exceptionMessage.contains("connection refused") 
-            			|| exceptionMessage.contains("connection closed") 
-            			|| exceptionMessage.contains("closed connection")) {
-                try {
-                    conn = dc.getConnection();
-                } catch (SQLException sqle2) {
-                    throw new GreensheetBaseException("error.dbconnection", sqle2);
-                }
-            } else {
-                throw new GreensheetBaseException("error.dbconnection", sqle);
-            }
-        } catch (Exception e) {
-            throw new GreensheetBaseException("error.dbconnection", e);
-        }
-
-        return conn;
-    }
-
-    /**
-     * Method freeConnection.
-     * 
-     * @param con
-     * @throws GritsException
-     *             This method serves as a wrapper for Connection.close(). It simply closes the Connection and allows the OracleConnectionPool to
-     *             return the Connection to the pool.
-     */
-    public void freeConnection(Connection con) throws GreensheetBaseException {
-
-        try {
-            // logger.info("Closing DB Connection...");
-            if (con != null && !con.isClosed())
-                con.close();
-            // logger.info("DB Connection closed!");
-        } catch (Exception e) {
-            throw new GreensheetBaseException("error.dbconnection", e);
-        }
-
-    }
-
-    public static String getDbEnvironment() {
-        String env = null;
-        if (props != null) {
-            // env = props.getProperty("oracle.environment");  // This really should be coming not from the free-standing
-        		// String in the properties file, but derived from the connection String, always.
-            if (env == null || env.equalsIgnoreCase("")) {
-                String s = props.getProperty(DB_URL).toLowerCase();
-               // logger.info("############# the props != null and s is " +  s);
-                // Abdul Latheef: Changed the DB service name
-                if (s.toLowerCase().indexOf("i2esgd".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2ed".toLowerCase()) > -1) {
-                    env = "DEV";
-                } else if (s.toLowerCase().indexOf("i2esgt".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2et".toLowerCase()) > -1) {
-                    env = "TEST";
-                } else if (s.toLowerCase().indexOf("i2esgp".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2ep".toLowerCase()) > -1) {
-                    env = "PROD";
-                
-				} else if (s.toLowerCase().indexOf("I2ESGS".toLowerCase()) > -1 || s.toLowerCase().indexOf("i2es".toLowerCase()) > -1) {
-                    env = "STAGE";
-                }
-            }
-        } else {
-            logger.info("############# props is not null ");
-            env = "U";
-        }
-        return env;
-    }
+				} else if (s.toLowerCase().indexOf("I2ESGS".toLowerCase()) > -1
+						|| s.toLowerCase().indexOf("i2es".toLowerCase()) > -1) {
+					env = "STAGE";
+				}
+			}
+		} else {
+			logger.info("############# props is null ");
+			env = "U";
+		}
+		return env;
+	}
 
 }

@@ -1,5 +1,7 @@
 package gov.nih.nci.iscs.numsix.greensheets.services;
 
+import org.apache.log4j.Logger;
+
 import gov.nih.nci.cbiit.atsc.dao.FormGrant;
 import gov.nih.nci.cbiit.atsc.dao.GreensheetForm;
 import gov.nih.nci.cbiit.atsc.dao.GreensheetFormDAO;
@@ -11,6 +13,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.Greensheet
 
 public class GreensheetFormServiceImpl implements GreensheetFormService {
 	private GreensheetFormDAO greensheetFormDAO;
+	private static final Logger log = Logger.getLogger(GreensheetFormServiceImpl.class);
 
 	public void setGreensheetFormDAO(GreensheetFormDAO greensheetFormDAO) {
 		this.greensheetFormDAO = greensheetFormDAO;
@@ -18,6 +21,7 @@ public class GreensheetFormServiceImpl implements GreensheetFormService {
 
 	public GreensheetFormProxy getGreensheetForm(FormGrantProxy formGrantProxy, String formRoleCode) 
 			throws GreensheetBaseException {
+		log.debug("getGreensheetForm() start");
 		FormGrant formGrant = null;
 		String formStatus = "";
 		GreensheetForm greensheetForm = null;
@@ -26,11 +30,13 @@ public class GreensheetFormServiceImpl implements GreensheetFormService {
 		if (formGrantProxy != null) {
 			formGrant = formGrantProxy;
 		} else {
+			log.debug("returning null");
 			return null;
 		}
 
 		
 		greensheetForm = greensheetFormDAO.getGreensheetForm(formGrant, formRoleCode);
+		log.debug("greensheetForm: " + greensheetForm);
 		if (greensheetForm != null) {
 			greensheetFormProxy = new GreensheetFormProxy();
 			

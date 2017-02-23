@@ -25,6 +25,7 @@ public class GreensheetStatus extends ValuedEnum {
 	public static final int SUBMITTED_VALUE = 4;
 
 	public static final int UNSUBMITTED_VALUE = 5;
+	public static final int DRAFT_VALUE = 0;
 
 	public static final GreensheetStatus NOT_STARTED = new GreensheetStatus(
 			"NOT_STARTED", NOT_STARTED_VALUE);
@@ -40,6 +41,9 @@ public class GreensheetStatus extends ValuedEnum {
 
 	public static final GreensheetStatus UNSUBMITTED = new GreensheetStatus(
 			"UNSUBMITTED", UNSUBMITTED_VALUE);
+	
+	public static final GreensheetStatus DRAFT = new GreensheetStatus("DRAFT",
+			DRAFT_VALUE);
 
 	/**
 	 * Constructor for GreensheetStatus.

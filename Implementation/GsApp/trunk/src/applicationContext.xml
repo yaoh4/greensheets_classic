@@ -1,221 +1,315 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:tx="http://www.springframework.org/schema/tx"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
-      
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task.xsd">
+            
+	<context:component-scan base-package="gov.nih.nci.cbiit.scimgmt.gs" />
 
-    <bean id="propertyConfigurer"
-        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-        <property name="locations">
-            <list>
-                <value>file:${conf.dir}/greensheets/db.properties</value>
-                <value>file:${conf.dir}/greensheets/greensheetconfig.properties</value>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="contextSourceTarget" class="org.springframework.ldap.core.support.LdapContextSource">
-        <!-- <property name="url" value="ldap://ncids4a.nci.nih.gov:389/"/> -->
-        <property name="urls">
-            <list>
-                <!-- <value>ldap://ncids4a.nci.nih.gov:389/</value> -->
-                <value>ldaps://nciweb-ldap-6116.nci.nih.gov:636/</value>
-                <!-- <value>ldap://ncids5a.nci.nih.gov:636/</value> --> <!-- Check for Network params fails. -->
-                <!-- <value>ldap://ncids2b.nci.nih.gov:636/</value> --> <!-- Check for Network params fails. -->
-                <!-- <value>ldap://ncids4a.nci.nih.gov:636/</value> --> <!-- Check for Network params Ok. Authentication fails. -->
-            </list>
-        </property>
-        <property name="base" value="" />
-        <!-- Deprecated. Use setUserDn(String) instead. -->
-        <property name="userDn" value="${userDn}" />
-        <property name="password" value="${password}" />
-        <property name="pooled" value="false" />
-    </bean>
-
-    <bean id="dirContextValidator"
-        class="org.springframework.ldap.pool.validation.DefaultDirContextValidator" />
-
-    <bean id="contextSource"
-        class="org.springframework.ldap.pool.factory.PoolingContextSource">
-        <property name="contextSource" ref="contextSourceTarget" />
-        <property name="dirContextValidator" ref="dirContextValidator" />
-        <property name="testOnBorrow" value="true" />
-        <property name="testOnReturn" value="true" />
-        <property name="testWhileIdle" value="true" />
-    </bean>
-
-    <bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
-        <constructor-arg ref="contextSource" />
-    </bean>
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="locations">
+			<list>
+				<value>file:${conf.dir}/greensheets/db.properties</value>
+				<value>file:${conf.dir}/greensheets/greensheetconfig.properties</value>
+			</list>
+		</property>
+	</bean>
 
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-    	<property name="jndiName" value="${jdbc.datasource}" />
-     </bean>
-<!-- 
-    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
-        <property name="URL">
-            <value>${db.url}</value>
-        </property>
-        <property name="user">
-            <value>${db.user}</value>
-        </property>
-        <property name="password">
-            <value>${db.password}</value>
-        </property>
-    </bean>
-        -->
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
-    
-    
-    <!--  Configure Persistence provider -->
-<!-- 
-    <bean id="eclipseLinkAdapter" class="org.springframework.orm.jpa.vendor.TopLinkJpaVendorAdapter">
-       <property name="databasePlatform" value="${platform}"/>
-       <property name="showSql" value="true"/>
-       <property name="generateDdl" value="true"/>
-    </bean> 
--->    
-    <!-- 
-    <bean id="I2EEmf"
-        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="loadTimeWeaver">
-            <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
-        </property>
-    </bean>
-    -->
-    <!-- <property name="jpaVendorAdapter" ref="eclipseLinkAdapter"/> -->   
-        
-    <!-- Configure DAO -->
-    <bean id="nciPersonDAO"
-        class="gov.nih.nci.cbiit.atsc.dao.ldap.NCIPersonDAOImpl">
-        <property name="ldapTemplate" ref="ldapTemplate" />
-    </bean>
+		<property name="jndiName" value="${jdbc.datasource}" />
+	</bean>
 
-    <bean id="miscDataDAO"
-        class="gov.nih.nci.cbiit.atsc.dao.spring.MiscDataDAOImpl">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- Define the sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
 
-    <bean id="userRoleDataDAO"
-        class="gov.nih.nci.cbiit.atsc.dao.spring.UserRoleDataDAOImpl">
-        <property name="dataSource" ref="dataSource" />
-    </bean> 
-    
-    <bean id="greensheetQuestionsDAO"
-        class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetQuestionsDAOImpl">
+		<property name="hibernateProperties">
+			<props>			
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.connection.autocommit">true</prop>
+				<!--prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>-->
+			</props>
+		</property>
+	
+		<property name="mappingResources">
+			<list>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/ApplForms.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormAnswerAttachments.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormAnswers.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormAnswersDraft.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormApplStatus.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormElements.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormElementsDraft.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormGrant.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormGrantMatrix.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormGrantMatrixDraft.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormInactiveTypeMech.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormModules.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormModulesDraft.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormQuestionAnswers.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormQuestionAnswersDraft.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormQuestions.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormQuestionsDraft.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/Forms.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormTemplates.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormTemplatesDraft.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormTemplatesMatrix.hbm.xml</value>
+				<value>gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/FormTemplatesMatrixDraft.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="search*" read-only="true" />
+			<tx:method name="read*" read-only="true" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="load*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+						<tx:method name="is*" read-only="true" />
+			
+			<tx:method name="retrieve*" read-only="true" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="dao" expression="execution(* gov.nih.nci.cbiit.atsc.dao.*.*(..))" />
+		<aop:pointcut id="dao1" expression="execution(* gov.nih.nci.cbiit.scimgmt.gs.dao.*.*(..))" />		
+		<aop:pointcut id="service" expression="execution(* gov.nih.nci.iscs.numsix.greensheets.services.*.*(..))" />
+		<aop:pointcut id="service1" expression="execution(* gov.nih.nci.cbiit.scimgmt.gs.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="dao" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="service" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="dao1" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="service1" />
+	</aop:config>  
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- Configure DAO -->
+	<bean id="nciPersonDAO" class="gov.nih.nci.cbiit.atsc.dao.ldap.NCIPersonDAOImpl"/>
+
+	<bean id="miscDataDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.MiscDataDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="userRoleDataDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.UserRoleDataDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="greensheetQuestionsDAO"
+		class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetQuestionsDAOImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
-    </bean>
-        
-    <!-- Configure Business Service -->
-    <bean id="greensheetsMiscServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsMiscServicesImpl">
-        <property name="miscDataDAO" ref="miscDataDAO" />
-    </bean>
-    
-    <bean id="greensheetsQuestionsServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsQuestionsServicesImpl">
-        <property name="greensheetQuestionsDAO" ref="greensheetQuestionsDAO" />
-    </bean>
+	</bean>
 
-    <bean id="greensheetsUserPreferencesDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetsUserPreferencesDAOImpl">
-        <property name="dataSource" ref="dataSource" /> 
-    </bean>
+	<bean id="processNewQuestionDefsDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.ProcessNewQuestionDefsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="promoteModuleDAO" class="gov.nih.nci.cbiit.scimgmt.gs.dao.impl.PromoteModuleDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="formUtilDAO" class="gov.nih.nci.cbiit.scimgmt.gs.dao.impl.FormUtilDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
-    <bean id="greensheetsUserPreferencesServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserPreferencesServicesImpl">
-        <property name="greensheetsUserPreferencesDAO" ref="greensheetsUserPreferencesDAO" />
-    </bean> 
-            
-    <bean id="greensheetsUserServices" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserServicesImpl">
-        <property name="nciPersonDAO" ref="nciPersonDAO" />
-        <property name="userRoleDataDAO" ref="userRoleDataDAO" />
-        <property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices" />
-    </bean>     
-    
-    <bean id="grantDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GrantDAOImpl">
-        <property name="dataSource" ref="dataSource" />
-    </bean>  
-    
-    <bean id="greensheetFormDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetFormDAOImpl">
-        <property name="dataSource" ref="dataSource" />
-    </bean>    
-    
-    <bean id="greensheetFormTemplateDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetFormTemplateDAOImpl">
-         <property name="jdbcTemplate" ref="jdbcTemplate" />
-    </bean>        
-    
-    <bean id="greensheetsFormGrantsService"
-        class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFormGrantsServiceImpl">
-        <property name="greensheetsMiscServices">
-            <ref bean="greensheetsMiscServices"></ref>
-        </property>
-        <property name="grantDAO">
-            <ref bean="grantDAO"></ref>
-        </property>   
-        <property name="greensheetFormDAO">
-            <ref bean="greensheetFormDAO"></ref>
-        </property>  
-    </bean>
-    
-    <bean id="greensheetFormTemplateService" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormTemplateServiceImpl">
-        <property name="greensheetFormTemplateDAO" ref="greensheetFormTemplateDAO" />
-    </bean>   
-    
-    <bean id="greensheetFormService" class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormServiceImpl">
-        <property name="greensheetFormDAO" ref="greensheetFormDAO" />
-    </bean>      
-    
-    <!-- Spring Struts Integration -->
-    
-     
-    <bean name="/retrievegrants" class="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveUsersGrantsAction" >
-        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/>
-    </bean>
-    
-    <bean name="/searchprogramgrants" class="gov.nih.nci.iscs.numsix.greensheets.application.SearchProgramGrantsAction">
-        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/>
-    </bean>
-    
-    <bean name="/editprogrampreferences" class="gov.nih.nci.iscs.numsix.greensheets.application.EditProgramPreferencesAction">
-        <property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices"/>
-    </bean>
-    
-    <bean name="/saveprogrampreferences" class="gov.nih.nci.iscs.numsix.greensheets.application.SaveProgramPreferencesAction">
-        <property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices"/>
-    </bean>
-    
-    <bean name="/searchforgrant" class="gov.nih.nci.iscs.numsix.greensheets.application.SearchForGrantAction">
-        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/>
-    </bean>
-    
-    <bean name="/retrievegreensheet" class="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveGreensheetAction">
-        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/> 
-        <property name="greensheetFormService" ref="greensheetFormService"/>
-        <property name="emailHelper" ref="emailHelper"/>
-    </bean>
-    
-    <bean name="/changelock" class="gov.nih.nci.iscs.numsix.greensheets.application.ChangeGreensheetLockAction">
-        <property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService"/>
-        <property name="emailHelper" ref="emailHelper"/>
-    </bean>
-    
-     <bean name="/status" class="gov.nih.nci.iscs.numsix.greensheets.application.ErrorTestAction">
-        <property name="greensheetsMiscServices" ref="greensheetsMiscServices"/> 
-        <property name="greensheetsUserServices" ref="greensheetsUserServices"/>
-    </bean>
-    
-    <!-- ===== Mail service ===== -->
-    <bean id="emailHelper" class="gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification">
-        <property name="emailService" ref="emailService"/>
-        <property name="mailTemplate" ref="mailTemplate"/>
-        <property name="sendingOfEmailsEnabled" value="${gs_send_mail}"/>
-    </bean>
-    
+	<!-- Configure Business Service -->
+	<bean id="greensheetsMiscServices"
+		class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsMiscServicesImpl">
+		<property name="miscDataDAO" ref="miscDataDAO" />
+	</bean>
+
+	<bean id="greensheetsQuestionsServices"
+		class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsQuestionsServicesImpl">
+		<property name="greensheetQuestionsDAO" ref="greensheetQuestionsDAO" />
+	</bean>
+
+	<bean id="greensheetsUserPreferencesDAO"
+		class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetsUserPreferencesDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="greensheetsUserPreferencesServices"
+		class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserPreferencesServicesImpl">
+		<property name="greensheetsUserPreferencesDAO" ref="greensheetsUserPreferencesDAO" />
+	</bean>
+
+	<bean id="greensheetsUserServices"
+		class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserServicesImpl">
+		<property name="nciPersonDAO" ref="nciPersonDAO" />
+		<property name="userRoleDataDAO" ref="userRoleDataDAO" />
+		<property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices" />
+	</bean>
+
+	<bean id="grantDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GrantDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="greensheetFormDAO" class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetFormDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="greensheetFormTemplateDAO"
+		class="gov.nih.nci.cbiit.atsc.dao.spring.GreensheetFormTemplateDAOImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+	<bean id="greensheetsFormGrantsService"
+		class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFormGrantsServiceImpl">
+		<property name="greensheetsMiscServices">
+			<ref bean="greensheetsMiscServices"></ref>
+		</property>
+		<property name="grantDAO">
+			<ref bean="grantDAO"></ref>
+		</property>
+		<property name="greensheetFormDAO">
+			<ref bean="greensheetFormDAO"></ref>
+		</property>
+	</bean>
+
+	<bean id="greensheetFormTemplateService"
+		class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormTemplateServiceImpl">
+		<property name="greensheetFormTemplateDAO" ref="greensheetFormTemplateDAO" />
+	</bean>
+
+	<bean id="greensheetFormService"
+		class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormServiceImpl">
+		<property name="greensheetFormDAO" ref="greensheetFormDAO" />
+	</bean>
+
+
+	<bean id="processNewQuestionDefsService"
+		class="gov.nih.nci.iscs.numsix.greensheets.services.ProcessNewQuestionDefsServicesImpl">
+		<property name="processNewQuestionDefsDAO" ref="processNewQuestionDefsDAO" />
+	</bean>
+
+	<bean id="draftModuleService"
+		class="gov.nih.nci.cbiit.scimgmt.gs.service.impl.DraftModuleServiceImpl">
+		<property name="formUtilDAO" ref="formUtilDAO" /> 
+	</bean>
+
+	<bean id="promoteModuleService"
+		class="gov.nih.nci.cbiit.scimgmt.gs.service.impl.PromoteModuleServiceImpl">
+		<property name="promoteModuleDAO" ref="promoteModuleDAO" />
+		<property name="processNewQuestionDefsService" ref="processNewQuestionDefsService" />
+		<property name="emailHelper" ref="emailHelper" />
+	</bean>
+	
+	<!-- Spring Struts Integration -->
+
+	<bean name="/retrievegrants"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveUsersGrantsAction">
+		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />
+	</bean>
+
+	<bean name="/searchprogramgrants"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.SearchProgramGrantsAction">
+		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />
+	</bean>
+
+	<bean name="/editprogrampreferences"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.EditProgramPreferencesAction">
+		<property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices" />
+	</bean>
+
+	<bean name="/saveprogrampreferences"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.SaveProgramPreferencesAction">
+		<property name="greensheetsUserPreferencesServices" ref="greensheetsUserPreferencesServices" />
+	</bean>
+
+	<bean name="/searchforgrant"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.SearchForGrantAction">
+		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />
+	</bean>
+
+	<bean name="/retrievegreensheet"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.RetrieveGreensheetAction">
+		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />
+		<property name="greensheetFormService" ref="greensheetFormService" />
+		<property name="emailHelper" ref="emailHelper" />
+	</bean>
+
+	<bean name="/changelock"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.ChangeGreensheetLockAction">
+		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />
+		<property name="emailHelper" ref="emailHelper" />
+	</bean>
+
+	<bean name="/status"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.ErrorTestAction">
+		<property name="greensheetsMiscServices" ref="greensheetsMiscServices" />
+		<property name="greensheetsUserServices" ref="greensheetsUserServices" />
+	</bean>
+
+	<bean name="/processNewQuestionDefs"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.ProcessNewQuestionDefsAction">
+		<property name="processNewQuestionDefsService" ref="processNewQuestionDefsService" />
+		<property name="draftModuleService" ref="draftModuleService" />
+		<property name="emailHelper" ref="emailHelper" />
+	</bean>
+
+	<bean name="/promoteDraftGreensheets"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.PromoteDraftGreensheetsAction">
+		<property name="promoteModuleService" ref="promoteModuleService" />
+		<property name="draftModuleService" ref="draftModuleService" />
+	</bean>
+
+	<bean name="/reviewDraftGreensheets"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.ReviewDraftGreensheetsAction">
+		<property name="processNewQuestionDefsService" ref="processNewQuestionDefsService" />
+	</bean>
+
+	<bean name="/rejectDraftGreensheets"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.RejectDraftGreensheetsAction">
+		<property name="processNewQuestionDefsService" ref="processNewQuestionDefsService" />
+		<property name="draftModuleService" ref="draftModuleService" />
+		<property name="emailHelper" ref="emailHelper" />
+	</bean>
+
+	<bean name="/reviewModuleUpdate"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.ReviewModuleUpdateAction">
+		<property name="processNewQuestionDefsService" ref="processNewQuestionDefsService" />
+	</bean>
+
+	<bean name="/previewDraftGreensheets"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.PreviewDraftGreensheetsAction">
+		<property name="processNewQuestionDefsService" ref="processNewQuestionDefsService" />
+	</bean>
+
+	<!-- ===== Mail service ===== -->
+	<bean id="emailHelper"
+		class="gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification">
+		<property name="emailService" ref="emailService" />
+		<property name="mailTemplate" ref="mailTemplate" />
+		<property name="questionMailTemplate" ref="questionMailTemplate" />
+		<property name="sendingOfEmailsEnabled" value="${gs_send_mail}" />
+	</bean>
+
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="${smtp_server}" />
 		<property name="port" value="25" />
@@ -237,13 +331,18 @@
 		<property name="from" value="${gs_email_from}" />
 		<property name="to" value="${gs_error_email_to}" />
 	</bean>
-	
+
+	<bean id="questionMailTemplate" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="${gs_new_questions_email_from}" />
+		<property name="to" value="${gs_new_questions_email_to}" />
+	</bean>
+
 	<bean id="emailService"
-          class="gov.nih.nci.salient.framework.service.impl.EmailService">
-        <property name="mailSender">
+          class="gov.nih.nci.cbiit.scimgmt.common.service.impl.EmailService">
+		<property name="mailSender">
 			<ref bean="mailSender" />
 		</property>
-    </bean>
-    
-            
+	</bean>
+
+
 </beans>

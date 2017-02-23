@@ -1,0 +1,6 @@
+#user specific properties
+conf.dir=C:/dev/conf
+tomcat.url=http://localhost:8080/manager/text
+tomcat.user=admin
+tomcat.password=password
+catalina.home=C:/dev/tomcat/apache-tomcat-7.0.68

@@ -5,6 +5,7 @@ import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
+import java.sql.Types;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -12,10 +13,15 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
+import org.apache.log4j.Logger;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-public class GreensheetsUserPreferencesDAOImpl extends SimpleJdbcDaoSupport implements
+public class GreensheetsUserPreferencesDAOImpl extends NamedParameterJdbcDaoSupport implements
 		GreensheetsUserPreferencesDAO {
+	
+	private static final Logger log = Logger.getLogger(GreensheetsUserPreferencesDAOImpl.class);
 
 	public Map<String, String> readUserPrefernces(String userName, String userRole) { // Check if userRole is required.
 		Map<String, String> storedUserPreferences = new HashMap<String, String>();
@@ -61,16 +67,23 @@ public class GreensheetsUserPreferencesDAOImpl extends SimpleJdbcDaoSupport impl
 
 	private Map<String, String> readStoredUserPrefernces(String userName, String userRole) {
 		String appName = "GREENSHEETS"; 
-		String preferencesSQL = "SELECT PREFERENCE_NAME, PREFERENCE_VALUE FROM USER_PREFERENCES_T WHERE APPLICATION_NAME = :applicationName AND USERNAME = :userName";
+		//String preferencesSQL = "SELECT PREFERENCE_NAME, PREFERENCE_VALUE FROM USER_PREFERENCES_T WHERE APPLICATION_NAME = :applicationName AND USERNAME = :userName";
+		String preferencesSQL = "SELECT PREFERENCE_NAME, PREFERENCE_VALUE FROM USER_PREFERENCES_T WHERE APPLICATION_NAME = 'GREENSHEETS' AND USERNAME = '" + userName + "'";
 		
-		Map<String, String> parameters = new HashMap<String, String>();
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		//MapSqlParameterSource params = new MapSqlParameterSource();
+		log.debug("User Name: " + userName);
+		log.debug("User Role: " + userRole);
+		log.debug("SQL: " + preferencesSQL);
+		//params.addValue("applicationName",  appName, Types.VARCHAR);
+		//params.addValue("userName",  userName, Types.VARCHAR);
 		parameters.put("applicationName", appName);
 		parameters.put("userName", userName);
 		
 		Map<String, String> storedUserPreferences = new HashMap<String, String>();
 		
 		// Read the preferences from the Database, if any.
-		List<Map<String, Object>> rows = getSimpleJdbcTemplate().queryForList(preferencesSQL, parameters);
+		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(preferencesSQL);
 		// use queryForMap()
 		
 		if (rows.size() > 0) {
@@ -96,7 +109,7 @@ public class GreensheetsUserPreferencesDAOImpl extends SimpleJdbcDaoSupport impl
 		parameters.put("applicationName", appName);
 		parameters.put("userName", userName);	
 		
-		getSimpleJdbcTemplate().update(deleteSQL, parameters);
+		getNamedParameterJdbcTemplate().update(deleteSQL, parameters);
 		
 		Set keys = userPreferences.keySet();
 		Iterator i = keys.iterator();
@@ -106,7 +119,7 @@ public class GreensheetsUserPreferencesDAOImpl extends SimpleJdbcDaoSupport impl
 			parameters.put("preferenceName", key);
 			parameters.put("preferenceValue", userPreferences.get(key));
 			
-			getSimpleJdbcTemplate().update(insertSQL, parameters);
+			getNamedParameterJdbcTemplate().update(insertSQL, parameters);
 		}
 	}
 }

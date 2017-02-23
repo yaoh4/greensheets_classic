@@ -18,11 +18,21 @@ import org.springframework.jdbc.support.lob.OracleLobHandler;
 public class GreensheetQuestionsDAOImpl extends JdbcDaoSupport implements GreensheetQuestionsDAO {
 	public Document getGreensheetQuestions(String templateIDOrFileKey, boolean readFromDB) {
 		Document greensheetQuestionsDoc = null;
-		String sql = "SELECT ft.template_xml FROM form_templates_t ft WHERE ft.id = ?";
-
+		String sql = null;
+		if (templateIDOrFileKey.startsWith("-")){
+			 sql = "SELECT ft.template_xml FROM form_templates_draft_t ft WHERE ft.id = ?";
+		}else{
+			sql = "SELECT ft.template_xml FROM form_templates_t ft WHERE ft.id = ?";
+		}
 		if (readFromDB) {
 			// Read the Greensheet template from the Database
 			long formTemplateID = 0;
+			if (templateIDOrFileKey.startsWith("-")){
+				String templateNewId = templateIDOrFileKey.substring(1);
+				//System.out.println("Inside getGreensheetFormTemplate templateNewId is " +templateNewId);
+				templateIDOrFileKey = templateNewId; 
+				// System.out.println("Inside getGreensheetFormTemplate templateID is " +templateId);
+			}
 			formTemplateID = Long.parseLong(templateIDOrFileKey);
 			if (formTemplateID > 0) {
 				greensheetQuestionsDoc = (Document) getJdbcTemplate().queryForObject(sql,
@@ -57,10 +67,6 @@ public class GreensheetQuestionsDAOImpl extends JdbcDaoSupport implements Greens
 			SAXReader reader = new SAXReader();
 			try {
 				greensheetQuestionsDoc = reader.read(questionsFile);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return null;
 			} catch (DocumentException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

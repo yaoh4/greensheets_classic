@@ -1,7 +1,6 @@
 <%@ page language="java" %>
 
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.application.*" %>
-<%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.greensheetpreferencesmgr.*"%>
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.*" %>
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.utils.*" %>
 <%@ page import="gov.nih.nci.iscs.numsix.greensheets.application.*" %>
@@ -14,7 +13,6 @@ GreensheetUserSession gus = (GreensheetUserSession) session.getAttribute(Greensh
 String userName = gus.getUser().getDisplayUserName();
 
 // Get the currently logged in User Preferences.
-	GreensheetPreferencesMgr gsPrefMgr = (GreensheetPreferencesMgr) session.getAttribute("USER_PREF_MGR");
 	
 %>
 

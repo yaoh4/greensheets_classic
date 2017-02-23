@@ -24,9 +24,9 @@ import org.apache.log4j.Logger;
  */
 public class GreensheetUserSession implements HttpSessionBindingListener, Serializable {
 
-	private static final long serialVersionUID = -7209209641340843953L;
+    private static final long serialVersionUID = -7209209641340843953L;
 
-	private Map greensheetFormSessions = new HashMap();
+    private Map greensheetFormSessions = new HashMap();
 
     private GsUser user;
 
@@ -50,7 +50,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Method addGrant to the users Session.
-     *
+     * 
      * @param g
      */
     //	public void addGrant(GsGrant g) {	//Abdul Latheef: Used FormGrant instead of GsGrant.
@@ -63,7 +63,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Method setGrants.
-     *
+     * 
      * @param map
      */
     //	public void setGrants(Map map) {	//Abdul Latheef: Task to do: Commented out the method for time being!!!
@@ -73,7 +73,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Method getGrantByGrantNumber.
-     *
+     * 
      * @param grantNumber
      * @return GsGrant
      */
@@ -87,7 +87,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Method addGreensheetFormSession.
-     *
+     * 
      * @param gfs
      * @return String
      */
@@ -99,7 +99,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Method getGreensheetFormSession.
-     *
+     * 
      * @param id
      * @return GreensheetFormSession
      */
@@ -108,15 +108,14 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
     }
 
     /**
-     *
-     * @return the map of possibly multiple "Greensheet Form" objects the
-     * user has opened and whose data is being maintained in this GreensheetsUserSession.
+     * @return the map of possibly multiple "Greensheet Form" objects the user has opened and whose data is being maintained in this
+     *         GreensheetsUserSession.
      */
     public Map getGreensheetFormSessions() {
-		return greensheetFormSessions;
-	}
+        return greensheetFormSessions;
+    }
 
-	public GreensheetFormProxy getGreensheetForm(String formSessionId) {
+    public GreensheetFormProxy getGreensheetForm(String formSessionId) {
         GreensheetFormProxy g = ((GreensheetFormSession) greensheetFormSessions
                 .get(formSessionId)).getForm();
         return g;
@@ -124,7 +123,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Method removeGreensheetFormSession.
-     *
+     * 
      * @param id
      */
     public void removeGreensheetFormSession(String id) {
@@ -133,7 +132,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Returns the user.
-     *
+     * 
      * @return GsUser
      */
     public GsUser getUser() {
@@ -142,7 +141,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Method getFormSessionGrant.
-     *
+     * 
      * @param formSessionId
      * @return GsGrant
      */
@@ -153,20 +152,20 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
     //	}
 
     public FormGrantProxy getFormSessionGrant(String formSessionId) {
-    	GreensheetFormSession oneFormSession = null;
-    	FormGrantProxy grant = null;
-    	if (formSessionId!=null && !"".equals(formSessionId)) {
-    		oneFormSession = (GreensheetFormSession) greensheetFormSessions.get(formSessionId);
-    		if (oneFormSession!=null) {
-    			grant = oneFormSession.getGrant();
-    		}
-    	}
+        GreensheetFormSession oneFormSession = null;
+        FormGrantProxy grant = null;
+        if (formSessionId != null && !"".equals(formSessionId)) {
+            oneFormSession = (GreensheetFormSession) greensheetFormSessions.get(formSessionId);
+            if (oneFormSession != null) {
+                grant = oneFormSession.getGrant();
+            }
+        }
         return grant;
     }
 
     /**
      * Returns the paylineOnly.
-     *
+     * 
      * @return boolean
      */
     public boolean isPaylineOnly() {
@@ -183,7 +182,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Sets the paylineOnly.
-     *
+     * 
      * @param paylineOnly
      *            The paylineOnly to set
      */
@@ -193,7 +192,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Returns the newSession.
-     *
+     * 
      * @return boolean
      */
     public boolean isNewSession() {
@@ -202,7 +201,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Sets the newSession.
-     *
+     * 
      * @param newSession
      *            The newSession to set
      */
@@ -233,7 +232,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Returns the myPortfolio.
-     *
+     * 
      * @return boolean
      */
     public boolean isMyPortfolio() {
@@ -242,7 +241,7 @@ public class GreensheetUserSession implements HttpSessionBindingListener, Serial
 
     /**
      * Sets the myPortfolio.
-     *
+     * 
      * @param myPortfolio
      *            The myPortfolio to set
      */

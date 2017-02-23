@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormQuestionAnswersDraft" table="FORM_QUESTION_ANSWERS_DRAFT_T" schema="NCI" optimistic-lock="version">
+        <id name="id" type="integer">
+            <column name="ID" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="extrnalQuestionId" type="string">
+            <column name="EXTRNAL_QUESTION_ID" length="500" />
+        </property>
+        <property name="extrnalRespDefId" type="string">
+            <column name="EXTRNAL_RESP_DEF_ID" length="500" />
+        </property>
+        <property name="extrnalSelcDefId" type="string">
+            <column name="EXTRNAL_SELC_DEF_ID" length="500" />
+        </property>
+        <property name="stringValue" type="string">
+            <column name="STRING_VALUE" length="600" />
+        </property>
+        <property name="textValue" type="string">
+            <column name="TEXT_VALUE" length="4000" />
+        </property>
+        <property name="numberValue" type="integer">
+            <column name="NUMBER_VALUE" precision="22" scale="0" />
+        </property>
+        <property name="dateValue" type="timestamp">
+            <column name="DATE_VALUE" length="7" />
+        </property>
+        <property name="commentValue" type="string">
+            <column name="COMMENT_VALUE" length="4000" />
+        </property>
+    </class>
+</hibernate-mapping>

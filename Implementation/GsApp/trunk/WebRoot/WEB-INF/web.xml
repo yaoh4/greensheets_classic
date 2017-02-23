@@ -1,206 +1,249 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-    
-    <!--
-    <?xml version="1.0" encoding="ISO-8859-1"?>
-    
-    <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
-    "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
-    -->
-    
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
- 	</listener>
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>
-            classpath:/applicationContext.xml
-        </param-value>
-  	</context-param>
-    <context-param>
-        <param-name>appVersion</param-name>
-        <param-value>2.7.3</param-value>
-    </context-param>
-    <context-param>
-        <param-name>appBuild</param-name>
-        <param-value>b06.07.2014</param-value>
-    </context-param>
-    <context-param>
-        <param-name>showDebugOnError</param-name>
-        <param-value>false</param-value>
-    </context-param>
-    <context-param>
-        <param-name>CONFIG_PATH</param-name>
-        <param-value>greensheets</param-value>
-    </context-param>
-    <context-param>
-        <param-name>commentsEmail</param-name>
-        <param-value>nci-now-l@list.nih.gov</param-value>
-    </context-param>
-    <context-param>
-        <param-name>log4j-init-file</param-name>
-        <param-value>log4j.properties</param-value>
-    </context-param>
-    
-    <!-- Abdul Latheef: Provide the log4j.properties to the GS app separately and put it outside the .war file. -->
-    <servlet>
-        <servlet-name>log4j-init</servlet-name>
-        <servlet-class>gov.nih.nci.iscs.numsix.greensheets.utils.Log4J</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    
-    <!-- Standard Action Servlet Configuration (with debugging) -->
-    <servlet>
-        <servlet-name>action</servlet-name>
-        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
-        <init-param>
-            <param-name>application</param-name>
-            <param-value>ApplicationResources</param-value>
-        </init-param>
-        <init-param>
-            <param-name>config</param-name>
-            <param-value>/WEB-INF/struts-config.xml</param-value>
-        </init-param>
-        <load-on-startup>2</load-on-startup>
-    </servlet>
-    
-    <!-- Define Velocity template compiler -->
-    
-    <servlet>
-        <servlet-name>velocity</servlet-name>
-        <servlet-class>gov.nih.nci.iscs.velocity.tools.view.servlet.VelocityViewIdServlet</servlet-class>
-        <init-param>
-            <param-name>org.apache.velocity.toolbox</param-name>
-            <param-value>/WEB-INF/toolbox.xml</param-value>
-        </init-param>
-        <init-param>
-            <param-name>org.apache.velocity.properties</param-name>
-            <param-value>/WEB-INF/velocity.properties</param-value>
-        </init-param>
-        <load-on-startup>10</load-on-startup>
-    </servlet>
-    
-    <!-- ChangeLock Servlet for RPC-Like change lock functionality -->
-    <servlet>
-        <servlet-name>changeGreensheetLock</servlet-name>
-        <servlet-class>gov.nih.nci.iscs.numsix.greensheets.application.ChangeLockServlet</servlet-class>
-        <!--  THERE IS NO ChangeLockServlet!!  - Anatoli, 2013  -->
-    </servlet>
-    
-    <!-- Action Servlet Mapping -->
-    <servlet-mapping>
-        <servlet-name>action</servlet-name>
-        <url-pattern>*.do</url-pattern>
-    </servlet-mapping>
-    
-    <!-- Map *.vm files to Velocity -->
-    <servlet-mapping>
-        <servlet-name>velocity</servlet-name>
-        <url-pattern>/velocityViewId</url-pattern>
-    </servlet-mapping>
-    
-    <servlet-mapping>
-        <servlet-name>changeGreensheetLock</servlet-name>
-        <url-pattern>/changeGreensheetLock</url-pattern>
-        <!--  THERE IS NO ChangeLockServlet!!  - Anatoli, 2013  -->
-    </servlet-mapping>
-    
-    <filter>
-        <filter-name>SessionMaintenanceFilter</filter-name>
-        <filter-class>gov.nih.nci.iscs.numsix.greensheets.fwrk.SessionMaintenanceFilter</filter-class>
-        <init-param>
-            <description>URL fragments requests for which it is OK to service even when the
-                user-representing Java object is not present in the HTTP session; separate
-                by semicolons
-            </description>
-            <param-name>resources-not-needing-user-info</param-name>
-            <param-value>index.jsp;retrievegrants.do;status.do;SessionTimeOut.jsp;SessionExpired.jsp</param-value>
-        </init-param>
-        <init-param>
-        	<description>URL fragments requests for which require pre-loading the 
-        		user-representing Java object if it is not already in the session, 
-        		but then continuing to service the request instead of redirecting 
-        		to home page. Again, separate by semicolons.
-        	</description>
-        	<param-name>resources-to-preload-user-info-and-then-service</param-name>
-        	<param-value>retrievegreensheet</param-value>
-        </init-param>
-    </filter>
-    
-    <filter-mapping>
-        <filter-name>SessionMaintenanceFilter</filter-name>
-        <url-pattern>*.do</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>SessionMaintenanceFilter</filter-name>
-        <url-pattern>*.jsp</url-pattern>
-    </filter-mapping>
-    
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-    <!-- Session Timeout setting -->
-    <session-config>
-        <session-timeout>300</session-timeout> <!-- TODO: TEMPORARY - MUST CHANGE!!! -->
-    </session-config>
-    
-    <error-page>
-        <exception-type>javax.servlet.ServletException</exception-type>
-        <location>/jsp/error.jsp</location>
-    </error-page>
-    
-    <!-- Struts Tag Library Descriptors -->
-    <!-- 
-    Abdul: Remove the declarations
-    <taglib>
-        <taglib-uri>/WEB-INF/tlds/struts-bean.tld</taglib-uri>
-        <taglib-location>/WEB-INF/tlds/struts-bean.tld</taglib-location>
-    </taglib>
-    
-    <taglib>
-        <taglib-uri>/WEB-INF/tlds/struts-html.tld</taglib-uri>
-        <taglib-location>/WEB-INF/tlds/struts-html.tld</taglib-location>
-    </taglib>
-    
-    <taglib>
-        <taglib-uri>/WEB-INF/tlds/struts-logic.tld</taglib-uri>
-        <taglib-location>/WEB-INF/tlds/struts-logic.tld</taglib-location>
-    </taglib>
-    
-    <taglib>
-        <taglib-uri>http://displaytag.sf.net</taglib-uri>
-        <taglib-location>/WEB-INF/tlds/displaytag.tld</taglib-location>
-    </taglib>
-    -->
-    <!-- Abdul: Struts Spring Integration  
-    
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>    
-  -->
-    <!-- The same thing ^ is at the top of the file, where it is not commented out. -->
-    
-    <!--
-    
-    <listener>
-        <listener-class>
-            gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFacade
-        </listener-class>
-    </listener>
-    -->
-    
-    <jsp-config>
-                                 <jsp-property-group>
-                                <url-pattern>*.jsp</url-pattern>
-                                                <page-encoding>UTF-8</page-encoding>
-                                </jsp-property-group>
+	<!--
+	<?xml version="1.0" encoding="ISO-8859-1"?>
+
+	<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+	"http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+	-->
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:/applicationContext.xml
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>appVersion</param-name>
+		<param-value>3.4.0</param-value>
+	</context-param>
+	<context-param>
+		<param-name>appBuild</param-name>
+		<param-value>b06.07.2014</param-value>
+	</context-param>
+	<context-param>
+		<param-name>showDebugOnError</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>CONFIG_PATH</param-name>
+		<param-value>greensheets</param-value>
+	</context-param>
+	<context-param>
+		<param-name>commentsEmail</param-name>
+		<param-value>nci-now-l@list.nih.gov</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4j-init-file</param-name>
+		<param-value>log4j.properties</param-value>
+	</context-param>
+
+	<!-- Abdul Latheef: Provide the log4j.properties to the GS app separately and put it outside the .war file. -->
+	<servlet>
+		<servlet-name>log4j-init</servlet-name>
+		<servlet-class>gov.nih.nci.iscs.numsix.greensheets.utils.Log4J</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Standard Action Servlet Configuration (with debugging) -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>application</param-name>
+			<param-value>ApplicationResources</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<!-- Define Velocity template compiler -->
+
+	<servlet>
+		<servlet-name>velocity</servlet-name>
+		<servlet-class>gov.nih.nci.iscs.velocity.tools.view.servlet.VelocityViewIdServlet</servlet-class>
+		<init-param>
+			<param-name>org.apache.velocity.toolbox</param-name>
+			<param-value>/WEB-INF/toolbox.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>org.apache.velocity.properties</param-name>
+			<param-value>/WEB-INF/velocity.properties</param-value>
+		</init-param>
+		<load-on-startup>10</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>velocityDraft</servlet-name>
+		<servlet-class>gov.nih.nci.iscs.velocity.tools.view.servlet.VelocityViewIdServletDraft</servlet-class>
+		<init-param>
+			<param-name>org.apache.velocity.toolbox</param-name>
+			<param-value>/WEB-INF/toolbox.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>org.apache.velocity.properties</param-name>
+			<param-value>/WEB-INF/velocityDraft.properties</param-value>
+		</init-param>
+		<load-on-startup>11</load-on-startup>
+	</servlet>
+
+	<!-- ChangeLock Servlet for RPC-Like change lock functionality -->
+	<servlet>
+		<servlet-name>changeGreensheetLock</servlet-name>
+		<servlet-class>gov.nih.nci.iscs.numsix.greensheets.application.ChangeLockServlet</servlet-class>
+		<!--  THERE IS NO ChangeLockServlet!!  - Anatoli, 2013  -->
+	</servlet>
+
+	<!-- Action Servlet Mapping -->
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- Map *.vm files to Velocity -->
+	<servlet-mapping>
+		<servlet-name>velocity</servlet-name>
+		<url-pattern>/velocityViewId</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>velocityDraft</servlet-name>
+		<url-pattern>/velocityViewIdDraft</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>changeGreensheetLock</servlet-name>
+		<url-pattern>/changeGreensheetLock</url-pattern>
+		<!--  THERE IS NO ChangeLockServlet!!  - Anatoli, 2013  -->
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>SessionMaintenanceFilter</filter-name>
+		<filter-class>gov.nih.nci.iscs.numsix.greensheets.fwrk.SessionMaintenanceFilter</filter-class>
+		<init-param>
+			<description>URL fragments requests for which it is OK to service even when the
+				user-representing Java object is not present in the HTTP session; separate
+				by semicolons
+			</description>
+			<param-name>resources-not-needing-user-info</param-name>
+			<param-value>index.jsp;retrievegrants.do;processNewQuestionDefs.do;status.do;SessionTimeOut.jsp;SessionExpired.jsp</param-value>
+		</init-param>
+		<init-param>
+			<description>URL fragments requests for which require pre-loading the
+				user-representing Java object if it is not already in the session,
+				but then continuing to service the request instead of redirecting
+				to home page. Again, separate by semicolons.
+			</description>
+			<param-name>resources-to-preload-user-info-and-then-service</param-name>
+			<param-value>retrievegreensheet</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SessionMaintenanceFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionMaintenanceFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+
+	<!-- Session Timeout setting -->
+	<session-config>
+		<session-timeout>300</session-timeout>
+		<!-- TODO: TEMPORARY - MUST CHANGE!!! -->
+	</session-config>
+
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/jsp/error.jsp</location>
+	</error-page>
+
+	<!-- Struts Tag Library Descriptors -->
+	<!--
+	Abdul: Remove the declarations
+	<taglib>
+	<taglib-uri>/WEB-INF/tlds/struts-bean.tld</taglib-uri>
+	<taglib-location>/WEB-INF/tlds/struts-bean.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+	<taglib-uri>/WEB-INF/tlds/struts-html.tld</taglib-uri>
+	<taglib-location>/WEB-INF/tlds/struts-html.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+	<taglib-uri>/WEB-INF/tlds/struts-logic.tld</taglib-uri>
+	<taglib-location>/WEB-INF/tlds/struts-logic.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+	<taglib-uri>http://displaytag.sf.net</taglib-uri>
+	<taglib-location>/WEB-INF/tlds/displaytag.tld</taglib-location>
+	</taglib>
+	-->
+	<!-- Abdul: Struts Spring Integration
+
+	<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	-->
+	<!-- The same thing ^ is at the top of the file, where it is not commented out. -->
+
+	<!--
+
+	<listener>
+	<listener-class>
+	gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFacade
+	</listener-class>
+	</listener>
+	-->
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
 	</jsp-config>
 
-<resource-ref>
-<description>Oracle Datasource example</description>
-<res-ref-name>jdbc/OracleDataSource</res-ref-name>
-<res-type>oracle.jdbc.pool.OracleDataSource</res-type>
-<res-auth>Container</res-auth>
-</resource-ref>
-    
+	<resource-ref>
+		<description>Oracle Datasource example</description>
+		<res-ref-name>jdbc/OracleDataSource</res-ref-name>
+		<res-type>oracle.jdbc.pool.OracleDataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
 </web-app>

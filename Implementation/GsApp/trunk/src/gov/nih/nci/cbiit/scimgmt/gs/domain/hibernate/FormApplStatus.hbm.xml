@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormApplStatus" table="FORM_APPL_STATUS_VW" schema="NCI" optimistic-lock="version">
+        <composite-id name="id" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormApplStatusId">
+            <key-property name="applId" type="integer">
+                <column name="APPL_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="fullGrantNum" type="string">
+                <column name="FULL_GRANT_NUM" length="19" />
+            </key-property>
+            <key-property name="onControlFlag" type="yes_no">
+                <column name="ON_CONTROL_FLAG" length="1" />
+            </key-property>
+            <key-property name="pgmFormStatus" type="string">
+                <column name="PGM_FORM_STATUS" length="50" />
+            </key-property>
+            <key-property name="specFormStatus" type="string">
+                <column name="SPEC_FORM_STATUS" length="50" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormQuestionAnswers" table="FORM_QUESTION_ANSWERS_T" schema="NCI" optimistic-lock="version">
+        <comment>The value of the answers to the questions from a FORM</comment>
+        <id name="id" type="integer">
+            <column name="ID" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="forms" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.Forms" fetch="select">
+            <column name="FRM_ID" precision="10" scale="0" not-null="true">
+                <comment>The unique identifier for the form</comment>
+            </column>
+        </many-to-one>
+        <property name="extrnlQuestionId" type="string">
+            <column name="EXTRNL_QUESTION_ID" length="500">
+                <comment>The externally stored unique identifier for a question</comment>
+            </column>
+        </property>
+        <property name="extrnlRespDefId" type="string">
+            <column name="EXTRNL_RESP_DEF_ID" length="500">
+                <comment>The externally stored unique identifier for a response definition</comment>
+            </column>
+        </property>
+        <property name="extrnlSelcDefId" type="string">
+            <column name="EXTRNL_SELC_DEF_ID" length="500">
+                <comment>The externally stored unique identifier for a selection definition</comment>
+            </column>
+        </property>
+        <property name="stringValue" type="string">
+            <column name="STRING_VALUE" length="600">
+                <comment>The answer to the question in string format</comment>
+            </column>
+        </property>
+        <property name="textValue" type="string">
+            <column name="TEXT_VALUE" length="4000">
+                <comment>The answer to the question in text format</comment>
+            </column>
+        </property>
+        <property name="numberValue" type="integer">
+            <column name="NUMBER_VALUE" precision="22" scale="0">
+                <comment>The answer to the question in numeric format</comment>
+            </column>
+        </property>
+        <property name="dateValue" type="timestamp">
+            <column name="DATE_VALUE" length="7">
+                <comment>The answer to the question in date format</comment>
+            </column>
+        </property>
+        <property name="commentValue" type="string">
+            <column name="COMMENT_VALUE" length="4000">
+                <comment>The comment to the answer to the question</comment>
+            </column>
+        </property>
+        <property name="updateStamp" type="integer">
+            <column name="UPDATE_STAMP" precision="5" scale="0">
+                <comment>The number of times the record was modified</comment>
+            </column>
+        </property>
+        <set name="formAnswerAttachmentses" table="FORM_ANSWER_ATTACHMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="FQA_ID" precision="10" scale="0" not-null="true">
+                    <comment>The unique identifier for an answer to a form's question</comment>
+                </column>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormAnswerAttachments" />
+        </set>
+    </class>
+</hibernate-mapping>

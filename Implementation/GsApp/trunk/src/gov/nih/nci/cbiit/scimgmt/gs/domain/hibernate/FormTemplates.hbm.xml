@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2016 12:13:02 PM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormTemplates" table="FORM_TEMPLATES_T" schema="NCI" optimistic-lock="version">
+        <comment>The HTML Template that defines the FORM</comment>
+        <id name="id" type="integer">
+            <column name="ID" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="formModules" class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormModules" fetch="select">
+            <column name="MODULE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="templateHtml" type="string">
+            <column name="TEMPLATE_HTML" not-null="true">
+                <comment>The HTML of the template</comment>
+            </column>
+        </property>
+        <property name="revisionNum" type="integer">
+            <column name="REVISION_NUM" precision="3" scale="0" not-null="true">
+                <comment>The number of the revision of the template</comment>
+            </column>
+        </property>
+ 		<property name="createDate" type="timestamp">
+            <column name="CREATE_DATE" length="7" not-null="true">
+                <comment>The date the record was created</comment>
+            </column>
+        </property>
+        <property name="updateStamp" type="integer">
+            <column name="UPDATE_STAMP" precision="5" scale="0">
+                <comment>The number of times the record was modified</comment>
+            </column>
+        </property>
+        <property name="templateXml" type="string">
+            <column name="TEMPLATE_XML" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="2000" />
+        </property>
+        <property name="gsfbChangeDate" type="timestamp">
+            <column name="GSFB_CHANGE_DATE" length="7" />
+        </property>
+        <property name="gsfbChangedUserId" type="string">
+            <column name="GSFB_CHANGED_USER_ID" length="25" />
+        </property>
+        <property name="gsfbCreatedUserId" type="string">
+            <column name="GSFB_CREATED_USER_ID" length="25" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="4000" />
+        </property>
+        <property name="templateUuid" type="string">
+            <column name="TEMPLATE_UUID" length="36" />
+        </property>
+        <set name="formses" table="FORMS_T" inverse="true" lazy="true" fetch="select" >
+            <key>
+                <column name="FTM_ID" precision="10" scale="0">
+                    <comment>The unique identifier for a Form Template</comment>
+                </column>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.Forms" />
+        </set>
+        <set name="formGrantMatrixes" table="FORM_GRANT_MATRIX_T" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="FTM_ID" precision="10" scale="0" not-null="true">
+                    <comment>The unique identifier for the form template</comment>
+                </column>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormGrantMatrix" />
+        </set>
+        <bag name="formElementses" table="FORM_ELEMENTS_T" inverse="true" lazy="true" fetch="select" order-by="order" cascade="all">
+            <key>
+                <column name="TEMPLATE_ID" precision="10" scale="0" not-null="true"/>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormElements" />
+        </bag>
+        <set name="formTemplatesMatrixes" table="FORM_TEMPLATES_MATRIX_T" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="TEMPLATE_ID" precision="10" scale="0" not-null="true"/>
+            </key>
+            <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormTemplatesMatrix" />
+        </set>
+    </class>
+</hibernate-mapping>

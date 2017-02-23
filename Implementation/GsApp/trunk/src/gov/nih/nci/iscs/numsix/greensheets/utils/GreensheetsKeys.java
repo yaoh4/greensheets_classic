@@ -47,7 +47,7 @@ public final class GreensheetsKeys {
 	public static final String KEY_DB_PROPERTIES = "DB_PROPERTIES";
 
 	// Ldap Properties Object
-	public static final String KEY_LDAP_PROPERTIES = "LDAP_PROPERTIES";
+	//public static final String KEY_LDAP_PROPERTIES = "LDAP_PROPERTIES";
 
 	// Greensheet App Config Properties
 	public static final String KEY_CONFIG_PROPERTIES = "CONFIG_PROPERTIES";

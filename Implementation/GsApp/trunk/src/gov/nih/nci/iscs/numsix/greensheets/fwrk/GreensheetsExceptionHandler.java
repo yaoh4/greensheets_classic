@@ -13,7 +13,7 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.NciPerson;
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
-import gov.nih.nci.salient.framework.service.impl.EmailService;
+import gov.nih.nci.cbiit.scimgmt.common.service.impl.EmailService;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -119,6 +119,8 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
                         .getFullStackTrace(ex));
         logger.debug(org.apache.commons.lang.exception.ExceptionUtils
                 .getFullStackTrace(ex));
+        String errorMsg = ex.getMessage();
+        
         // send notification only if session is not expired
         if (!req.getSession().isNew()) {
             try {
@@ -128,7 +130,19 @@ public class GreensheetsExceptionHandler extends ExceptionHandler {
                         gse);
             }
         } else {
+            if(errorMsg!=null){
+                if(errorMsg.equalsIgnoreCase("You do not have permission to access this application.")){
+                    return mapping.findForward("invalidI2EAccount");
+                }
+            }
+            
             return mapping.findForward("sessionTimeOut");
+        }
+        
+        if(errorMsg!=null){          
+            if(errorMsg.equalsIgnoreCase("You do not have permission to access this application.")){
+                return mapping.findForward("invalidI2EAccount");
+            }
         }
         ex.printStackTrace();
 

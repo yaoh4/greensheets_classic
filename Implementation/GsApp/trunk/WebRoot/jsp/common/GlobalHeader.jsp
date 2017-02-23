@@ -81,7 +81,11 @@
 						         changed the current FY to some other FY, we want it in the page HTML source so we can still see it
 						         during testing. --%>
 						    <!-- Current FY (if set to anything special): <%=("".equals(currFYtoAssume)?"based on system date":currFYtoAssume)%> -->
-						</td>
+						
+						
+						<%if((isSuperUser)||(user.getFormBuilderRole().equals(GsUserRole.GS_DV))||(user.getFormBuilderRole().equals(GsUserRole.GS_DA))){%>
+                     <span>[<a href="<%=request.getContextPath()%>/reviewDraftGreensheets.do?method=loadReviewDraftGsPage" >Review Draft Greensheets</a>]</span></td>
+					   <%}%>
 						<td nowrap="nowrap" valign="bottom">&nbsp;</td>
 						<td style="vertical-align: bottom; white-space: nowrap;">
 							Env: <b><%=appEnv%></b>
