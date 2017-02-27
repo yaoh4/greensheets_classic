@@ -494,16 +494,12 @@ text-align: center;
     padding: 10px 5px 0;
 }
 
-.site-footer a,  .site-footer a:focus {
-    color: #555;
-    font-weight: 700;
+.site-footer a, .site-footer a:hover, .site-footer a:focus {
+       color: #777;
+    font-weight: 600;
    text-align: middle;
      
 
-}
-
-.site-footer a:hover {
-    color: #2d699e;
 }
 
 .site-footer .back-to-top:hover:before {
@@ -1052,19 +1048,8 @@ ul.actionMessage {
 }
 
 
-/*********View Details page from Grant Page***************************/
 
 
-
-.clickable{
-    cursor: pointer;  
-    width: 27px; 
-}
-
-.panel-heading span {
-  margin-top: -20px;
-  font-size: 15px;
-}
 
 
 /**************/
@@ -1338,7 +1323,7 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
 }
 
 .header {
-   background-image: url("../images/background.gif");
+   background-image: url("../images/background-I2E-v1.png");
    background-color: #4b4b4b;
  }
 
@@ -1410,6 +1395,14 @@ table.dataTable thead .sorting:after {
 }
 
 .mainLinks a {
-  color: #FFF;
+    color: #FFF;
+}
 
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading span {
+ 
+  font-size: 15px;
 }

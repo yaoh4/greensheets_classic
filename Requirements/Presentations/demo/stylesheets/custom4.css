@@ -399,15 +399,14 @@ font-weight:600;
 
 
 .pageHeader {
-;
+
   height: 37px;
  
   margin: 5px 0% 0px 0%;
   color: #fff;
 
-
-
 }
+
 
 
 
@@ -423,10 +422,11 @@ font-weight:600;
 
 
 .titleWrapper h3 {
-  margin: 0 0 0 15px;
+  margin: 0px 0px  0px  0px !important;
     font-size:22px;
     font-weight:300; 
 }
+
 
 
 /********************************************************************/
@@ -450,7 +450,13 @@ text-align: center;
 }
 
 
+.site-footer a, .site-footer a:hover, .site-footer a:focus {
+       color: #777;
+    font-weight: 600;
+   text-align: middle;
+     
 
+}
 
 .site-footer li {
     display: inline-block;
@@ -495,13 +501,7 @@ text-align: center;
     padding: 10px 5px 0;
 }
 
-.site-footer a, .site-footer a:hover, .site-footer a:focus {
-    color: #000;
-    font-weight: 700;
-   text-align: middle;
-     
 
-}
 
 .site-footer .back-to-top:hover:before {
     background-position: -389px -80px;
@@ -1598,7 +1598,7 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
 }
 
 .header {
-   background-image: url("../images/background2.gif");
+   background-image: url("../images/background-I2E-v1.png");
    background-color: #4b4b4b;
  }
 
@@ -1625,8 +1625,9 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
   border-color: #a94442;
 }
 
+.mainLinks a {
+  color: #FFF;
 
+}
       
-
-
 

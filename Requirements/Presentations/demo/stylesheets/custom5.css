@@ -72,7 +72,7 @@ h6 {
     color: #fff;
     display: inline-block;
     margin-right: 15px;
-    font-weight: bold;
+ 
   }
 
   label {
@@ -399,15 +399,14 @@ font-weight:600;
 
 
 .pageHeader {
-;
+
   height: 37px;
  
   margin: 5px 0% 0px 0%;
   color: #fff;
 
-
-
 }
+
 
 
 
@@ -423,7 +422,7 @@ font-weight:600;
 
 
 .titleWrapper h3 {
-  margin: 0 0 0 15px;
+  margin: 0px 0px  0px  0px !important;
     font-size:22px;
     font-weight:300; 
 }
@@ -496,8 +495,8 @@ text-align: center;
 }
 
 .site-footer a, .site-footer a:hover, .site-footer a:focus {
-    color: #000;
-    font-weight: 700;
+       color: #777;
+    font-weight: 600;
    text-align: middle;
      
 
@@ -1598,7 +1597,7 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
 }
 
 .header {
-   background-image: url("../images/background3.gif");
+   background-image: url("../images/background-I2E-v1.png");
    background-color: #4b4b4b;
  }
 
@@ -1643,5 +1642,32 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
  background-color: #CCC;
 }      
 
+.mainLinks a {
+  color: #FFF;
 
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #d7e1eb;
+    background-color: rgba(112, 146, 182, 0.28);
+}
+
+.navbar {
+ 
+    border: 0px;
+}
+
+#main_navbar .dropdown-menu li a:hover {
+
+    background: #d7e1eb;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    color: #555;
+    background-color: #fff;
+}
+
+.mainLinks a {
+    color: #FFF;
+}
 

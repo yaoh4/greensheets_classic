@@ -12,10 +12,9 @@ $('#example').dataTable( {
        columnDefs: [
          { targets: ['status'], type: 'alt-string'},
  
-         { targets: 'no-sort', orderable: false }], 
-         "oLanguage": {
-"sSearch": "Filter Results: "
-}
+         { targets: 'no-sort', orderable: false },
+
+         {targets: 'no-sort', aaSorting: false }]
 
     } );
 
