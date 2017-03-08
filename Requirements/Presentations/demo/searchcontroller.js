@@ -14,8 +14,9 @@ $('#example').dataTable( {
  
          { targets: 'no-sort', orderable: false },
 
-         {targets: 'no-sort', aaSorting: false }]
+         {targets: 'no-sort', aaSorting: false },
 
+         {targets:[3], aaSorting: true }]
     } );
 
  
