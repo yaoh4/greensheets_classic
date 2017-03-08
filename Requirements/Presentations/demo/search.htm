@@ -13,7 +13,7 @@
 
 <script src="scripts/jquery.validate-1.15.0.min.js"></script>
 <script src="dist/chosen.jquery.js"></script>
-
+<script src="scripts/theme2.js"></script>
 <script src="searchcontroller.js"></script>
 <script src="validator.js"></script>
 <script src="dropzone.js"></script>
@@ -112,17 +112,29 @@
       
       <!-- Begin Panel -->
       <div class="col-md-12">  
-        <br/>
+ <br/>&nbsp;
+
+        <!--success alert box -->
+    <div class="col-md-12" style="display:none;" id="success">  
+     
+   <div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Successfully Saved!</strong> Changes to Search Preferences have been successfully saved.
+</div>
+
+</div>
+   <br/>&nbsp;     
       
 <form>
 <div class="panel panel-default" style="margin-right: 15px; margin-left: 15px;">
 
     <div class="panel-heading">
         <span class="clickable"><i class="fa fa-minus-circle" aria-hidden="true"></i></span>
-        <div class="pheader" style="display:inline;"><h4>Search Criteria</h4></div>
+        <div class="pheader" style="display:inline;"><h4>Search Criteria</h4> <div id="defaultS" style="display:inline;">(default)</div><div id="preferredS" style="display:none;">(preferred)</div></div>
         
-          <div style="display:inline; float: right;"> <button type="button" class="btn btn-default btn-sm"  id="editButton">Save Search Preferences</button>
-            <button type="reset" class="btn btn-default btn-sm" id="restore">Load Search Preferences</button>
+          <div style="display:inline; float: right;"> <button type="button" class="btn btn-default btn-sm"  id="saveButton">Save Search Preferences</button>
+            <button type="reset" class="btn btn-default btn-sm" id="loadSP">Load Search Preferences</button>
+            <button type="reset" class="btn btn-default btn-sm" value="Refresh Page" onClick="window.location.reload()">Load Default Search Criteria</button>
            
            
            
@@ -150,9 +162,9 @@
 
         <div class="col-xs-4">
           <label for="projectTitle">Grant Type:</label> 
-         <select name="grantType" class="c-select form-control"><option value="competinggrants">Competing Grants</option>
+         <select name="grantType" class="c-select form-control" id="gType"><option value="competinggrants" id="competingG">Competing Grants</option>
 <option value="noncompetinggrants">Non-Competing Grants</option>
-<option value="both" selected="selected">Both Competing and Non-Competing Grants</option>
+<option value="both" selected="selected" id="bothG">Both Competing and Non-Competing Grants</option>
 <option value="payline">Competing Grants within the Payline</option></select>
 
                          
@@ -161,7 +173,7 @@
 
 <div class="col-xs-4">
           <label for="investigator">Mechanism:</label>
-          <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Mechanism(s)">
+          <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Mechanism(s)" id="mech">
           <option value=""></option>
           <option value="">D43</option>
           <option value="">DP1</option>
@@ -249,7 +261,7 @@
     <!--end panel body-->
   </div>
 
-  
+  <div id="pSearch" style="display:none;">
  
 
 
@@ -258,27 +270,29 @@
       <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
-              <th class="no-sort">Pgm GS</th>
-                <th class="status">Pgm GS<br/> Status</th>
-                <th>#Days in<br/> GPMATS</th>
-                <th>Grant Number</th>
+              <th class="no-sort sorting_disabled" width="3%">Pgm GS</th>
+                <th  width="10%">Pgm GS<br/> Status</th>
+                <th>Ready<br/>to Submit</th>
+                <th>#Days in<br/>GPMATS</th>
+                <th width="120px">Grant Number</th>
                 <th>CA</th>
                 <th>Budget<br/>Start Date</th>
-                <th>PD</th>
-                <th>PI</th>
+                <th width="120px">PD</th>
+                <th width="120px" class="sorting_asc">PI</th>
                 
                  <th>Score</th>
                  <th>%</th>
                  <th>Board Date</th>
                 <th class="no-sort">GMS GS</th>
-                <th class="status">GMS GS<br/> Status</th>
+                <th  width="3%">GMS GS<br/>Status</th>
             </tr>
         </thead>
         
         <tbody>
            <tr>
              <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
+                <td><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right"></td>
                  <td>10</td>
                 <td><a href="#">5R01CA195654-04</a></td>
                 <td>TB</td>
@@ -291,12 +305,13 @@
                  <td>0.0%</td>
                  <td>03/21/2017</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
             </tr>
 
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                <td><span>Not Started</span></td>
+                <td></td>
                  <td>21</td>
                 <td><a href="#">5R01CA193829-03</a></td>
                 <td>TB</td>
@@ -309,11 +324,12 @@
                  <td>0.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                <td><span>Not Started</span></td>
             </tr>
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"> </td>
+                <td><span>Not Started</span> </td>
+                <td></td>
                  <td>10</td>
                 <td><a href="#">5F31CA213985-02</a></td>
                 <td>MB</td>
@@ -326,27 +342,29 @@
                  <td>0.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                <td><span>Not Started</span></td>
             </tr>
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
+                <td></td>
                  <td>0</td>
                 <td><a href="#">1R03CA212935-01</a></td>
                 <td>NC</td>
                 <td>12/01/2016</td>
-                <td><a href="mailto:">Carruthers, Renee</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Carruthers, Renee</a></td>
                 
-                <td><a href="mailto:">Flores, Roberto</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Roberto</a></td>
                 
                     <td>0</td>
                  <td>5.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                <td><span>Not Started</span></td>
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                <td><span class="frozen">Frozen</span></td>
+                <td></td>
                  <td>28</td>
                 <td><a href="#">5R01CA193829-02</a></td>
                 <td>NC</td>
@@ -359,11 +377,12 @@
                  <td>0.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
             </tr>
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
+                 <td><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right"></td>
                  <td>10</td>
                 <td><a href="#">1R50CA211428-01</a></td>
                 <td>DC</td>
@@ -376,29 +395,31 @@
                  <td>0.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
             </tr>
 
              <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                <td><span class="frozen">Frozen</span></td>
+                <td></td>
                  <td>19</td>
                 <td><a href="#">4F31CA174316-05</a></td>
                 <td>MB</td>
                 <td>09/12/2016</td>
                 <td><a href="mailto:">McNeil, Nicole</a></td>
                 
-                <td><a href="mailto:">Smith,Iris</a></td>
+                <td><a href="mailto:">Smith, Iris</a></td>
                 
                     <td>23</td>
                  <td>9.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                <td><span class="frozen">Frozen</span></td>
             </tr>
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                <td><span class="submitted">Submitted</span></td>
+                <td></td>
                  <td>19</td>
                 <td><a href="#">4K24CA121990-10</a></td>
                 <td>TR</td>
@@ -411,11 +432,12 @@
                  <td>0.0%</td>
                  <td>05/20/2017</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                 <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                 <td><span class="submitted">Submitted</span></td>
             </tr>
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
+                <td><img src="images/asterisk.gif" alt="Greensheets In Control" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
                  <td>209</td>
                 <td><a href="#">4R01CA116352-10</a></td>
                 <td>DC</td>
@@ -428,59 +450,62 @@
                  <td>3.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 <td><span class="saved">Saved</span></td>
             </tr>
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
+                <td><img src="images/asterisk.gif" alt="Greensheets In Control" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
                  <td>99</td>
                 <td><a href="#">4R01CA116352-10</a></td>
                 <td>DC</td>
                 <td>06/01/2016</td>
                 <td><a href="mailto:">Witkin, Keren</a></td>
                 
-                <td><a href="mailto:">Smith, Bethany</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Bethany</a></td>
                 
                     <td>20</td>
                  <td>0.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 <td><span class="saved">Saved</span></td>
             </tr>
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
+                <td></td>
                  <td>88</td>
                 <td><a href="#">1R01CA212138-01</a></td>
                 <td>DI</td>
                 <td>09/01/2016</td>
                 <td><a href="mailto:">Henderson, Lori</a></td>
                 
-                <td><a href="mailto:">Smith, Barbara</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Barbara</a></td>
                 
                     <td>19</td>
                  <td>0.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                  <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                  <td><span class="saved">Saved</span></td>
             </tr>
 
             <tr>
               <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                <td><span class="submitted">Submitted</span></td>
+                <td></td>
                  <td>72</td>
                 <td><a href="#">4R01CA116352-10</a></td>
                 <td>RA</td>
                 <td>05/01/2016</td>
                 <td><a href="mailto:">Nguyen, Long</a></td>
                 
-                <td><a href="mailto:">Capala, Jacek</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Jacek</a></td>
                 
                     <td>16</td>
                  <td>5.0%</td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                  <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                  <td><span class="submitted">Submitted</span></td>
             </tr>
 
        
@@ -488,6 +513,7 @@
     </table>   
       
    <br/>
+ </div>
 	
 	</div>
     

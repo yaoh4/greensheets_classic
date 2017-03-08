@@ -13,7 +13,7 @@
 
 <script src="scripts/jquery.validate-1.15.0.min.js"></script>
 
-
+<script src="scripts/theme2.js"></script>
 <script src="specialistcontroller.js"></script>
 <script src="validator.js"></script>
 <script src="dropzone.js"></script>
@@ -55,7 +55,7 @@
 				</div>
 			</div>
 			<!-- Fixed navbar -->
-      <div class="stickyDiv"     style="border-bottom: 7px solid #4cb471;">
+      <div  style="border-bottom: 7px solid #4cb471;">
       
 
 
@@ -108,9 +108,13 @@
       
       <!-- Begin Panel -->
       <div class="col-md-12">  
-        <br/>
+        <br/>&nbsp;
+           <div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Please Note:</strong> There are no pending greensheets assigned to you.  According to the system you are a 'guest user'.  If you think this is an error, please send an e-mail to the <a href="mailto:nci-now-l@list.nih.gov?subject=Greensheets">NOW Comments List</a>. You may view a read-only version of a greensheet for a particular grant by using the search field below.
+</div>
       
-
+<br/>&nbsp;
 
 <div class="panel panel-default" style="margin-right: 15px; margin-left: 15px;">
 
@@ -139,9 +143,9 @@
        
          <div class="searchButton2" id="searchDiv">
         
-        <button type="button" class="btn btn-primary has-spinner" id="search-btn"><i class="fa fa-spinner fa-spin"></i>Search</button>
+        <button type="button" class="btn btn-primary has-spinner" id="search-btn">Search</button>
         
-        <input id="search-form_navigateToSearch" name="action:navigateToSearch" value=" Clear " class="btn btn-default" type="submit">
+        <input id="search-form_navigateToSearch" value="Clear" onClick="window.location.reload()"  class="btn btn-default" type="submit">
 
       </div>
 
@@ -167,7 +171,7 @@
   </div>
  
 <br/>
-
+<div id="spSearch" style="display:none;">
         <h3>Guest Search Results</h3>
       <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
@@ -175,16 +179,16 @@
                 <th style="white-space: nowrap;">Grant Number</th>
                 <th>CA</th>
                 <th>Budget<br/>Start Date</th> 
-                <th>PD</th>
-                <th>PI</th>
-                <th>Specialist</th>
-                <th>Backup<br/> Specialist</th>
+                <th width="9%">PD</th>
+                <th width="9%">PI</th>
+                <th width="9%">Specialist</th>
+                <th width="9%">Backup<br/> Specialist</th>
                 <th class="no-sort">Pgm<br/> GS</th>
                 <th class="status">Pgm GS<br/> Status</th>
-                <th width="5%">Pgm Submitted<br/> Date:</th>
+                <th width="3%">Pgm Submitted<br/> Date:</th>
                 <th class="no-sort">GMS<br/> GS</th>
                 <th class="status">GMS GS<br/> Status</th>
-                <th width="5%">GMS GS Submitted<br/> Date:</th>
+                <th width="3%">GMS GS Submitted<br/> Date:</th>
             </tr>
         </thead>
         
@@ -195,16 +199,16 @@
                 <td>01/01/2017</td>
                 
 
-                <td><a href="maito:">Greene, Jack</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Greene, Jack</a></td>
                 
-                <td><a href="maito:">Smith, Meghan</a></td>
-                 <td><a href="maito:">Haddad, Jennifer</a></td>
-                <td></td>
-                <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td style="white-space:nowrap;"><a href="maito:">Smith, Meghan</a></td>
+                 <td style="white-space:nowrap;"><a href="maito:">Haddad, Jennifer</a></td>
+                <td style="white-space:nowrap;"></td>
+                <td><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></td>
+                <td><span class="saved">Saved</span></td>
                  <td></td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
                 <td></td>
             </tr>
 
@@ -218,11 +222,11 @@
                  <td><a href="maito:">Edwards, Jennifer</a></td>
                 <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                <td>Not Started</td>
                  
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                <td>Not Started</td>
                    <td></td>
             </tr>
             <tr>
@@ -235,26 +239,26 @@
                 <td><a href="maito:">Parker, Teresa</a></td>
                 <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"> </td>
+                <td>Not Started </td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                <td>Not Started</td>
                    <td></td>
             </tr>
             <tr>
                 <td><a href="#">1R03CA212935-01</a></td>
                 <td>NC</td>
-                <td>12/01/2016</td>
+                <td>12/01/2017</td>
                 <td><a href="maito:">Carruthers, Renee</a></td>
                 
-                <td><a href="maito:">Flores, Roberto</a></td>
-                <td><a href="maito:">Edwards, Jennifer</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Smith, Roberto</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Edwards, Jennifer</a></td>
                 <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/notStarted.gif" alt="not started" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Not Started" data-placement="right"></td>
+                <td>Not Started</td>
                    <td></td>
             <tr>
                 <td><a href="#">5R01CA193829-02</a></td>
@@ -266,29 +270,29 @@
                 <td><a href="maito:">Murphy, Connie</a> </td>
                 <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                <td><span class="frozen">Frozen</span></td>
                  
-                 <td></td>
+                 <td>10/05/2016</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
-                   <td></td>
+                <td><span class="saved">Frozen</span></td>
+                   <td>10/05/2016</td>
             </tr>
             <tr>
                 <td><a href="#">1R50CA211428-01</a></td>
                 <td>DC</td>
-                <td>09/30/2016</td>
-                <td><a href="maito:">Sharman, Anu</a></td>
+                <td>09/30/2017</td>
+                <td style="white-space:nowrap;"><a href="maito:">Sharman, Anu</a></td>
                 
-                <td><a href="maito:">Smith, Edwin</a></td>
-                <td><a href="maito:">Williams,Ted</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Smith, Edwin</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Williams, Ted</a></td>
                 <td></td>
 
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
             
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
                    <td></td>
             </tr>
 
@@ -296,84 +300,84 @@
                 <td><a href="#">4F31CA174316-05</a></td>
                 <td>MB</td>
                 <td>09/12/2016</td>
-                <td><a href="maito:">McNeil, Nicole</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">McNeil, Nicole</a></td>
                 
-                <td><a href="maito:">Smith,Iris</a></td>
-                <td><a href="maito:">Brown, Linda</a></td>
+                <td style="white-space:nowrap;"> <a href="maito:">Smith, Iris</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Brown, Linda</a></td>
                 <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
+                <td><span class="frozen">Frozen</span></td>
                  
-                 <td></td>
+                 <td>11/10/2016</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/frozen.gif" alt="frozen" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Frozen" data-placement="right"></td>
-                   <td></td>
+                <td><span class="frozen">Frozen</span></td>
+                   <td>11/11/2016</td>
             </tr>
             <tr>
                 <td><a href="#">4K24CA121990-10</a></td>
                 <td>TR</td>
                 <td>08/01/2016</td>
-                <td><a href="maito:">Radaev, Sergey</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Radaev, Sergey</a></td>
                 
-                <td><a href="maito:">Smith, David</a></td>
-                <td><a href="maito:">Williams,Ted</a></td>
-                <td><a href="maito:">Fisher,Barbara</a></td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                <td style="white-space:nowrap;"><a href="maito:">Smith, David</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Williams, Ted</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Fisher, Barbara</a></td>
+                <td><a href="programGS-submitted.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="Submitted">Submitted</span></td>
                  <td>05/20/2016</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                 <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                 <td><span class="Submitted">Submitted</span></td>
+                    <td>05/05/2016</td>
+            </tr>
+            <tr>
+                <td><a href="#">4R01CA116352-10</a></td>
+                <td>DC</td>
+                <td>07/01/2017</td>
+                <td style="white-space:nowrap;"><a href="maito:">Witkin, Keren</a></td>
+                
+                <td style="white-space:nowrap;"><a href="maito:">Smith, Bethany</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Fisher, Barbara</a></td>
+                <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                 <td><span class="saved">Saved</span></td>
                     <td></td>
             </tr>
             <tr>
                 <td><a href="#">4R01CA116352-10</a></td>
                 <td>DC</td>
-                <td>07/01/2016</td>
-                <td><a href="maito:">Witkin, Keren</a></td>
+                <td>06/01/2017</td>
+                <td style="white-space:nowrap;"><a href="maito:">Witkin, Keren</a></td>
                 
-                <td><a href="maito:">Smith, Bethany</a></td>
-                <td><a href="maito:">Fisher,Barbara</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Smith, Bethany</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Linde, Emily</a></td>
                 <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
                  
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
-                    <td></td>
-            </tr>
-            <tr>
-                <td><a href="#">4R01CA116352-10</a></td>
-                <td>DC</td>
-                <td>06/01/2016</td>
-                <td><a href="maito:">Witkin, Keren</a></td>
-                
-                <td><a href="maito:">Smith, Bethany</a></td>
-                <td><a href="maito:">Linde, Emily</a></td>
-                <td></td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"><img src="images/asterisk.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for Submission" data-placement="right"></td>
-                 
-                 <td></td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                 <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                 <td><span class="saved">Saved</span></td>
                     <td></td>
             </tr>
             <tr>
                 <td><a href="#">1R01CA212138-01</a></td>
                 <td>DI</td>
-                <td>09/01/2016</td>
-                <td><a href="maito:">Henderson, Lori</a></td>
+                <td>09/01/2017</td>
+                <td style="white-space:nowrap;"><a href="maito:">Henderson, Lori</a></td>
                 
-                <td><a href="maito:">Smith, Barbara</a></td>
-                <td><a href="maito:">Dunne, Debbie</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Smith, Barbara</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Dunne, Debbie</a></td>
                 <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                <td><span class="saved">Saved</span></td>
                  
                  <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                  <td><img src="images/saved.gif" alt="saved" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Saved" data-placement="right"></td>
+                  <td><span class="saved">Saved</span></td>
                      <td></td>
             </tr>
 
@@ -383,30 +387,31 @@
                 <td>05/01/2016</td>
                 <td><a href="maito:">Nguyen, Long</a></td>
                 
-                <td><a href="maito:">Capala, Jacek</a></td>
-                <td><a href="maito:">Linde, Emily</a></td>
-                <td><a href="maito:">Dunne, Debbie</a></td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                <td style="white-space:nowrap;"><a href="maito:">Smith, Jacek</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Linde, Emily</a></td>
+                <td style="white-space:nowrap;"><a href="maito:">Dunne, Debbie</a></td>
+                <td style="white-space:nowrap;"><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="Submitted">Submitted</span></td>
                  
                  <td>09/13/2016</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                  <td><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Submitted" data-placement="right"></td>
+                  <td><span class="Submitted">Submitted</span></td>
                      <td>10/10/2016</td>
             </tr>
 
        
         </tbody>
-    </table>   
+    </table>  
+    <p>&nbsp;</p> 
       
-   <br/>
-	
+
+	</div>
 	</div>
     
-  	
+  	</div>
 
 
- 
+ </div> <!-- end wrap -->
 
 
 
@@ -444,8 +449,9 @@
         </div>
 				
 				</div>
-				<!--back to top arrow-->
-				<a href="#" class="back-to-top" style="display: none;">TOP</a>
+		
+				 <!--back to top arrow-->
+        <a href="#" class="back-to-top" style="display: none;">TOP</a>
 			</footer></div>
 		
 

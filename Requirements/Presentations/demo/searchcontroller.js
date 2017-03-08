@@ -20,7 +20,43 @@ $('#example').dataTable( {
 
  
    
+//Save Alert Function
+$("#saveButton").click(function(){
+  $("#success").attr("style", "inline");
+  $("#defaultS").attr("style", "display:none;");
+  $("#preferredS").attr("style", "display:inline;");
+ 
+});
 
+//Load Preferences 
+$("#loadSP").click(function(){
+ 
+ $('#gType option:selected').removeAttr('selected');
+$('#gType option:nth-child(0)').attr('selected','selected');
+
+ $('#selectFrom option:selected').removeAttr('selected');
+$('#selectFrom option:nth-child(2)').attr('selected','selected');
+
+$('#grantNumber radio:checked').removeAttr('checked');
+$('#PIname').attr('checked','checked');
+$('#searchCriteria').attr('value','Smith');
+
+
+  $("#defaultS").attr("style", "display:none;");
+  $("#preferredS").attr("style", "display:inline;");
+   $("#success").attr('style', 'display: none');
+ 
+});
+
+
+//Search Function
+
+ $("#search-btn").click(function(){
+      $("#pSearch").attr('style', 'display: block');
+      $("#success").attr('style', 'display: none');
+    });
+
+ //tooltip
       
 
 $('[data-toggle="tooltip"]').tooltip();   
@@ -38,21 +74,6 @@ $('[data-toggle="tooltip"]').tooltip();
     });
 
 
-  $("#editCancel").click(function(){
-  
-     $('.panel-body').attr('style', 'background-color: none');
-     $('#searchDiv').attr('style','display: block');
-      $('#editDiv').attr('style','display: none');
-  
-    });
-
-    $("#editSave").click(function(){
-  
-     $('.panel-body').attr('style', 'background-color: none');
-     $('#searchDiv').attr('style','display: block');
-      $('#editDiv').attr('style','display: none');
-  
-    });
 
 
   $('.panel-heading span.clickable').click (function(){

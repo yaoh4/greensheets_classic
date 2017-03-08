@@ -12,8 +12,8 @@
 <script src="scripts/datatables-1.10.12.min.js"></script>
 <script src="scripts/jquery.validate-1.15.0.min.js"></script>
 <script src="scripts/jquery.are-you-sure-1.9.0.js"></script>
-<script src="scripts/theme2.js"></script>
-<script src="controller.js"></script>
+
+<script src="controller2.js"></script>
 <script src="validator.js"></script>
 <script src="dropzone.js"></script>
 <link href="stylesheets/dropzone.css" rel="stylesheet" type="text/css" media="screen">
@@ -109,7 +109,7 @@
       <div class="col-md-12">  
         <br/>
       
-<div style="display:inline; float:left" <button type="button" class="btn btn-default"><a href="specialist-searched.htm"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Search</a></button></div>
+
 <div class="well well-sm" style="display:inline; float:right;"><span>Related Links:</span>&nbsp;&nbsp;
 <a href="#">IMS</a>&nbsp; | &nbsp;<a href="#">FCOI</a>&nbsp; | &nbsp;<a href="#">FACTS</a>
 </div>
@@ -138,7 +138,7 @@
           <table width="100%">
           <tr><td width="50%">
          <strong>Grant Number:</strong> <a href="#">5R01CA195654-04</a></span></td>
-        <td width="50%"><strong>Status:</strong> Saved</td></tr>
+        <td width="50%"><strong>Status:</strong><div id="NSstatus" style="display:inline;"> Not Started</div><div id="Sstatus" style="display:none;"> Saved</div></td></tr>
       </table>
   </td>
   </tr>   
@@ -173,10 +173,10 @@
   <div style="float:right;  margin-bottom: 10px;display:block;">
                                                 <button type="button" class="btn btn-default allSubs">Expand All</button>
                                             		 <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                     <button type="button" class="btn btn-default "> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Clear All Answers</button></a> 
+                                                     <button type="button" class="btn btn-default allNotes">Clear All Answers</button> 
               <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
-               <button type="button" class="btn btn-default cancel" value="Refresh Page" onClick="window.location.reload()"> Cancel Changes</button> 
-              <a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit because AWARD action is Cancelled"><button type="button" class="btn btn-default disabled" id="reset" ">Submit</button></a> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+               <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
+              <!--<a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit untill the ACTION to AWARD is created in GPMATS">--><button type="button" class="btn btn-default submit">Submit</button> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
             </div>
           </div>
@@ -198,8 +198,8 @@
 <div class="hiddenNotes">
 	<div class="form-group">
    <label>Comments</label>
-    <textarea class="exampleTextarea form-control" rows="3">Comments would go here.</textarea>
-    <span class="pull-right comments">( <span>1977</span> characters remaining)</span>
+    <textarea class="exampleTextarea form-control" rows="3" id="comment1"></textarea>
+    <span class="pull-right comments">( <span class="count_message">2000</span> characters remaining)</span>
   </div>
 </div>
 </div>
@@ -207,21 +207,20 @@
             <td  class="input"><div class="form-group">
               
               <select class="form-control" id="exampleSelect1">
-                <option disabled>Select an Option</>
-                <option selected>Changed and approved</option>
-                <option>Changed but not approved</option>
-                <option>Have not changed</option>
-               
+                <option>Select an Option</option>
+                <option>Changed and Approved</option>
+                <option>Changed and Not Approved</option>
+                
                 </select>
               </div>
-            <td width="31"   class="subNumber"><a href="#" class="notes"><img src="images/comment.gif" height="20" width="20"></a></td>  
+            <td width="31"   class="subNumber"><a href="#" class="notes"><img src="images/nocomment.gif" height="20" width="20" id="comment1image"></a></td>  
             <td width="31"   align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-1.1" data-pnode="treetable-parent-1" class="lastSub" id="sub1">
         	<td><div style="display:inline-block;" class="indentLine2" id="1">1.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
-              <textarea class="exampleTextarea form-control" rows="3"></textarea>
+              <textarea class="exampleTextarea form-control has-error" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
           </div></td>
           	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
@@ -234,12 +233,12 @@
                 <div class="instructions">(If No, explanation required.)</div></div></td>
             <td class="input"><div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios10" id="optionsRadiosYes" value="Yes">
+                <input type="radio" class="form-check-input" name="optionsRadios10" id="optionsRadiosYes" value="Yes" >
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios10" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
             </div></td>
           	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>   
-            <td><a data-toggle="modal" href="#myModal"><img src="images/attachments.gif" height="20" width="20"></a></td>
+            <td><a data-toggle="modal" href="#myModal"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
        
         <tr data-node="treetable-2.1" data-pnode="treetable-parent-2" class="lastSub" id="2sub">
@@ -259,20 +258,20 @@
 <div style="display:none" class="hiddenNotes">
 	<div class="form-group">
    <label>Comments</label>
-    <textarea class="exampleTextarea form-control" rows="3">Comments would go here.</textarea>
-    <span class="pull-right comments">( <span>1977</span> characters remaining)</span>
+    <textarea class="exampleTextarea form-control" rows="3" id="comment3"></textarea>
+    <span class="pull-right comments">( <span class="count_message">2000</span> characters remaining)</span>
 </div>
 </div>
 </td>
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios11" id="optionsRadiosYes" value="Yes" checked="checked">
+                <input type="radio" class="form-check-input" name="optionsRadios11" id="optionsRadiosYes" value="Yes" >
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios11" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
               
               </div>
-            <td  align="right"><a href="#" class="notes"><img src="images/comment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a href="#" class="notes"><img src="images/nocomment.gif" height="20" width="20" id="comment3image"></a></td>  
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
@@ -368,11 +367,12 @@
             <td class="input"><div class="form-group">
               
               <select class="form-control" id="exampleSelect1">
-                <option selected>Yes, approved and has impact</option>
-                <option>Yes, approved and has no impact</option>
-                <option>No, not approved and has impact</option>
-                <option>No, not approved and has no impact</option>
-                
+                <option>Select an Option</option>
+                <option>Yes, approved and has impact</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
                 </select>
               
               </div>
@@ -399,13 +399,11 @@
             <td class="input"><div class="form-group">
               
               <select class="form-control" id="exampleSelect7">
-                <option selected disabled>Select an Option</option>
-                <option>No changes in key personnel</option>
-                <option>Yes, approved and has impact</option>
-                <option>Yes, approved and has no impact</option>
-                <option>Yes, not approved and has impact</option>
-                <option>Yes, not approved and has no impact</option>
-                
+                <option>Select an Option</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
                 </select>
               
               </div>
@@ -432,6 +430,8 @@
             <td class="input"><div class="form-group">
               
               <select class="form-control" id="exampleSelect8">
+                <option>Select an Option</option>
+
                 <option>Changed and not approved</option>
                 
                 </select>
@@ -579,15 +579,15 @@
           <div style="display:none" class="hiddenNotes">
   <div class="form-group">
    <label>Comments</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3">Comments would go here.</textarea>
-    <span class="pull-right comments">( <span>1977</span> characters remaining)</span>
+    <textarea class="form-control exampleTextarea" rows="3" id="comment11"></textarea>
+    <span class="pull-right comments">( <span class="count_message">2000</span> characters remaining)</span>
   </div>
 </div></div></td>
           <td class="input"><div class="form-group">
              <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
           </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/comment.gif" height="20" width="20"></a></td>
+          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><a href="#main11" class="notes"><img src="images/nocomment.gif" height="20" width="20" id="comment11image"></a></td>
           <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
@@ -658,6 +658,7 @@
           <td><div style="display:inline-block;" class="indentLine2">12.2.1 Exemption Number:</div></td>
           <td class="input"><span class="form-group">
             <select name="exampleSelect2" class="form-control" id="exampleSelect4">
+               <option>Select an Option</option>
               <option>Not Exempt</option>
               <option>2</option>
               <option>3</option>
@@ -877,7 +878,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                                                     <button type="button" class="btn btn-default allNotes">Clear All Answers</button>
       <button type="button" class="btn btn-primary has-spinner" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
          <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
-              <button type="button" class="btn btn-default submit">Submit</button> 
+              <button type="button" class="btn btn-default" onclick="window.location.href='nonWBgreensheet-submitted.htm'">Submit</button> 
               <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
 </div>
@@ -887,27 +888,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 </div>
 </form>
 
-<!-- Modal for Clear All Answers -->
-
-<div class="modal fade" tabindex="-1" role="dialog" id="clearModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Clear All Answers</h4>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to clear all questions? Click OK to continue.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='greensheet-cleared.htm'">Ok</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-	<!-- Modal for Attachments -->
+	<!-- Modal for Roles -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
@@ -978,7 +959,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
         <div class="row footerText">
           <div>
             <ul>
-              <li><a  href="http://inside.era.nih.gov/" target="_blank">IMPAC II Applications</a></li>
+              <li><a href="http://inside.era.nih.gov/" target="_blank">IMPAC II Applications</a></li>
             </ul>
             <ul>
               <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li>

@@ -432,7 +432,7 @@ font-weight:600;
 
 .site-footer {
   
- margin-top: 340px;
+ 
  padding-top: 15px;
 height: 200px;
 clear: both;
@@ -525,7 +525,7 @@ a {
    min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -200px;
   /* Pad bottom by footer height */
   padding: 0 0  0px;
   }
@@ -1406,3 +1406,18 @@ table.dataTable thead .sorting:after {
  
   font-size: 15px;
 }
+
+.saved {
+ color: green;
+ font-weight: bold;
+}
+
+.frozen{
+  color: #08c;
+  font-weight: bold;
+}
+
+.Submitted {
+  color: #777;
+  font-weight: bold;
+
