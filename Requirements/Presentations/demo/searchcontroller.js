@@ -9,6 +9,10 @@ $(document).ready(function(){
   $( ".no-sort" ).removeClass( ".sorting" );
 
 $('#example').dataTable( {
+  "bSort": true,
+
+   "order": [[ 0, "asc" ]],
+
        columnDefs: [
          { targets: ['status'], type: 'alt-string'},
  
@@ -16,7 +20,8 @@ $('#example').dataTable( {
 
          {targets: 'no-sort', aaSorting: false },
 
-         {targets:[3], aaSorting: true }]
+        
+         ]
     } );
 
  
