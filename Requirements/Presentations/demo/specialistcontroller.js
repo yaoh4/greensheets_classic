@@ -7,6 +7,11 @@ $(document).ready(function(){
   $( ".no-sort" ).removeClass( ".sorting" );
 
 $('#example').dataTable( {
+
+    "bSort": true,
+
+   "order": [[ 4, "asc" ]],
+   
        columnDefs: [
          { targets: ['status'], type: 'alt-string'},
  
