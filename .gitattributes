@@ -2580,6 +2580,8 @@ Requirements/Presentations/demo/dist/css/chosen-sprite@2x.png -text
 Requirements/Presentations/demo/dist/css/chosen.css -text
 Requirements/Presentations/demo/dist/less/bootstrap-treefy.less -text
 Requirements/Presentations/demo/dist/less/variables.less -text
+Requirements/Presentations/demo/draft.htm -text
+Requirements/Presentations/demo/draftController.js -text
 Requirements/Presentations/demo/dropzone.js -text
 Requirements/Presentations/demo/fonts/FontAwesome.otf -text
 Requirements/Presentations/demo/fonts/fontawesome-webfont.eot -text
@@ -2594,6 +2596,8 @@ Requirements/Presentations/demo/fonts/glyphicons-halflings-regular.woff -text
 Requirements/Presentations/demo/fonts/glyphicons-halflings-regular.woff2 -text
 Requirements/Presentations/demo/fullwidth.htm -text
 Requirements/Presentations/demo/greensheet-cleared.htm -text
+Requirements/Presentations/demo/greensheet-draft.htm -text
+Requirements/Presentations/demo/greensheet-draftEmailed.htm -text
 Requirements/Presentations/demo/greensheet-nonWB.htm -text
 Requirements/Presentations/demo/greensheet-notWB.htm -text
 Requirements/Presentations/demo/greensheet-submitted.htm -text
@@ -2661,6 +2665,7 @@ Requirements/Presentations/demo/program-submitted.htm -text
 Requirements/Presentations/demo/programGS-guest-submitted.htm -text
 Requirements/Presentations/demo/programGS-submitted.htm -text
 Requirements/Presentations/demo/review.htm -text
+Requirements/Presentations/demo/reviewNoDrafts.htm -text
 Requirements/Presentations/demo/scripts/bootbox-4.4.0.min.js -text
 Requirements/Presentations/demo/scripts/bootstrap-3.3.6.min.js -text
 Requirements/Presentations/demo/scripts/bootstrap-datepicker-1.6.1.min.js -text

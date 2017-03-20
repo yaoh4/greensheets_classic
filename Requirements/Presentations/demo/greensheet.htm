@@ -176,7 +176,7 @@
                                                      <button type="button" class="btn btn-default "> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Clear All Answers</button></a> 
               <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
                <button type="button" class="btn btn-default cancel" value="Refresh Page" onClick="window.location.reload()"> Cancel Changes</button> 
-              <a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit because AWARD action is Cancelled"><button type="button" class="btn btn-default disabled" id="reset" ">Submit</button></a> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+              <a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit because AWARD action is Cancelled"><button type="button" class="btn btn-default disabled" id="reset">Submit</button></a> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
             </div>
           </div>
@@ -874,7 +874,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 <div style="float:right; margin-bottom: 15px;">
 <button type="button" class="btn btn-default allSubs">Expand All</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                    <button type="button" class="btn btn-default allNotes">Clear All Answers</button>
+                                                    <button type="button" class="btn btn-default"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Clear All Answers</a></button>
       <button type="button" class="btn btn-primary has-spinner" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
          <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
               <button type="button" class="btn btn-default submit">Submit</button> 
@@ -892,12 +892,17 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 <div class="modal fade" tabindex="-1" role="dialog" id="clearModal">
   <div class="modal-dialog " role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header alert-warning">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title ">Clear All Answers</h4>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to clear all questions?</p><p> Click OK to continue.</p>
+        <table>
+        <tr><td style="padding: 5px; vertical-align: top; padding-top: 15px;">
+        <span style="font-size: 25px;"><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i></span></td><td style="padding: 5px;"><p>Are you sure you want to clear all questions? <br/>Click OK to continue.</p></td>
+      </tr>
+    </table>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>

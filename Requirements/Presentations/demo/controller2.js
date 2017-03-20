@@ -60,10 +60,11 @@ $(".submit").click(function(){
 
 
  $("#error").attr("style", "inline");
+ $('#complete').attr('style', 'display:none;');
  $('html, body').animate({ scrollTop: 0 }, 0);
 
 
-    $("#1, #6-1, #8-1, #Textarea1, #Textarea6, #Textarea8, #12-2-1-1-1, #Textarea12-2-1-1-1, #12-2-1-1-2, #radio12-2-1-1-1, #sub12-2-1-1-3, #date, .warning1").addClass("has-error");
+    $("#1, #6-1, #8-1, #Textarea1, #Textarea6, #Textarea8, #12-2-1-1-1, #Textarea12-2-1-1-1, #12-2-1-1-2, #radio12-2-1-1-1, #sub12-2-1-1-3, #date, .warning1, #1-1text").addClass("has-error");
     $(".warning1").attr('style', 'display: block');
     $("#success").attr("style", "display: none");
     $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1").removeClass("treetable-collapsed");
@@ -80,6 +81,13 @@ $("#saveButton").click(function(){
   $("#NSstatus").attr("style", "display:none")
   $("#Sstatus").attr("style", "display:inline")
 });
+
+
+$("#completed").click(function () {
+     $('#complete').attr('style', 'display:block;');
+      $('#error').attr('style', 'display:none;');
+   
+ });
 
 $('.datepicker').datepicker();
 

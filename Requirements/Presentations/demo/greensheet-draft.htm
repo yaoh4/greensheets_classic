@@ -14,6 +14,7 @@
 <script src="scripts/jquery.are-you-sure-1.9.0.js"></script>
 <script src="scripts/theme2.js"></script>
 <script src="controller2.js"></script>
+
 <script src="validator.js"></script>
 <script src="dropzone.js"></script>
 <link href="stylesheets/dropzone.css" rel="stylesheet" type="text/css" media="screen">
@@ -40,35 +41,37 @@
 
 
 
+
 <div id="wrap"> 
-	<div class="navbar ">
-		<div class="row header">
-			<div style="height: 50px; margin-top: -1px;">
-				<div id="logo" class="logoImage" style="padding-top: 5px;">
-				    <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
-				    <div style="float: right; margin-right: 15px;">
-					    <br>  
-					  
-				   
-				   </div>
-				    
-				</div>
-			</div>
-			<!-- Fixed navbar -->
-			<div class="stickyDiv"     style="border-bottom: 7px solid #4cb471;">
-			
+  <div class="navbar ">
+    <div class="row header">
+      <div style="height: 50px; margin-top: -1px;">
+        <div id="logo" class="logoImage" style="padding-top: 5px;">
+            <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
+            <div style="float: right; margin-right: 15px;">
+              <br>  
+            
+           
+           </div>
+            
+        </div>
+      </div>
+      <!-- Fixed navbar -->
+      <div class="stickyDiv">
+      
 
 
 
 
 
-		
-		 
+    
+     
 
-    		<!--Page Header -->
-    		
-    		
-    		  <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| <a href="search.htm">Greensheets</a></h3></div></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
+        <!--Page Header -->
+        
+        
+          
+            <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| <a href="search.htm">Greensheets</a></h3></div></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
                   Welcome:
                 <div id="loginID" class="login">
                   
@@ -76,21 +79,55 @@
                   
                 </div><div style="display:inline-block;"><i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></div>
               </div>
-    			
-      	 
+          
+         
+          
+         
 <div id="secNav" class="row">
 
 
+<!-- Navigation bar -->
+    <div id="main_navbar">
+      <nav class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-header">
+          <!-- Responsive navigation bar on mobile devices -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="glyphicon glyphicon-align-justify"></span><!-- Responsive button icon -->
+          </button>
+        </div>
+
+        <nav class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+            <li>
+              <a href="about.html" id="aboutnav">Search Greensheets</a>
+                          
+            </li>
+            <li class="current">
+              <a href="review.htm" id="menunav" style="color: #004581;">Admin</a>
+            </li>
+
+            
+         
 
 
-      		
-			
-		</div>
-	</div>
-	</div>
+          </ul>
+        </nav>
+      </nav>
+    </div>
+</div>
+
+          
+      
+    </div>
+  </div>
+  </div>
 
 
-	<!-- end Header -->
+  <!-- end Header -->
+
+  <!-- end Header -->
 
 	
 
@@ -108,19 +145,15 @@
       <!-- Begin Panel -->
       <div class="col-md-12">  
         <br/>
+        <div style="display:inline; float:left" ><button="" type="button" class="btn btn-default" onclick="window.location.href='review.htm'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Review & Test Module</div>
       
 
 <div class="well well-sm" style="display:inline; float:right;"><span>Related Links:</span>&nbsp;&nbsp;
 <a href="#">IMS</a>&nbsp; | &nbsp;<a href="#">FCOI</a>&nbsp; | &nbsp;<a href="#">FACTS</a>
 </div>
+<div style="display:block; float:left; clear:both;"><h2 style='margin-top:0px;'>Review and Test Greensheet</h2></div>
 <div style="display:block; margin-bottom: 20px;">&nbsp;</div>
-<!--success alert box -->
-    <div class="col-md-12" style="display:none;" id="success">    
-   <div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Successfully Saved!</strong> Changes to the greensheet have been successfully saved.
-</div>
-</div>
+
 <!--Error alert box -->
 <div class="col-md-12" style="display:none;" id="error">    
    <div class="alert alert-danger alert-dismissible" role="alert">
@@ -129,54 +162,43 @@
 </div>
 </div>
 
+<!--Testing Complete alert box -->
+<div class="col-md-12" style="display:none;" id="complete">    
+   <div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Testing Completed:</strong> 1:30 PM 03/21/2017
+</div>
+</div>
+
 <!--Grant Details box -->
-  <div class="col-md-12" style="width: 600px; font-size: 14px; margin-top: 20px; margin-bottom: 10px; display:inline; float:left;">
-    <div >
-    <table width="100%">
-      <tr><td width="18px;"><a data-toggle="collapse" href="#collapse1" id="infoBox"><i class="fa fa-plus-circle details" aria-hidden="true" ></i></a></td>
-    <td>
+  <div  style="width: 400px; font-size: 14px; margin-top: 20px; margin-bottom: 10px; clear:both;">
+  
+
           <table width="100%">
-          <tr><td width="50%">
-         <strong>Grant Number:</strong> <a href="#">5R01CA195654-04</a></span></td>
-        <td width="50%"><strong>Status:</strong><div id="NSstatus" style="display:inline;"> Not Started</div><div id="Sstatus" style="display:none;"> Saved</div></td></tr>
-      </table>
-  </td>
-  </tr>   
-    <tr id="collapse1" class="collapse">
-      <td>&nbsp;</td>
-      <td>
-          <table width="100%">
-            <tr><td width="50%"><strong>Last Changed By:</strong> HUNTY0</td>
-          <td width="50%"><strong>Institution:</strong> Yale University </td></tr>
+            <tr><td width="25%"><strong>Form Name:</strong></td>
+              <td>Test Form A</a>
+          </tr> 
           
           <tr>
-          <td width="50%"><strong>Program Director:</strong> <a href="mailto:">Greene, Jack</a></td>
-          <td width="50%"><strong>PI:</strong> <a href="mailto:">Smith, Meghan</a></td></tr> 
+          <td ><strong>Form Type:</strong></td>
+          <td>Program</td>
+          </tr> 
           <tr>
-          <td width="50%"><strong>Primary Specialist:</strong> <a href="mailto:">Yarn, Janet</a></td>
-          <td width="50%"><strong>Back-up Specialist:</strong> <a href="mailto:">Hunt, Yvone</a> </td></tr> </tr> 
-          <tr>
-          <td width="50%"><strong>POC:</strong> <input name="pointOfContact" id="pointOfContact" value="" placeholder="Enter Point of Contact" type="text"></td>
-
-          <td width="50%"><strong></strong> </td></tr> 
-
+          <td ><strong>Applied to:</strong></td>
+          <td>1/R01, 2/R01, 1R21, 2/R21 </td>
+          </tr> 
+          
         </table> 
-    </td></tr> 
-  </table> 
-
-
-      </div>
-      
+  
     </div>
     <!--Main Action Buttons  -->
-<div class="col-md-12" style="padding-right: 0px;">
-  <div style="float:right;  margin-bottom: 10px;display:block;">
+<div  style="padding-right: 0px;">
+  <div style="display:inline;"> <button type="button" class="btn btn-primary" id="completed">Testing Completed</button></div>
+  <div style="float:right;  margin-bottom: 10px;display:inline;">
                                                 <button type="button" class="btn btn-default allSubs">Expand All</button>
                                             		 <button type="button" class="btn btn-default allNotes">View All Comments</button> 
                                                      <button type="button" class="btn btn-default"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Clear All Answers</a></button> 
-              <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
-               <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
-              <!--<a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit untill the ACTION to AWARD is created in GPMATS">--><button type="button" class="btn btn-default submit">Submit</button> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+              <button type="button" class="btn btn-default submit">Validate Submission</button> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
             </div>
           </div>
@@ -220,7 +242,7 @@
         	<td><div style="display:inline-block;" class="indentLine2" id="1">1.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
-              <textarea class="exampleTextarea form-control" id="1-1text" rows="3"></textarea>
+              <textarea class="exampleTextarea form-control" rows="3" id="1-1text"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
           </div></td>
           	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
@@ -872,16 +894,13 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
     </tbody>
 </table>
 
-<div style="float:right; margin-bottom: 15px;">
-<button type="button" class="btn btn-default allSubs">Expand All</button>
+<div style="float:right;  margin-bottom: 10px;display:inline;">
+                                                <button type="button" class="btn btn-default allSubs">Expand All</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                    <button type="button" class="btn btn-default"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Clear All Answers</a></button>
-      <button type="button" class="btn btn-primary has-spinner" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
-         <button type="button" class="btn btn-default cancel"> Cancel Changes</button> 
-              <button type="button" class="btn btn-default" onclick="window.location.href='nonWBgreensheet-submitted.htm'">Submit</button> 
-              <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+                                                     <button type="button" class="btn btn-default"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Clear All Answers</a></button> 
+              <button type="button" class="btn btn-default submit">Validate Submission</button> <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
              
-</div>
+            </div>
                                             </div>
 
 
@@ -907,7 +926,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-default" onclick="window.location.href='greensheet-cleared.htm'">Ok</button>
+        <button type="button" class="btn btn-default" onClick="window.location.reload()">Ok</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
