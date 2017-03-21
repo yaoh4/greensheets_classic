@@ -918,33 +918,104 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 
     <!-- Modal content-->
     <div class="modal-content">
+      
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Attachments</h4>
+        <h4 class="modal-title">New Attachment(s)</h4>
       </div>
+      
       <div class="modal-body" style="max-height: 900px">
         
-            	<div style="width:600px;">
-          <div style="margin-left: 15px; float:left; width: 18%"><p class="question">
-          <!-- <i class="fa fa-asterisk asterisk" aria-hidden="true">&nbsp;</i>-->
-            Upload File:
-          </p></div>
-          <!--BEGIN Uploader-->
-          <div class="qSpacing" id="bsiDiv" style="margin-bottom: 30px; float: left; width: 35%;">
-            <div>
-              <div class="input-group" style="width: 94px;">
-                <label class="input-group-btn"> <span class="btn btn-primary">
-                    Choose File <input name="bsi" value="" id="bsi" style="display: none;" type="file">
-                </span>
-                </label>
-              </div>
-            </div>  
+  <form class="form-inline" style="width: 100%;">
+  <div class="form-group">
+    <label for="fileUpload"><strong>Upload File:</strong></label>
+    <input type="text" class="form-control" id="exampleInputEmail2" style="width: 500px;" placeholder="Choose File to Add Attachment">
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-top: 3px;">Choose File</button>
+</form>
 
-            </div>      
-            
-            <div class="loadFileHistory" style="clear:both; width: 784px;"><p></p>
+   <div style="margin-bottom: 10px; margin-top: 25px;"> <button class="btn btn-secondary" id="showAttach">Show previously saved attachment(s)</button></div>   
 
 
+
+<div id="attachmentTable" style="display:none;"</div>
+  <div id="table1">
+<table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
+    <tbody><tr>
+      
+      <th class="tableHeader" align="center" width="10%">File Name</th>
+      <th class="tableHeader" align="center" width="10%">Date</th>
+      <th class="tableHeader" align="center" width="10%">Uploaded By</th>
+      <th class="tableHeader" align="center" width="5%">Action</th>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">example123.docx</a>
+        </td>
+      <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
+      <td>Joe Smith</td>
+      <td><button class="btn btn-default copy">Copy</button></td>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">email123.pdf</a>
+        </td>
+      <td style="white-space: nowrap">Jan 05 2017 03:06:34 PM</td>
+      <td>Debbie Brown</td>
+      <td><button class="btn btn-default ">Copy</button></td>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">exampleXYZ.doc</a>
+        </td>
+      <td style="white-space: nowrap">Mar 05 2017 01:06:34 PM</td>
+      <td>Sam Little</td>
+      <td><button class="btn btn-default">Copy</button></td>
+    </tr>
+  </tbody></table>
+</div>
+
+  <div id="table2" style="display:none;">
+<table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
+    <tbody><tr>
+      
+      <th class="tableHeader" align="center" width="10%">File Name</th>
+      <th class="tableHeader" align="center" width="10%">Date</th>
+      <th class="tableHeader" align="center" width="10%">Uploaded By</th>
+      <th class="tableHeader" align="center" width="5%">Action</th>
+    </tr>
+    
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">email123.pdf</a>
+        </td>
+      <td style="white-space: nowrap">Jan 05 2017 03:06:34 PM</td>
+      <td>Debbie Brown</td>
+      <td><button class="btn btn-default">Copy</button></td>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">exampleXYZ.doc</a>
+        </td>
+      <td style="white-space: nowrap">Mar 05 2017 01:06:34 PM</td>
+      <td>Sam Little</td>
+      <td><button class="btn btn-default">Copy</button></td>
+    </tr>
+  </tbody></table>
+</div>
+
+
+
+</div>
+
+
+<div style="margin-top: 20px; margin-bottom: 10px;" ><h4>Attachment File List</h4></div>
+<div id="fileList">
   <table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
     <tbody><tr>
       
@@ -956,25 +1027,57 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
     <tr>
      
       <td>
-          <a href="javascript:openDocument(691)">Track Project Submission.docx</a>
+          <a href="javascript:openDocument(691)">ABCExample.docx</a>
         </td>
       <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
       <td>Janene Nusraty</td>
       <td><a href="javascript:removeDocument(691, 415)"><i class="fa fa-trash fa-lg" aria-hidden="true" alt="delete" title="delete"></i></a></td>
     </tr>
-  </tbody></table></div>
-          </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-
-  </div>
+  </tbody></table>
 </div>
 
+<div id="fileList2" style="display:none;">
+  <table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
+    <tbody><tr>
+      
+      <th class="tableHeader" align="center" width="10%">File Name</th>
+      <th class="tableHeader" align="center" width="10%">Date</th>
+      <th class="tableHeader" align="center" width="10%">Uploaded By</th>
+      <th class="tableHeader" align="center" width="5%">Action</th>
+    </tr>
+
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">example123.docx</a>
+        </td>
+      <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
+      <td>Joe Smith</td>
+      <td><a href="javascript:removeDocument(691, 415)"><i class="fa fa-trash fa-lg" aria-hidden="true" alt="delete" title="delete"></i></a></td>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">ABCExample.docx</a>
+        </td>
+      <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
+      <td>Janene Nusraty</td>
+      <td><a href="javascript:removeDocument(691, 415)"><i class="fa fa-trash fa-lg" aria-hidden="true" alt="delete" title="delete"></i></a></td>
+    </tr>
+  </tbody></table>
+</div>
+         
+
+
+      <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+       
+      </div>
+     </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
 
 <!-- Footer -->
 <footer class="site-footer">

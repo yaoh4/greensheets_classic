@@ -75,6 +75,41 @@ $(".submit").click(function(){
        
  });
 
+
+//Modal add attachments view previously saved
+
+    $("#showAttach").click(function(){
+      if ($(this).text() == "Show previously saved attachment(s)") 
+  { 
+     $(this).text("Hide previously saved attachment(s)"); 
+
+
+ $("#attachmentTable").attr("style", "display:inline");
+}
+
+else {
+  $("#attachmentTable").attr("style", "display:none;");
+  $(this).text("Show previously saved attachment(s)"); 
+}
+  });
+
+
+    //modal Add Attachments copy function
+
+ $(".copy").click(function(){
+   $("#table1").attr("style", "display:none;");
+   $("#table2").attr("style", "display:block;");
+   $("#fileList").attr("style", "display:none;");
+   $("#fileList2").attr("style", "display:block;");
+   });
+
+ //modal Add Attachments save function
+ $(".saveAttach").click(function(){
+   $("#savedAttach").attr("src", "images/attachments.gif");
+   
+   });
+
+
 //Save Alert Function
 $("#saveButton").click(function(){
   $("#success").attr("style", "inline");
