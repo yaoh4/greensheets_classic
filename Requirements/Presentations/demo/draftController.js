@@ -14,10 +14,18 @@ $(document).ready(function(){
   $("#rejectProgram").click(function () {
      $('#rejected').attr('style', 'display:block; margin-top: 15px;');
      $('#promoted').attr('style', 'display:none;');
+     $('#programCompeting').attr('style', 'display:none;');
+     $('#1').attr('style', 'display:none;');
+     $('#content2').addClass('active');
+     $('#2').addClass('active');
      $('#rejectModal').modal('toggle');
  });
 
   $("#promoteProgram").click(function () {
+      $('#programCompeting').attr('style', 'display:none;');
+     $('#1').attr('style', 'display:none;');
+      $('#content2').addClass('active');
+     $('#2').addClass('active');
      $('#promoted').attr('style', 'display:block; margin-top: 15px;');
       $('#rejected').attr('style', 'display:none;');
      $('#promoteModal').modal('toggle');
