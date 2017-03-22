@@ -13,7 +13,7 @@
 <script src="scripts/jquery.validate-1.15.0.min.js"></script>
 <script src="scripts/jquery.are-you-sure-1.9.0.js"></script>
 <script src="scripts/theme2.js"></script>
-<script src="controller2.js"></script>
+<script src="controller3.js"></script>
 <script src="validator.js"></script>
 <script src="dropzone.js"></script>
 <link href="stylesheets/dropzone.css" rel="stylesheet" type="text/css" media="screen">
@@ -114,6 +114,14 @@
 <a href="#">IMS</a>&nbsp; | &nbsp;<a href="#">FCOI</a>&nbsp; | &nbsp;<a href="#">FACTS</a>
 </div>
 <div style="display:block; margin-bottom: 20px;">&nbsp;</div>
+<!--update warning alert box -->
+    <div class="col-md-12" style="display:block;" id="success">    
+   <div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <p><h4><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> The Greensheet template has been updated and the questions might have changed.</h4></p> <p>The system automatically matched the answers and attachments to the questions that did not change (if any). Please check for corectness and enter answers to the updated questions.</p> <p>To copy an attachment (if exists) that was saved before the template was updated, click on the attachment icon for the selected question and chose "Copy" from the Previously Saved Attachment(s) List.</p>
+</div>
+</div>
+
 <!--success alert box -->
     <div class="col-md-12" style="display:none;" id="success">    
    <div class="alert alert-success alert-dismissible" role="alert">
@@ -138,7 +146,7 @@
           <table width="100%">
           <tr><td width="50%">
          <strong>Grant Number:</strong> <a href="#">5R01CA195654-04</a></span></td>
-        <td width="50%"><strong>Status:</strong><div id="NSstatus" style="display:inline;"> Not Started</div><div id="Sstatus" style="display:none;"> Saved</div></td></tr>
+        <td width="50%"><strong>Status:</strong><div id="NSstatus" style="display:inline;"> Saved</div><div id="Sstatus" style="display:none;"> Saved</div></td></tr>
       </table>
   </td>
   </tr>   
@@ -146,7 +154,7 @@
       <td>&nbsp;</td>
       <td>
           <table width="100%">
-            <tr><td width="50%"><strong>Last Changed By:</strong> </td>
+            <tr><td width="50%"><strong>Last Changed By: smithm</strong> </td>
           <td width="50%"><strong>Institution:</strong> Yale University </td></tr>
           
           <tr>
@@ -172,7 +180,7 @@
     <!--Main Action Buttons  -->
 <div class="col-md-12" style="padding-right: 0px;">
   <div style="float:right;  margin-bottom: 10px;display:block;">
-                                                <button type="button" class="btn btn-default allSubs">Expand All</button>
+                                                <button type="button" class="btn btn-default allSubs">Collapse All</button>
                                             		 <button type="button" class="btn btn-default allNotes">View All Comments</button> 
                                                      <button type="button" class="btn btn-default"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Clear All Answers</a></button> 
               <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
@@ -199,8 +207,8 @@
 <div class="hiddenNotes">
 	<div class="form-group">
    <label>Comments</label>
-    <textarea class="exampleTextarea form-control" rows="3" id="comment1"></textarea>
-    <span class="pull-right comments">( <span class="count_message">2000</span> characters remaining)</span>
+    <textarea class="exampleTextarea form-control" rows="3" id="comment1">Example text goes here.</textarea>
+    <span class="pull-right comments">( <span>1974</span> characters remaining)</span>
   </div>
 </div>
 </div>
@@ -209,20 +217,20 @@
               
               <select class="form-control" id="exampleSelect1">
                 <option>Select an Option</option>
-                <option>Changed and Approved</option>
+                <option selected>Changed and Approved</option>
                 <option>Changed and Not Approved</option>
                 
                 </select>
               </div>
-            <td width="31"   class="subNumber"><a href="#" class="notes"><img src="images/nocomment.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31"   class="subNumber"><a href="#" class="notes"><img src="images/comment.gif" height="20" width="20" id="comment1image"></a></td>  
             <td width="31"   align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-1.1" data-pnode="treetable-parent-1" class="lastSub" id="sub1">
         	<td><div style="display:inline-block;" class="indentLine2" id="1">1.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
-              <textarea class="exampleTextarea form-control" id="1-1text" rows="3"></textarea>
-    <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
+              <textarea class="exampleTextarea form-control" id="1-1text" rows="3">Example comment goes here.</textarea>
+    <span class="pull-right textBox">( <span>1974</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
           </div></td>
           	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
@@ -234,7 +242,7 @@
                 <div class="instructions">(If No, explanation required.)</div></div></td>
             <td class="input"><div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios10" id="optionsRadiosYes" value="Yes" >
+                <input type="radio" class="form-check-input" name="optionsRadios10" id="optionsRadiosYes" value="Yes"  >
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios10" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
             </div></td>
@@ -259,20 +267,20 @@
 <div style="display:none" class="hiddenNotes">
 	<div class="form-group">
    <label>Comments</label>
-    <textarea class="exampleTextarea form-control" rows="3" id="comment3"></textarea>
-    <span class="pull-right comments">( <span class="count_message">2000</span> characters remaining)</span>
+    <textarea class="exampleTextarea form-control" rows="3" id="comment3">Example comment goes here.</textarea>
+    <span class="pull-right comments">( <span>1974</span> characters remaining)</span>
 </div>
 </div>
 </td>
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios11" id="optionsRadiosYes" value="Yes" >
+                <input type="radio" class="form-check-input" name="optionsRadios11" id="optionsRadiosYes" value="Yes" checked >
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios11" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
               
               </div>
-            <td  align="right"><a href="#" class="notes"><img src="images/nocomment.gif" height="20" width="20" id="comment3image"></a></td>  
+            <td  align="right"><a href="#" class="notes"><img src="images/comment.gif" height="20" width="20" id="comment3image"></a></td>  
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
@@ -282,7 +290,7 @@
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios12" id="optionsRadiosYes" value="Yes" >
+                <input type="radio" class="form-check-input" name="optionsRadios12" id="optionsRadiosYes" value="Yes" checked >
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios12" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
             </div></td>
@@ -309,7 +317,7 @@
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios13" id="optionsRadiosYes" value="Yes" >
+                <input type="radio" class="form-check-input" name="optionsRadios13" id="optionsRadiosYes" value="Yes" checked  >
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios13" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
               
@@ -323,7 +331,7 @@
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios14" id="optionsRadiosYes" value="Yes" >
+                <input type="radio" class="form-check-input" name="optionsRadios14" id="optionsRadiosYes" value="Yes"  checked >
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios14" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
               
@@ -369,7 +377,7 @@
               
               <select class="form-control" id="exampleSelect1">
                 <option>Select an Option</option>
-                <option>Yes, approved and has impact</option>
+                <option selected >Yes, approved and has impact</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
@@ -433,7 +441,7 @@
               <select class="form-control" id="exampleSelect8">
                 <option>Select an Option</option>
 
-                <option>Changed and not approved</option>
+                <option selected>Changed and not approved</option>
                 
                 </select>
               
@@ -446,8 +454,8 @@
         	<td><div style="display:inline-block;" class="indentLine2" id="8-1">8.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
-               <textarea class="exampleTextarea form-control" id="Textarea8" rows="3"></textarea>
-    <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
+               <textarea class="exampleTextarea form-control" id="Textarea8" rows="3">Example text goes here.</textarea>
+    <span class="pull-right textBox">( <span >1974</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
               
             </div></td>
           	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
@@ -580,15 +588,15 @@
           <div style="display:none" class="hiddenNotes">
   <div class="form-group">
    <label>Comments</label>
-    <textarea class="form-control exampleTextarea" rows="3" id="comment11"></textarea>
-    <span class="pull-right comments">( <span class="count_message">2000</span> characters remaining)</span>
+    <textarea class="form-control exampleTextarea" rows="3" id="comment11">Example text goes here.</textarea>
+    <span class="pull-right comments">( <span class="count_message">1974</span> characters remaining)</span>
   </div>
 </div></div></td>
           <td class="input"><div class="form-group">
              <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
           </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><a href="#main11" class="notes"><img src="images/nocomment.gif" height="20" width="20" id="comment11image"></a></td>
+          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><a href="#main11" class="notes"><img src="images/comment.gif" height="20" width="20" id="comment11image"></a></td>
           <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
@@ -936,10 +944,89 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
   <button type="submit" class="btn btn-primary" style="margin-top: 3px;">Choose File</button>
 </form>
 
+   <div style="margin-bottom: 10px; margin-top: 25px;"> <button class="btn btn-secondary" id="showAttach">Show previously saved attachment(s)</button></div>   
 
 
 
-<div style="margin-top: 25px; margin-bottom: 10px;" ><h4>Attachment File List</h4></div>
+<div id="attachmentTable" style="display:none;"</div>
+  <div style="margin-top: 20px; margin-bottom: 10px;" ><h4>Previously Saved Attachment(s) File List</h4></div>
+
+  <div id="table1">
+<table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
+    <tbody><tr>
+      
+      <th class="tableHeader" align="center" width="10%">File Name</th>
+      <th class="tableHeader" align="center" width="10%">Date</th>
+      <th class="tableHeader" align="center" width="10%">Uploaded By</th>
+      <th class="tableHeader" align="center" width="5%">Action</th>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">example123.docx</a>
+        </td>
+      <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
+      <td><a href="mailto:">Smith, Smith</a></td>
+      <td><button class="btn btn-default copy">Copy</button></td>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">email123.pdf</a>
+        </td>
+      <td style="white-space: nowrap">Jan 05 2017 03:06:34 PM</td>
+      <td><a href="mailto:">Brown, Debbie</a></td>
+      <td><button class="btn btn-default ">Copy</button></td>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">exampleXYZ.doc</a>
+        </td>
+      <td style="white-space: nowrap">Mar 05 2017 01:06:34 PM</td>
+      <td><a href="mailto:">Little, Sam</a></td>
+      <td><button class="btn btn-default">Copy</button></td>
+    </tr>
+  </tbody></table>
+</div>
+
+  <div id="table2" style="display:none;">
+<table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
+    <tbody><tr>
+      
+      <th class="tableHeader" align="center" width="10%">File Name</th>
+      <th class="tableHeader" align="center" width="10%">Date</th>
+      <th class="tableHeader" align="center" width="10%">Uploaded By</th>
+      <th class="tableHeader" align="center" width="5%">Action</th>
+    </tr>
+    
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">email123.pdf</a>
+        </td>
+      <td style="white-space: nowrap">Jan 05 2017 03:06:34 PM</td>
+      <td><a href="mailto:">Brown, Debbie</a></td>
+      <td><button class="btn btn-default">Copy</button></td>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">exampleXYZ.doc</a>
+        </td>
+      <td style="white-space: nowrap">Mar 05 2017 01:06:34 PM</td>
+      <td><a href="mailto:">Little, Sam</a></td>
+      <td><button class="btn btn-default">Copy</button></td>
+    </tr>
+  </tbody></table>
+</div>
+
+
+
+</div>
+
+
+<div style="margin-top: 20px; margin-bottom: 10px;" ><h4>Attachment File List</h4></div>
 <div id="fileList">
   <table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
     <tbody><tr>
@@ -952,16 +1039,45 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
     <tr>
      
       <td>
-         &nbsp;
+          <a href="javascript:openDocument(691)">ABCExample.docx</a>
         </td>
-      <td style="white-space: nowrap"></td>
-      <td></td>
-      <td></td>
+      <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
+      <td><a href="mailto:">Doe, Jane</a></td>
+      <td><a href="javascript:removeDocument(691, 415)"><i class="fa fa-trash fa-lg" aria-hidden="true" alt="delete" title="delete"></i></a></td>
     </tr>
   </tbody></table>
 </div>
 
+<div id="fileList2" style="display:none;">
+  <table style="width: 784px; margin-left: 15px;" class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
+    <tbody><tr>
+      
+      <th class="tableHeader" align="center" width="10%">File Name</th>
+      <th class="tableHeader" align="center" width="10%">Date</th>
+      <th class="tableHeader" align="center" width="10%">Uploaded By</th>
+      <th class="tableHeader" align="center" width="5%">Action</th>
+    </tr>
 
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">example123.docx</a>
+        </td>
+      <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
+      <td><a href="mailto:">Smith, Joe</a></td>
+      <td><a href="javascript:removeDocument(691, 415)"><i class="fa fa-trash fa-lg" aria-hidden="true" alt="delete" title="delete"></i></a></td>
+    </tr>
+    <tr>
+     
+      <td>
+          <a href="javascript:openDocument(691)">ABCExample.docx</a>
+        </td>
+      <td style="white-space: nowrap">Dec 05 2016 09:06:34 PM</td>
+      <td><a href="mailto:">Doe, Jane</a></td>
+      <td><a href="javascript:removeDocument(691, 415)"><i class="fa fa-trash fa-lg" aria-hidden="true" alt="delete" title="delete"></i></a></td>
+    </tr>
+  </tbody></table>
+</div>
          
 
 
