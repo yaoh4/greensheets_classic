@@ -180,7 +180,7 @@ public class FormQuestionsDraft implements java.io.Serializable {
 		fq.setGsfbChangeDate(this.gsfbChangeDate);
 
 		Set<FormAnswers> fas = new HashSet<FormAnswers>();
-		fq.setFormAnswerses(fas);
+		fq.setFormAnswers(fas);
 		for (FormAnswersDraft fad : this.formAnswersDrafts) {
 			FormAnswers fa = new FormAnswers();
 			fas.add(fa);

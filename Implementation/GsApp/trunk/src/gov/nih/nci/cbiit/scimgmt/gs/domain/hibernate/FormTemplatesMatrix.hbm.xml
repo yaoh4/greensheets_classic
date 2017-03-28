@@ -29,7 +29,7 @@
         <property name="updateStamp" type="integer">
             <column name="UPDATE_STAMP" precision="5" scale="0" />
         </property>
-        <set name="formses" table="FORMS_T" inverse="true" lazy="true" fetch="select">
+        <set name="forms" table="FORMS_T" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="FTMM_ID" precision="10" scale="0" />
             </key>

@@ -878,7 +878,7 @@ public class GreensheetFormDataHelper {
                         }
 
                         if (isRDString) {
-                            string_value = escapedSqlValue;
+                            string_value = escapedSqlValue.length() > 250 ? escapedSqlValue.substring(0,249) : escapedSqlValue;
                         }
 
                         if (isRDText) {

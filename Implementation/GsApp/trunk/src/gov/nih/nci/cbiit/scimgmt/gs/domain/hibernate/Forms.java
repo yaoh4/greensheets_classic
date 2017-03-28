@@ -21,8 +21,8 @@ public class Forms implements Serializable {
 	private Integer updateStamp;
 	private Date submittedDate;
 	// No need for hashCode() and equal() methods. This is inside a session and Hibernate guarantees equivalence of persistent identity (database row) and Java identity inside a particular session scope.
-	private Set<ApplForms> applFormses = new HashSet<ApplForms>(0);
-	private Set<FormQuestionAnswers> formQuestionAnswerses = new HashSet<FormQuestionAnswers>(0);
+	private Set<ApplForms> applForms = new HashSet<ApplForms>(0);
+	private Set<FormQuestionAnswers> formQuestionAnswers = new HashSet<FormQuestionAnswers>(0);
 	private FormTemplatesMatrix formTemplatesMatrix;
 
 	public Forms() {
@@ -35,7 +35,7 @@ public class Forms implements Serializable {
 	}
 
 	public Forms(Integer id, FormTemplates formTemplates, String formRoleCode, String formStatus, String poc,
-			String submittedUserId, Integer updateStamp, Date submittedDate, Set<ApplForms> applFormses, Set<FormQuestionAnswers> formQuestionAnswerses) {
+			String submittedUserId, Integer updateStamp, Date submittedDate, Set<ApplForms> applForms, Set<FormQuestionAnswers> formQuestionAnswers) {
 		this.id = id;
 		this.formTemplates = formTemplates;
 		this.formRoleCode = formRoleCode;
@@ -44,8 +44,8 @@ public class Forms implements Serializable {
 		this.submittedUserId = submittedUserId;
 		this.updateStamp = updateStamp;
 		this.submittedDate = submittedDate;
-		this.applFormses = applFormses;
-		this.formQuestionAnswerses = formQuestionAnswerses;
+		this.applForms = applForms;
+		this.formQuestionAnswers = formQuestionAnswers;
 	}
 
 	public Integer getId() {
@@ -112,20 +112,20 @@ public class Forms implements Serializable {
 		this.submittedDate = submittedDate;
 	}
 
-	public Set<ApplForms> getApplFormses() {
-		return this.applFormses;
+	public Set<ApplForms> getApplForms() {
+		return this.applForms;
 	}
 
-	public void setApplFormses(Set<ApplForms> applFormses) {
-		this.applFormses = applFormses;
+	public void setApplForms(Set<ApplForms> applForms) {
+		this.applForms = applForms;
 	}
 
-	public Set<FormQuestionAnswers> getFormQuestionAnswerses() {
-		return this.formQuestionAnswerses;
+	public Set<FormQuestionAnswers> getFormQuestionAnswers() {
+		return this.formQuestionAnswers;
 	}
 
-	public void setFormQuestionAnswerses(Set<FormQuestionAnswers> formQuestionAnswerses) {
-		this.formQuestionAnswerses = formQuestionAnswerses;
+	public void setFormQuestionAnswers(Set<FormQuestionAnswers> formQuestionAnswers) {
+		this.formQuestionAnswers = formQuestionAnswers;
 	}
 
 	public FormTemplatesMatrix getFormTemplatesMatrix() {

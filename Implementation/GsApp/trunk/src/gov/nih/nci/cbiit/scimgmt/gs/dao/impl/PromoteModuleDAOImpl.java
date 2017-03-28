@@ -130,7 +130,7 @@ public class PromoteModuleDAOImpl implements PromoteModuleDAO {
 				workingModule.setModuleUuid(draftModule.getModuleUuid());
 			}
 
-			Set<FormTemplates> workingTemplates = workingModule.getFormTemplateses();
+			Set<FormTemplates> workingTemplates = workingModule.getFormTemplates();
 			Set<FormTemplatesDraft> draftTemplates = draftModule.getFormTemplatesDrafts();
 			Set<FormTemplates> finalTemplates = new HashSet<FormTemplates>();
 
@@ -184,14 +184,14 @@ public class PromoteModuleDAOImpl implements PromoteModuleDAO {
 
 					// Linking back the template to its module
 					// (At the initial deployment, all the templates are disconnected from their modules)
-					workingModule.setFormTemplateses(finalTemplates);
+					workingModule.setFormTemplates(finalTemplates);
 					finalTemplate.setFormModules(workingModule);
 
 					logger.debug("Populate Form Elements table for template: " + draftTemplate.getTemplateUuid());
 
 					// Process elements
 					List<FormElements> fes = new ArrayList<>();
-					finalTemplate.setFormElementses(fes);
+					finalTemplate.setFormElements(fes);
 					Map<String, FormElements> mapElements = new HashMap<>();
 					for (FormElementsDraft draftElement : draftTemplate.getFormElementsDrafts()) {
 						FormElements formElement = draftElement.toFormElements(mapFinalQuestions, mapElements);
@@ -232,7 +232,7 @@ public class PromoteModuleDAOImpl implements PromoteModuleDAO {
 			logger.debug("Completed persisting questions.");
 
 			logger.debug("Start persisting " + finalTemplates.size() + " templates ....");
-			workingModule.setFormTemplateses(finalTemplates);
+			workingModule.setFormTemplates(finalTemplates);
 			sessionFactory.getCurrentSession().persist(workingModule);
 			logger.debug("Completed persisting templates.");
 
@@ -244,7 +244,7 @@ public class PromoteModuleDAOImpl implements PromoteModuleDAO {
 
 		} catch (Exception e) {
 			logger.error("Error promoting draft greensheets to production table: ", e);
-			return false;
+			throw e;
 		}
 
 		return true;

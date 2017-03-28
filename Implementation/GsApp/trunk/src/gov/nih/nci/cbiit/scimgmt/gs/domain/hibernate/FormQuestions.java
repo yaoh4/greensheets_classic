@@ -24,8 +24,8 @@ public class FormQuestions implements java.io.Serializable {
 	private String gsfbChangedUserId;
 	private Date gsfbChangeDate;
 	// No need for hashCode() and equal() methods. This is inside a session and Hibernate guarantees equivalence of persistent identity (database row) and Java identity inside a particular session scope.
-	private Set<FormAnswers> formAnswerses = new HashSet<FormAnswers>(0);
-	private Set<FormElements> formElementses = new HashSet<FormElements>(0);
+	private Set<FormAnswers> formAnswers = new HashSet<FormAnswers>(0);
+	private Set<FormElements> formElements = new HashSet<FormElements>(0);
 
 	public FormQuestions() {
 	}
@@ -49,8 +49,8 @@ public class FormQuestions implements java.io.Serializable {
 		this.answerType = answerType;
 		this.gsfbChangedUserId = gsfbChangedUserId;
 		this.gsfbChangeDate = gsfbChangeDate;
-		this.formAnswerses = formAnswerses;
-		this.formElementses = formElementses;
+		this.formAnswers = formAnswerses;
+		this.formElements = formElementses;
 	}
 
 	public Integer getId() {
@@ -149,20 +149,20 @@ public class FormQuestions implements java.io.Serializable {
 		this.gsfbChangeDate = gsfbChangeDate;
 	}
 
-	public Set<FormAnswers> getFormAnswerses() {
-		return this.formAnswerses;
+	public Set<FormAnswers> getFormAnswers() {
+		return this.formAnswers;
 	}
 
-	public void setFormAnswerses(Set<FormAnswers> formAnswerses) {
-		this.formAnswerses = formAnswerses;
+	public void setFormAnswers(Set<FormAnswers> formAnswers) {
+		this.formAnswers = formAnswers;
 	}
 
-	public Set<FormElements> getFormElementses() {
-		return this.formElementses;
+	public Set<FormElements> getFormElements() {
+		return this.formElements;
 	}
 
-	public void setFormElementses(Set<FormElements> formElementses) {
-		this.formElementses = formElementses;
+	public void setFormElements(Set<FormElements> formElements) {
+		this.formElements = formElements;
 	}
 
 }

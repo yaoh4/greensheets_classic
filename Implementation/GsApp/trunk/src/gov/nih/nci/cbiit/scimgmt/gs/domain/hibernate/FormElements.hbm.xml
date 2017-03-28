@@ -50,7 +50,7 @@
         <property name="updateStamp" type="integer">
             <column name="UPDATE_STAMP" precision="5" scale="0" />
         </property>
-        <set name="formElementses" table="FORM_ELEMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="formElementSet" table="FORM_ELEMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="PARENT_ELEMENT_ID" precision="10" scale="0" not-null="true"/>
             </key>

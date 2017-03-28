@@ -23,7 +23,7 @@ public class FormQuestionAnswers implements java.io.Serializable {
 	private String commentValue;
 	private Integer updateStamp;
 	// No need for hashCode() and equal() methods. This is inside a session and Hibernate guarantees equivalence of persistent identity (database row) and Java identity inside a particular session scope.
-	private Set<FormAnswerAttachments> formAnswerAttachmentses = new HashSet<FormAnswerAttachments>(0);
+	private Set<FormAnswerAttachments> formAnswerAttachments = new HashSet<FormAnswerAttachments>(0);
 
 	public FormQuestionAnswers() {
 	}
@@ -34,7 +34,7 @@ public class FormQuestionAnswers implements java.io.Serializable {
 	}
 
 	public FormQuestionAnswers(Integer id, Forms forms, String extrnlQuestionId, String extrnlRespDefId,
-			String extrnlSelcDefId, String stringValue, String textValue, Integer numberValue, Date dateValue, String commentValue, Integer updateStamp, Set<FormAnswerAttachments> formAnswerAttachmentses) {
+			String extrnlSelcDefId, String stringValue, String textValue, Integer numberValue, Date dateValue, String commentValue, Integer updateStamp, Set<FormAnswerAttachments> formAnswerAttachments) {
 		this.id = id;
 		this.forms = forms;
 		this.extrnlQuestionId = extrnlQuestionId;
@@ -46,7 +46,7 @@ public class FormQuestionAnswers implements java.io.Serializable {
 		this.dateValue = dateValue;
 		this.commentValue = commentValue;
 		this.updateStamp = updateStamp;
-		this.formAnswerAttachmentses = formAnswerAttachmentses;
+		this.formAnswerAttachments = formAnswerAttachments;
 	}
 
 	public Integer getId() {
@@ -137,12 +137,12 @@ public class FormQuestionAnswers implements java.io.Serializable {
 		this.updateStamp = updateStamp;
 	}
 
-	public Set<FormAnswerAttachments> getFormAnswerAttachmentses() {
-		return this.formAnswerAttachmentses;
+	public Set<FormAnswerAttachments> getFormAnswerAttachments() {
+		return this.formAnswerAttachments;
 	}
 
-	public void setFormAnswerAttachmentses(Set<FormAnswerAttachments> formAnswerAttachmentses) {
-		this.formAnswerAttachmentses = formAnswerAttachmentses;
+	public void setFormAnswerAttachments(Set<FormAnswerAttachments> formAnswerAttachments) {
+		this.formAnswerAttachments = formAnswerAttachments;
 	}
 
 }

@@ -49,7 +49,7 @@
                 <comment>The date the Form was submitted</comment>
             </column>
         </property>
-        <set name="applFormses" table="APPL_FORMS_T" inverse="true" lazy="true" fetch="select" cascade="none">
+        <set name="applForms" table="APPL_FORMS_T" inverse="true" lazy="true" fetch="select" cascade="none">
             <key>
                 <column name="FRM_ID" precision="10" scale="0" not-null="true">
                     <comment>The unique identifier for a form</comment>
@@ -57,7 +57,7 @@
             </key>
             <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.ApplForms" />
         </set>
-        <set name="formQuestionAnswerses" table="FORM_QUESTION_ANSWERS_T" inverse="true" lazy="true" fetch="select" cascade="none">
+        <set name="formQuestionAnswers" table="FORM_QUESTION_ANSWERS_T" inverse="true" lazy="true" fetch="select" cascade="none">
             <key>
                 <column name="FRM_ID" precision="10" scale="0" not-null="true">
                     <comment>The unique identifier for the form</comment>

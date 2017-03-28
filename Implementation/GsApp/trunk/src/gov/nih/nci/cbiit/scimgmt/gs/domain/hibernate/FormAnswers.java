@@ -19,7 +19,7 @@ public class FormAnswers implements java.io.Serializable {
 	private String value;
 	private Boolean default_;
 	// No need for hashCode() and equal() methods. This is inside a session and Hibernate guarantees equivalence of persistent identity (database row) and Java identity inside a particular session scope.
-	private Set<FormElements> formElementses = new HashSet<FormElements>(0);
+	private Set<FormElements> formElements = new HashSet<FormElements>(0);
 
 	public FormAnswers() {
 	}
@@ -29,7 +29,7 @@ public class FormAnswers implements java.io.Serializable {
 	}
 
 	public FormAnswers(Integer id, FormQuestions formQuestions, String gsAnswerId, String answerUuid, Integer order,
-			String text, String value, Boolean default_, Set<FormElements> formElementses) {
+			String text, String value, Boolean default_, Set<FormElements> formElements) {
 		this.id = id;
 		this.formQuestions = formQuestions;
 		this.gsAnswerId = gsAnswerId;
@@ -38,7 +38,7 @@ public class FormAnswers implements java.io.Serializable {
 		this.text = text;
 		this.value = value;
 		this.default_ = default_;
-		this.formElementses = formElementses;
+		this.formElements = formElements;
 	}
 
 	public Integer getId() {
@@ -105,12 +105,12 @@ public class FormAnswers implements java.io.Serializable {
 		this.default_ = default_;
 	}
 
-	public Set<FormElements> getFormElementses() {
-		return this.formElementses;
+	public Set<FormElements> getFormElements() {
+		return this.formElements;
 	}
 
-	public void setFormElementses(Set<FormElements> formElementses) {
-		this.formElementses = formElementses;
+	public void setFormElements(Set<FormElements> formElements) {
+		this.formElements = formElements;
 	}
 
 }

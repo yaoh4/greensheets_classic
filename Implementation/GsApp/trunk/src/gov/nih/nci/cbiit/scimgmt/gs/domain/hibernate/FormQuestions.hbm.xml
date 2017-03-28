@@ -41,13 +41,13 @@
         <property name="gsfbChangeDate" type="timestamp">
             <column name="GSFB_CHANGE_DATE" length="7" />
         </property>
-        <set name="formAnswerses" table="FORM_ANSWERS_T" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="formAnswers" table="FORM_ANSWERS_T" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="QUESTION_ID" precision="10" scale="0" not-null="true"/>
             </key>
             <one-to-many class="gov.nih.nci.cbiit.scimgmt.gs.domain.hibernate.FormAnswers" />
         </set>
-        <set name="formElementses" table="FORM_ELEMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="formElements" table="FORM_ELEMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="QUESTION_ID" precision="10" scale="0" not-null="true"/>
             </key>

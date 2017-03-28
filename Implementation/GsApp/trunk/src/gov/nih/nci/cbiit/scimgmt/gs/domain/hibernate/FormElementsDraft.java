@@ -205,7 +205,7 @@ public class FormElementsDraft implements java.io.Serializable {
 			FormElements parentElement = mapElements.get(this.formElementsDraft.getElementUuid());
 			fe.setFormElements(parentElement);
 			if(parentElement.getFormQuestions() != null) {
-				for(FormAnswers parentAnswer : parentElement.getFormQuestions().getFormAnswerses()) {
+				for(FormAnswers parentAnswer : parentElement.getFormQuestions().getFormAnswers()) {
 					if(parentAnswer.getAnswerUuid().equals(parentAnswerUuid)) {
 						fe.setFormAnswers(parentAnswer);
 						break;

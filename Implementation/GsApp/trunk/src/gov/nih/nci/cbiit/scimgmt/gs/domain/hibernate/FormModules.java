@@ -17,7 +17,7 @@ public class FormModules implements java.io.Serializable {
 	private Boolean showDdEmptyoptionText;
 	private Boolean showCheckAll;
 	// No need for hashCode() and equal() methods. This is inside a session and Hibernate guarantees equivalence of persistent identity (database row) and Java identity inside a particular session scope.
-	private Set<FormTemplates> formTemplateses = new HashSet<FormTemplates>(0);
+	private Set<FormTemplates> formTemplates = new HashSet<FormTemplates>(0);
 
 	public FormModules() {
 	}
@@ -27,14 +27,14 @@ public class FormModules implements java.io.Serializable {
 	}
 
 	public FormModules(Integer id, String moduleUuid, String name, String description, Boolean showDdEmptyoptionText,
-			Boolean showCheckAll, Set<FormTemplates> formTemplateses) {
+			Boolean showCheckAll, Set<FormTemplates> formTemplates) {
 		this.id = id;
 		this.moduleUuid = moduleUuid;
 		this.name = name;
 		this.description = description;
 		this.showDdEmptyoptionText = showDdEmptyoptionText;
 		this.showCheckAll = showCheckAll;
-		this.formTemplateses = formTemplateses;
+		this.formTemplates = formTemplates;
 	}
 
 	public Integer getId() {
@@ -85,12 +85,12 @@ public class FormModules implements java.io.Serializable {
 		this.showCheckAll = showCheckAll;
 	}
 
-	public Set<FormTemplates> getFormTemplateses() {
-		return this.formTemplateses;
+	public Set<FormTemplates> getFormTemplates() {
+		return this.formTemplates;
 	}
 
-	public void setFormTemplateses(Set<FormTemplates> formTemplateses) {
-		this.formTemplateses = formTemplateses;
+	public void setFormTemplates(Set<FormTemplates> formTemplates) {
+		this.formTemplates = formTemplates;
 	}
 
 }

@@ -77,12 +77,12 @@ public class GrantDAOImpl implements GrantDAO {
 		}
 
 		if (filterCancelled) {
-			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND UPPER(GPMATS_CANCELLED_FLAG) != 'Y'";
+			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND GPMATS_CANCELLED_FLAG != 'Y'";
 		}
 
-		String sortOrder = "LATEST_BUDGET_START_DATE ASC";
+		//String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
-		String completeQuery = incrementalQuery + " AND UPPER(ACTIVITY_CODE)!='SI2' ORDER BY " + sortOrder;
+		String completeQuery = incrementalQuery + " AND ACTIVITY_CODE !='SI2' ";
 
 		logger.debug("SQL to read the Form Grant: " + completeQuery);
 		if (logger.getEffectiveLevel().equals(Level.DEBUG)) {
@@ -103,7 +103,7 @@ public class GrantDAOImpl implements GrantDAO {
 		if (fullGrantNum == null || "".equals(fullGrantNum.trim())) {
 			return null;
 		}
-		incrementalQuery += "(UPPER(FULL_GRANT_NUM) LIKE :fullGrantNum";
+		incrementalQuery += "(FULL_GRANT_NUM LIKE :fullGrantNum";
 		sqlParms.addValue("fullGrantNum", "%" + fullGrantNum.trim().toUpperCase() + "%");
 
 		if (fullGrantNum.contains("-")) {
@@ -118,16 +118,16 @@ public class GrantDAOImpl implements GrantDAO {
 				}
 			}
 			if (suffixFullGrantNum.length() > 0) {
-				incrementalQuery += GrantDAOImpl.BLANK_SPACE + "OR UPPER(FULL_GRANT_NUM) LIKE :suffixFullGrantNum";
+				incrementalQuery += GrantDAOImpl.BLANK_SPACE + "OR FULL_GRANT_NUM LIKE :suffixFullGrantNum";
 				sqlParms.addValue("suffixFullGrantNum", "%" + suffixFullGrantNum.trim().toUpperCase() + "%");
 			}
 		}
 
 		incrementalQuery += ")";
 
-		String sortOrder = "LATEST_BUDGET_START_DATE ASC";
+		//String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
-		String completeQuery = incrementalQuery + " AND UPPER(ACTIVITY_CODE)!='SI2' ORDER BY " + sortOrder;
+		String completeQuery = incrementalQuery + " AND ACTIVITY_CODE !='SI2' ";
 
 		logger.debug("SQL: " + completeQuery);
 		List formGrantsList = this.namedParameterJdbcTemplate.query(completeQuery, sqlParms, new FormGrantRowMapper());
@@ -155,12 +155,12 @@ public class GrantDAOImpl implements GrantDAO {
 		if (fullGrantNum == null || "".equals(fullGrantNum.trim())) {
 			return null;
 		}
-		incrementalQuery += "UPPER(FULL_GRANT_NUM) = :fullGrantNum";
+		incrementalQuery += "FULL_GRANT_NUM = :fullGrantNum";
 		sqlParms.addValue("fullGrantNum", fullGrantNum.trim().toUpperCase());
 
-		String sortOrder = "LATEST_BUDGET_START_DATE ASC";
+		//String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
-		String completeQuery = incrementalQuery + " AND UPPER(ACTIVITY_CODE)!='SI2' ORDER BY " + sortOrder;
+		String completeQuery = incrementalQuery + " AND ACTIVITY_CODE!='SI2' " ;
 
 		logger.debug("SQL: " + completeQuery);
 		List formGrantsList = this.namedParameterJdbcTemplate.query(completeQuery, sqlParms, new FormGrantRowMapper());
@@ -182,9 +182,9 @@ public class GrantDAOImpl implements GrantDAO {
 		incrementalQuery += "APPL_ID = :applId";
 		sqlParms.addValue("applId", applId);
 
-		String sortOrder = "LATEST_BUDGET_START_DATE ASC";
+		//String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
-		String completeQuery = incrementalQuery + " AND UPPER(ACTIVITY_CODE)!='SI2' ORDER BY " + sortOrder;
+		String completeQuery = incrementalQuery + " AND ACTIVITY_CODE !='SI2' ";
 
 		logger.debug("SQL: " + completeQuery);
 		List formGrantsList = this.namedParameterJdbcTemplate.query(completeQuery, sqlParms, new FormGrantRowMapper());
@@ -211,9 +211,9 @@ public class GrantDAOImpl implements GrantDAO {
 			sqlParms.addValue("piLastName", piLastName.trim().toUpperCase());
 		}
 
-		String sortOrder = "LATEST_BUDGET_START_DATE ASC";
+		//String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
-		String completeQuery = incrementalQuery + " AND UPPER(ACTIVITY_CODE)!='SI2' ORDER BY " + sortOrder;
+		String completeQuery = incrementalQuery + " AND ACTIVITY_CODE !='SI2'" ;
 
 		logger.debug("SQL: " + completeQuery);
 		List formGrantsList = this.namedParameterJdbcTemplate.query(completeQuery, sqlParms, new FormGrantRowMapper());
@@ -375,13 +375,13 @@ public class GrantDAOImpl implements GrantDAO {
 		}
 
 		if (grantMechanism != null && !("".equals(grantMechanism.trim()))) {
-			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND UPPER(ACTIVITY_CODE) = UPPER(:grantMechanism)";
+			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND ACTIVITY_CODE = :grantMechanism";
 			sqlParms.addValue("grantMechanism", grantMechanism.trim());
 		}
 
 		if (fullGrantNum != null && !("".equals(fullGrantNum.trim()))) {
 			fullGrantNum = fullGrantNum.toUpperCase();
-			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND (UPPER(FULL_GRANT_NUM) LIKE UPPER(:fullGrantNum)";
+			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND (FULL_GRANT_NUM LIKE :fullGrantNum";
 			sqlParms.addValue("fullGrantNum", "%" + fullGrantNum.trim() + "%");
 
 			if (fullGrantNum.contains("-")) {
@@ -396,7 +396,7 @@ public class GrantDAOImpl implements GrantDAO {
 					}
 					if (suffixFullGrantNum.length() > 0) {
 						incrementalQuery += GrantDAOImpl.BLANK_SPACE
-								+ "OR UPPER(FULL_GRANT_NUM) LIKE UPPER(:suffixFullGrantNum)";
+								+ "OR FULL_GRANT_NUM LIKE :suffixFullGrantNum";
 						sqlParms.addValue("suffixFullGrantNum", "%" + suffixFullGrantNum.trim().toUpperCase() + "%");
 					}
 				}
@@ -416,11 +416,11 @@ public class GrantDAOImpl implements GrantDAO {
 		}
 
 		if (filterCancelled) {
-			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND UPPER(GPMATS_CANCELLED_FLAG) != 'Y'";
+			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND GPMATS_CANCELLED_FLAG != 'Y'";
 		}
-		String sortOrder = "LATEST_BUDGET_START_DATE ASC";
+		//String sortOrder = "LATEST_BUDGET_START_DATE ASC";
 
-		String completeQuery = incrementalQuery + " AND UPPER(ACTIVITY_CODE)!='SI2' ORDER BY " + sortOrder;
+		String completeQuery = incrementalQuery + " AND ACTIVITY_CODE !='SI2'";
 
 		// String completeQuery = incrementalQuery + " ORDER BY " + sortOrder;
 

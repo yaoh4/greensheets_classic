@@ -29,7 +29,7 @@
         <property name="default_" type="yes_no">
             <column name="DEFAULT_FLAG" length="3" />
         </property>
-        <set name="formElementses" table="FORM_ELEMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="formElements" table="FORM_ELEMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="PARENT_ANSWER_ID" precision="10" scale="0" not-null="true"/>
             </key>

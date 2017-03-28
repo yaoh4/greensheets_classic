@@ -30,7 +30,7 @@
             </column>
         </property>
         <property name="stringValue" type="string">
-            <column name="STRING_VALUE" length="600">
+            <column name="STRING_VALUE" length="250">
                 <comment>The answer to the question in string format</comment>
             </column>
         </property>
@@ -59,7 +59,7 @@
                 <comment>The number of times the record was modified</comment>
             </column>
         </property>
-        <set name="formAnswerAttachmentses" table="FORM_ANSWER_ATTACHMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="formAnswerAttachments" table="FORM_ANSWER_ATTACHMENTS_T" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="FQA_ID" precision="10" scale="0" not-null="true">
                     <comment>The unique identifier for an answer to a form's question</comment>

@@ -18,7 +18,7 @@
             <column name="EXTRNAL_SELC_DEF_ID" length="500" />
         </property>
         <property name="stringValue" type="string">
-            <column name="STRING_VALUE" length="600" />
+            <column name="STRING_VALUE" length="250" />
         </property>
         <property name="textValue" type="string">
             <column name="TEXT_VALUE" length="4000" />

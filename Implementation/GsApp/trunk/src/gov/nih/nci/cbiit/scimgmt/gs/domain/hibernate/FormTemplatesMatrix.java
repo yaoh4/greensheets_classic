@@ -20,7 +20,7 @@ public class FormTemplatesMatrix implements java.io.Serializable {
 	private Date endDate;
 	private Integer updateStamp;
 	// No need for hashCode() and equal() methods. This is inside a session and Hibernate guarantees equivalence of persistent identity (database row) and Java identity inside a particular session scope.
-	private Set<Forms> formses = new HashSet<Forms>(0);
+	private Set<Forms> forms = new HashSet<Forms>(0);
 
 	public FormTemplatesMatrix() {
 	}
@@ -31,7 +31,7 @@ public class FormTemplatesMatrix implements java.io.Serializable {
 	}
 
 	public FormTemplatesMatrix(Integer id, FormTemplates formTemplates, String formRoleCode, String applTypeCode,
-			String activityCode, Date startDate, Date endDate, Integer updateStamp, Set<Forms> formses) {
+			String activityCode, Date startDate, Date endDate, Integer updateStamp, Set<Forms> forms) {
 		this.id = id;
 		this.formTemplates = formTemplates;
 		this.formRoleCode = formRoleCode;
@@ -40,7 +40,7 @@ public class FormTemplatesMatrix implements java.io.Serializable {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.updateStamp = updateStamp;
-		this.formses = formses;
+		this.forms = forms;
 	}
 
 	public Integer getId() {
@@ -107,11 +107,11 @@ public class FormTemplatesMatrix implements java.io.Serializable {
 		this.updateStamp = updateStamp;
 	}
 
-	public Set<Forms> getFormses() {
-		return this.formses;
+	public Set<Forms> getForms() {
+		return this.forms;
 	}
 
-	public void setFormses(Set<Forms> formses) {
-		this.formses = formses;
+	public void setForms(Set<Forms> forms) {
+		this.forms = forms;
 	}
 }

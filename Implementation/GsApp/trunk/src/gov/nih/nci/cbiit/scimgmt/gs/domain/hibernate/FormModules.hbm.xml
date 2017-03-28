@@ -23,7 +23,7 @@
         <property name="showCheckAll" type="yes_no">
             <column name="SHOW_CHECK_ALL_FLAG" length="3" />
         </property>
-        <set name="formTemplateses" table="FORM_TEMPLATES_T" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="formTemplates" table="FORM_TEMPLATES_T" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="MODULE_ID" precision="10" scale="0" not-null="true"/>
             </key>

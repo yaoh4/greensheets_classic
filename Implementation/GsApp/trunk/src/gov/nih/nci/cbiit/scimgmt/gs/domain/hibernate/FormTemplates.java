@@ -26,9 +26,9 @@ public class FormTemplates implements java.io.Serializable {
 	private String gsfbCreatedUserId;
 	private String name;
 	private String templateUuid;
-	private List<FormElements> formElementses = new ArrayList<FormElements>();
+	private List<FormElements> formElements = new ArrayList<FormElements>();
 	// No need for hashCode() and equal() methods. This is inside a session and Hibernate guarantees equivalence of persistent identity (database row) and Java identity inside a particular session scope.
-	private Set<Forms> formses = new HashSet<Forms>(0);
+	private Set<Forms> forms = new HashSet<Forms>(0);
 	private Set<FormGrantMatrix> formGrantMatrixes = new HashSet<FormGrantMatrix>(0);
 	private Set<FormTemplatesMatrix> formTemplatesMatrixes = new HashSet<FormTemplatesMatrix>(0);
 
@@ -44,8 +44,8 @@ public class FormTemplates implements java.io.Serializable {
 
 	public FormTemplates(Integer id, FormModules formModules, String templateHtml, Integer revisionNum, Integer updateStamp,
 			String templateXml, String description, Date gsfbChangeDate, String gsfbChangedUserId,
-			String gsfbCreatedUserId, String name, String templateUuid, Set<Forms> formses, Set<FormGrantMatrix> formGrantMatrixes,
-			List<FormElements> formElementses, Set<FormTemplatesMatrix> formTemplatesMatrixes, Date createDate) {
+			String gsfbCreatedUserId, String name, String templateUuid, Set<Forms> forms, Set<FormGrantMatrix> formGrantMatrixes,
+			List<FormElements> formElements, Set<FormTemplatesMatrix> formTemplatesMatrixes, Date createDate) {
 		this.id = id;
 		this.formModules = formModules;
 		this.templateHtml = templateHtml;
@@ -58,9 +58,9 @@ public class FormTemplates implements java.io.Serializable {
 		this.gsfbCreatedUserId = gsfbCreatedUserId;
 		this.name = name;
 		this.templateUuid = templateUuid;
-		this.formses = formses;
+		this.forms = forms;
 		this.formGrantMatrixes = formGrantMatrixes;
-		this.formElementses = formElementses;
+		this.formElements = formElements;
 		this.formTemplatesMatrixes = formTemplatesMatrixes;
 		this.createDate = createDate;
 	}
@@ -169,12 +169,12 @@ public class FormTemplates implements java.io.Serializable {
 		this.templateUuid = templateUuid;
 	}
 
-	public Set<Forms> getFormses() {
-		return this.formses;
+	public Set<Forms> getForms() {
+		return this.forms;
 	}
 
-	public void setFormses(Set<Forms> formses) {
-		this.formses = formses;
+	public void setForms(Set<Forms> forms) {
+		this.forms = forms;
 	}
 
 	public Set<FormGrantMatrix> getFormGrantMatrixes() {
@@ -185,12 +185,12 @@ public class FormTemplates implements java.io.Serializable {
 		this.formGrantMatrixes = formGrantMatrixes;
 	}
 
-	public List<FormElements> getFormElementses() {
-		return this.formElementses;
+	public List<FormElements> getFormElements() {
+		return this.formElements;
 	}
 
-	public void setFormElementses(List<FormElements> formElementses) {
-		this.formElementses = formElementses;
+	public void setFormElements(List<FormElements> formElements) {
+		this.formElements = formElements;
 	}
 
 	public Set<FormTemplatesMatrix> getFormTemplatesMatrixes() {

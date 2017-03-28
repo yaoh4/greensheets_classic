@@ -247,7 +247,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
         // GreensheetsFormGrantsService greensheetsFormGrantsService =
         // (GreensheetsFormGrantsService)
         // context.getBean("greensheetsFormGrantsService");
-        List formGrants = null;
+        List<FormGrantProxy> formGrants = null;
         List formGrantsProxies = null;
 
         if (gus != null) {
@@ -364,7 +364,19 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                 */
                 if (grantId != null && !"".equals(grantId)) {
                     // request from inside Greensheets or from eGrants
-                    formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
+                	formGrants = (List<FormGrantProxy>) req.getSession().getAttribute("GRANT_LIST");
+                	if(formGrants != null) {
+                		for(FormGrantProxy grantProxy : formGrants) {
+                			if(grantProxy.getFullGrantNum().equals(grantId)){
+                				grant = grantProxy;
+                				break;
+                			}
+                		}
+                	}
+                	else {
+                		formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
+                	}
+                	
                     formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
                     if (formGrants != null && formGrants.size() > 1) {
                         checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
@@ -433,7 +445,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                         redundantEmailPreventer.recordTheSending((FormGrantProxy) formGrantsProxies.get(0));
                     }
                 }
-                grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
+                //grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
                 // we should change the data model to support multiple GPMATS actions per the same 
                 // full grant number.  But that's not an especially quick undertaking.
             } else if (formGrants != null && formGrants.size() == 1) {
