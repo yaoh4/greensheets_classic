@@ -9,6 +9,7 @@ $(document).ready(function(){
 $('#example').dataTable( {
 
     "bSort": true,
+    "bFilter": false,
 
    "order": [[ 4, "asc" ]],
    

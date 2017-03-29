@@ -182,16 +182,16 @@
     <tbody>
 
 
-  <!--- ROW 1 ---->  
+ <!--- ROW 1 ---->  
   <form id="greenSheetForm" method="post" data-bv-message="This value is not valid"
     data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
     data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
-    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"> 	
+    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">   
         <tr data-node="treetable-1" id="main1">
-        	<td><div style="display:inline-block;" class="indentLine2">1. Research objectives/goals/scope changed significantly and approved since last award?<br/>
+          <td><div style="display:inline-block;" class="indentLine2">1. Research objectives/goals/scope changed significantly and approved since last award?<br/>
 <div class="instructions">(If change not approved, explanation required).</div>
 <div class="hiddenNotes">
-	<div class="form-group">
+  <div class="form-group">
    <label>Comments</label>
     <textarea class="exampleTextarea form-control" rows="3" id="comment1"></textarea>
     <span class="pull-right comments">( <span class="count_message">2000</span> characters remaining)</span>
@@ -201,57 +201,57 @@
 </td>
             <td  class="input"><div class="form-group">
               
-              <select class="form-control" id="exampleSelect1">
+              <select class="form-control" id="select1">
                 <option>Select an Option</option>
-                <option>Changed and Approved</option>
-                <option>Changed and Not Approved</option>
+                <option value="Changed and Approved">Changed and Approved</option>
+                <option value="Changed and Not Approved">Changed and Not Approved</option>
                 
                 </select>
               </div>
-            <td width="31"   class="subNumber"><a href="#" class="notes"><img src="images/nocomment.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31"   class="subNumber"><a href="#" class="notes bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" id="comment1image"></a></td>  
             <td width="31"   align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
-        <tr data-node="treetable-1.1" data-pnode="treetable-parent-1" class="lastSub" id="sub1">
-        	<td><div style="display:inline-block;" class="indentLine2" id="1">1.1. Explanation Required:</div></td>
+        <tr data-node="treetable-1.1" data-pnode="treetable-parent-1" class="lastSub" id="1sub">
+          <td><div style="display:inline-block;" class="indentLine2" id="1">1.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
-              <textarea class="exampleTextarea form-control" rows="3" id="1-1text"></textarea>
+              <textarea class="exampleTextarea form-control" id="1-1text" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
           </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 <!--- ROW 2 ---->        
         <tr data-node="treetable-2" id="main2">
-        		
+            
             <td><div style="display:inline-block;" class="indentLine2">2. Progress satisfactory for continued funding?<br/>
                 <div class="instructions">(If No, explanation required.)</div></div></td>
             <td class="input"><div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios10" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios10" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadiosYes" value="Yes">
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>   
-            <td><a data-toggle="modal" href="#myModal"><img src="images/attachment.gif" height="20" width="20"></a></td>
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>   
+            <td><a data-toggle="modal" href="#myModal"><img src="images/attachment.gif" height="20" width="20" id="savedAttach"></a></td>
         </tr>
        
         <tr data-node="treetable-2.1" data-pnode="treetable-parent-2" class="lastSub" id="2sub">
-        		<td><div style="display:inline-block;" class="indentLine2">2.1. Explanation Required:</div></td>
+            <td><div style="display:inline-block;" class="indentLine2">2.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
               <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
 <!--- ROW 3 ---->    
-   <tr data-node="treetable-3" >
-        	<td><div style="display:inline-block;" class="indentLine2">3. Diversity supplement involved?
+   <tr data-node="treetable-3" id="main3">
+          <td><div style="display:inline-block;" class="indentLine2">3. Diversity supplement involved?
 <div style="display:none" class="hiddenNotes">
-	<div class="form-group">
+  <div class="form-group">
    <label>Comments</label>
     <textarea class="exampleTextarea form-control" rows="3" id="comment3"></textarea>
     <span class="pull-right comments">( <span class="count_message">2000</span> characters remaining)</span>
@@ -261,8 +261,8 @@
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios11" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios11" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios3"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios3"  value="No" >&nbsp; No
                 </label>
               
               </div>
@@ -270,41 +270,41 @@
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
-        <tr data-node="treetable-3.1" data-pnode="treetable-parent-3" class="sub">
-        	<td><div style="display:inline-block;" class="indentLine2">3.1. Progress acceptable?<br/>
+        <tr data-node="treetable-3.1" data-pnode="treetable-parent-3" class="sub" id="3sub">
+          <td><div style="display:inline-block;" class="indentLine2">3.1. Progress acceptable?<br/>
             <div class="instructions">(If No, explanation required.)</div></div></td>
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios12" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios12" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios3-1" value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios3-1"  value="No" >&nbsp; No
                 </label>
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
-        <tr data-node="treetable-3.1.1" data-pnode="treetable-parent-3.1" class="lastSub">
-        	<td><div style="display:inline-block;" class="indentLine2">3.1.1. Explanation Required:</div></td>
+        <tr data-node="treetable-3.1.1" data-pnode="treetable-parent-3.1" class="lastSub" id="3-1sub">
+          <td><div style="display:inline-block;" class="indentLine2">3.1.1. Explanation Required:</div></td>
            <td class="input"><div class="form-group">
               
                <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
 
 
 <!--- ROW 4 ---->    
-   <tr data-node="treetable-4">
-        	<td><div style="display:inline-block;" class="indentLine2">4. Are all publications compliant with NIH Public Access Policy?</div></td>
+   <tr data-node="treetable-4" id="main4">
+          <td><div style="display:inline-block;" class="indentLine2">4. Are all publications compliant with NIH Public Access Policy?</div></td>
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios13" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios13" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios4" value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios4"  value="No" >&nbsp; No
                 </label>
               
               </div>
@@ -312,29 +312,29 @@
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
-        <tr data-node="treetable-4.1" data-pnode="treetable-parent-4" class="lastSub">
-        	<td><div style="display:inline-block;" class="indentLine2">4.1. Has the Non-Compliance Notice been sent from eRA to the grantee?</div></td>
+        <tr data-node="treetable-4.1" data-pnode="treetable-parent-4" class="lastSub" id="4sub">
+          <td><div style="display:inline-block;" class="indentLine2">4.1. Has the Non-Compliance Notice been sent from eRA to the grantee?</div></td>
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios14" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios14" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios4-1"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios4-1"  value="No" >&nbsp; No
                 </label>
               
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
 
         <!--- ROW 5 ---->    
-   <tr data-node="treetable-5">
-        	<td><div style="display:inline-block;" class="indentLine2">5. Are any inventions mentioned in the text of the progress report that are not noted on the face page of the progress report?</div></td>
-            <td class="input"><div class="form-group">
+   <tr data-node="treetable-5" id="main5">
+          <td><div style="display:inline-block;" class="indentLine2">5. Are any inventions mentioned in the text of the progress report that are not noted on the face page of the progress report?</div></td>
+            <td class="input" id="optionsRadios5"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios15" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios15" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios5"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios5"  value="No" >&nbsp; No
                 </label>
               
               </div>
@@ -342,8 +342,8 @@
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
-        <tr data-node="treetable-5.1" data-pnode="treetable-parent-5" class="lastSub">
-        	<td><div style="display:inline-block;" class="indentLine2">5.1. Explain the actions that have been taken.<br/>
+        <tr data-node="treetable-5.1" data-pnode="treetable-parent-5" class="lastSub" id="5sub">
+          <td><div style="display:inline-block;" class="indentLine2">5.1. Explain the actions that have been taken.<br/>
 <div class="instructions">(Explanation required.  Discuss with PI and report invention using <a href="https://dali.cc.nih.gov/erl/" target="_blank">IEdison Report Lite</a>. <strong>This link requires a password.</strong> Call 301-435-1986 for a password.)</div></div></td>
             <td class="input"><div class="form-group">
               
@@ -351,23 +351,23 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
 <!--- ROW 6 ---->    
    <tr data-node="treetable-6" id="main6">
-        	<td><div style="display:inline-block;" class="indentLine2" >6. Are there significant changes in the level of effort of key personnel?<br/>
+          <td><div style="display:inline-block;" class="indentLine2" >6. Are there significant changes in the level of effort of key personnel?<br/>
 <div class="instructions">(<em>All changes that have an impact or are not approved will require an explanation.</em>)</div></div></td>
             <td class="input"><div class="form-group">
               
-              <select class="form-control" id="exampleSelect1">
+              <select class="form-control" id="select6">
                 <option>Select an Option</option>
-                <option>Yes, approved and has impact</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <option value="Yes Approved">Yes, Approved and has Impact</option>
+                 <option value="Yes Approved No Impact">Yes, Approved and has No Impact</option>
+                <option value="Not Approved">Yes, Not Approved and has Impact</option>
+                <option value="Not Approved No Impact">Yes, Not Approved and has No Impact</option>
+                 <option value="No">No Changes</option>
                 </select>
               
               </div>
@@ -375,30 +375,31 @@
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
-        <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub" id="sub6">
-        	<td><div style="display:inline-block;" class="indentLine2" id="6-1">6.1. Explanation Required:</div></td>
+        <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub" id="6sub">
+          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
                <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
 <!--- ROW 7 ---->    
-   <tr data-node="treetable-7">
-        	<td><div style="display:inline-block;" class="indentLine2">7. Any change in key personnel?<br>
+   <tr data-node="treetable-7" id="main7">
+          <td><div style="display:inline-block;" class="indentLine2">7. Any change in key personnel?<br>
 <div class="instructions">(All changes that have an impact or are not approved will require an explanation.)</div></div></td>
             <td class="input"><div class="form-group">
               
-              <select class="form-control" id="exampleSelect7">
+              <select class="form-control" id="select7">
                 <option>Select an Option</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+               <option value="Yes Approved">Yes, Approved and has Impact</option>
+                 <option value="Yes Approved No Impact">Yes, Approved and has No Impact</option>
+                <option value="Not Approved">Yes, Not Approved and has Impact</option>
+                <option value="Not Approved No Impact">Yes, Not Approved and has No Impact</option>
+                 <option value="No">No Changes</option>
                 </select>
               
               </div>
@@ -406,28 +407,30 @@
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
-        <tr data-node="treetable-7.1" data-pnode="treetable-parent-7" class="lastSub">
-        	<td><div style="display:inline-block;" class="indentLine2">7.1. Explanation Required:</div></td>
+        <tr data-node="treetable-7.1" data-pnode="treetable-parent-7" class="lastSub" id="7sub">
+          <td><div style="display:inline-block;" class="indentLine2">7.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
                <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
 <!--- ROW 8 ---->    
    <tr data-node="treetable-8" id="main8">
-        	<td><div style="display:inline-block;" class="indentLine2" id="8">8. Other support:<br/>
+          <td><div style="display:inline-block;" class="indentLine2" id="8">8. Other support:<br/>
 <div class="instructions">(If not approved, explanation required.)</div></div></td>
             <td class="input"><div class="form-group">
               
-              <select class="form-control" id="exampleSelect8">
+              <select class="form-control" id="select8">
                 <option>Select an Option</option>
 
-                <option>Changed and not approved</option>
+                <option value="Not Approved">Changed and Not Approved</option>
+                <option>Changed and Approved</option>
+                 <option>Not changed</option>
                 
                 </select>
               
@@ -436,21 +439,21 @@
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
-        <tr data-node="treetable-8.1" data-pnode="treetable-parent-8" class="lastSub" id="sub8">
-        	<td><div style="display:inline-block;" class="indentLine2" id="8-1">8.1. Explanation Required:</div></td>
+        <tr data-node="treetable-8.1" data-pnode="treetable-parent-8" class="lastSub" id="8sub">
+          <td><div style="display:inline-block;" class="indentLine2" id="8-1">8.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
                <textarea class="exampleTextarea form-control" id="Textarea8" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
               
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
 <!--- ROW 9 ---->    
-   <tr data-node="treetable-9">
-        	<td><div style="display:inline-block;" class="indentLine2">9. Is there any scientific overlap?<br/>
+   <tr data-node="treetable-9" id="main9">
+          <td><div style="display:inline-block;" class="indentLine2">9. Is there any scientific overlap?<br/>
 <div class="instructions">(If Yes, explanation required.)</div></div></td>
             <td class="input"><div class="form-group">
               
@@ -464,26 +467,26 @@
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
-        <tr data-node="treetable-9.1" data-pnode="treetable-parent-9" class="lastSub">
-        	<td><div style="display:inline-block;" class="indentLine2">9.1. Explanation Required:</div></td>
+        <tr data-node="treetable-9.1" data-pnode="treetable-parent-9" class="lastSub" id="9sub">
+          <td><div style="display:inline-block;" class="indentLine2">9.1. Explanation Required:</div></td>
             <td class="input"><div class="form-group">
               
               <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-          	<td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
          <!--- Row 10 -------->
-        <tr data-node="treetable-10">
+        <tr data-node="treetable-10" id="main10">
           <td><div style="display:inline-block;" class="indentLine2">10. Is this a multiple-PI application?</div></td>
           <td class="input"><div class="form-group">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios17" id="optionsRadiosYes6" value="Yes" >
+              <input type="radio" class="form-check-input" name="optionsRadios10"  value="Yes" >
               &nbsp;Yes &nbsp; &nbsp; &nbsp;
-              <input type="radio" class="form-check-input" name="optionsRadios17" id="optionsRadiosNo6" value="No" >
+              <input type="radio" class="form-check-input" name="optionsRadios10" value="No" >
               &nbsp; No </label>
           </div>
           <td  align="right"><img src="images/nocomment.gif" alt="" width="20" height="20"></td>
@@ -491,19 +494,19 @@
         </tr>
 
 
-        <tr data-node="treetable-10.1" data-pnode="treetable-parent-10" class="sub">
+        <tr data-node="treetable-10.1" data-pnode="treetable-parent-10" class="sub" id="10sub">
           <td><div style="display:inline-block;" class="indentLine2">10.1. Are there any changes in the leadership plan?</div></td>
           <td class="input"><div class="form-group">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosYes5" value="Yes" >
+              <input type="radio" class="form-check-input" name="optionsRadios10-1"  value="Yes" >
               &nbsp;Yes &nbsp; &nbsp; &nbsp;
-              <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosNo5" value="No" >
+              <input type="radio" class="form-check-input" name="optionsRadios10-1" value="No" >
               &nbsp; No </label>
           </div></td>
           <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" alt="" width="20" height="20"></a></td>
           <td  align="right"><img src="images/attachment.gif" alt="" width="20" height="20"></td>
         </tr>
-        <tr data-node="treetable-10.1.1" data-pnode="treetable-parent-10.1" class="lastSub">
+        <tr data-node="treetable-10.1.1" data-pnode="treetable-parent-10.1" class="lastSub" id="10sub1">
           <td><div style="display:inline-block;" class="indentLine2">10.1.1. Select reason(s) for revisions:</div></td>
           <td class="input"><div class="form-group">
            <div class="checkbox">
@@ -546,27 +549,27 @@
 
         <!--- Row 11 -------->
         <tr data-node="treetable-11" id="main11">
-          <td><div style="display:inline-block;" class="indentLine2" >11. Were there any concerns noted? <br/><div class="instructions">(If not resolved, explanation required.)?</div></div></td>
+          <td><div style="display:inline-block;" class="indentLine2" >11. Are there any changes in the leadership plan? <br/><div class="instructions"></div></div></td>
           <td class="input"><div class="form-group">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios17" id="optionsRadiosYes3" value="Yes" >
+              <input type="radio" class="form-check-input" name="optionsRadios11"  value="Yes" >
               &nbsp;Yes &nbsp; &nbsp; &nbsp;
-              <input type="radio" class="form-check-input" name="optionsRadios17" id="optionsRadiosNo3" value="No" >
+              <input type="radio" class="form-check-input" name="optionsRadios11"  value="No" >
               &nbsp; No </label>
           </div>
           <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>
           <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
         <tr data-node="treetable-11.1" data-pnode="treetable-parent-11" class="sub" id="sub11-1">
-          <td><div style="display:inline-block;" class="indentLine2">11.1. Are there any changes in the leadership plan?</div></td>
+          <td><div style="display:inline-block;" class="indentLine2">11.1. Were there any concerns noted?</div></td>
           <td class="input"><div class="form-group">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosYes2" value="Yes" >
+              <input type="radio" class="form-check-input" name="optionsRadios11-1" id="optionsRadiosYes2" value="Yes" >
               &nbsp;Yes &nbsp; &nbsp; &nbsp;
-              <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosNo2" value="No" >
+              <input type="radio" class="form-check-input" name="optionsRadios11-1" id="optionsRadiosNo2" value="No" >
               &nbsp; No </label>
           </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>
+          <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>
           <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
         <tr data-node="treetable-11.1.1" data-pnode="treetable-parent-11.1" class="lastSub" id="sub11-1-1">
@@ -582,7 +585,7 @@
              <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
           </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><a href="#main11" class="notes"><img src="images/nocomment.gif" height="20" width="20" id="comment11image"></a></td>
+          <td  align="right"><a class="notes bottom" title="" data-placement="left" data-toggle="tooltip" href="#sub11-1-1" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" id="comment11image"></a></td>
           <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
@@ -592,41 +595,42 @@
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios17" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios17" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios12"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios12"  value="No" >&nbsp; No
                 </label>
               
               </div>
             <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>  
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
-   <tr data-node="treetable-12.1" data-pnode="treetable-parent-12" class="sub">
+   <tr data-node="treetable-12.1" data-pnode="treetable-parent-12" class="sub" id="12sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1. Involvement of Human Subjects changed from last year?</div> </td>
      <td class="input"><div class="form-group">
        <label class="form-check-label">
-         <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosYes4" value="Yes" >
+         <input type="radio" class="form-check-input" name="optionsRadios12-1" id="optionsRadiosYes4" value="Yes" >
          &nbsp;Yes &nbsp; &nbsp; &nbsp;
-         <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosNo4" value="No" >
+         <input type="radio" class="form-check-input" name="optionsRadios12-1" id="optionsRadiosNo4" value="No" >
          &nbsp; No </label>
      </div></td>
      <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
      <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
    </tr>
-   <tr data-node="treetable-12.1.1" data-pnode="treetable-parent-12.1" class="sub">
+   <tr data-node="treetable-12.1.1" data-pnode="treetable-parent-12.1" class="sub" id="12-1-1sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1.1. Change(s) within scope of current objectives and approved?<br/><div class="instructions"> (If not in scope or not approved, explanation required.)</div></div></td>
      <td class="input"><span class="form-group">
-       <select name="exampleSelect" class="form-control" id="exampleSelect3">
+       <select name="exampleSelect" class="form-control" id="select12-1-1">
          <option>Select an Option</option>
-         <option>2</option>
-         <option>3</option>
-         <option>4</option>
-         <option>5</option>
+         <option>Yes, in scope and Approved</option>
+         <option value="Not Approved">Yes, in scope but Not Approved</option>
+         
+         <option value="No">No</option>
+         
          </select>
      </span></td>
      <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
      <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
    </tr>
-   <tr data-node="treetable-12.1.1.1" data-pnode="treetable-parent-12.1.1" class="lastSub">
+   <tr data-node="treetable-12.1.1.1" data-pnode="treetable-parent-12.1.1" class="lastSub" id="12-1-1-1sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1.1.1. Explanation Required:</div></td>
      <td class="input"><div class="form-group">
         <textarea class="exampleTextarea form-control" rows="3"></textarea>
@@ -641,8 +645,8 @@
             <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios12-2"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios12-2"  value="No" >&nbsp; No
                 </label>
               
             </div></td>
@@ -652,13 +656,14 @@
         <tr data-node="treetable-12.2.1" data-pnode="treetable-parent-12.2" class="sub" id="sub12-2-1">
           <td><div style="display:inline-block;" class="indentLine2">12.2.1 Exemption Number:</div></td>
           <td class="input"><span class="form-group">
-            <select name="exampleSelect2" class="form-control" id="exampleSelect4">
+            <select name="exampleSelect2" class="form-control" id="select12-2-1">
                <option>Select an Option</option>
-              <option>Not Exempt</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option value="Not Exempt">Not Exempt</option>
+              <option>E6</option>
+              <option>E5</option>
+              <option>E3</option>
+              <option>E2</option>
+              <option>E1</option>
             </select>
           </span></td>
           <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
@@ -670,8 +675,8 @@
           <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosNo" value="No" checked="checked">&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios12-2-1-1"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios12-2-1-1"  value="No" >&nbsp; No
                 </label>
               
             </div></td>
@@ -715,12 +720,12 @@
         <tr data-node="treetable-12.2.2" data-pnode="treetable-parent-12.2" class="lastsub" id="sub12-2-2">
           <td><div style="display:inline-block;" class="indentLine2">12.2.2. Is gender and minority recruitment/retention appropriate and on schedule?<br/><div class="instructions"> <a href="http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf" target="_blank">Sex Gender Workbook (PDF)</a></div></div></td>
           <td class="input"><span class="form-group">
-            <select name="exampleSelect3" class="form-control" id="exampleSelect9">
+            <select name="exampleSelect3" class="form-control" id="select12-2-2">
               <option>Select an Option</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option>No recruitement</option>
+              <option value="No">No</option>
+              <option>Yes</option>
+            
             </select>
           </span></td>
           <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
@@ -732,15 +737,15 @@
           <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios12-2-3"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios12-2-3"  value="No" >&nbsp; No
                 </label>
               
             </div></td>
           <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
           <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
-                <tr data-node="treetable-12.2.3.1" data-pnode="treetable-parent-12.2.3" class="sub" >
+                <tr data-node="treetable-12.2.3.1" data-pnode="treetable-parent-12.2.3" class="sub" id="sub12-2-3-1" >
           <td><div style="display:inline-block;" class="indentLine2">12.2.3.1.    
 Inclusion data record(s) available in the Inclusion Management System (IMS)?</div></td>
           <td class="input"><div class="form-group">
@@ -800,8 +805,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
            <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios12-2-6" id="optionsRadiosYes" value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios12-2-6" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
               
             </div></td>
@@ -809,13 +814,13 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
-        <tr data-node="treetable-12.2.6.1" data-pnode="treetable-parent-12.2.6" class="sub" >
+        <tr data-node="treetable-12.2.6.1" data-pnode="treetable-parent-12.2.6" class="sub" id="sub12-2-6-1">
           <td><div style="display:inline-block;" class="indentLine2">12.2.6.1. Are there any applicable clinical trials associated with this award?</div></td>
            <td class="input"><div class="form-group">
               
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosYes" value="Yes" >
-                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios18" id="optionsRadiosNo" value="No" >&nbsp; No
+                <input type="radio" class="form-check-input" name="optionsRadios12-2-6-1" id="optionsRadiosYes" value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios12-2-6-1" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
               
             </div></td>
@@ -823,7 +828,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
             <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
         </tr>
 
-        <tr data-node="treetable-12.2.6.1.1" data-pnode="treetable-parent-12.2.6.1" class="lastSub">
+        <tr data-node="treetable-12.2.6.1.1" data-pnode="treetable-parent-12.2.6.1" class="lastSub" id="sub12-2-6-1-1">
           <td><div style="display:inline-block;" class="indentLine2">12.2.6.1.1 Have the applicable clinical trials been registered in ClinicalTrials.gov?<br/><div class="instructions"><a href="http://odoerdb2.od.nih.gov/ClinicalTrials_fdaaa/index.html" target="_blank">ClinicalTrials.gov Registration</a></div></div></td>
            <td class="input"><div class="form-check">
               
@@ -866,7 +871,6 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 
     </tbody>
 </table>
-
 <div style="float:right;  margin-bottom: 10px;display:inline;">
                                                 <button type="button" class="btn btn-default allSubs">Expand All</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 

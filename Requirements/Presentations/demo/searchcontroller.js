@@ -10,6 +10,7 @@ $(document).ready(function(){
 
 $('#example').dataTable( {
   "bSort": true,
+  "bFilter": false,
 
    "order": [[ 0, "asc" ]],
 
