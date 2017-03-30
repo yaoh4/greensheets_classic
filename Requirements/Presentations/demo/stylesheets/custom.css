@@ -1420,4 +1420,11 @@ table.dataTable thead .sorting:after {
 .Submitted {
   color: #777;
   font-weight: bold;
+}
+
+.secondH {
+  background-color: #e3e3e3;
+}
+
+
 

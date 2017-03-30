@@ -2,6 +2,11 @@
 //check all function
 $(document).ready(function(){
 
+
+  
+          $('button.has-spinner').addClass('active');
+
+
  $("#checkAll").click(function () {
      $('input:checkbox').not(this).prop('checked', this.checked);
  });
@@ -22,6 +27,9 @@ $(document).ready(function(){
  });
 
   $("#promoteProgram").click(function () {
+   
+
+    
       $('#programCompeting').attr('style', 'display:none;');
      $('#1').attr('style', 'display:none;');
       $('#content2').addClass('active');

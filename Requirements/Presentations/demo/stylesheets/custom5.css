@@ -1199,7 +1199,8 @@ ul.actionMessage {
   padding-left: 25px;
 }
 
-/**********************Grant Search Page********************/
+/**********************spinner********************/
+
 
 .has-spinner .fa-spinner {
   opacity: 0;
@@ -1677,3 +1678,5 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
   
     background-color: #e3e3e3;
 }
+
+

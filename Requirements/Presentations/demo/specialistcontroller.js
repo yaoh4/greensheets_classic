@@ -3,6 +3,7 @@
 
 
 $(document).ready(function(){
+    $(".chosen-select").chosen();
 
   $( ".no-sort" ).removeClass( ".sorting" );
 
