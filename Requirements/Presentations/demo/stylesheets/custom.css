@@ -1467,3 +1467,7 @@ table.dataTable thead .sorting:after {
     color: #fff;
     background-color: #555;
 }
+
+.chosen-container .search-field input {
+width: 100% !important;
+}

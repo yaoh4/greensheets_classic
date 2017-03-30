@@ -4,7 +4,12 @@
 
 $(document).ready(function(){
 
-  $(".chosen-select").chosen();
+
+
+  
+   $('.chosen-select', "#mech").chosen();
+$("#mech").chosen({width: '100%'});
+
 
   $( ".no-sort" ).removeClass( ".sorting" );
 
