@@ -18,7 +18,6 @@
 <script src="validator.js"></script>
 <script src="dropzone.js"></script>
 
-
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 <link href="stylesheets/dropzone.css" rel="stylesheet" type="text/css" media="screen">
@@ -32,7 +31,6 @@
 <link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
 
 <script src="dist/alt-dtables.js"></script>
-
 <link href="dist/css/chosen.css" rel="stylesheet" type="text/css" media="screen">
 
 
@@ -383,11 +381,11 @@
   <!----BEGIN Search TAB --> 
                     
 <div class="tab-pane fade" id="tab3default">
-  <form> 
+  
     <div class="form-group row">
         <div class="col-xs-4">
           <label for="selectFrom">Grants from:</label> 
-          <select name="criteria.submissionFromId" id="selectFrom" class="c-select form-control">
+          <select id="selectFrom" class="c-select form-control">
           <option value="42" selected="selected">My Portfilio</option>
           <option value="60">My Cancer Activity</option>
           <option value="41" >All NCI Grants</option>
@@ -410,7 +408,7 @@
      
 
 
-      <div class="col-xs-4">
+      <div class="col-xs-4 form-group ">
           <label for="investigator">Mechanism:</label>
           <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Mechanism(s)" id="mech">
           <option value=""></option>
@@ -451,7 +449,7 @@
 
       
 
-<div class="form-group row" style="margin-top: 10px;">
+<div class="form-group row" style="margin-top: 20px;">
   <div class="col-xs-4">
 
           <label class="form-check-label">
@@ -476,7 +474,7 @@
         <input id="search-form_navigateToSearch" value="Clear" onClick="window.location.reload()"  class="btn btn-default" type="submit" style="float: right;">
     </div>
 
-  </form>  
+ 
 
 </div>
       <!--end form group-->
