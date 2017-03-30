@@ -114,65 +114,302 @@
       <div class="col-md-12">  
 
 
-        <!--success alert box -->
-    <div class="col-md-12" style="display:none;" id="success">  
-       <br/>&nbsp;
-     
-   <div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Successfully Saved!</strong> Changes to Search Preferences have been successfully saved.
-</div>
 
-</div>
    <br/>&nbsp;     
       
-<form>
-<div class="panel panel-default" style="margin-right: 15px; margin-left: 15px;">
 
-    <div class="panel-heading">
-        <span class="clickable"><i class="fa fa-minus-circle" aria-hidden="true"></i></span>
-        <div class="pheader" style="display:inline;"><h4>Search Criteria</h4> <div id="defaultS" style="display:inline;">(default)</div><div id="preferredS" style="display:none;">(preferred)</div></div>
+
+ 
+             <div class="panel with-nav-tabs panel-default">
+                <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1default" data-toggle="tab"><h4>Portfolio</h4></a></li>
+                            <li><a href="#tab2default" data-toggle="tab"><h4>My Cancer Activity</h4></a></li>
+                            <li><a href="#tab3default" data-toggle="tab"><h4>Search</h4></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+ <!----BEGIN PORTFOLIO TAB -->
+<div class="tab-pane fade in active" id="tab1default">
+
+ <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              <th >Pgm GS</th>
+                <th  width="10%">Pgm GS<br/> Status</th>
+                
+                <th>#Days in<br/>GPMATS</th>
+                <th >Grant Number</th>
+                <th>CA</th>
+                <th>Budget<br/>Start Date</th>
+                <th >PD</th>
+                <th >PI</th>
+                
+                 <th>Score</th>
+                 <th>%</th>
+                 <th>Board Date</th>
+                <th class="no-sort">GMS GS</th>
+                <th >GMS GS<br/>Status</th>
+            </tr>
+        </thead>
         
-          <div style="display:inline; float: right;"> <button type="button" class="btn btn-default btn-sm"  id="saveButton">Save Search Preferences</button>
-            <button type="reset" class="btn btn-default btn-sm" id="loadSP">Load Search Preferences</button>
-            <button type="reset" class="btn btn-default btn-sm" value="Refresh Page" onClick="window.location.reload()">Load Default Search Criteria</button>
-           
-           
-           
-          </div>
+        <tbody>
+           <tr>
+             <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right" name="thumbs"></td>
+                <td><span class="saved">Saved</span></td>
+                
+                 <td>10</td>
+                <td><a href="#">5R01CA195654-04</a></td>
+                <td>TB</td>
+                <td>01/01/2017</td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td><a href="mailto:">Smith, Meghan</a></td>
+               
+                 <td>16</td>
+                 <td>0.0%</td>
+                 <td>03/21/2017</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span></td>
+                
+                 <td>21</td>
+                <td><a href="#">5R01CA193829-03</a></td>
+                <td>TB</td>
+                <td>12/01/2017</td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td><a href="mailto:">Smith, Gary</a></td>
+                
+                  <td>20</td>
+                 <td>0.0%</td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span></td>
+            </tr>
+            <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span> </td>
+                
+                 <td>10</td>
+                <td><a href="#">5F31CA213985-02</a></td>
+                <td>MB</td>
+                <td>09/30/2017</td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td><a href="mailto:">Smith, Aleisha</a></td>
+                
+                    <td>12</td>
+                 <td>0.0%</td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span></td>
+            </tr>
+            <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                
+                 <td>0</td>
+                <td><a href="#">1R03CA212935-01</a></td>
+                <td>NC</td>
+                <td>12/01/2016</td>
+                <td style="white-space:nowrap;"><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Roberto</a></td>
+                
+                    <td>0</td>
+                 <td>5.0%</td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span></td>
+            <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="frozen">Frozen</span></td>
+                
+                 <td>28</td>
+                <td><a href="#">5R01CA193829-02</a></td>
+                <td>NC</td>
+                <td>12/01/2016</td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td><a href="mailto:">Smith, Gary</a></td>
+                
+                    <td>14</td>
+                 <td>0.0%</td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+            </tr>
+            
+       
+        </tbody>
+    </table>   
+
+
+
+ </div>
+
+   <!----BEGIN Cancer Activity TAB -->
+                        <div class="tab-pane fade in active" id="tab2default">
+
+  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              <th >Pgm GS</th>
+                <th  width="10%">Pgm GS<br/> Status</th>
+                
+                <th>#Days in<br/>GPMATS</th>
+                <th >Grant Number</th>
+                <th>CA</th>
+                <th>Budget<br/>Start Date</th>
+                <th >PD</th>
+                <th >PI</th>
+                
+                 <th>Score</th>
+                 <th>%</th>
+                 <th>Board Date</th>
+                <th class="no-sort">GMS GS</th>
+                <th >GMS GS<br/>Status</th>
+            </tr>
+        </thead>
         
-          
-      </div>
+        <tbody>
+           <tr>
+             <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/thumbsup.gif" alt="Ready for Submission" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Ready for PGS Submission" data-placement="right" name="thumbs"></td>
+                <td><span class="saved">Saved</span></td>
+                
+                 <td>10</td>
+                <td><a href="#">5R01CA195654-04</a></td>
+                <td>TB</td>
+                <td>01/01/2017</td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td><a href="mailto:">Smith, Meghan</a></td>
+               
+                 <td>16</td>
+                 <td>0.0%</td>
+                 <td>03/21/2017</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+            </tr>
 
-      <!--end panel header-->
-    <div class="panel-body">
+            <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span></td>
+                
+                 <td>21</td>
+                <td><a href="#">5R01CA193829-03</a></td>
+                <td>TB</td>
+                <td>12/01/2017</td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td><a href="mailto:">Smith, Gary</a></td>
+                
+                  <td>20</td>
+                 <td>0.0%</td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span></td>
+            </tr>
+            <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span> </td>
+                
+                 <td>10</td>
+                <td><a href="#">5F31CA213985-02</a></td>
+                <td>MB</td>
+                <td>09/30/2017</td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td><a href="mailto:">Smith, Aleisha</a></td>
+                
+                    <td>12</td>
+                 <td>0.0%</td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span></td>
+            </tr>
+            <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                
+                 <td>0</td>
+                <td><a href="#">1R03CA212935-01</a></td>
+                <td>NC</td>
+                <td>12/01/2016</td>
+                <td style="white-space:nowrap;"><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Roberto</a></td>
+                
+                    <td>0</td>
+                 <td>5.0%</td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span>Not Started</span></td>
+            <tr>
+              <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="frozen">Frozen</span></td>
+                
+                 <td>28</td>
+                <td><a href="#">5R01CA193829-02</a></td>
+                <td>NC</td>
+                <td>12/01/2016</td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
+                
+                <td><a href="mailto:">Smith, Gary</a></td>
+                
+                    <td>14</td>
+                 <td>0.0%</td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+            </tr>
+            
+       
+        </tbody>
+    </table>  
 
-      <div class="form-group row">
+
+
+                        </div>                      
+
+  <!----BEGIN Search TAB --> 
+                     
+<div class="tab-pane fade" id="tab3default">
+ <form> 
+    <div class="form-group row">
         <div class="col-xs-4">
           <label for="selectFrom">Grants from:</label> 
           <select name="criteria.submissionFromId" id="selectFrom" class="c-select form-control">
-    <option value="42" selected="selected">My Portfilio</option>
-    <option value="60">My Cancer Activity</option>
-    <option value="41" >All NCI Grants</option>
+          <option value="42" selected="selected">My Portfilio</option>
+          <option value="60">My Cancer Activity</option>
+          <option value="41" >All NCI Grants</option>
 
 
-</select>
+          </select>
 
 
         </div>
 
-        <div class="col-xs-4">
+      <div class="col-xs-4">
           <label for="projectTitle">Grant Type:</label> 
          <select name="grantType" class="c-select form-control" id="gType"><option value="competinggrants" id="competingG">Competing Grants</option>
-<option value="noncompetinggrants">Non-Competing Grants</option>
-<option value="both" selected="selected" id="bothG">Both Competing and Non-Competing Grants</option>
-<option value="payline">Competing Grants within the Payline</option></select>
+        <option value="noncompetinggrants">Non-Competing Grants</option>
+        <option value="both" selected="selected" id="bothG">Both Competing and Non-Competing Grants</option>
+        <option value="payline">Competing Grants within the Payline</option></select>
 
                          
-</div>
+      </div>
 
 
-<div class="col-xs-4">
+      <div class="col-xs-4">
           <label for="investigator">Mechanism:</label>
           <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Mechanism(s)" id="mech">
           <option value=""></option>
@@ -204,10 +441,10 @@
 
             <span style="color:#999; font-weight:bold; font-size: 11px;">&nbsp;&nbsp;<i>Leaving Mechanism blank will return all Mechanisms</i></span> 
         </div>
-</div>
+    </div><!--end form group row-->
 
        
-      <!--end form group-->
+      
 
 
       
@@ -252,15 +489,10 @@
 
       </div>
 </form>  
-    
-  
 
-</div>
-
-
-  
-    <!--end panel body-->
-  </div>
+                        </div>
+                       
+            </div>
 
   <div id="pSearch" style="display:none;">
  
@@ -298,7 +530,7 @@
                 <td><a href="#">5R01CA195654-04</a></td>
                 <td>TB</td>
                 <td>01/01/2017</td>
-                <td><a href="mailto:">Greene, Jack</a></td>
+                <td><a href="mailto:">Nusraty, Janene</a></td>
                 
                 <td><a href="mailto:">Smith, Meghan</a></td>
                
@@ -512,6 +744,7 @@
        
         </tbody>
     </table>   
+  </form>
       
    <br/>
  </div>
@@ -519,7 +752,8 @@
 	</div>
     
   	
-
+ </div>
+  </div>
 
  
 

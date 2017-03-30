@@ -12,7 +12,7 @@
 <script src="scripts/bootstrapValidator.js"></script>
 
 <script src="scripts/jquery.validate-1.15.0.min.js"></script>
-
+<script src="dist/chosen.jquery.js"></script>
 <script src="scripts/theme2.js"></script>
 <script src="specialistcontroller.js"></script>
 <script src="validator.js"></script>
@@ -31,7 +31,7 @@
 <link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
 
 <script src="dist/alt-dtables.js"></script>
-
+<link href="dist/css/chosen.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 
 <body style="background-color: #fff;">
@@ -127,30 +127,167 @@
     <div class="panel-body">
 
       
-<div class="form-group row" style="margin-top: 20px;">
+<div class="form-group row" style="margin-top: 10px;">
         <div class="col-xs-4">
 
           <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="options" id="grantNumber" value="Grant Number" checked >
-                &nbsp;Grant Number &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="options" id="PIname" value="PI Name" >&nbsp; PI Name
+                Grant Number 
                 </label>
           <input  maxlength="120" value="" id="searchCriteria" class="form-control" type="text" placeholder="Enter Grant Number">
         </div>
-       
-         <div class="searchButton2" id="searchDiv">
+              <div class="col-xs-4">
+
+          <label class="form-check-label">
+                PI Name 
+                </label>
+          <input  maxlength="120" value="" id="searchCriteria" class="form-control" type="text" placeholder="Enter PI Name">
+        </div>
+
+        <div class="col-xs-4">
+
+          <label class="form-check-label">
+                PD Name 
+                </label>
+          <input  maxlength="120" value="" id="searchCriteria" class="form-control" type="text" placeholder="Enter PD Name">
+        </div>
+
+            
+
+    </div>
+
+    <div class="form-group row" style="margin-top: 10px;">
+         <div class="col-xs-4">
+          <label for="investigator">Cancer Activity(ies):</label>
+          <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Cancer Activity(ies)" id="mech">
+          <option value=""></option>
+                             <option value="">AC</option>
+                            <option value="">AI</option>
+                            <option value="">AM</option>
+                            <option value="">AR</option>
+
+                             <option value="">BB</option>
+                             <option value="">BC</option>
+                             <option value="">BD</option>
+                              <option value="">BE</option>
+                             <option value="">BG</option>
+                            <option value="">BH</option>
+                            <option value="">BI</option>
+                            <option value="">BP</option>
+                            <option value="">BR</option>
+                            <option value="">BS</option>
+                            <option value="">BT</option>
+
+
+                            <option value="">CB</option>
+                            <option value="">CD</option>
+                             <option value="">CE</option>
+                            <option value="">CG</option>
+                             <option value="">CH</option>
+                             <option value="">CI</option>
+                              <option value="">CL</option>
+                                <option value="">CM</option>
+                                <option value="">CR</option>
+                               <option value="">CT</option>
+                             
+                             <option value="">DC</option>
+                              <option value="">DF</option>
+                             <option value=""> DI</option>
+                            <option value="">DR</option>
+
+                           
+                            <option value="">ED</option>
+                            <option value="">EF</option>
+                            <option value="">EM</option>
+                             <option value="">EP</option>
+                             <option value="">ER</option>
+                             <option value="">ET</option>
+                             
+                              <option value="">GH</option>
+                               <option value="">GN</option>
+
+                                <option value="">HE</option>
+                                <option value="">HP</option>
+
+                                 <option value="">IM</option>
+
+                                  <option value="">NC</option>
+                                 <option value="">NP</option>
+                                  <option value="">NT</option>
+                           
+                           <option value="">MB</option>
+                            <option value="">MD</option>
+
+                            <option value="">OS</option>
+                            <option value="">OR</option>
+
+                             <option value="">PC</option>
+                            <option value="">PO</option>
+
+                              <option value="">RA</option>
+                            <option value="">RD</option>
+                             <option value="">RF</option>
+                                
+
+                            <option value="">SB</option>
+                              <option value="">SC</option>
+                            <option value="">SD</option>
+                              <option value="">SO</option>
+                              <option value="">ST</option>
+                            
+                            
+                            <option value="">SU</option>
+                           
+                            <option value="">TB</option> 
+                           <option value="">TD</option> 
+                          
+                            <option value="">TC</option>
+                             <option value="">TM</option>
+                             <option value="">TR</option>
+
+                            <option value="">TS</option>
+                          
+          </select><br/>
+
+
+
+          
+        </div>
+
+
+
+         <div class="col-xs-4">
+          <label for="selectFrom">Fiscal Year:</label> 
+          <select name="criteria.submissionFromId" id="selectFrom" class="c-select form-control">
+    <option disabled selected >Select Fiscal Year</option>
+    <option value="2018">2018</option>
+    <option value="2017">2017</option>
+    <option value="2016">2016</option>
+     <option value="2015">2015</option>
+      <option value="2014">2014</option>
+       <option value="2013">2013</option>
+        <option value="2012">2012</option>
+         <option value="2011">2011</option>
+          <option value="2010">2010</option>
+           <option value="2009">2009</option>
+           <option value="2008">2008</option>
+           <option value="2007">2007</option>
+           <option value="2006">2006</option>
+           <option value="2005">2005</option>
+           <option value="2009">2004</option>
+</select>
+       </div>
+
+
+        <div class="col-xs-4 searchButton2" id="searchDiv" >
         
-        <button type="button" class="btn btn-primary has-spinner" id="search-btn">Search</button>
+        <button type="button" class="btn btn-primary has-spinner" id="search-btn" style="float:right;">Search</button>
         
-        <input id="search-form_navigateToSearch" name="action:navigateToSearch" value="Clear" onClick="window.location.reload()" class="btn btn-default" type="submit">
+        <input id="search-form_navigateToSearch" value="Clear" onClick="window.location.reload()"  class="btn btn-default" type="submit" style="float: right;">
+    </div>
 
-      </div>
+   
 
-      </div>
-
-     
-
-
-
+</div>
       <!--end form group-->
      
 
@@ -172,19 +309,23 @@
       <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th style="white-space: nowrap;">Grant Number</th>
-                <th>CA</th>
-                <th>Budget<br/>Start Date</th> 
-                <th width="9%">PD</th>
-                <th width="9%">PI</th>
-                <th width="9%">Specialist</th>
-                <th width="9%">Backup<br/> Specialist</th>
-                <th class="no-sort">Pgm<br/> GS</th>
-                <th class="status">Pgm GS<br/> Status</th>
-                <th width="3%">Pgm Submitted<br/> Date:</th>
-                <th class="no-sort">GMS<br/> GS</th>
-                <th class="status">GMS GS<br/> Status</th>
-                <th width="3%">GMS GS Submitted<br/> Date:</th>
+                <th rowspan="2" style="white-space: nowrap;">Grant Number</th>
+                <th rowspan="2" width="2%">CA</th>
+                <th rowspan="2" width="2%">Budget<br/>Start Date</th> 
+                <th width="10%" rowspan="2">PD</th>
+                <th width="10%" rowspan="2">PI</th>
+                <th width="10%" rowspan="2">Specialist</th>
+                <th colspan="3" style="text-align:center;">Program</th>
+                
+                <th colspan="3" style="text-align:center;">Specialist</th>
+            </tr>
+            <tr>
+              <th class="no-sort secondH">GS</th>
+              <th class="secondH">GS<br/>Status</th>
+              <th width="3%" class="secondH sort">Submitted<br/>Date:</th>
+              <th class="no-sort secondH">GS</th>
+              <th class="secondH">GS<br/>Status</th>
+              <th width="3%" class="secondH">Submitted<br/>Date:</th>
             </tr>
         </thead>
         
@@ -199,8 +340,7 @@
                 
                 <td style="white-space:nowrap;"><a href="mailto:smithm@mail.nih.gov">Smith, Meghan</a></td>
                  <td style="white-space:nowrap;"><a href="mailto:">Haddad, Jennifer</a></td>
-                <td style="white-space:nowrap;"></td>
-                <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></td>
                 <td><span class="saved">Saved</span></td>
                  <td></td>
                 <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
@@ -214,9 +354,8 @@
                 <td>12/01/2017</td>
                 <td><a href="mailto:">Sathyamoorthy, Neeraja</a></td>
                 
-                <td><a href="mailto:mailto:smithg@mail.nih.gov">Smith, Gary</a></td>
+                <td><a href="mailto:">Smith, Gary</a></td>
                  <td><a href="mailto:">Edwards, Jennifer</a></td>
-                <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td>Not Started</td>
                  
@@ -231,14 +370,13 @@
                 <td>09/30/2017</td>
                 <td><a href="mailto:">McNeil, Nicole</a></td>
                 
-                <td><a href="mailto:smitha@mail.nih.gov">Smith, Aleisha</a></td>
+                <td><a href="mailto:">Smith, Aleisha</a></td>
                 <td><a href="mailto:">Parker, Teresa</a></td>
+                <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true" alt="Not Required" height="18" border="0" width="15" data-toggle="tooltip" data-original-title="Greensheet is not required for this grant for one of the following reasons: 1) reason xyz; 2) reason abc; or 3) reason 123." data-placement="right"></i></a></td>
                 <td></td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td>Not Started </td>
                  <td></td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
-                <td>Not Started</td>
+                <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true" alt="Not Required" height="18" border="0" width="15" data-toggle="tooltip" data-original-title="Greensheet is not required for this grant for one of the following reasons: 1) reason xyz; 2) reason abc; or 3) reason 123." data-placement="right"></i></a></td>
+                <td></td>
                    <td></td>
             </tr>
             <tr>
@@ -247,9 +385,8 @@
                 <td>12/01/2017</td>
                 <td><a href="mailto:">Carruthers, Renee</a></td>
                 
-                <td style="white-space:nowrap;"><a href="mailto:smithr@mail.nih.gov">Smith, Roberto</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Roberto</a></td>
                 <td style="white-space:nowrap;"><a href="mailto:">Edwards, Jennifer</a></td>
-                <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><span class="saved">Saved</span></td>
                  <td></td>
@@ -262,9 +399,8 @@
                 <td>12/01/2016</td>
                 <td><a href="mailto:">Sathyamoorthy, Neeraja</a></td>
                 
-                <td><a href="mailto:smithg@mail.nih.gov">Smith, Gary</a></td>
+                <td><a href="mailto:">Smith, Gary</a></td>
                 <td><a href="mailto:">Murphy, Connie</a> </td>
-                <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><span class="frozen">Frozen</span></td>
                  
@@ -279,10 +415,8 @@
                 <td>09/30/2017</td>
                 <td style="white-space:nowrap;"><a href="mailto:">Sharman, Anu</a></td>
                 
-                <td style="white-space:nowrap;"><a href="mailto:smithe@mail.nih.gov">Smith, Edwin</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Edwin</a></td>
                 <td style="white-space:nowrap;"><a href="mailto:">Williams, Ted</a></td>
-                <td></td>
-
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><span class="saved">Saved</span></td>
             
@@ -298,9 +432,8 @@
                 <td>09/12/2016</td>
                 <td style="white-space:nowrap;"><a href="mailto:">McNeil, Nicole</a></td>
                 
-                <td style="white-space:nowrap;"> <a href="mailto:smithi@mail.nih.gov">Smith, Iris</a></td>
+                <td style="white-space:nowrap;"> <a href="mailto:">Smith, Iris</a></td>
                 <td style="white-space:nowrap;"><a href="mailto:">Brown, Linda</a></td>
-                <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><span class="frozen">Frozen</span></td>
                  
@@ -315,10 +448,9 @@
                 <td>08/01/2016</td>
                 <td style="white-space:nowrap;"><a href="mailto:">Radaev, Sergey</a></td>
                 
-                <td style="white-space:nowrap;"><a href="mailto:smithd@mail.nih.gov">Smith, David</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, David</a></td>
                 <td style="white-space:nowrap;"><a href="mailto:">Williams, Ted</a></td>
-                <td style="white-space:nowrap;"><a href="mailto:">Fisher, Barbara</a></td>
-                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
+                <td><a href="programGS-guest-submitted.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
                 <td><span class="Submitted">Submitted</span></td>
                  <td>05/20/2016</td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
@@ -331,9 +463,8 @@
                 <td>07/01/2017</td>
                 <td style="white-space:nowrap;"><a href="mailto:">Witkin, Keren</a></td>
                 
-                <td style="white-space:nowrap;"><a href="mailto:smithb@mail.nih.gov">Smith, Bethany</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Bethany</a></td>
                 <td style="white-space:nowrap;"><a href="mailto:">Fisher, Barbara</a></td>
-                <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><span class="saved">Saved</span></td>
                  
@@ -348,9 +479,8 @@
                 <td>06/01/2017</td>
                 <td style="white-space:nowrap;"><a href="mailto:">Witkin, Keren</a></td>
                 
-                <td style="white-space:nowrap;"><a href="mailto:smithbm@mail.nih.gov">Smith, Bethany</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Bethany</a></td>
                 <td style="white-space:nowrap;"><a href="mailto:">Linde, Emily</a></td>
-                <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><span class="saved">Saved</span></td>
                  
@@ -365,9 +495,8 @@
                 <td>09/01/2017</td>
                 <td style="white-space:nowrap;"><a href="mailto:">Henderson, Lori</a></td>
                 
-                <td style="white-space:nowrap;"><a href="mailto:smithbm@mail.nih.gov">Smith, Barbara</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Barbara</a></td>
                 <td style="white-space:nowrap;"><a href="mailto:">Dunne, Debbie</a></td>
-                <td></td>
                 <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
                 <td><span class="saved">Saved</span></td>
                  
@@ -383,9 +512,8 @@
                 <td>05/01/2016</td>
                 <td><a href="mailto:">Nguyen, Long</a></td>
                 
-                <td style="white-space:nowrap;"><a href="mailto:smithj@mail.nih.gov">Smith, Jacek</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Jacek</a></td>
                 <td style="white-space:nowrap;"><a href="mailto:">Linde, Emily</a></td>
-                <td style="white-space:nowrap;"><a href="mailto:">Dunne, Debbie</a></td>
                 <td style="white-space:nowrap;"><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
                 <td><span class="Submitted">Submitted</span></td>
                  
