@@ -8,24 +8,31 @@ $(document).ready(function(){
 
   $( ".no-sort" ).removeClass( ".sorting" );
 
-$('#example').dataTable( {
+var table = $('#example').dataTable( {
 
     "bSort": true,
     "bFilter": false,
-   
-   
+
+  "dom": '<"top"lip>rt<"bottom"lip>',
     "buttons": [
         'copy', 'excel', 'pdf'
     ],
 
    "order": [[ 4, "asc" ]],
+
+    "language": {
+                "info": "&nbsp; (Displaying _END_ out of _TOTAL_ )  ",
+              },
    
        columnDefs: [
          { targets: ['status'], type: 'alt-string'},
  
          { targets: 'no-sort', orderable: false }] 
 
+
+
     } );
+
 
 
 

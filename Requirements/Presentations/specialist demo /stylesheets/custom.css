@@ -1482,3 +1482,17 @@ width: 100% !important;
     white-space: nowrap;
     width: 100%;
     }
+
+.dataTables_length{
+  display:inline;
+}
+
+.dataTables_paginate {
+  display:inline;
+  float: right;
+}
+
+.dataTables_info {
+  display:inline;
+}
+
