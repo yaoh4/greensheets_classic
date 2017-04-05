@@ -1,0 +1,25 @@
+table.dataTable thead th, table.dataTable thead td {
+    padding: 0px 3px 0px 3px; 
+    border-bottom: 1px solid #111;
+    color: #FFF;
+     background:#14819B;
+}
+
+.modalTheader th {
+	padding: 0px 3px 0px 3px; 
+    border-bottom: 1px solid #111;
+    color: #FFF;
+     background:#14819B;
+
+}
+
+.repoModalTable {
+	font-size: 12px;
+}
+
+table.dataTable tbody tr.even{
+    background-color:#e7f7ff;
+}
+table.dataTable tbody tr.odd{
+    background-color:#ffffff;
+}
