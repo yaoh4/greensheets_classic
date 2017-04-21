@@ -4740,6 +4740,8 @@ Requirements/Presentations/template/fonts/glyphicons-halflings-regular.svg -text
 Requirements/Presentations/template/fonts/glyphicons-halflings-regular.ttf -text
 Requirements/Presentations/template/fonts/glyphicons-halflings-regular.woff -text
 Requirements/Presentations/template/fonts/glyphicons-halflings-regular.woff2 -text
+Requirements/Presentations/template/footer.jsp -text
+Requirements/Presentations/template/header.jsp -text
 Requirements/Presentations/template/images/IconAttachment.gif -text
 Requirements/Presentations/template/images/IconAttachmentChecked.gif -text
 Requirements/Presentations/template/images/IconCalendar.gif -text
