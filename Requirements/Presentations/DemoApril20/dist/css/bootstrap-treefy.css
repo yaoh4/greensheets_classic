@@ -1,0 +1,23 @@
+.treetable-indent
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 28px;
+    height: 28px;
+}
+.treetable-expander
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+
+    cursor: pointer;
+}
+
+/*# sourceMappingURL=bootstrap-treefy.css.map */
