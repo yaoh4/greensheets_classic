@@ -1692,3 +1692,7 @@ textarea {
     vertical-align: top;
     cursor: pointer;
 }
+
+.helperText {
+  font-size: 12px;
+}

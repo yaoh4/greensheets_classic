@@ -81,8 +81,7 @@ $(".submit").click(function(){
     $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1").removeClass("treetable-collapsed");
      $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1" ).addClass("treetable-expanded");
      $("#1sub, #6sub, #8sub, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-5, #sub12-2-6").attr('style','display: table-row');
-       $("#main1, #main6, #main8, #main12").find('span').toggleClass("fa-minus-circle fa-plus-circle"); 
- $("#sub12-2, #sub12-2-1, #sub12-2-1-1").find('.treetable-expander').toggleClass("fa-minus-circle fa-plus-circle"); 
+ 
        
  });
 
@@ -395,28 +394,43 @@ $('#infoBox').click(function(){
   });
 
 //controller for Q6
- $('#select6').change(function(){ 
-    if($(this).val() == 'Not Approved'){
+ $("input[name$='optionsRadios6']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No'){
       $("#6sub").attr("style", "display:table-row");
       $('#6sub').addClass("expanded answered");
+         $('#6sub-1, #6sub-2').removeClass("expanded answered");
+      $("#6sub-1, #6sub-2").attr("style", "display:none");
+           $("#6sub .helperText").attr("style", "display:none")
+
+      $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
      
     }
-    else if($(this).val() == 'Yes Approved'){
-      $('#6sub').addClass("expanded answered");
-      $("#6sub").attr("style", "display:table-row");
+    else if(radio_value=='Yes'){
+      $('#6sub').removeClass("expanded answered");
+      $("#6sub").attr("style", "display:none");
+       $("#6sub-1, #6sub-2").attr("style", "display:table-row");
+      $('#6sub-1, #6sub-2').addClass("expanded answered");
+       $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:none")
+
+      $("#6sub .helperText").attr("style", "display:block");
     
     }
 
     else {
 
-      $("#6sub").attr("style", "display:none");
-      $('#6sub').removeClass("expanded answered");
+      $("#6sub, #6sub-1, #6sub-2").attr("style", "display:none");
+
+      $("#6sub .helperText, #6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
+      $('#6sub, #6sub-1, #6sub-2').removeClass("expanded answered");
      
      
 
     }
 
 });
+
+
 
 
 
