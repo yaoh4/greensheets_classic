@@ -64,75 +64,124 @@
           </div>
           
           
-          <div id="secNav" class="row">
-            
-            
-          </div>
+         <div id="secNav" class="row">
+
+
+<!-- Navigation bar -->
+    <div id="main_navbar">
+      <nav class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-header">
+          <!-- Responsive navigation bar on mobile devices -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="glyphicon glyphicon-align-justify"></span><!-- Responsive button icon -->
+          </button>
         </div>
-      </div>
-      <!-- end Header -->
+
+        <nav class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+            <li>
+              <a href="about.html" id="aboutnav">Search Greensheets</a>
+                          
+            </li>
+            <li class="current">
+              <a href="review.htm" id="menunav" style="color: #004581;">Admin</a>
+            </li>
+
+            
+         
+
+
+          </ul>
+        </nav>
+      </nav>
+    </div>
+</div>
+
+
+
+
+          
       
-      <!-- Content start -->
+    </div>
+  </div>
+  </div>
+
+
+  <!-- end Header -->
+
+  
+
+  <!-- Content start -->
+
+    
+
+
+  
       
-      
-      
-      
-      
+
+    
+     
       
       <!-- Begin Panel -->
-      <div class="col-md-12">
-        
-      <div style="display:block; margin-bottom: 0px;">&nbsp;</div>
-      <!--success alert box -->
-      <div class="col-md-12"  id="success">
+      <div class="col-md-12">  
+        <br/>
+      
+        <div style="display:inline; float:left; margin-bottom: 20px;" ><button="" type="button" class="btn btn-default" onclick="window.location.href='greensheet-draft.htm'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Review & Test Greensheet</div>
+
+        <div class="col-md-12"  id="success">
         <div class="alert alert-success alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>Successfully Submitted!</strong> The greensheet has been successfully submitted and is now locked.  No additional edits can be made.
         </div>
       </div>
-      <!--Error alert box -->
-      <div class="col-md-12" style="display:none;" id="error">
-        <div class="alert alert-danger alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Error!</strong> The form cannot be submitted until the errors indicated on the form are corrected.
-        </div>
-      </div>
-      <!--Grant Details box -->
-      <div style="width: 600px; font-size: 14px; margin-left: 5px; margin-top: 10px; margin-bottom: 20px; display:inline; float:left;">
-        <div >
+
+
+<div style="display:block; float:left; clear:both;"><h2 style='margin-top:10px;'>Review and Test Greensheet</h2></div>
+
+<div style="display:block; margin-bottom: 20px;">&nbsp;</div>
+
+<!--Error alert box -->
+<div class="col-md-12" style="display:none;" id="error">    
+   <div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Error!</strong> The form cannot be submitted until the errors indicated on the form are corrected.
+</div>
+</div>
+
+<!--Testing Complete alert box -->
+<div class="col-md-12" style="display:none;" id="complete">    
+   <div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Testing Completed:</strong> Jan 05 2017 01:06:34 PM
+</div>
+</div>
+
+<!--Grant Details box -->
+  <div  style="width: 400px; font-size: 14px; margin-top: 20px; margin-bottom: 10px; clear:both;">
+  
+
           <table width="100%">
-            <tr><td width="18px;"><a data-toggle="collapse" href="#collapse1" id="infoBox"><i class="fa fa-plus-circle details" aria-hidden="true" ></i></a></td>
-            <td>
-              <table width="100%">
-                <tr><td width="50%">
-                  <strong>Grant Number:</strong> <a href="#">5R01CA195654-04</a></span></td>
-                  <td width="50%"><strong>Status:</strong> Submitted</td></tr>
-                </table>
-              </td>
-            </tr>
-            <tr id="collapse1" class="collapse">
-              <td>&nbsp;</td>
-              <td>
-                <table width="100%">
-                  <tr><td width="50%"><strong>Submitted By:</strong> <a href="mailto:smithm@mail.nih.gov">Smith, Meghan</a></td>
-                  <td width="50%"><strong>Submitted on:</strong> 03/21/2017 </td></tr>
-                  
-                   <tr><td width="50%"><strong>Last Changed By:</strong> <a href="mailto:smithm@mail.nih.gov">Smith, Meghan</a></td>
-          <td width="50%"><strong>Institution:</strong> Yale University </td></tr>
-                    <tr>
-          <td width="50%"><strong>Program Director:</strong> <a href="mailto:greenj@mail.nci.nih.gov">Greene, Jack</a></td>
-          <td width="50%"><strong>PI:</strong> <a href="mailto:smithm@mail.nih.gov">Smith, Meghan</a></td></tr> 
+            <tr><td width="25%"><strong>Form Name:</strong></td>
+              <td>PC Mentored Career</a>
+          </tr> 
+          
           <tr>
-          <td width="50%"><strong>Primary Specialist:</strong> <a href="mailto:yarnj@mail.nih.gov">Yarn, Janet</a></td>
-          <td width="50%"><strong>Back-up Specialist:</strong> <a href="mailto:hunty@mail.nih.gov">Hunt, Yvone</a> </td></tr> </tr> 
-           </tr> 
-                        </table>
-                      </td></tr>
-                    </table>
-                  </div>
-                  
-                </div>
-                <!--Main Action Buttons  -->
+          <td ><strong>Form Type:</strong></td>
+          <td>Program</td>
+          </tr> 
+          <tr>
+          <td ><strong>Applied to:</strong></td>
+          <td>1/K21, 2/K23</td>
+          </tr> 
+          
+        </table> 
+  
+    </div>
+    <!--Main Action Buttons  -->
+<div  style="padding-right: 0px;">
+  <div style="display:block; margin-bottom: 20px;"> <button type="button" class="btn btn-primary" id="completed">Testing Completed</button></div>
                 <div  style="padding-right: 0px; clear:both;">
                          <div style="float:left;  margin-left: 5px; margin-bottom: 10px;display:inline;">
                     <button type="button" class="btn btn-default allSubs">View All Sub Questions</button>

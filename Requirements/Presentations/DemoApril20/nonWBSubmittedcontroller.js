@@ -3,9 +3,9 @@ $( window ).load(function() {
  
    $("#2sub, #3sub, #4sub, #5sub, #6sub, #7sub, #8sub,  #10sub, #sub11-1, #12sub, #sub12-2, #12-1-1sub, #12-1-1-1sub, #sub12-2-1-1").attr("style", "display:none");
      $("#main1 span, #main2 span, #main3 span, #3sub span, #main4 span, #main5 span, #main6 span, #main7 span, #main8 span, #main9 span, #main10 span, #sub10 span, #main11 span,  #sub11-1 span, #main12 span, #12sub span, #sub12-2 span, #12-1-1sub span, #sub12-2-1-1 span, #sub12-2-6 span, #sub12-2-3 span, #sub12-2-2 span, #sub12-2-1 span, #sub12-2-3-1 span, #sub12-2-6-1 span, #10sub span").removeClass("fa-plus-circle");
-  $("#sub1, #main1, #sub3-1, #main3, #sub4-1, #main4, #main6, #sub6, #sub8, #main8, #sub10, #sub10-1-1, #main11, #sub11-1, #sub11-1-1, #main12, #sub12-1, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-2, #sub12-2-1-3, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-3-1, #sub12-2-3-1-1, #sub12-2-5, #sub12-2-6, #sub12-2-6-1, #sub12-2-6-1-1").attr("style", "display:table-row");
-    $("#main1, #main3, #main4, #main6, #main8, #sub10, #main11, #sub11-1, #main12, #sub12-1, #sub12-2-1, #sub12-2-3-1, #sub12-2-6, #sub12-2-6-1").removeClass("treetable-collapsed");
-     $("#main1, #main3, #main4, #main6, #main8, #sub10, #main11, #sub11-1, #main12, #sub12-1, #sub12-2-1, #sub12-2-3-1, #sub12-2-6, #sub12-2-6-1").addClass("treetable-expanded");
+  $("#sub1, #main1, #sub3-1, #main3, #sub4-1, #main4, #main6, #sub6, #6sub-1, #6sub-2, #sub8, #main8, #sub10, #sub10-1-1, #main11, #sub11-1, #sub11-1-1, #main12, #sub12-1, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-2, #sub12-2-1-3, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-3-1, #sub12-2-3-1-1, #sub12-2-5, #sub12-2-6, #sub12-2-6-1, #sub12-2-6-1-1").attr("style", "display:table-row");
+    $("#main1, #main3, #main4, #main6, #6sub-1, #6sub-2, #main8, #sub10, #main11, #sub11-1, #main12, #sub12-1, #sub12-2-1, #sub12-2-3-1, #sub12-2-6, #sub12-2-6-1").removeClass("treetable-collapsed");
+     $("#main1, #main3, #main4, #main6, #6sub-1, #6sub-2, #main8, #sub10, #main11, #sub11-1, #main12, #sub12-1, #sub12-2-1, #sub12-2-3-1, #sub12-2-6, #sub12-2-6-1").addClass("treetable-expanded");
   
 
 });
@@ -199,14 +199,19 @@ var text_max = 2000;
   { 
   
 
-  $(this).text("Close All Sub Questions"); 
+  $(".allSubs").text("Close All Sub Questions"); 
     $(".expanded").attr('style', 'display:table-row');
 
         $('tr').removeClass("treetable-collapsed");
      $('tr').addClass("treetable-expanded");
+      $('#grantBox, #collapse1').removeClass("treetable-collapsed");
+      $('#grantBox, #collapse1').removeClass("treetable-expanded");
      $(".treetable-expanded").attr('style', 'display:table-row');
+
         $(".lastSub, .sub").attr('style', 'color:#999');
           $('.answered').attr("style", "color: #000"); 
+ 
+
     
     } 
 
@@ -216,10 +221,12 @@ var text_max = 2000;
    
    $('tr').removeClass("treetable-expanded");
      $('tr').addClass("treetable-collapsed");
+      $('#grantBox').removeClass("treetable-collapsed");
+      $('#grantBox').removeClass("treetable-expanded");
    $(".lastSub, .sub").attr('style', 'display:none');
            $('.answered').attr("style", "display:table-row; color: #000"); 
 
-     $(this).text("View All Sub Questions"); 
+     $(".allSubs").text("View All Sub Questions"); 
   }
 
 
@@ -347,6 +354,44 @@ $('#infoBox').click(function(){
   });
 
 
+  //controller for Q6
+ $("input[name$='optionsRadios6']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No'){
+      $("#6sub").attr("style", "display:table-row");
+      $('#6sub').addClass("expanded answered");
+         $('#6sub-1, #6sub-2').removeClass("expanded answered");
+      $("#6sub-1, #6sub-2").attr("style", "display:none");
+           $("#6sub .helperText").attr("style", "display:none")
+
+      $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
+     
+    }
+    else if(radio_value=='Yes'){
+      $('#6sub').removeClass("expanded answered");
+      $("#6sub").attr("style", "display:none");
+       $("#6sub-1, #6sub-2").attr("style", "display:table-row");
+      $('#6sub-1, #6sub-2').addClass("expanded answered");
+       $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:none")
+
+      $("#6sub .helperText").attr("style", "display:block");
+    
+    }
+
+    else {
+
+      $("#6sub, #6sub-1, #6sub-2").attr("style", "display:none");
+
+      $("#6sub .helperText, #6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
+      $('#6sub, #6sub-1, #6sub-2').removeClass("expanded answered");
+     
+     
+
+    }
+
+});
+
+
   //controller for Q9
   $("input[name$='optionsRadios16']").click(function(){
   var radio_value = $(this).val();
@@ -368,29 +413,6 @@ $('#infoBox').click(function(){
   
   });
 
-//controller for Q6
- $('#select6').change(function(){ 
-    if($(this).val() == 'Not Approved'){
-      $("#6sub").attr("style", "display:table-row");
-      $('#6sub').addClass("expanded answered");
-     
-    }
-    else if($(this).val() == 'Yes Approved'){
-      $('#6sub').addClass("expanded answered");
-      $("#6sub").attr("style", "display:table-row");
-    
-    }
-
-    else {
-
-      $("#6sub").attr("style", "display:none");
-      $('#6sub').removeClass("expanded answered");
-     
-     
-
-    }
-
-});
 
 
 

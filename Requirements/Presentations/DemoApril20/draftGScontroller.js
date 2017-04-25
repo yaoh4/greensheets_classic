@@ -4,6 +4,16 @@ $( window ).load(function() {
    
      $("#main1 span, #main2 span, #main3 span, #3sub span, #main4 span, #main5 span, #main6 span, #main7 span, #main8 span, #main9 span, #main10 span, #sub10 span, #main11 span,  #sub11-1 span, #main12 span, #12sub span, #sub12-2 span, #12-1-1sub span, #sub12-2-1-1 span, #sub12-2-6 span, #sub12-2-3 span, #sub12-2-2 span, #sub12-2-1 span, #sub12-2-3-1 span, #sub12-2-6-1 span, #10sub span").removeClass("fa-plus-circle");
   
+      $(".expanded").attr('style', 'display:table-row');
+
+        $('tr').removeClass("treetable-collapsed");
+     $('tr').addClass("treetable-expanded");
+      $('#grantBox, #collapse1').removeClass("treetable-collapsed");
+      $('#grantBox, #collapse1').removeClass("treetable-expanded");
+     $(".treetable-expanded").attr('style', 'display:table-row');
+
+        $(".lastSub, .sub").attr('style', 'color:#999');
+          $('.answered').attr("style", "color: #000");  
   
 
 });
@@ -11,7 +21,7 @@ $( window ).load(function() {
 $(document).ready(function(){
 
    
-     
+
 
 
   $('#comment1').change(function(){
@@ -192,21 +202,18 @@ var text_max = 2000;
 
    
 
-  if ($(this).text() == "View All Sub Questions" )
+  if ($(this).text() == "Close All Sub Questions" )
   { 
   
 
-  $(".allSubs").text("Close All Sub Questions"); 
-    $(".expanded").attr('style', 'display:table-row');
+    $('tr').removeClass("treetable-expanded");
+     $('tr').addClass("treetable-collapsed");
+      $('#grantBox').removeClass("treetable-collapsed");
+      $('#grantBox').removeClass("treetable-expanded");
+   $(".lastSub, .sub").attr('style', 'display:none');
+           $('.answered').attr("style", "display:table-row; color: #000"); 
 
-        $('tr').removeClass("treetable-collapsed");
-     $('tr').addClass("treetable-expanded");
-      $('#grantBox, #collapse1').removeClass("treetable-collapsed");
-      $('#grantBox, #collapse1').removeClass("treetable-expanded");
-     $(".treetable-expanded").attr('style', 'display:table-row');
-
-        $(".lastSub, .sub").attr('style', 'color:#999');
-          $('.answered').attr("style", "color: #000"); 
+     $(".allSubs").text("View All Sub Questions"); 
  
 
     
@@ -216,14 +223,17 @@ var text_max = 2000;
   else 
   { 
    
-   $('tr').removeClass("treetable-expanded");
-     $('tr').addClass("treetable-collapsed");
-      $('#grantBox').removeClass("treetable-collapsed");
-      $('#grantBox').removeClass("treetable-expanded");
-   $(".lastSub, .sub").attr('style', 'display:none');
-           $('.answered').attr("style", "display:table-row; color: #000"); 
+ $(".allSubs").text("Close All Sub Questions"); 
+     $(".expanded").attr('style', 'display:table-row');
 
-     $(".allSubs").text("View All Sub Questions"); 
+        $('tr').removeClass("treetable-collapsed");
+     $('tr').addClass("treetable-expanded");
+      $('#grantBox, #collapse1').removeClass("treetable-collapsed");
+      $('#grantBox, #collapse1').removeClass("treetable-expanded");
+     $(".treetable-expanded").attr('style', 'display:table-row');
+
+        $(".lastSub, .sub").attr('style', 'color:#999');
+          $('.answered').attr("style", "color: #000"); 
   }
 
 
@@ -394,29 +404,41 @@ $('#infoBox').click(function(){
   });
 
 //controller for Q6
- $('#select6').change(function(){ 
-    if($(this).val() == 'Not Approved'){
+ $("input[name$='optionsRadios6']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No'){
       $("#6sub").attr("style", "display:table-row");
       $('#6sub').addClass("expanded answered");
+         $('#6sub-1, #6sub-2').removeClass("expanded answered");
+      $("#6sub-1, #6sub-2").attr("style", "display:none");
+           $("#6sub .helperText").attr("style", "display:none")
+
+      $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
      
     }
-    else if($(this).val() == 'Yes Approved'){
-      $('#6sub').addClass("expanded answered");
-      $("#6sub").attr("style", "display:table-row");
+    else if(radio_value=='Yes'){
+      $('#6sub').removeClass("expanded answered");
+      $("#6sub").attr("style", "display:none");
+       $("#6sub-1, #6sub-2").attr("style", "display:table-row");
+      $('#6sub-1, #6sub-2').addClass("expanded answered");
+       $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:none")
+
+      $("#6sub .helperText").attr("style", "display:block");
     
     }
 
     else {
 
-      $("#6sub").attr("style", "display:none");
-      $('#6sub').removeClass("expanded answered");
+      $("#6sub, #6sub-1, #6sub-2").attr("style", "display:none");
+
+      $("#6sub .helperText, #6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
+      $('#6sub, #6sub-1, #6sub-2').removeClass("expanded answered");
      
      
 
     }
 
 });
-
 
 
  //controller for Q7

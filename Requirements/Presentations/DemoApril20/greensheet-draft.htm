@@ -385,31 +385,68 @@
         </tr>
 
 <!--- ROW 6 ---->    
+   <!--- ROW 6 ---->    
    <tr data-node="treetable-6" id="main6">
-          <td><div style="display:inline-block;" class="indentLine2" >6. Are there significant changes in the level of effort of key personnel?<br/>
-<div class="instructions">(<em>All changes that have an impact or are not approved will require an explanation.</em>)</div></div></td>
+          <td><div style="display:inline-block;" class="indentLine2" >6. Is other support for key personnel acceptable?<br/>
+<div class="instructions">(<em>If No, eplanation required.</em>)</div></div></td>
             <td class="input"><div class="form-group">
+      
+               <div class="form-group" id="select6">
               
-              <select class="form-control" id="select6">
-                <option>Select an Option</option>
-              <option value="Yes Approved">Yes, Approved and has Impact</option>
-                 <option value="Yes Approved No Impact">Yes, Approved and has No Impact</option>
-                <option value="Not Approved">Yes, Not Approved and has Impact</option>
-                <option value="Not Approved No Impact">Yes, Not Approved and has No Impact</option>
-                 <option value="No">No Changes</option>
-                </select>
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios6"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios6"  value="No" >&nbsp; No
+                </label>
+              
+              </div>
               
               </div>
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
         </tr>
 
-        <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub" id="6sub">
-          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.1. Explanation Required:</div></td>
+        <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="sub" id="6sub">
+          <td><div style="display:inline-block;" class="indentLine2" id="6-1e">6.1. Explanation Required: <div class="helperText">(If Answer to Q6 is "No")</div></div></td>
             <td class="input"><div class="form-group">
               
                <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
+              
+            </div></td>
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+        </tr>
+
+                <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub" id="6sub-1">
+          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.1 Will this be the 5th or more award for the PI? <div class="helperText">(If Answer to Q6 is "Yes")</div></div></td>
+            <td class="input"><div class="form-group" id="select6-1">
+              
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios6-1"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios6-1"  value="No" >&nbsp; No
+                </label>
+              
+              </div>
+              
+               
+              
+            </div></td>
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
+            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+        </tr>
+
+        <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub" id="6sub-2">
+          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.2 Do any of the key personnel have mentored K support? <div class="helperText">(If Answer to Q6 is "Yes")</div></div></td>
+            <td class="input"><div class="form-group" id="select6-1-2">
+              
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios6-2"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios6-2"  value="No" >&nbsp; No
+                </label>
+              
+              </div>
+              
+               
               
             </div></td>
             <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
@@ -902,7 +939,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 </table>
 
 <div style="float:left; margin-bottom: 15px; margin-left: 5px;">
-<button type="button" class="btn btn-default allSubs">View All Sub Questions</button>
+<button type="button" class="btn btn-default allSubs">Close All Sub Questions</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 
                                                  <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
                                                     
@@ -914,7 +951,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                                                     <button type="button" class="btn btn-default"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</a></button>
       <button type="button" class="btn btn-primary has-spinner" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
          
-              <button type="button" class="btn btn-default" onclick="window.location.href='nonWBgreensheet-submitted.htm'">Submit</button> 
+              <button type="button" class="btn btn-default" onclick="window.location.href='draftgreensheet-submitted.htm'">Validate Submission</button> 
               
              
 </div>
