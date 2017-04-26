@@ -40,8 +40,6 @@ $(document).ready(function(){
 
 
 
-     
-
 
 
   $('.panel-heading span.clickable').click (function(){
@@ -66,6 +64,9 @@ $(document).ready(function(){
         });
 
 
+
+
+
 //Submit & Validate Function 
 
 $(".submit").click(function(){
@@ -85,6 +86,27 @@ $(".submit").click(function(){
     
        
  });
+
+
+    $('.validated').click(function(){
+
+      $("#error").attr("style", "display:none");
+ $('#complete').attr('style', 'display:none;');
+ $('html, body').animate({ scrollTop: 0 }, 0);
+
+
+    $("#1, #6-1, #8-1, #Textarea1, #Textarea6, #Textarea8, #12-2-1-1-1, #Textarea12-2-1-1-1, #12-2-1-1-2, #radio12-2-1-1-1, #sub12-2-1-1-3, #date, .warning1, #1-1text").removeClass("has-error");
+    $(".warning1").attr('style', 'display: none');
+    $("#success").attr("style", "display: block");
+    $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1").removeClass("treetable-expanded");
+     $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1" ).addClass("treetable-collapsed");
+     $("#1sub, #6sub, #8sub, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-5, #sub12-2-6").attr('style','display: none');
+    
+       
+
+
+ 
+});
 
 
 //Modal add attachments view previously saved
@@ -132,6 +154,7 @@ $("#saveButton").click(function(){
 $("#completed").click(function () {
      $('#complete').attr('style', 'display:block;');
       $('#error').attr('style', 'display:none;');
+        $("#success").attr("style", "display: none");
    
  });
 

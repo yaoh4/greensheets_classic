@@ -165,6 +165,15 @@
 </div>
 </div>
 
+
+<!--Validation Complete alert box -->
+     <div class="col-md-12"  id="success" style="display:none;">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Successfully Validated!</strong> The greensheet has been successfully validated.
+        </div>
+      </div>
+
 <!--Grant Details box -->
   <div  style="width: 400px; font-size: 14px; margin-top: 20px; margin-bottom: 10px; clear:both;">
   
@@ -951,7 +960,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                                                     <button type="button" class="btn btn-default" id="rs"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</a></button>
      
          
-              <button type="button" class="btn btn-default" onclick="window.location.href='draftgreensheet-submitted.htm'" id="submit">Validate Submission</button> 
+              <button type="button" class="btn btn-default validated"  id="submit">Validate Submission</button> 
               
              
 </div>
