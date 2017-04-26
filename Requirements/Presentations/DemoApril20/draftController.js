@@ -32,8 +32,8 @@ $(document).ready(function(){
     
       $('#programNonCompeting').attr('style', 'display:none;');
      $('#2').attr('style', 'display:none;');
-    
-    
+     $('#content1').addClass('active');
+    $('#1').addClass('active');
      $('#promoted').attr('style', 'display:block; margin-top: 15px;');
       $('#rejected').attr('style', 'display:none;');
      $('#promoteModal').modal('toggle');

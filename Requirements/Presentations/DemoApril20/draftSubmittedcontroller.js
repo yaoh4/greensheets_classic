@@ -1,10 +1,11 @@
 
 $( window ).load(function() {
  
-   
+   $("#2sub, #3sub, #4sub, #5sub, #6sub, #7sub, #8sub,  #10sub, #sub11-1, #12sub, #sub12-2, #12-1-1sub, #12-1-1-1sub, #sub12-2-1-1").attr("style", "display:none");
      $("#main1 span, #main2 span, #main3 span, #3sub span, #main4 span, #main5 span, #main6 span, #main7 span, #main8 span, #main9 span, #main10 span, #sub10 span, #main11 span,  #sub11-1 span, #main12 span, #12sub span, #sub12-2 span, #12-1-1sub span, #sub12-2-1-1 span, #sub12-2-6 span, #sub12-2-3 span, #sub12-2-2 span, #sub12-2-1 span, #sub12-2-3-1 span, #sub12-2-6-1 span, #10sub span").removeClass("fa-plus-circle");
-  
-   
+  $("#sub1, #main1, #sub3-1, #main3, #sub4-1, #main4, #main6, #sub6, #6sub-1, #6sub-2, #sub8, #main8, #sub10, #sub10-1-1, #main11, #sub11-1, #sub11-1-1, #main12, #sub12-1, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-2, #sub12-2-1-3, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-3-1, #sub12-2-3-1-1, #sub12-2-5, #sub12-2-6, #sub12-2-6-1, #sub12-2-6-1-1").attr("style", "display:table-row");
+    $("#main1, #main3, #main4, #main6, #6sub-1, #6sub-2, #main8, #sub10, #main11, #sub11-1, #main12, #sub12-1, #sub12-2-1, #sub12-2-3-1, #sub12-2-6, #sub12-2-6-1").removeClass("treetable-collapsed");
+     $("#main1, #main3, #main4, #main6, #6sub-1, #6sub-2, #main8, #sub10, #main11, #sub11-1, #main12, #sub12-1, #sub12-2-1, #sub12-2-3-1, #sub12-2-6, #sub12-2-6-1").addClass("treetable-expanded");
   
 
 });
@@ -12,7 +13,7 @@ $( window ).load(function() {
 $(document).ready(function(){
 
    
-
+   $('.answered').attr("style", "display:table-row; color: #000");    
 
 
   $('#comment1').change(function(){
@@ -82,7 +83,8 @@ $(".submit").click(function(){
     $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1").removeClass("treetable-collapsed");
      $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1" ).addClass("treetable-expanded");
      $("#1sub, #6sub, #8sub, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-5, #sub12-2-6").attr('style','display: table-row');
-    
+       $("#main1, #main6, #main8, #main12").find('span').toggleClass("fa-minus-circle fa-plus-circle"); 
+ $("#sub12-2, #sub12-2-1, #sub12-2-1-1").find('.treetable-expander').toggleClass("fa-minus-circle fa-plus-circle"); 
        
  });
 
@@ -142,7 +144,7 @@ $('.datepicker').datepicker();
 
         if ($(this).text() == "View All Comments") 
   { 
-     $(".allNotes").text("Hide All Comments"); 
+     $(this).text("Hide All Comments"); 
 
       $("#main11, #sub11-1").removeClass("treetable-collapsed");
      $("#main11, #sub11-1" ).addClass("treetable-expanded");
@@ -153,7 +155,7 @@ $('.datepicker').datepicker();
   } 
   else 
   { 
-     $(".allNotes").text("View All Comments"); 
+     $(this).text("View All Comments"); 
      $("#main11, #sub11-1").removeClass("treetable-expanded");
      $("#main11, #sub11-1" ).addClass("treetable-collapsed");
      $("#sub11-1, #sub11-1-1").attr('style','display: none');
@@ -188,7 +190,7 @@ var text_max = 2000;
 //Expand All Function
 
 
- $(".allSubs").click(function(){
+  $(".allSubs").click(function(){
 
 
    
@@ -202,13 +204,10 @@ var text_max = 2000;
       $('#grantBox').removeClass("treetable-collapsed");
       $('#grantBox').removeClass("treetable-expanded");
    $(".lastSub, .sub").attr('style', 'display:none');
-           $('.answered').attr("style", "display:table-row; color: #999"); 
+           $('.answered').attr("style", "display:table-row; color: #000"); 
  $('#gsTable tr').removeClass("preview");
      $(".allSubs").text("Preview All Sub Questions"); 
- $(".form-control, .allNotes, #print, #rs, .submit, #submit").attr('disabled', false);
-$("#comms img").attr('src',"images/nocomment.gif");
-$(".notes img").attr('src',"images/nocomment.gif");
-$("#attachs img").attr('src',"images/attachment.gif");
+
 
     
     } 
@@ -226,9 +225,7 @@ $("#attachs img").attr('src',"images/attachment.gif");
       $('#grantBox, #collapse1').removeClass("treetable-collapsed");
       $('#grantBox, #collapse1').removeClass("treetable-expanded");
      $(".treetable-expanded").attr('style', 'display:table-row');
-$("#comms img, .notes img").attr('src',"images/commentDisabled.gif");
-$("#attachs img").attr('src',"images/Noattachment.gif");
-$(".form-control, .allNotes, #print, #rs, .submit, #submit").attr('disabled', true);
+
 return false;
 
   }
@@ -251,28 +248,7 @@ $('#infoBox').click(function(){
 });
 
 
-  //controller for Q1
- $('#select1').change(function(){ 
-    if($(this).val() == 'Changed and Not Approved'){
-      $("#1sub").attr("style", "display:table-row");
-      $('#1sub').addClass("expanded answered");
-   
 
-  
-    }
-
-
-    else {
-
-      $("#1sub").attr("style", "display:none");
-      $('#1sub').removeClass("expanded answered");
-          $('#1sub').removeClass("answered");
-     
-   
-
-    }
-
-});
 
 //controller for Q2
   $("input[name$='optionsRadios2']").click(function(){
@@ -379,28 +355,7 @@ $('#infoBox').click(function(){
   });
 
 
-  //controller for Q9
-  $("input[name$='optionsRadios16']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#9sub").attr("style", "display:none");
-   $('#9sub').removeClass("expanded answered");
-     
-     
-
- 
-  }
-  else {
-    $('#9sub').addClass("expanded answered");
-    $("#9sub").attr("style", "display:table-row");
-    
-
-
-  }
-  
-  });
-
-//controller for Q6
+  //controller for Q6
  $("input[name$='optionsRadios6']").click(function(){
   var radio_value = $(this).val();
   if(radio_value=='No'){
@@ -436,6 +391,30 @@ $('#infoBox').click(function(){
     }
 
 });
+
+
+  //controller for Q9
+  $("input[name$='optionsRadios16']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#9sub").attr("style", "display:none");
+   $('#9sub').removeClass("expanded answered");
+     
+     
+
+ 
+  }
+  else {
+    $('#9sub').addClass("expanded answered");
+    $("#9sub").attr("style", "display:table-row");
+    
+
+
+  }
+  
+  });
+
+
 
 
  //controller for Q7

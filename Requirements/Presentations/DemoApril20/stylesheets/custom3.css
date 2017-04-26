@@ -1696,3 +1696,7 @@ textarea {
 .helperText {
   font-size: 12px;
 }
+
+.preview {
+  color: #999;
+}
