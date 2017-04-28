@@ -95,8 +95,12 @@ a {
 
 #wrap {
     min-height: 100%;
-    height: auto;
-    margin: 0 auto -200px;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0  0px;
+  
   }
 
 
@@ -179,6 +183,10 @@ table {
 
 .clickable{
     cursor: pointer;   
+}
+
+.fa-exclamation-triangle {
+  color: orange;
 }
 /********************************************************************/
 
@@ -297,9 +305,8 @@ div#primNav.row { /*background:#f7f7f7;*/text-transform: uppercase;}
 /**********************Site Footer **********************************************/
 
 .site-footer {
-  bottom: 0;
-  margin-top: 50px;
- width: 100%;
+ margin-top: 50px;
+ padding-top: 15px;
 height: 200px;
 clear: both;
 background: #eeeeee;
@@ -310,7 +317,9 @@ font-size: 14px;
 margin-left: auto;
 margin-right: auto;
 text-align: center;
-
+position: fixed;
+bottom: 0;
+width: 100%;
 
 }
 
