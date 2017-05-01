@@ -1,7 +1,8 @@
-body { 
- position: relative;
-  
+html, body { 
+
+  position: relative;
    margin: 0;
+  
   padding-bottom: 0px;
   font-family: 'Source Sans Pro';
   font-size: 14px;
@@ -95,12 +96,8 @@ a {
 
 #wrap {
     min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-  /* Pad bottom by footer height */
-  padding: 0 0  0px;
-  
+    height: auto;
+    margin: 0 auto -200px;
   }
 
 
@@ -305,8 +302,9 @@ div#primNav.row { /*background:#f7f7f7;*/text-transform: uppercase;}
 /**********************Site Footer **********************************************/
 
 .site-footer {
- margin-top: 50px;
- padding-top: 15px;
+  bottom: 0;
+  margin-top: 50px;
+ width: 100%;
 height: 200px;
 clear: both;
 background: #eeeeee;
@@ -317,10 +315,20 @@ font-size: 14px;
 margin-left: auto;
 margin-right: auto;
 text-align: center;
-position: fixed;
-bottom: 0;
-width: 100%;
 
+
+}
+
+.site-footer a, .site-footer a:hover, .site-footer a:focus {
+       color: #777;
+    font-weight: 600;
+   text-align: middle;
+     
+
+}
+
+.site-footer a:hover {
+    color: #2d699e;
 }
 
 .site-footer li {
@@ -341,13 +349,7 @@ width: 100%;
     padding: 10px 5px 0;
 }
 
-.site-footer a, .site-footer a:hover, .site-footer a:focus {
-       color: #777;
-    font-weight: 600;
-   text-align: middle;
-     
 
-}
 
 .site-footer .back-to-top:hover:before {
     background-position: -389px -80px;
@@ -361,3 +363,34 @@ width: 100%;
     width: 51px;
 }
 
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+Pseudo ::after element
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/**********Alert boxes ****************************/
+
+.alert-danger, .alert-error {
+    color: #a23f3d;
+  
+}
+
+.alert-success {
+    color: #3b723b;
+  
+}
+
+.alert-warning {
+    color: #a6571b;
+   
+  
+}
