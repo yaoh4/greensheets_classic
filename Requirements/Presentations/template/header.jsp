@@ -12,15 +12,15 @@
 <script src="scripts/bootstrapValidator.js"></script>
 
 <script src="scripts/jquery.validate-1.15.0.min.js"></script>
-<script src="dist/chosen.jquery.js"></script>
+<script src="scripts/chosen.jquery.js"></script>
 <script src="scripts/theme.js"></script>
 <script src="scripts/validator.js"></script>
 
 
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
-<script src="dist/dataTables.buttons.min.js"></script>
-<script src="dist/buttons.flash.min.js"></script>
+<script src="scripts/dataTables.buttons.min.js"></script>
+<script src="scripts/buttons.flash.min.js"></script>
 <link href="stylesheets/buttons.dataTables.min.css" rel="stylesheet" type="text/css" media="screen">
  
 <link href="stylesheets/buttons.jqueryui.css" rel="stylesheet" type="text/css" media="screen">
@@ -35,8 +35,8 @@
 <link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
 
-<script src="dist/alt-dtables.js"></script>
-<link href="dist/css/chosen.css" rel="stylesheet" type="text/css" media="screen">
+<script src="scripts/alt-dtables.js"></script>
+<link href="stylesheets/chosen.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 
 <body style="background-color: #fff;">
