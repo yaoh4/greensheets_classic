@@ -1,219 +1,136 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta charset="utf-8">
-<title>Greensheets</title>
-<script src="scripts/jquery-1.12.3.min.js"></script>
-<script src="scripts/jquery-1.12.4.js"></script>
-<script src="scripts/bootstrap-3.3.6.min.js"></script>
-<script src="scripts/bootbox-4.4.0.min.js"></script>
-<script src="scripts/bootstrap-datepicker.js"></script>
-<script src="scripts/bootstrapValidator.js"></script>
-
-<script src="scripts/jquery.validate-1.15.0.min.js"></script>
-<script src="scripts/chosen.jquery.js"></script>
-<script src="scripts/theme2.js"></script>
-<script src="specialistcontroller.js"></script>
-<script src="validator.js"></script>
-<script src="dropzone.js"></script>
-
-<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
-<script src="scripts/dataTables.buttons.min.js"></script>
-<script src="scripts/buttons.flash.min.js"></script>
-<link href="stylesheets/buttons.dataTables.min.css" rel="stylesheet" type="text/css" media="screen">
- 
-<link href="stylesheets/buttons.jqueryui.css" rel="stylesheet" type="text/css" media="screen">
-
-<link href="stylesheets/dropzone.css" rel="stylesheet" type="text/css" media="screen">
-<link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen">
-<link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">
-<link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen">
-
-<link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,700,700italic,900,900italic,400italic" rel="stylesheet" type="text/css">
-<link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen">
-<link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
-
-<script src="scripts/alt-dtables.js"></script>
-<link href="stylesheets/chosen.css" rel="stylesheet" type="text/css" media="screen">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<title>Greensheets</title>
+	<script src="scripts/jquery-1.12.3.min.js"></script>
+	<script src="scripts/jquery-1.12.4.js"></script>
+	<script src="scripts/bootstrap-3.3.6.min.js"></script>
+	<script src="scripts/bootbox-4.4.0.min.js"></script>
+	<script src="scripts/bootstrap-datepicker.js"></script>
+	<script src="scripts/bootstrapValidator.js"></script>
+	<script src="scripts/jquery.validate-1.15.0.min.js"></script>
+	<script src="scripts/chosen.jquery.js"></script>
+	<script src="scripts/theme2.js"></script>
+	<script src="specialistcontroller.js"></script>
+	<script src="validator.js"></script>
+	<script src="dropzone.js"></script>
+	<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+	<script src="scripts/dataTables.buttons.min.js"></script>
+	<script src="scripts/buttons.flash.min.js"></script>
+	<link href="stylesheets/buttons.dataTables.min.css" rel="stylesheet" type="text/css" media="screen">
+	
+	<link href="stylesheets/buttons.jqueryui.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="stylesheets/dropzone.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,700,700italic,900,900italic,400italic" rel="stylesheet" type="text/css">
+	<link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
+	<script src="scripts/alt-dtables.js"></script>
+	<link href="stylesheets/chosen.css" rel="stylesheet" type="text/css" media="screen">
 </head>
-
 <body style="background-color: #fff;">
 	<!-- Header -->
+	<div id="wrap">
+		<div class="navbar ">
+			<div class="row header">
+				<div style="height: 50px; margin-top: -1px;">
+					
+					<div id="logo" class="logoImage" style="padding-top: 5px;">
+						<img src="images/logo.png" width="275px;" alt="National Cancer Institute">
+						
+						<div style="float: right; margin-right: 15px;">
+							<br></div>
+					</div>
 
+				</div>
+				<!-- navbar -->
+				<div  style="border-bottom: 7px solid #4cb471;">
+					
+					
+					
+					<!--Page Header -->
+					
+					
+					
+					<div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| Greensheets</h3></div></div></div>
 
+					<div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
+					Welcome:
+					<div id="loginID" class="login">Janene Nusraty</div>
 
-
-<div id="wrap"> 
-	<div class="navbar ">
-		<div class="row header">
-			<div style="height: 50px; margin-top: -1px;">
-				<div id="logo" class="logoImage" style="padding-top: 5px;">
-				    <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
-				    <div style="float: right; margin-right: 15px;">
-					    <br>  
-					  
-				   
-				   </div>
-				    
+						<div style="display:inline-block;"><i id="vrip" class="fa fa-book fa-1x" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></div>
+					</div><!-- end Page Header -->
+					
+				</div>	
+				
+			</div> <!--end row -->
+		</div><!--end nav bar-->	
+		
+<!-- end Header -->
+<!-- Body Content start -->	
+	<div class="col-md-12">
+				<br/>
+		<!-- Begin Panel -->
+		<div class="panel panel-default" >
+			
+			<div class="panel-heading">		
+				<div class="pheader" style="display:inline;"><h4>Sample Page</h4></div>		
+			</div><!--end panel header-->
+				
+				<div class="panel-body">
+						<p><strong>Example text just so you can see the scroll to top button when the page is long enough.
+							Code for that is in the footer section of the CSS file and the js is in the theme.js file.</strong><p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
+								
+				</div><!--end panel body-->
+		</div><!--end panel -->
+							
+							<br/>
+	</div><!--end body content -->
+					
+</div> <!-- end wrap -->
+					
+					
+				
+<!-- Footer -->
+	<footer class="site-footer">
+		<div class="container" style="margin-top: 15px;">
+			
+			<div class="row">
+				<div>
+					<ul>
+						<li><a  href="http://inside.era.nih.gov/" target="_blank">IMPAC II Applications</a></li>
+					</ul>
+					<ul>
+						<li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li>
+						<li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li>
+						<li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li>
+						<li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li>
+					</ul>
+					<ul>
+						<li><a href="http://www.hhs.gov" target="_blank">U.S. Department of
+						Health and Human Services</a>&nbsp;|</li>
+						<li><a href="http://www.nih.gov" target="_blank">National Institutes of
+						Health</a>&nbsp;|</li>
+						<li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a>&nbsp;|</li>
+						<li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li>
+					</ul>
 				</div>
 			</div>
-			<!-- Fixed navbar -->
-      <div  style="border-bottom: 7px solid #4cb471;">
-      
 
-
-
-
-
-    
-     
-
-        <!--Page Header -->
-        
-        
-          
-          <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| Greensheets</h3></div></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
-                  Welcome:
-                <div id="loginID" class="login">
-                  
-                    Janene Nusraty
-                  
-                </div><div style="display:inline-block;"><i id="vrip" class="fa fa-book fa-1x" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></div>
-              </div>
-          
-         
-<div  class="row">
-
-
-
-
-          
-      
-    </div>
-  </div>
-  </div>
-
-
-  <!-- end Header -->
-
-	
-
-	<!-- Content start -->
-
+		</div> <!-- end footer container -->
 		
-
-
-	
-	    
-
-    
-     
-      
-      <!-- Begin Panel -->
-      <div class="col-md-12">  
-        <br/>
-      
-
-
-<div class="panel panel-default" >
-
-    <div class="panel-heading">
-        
-        <div class="pheader" style="display:inline;"><h4>Sample Page</h4></div>
-        
-          
-        
-          
-      </div>
-
-      <!--end panel header-->
-    <div class="panel-body">
-
-<p><strong>Example text just so you can see the scroll to top button when the page is long enough.
-  Code for that is in the footer section of the CSS file and the js is in the theme.js file.</strong><p>
-
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
-  
-      </div><!--end panel body-->
-  </div>
- 
-<br/>
-</div>
-</div>
- </div> <!-- end wrap -->
-
-
- <p>&nbsp;</p> 
-	
-
-<!-- Footer -->
-	
-
-<!-- Footer -->
-<footer class="site-footer">
-	<div class="container" style="margin-top: 15px;">
-		
-				<div class="row">
-					<div>
-             <ul>
-              <li><a  href="http://inside.era.nih.gov/" target="_blank">IMPAC II Applications</a></li>
-            </ul>
-						<ul>
-							<li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li>
-							<li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li>
-							<li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li>
-							<li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li>
-
-						</ul>
-						<ul>
-							<li><a href="http://www.hhs.gov" target="_blank">U.S. Department of
-									Health and Human Services</a>&nbsp;|</li>
-							<li><a href="http://www.nih.gov" target="_blank">National Institutes of
-									Health</a>&nbsp;|</li>
-							<li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a>&nbsp;|</li>
-							<li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li>
-						</ul>
-					</div>
-				</div>
-        </div>
-				
-				</div>
-		
-				 <!--back to top arrow-->
-        <a href="#" class="back-to-top" style="display: none;">TOP</a>
-			</footer></div>
-		
+			<!--back to top arrow-->
+			<a href="#" class="back-to-top" style="display: none;">TOP</a>
+	</footer>
 
 <!-- end Footer -->
- 
-
-	<!-- end Footer -->
-	</div>
-
-
-
-
-
-<!-- /container -->
-
-
-	<!-- end Content -->
-
-
-
-
-
-
-
-
-
-	
-
-
-
-</body></html>
+			
+		</body></html>
