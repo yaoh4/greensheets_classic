@@ -75,7 +75,16 @@ h6 {
     margin-right: 15px;
   }
 
-  label {
+
+  .welcome {
+    color: #fff;
+    display: inline-block;
+    float: right; 
+    margin-right: 15px; 
+    margin-top: -32px
+  }
+
+  .label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
@@ -192,7 +201,8 @@ table {
 
 
 .logoImage {
-  margin: 5px 0px 10px 10px;
+  margin: 10px 0px 10px 10px;
+  padding-top: 5px;
 
 }
 
@@ -205,7 +215,8 @@ table {
 
 .header {
    background-image: url("../images/background-I2E-v1.png");
-   background-color: #4b4b4b;
+   background-repeat: no-repeat;
+   background-color: #084263;
  }
 
 
