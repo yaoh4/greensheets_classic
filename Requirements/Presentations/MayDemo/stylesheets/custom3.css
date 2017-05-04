@@ -1,0 +1,1702 @@
+body { 
+ position: relative;
+  
+   margin: 0;
+  padding-bottom: 0px;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  
+  height: 100%;
+  
+
+}
+
+@media (max-width: 1000px) {
+    .container { width: 1000px !important; margin: 0 auto; }
+}
+
+   #main.container { margin-top:50px; }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  
+  font-family: "Source Sans Pro", 
+  line-height: 1.3;
+  margin-bottom: .5em;
+  margin-top: 1.5em; }
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700; }
+
+h2 {
+  font-size: 3rem;
+  font-weight: 700; }
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700; 
+   display: inline-block;
+ 
+}
+
+h4 {
+  font-size: 1.7rem;
+  font-weight: 700; 
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: inline;
+  
+}
+
+h5 {
+  font-size: 1.5rem;
+  font-weight: 700; 
+ margin-top: 0px;
+  margin-bottom: 0px;
+  display: inline;
+}
+
+h6 {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-transform: uppercase; }
+  
+.adjustText{
+  word-wrap:break-word;
+}
+
+.login {
+    color: #fff;
+    display: inline-block;
+    margin-right: 15px;
+  }
+
+  label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 300;
+  
+    font-size: 16px;
+    padding-left: 2px;
+       margin-top: 8px;
+}
+
+.reportLabel {
+    display: inline-block;
+    max-width: 100%;
+    
+    font-weight: 600;
+    color: #000000;
+    font-size: 14px;
+  
+ 
+}
+
+.radio label {
+ 
+  font-size: 14px;
+}
+
+.radio, .checkbox {
+    padding-left: 40px;
+}
+
+
+
+div#entry1.clonedInput {
+    margin-top: 12px;
+}
+textarea.col-md-12.form-control{
+    margin:0 auto;
+}
+
+div#sections.form-group.row.col-xs-12 {
+    margin:0 auto;
+}
+.fa-asterisk {
+  color: #cd204f;
+  font-size: 8px;
+vertical-align: top;
+}
+
+
+
+
+a .fa {
+color: #2d699e;
+text-decoration: none;
+}
+
+a .fa:hover {
+text-decoration: none;
+ display: inline-block;
+ color: #00467f;
+
+}
+
+.upload {
+  display: inline;
+ 
+}
+
+.uploadBox {
+
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  
+}
+
+table {
+    background-color: #FFF;
+}
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+/********************************************************************/
+/*** Main Navigation ***/
+
+.GDS {
+  margin: 5px 0px 0px 2px;
+}
+.GDS h3 {font-size:26px; font-weight:600;}
+
+.logo-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.logoImage {
+  margin: 5px 0px 10px 10px;
+
+}
+
+.row {clear: none;margin: 0 auto;}
+div#secNav{background:#112e51;}
+div#secNav.container {background:#123e57;}
+div#primNav.row { /*background:#f7f7f7;*/text-transform: uppercase;}
+.nav {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+
+
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #686868;
+    font-size: 14px;
+
+}
+
+/*.navbar-nav > li {
+    border-right: .5px solid #dddddd;
+}
+
+.navbar-nav > li:first-child {
+    border-left: .5px solid #e5e5e5;
+}
+
+.navbar-main {
+     padding-bottom: 2px;
+}*/
+
+.navbar-main>li>a {
+  color: #686868;
+    font-size: 16px;
+font-weight:600;
+
+}
+.navbar-main>li>a:hover {
+  color: #333;
+    font-size: 16px;
+  /*background:#123e57;*/
+    background:#f0f0f0;
+    font-weight:600;
+
+}
+
+
+.navbar-main>li.active a{
+    color: #000;
+    font-size: 16px;
+  background:#f1f1f1;
+    font-weight:600;
+
+
+} 
+
+/*When no Subnav is present - like on Search and My Submissions **********************/
+.noSubNav {
+  padding-top: 200px;
+}
+
+.navbar-main>li>a.active {
+    color: #686868;
+    font-size: 14px;
+    background-color: #eee;
+}
+
+
+
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.searchHeader {
+  background-color: #123e57;
+  height: 50px;
+  padding: 15px 15px 15px 15px;
+  margin: 0px auto 0px auto;
+  color: #FFF;
+}
+
+.mainContent {
+  margin-left: 15px;
+}
+
+.searchButton {
+  float: right;
+  margin-right: 0px;
+  margin: 1em 1em;
+}
+
+/********************************************************************/
+
+/*** Sub Navigation & PageHeader ***/
+
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.subnav {
+  height: 35px;
+  border-bottom: none;
+  margin-top:none;
+  margin-bottom: none;
+
+}
+
+/*Main Project nav bar*/
+
+.navbar-default2 {
+ 
+      /*background: #123e57;*/
+      border: none;
+     
+}
+
+.navbar-default2 .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #FFF;
+  background-color: #0E3044;
+}
+.navbar-default2 .navbar-nav > .active > a,
+.navbar-default2 .navbar-nav > .active > a:hover,
+.navbar-default2 .navbar-nav > .active > a:focus {
+  color: #FFF;
+  background-color: #0E3044;
+}
+
+.navbar-default2 .navbar-nav > .disabled > a,
+.navbar-default2 .navbar-nav > .disabled > a:hover,
+.navbar-default2 .navbar-nav > .disabled > a:focus {
+  color: #FFF;
+  background-color: #0E3044;
+}
+
+.navbar-default2 .navbar-nav>li>a {
+    color: #FFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-default2 .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default2 .navbar-nav>.active>a:hover, .navbar-default2 .navbar-nav>.active>li  {
+    
+    background-color: #FFF;
+    color: #000;
+    
+   
+}
+
+
+/*Sub Project nav bar*/
+
+
+
+
+
+
+.navbar-default3 {
+  
+      background: #123e57;
+      border: none;
+
+
+
+}
+
+.navbar-default3 .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #FFF;
+  background-color: #0E3044;
+}
+.navbar-default3 .navbar-nav > .active > a,
+.navbar-default3 .navbar-nav > .active > a:hover,
+.navbar-default3 .navbar-nav > .active > a:focus {
+  color: #FFF;
+  background-color: #337ab7;
+}
+
+.navbar-default3 .navbar-nav > .disabled > a,
+.navbar-default3 .navbar-nav > .disabled > a:hover,
+.navbar-default3 .navbar-nav > .disabled > a:focus {
+  color: #FFF;
+  background-color: #0E3044;
+}
+
+.navbar-default3 .navbar-nav>li>a {
+    color: #FFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-default3 .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default3 .navbar-nav>.active>a:hover, .navbar-default3 .navbar-nav>.active>li  {
+    
+    background-color: #337ab7;
+    
+   
+}
+
+
+.pageHeader {
+
+  height: 37px;
+ 
+  margin: 5px 0% 0px 0%;
+  color: #fff;
+
+}
+
+
+
+.sub-pageHeader {
+  background-color: #337ab7;
+  height: 50px;
+  padding: 15px 15px 15px 15px;
+  margin: 0px auto 0px auto;
+  color: #FFF;
+
+}
+
+
+
+.titleWrapper h3 {
+  margin: 0px 0px  0px  0px !important;
+    font-size:22px;
+    font-weight:300; 
+}
+
+
+
+/********************************************************************/
+
+.site-footer {
+  
+ margin-top: 50px;
+ padding-top: 15px;
+height: 200px;
+clear: both;
+background: #eeeeee;
+padding: 1em 0;
+color: #000;
+font-family: 'Source Sans Pro';
+font-size: 14px;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+
+
+}
+
+
+.site-footer a, .site-footer a:hover, .site-footer a:focus {
+       color: #777;
+    font-weight: 600;
+   text-align: middle;
+     
+
+}
+
+.site-footer li {
+    display: inline-block;
+    color: #000;
+}
+
+
+@media screen and (min-width: 641px)
+.large-12 {
+    position: relative;
+    width: 100%;
+}
+
+.panel.with-nav-tabs .panel-heading{
+    padding: 5px 5px 0 5px;
+    display: inline;
+
+}
+
+.panel-heading {
+    padding: 10px 15px 15px;
+    }
+
+.panel.with-nav-tabs .nav-tabs{
+  border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+  margin-bottom: -1px;
+}
+
+
+.site-footer .back-to-top {
+    z-index: 998;
+    display: none;
+    position: fixed;
+    right: 0.5em;
+    bottom: 1em;
+    color: rgb(37, 109, 162);
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 5px 0;
+}
+
+
+
+.site-footer a:hover {
+    color: #2d699e;
+}
+
+.site-footer .back-to-top:hover:before {
+    background-position: -389px -80px;
+}
+
+.site-footer .back-to-top:before {
+    content: " ";
+    display: block;
+    background: transparent url("../images/nci-sprite.png") no-repeat -311px -80px;
+    height: 51px;
+    width: 51px;
+}
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+Pseudo ::after element
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a {
+    
+    text-decoration: none;
+    line-height: inherit;
+    color: #2d699e;
+}
+
+#wrap {
+   min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0  0px;
+  }
+
+
+  .large-3 {
+    margin-left: 300px;
+
+  }
+
+    .large-3 li {
+    padding-bottom: 5px;
+  
+  }
+    .large-3 li a {
+    padding-bottom: 5px;
+     font-size: 1.7rem;
+  font-weight: 700; 
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: inline;
+  
+  }
+
+
+
+
+   .large-4 {
+    margin-left: 100px;
+  }
+/********************************************************************/
+/********************************************************************/
+/*** PANEL PRIMARY ***/
+.panel {
+    margin-bottom: 1em;
+  }
+
+.project-panel-primary>.panel-heading {
+    
+    background-color: #94bfa2;
+    border-color: #adadad;
+}
+
+.project-panel-primary {
+    border-color: #adadad;
+    padding-bottom: 20px;
+}
+.panel-default>.panel-heading {
+    background-color: #e3e3e3;
+}
+
+div.panel.panel-default.mainContent {
+    
+    width: 80%;
+margin: 0 auto;
+}
+
+div#genInfoPanel.panel.project-panel-primary {
+    padding-bottom:20px;
+}
+.status {
+ 
+  display: inline;
+  font-size: 12px;
+  color: #FFF;
+  width: 200px;
+
+}
+.status a {color:#ffffff;}
+
+.statusIcon {
+  display: inline;
+  
+}
+
+.statusWrapper {
+ 
+  display: inline;
+  float: right;
+}
+
+.pheader {
+  
+  display: inline;
+ 
+
+}
+.pheader h4 {color:#000;
+font-size: 1.8rem;}
+
+a.statusLink:link,  a.statusLink:hover, a.statusLink:visited {
+  font-weight: bold;
+  font-size: 12px;
+  
+}
+/********************************************************************/
+
+/*buttons for Save Previous and Save & Next*/
+
+.btn {
+ margin-right: 5px;
+}
+
+.pageNav {
+  float: right;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.btn-project-primary, .btn-project-primary:focus, .btn-project-primary:hover {
+    color: #fff;
+    background-color: #123e57;
+    border-color: #116579;
+}
+
+.btn-project-primary:focus, .btn-project-primary:hover {
+    background-color: #116579;
+    
+   
+}
+
+a.btn.btn-default {margin-left:6px;}
+.fa-3x {font-size:0px;}
+i.fa.fa-ellipsis-h.fa-stack-1x {padding:0px; margin:0px; font-size:14px; vertical-align: middle; color:#ffffff; display:inline-block; bottom:3px;}
+i.fa.fa-circle.fa-stack-2x {padding:0px; margin:0px;  position:relative; font-size:22px;}
+/*alignment for Add Repository button on repository.htm page ********************************************/
+.addRepository {
+  margin-top: 25px;
+  margin-left: -25px;
+}
+
+/*******class for legend ******************************************/
+#preview {
+  position:absolute;
+  border:1px solid #ccc;
+  background:#123e57;
+  padding:5px;
+  display:none;
+  color:#fff;
+  }
+
+
+
+/***Repository Trash Icon*****************************/
+.trash {
+  float: right;
+  display: inline;
+}
+
+/***** icon table in Search Results ***/
+.iconTable tr {
+  background-color: transparent !important;
+}
+
+.searchProgess {
+     text-align: center;
+     padding-top: 3px;
+
+}
+
+table.dataTable tbody th, table.dataTable tbody td {
+  padding: 3px;
+}
+
+table.dataTable td {
+  font-size: 12px;
+}
+
+th.sorting_asc {padding:12px !important;}
+ th.sorting {padding: 3px 3px !important;}
+td.sorting {padding: 12px 12px !important;}
+
+.dropmid a li {
+  font-size: 12px;
+  line-height: 13px;
+  margin-left: none;
+
+
+}
+
+/* icons */
+
+i.fa.fa-eye.fa-lg {color:#00467f;}
+i.fa.fa-trash {color:#990000;}
+i.fa.fa-pencil-square {color: #2d699e;}
+
+i.fa.fa-eye.fa-lg:hover {color:#000000;}
+i.fa.fa-trash:hover {color:#00467f;}
+i.fa.fa-pencil-square:hover {color:#00467f;}
+i.fa.fa-folder-open {font-size: 16px;}
+
+.badge {background-color: #2d699e;}
+.badge:hover {background-color: #00467f;}
+
+
+
+
+.ellipsisR img:last-child{display:none}
+.ellipsisR:hover img:first-child{display:none}
+.ellipsisR:hover img:last-child{display:inline-block}
+
+
+/***HOME PAGE CSS*****************************/
+
+.homePage {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.home {
+  padding-top: 80px;
+}
+
+.welcome {
+  margin: 10px 55px 0px 5px ;
+  float: right;
+}
+
+.firstTile h3 {
+  margin-top: 0px;
+text-decoration: none;
+
+}
+
+
+
+
+
+.hoverDiv {
+  background: #fff;
+  text-decoration: none;
+}
+.hoverDiv:hover {
+background: #f5f5f5;
+text-decoration: none;}
+
+.homePageTable td{
+  padding: 5px 10px 5px 5px;
+}
+
+.recentActivity {
+ padding-left: 15px !important;
+  vertical-align: top;
+}
+
+/********  Create New Submission & Gen Info Styles  ***/
+
+
+.input-group2 {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 250px;
+  }
+
+.form-horizontal .control-label {
+    text-align: right;
+    vertical-align: text-top;
+    padding-top: 0px;
+    margin-top: -5px;
+
+}
+
+.popPage {
+  margin: 0px 15px 0px 15px;
+  padding: 0px;
+}
+
+.projectDates {
+margin-left: 15px;
+    width: 222px;
+}
+
+.help-block {
+float: left;
+  margin-top: 0px;
+  clear: both;
+}
+
+.statusWrapper {
+  display: inline;
+}
+
+/*****Pop-up on General Info for Searching Grants***********/
+
+.searchLabel {
+  margin-left: 20px;
+ display: inline-block;
+  font-weight: 400;
+    color: #686868;
+    font-size: 14px;
+    text-align: right;
+    width: 250px;
+    margin-bottom: 10px;
+}
+.searchFormat {
+  display: inline-block;
+  padding-left: 25px;
+  font-size: 14px;
+  width: 400px;
+}
+
+/******GDS Data Sharing Page****************************/
+
+.qSpacing {
+  padding-bottom: 15px;
+}
+
+.other {
+    display: inline-block;
+    width: 240px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+
+
+.delete {
+   display: inline-block;
+   margin-left: 10px;
+
+}
+
+.otherWrapper {
+  width: 650px;
+   display: block;
+}
+
+.noteText {
+  font-size: 12px;
+  font-style: italic;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*********** Institutional Page ***************************/
+
+.indent {
+  margin-left: 50px;
+}
+
+/********Institutional Dashboard*********************************/
+
+.fa-exclamation-triangle {
+  color: orange;
+}
+
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+
+}
+
+.DULtext {
+  font-size: 12px;
+}
+
+#icDetails .modal-dialog {
+  width: 1000px;
+}
+
+hr {
+  margin-top: 2px;
+}
+.number {
+
+    height: 30px;
+    width: 30px;
+    line-height: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background-color: #ddd;
+    color: #333;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    padding-top: 6px;
+   
+  }
+
+/***************CSS for tool tip****************************/
+.tooltip {
+      position: inherit;
+    z-index: 1030;
+    display: inherit;
+    visibility: visible;
+    /* font-size: 12px; */
+    /* line-height: 1.4; */
+    opacity: inherit;
+  
+}
+
+a.tooltip {outline:none; }
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span {
+    z-index:10;
+    display:none; 
+    padding:5px 0px 10px 15px;
+    margin-top:15px; 
+    margin-left: 5px;
+    width:200px; line-height:16px;
+      top: 40px;
+    right: 1%;
+}
+a.tooltip:hover span{
+    display:inline; position:absolute; 
+    border:2px solid #FFF;  color:#EEE;
+     background:#000;
+}
+.callout {z-index:20;position:absolute;border:0;top:-14px;right:16px;}
+    
+/*CSS3 extras*/
+a.tooltip span
+{
+    border-radius:2px;        
+    box-shadow: 0px 0px 8px 4px #666;
+    /*opacity: 0.8;*/
+}
+
+/***********Tool tip for search page**********************************/
+
+.wrapper2 {
+  
+  cursor: help;
+  z-index: 0;
+  
+  position: relative;
+  
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+
+
+
+
+.wrapper2 .tooltip2 {
+
+  background: #fff;
+  border:2px solid #ccc;
+  color: #eee;
+  display: block;
+  bottom: auto;
+  margin-top: auto;
+  opacity: 0;
+  padding: 20px;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper2 .tooltip2:before {
+  content:""; 
+position:absolute; 
+ top: -13px;
+left:48px; 
+border-width:0px 13px 13px; 
+border-style: solid; 
+
+border-color:#ccc transparent; 
+
+} 
+
+.wrapper2 .tooltip2:after {
+content:""; 
+position:absolute; 
+top:-10px; 
+left:46px; 
+border-width:0px 15px 15px ; 
+border-style:solid; 
+border-color:#fff transparent; 
+}
+  
+.wrapper2:hover .tooltip2 {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper2 .tooltip2 {
+  display: none;
+}
+
+.lte8 .wrapper2:hover .tooltip2 {
+  display: block;
+}
+
+
+
+/***********toop tip for sub-project modal***************/
+
+/***********Tool tip for search page**********************************/
+
+.wrapper3 {
+  
+  cursor: help;
+  z-index: 1;
+  position: relative;
+  
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+
+
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+
+.wrapper3 {
+  
+  cursor: help;
+ 
+  position: relative;
+  
+  
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper3 .tooltip3 {
+   z-index: 900;
+  background: #fff;
+  border:2px solid #ccc;
+  color: #eee;
+  display: block;
+  bottom: -90px;
+  margin-top: 15px;
+  opacity: 0;
+  padding: 20px;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper3 .tooltip3:before {
+  content:""; 
+position:absolute; 
+ top: -13px;
+left:48px; 
+border-width:0px 13px 13px; 
+border-style: solid; 
+
+border-color:#ccc transparent; 
+
+} 
+
+.wrapper3 .tooltip3:after {
+content:""; 
+position:absolute; 
+top:-10px; 
+left:46px; 
+border-width:0px 15px 15px ; 
+border-style:solid; 
+border-color:#fff transparent; 
+}
+  
+.wrapper3:hover .tooltip3 {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper3 .tooltip2 {
+  display: none;
+}
+
+.lte8 .wrapper3:hover .tooltip3 {
+  display: block;
+}
+
+/**********Seach page ******************************/
+
+
+#existingSubProjects .modal-dialog {
+  width: 1000px;
+}
+
+.dropmid {
+  font-size: 12px;
+}
+
+.radio input[type=radio] {
+position: relative !important; 
+}
+
+
+
+input[type="file"] {
+    display: block;
+    float: left;
+    width: 300px;
+    margin-right: 20px;
+    border: 1px solid #e1e1e1;
+    margin-top: 6px;
+}
+
+ul.errorMessage {
+  list-style: none;
+  color: #000000;
+  padding-left: 25px;
+}
+
+ul.actionMessage {
+  list-style: none;
+  color: #000000;
+  padding-left: 25px;
+}
+
+/**********************Grant Search Page********************/
+
+.has-spinner .fa-spinner {
+  opacity: 0;
+  max-width: 0;
+
+  -webkit-transition: opacity 0.25s, max-width 0.45s; 
+  -moz-transition: opacity 0.25s, max-width 0.45s;
+  -o-transition: opacity 0.25s, max-width 0.45s;
+  transition: opacity 0.25s, max-width 0.45s; /* Duration fixed since we animate additional hidden width */
+}
+
+.has-spinner.active {
+  cursor:progress;
+}
+
+.has-spinner.active .fa-spinner {
+  opacity: 1;
+  max-width: 50px; /* More than it will ever come, notice that this affects on animation duration */
+  margin-right: 2px;
+}
+
+
+/*********View Details page from Grant Page***************************/
+
+
+
+.clickable{
+    cursor: pointer;  
+    width: 27px; 
+}
+
+.panel-heading span {
+  margin-top: -20px;
+  font-size: 15px;
+}
+
+
+/**************/
+/* pop-up nav */
+/**************/
+
+#popup_nav {
+  float: right;
+  display: block;
+}
+
+#popup_nav ul a:link, #admin_nav ul a:visited {
+  font-size: 14px;
+  /* color: #a94442; */
+}
+
+#popup_nav ul ul {
+  display: none;
+}
+
+#popup_nav ul li:hover > ul {
+  display: block;
+}
+
+#popup_nav ul {
+  list-style: none;
+  position: relative;
+  display: inline-table;
+  margin-left:  0px;
+  padding-left: 0px;
+}
+
+#popup_nav ul:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#popup_nav ul li {
+  float: left;
+  text-align: left;
+  width: auto;
+  padding-right: 0;
+  margin-right: 10px;
+  /* color: #a94442; */
+}
+
+#popup_nav ul li:hover {
+  background: #fff;
+  
+}
+
+#popup_nav ul li:hover a {
+  color: #111;
+}
+
+#popup_nav ul li a {
+  display: inline-block;
+  color: #111;
+  text-decoration: none;
+  /* padding: 5px; */
+  margin-left:  0px;
+  font-size: 22px;
+}
+
+#popup_nav ul ul {
+  background: #fff;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+}
+
+#popup_nav ul ul li {
+  float: none;
+  position: relative;
+  
+  
+}
+
+#popup_nav ul ul li a {
+  color: #2d699e;
+;
+}
+
+#popup_nav ul ul li a:hover {
+  background: #f1f1f1;
+  color: #23527c;
+  text-decoration: underline
+    
+}
+
+#popup_nav ul ul li a:link {
+  
+  color: #2d699e;
+  text-decoration: none;
+    
+}
+
+#popup_nav ul li {
+  background-image: none;
+  color: #ccc;
+}
+
+
+
+.paginate_button {
+  margin-bottom: 10px;
+}
+
+.repoRow {
+  background-color: #f5f5f5;
+}
+
+.btn-default.focus, .btn-default:focus {
+    color: #333;
+    background-color: #FFF;
+    border-color: #8c8c8c;
+
+}
+ /***********sticky menu bar**************/
+.sticky {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  border-top: 0;
+  background-color: #4b4b4b;
+}
+
+
+/**********Search Results Datatable ***********/
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
+    /* border-top: 0; */
+    border-bottom: 0px;
+}
+
+.subrow {
+border-top: 0px !important;  
+border-bottom: 0px !important;
+}
+
+table.dataTable {
+  table-layout: fixed; 
+  word-wrap:break-word; 
+}
+
+table.dataTable tbody tr td {
+  border-top: 2px solid #14819B;
+ 
+}
+
+table.dataTable tbody tr td.even {
+  border-top: 0px !important ;
+ 
+}
+
+.subtable tbody tr td {
+  border-top: 1px !important ;
+}
+
+
+div.dataTables_scrollBody thead th {
+  visibility: collapse;
+}
+
+.vertical {
+    position: relative;
+    background-color: #112e51;
+    padding:10px;
+     
+      margin-top: -20px;
+    border-radius: 5px 5px 0 0;
+    float: right;
+    color: #FFF;
+    -moz-transform: rotate(270deg);  /* FF3.5+ */
+    -o-transform: rotate(270deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
+    -moz-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    -webkit-transform-origin: 100% 100%;
+  }
+
+
+
+.col-md-11 {
+    width: 95.66666667%;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+table .collapse.in {
+  display:table-row;
+
+
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 3px;
+    padding-left: 10px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+.form-control {
+    display: block;
+    width: 95%;
+    /* height: 34px; */
+    padding: 3px 6px;
+    font-size: 14px;
+    /* line-height: 1.42857143; */
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.hiddenNotes {
+    display: none;
+    overflow: hidden;
+}
+
+.mainQuestion {
+  width: 50%;
+  padding-right: 5px;
+}
+
+.tooltip {
+  position: absolute;
+}
+
+.subNumber {
+text-align: right;
+}
+
+.subLetter {
+ text-align: right;
+}
+
+.mainNumber {
+  text-align: right;
+  font-weight: bold;
+  font-size: 16px;
+  width: 42px;
+}
+
+.fa-plus-circle {
+  padding-top: 3px;
+}
+
+.fa-minus-circle {
+  padding-top: 3px;
+}
+
+.subCircle {
+  display:inline;
+  color: #8b8b8b;
+  text-align:right;
+}
+
+.input {
+
+  width: 35%;
+}
+
+.table-responsive td {
+  vertical-align: top;
+}
+
+.maintable td {
+  padding: 5px;
+}
+
+
+/* Navigation bar */
+#main_navbar .navbar-default, .dropdown-menu {
+  background-color: #cbcbcb;
+  border-color: transparent;
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+/*
+ #main_navbar .navbar-default .navbar-nav > .open > a, #main_navbar .navbar-default .navbar-nav > .open > a:hover, #main_navbar .navbar-default .navbar-nav > .open > a:focus {
+ background-color: #843534;
+ }
+ */
+
+/* Navigation bar text colour, alignment, font size */
+#main_navbar ul > li a {
+  color: #111;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Navigation bar hover colour */
+#main_navbar .navbar-nav li a:hover {
+  background-color: #fff;
+}
+
+/* Responsive navigation colour */
+#main_navbar .navbar-toggle {
+  background-color: #fff;
+}
+
+#main_navbar li:hover:after {
+  content: ' ';
+  position: absolute;
+  border: solid 10px transparent;
+  border-top: solid 0px transparent;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #4cb471 transparent;
+    left: 50%;
+    top: 80%;
+    margin-left: -10px;
+  
+}
+
+/* Navigation highlight for current page */
+body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contact a#contactnav {
+  color: #004581;
+}
+
+.current {
+  background-color: #fff;
+  box-shadow: 7px 0 9px -7px rgba(0,0,0,0.7), -7px 0 9px -7px rgba(0,0,0,0.7);
+  color: #004581;
+}
+
+
+.current:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #4cb471 transparent;
+    left: 50%;
+    top: 80%;
+    margin-left: -10px;
+        
+}
+
+/* Navigation bar border */
+#main_navbar .navbar-default {
+
+      border-bottom: 5px solid #4cb471;
+}
+
+.header {
+   background-image: url("../images/background-I2E-v1.png");
+   background-color: #4b4b4b;
+ }
+
+.table>thead:first-child>tr:first-child>th {
+    /* border-top: 0; */
+    border-bottom: 0px;
+    background-color: #eee;
+}
+
+.instructions {
+  font-size: 14px;
+  
+   
+}
+ .indentLine2 {
+ 
+   padding-left: 0.5em !important;
+   vertical-align: top;
+   width: 80%;
+}
+
+.has-error {
+  color: #a94442;
+  border-color: #a94442;
+}
+
+.checkbox {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    padding-left: 0px !important;
+}
+      
+
+#gsTable td {
+  border-bottom: 1px solid #CCC;
+}
+
+textarea {
+    resize: none;
+}
+
+.comments {
+  font-size: 12px;
+  font-style: italic;
+  margin-right: 35px;
+  margin-bottom: 10px;
+}
+
+.textBox {
+  font-size: 12px;
+  font-style: italic;
+  margin-right: 27px;
+  margin-bottom: 10px;
+}
+
+.searchButton2 {
+  margin-top: 50px;
+  margin-left: 15px;
+}
+
+.mainLinks a {
+  color: #FFF;
+
+}
+
+.btn-secondary {
+  color: #333;
+    background-color: #eee;
+    border-color: #ccc;
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+  background: #ccc;
+  text-decoration: none;
+   border-color: #8c8c8c;
+    
+}
+
+
+/*tree fly expander -- closing the gap since we took out expand/collapse*/
+
+.treetable-expander {
+    position: relative;
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.helperText {
+  font-size: 12px;
+}
+
+.preview {
+  color: #999;
+}
