@@ -215,7 +215,7 @@ table {
 
 .header {
    background-image: url("../images/background-I2E-v1.png");
-   background-repeat: no-repeat;
+   background-size: cover;
    background-color: #084263;
  }
 
@@ -405,3 +405,9 @@ Pseudo ::after element
    
   
 }
+
+/********* login icons ******/
+.fa-book {
+  color: #FFF;
+}
+
