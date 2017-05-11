@@ -29,7 +29,7 @@
 <script src="dist/bootstrap-treefy.js"></script>
 <link href="stylesheets/custom3.css" rel="stylesheet" type="text/css" media="screen">
 <script src="dist/bootstrap-dialog.js"></script>
-<script src="nonWBUpdatedcontroller.js"></script>
+<script src="controller/nonWBUpdatedcontroller.js"></script>
 
 
 </head>
@@ -176,15 +176,15 @@
     <!--Main Action Buttons  -->
 <div style="display:block; clear:both">
     <div style="float:left; margin-left: 5px; margin-bottom: 10px;display:inline;">
-                                                <button type="button" class="btn btn-default allSubs">View All Sub Questions</button>
+                                                <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                 <button type="button" class="btn btn-default"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+                                                 <button type="button" class="btn btn-default print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
                                                      
             </div>
   <div style="float:right;  margin-bottom: 10px;display:inline;">
                                                 
-                                                    <button type="button" class="btn btn-default "> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</button></a> 
-              <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
+                                                    <button type="button" class="btn btn-default rs "> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</button></a> 
+              <button type="button" class="btn btn-primary has-spinner save" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
            
               <!--<a class="bottom" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="You cannot submit untill the ACTION to AWARD is created in GPMATS">--><button type="button" class="btn btn-default submit">Submit</button> 
              
@@ -223,8 +223,8 @@
                 
                 </select>
               </div>
-            <td width="31"   class="subNumber"><a href="#" class="notes bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/comment.gif" height="20" width="20" id="comment1image"></a></td>  
-             <td><a data-toggle="modal" href="#myModal"><img src="images/attachments.gif" height="20" width="20" id="savedAttach"></a></td>
+            <td width="31"   class="subNumber"><a href="#" class="notes bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/comment.gif" height="20" width="20" id="comment1image" alt="comments"></a></td>  
+             <td><a data-toggle="modal" href="#myModal" class="attachs"><img src="images/attachments.gif" height="20" width="20" id="savedAttach" alt="attachments"></a></td>
 
         </tr>
         <tr data-node="treetable-1.1" data-pnode="treetable-parent-1" class="lastSub" id="1sub">
@@ -234,8 +234,8 @@
               <textarea class="exampleTextarea form-control" id="1-1text" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
           </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td width="31"   align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
+            <td  align="right"><a class="comms bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/comment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td width="31"   align="right"><a class="bottom attachs" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 <!--- ROW 2 ---->        
         <tr data-node="treetable-2" id="main2">
@@ -248,8 +248,8 @@
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>   
-            <td><a data-toggle="modal" href="#myModal2"><img src="images/attachment.gif" height="20" width="20" id="savedAttach2"></a></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>   
+            <td><a data-toggle="modal" href="#myModal2" class="attachs" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" id="savedAttach2" alt="attachments"></a></td>
         </tr>
        
         <tr data-node="treetable-2.1" data-pnode="treetable-parent-2" class="lastSub" id="2sub">
@@ -259,8 +259,8 @@
               <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20"></a></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 <!--- ROW 3 ---->    
@@ -282,8 +282,8 @@
                 </label>
               
               </div>
-            <td  align="right"><a href="#" class="notes"><img src="images/comment.gif" height="20" width="20" id="comment3image"></a></td>  
-            <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
+            <td  align="right"><a href="#" class="notes" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/comment.gif" height="20" width="20" id="comment3image" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-3.1" data-pnode="treetable-parent-3" class="sub answered expanded" id="3sub">
@@ -296,8 +296,8 @@
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios3-1"  value="No" >&nbsp; No
                 </label>
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-3.1.1" data-pnode="treetable-parent-3.1" class="lastSub" id="3-1sub">
@@ -307,8 +307,8 @@
                <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 
@@ -324,8 +324,8 @@
                 </label>
               
               </div>
-            <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
+           <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-4.1" data-pnode="treetable-parent-4" class="lastSub answered expanded" id="4sub">
@@ -338,8 +338,8 @@
                 </label>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 
@@ -354,8 +354,8 @@
                 </label>
               
               </div>
-            <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
+           <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-5.1" data-pnode="treetable-parent-5" class="lastSub" id="5sub">
@@ -367,8 +367,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 <!--- ROW 6 ---->    
@@ -387,8 +387,8 @@
                 </select>
               
               </div>
-            <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments"><img src="images/attachment.gif" height="20" width="20"></a></td>
+           <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub" id="6sub">
@@ -399,8 +399,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 <!--- ROW 7 ---->    
@@ -419,8 +419,8 @@
                 </select>
               
               </div>
-            <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-7.1" data-pnode="treetable-parent-7" class="lastSub" id="7sub">
@@ -431,8 +431,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 <!--- ROW 8 ---->    
@@ -451,8 +451,8 @@
                 </select>
               
               </div>
-            <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-8.1" data-pnode="treetable-parent-8" class="lastSub" id="8sub">
@@ -463,8 +463,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 <!--- ROW 9 ---->    
@@ -479,8 +479,8 @@
                 </label>
               
               </div>
-            <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-9.1" data-pnode="treetable-parent-9" class="lastSub" id="9sub">
@@ -491,8 +491,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
          <!--- Row 10 -------->
@@ -505,8 +505,8 @@
               <input type="radio" class="form-check-input" name="optionsRadios10" value="No" >
               &nbsp; No </label>
           </div>
-          <td  align="right"><img src="images/nocomment.gif" alt="" width="20" height="20"></td>
-          <td  align="right"><img src="images/attachment.gif" alt="" width="20" height="20"></td>
+          <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 
@@ -519,8 +519,8 @@
               <input type="radio" class="form-check-input" name="optionsRadios10-1" value="No" >
               &nbsp; No </label>
           </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" alt="" width="20" height="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" alt="" width="20" height="20"></td>
+        <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-10.1.1" data-pnode="treetable-parent-10.1" class="lastSub" id="10sub1">
           <td><div style="display:inline-block;" class="indentLine2">10.1.1. Select reason(s) for revisions:</div></td>
@@ -559,8 +559,8 @@
                       <label><input type="checkbox" value="">&nbsp;&nbsp;INC - Increase Funding</label>
                     </div>
           </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" alt="" width="20" height="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" alt="" width="20" height="20"></td>
+        <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <!--- Row 11 -------->
@@ -573,8 +573,8 @@
               <input type="radio" class="form-check-input" name="optionsRadios11"  value="No" >
               &nbsp; No </label>
           </div>
-          <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+          <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-11.1" data-pnode="treetable-parent-11" class="sub" id="sub11-1">
           <td><div style="display:inline-block;" class="indentLine2">11.1. Were there any concerns noted?</div></td>
@@ -585,8 +585,8 @@
               <input type="radio" class="form-check-input" name="optionsRadios11-1" id="optionsRadiosNo2" value="No" >
               &nbsp; No </label>
           </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+          <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-11.1.1" data-pnode="treetable-parent-11.1" class="lastSub" id="sub11-1-1">
           <td><div style="display:inline-block;" class="indentLine2">11.1.1. Explanation Required:
@@ -602,7 +602,7 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
           </div></td>
           <td  align="right"><a class="notes bottom" title="" data-placement="left" data-toggle="tooltip" href="#sub11-1-1" data-original-title="Add Comments"><img src="images/comment.gif" height="20" width="20" id="comment11image"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 <!--- ROW 12 ---->    
@@ -616,8 +616,8 @@
                 </label>
               
               </div>
-            <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
    <tr data-node="treetable-12.1" data-pnode="treetable-parent-12" class="sub answered expanded" id="12sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1. Involvement of Human Subjects changed from last year?</div> </td>
@@ -628,8 +628,8 @@
          <input type="radio" class="form-check-input" name="optionsRadios12-1" id="optionsRadiosNo4" value="No" >
          &nbsp; No </label>
      </div></td>
-     <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-     <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+    <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+     <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
    </tr>
    <tr data-node="treetable-12.1.1" data-pnode="treetable-parent-12.1" class="sub answered expanded" id="12-1-1sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1.1. Change(s) within scope of current objectives and approved?<br/><div class="instructions"> (If not in scope or not approved, explanation required.)</div></div></td>
@@ -643,8 +643,8 @@
          
          </select>
      </span></td>
-     <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-     <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+    <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+     <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
    </tr>
    <tr data-node="treetable-12.1.1.1" data-pnode="treetable-parent-12.1.1" class="lastSub" id="12-1-1-1sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1.1.1. Explanation Required:</div></td>
@@ -652,8 +652,8 @@
         <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
      </div></td>
-     <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-     <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+    <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+     <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
    </tr>
 
         <tr data-node="treetable-12.2" data-pnode="treetable-parent-12" class="sub answered expanded" id="sub12-2">
@@ -666,8 +666,8 @@
                 </label>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+           <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>   
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1" data-pnode="treetable-parent-12.2" class="sub answered expanded" id="sub12-2-1">
           <td><div style="display:inline-block;" class="indentLine2">12.2.1 Exemption Number:</div></td>
@@ -682,8 +682,8 @@
               <option>E1</option>
             </select>
           </span></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1.1" data-pnode="treetable-parent-12.2.1" class="sub answered expanded" id="sub12-2-1-1">
           <td><div style="display:inline-block;" class="indentLine2">12.2.1.1. All sites (grantee and all performance sites engaged in research involving human subjects) have an OHRP-approved assurance of compliance?<br/><div class="instructions">
@@ -696,8 +696,8 @@
                 </label>
               
             </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1.1.1" data-pnode="treetable-parent-12.2.1.1" class="lastSub" id="sub12-2-1-1-1">
           <td><div style="display:inline-block;" class="indentLine2" id="12-2-1-1-1">12.2.1.1.1. Name of site(s) needing assurance:</div></td>
@@ -705,8 +705,8 @@
              <textarea class="exampleTextarea form-control" id="Textarea12-2-1-1-1" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Response is required</div>
           </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1.1.2" data-pnode="treetable-parent-12.2.1.1" class="lastSub" id="sub12-2-1-1-2">
           <td><div style="display:inline-block;" class="indentLine2" id="12-2-1-1-2">12.2.1.1.2. Is the project viable if the site(s) does not receive assurance? <br/>
@@ -719,8 +719,8 @@
                 </label><div style="display:none;" class="warning1">Answer is required</div>
               
             </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1.1.3" data-pnode="treetable-parent-12.2.1.1" class="lastSub" id="sub12-2-1-1-3">
           <td><div style="display:inline-block;" class="indentLine2" id="12-2-1-1-3">12.2.1.1.3. Date PI referred to OHRP website</div></td>
@@ -730,8 +730,8 @@
         <span class="glyphicon glyphicon-th"></span>
     </div>
 </div><div style="display:none;" class="warning1">Date is required</div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.2" data-pnode="treetable-parent-12.2" class="lastsub" id="sub12-2-2">
           <td><div style="display:inline-block;" class="indentLine2">12.2.2. Is gender and minority recruitment/retention appropriate and on schedule?<br/><div class="instructions"> <a href="http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf" target="_blank">Sex Gender Workbook (PDF)</a></div></div></td>
@@ -744,8 +744,8 @@
             
             </select>
           </span></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.3" data-pnode="treetable-parent-12.2" class="sub answered expanded" id="sub12-2-3">
           <td><div style="display:inline-block;" class="indentLine2">12.2.3. Is/are new IDR's required since the last award?<br/><div class="instructions">
@@ -758,8 +758,8 @@
                 </label>
               
             </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
                 <tr data-node="treetable-12.2.3.1" data-pnode="treetable-parent-12.2.3" class="sub answered expanded" id="sub12-2-3-1" >
           <td><div style="display:inline-block;" class="indentLine2">12.2.3.1.    
@@ -772,8 +772,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.3.1.1" data-pnode="treetable-parent-12.2.3.1" class="lastSub">
           <td><div style="display:inline-block;" class="indentLine2">12.2.3.1.1. Required attributes set for all available IDR's?</div></td>
@@ -785,8 +785,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.4" data-pnode="treetable-parent-12.2" class="lastSub" id="sub12-2-4">
           <td><div style="display:inline-block;" class="indentLine2">12.2.4. Research candidate for Certificate of Confidentiality?<br/><div class="instructions">
@@ -799,8 +799,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         <tr data-node="treetable-12.2.5" data-pnode="treetable-parent-12.2" class="lastSub" id="sub12-2-5">
           <td><div style="display:inline-block;" class="indentLine2">12.2.5. Does the award support a Phase I/Phase II or a Phase III low-risk behavioral or nutritional trial?<br/> <div class="instructions"><a href="http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf" target="_blank"></a></div></div></td>
@@ -812,8 +812,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-          <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+         <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-12.2.6" data-pnode="treetable-parent-12.2" class="sub answered expanded" id="sub12-2-6">
@@ -826,8 +826,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+           <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>   
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-12.2.6.1" data-pnode="treetable-parent-12.2.6" class="sub answered expanded" id="sub12-2-6-1">
@@ -840,8 +840,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+           <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>   
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
         <tr data-node="treetable-12.2.6.1.1" data-pnode="treetable-parent-12.2.6.1" class="lastSub" id="sub12-2-6-1-1">
@@ -853,8 +853,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Note"><img src="images/nocomment.gif" height="20" width="20"></a></td>  
-            <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+           <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>   
+            <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
 
@@ -879,8 +879,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
           </div>
          
           </div>
-          <td  align="right"><img src="images/nocomment.gif" height="20" width="20"></td>
-          <td  align="right"><img src="images/attachment.gif" height="20" width="20"></td>
+          <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td> 
+          <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
         
 
@@ -888,15 +888,15 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
     </tbody>
 </table>
     <div style="float:left; margin-left: 5px; margin-bottom: 15px;display:inline;">
-                                                <button type="button" class="btn btn-default allSubs">View All Sub Questions</button>
+                                                <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                 <button type="button" class="btn btn-default"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+                                                 <button type="button" class="btn btn-default print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
                                                      
             </div>
 <div style="float:right; margin-bottom: 15px;display:inline;">
 
-                                                   <button type="button" class="btn btn-default"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</a></button>
-      <button type="button" class="btn btn-primary has-spinner" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
+                                                   <button type="button" class="btn btn-default rs"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</a></button>
+      <button type="button" class="btn btn-primary has-spinner save" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
          
               <button type="button" class="btn btn-default" onclick="window.location.href='nonWBgreensheet-submitted.htm'">Submit</button> 
               
@@ -1012,10 +1012,10 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 
 <div class="panel panel-default" style="margin-top: 10px;">
                 <div class="panel-heading">
-                   <span class="pull-left clickable2 panel-collapsed" style="margin-top:0px;"><i class="glyphicon glyphicon-chevron-down"></i></span>&nbsp;&nbsp;  <h3 class="panel-title">Previously Saved Attachment(s)</h3>
+                   <span class="pull-left clickable2" style="margin-top:0px;"><i class="fa fa-minus-circle "></i></span>&nbsp;&nbsp;  <h3 class="panel-title">Previously Saved Attachment(s)</h3>
                     
                 </div>
-                <div class="panel-body" style="display:none;">
+                <div class="panel-body" style="display:block;">
 
 <div id="attachmentTable"</div>
   
@@ -1055,33 +1055,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
   </tbody></table>
 </div>
 
-  <div id="table2" style="display:none;">
-<table class="table table-bordered table-striped" cellpadding="0px" cellspacing="0">
-    <tbody><tr>
-      
-      <th class="tableHeader" align="center">File Name</th>
-   
-      <th class="tableHeader" align="center" width="5%">Action</th>
-    </tr>
-    
-    <tr>
-     
-      <td>
-          <a href="javascript:openDocument(691)">email123.pdf</a>
-        </td>
-
-      <td><button class="btn btn-default">Add</button></td>
-    </tr>
-    <tr>
-     
-      <td>
-          <a href="javascript:openDocument(691)">exampleXYZ.doc</a>
-        </td>
-    
-      <td><button class="btn btn-default">Add</button></td>
-    </tr>
-  </tbody></table>
-</div>
+  
 
 
 
@@ -1168,7 +1142,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 
 <div class="panel panel-default" style="margin-top: 10px;">
                 <div class="panel-heading">
-                   <span class="pull-left clickable2" style="margin-top:0px;"><i class="glyphicon glyphicon-chevron-up "></i></span>&nbsp;&nbsp;  <h3 class="panel-title">Previously Saved Attachment(s)</h3>
+                   <span class="pull-left clickable2" style="margin-top:0px;"><i class="fa fa-minus-circle "></i></span>&nbsp;&nbsp;  <h3 class="panel-title">Previously Saved Attachment(s)</h3>
                     
                 </div>
                 <div class="panel-body" style="display:block;">

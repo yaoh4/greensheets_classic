@@ -398,13 +398,11 @@ font-weight:600;
 
 
 .pageHeader {
-
-  height: 37px;
- 
-  margin: 5px 0% 0px 0%;
-  color: #fff;
-
+    height: 37px;
+    margin: 5px 0% 0px 0%;
+    color: #fff;
 }
+
 
 
 
@@ -1523,18 +1521,6 @@ text-align: right;
 }
 
 
-/* Navigation bar */
-#main_navbar .navbar-default, .dropdown-menu {
-  background-color: #cbcbcb;
-  border-color: transparent;
-  border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-}
-/*
- #main_navbar .navbar-default .navbar-nav > .open > a, #main_navbar .navbar-default .navbar-nav > .open > a:hover, #main_navbar .navbar-default .navbar-nav > .open > a:focus {
- background-color: #843534;
- }
- */
 
 /* Navigation bar text colour, alignment, font size */
 #main_navbar ul > li a {
@@ -1600,6 +1586,7 @@ body#home a#homenav, body#about a#aboutnav, body#menupage a#menunav, body#contac
 
 .header {
    background-image: url("../images/background-I2E-v1.png");
+   background-size: cover;
    background-color: #4b4b4b;
  }
 
@@ -1681,6 +1668,11 @@ textarea {
     
 }
 
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #d7e1eb;
+    background-color: rgba(112, 146, 182, 0.28);
+}
+
 
 /*tree fly expander -- closing the gap since we took out expand/collapse*/
 
@@ -1699,4 +1691,9 @@ textarea {
 
 .preview {
   color: #999;
+}
+
+.dibabled {
+   box-shadow: none;
+    opacity: .65;
 }

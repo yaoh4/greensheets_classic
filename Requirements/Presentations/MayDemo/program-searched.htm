@@ -14,7 +14,7 @@
 <script src="scripts/jquery.validate-1.15.0.min.js"></script>
 <script src="dist/chosen.jquery.js"></script>
 <script src="scripts/theme2.js"></script>
-<script src="searchcontroller.js"></script>
+<script src="controller/searchcontroller.js"></script>
 <script src="validator.js"></script>
 <script src="dropzone.js"></script>
 
@@ -140,21 +140,18 @@
     <div class="panel-body">
 
      
- 
-            
-      
-<div class="row col-xs-12" style="margin-top: 0px; margin-bottom: 10px;">
-  <div class"col-xs-4">
-   <label  style="float:left; display:inline; margin-top: 30px; margin-bottom: -5px;">
+     <div class="form-group row" style="margin-top: 0px; margin-bottom: 10px;">
+<div >
+   <label style="display:block; margin-left: 15px; margin-bottom: -5px;">
                 Grant Number 
                 </label>
-           <div class="col-xs-3 form-group" style="margin-top: 10px;">
-        <div style="display:inline-block;" >
+           <div class="col-xs-4 form-group" style="margin-top: 10px;">
+        <div style="display:inline-block;">
 
-          <label class="grant-label" style="margin-left: -5px;">
+          <label class="grant-label" style="margin-left: 0px;">
                 Type
                 </label>
-          <input  maxlength="1" value=""  class="form-grant" type="text" style="width: 20px;">
+          <input  maxlength="1" value=""  class="form-grant" type="text" style="width: 22px;">
         </div>
              <div style="display:inline-block;">
 
@@ -168,7 +165,7 @@
           <label class="grant-label">
                 IC
                 </label>
-          <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 35px;">
+          <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 36px;">
         </div>
           <div style="display:inline-block;">
 
@@ -176,7 +173,15 @@
                 Serial #
                 </label>
           <input  maxlength="6" value=""  class="form-grant" type="text" style="width: 60px;">
-        </div>    
+          
+        </div> 
+        <div style="display:inline-block;">
+
+          <label class="grant-label" style="margin-left: 0px;">
+               &nbsp;
+                </label>
+          -&nbsp;
+        </div>   
                <div style="display:inline-block;">
 
           <label class="grant-label">
@@ -184,17 +189,25 @@
                 </label>
           <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 30px;">
         </div>
-                     <div style="display:inline-block;">
+       <div style="display:inline-block;">
 
           <label class="grant-label">
                 Suffix
                 </label>
           <input  maxlength="4" value=""  class="form-grant" type="text" style="width: 55px;">
         </div>
+        <div style="display:inline-block;">
+          &nbsp;Ex: 5R01CA193829-03A1
+        </div>
       </div>
     </div>
             
-    <div class="col-xs-1" style="margin-left: 10px;">
+
+
+
+
+                 
+    <div class="col-xs-2" >
           <label for="selectFrom">Fiscal Year:</label> 
           <select name="criteria.submissionFromId" class="c-select form-control">
        <option value="2017">2017</option>
@@ -216,7 +229,9 @@
 </select>
        </div>
     </div>
-    <div class="row" style="margin-top: 0px; margin-bottom: 10px;">
+
+
+    <div class="row form-group" style="margin-top: 0px; margin-bottom: 10px;">
         <div class="col-xs-4">
           <label for="selectFrom">Grants from:</label> 
           <select name="criteria.submissionFromId"  class="c-select form-control" id="selectFrom">
@@ -490,7 +505,6 @@
   
     <!--end panel body-->
   </div>
-    <br/>&nbsp;
 
 
 

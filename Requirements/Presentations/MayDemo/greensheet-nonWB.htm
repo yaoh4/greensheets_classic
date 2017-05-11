@@ -28,7 +28,7 @@
 <link href="stylesheets/custom3.css" rel="stylesheet" type="text/css" media="screen">
 <link rel="stylesheet" href="dist/css/bootstrap-dialog.css">
 <script src="dist/bootstrap-treefy.js"></script>
-<script src="controller2.js"></script>
+<script src="controller/controller2.js"></script>
 
 <script src="dist/bootstrap-dialog.js"></script>
 
@@ -172,13 +172,13 @@
   <div style="float:left;  margin-left: 5px; margin-bottom: 10px;display:inline;">
                                                 <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                 <button type="button" class="btn btn-default"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+                                                 <button type="button" class="btn btn-default print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
                                                      
              
             </div>
   <div style="float:right;  margin-bottom: 10px;display:inline;">
                                                 
-                                                     <button type="button" class="btn btn-default "> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</button></a> 
+                                                     <button type="button" class="btn btn-default rs"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</button></a> 
               <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
               <button type="button" class="btn btn-default submit">Submit</button> 
              
@@ -924,15 +924,15 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 <div style="float:left; margin-bottom: 15px; margin-left: 5px;">
 <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
                                                  <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                 <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+                                                 <button type="button" class="btn btn-default allNotes print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
                                                     
              
 </div>
 
 <div style="float:right; margin-bottom: 15px;">
 
-                                                    <button type="button" class="btn btn-default"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</a></button>
-      <button type="button" class="btn btn-primary has-spinner" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
+                                                    <button type="button" class="btn btn-default rs"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</a></button>
+      <button type="button" class="btn btn-primary has-spinner save" id="searchGrants" onClick="searchGrantsData()"><i class="fa fa-spinner fa-spin"></i> Save</button> 
          
               <button type="button" class="btn btn-default" onclick="window.location.href='nonWBgreensheet-submitted.htm'">Submit</button> 
               

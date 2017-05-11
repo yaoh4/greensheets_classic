@@ -30,7 +30,7 @@
 
 <script src="dist/bootstrap-dialog.js"></script>
 
-<script src="draftGScontroller.js"></script>
+<script src="controller/draftGScontroller.js"></script>
 
 </head>
 
@@ -39,36 +39,36 @@
 
 
 
-
 <div id="wrap"> 
-	<div class="navbar ">
-		<div class="row header">
-			<div style="height: 50px; margin-top: -1px;">
-				<div id="logo" class="logoImage" style="padding-top: 5px;">
-				    <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
-				    <div style="float: right; margin-right: 15px;">
-					    <br>  
-					  
-				   
-				   </div>
-				    
-				</div>
-			</div>
-			<!-- Fixed navbar -->
-			<div class="stickyDiv"     style="border-bottom: 7px solid #4cb471;">
-			
+  <div class="navbar ">
+    <div class="row header">
+      <div style="height: 50px; margin-top: -1px;">
+        <div id="logo" class="logoImage" style="padding-top: 5px;">
+            <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
+            <div style="float: right; margin-right: 15px;">
+              <br>  
+            
+           
+           </div>
+            
+        </div>
+      </div>
+      <!-- Fixed navbar -->
+      <div class="stickyDiv">
+      
 
 
 
 
 
-		
-		 
+    
+     
 
-    		<!--Page Header -->
-    		
-    		
-    		  <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| <a href="specialist.htm">Greensheets</a></h3></div></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
+        <!--Page Header -->
+        
+        
+          
+            <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| <a href="search.htm">Greensheets</a></h3></div></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
                   Welcome:
                 <div id="loginID" class="login">
                   
@@ -76,8 +76,11 @@
                   
                 </div><div style="display:inline-block;"><i id="vrip" class="fa fa-book fa-1x" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></div>
               </div>
-    			
-      	 
+          
+           </div>
+  </div> 
+          
+         
 <div id="secNav" class="row">
 
 
@@ -113,17 +116,14 @@
     </div>
 </div>
 
+          
+      
+ 
+  </div>
 
 
+  <!-- end Header -->
 
-      		
-			
-		</div>
-	</div>
-	</div>
-
-
-	<!-- end Header -->
 
 	
 
@@ -200,8 +200,8 @@
   <div style="display:block; margin-bottom: 20px;"> <button type="button" class="btn btn-primary" id="completed">Testing Completed</button></div>
     <div style="float:left;  margin-bottom: 10px;  display:inline;">
                                                 <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
-                                                 <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                 <button type="button" class="btn btn-default" id="print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+                                                 <button type="button" class="btn btn-default  disabled" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled">View All Comments</button> 
+                                                 <button type="button" class="btn btn-default print" id="print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
                                                      
              
             </div>
@@ -246,8 +246,8 @@
                 
                 </select>
               </div>
-            <td width="31"   class="subNumber"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td width="31"   class="subNumber"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-1.1" data-pnode="treetable-parent-1" class="lastSub" id="1sub">
           <td><div style="display:inline-block;" class="indentLine2" id="1">1.1. Explanation Required:</div></td>
@@ -256,8 +256,8 @@
               <textarea class="exampleTextarea form-control" id="1-1text" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
           </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 <!--- ROW 2 ---->        
         <tr data-node="treetable-2" id="main2">
@@ -270,8 +270,8 @@
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadiosNo" value="No" >&nbsp; No
                 </label>
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>   
-           <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>   
+           <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
        
         <tr data-node="treetable-2.1" data-pnode="treetable-parent-2" class="lastSub" id="2sub">
@@ -281,8 +281,8 @@
               <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 <!--- ROW 3 ---->    
@@ -304,8 +304,8 @@
                 </label>
               
               </div>
-            <td  align="right"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-3.1" data-pnode="treetable-parent-3" class="sub" id="3sub">
@@ -318,8 +318,8 @@
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios3-1"  value="No" >&nbsp; No
                 </label>
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-3.1.1" data-pnode="treetable-parent-3.1" class="lastSub" id="3-1sub">
@@ -329,8 +329,8 @@
                <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 
@@ -346,8 +346,8 @@
                 </label>
               
               </div>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-4.1" data-pnode="treetable-parent-4" class="lastSub" id="4sub">
@@ -360,8 +360,8 @@
                 </label>
               
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 
@@ -376,8 +376,8 @@
                 </label>
               
               </div>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-5.1" data-pnode="treetable-parent-5" class="lastSub" id="5sub">
@@ -389,8 +389,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 <!--- ROW 6 ---->    
@@ -410,8 +410,8 @@
               </div>
               
               </div>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 
@@ -430,8 +430,8 @@
                
               
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub" id="6sub-2">
@@ -448,8 +448,8 @@
                
               
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
                 <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="sub" id="6sub">
@@ -460,8 +460,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 <!--- ROW 7 ---->    
@@ -480,8 +480,8 @@
                 </select>
               
               </div>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-7.1" data-pnode="treetable-parent-7" class="lastSub" id="7sub">
@@ -492,8 +492,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 <!--- ROW 8 ---->    
@@ -512,8 +512,8 @@
                 </select>
               
               </div>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-8.1" data-pnode="treetable-parent-8" class="lastSub" id="8sub">
@@ -524,8 +524,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Explaination is Required</div>
               
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 <!--- ROW 9 ---->    
@@ -540,8 +540,8 @@
                 </label>
               
               </div>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-9.1" data-pnode="treetable-parent-9" class="lastSub" id="9sub">
@@ -552,8 +552,8 @@
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
               
             </div></td>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
          <!--- Row 10 -------->
@@ -566,8 +566,8 @@
               <input type="radio" class="form-check-input" name="optionsRadios10" value="No" >
               &nbsp; No </label>
           </div>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 
@@ -580,8 +580,8 @@
               <input type="radio" class="form-check-input" name="optionsRadios10-1" value="No" >
               &nbsp; No </label>
           </div></td>
-       <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+       <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-10.1.1" data-pnode="treetable-parent-10.1" class="lastSub" id="10sub1">
           <td><div style="display:inline-block;" class="indentLine2">10.1.1. Select reason(s) for revisions:</div></td>
@@ -620,8 +620,8 @@
                       <label><input type="checkbox" value="">&nbsp;&nbsp;INC - Increase Funding</label>
                     </div>
           </div></td>
-       <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+       <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <!--- Row 11 -------->
@@ -634,8 +634,8 @@
               <input type="radio" class="form-check-input" name="optionsRadios11"  value="No" >
               &nbsp; No </label>
           </div>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-11.1" data-pnode="treetable-parent-11" class="sub" id="sub11-1">
           <td><div style="display:inline-block;" class="indentLine2">11.1. Were there any concerns noted?</div></td>
@@ -646,8 +646,8 @@
               <input type="radio" class="form-check-input" name="optionsRadios11-1" id="optionsRadiosNo2" value="No" >
               &nbsp; No </label>
           </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-11.1.1" data-pnode="treetable-parent-11.1" class="lastSub" id="sub11-1-1">
           <td><div style="display:inline-block;" class="indentLine2">11.1.1. Explanation Required:
@@ -662,8 +662,8 @@
              <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
           </div></td>
-          <td  align="right"><a class="notes bottom" title="" data-placement="left" data-toggle="tooltip" href="#sub11-1-1" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" id="comment11image"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+          <td  align="right"><a class="notes bottom" title="" data-placement="left" data-toggle="tooltip" href="#sub11-1-1" data-original-title="Add Comments"><img src="images/commentDisabled.gif" height="20" width="20" id="comment11image"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 <!--- ROW 12 ---->    
@@ -677,8 +677,8 @@
                 </label>
               
               </div>
-            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+            <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
    <tr data-node="treetable-12.1" data-pnode="treetable-parent-12" class="sub" id="12sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1. Involvement of Human Subjects changed from last year?</div> </td>
@@ -689,8 +689,8 @@
          <input type="radio" class="form-check-input" name="optionsRadios12-1" id="optionsRadiosNo4" value="No" >
          &nbsp; No </label>
      </div></td>
- <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-     <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+ <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+     <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
    </tr>
    <tr data-node="treetable-12.1.1" data-pnode="treetable-parent-12.1" class="sub" id="12-1-1sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1.1. Change(s) within scope of current objectives and approved?<br/><div class="instructions"> (If not in scope or not approved, explanation required.)</div></div></td>
@@ -704,8 +704,8 @@
          
          </select>
      </span></td>
-      <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-     <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+      <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+     <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
    </tr>
    <tr data-node="treetable-12.1.1.1" data-pnode="treetable-parent-12.1.1" class="lastSub" id="12-1-1-1sub">
      <td><div style="display:inline-block;" class="indentLine2">12.1.1.1. Explanation Required:</div></td>
@@ -713,8 +713,8 @@
         <textarea class="exampleTextarea form-control" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
      </div></td>
-      <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-     <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+      <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+     <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
    </tr>
 
         <tr data-node="treetable-12.2" data-pnode="treetable-parent-12" class="sub" id="sub12-2">
@@ -727,8 +727,8 @@
                 </label>
               
             </div></td>
-             <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+             <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1" data-pnode="treetable-parent-12.2" class="sub" id="sub12-2-1">
           <td><div style="display:inline-block;" class="indentLine2">12.2.1 Exemption Number:</div></td>
@@ -743,8 +743,8 @@
               <option>E1</option>
             </select>
           </span></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1.1" data-pnode="treetable-parent-12.2.1" class="sub" id="sub12-2-1-1">
           <td><div style="display:inline-block;" class="indentLine2">12.2.1.1. All sites (grantee and all performance sites engaged in research involving human subjects) have an OHRP-approved assurance of compliance?<br/><div class="instructions">
@@ -757,8 +757,8 @@
                 </label>
               
             </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1.1.1" data-pnode="treetable-parent-12.2.1.1" class="lastSub" id="sub12-2-1-1-1">
           <td><div style="display:inline-block;" class="indentLine2" id="12-2-1-1-1">12.2.1.1.1. Name of site(s) needing assurance:</div></td>
@@ -766,8 +766,8 @@
              <textarea class="exampleTextarea form-control" id="Textarea12-2-1-1-1" rows="3"></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Response is required</div>
           </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1.1.2" data-pnode="treetable-parent-12.2.1.1" class="lastSub" id="sub12-2-1-1-2">
           <td><div style="display:inline-block;" class="indentLine2" id="12-2-1-1-2">12.2.1.1.2. Is the project viable if the site(s) does not receive assurance? <br/>
@@ -780,8 +780,8 @@
                 </label><div style="display:none;" class="warning1">Answer is required</div>
               
             </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.1.1.3" data-pnode="treetable-parent-12.2.1.1" class="lastSub" id="sub12-2-1-1-3">
           <td><div style="display:inline-block;" class="indentLine2" id="12-2-1-1-3">12.2.1.1.3. Date PI referred to OHRP website</div></td>
@@ -791,8 +791,8 @@
         <span class="glyphicon glyphicon-th"></span>
     </div>
 </div><div style="display:none;" class="warning1">Date is required</div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.2" data-pnode="treetable-parent-12.2" class="lastsub" id="sub12-2-2">
           <td><div style="display:inline-block;" class="indentLine2">12.2.2. Is gender and minority recruitment/retention appropriate and on schedule?<br/><div class="instructions"> <a href="http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf" target="_blank">Sex Gender Workbook (PDF)</a></div></div></td>
@@ -805,8 +805,8 @@
             
             </select>
           </span></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.3" data-pnode="treetable-parent-12.2" class="sub" id="sub12-2-3">
           <td><div style="display:inline-block;" class="indentLine2">12.2.3. Is/are new IDR's required since the last award?<br/><div class="instructions">
@@ -819,8 +819,8 @@
                 </label>
               
             </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
                 <tr data-node="treetable-12.2.3.1" data-pnode="treetable-parent-12.2.3" class="sub" id="sub12-2-3-1" >
           <td><div style="display:inline-block;" class="indentLine2">12.2.3.1.    
@@ -833,8 +833,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.3.1.1" data-pnode="treetable-parent-12.2.3.1" class="lastSub">
           <td><div style="display:inline-block;" class="indentLine2">12.2.3.1.1. Required attributes set for all available IDR's?</div></td>
@@ -846,8 +846,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.4" data-pnode="treetable-parent-12.2" class="lastSub" id="sub12-2-4">
           <td><div style="display:inline-block;" class="indentLine2">12.2.4. Research candidate for Certificate of Confidentiality?<br/><div class="instructions">
@@ -860,8 +860,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         <tr data-node="treetable-12.2.5" data-pnode="treetable-parent-12.2" class="lastSub" id="sub12-2-5">
           <td><div style="display:inline-block;" class="indentLine2">12.2.5. Does the award support a Phase I/Phase II or a Phase III low-risk behavioral or nutritional trial?<br/> <div class="instructions"><a href="http://odoerdb2-1.od.nih.gov/oer/training/esa/sex_gender/sex_gender_workbook.pdf" target="_blank"></a></div></div></td>
@@ -873,8 +873,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-12.2.6" data-pnode="treetable-parent-12.2" class="sub" id="sub12-2-6">
@@ -887,8 +887,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-             <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+             <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-12.2.6.1" data-pnode="treetable-parent-12.2.6" class="sub" id="sub12-2-6-1">
@@ -901,8 +901,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-             <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+             <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
         <tr data-node="treetable-12.2.6.1.1" data-pnode="treetable-parent-12.2.6.1" class="lastSub" id="sub12-2-6-1-1">
@@ -914,8 +914,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
                 </label>
               
             </div></td>
-             <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>  
-            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+             <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20"></a></td>  
+            <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
 
 
@@ -940,8 +940,8 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
           </div>
          
           </div>
-           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review/Test Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
-          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review/Test Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
+           <td  align="right" id="comms"><a href="#" class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled"><img src="images/commentDisabled.gif" height="20" width="20" id="comment1image"></a></td>
+          <td width="31" id="attachs" align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachments is Disabled in Review Mode"><img src="images/Noattachment.gif" height="20" width="20"></a></td>
         </tr>
         
 
@@ -951,7 +951,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
 
 <div style="float:left; margin-bottom: 15px; margin-left: 5px;">
 <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
-                                                 <button type="button" class="btn btn-default allNotes">View All Comments</button> 
+                                                 <button type="button" class="btn btn-default  disabled" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Comments for Review Mode are Disabled">View All Comments</button> 
                                                  <button type="button" class="btn btn-default" id="print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
                                                     
              
