@@ -1,4 +1,14 @@
 
+$( window ).load(function() {
+
+  var now2 = moment().format("MM/DD/YYYY");
+     // Saturday, June 9th, 2007, 5:46:21 PM
+$('.sentBack').append(now2);
+
+
+});
+
+
 //check all function
 $(document).ready(function(){
 
@@ -40,6 +50,15 @@ $(document).ready(function(){
  });
 
     
+
+ //email function 
+
+ $(".mail").click(function(){
+  var now = moment().format("MM/DD/YYYY");
+     // Saturday, June 9th, 2007, 5:46:21 PM
+$('.sent').append(now);
+});
+
 
 
   function closeWindow() { 
