@@ -1,8 +1,9 @@
 $(document).ready(function(){
-    $(".chosen-select").chosen();
+    $(".chosen-select").chosen(); // calles chosen plugin that is for the multiselect drop downs 
    
 
-  $( ".no-sort" ).removeClass( ".sorting" );
+// All related to Data Tables plugin //
+  $( ".no-sort" ).removeClass( ".sorting" );  
 
 var table = $('#example').dataTable( {
 
@@ -22,14 +23,13 @@ var table = $('#example').dataTable( {
    
        columnDefs: [
          { targets: ['status'], type: 'alt-string'},
- 
          { targets: 'no-sort', orderable: false }] 
 
 
 
     } );
 
-
+// For ability to paste into Grant Number box  -- I still need to add the regular expression to check the pattern //
 
     var $inputs = $("#GrantNumber input"); // grab inputs from grant number input boxes //
     maxlengthArray = []; // array to store max lengths of all input boxes in grant row //
@@ -75,11 +75,24 @@ var table = $('#example').dataTable( {
     });
 
 
-      
+  // alllows for tooltips //     
 
-$('[data-toggle="tooltip"]').tooltip();   
+$('[data-toggle="tooltip"]').tooltip();  
+
+// after search results are displayed -- jumps down to results //
+
+  $("#search-btn").on( "click", function() {
+  
+        $("#spSearch").attr('style', 'display: block'); // this line is specific for demo -- deltete once you get search working //
+        $("body, html").animate({ 
+        scrollTop: $("#searchResults").offset().top -30
+    }, 600);
+ 
+});
 
 
+
+// These functions are specific for the demo and you will not need any of these once you get the pages working //
 
  $("#editButton").click(function(){
   
@@ -116,29 +129,9 @@ $('[data-toggle="tooltip"]').tooltip();
 
 
 
-  $('.panel-heading span.clickable').click (function(){
-    var $this = $(this);
-  if(!$this.hasClass('panel-collapsed')) {
-    $this.parents('.panel').find('.panel-body').slideUp();
-
-    $this.addClass('panel-collapsed');
-    $this.find('i').removeClass('fa-minus-circle').addClass('fa-plus-circle');
-  } else {
-    $this.parents('.panel').find('.panel-body').slideDown();
-    $this.removeClass('panel-collapsed');
-    $this.find('i').removeClass('fa-plus-circle').addClass('fa-minus-circle');
-  }
-});
 
 
-  $("#search-btn").on( "click", function() {
-  
-        $("#spSearch").attr('style', 'display: block');
-        $("body, html").animate({ 
-        scrollTop: $("#searchResults").offset().top -30
-    }, 600);
- 
-});
+
 
  });  
 
