@@ -5818,6 +5818,7 @@ Requirements/Presentations/specialist[!!-~]demo/stylesheets/non-responsive.css -
 Requirements/Presentations/specialist[!!-~]demo/stylesheets/styles.css -text
 Requirements/Presentations/specialist[!!-~]demo/validator.js -text
 Requirements/Presentations/specialist[!!-~]demo/~$ep[!!-~]for[!!-~]UI[!!-~]meeting[!!-~]with[!!-~]OGA.docx -text
+Requirements/Presentations/template/controllers/specialistcontroller.js -text
 Requirements/Presentations/template/fonts/FontAwesome.otf -text
 Requirements/Presentations/template/fonts/fontawesome-webfont.eot -text
 Requirements/Presentations/template/fonts/fontawesome-webfont.svg -text
@@ -5842,6 +5843,7 @@ Requirements/Presentations/template/images/asterisk.gif -text
 Requirements/Presentations/template/images/attachment.gif -text
 Requirements/Presentations/template/images/attachments.gif -text
 Requirements/Presentations/template/images/background-I2E-v1.png -text
+Requirements/Presentations/template/images/chosen-sprite@2x.png -text
 Requirements/Presentations/template/images/comment.gif -text
 Requirements/Presentations/template/images/lock.psd -text
 Requirements/Presentations/template/images/locked.gif -text
@@ -5939,6 +5941,8 @@ Requirements/Presentations/template/stylesheets/bootstrapValidator.css -text
 Requirements/Presentations/template/stylesheets/buttons.dataTables.min.css -text
 Requirements/Presentations/template/stylesheets/buttons.foundation.css -text
 Requirements/Presentations/template/stylesheets/buttons.jqueryui.css -text
+Requirements/Presentations/template/stylesheets/chosen-sprite.png -text
+Requirements/Presentations/template/stylesheets/chosen-sprite@2x.png -text
 Requirements/Presentations/template/stylesheets/chosen.css -text
 Requirements/Presentations/template/stylesheets/custom.css -text
 Requirements/Presentations/template/stylesheets/dataTables.bootstrap.css -text

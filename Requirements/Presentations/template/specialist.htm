@@ -5,35 +5,36 @@
 	<title>Greensheets</title>
 	<script src="scripts/jquery-1.12.3.min.js"></script>
     <script src="scripts/jquery-1.12.4.js"></script>
-	<script src="scripts/bootstrap-3.3.6.min.js"></script><!--main Bootstrap file -->
-	<script src="scripts/bootbox-4.4.0.min.js"></script> <!--for modals on GS page -- >
-	<script src="scripts/bootstrap-datepicker.js"></script> <!--for calendar on GS page -- >
-	<script src="scripts/bootstrapValidator.js"></script> <!--for validation on GS page -- >
+	<script src="scripts/bootstrap-3.3.6.min.js"></script><!-- main Bootstrap file -->
+	<script src="scripts/bootbox-4.4.0.min.js"></script> <!-- for modals on GS page -->
+	<script src="scripts/bootstrap-datepicker.js"></script> <!-- for calendar on GS page -->
+	<script src="scripts/bootstrapValidator.js"></script> <!-- for validation on GS page -->
 
 	
 
-	<script src="dist/chosen.jquery.js"></script> <!--for dropdown pick list on GS search pages -- >
-	
-
-	<script src="scripts/theme.js"></script> <!--contains back to top buttton applied to all pages -- >
+	<script src="scripts/chosen.jquery.js"></script> <!-- for dropdown pick list on GS search pages -->
+	<script src="scripts/theme.js"></script> <!-- contains back to top buttton applied to all pages -->
+    <script src="controllers/specialistcontroller.js"></script> <!-- contains js actions specific to the specialist search page -->
+	 
 	
 	<!-- all for datatables displayed on Search pages -->
 	<script src="scripts/jquery.dataTables.min.js"></script>
 	<script src="scripts/dataTables.bootstrap.min.js"></script>
-
-	<script src="scripts/alt-dtables.js"></script>
+    <script src="scripts/alt-dtables.js"></script>
 	
-	<link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen">
-	<link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen"> <!--main Bootstrap CSS file -->
-	<link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">  <!--for validation on GS page -- >
-	<link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen"><!--for calendar on GS page -- >
+	
+		<link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen"> <!-- main Bootstrap CSS file -->
+	<link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">  <!-- for validation on GS page -->
+	<link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen"><!-- for calendar on GS page -->
+
 	<link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen"> <!-- for icons applied to all pages -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,700,700italic,900,900italic,400italic" rel="stylesheet" type="text/css">
 	
-	<link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen"> <!--applies Bootstrap style to dataTables -->
+	<link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen"> <!-- applies Bootstrap style to dataTables -->
 	<link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
-
-	<link href="stylesheets/css/chosen.css" rel="stylesheet" type="text/css" media="screen"> <!--for dropdown pick list on GS search pages -- >
+	
+    
+	<link href="stylesheets/chosen.css" rel="stylesheet" type="text/css" media="screen"> <!-- for dropdown pick list on GS search pages -->
 </head>
 <body>
 	<!-- Header -->
@@ -71,24 +72,485 @@
 				<br/>
 		<!-- Begin Panel -->
 		<div class="panel panel-default" >
-			
-			<div class="panel-heading">		
-				<div class="pheader" style="display:inline;"><h4>Sample Page</h4></div>		
-			</div><!--end panel header-->
-				
-				<div class="panel-body">
-						<p><strong>Example text just so you can see the scroll to top button when the page is long enough.
-							Code for that is in the footer section of the CSS file and the js is in the theme.js file.</strong><p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id urna eu velit ultricies facilisis. Aliquam erat volutpat. Vivamus vel elit posuere, mattis risus sit amet, euismod nisl. In vulputate ligula at ex scelerisque laoreet. Phasellus rutrum bibendum hendrerit. Nam at dui commodo leo luctus condimentum ac et ipsum. Maecenas nec mauris vitae tellus vehicula vehicula. Suspendisse tincidunt risus ac lacus pharetra rhoncus.</p>
-								
-				</div><!--end panel body-->
-		</div><!--end panel -->
+
+    <div class="panel-heading">
+        
+        <div class="pheader" style="display:inline;"><h4>Search Criteria</h4></div>
+        
+          
+        
+          
+      </div>
+
+      <!--end panel header-->
+    <div class="panel-body">
+<div class="form-group row" style="margin-top: 0px; margin-bottom: 10px;">
+<div id="GrantNumber">
+   <label style="display:block; margin-left: 15px; margin-bottom: -5px;">
+                Grant Number 
+                </label>
+           <div class="col-xs-4 form-group" style="margin-top: 10px;">
+        <div style="display:inline-block;">
+
+          <label class="grant-label" style="margin-left: 0px;" for="Type">
+                Type
+                </label>
+          <input  maxlength="1" value=""  class="form-grant" type="text" style="width: 22px;" id="Type">
+        </div>
+             <div style="display:inline-block;">
+
+          <label class="grant-label" for="Mech">
+                Mech
+                </label>
+          <input  maxlength="3" value=""  class="form-grant" type="text" style="width: 40px;" id="Mech">
+        </div>
+        <div style="display:inline-block;">
+
+          <label class="grant-label" for="IC">
+                IC
+                </label>
+          <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 36px;" id="IC">
+        </div>
+          <div style="display:inline-block;">
+
+          <label class="grant-label" for="Serial">
+                Serial #
+                </label>
+          <input  maxlength="6" value=""  class="form-grant" type="text" style="width: 60px;" id="Serial">
+          
+        </div> 
+        <div style="display:inline-block;">
+
+          <label class="grant-label" style="margin-left: 0px;">
+               &nbsp;
+                </label>
+          -&nbsp;
+        </div>   
+               <div style="display:inline-block;">
+
+          <label class="grant-label" for="Year">
+                Year
+                </label>
+          <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 30px;" id="Year">
+        </div>
+       <div style="display:inline-block;">
+
+          <label class="grant-label" for="Suffix">
+                Suffix
+                </label>
+          <input  maxlength="4" value=""  class="form-grant" type="text" style="width: 55px;" id="Suffix">
+        </div>
+        <div style="display:inline-block;">
+          &nbsp;Ex: 5R01CA193829-03A1
+        </div>
+      </div>
+    </div>
+            
+
+
+
+      <div class="col-xs-4">
+          <label for="CancerActivity">Cancer Activity(ies):</label>
+          <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Cancer Activity(ies)" id="mech" for="CancerActivity">
+          <option value=""></option>
+                             <option value="">AC</option>
+                            <option value="">AI</option>
+                            <option value="">AM</option>
+                            <option value="">AR</option>
+
+                             <option value="">BB</option>
+                             <option value="">BC</option>
+                             <option value="">BD</option>
+                              <option value="">BE</option>
+                             <option value="">BG</option>
+                            <option value="">BH</option>
+                            <option value="">BI</option>
+                            <option value="">BP</option>
+                            <option value="">BR</option>
+                            <option value="">BS</option>
+                            <option value="">BT</option>
+
+
+                            <option value="">CB</option>
+                            <option value="">CD</option>
+                             <option value="">CE</option>
+                            <option value="">CG</option>
+                             <option value="">CH</option>
+                             <option value="">CI</option>
+                              <option value="">CL</option>
+                                <option value="">CM</option>
+                                <option value="">CR</option>
+                               <option value="">CT</option>
+                             
+                             <option value="">DC</option>
+                              <option value="">DF</option>
+                             <option value=""> DI</option>
+                            <option value="">DR</option>
+
+                           
+                            <option value="">ED</option>
+                            <option value="">EF</option>
+                            <option value="">EM</option>
+                             <option value="">EP</option>
+                             <option value="">ER</option>
+                             <option value="">ET</option>
+                             
+                              <option value="">GH</option>
+                               <option value="">GN</option>
+
+                                <option value="">HE</option>
+                                <option value="">HP</option>
+
+                                 <option value="">IM</option>
+
+                                  <option value="">NC</option>
+                                 <option value="">NP</option>
+                                  <option value="">NT</option>
+                           
+                           <option value="">MB</option>
+                            <option value="">MD</option>
+
+                            <option value="">OS</option>
+                            <option value="">OR</option>
+
+                             <option value="">PC</option>
+                            <option value="">PO</option>
+
+                              <option value="">RA</option>
+                            <option value="">RD</option>
+                             <option value="">RF</option>
+                                
+
+                            <option value="">SB</option>
+                              <option value="">SC</option>
+                            <option value="">SD</option>
+                              <option value="">SO</option>
+                              <option value="">ST</option>
+                            
+                            
+                            <option value="">SU</option>
+                           
+                            <option value="">TB</option> 
+                           <option value="">TD</option> 
+                          
+                            <option value="">TC</option>
+                             <option value="">TM</option>
+                             <option value="">TR</option>
+
+                            <option value="">TS</option>
+                          
+          </select><br/>
+
+
+
+          
+        </div>
+                 
+    <div class="col-xs-2" >
+          <label for="selectFrom" for="FiscalYear">Fiscal Year:</label> 
+          <select  class="c-select form-control" for="FiscalYear">
+       <option value="2017">2017</option>
+    <option value="2018">2018</option>
+ 
+    <option value="2016">2016</option>
+     <option value="2015">2015</option>
+      <option value="2014">2014</option>
+       <option value="2013">2013</option>
+        <option value="2012">2012</option>
+         <option value="2011">2011</option>
+          <option value="2010">2010</option>
+           <option value="2009">2009</option>
+           <option value="2008">2008</option>
+           <option value="2007">2007</option>
+           <option value="2006">2006</option>
+           <option value="2005">2005</option>
+           <option value="2009">2004</option>
+</select>
+       </div>
+    </div>
+
+
+
+
+    <div class="form-group row" style="margin-top: 10px;">
+
+              <div class="col-xs-4">
+
+          <label class="form-check-label" for="PIName">
+                PI Name 
+                </label>
+          <input  maxlength="120" value="" id="PIName" class="form-control" type="text" placeholder="Enter PI Name">
+        </div>
+
+        <div class="col-xs-4">
+
+          <label class="form-check-label" for="PDName">
+                PD Name 
+                </label>
+          <input  maxlength="120" value="" id="PDName" class="form-control" type="text" placeholder="Enter PD Name">
+        </div>
+
+       <div class="col-xs-4 searchButton2" id="searchDiv" >
+        
+        <button type="button" class="btn btn-primary has-spinner" id="search-btn" value="Search">Search</button>
+        
+        <input id="search-form_navigateToSearch" value="Clear" onClick="window.location.reload()"  class="btn btn-default" type="submit">
+    </div>
+   
+
+</div>
+
+      
+     
+
+        
+</form>  <!--end form group-->
+    
+  
+
+</div><!--end panel body-->
+
+
+  
+    
+  </div><!--end panel-->
 							
 							<br/>
-	</div><!--end body content -->
-					
+	
+	
+	<!-- Begin Search Results -->
+
+
+	<div id="searchResults"></div>
+<div id="spSearch" style="display:none;">
+       <!-- <div class="pheader"><h4>Search Results</h4></div> -->
+      <a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true" alt="Export Results"></span> Export Results</a>
+      <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th rowspan="2" style="white-space: nowrap;" scope="col">Grant Number</th>
+                <th rowspan="2" width="2%" scope="col">CA</th>
+                <th rowspan="2" width="2%" scope="col">Budget<br/>Start Date</th> 
+                <th width="10%" rowspan="2" scope="col">PD</th>
+                <th width="10%" rowspan="2" scope="col">PI</th>
+                <th width="10%" rowspan="2" scope="col">Specialist</th>
+                <th colspan="3" style="text-align:center;" scope="col">Program</th>
+                
+                <th colspan="3" style="text-align:center;" scope="col">Specialist</th>
+            </tr>
+            <tr>
+              <th class="no-sort secondH" scope="col">GS</th>
+              <th class="secondH" scope="col">GS<br/>Status</th>
+              <th width="3%" class="secondH sort" scope="col">Submitted<br/>Date</th>
+              <th class="no-sort secondH" scope="col">GS</th>
+              <th class="secondH" scope="col">GS<br/>Status</th>
+              <th width="3%" class="secondH" scope="col">Submitted<br/>Date</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+           <tr>
+                <td><a href="#">5R01CA195654-04</a></td>
+                <td>TB</td>
+                <td>01/01/2017</td>
+                
+
+                <td style="white-space:nowrap;"><a href="mailto:">Greene, Jack</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:smithm@mail.nih.gov">Smith, Meghan</a></td>
+                 <td style="white-space:nowrap;"><a href="mailto:">Haddad, Jennifer</a></td>
+                <td><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></td>
+                <td><span class="saved">Saved</span></td>
+                 <td></td>
+                <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td><a href="#">5R01CA193829-03</a></td>
+                <td>TB</td>
+                <td>12/01/2017</td>
+                <td><a href="mailto:">Sathyamoorthy, Neeraja</a></td>
+                
+                <td><a href="mailto:">Smith, Gary</a></td>
+                 <td><a href="mailto:">Edwards, Jennifer</a></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td>Not Started</td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td>Not Started</td>
+                   <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">5F31CA213985-02</a></td>
+                <td>MB</td>
+                <td>09/30/2017</td>
+                <td><a href="mailto:">McNeil, Nicole</a></td>
+                
+                <td><a href="mailto:">Smith, Aleisha</a></td>
+                <td><a href="mailto:">Parker, Teresa</a></td>
+                <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true" alt="Not Required" height="18" border="0" width="15" data-toggle="tooltip" data-original-title="Greensheet is not required for this grant for one of the following reasons: 1) reason xyz; 2) reason abc; or 3) reason 123." data-placement="right"></i></a></td>
+                <td></td>
+                 <td></td>
+                <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true" alt="Not Required" height="18" border="0" width="15" data-toggle="tooltip" data-original-title="Greensheet is not required for this grant for one of the following reasons: 1) reason xyz; 2) reason abc; or 3) reason 123." data-placement="right"></i></a></td>
+                <td></td>
+                   <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">1R03CA212935-01</a></td>
+                <td>NC</td>
+                <td>12/01/2017</td>
+                <td><a href="mailto:">Carruthers, Renee</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Roberto</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Edwards, Jennifer</a></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td>Not Started</td>
+                   <td></td>
+            <tr>
+                <td><a href="#">5R01CA193829-03A1</a></td>
+                <td>TB</td>
+                <td>12/01/2017</td>
+                <td><a href="mailto:">Sathyamoorthy, Neeraja</a></td>
+                
+                <td><a href="mailto:">Smith, Gary</a></td>
+                <td><a href="mailto:">Murphy, Connie</a> </td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="frozen">Frozen</span></td>
+                 
+                 <td>10/05/2016</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="frozen">Frozen</span></td>
+                   <td>10/05/2016</td>
+            </tr>
+            <tr>
+                <td><a href="#">1R50CA211428-01</a></td>
+                <td>DC</td>
+                <td>09/30/2017</td>
+                <td style="white-space:nowrap;"><a href="mailto:">Sharman, Anu</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Edwin</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Williams, Ted</a></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+            
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                   <td></td>
+            </tr>
+
+             <tr>
+                <td><a href="#">4F31CA174316-05</a></td>
+                <td>MB</td>
+                <td>09/12/2016</td>
+                <td style="white-space:nowrap;"><a href="mailto:">McNeil, Nicole</a></td>
+                
+                <td style="white-space:nowrap;"> <a href="mailto:">Smith, Iris</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Brown, Linda</a></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="frozen">Frozen</span></td>
+                 
+                 <td>11/10/2016</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="frozen">Frozen</span></td>
+                   <td>11/10/2016</td>
+            </tr>
+            <tr>
+                <td><a href="#">4K24CA121990-10</a></td>
+                <td>TR</td>
+                <td>08/01/2016</td>
+                <td style="white-space:nowrap;"><a href="mailto:">Radaev, Sergey</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, David</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Williams, Ted</a></td>
+                <td><a href="programGS-guest-submitted.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
+                <td><span class="Submitted">Submitted</span></td>
+                 <td>05/20/2016</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
+                 <td><span class="Submitted">Submitted</span></td>
+                    <td>05/05/2016</td>
+            </tr>
+            <tr>
+                <td><a href="#">4R01CA116352-10</a></td>
+                <td>DC</td>
+                <td>07/01/2017</td>
+                <td style="white-space:nowrap;"><a href="mailto:">Witkin, Keren</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Bethany</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Fisher, Barbara</a></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                 <td><span class="saved">Saved</span></td>
+                    <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">4R01CA116352-10</a></td>
+                <td>DC</td>
+                <td>06/01/2017</td>
+                <td style="white-space:nowrap;"><a href="mailto:">Witkin, Keren</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Bethany</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Linde, Emily</a></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                 <td><span class="saved">Saved</span></td>
+                    <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">1R01CA212138-01</a></td>
+                <td>DI</td>
+                <td>09/01/2017</td>
+                <td style="white-space:nowrap;"><a href="mailto:">Henderson, Lori</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Barbara</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Dunne, Debbie</a></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                <td><span class="saved">Saved</span></td>
+                 
+                 <td></td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+                  <td><span class="saved">Saved</span></td>
+                     <td></td>
+            </tr>
+
+            <tr>
+                <td><a href="#">4R01CA116352-10</a></td>
+                <td>RA</td>
+                <td>05/01/2016</td>
+                <td><a href="mailto:">Nguyen, Long</a></td>
+                
+                <td style="white-space:nowrap;"><a href="mailto:">Smith, Jacek</a></td>
+                <td style="white-space:nowrap;"><a href="mailto:">Linde, Emily</a></td>
+                <td style="white-space:nowrap;"><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
+                <td><span class="Submitted">Submitted</span></td>
+                 
+                 <td>09/13/2016</td>
+                <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
+                  <td><span class="Submitted">Submitted</span></td>
+                     <td>10/10/2016</td>
+            </tr>
+
+       
+        </tbody>
+    </table>  
+      <a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true" alt="Export Results"></span> Export Results</a>
+    <p>&nbsp;</p> 
+      
+
+	</div> <!-- end search results -->
+</div><!--end body content -->
 </div> <!-- end wrap -->
 					
 					
