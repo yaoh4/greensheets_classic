@@ -211,7 +211,7 @@ public class GreensheetFormMgrTestImpl implements GreensheetFormMgr {
 	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#changeLock(GreensheetFormProxy,
 	 *      GsUser)
 	 */
-	public void changeLock(GreensheetFormProxy form, GsUser user)
+	public boolean changeLock(GreensheetFormProxy form, GsUser user)
 			throws GreensheetBaseException {
 		// if (form.getStatus().equals(GreensheetStatus.SUBMITTED)) {
 		// form.setStatus(GreensheetStatus.UNLOCKED);
@@ -220,6 +220,7 @@ public class GreensheetFormMgrTestImpl implements GreensheetFormMgr {
 		// } else {
 		// throw new GreensheetBaseException("error.changelock");
 		// }
+		return true;
 	}
 
 	/**

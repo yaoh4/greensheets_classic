@@ -214,6 +214,7 @@ public class GSFormsDAOImpl implements GSFormsDAO {
             rModules.add(new FormModules(null, null, "Program Non Competing", "Program Non Competing", false, false, new HashSet<FormTemplates>()));
             rModules.add(new FormModules(null, null, "Specialist Competing",  "Specialist Competing", false, false, new HashSet<FormTemplates>()));
             rModules.add(new FormModules(null, null, "Specialist Non Competing", "Specialist Non Competing", false, false, new HashSet<FormTemplates>()));
+            rModules.add(new FormModules(null, null, "Revision", "Revision", false, false, new HashSet<FormTemplates>()));
 
             for (FormModules m : rModules) {
                 session.persist(m);

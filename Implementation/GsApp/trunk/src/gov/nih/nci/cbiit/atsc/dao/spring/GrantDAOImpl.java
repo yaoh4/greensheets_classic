@@ -1,5 +1,8 @@
 package gov.nih.nci.cbiit.atsc.dao.spring;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -14,6 +17,10 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import gov.nih.nci.cbiit.atsc.dao.GrantDAO;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
+import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
+import gov.nih.nci.iscs.numsix.greensheets.utils.DbConnectionHelper;
 
 public class GrantDAOImpl implements GrantDAO {
 	private static final Logger logger = Logger.getLogger(GrantDAOImpl.class);
@@ -134,8 +141,8 @@ public class GrantDAOImpl implements GrantDAO {
 
 		return formGrantsList;
 	}
-
-	public String replaceLast(String original, String target, String replacement) {
+	
+	 public String replaceLast(String original, String target, String replacement) {
 
 		int index = original.lastIndexOf(target);
 
@@ -191,6 +198,125 @@ public class GrantDAOImpl implements GrantDAO {
 
 		return formGrantsList;
 	}
+
+    public FormGrantProxy findGSGrantInfo(Long actionId, Long applId, String formRoleCode, GsUser userId) {
+	
+		String completeQuery = "SELECT DISTINCT pgi.full_grant_num,"
+				+ "  pgi.appl_id,"
+				+ "  pgi.first_name pi_first_name,"
+				+ "  pgi.last_name pi_last_name,"
+				+ "  pd_npn.last_name pd_last_name,"
+				+ "  pd_npn.first_name pd_first_name,"
+				+ "  pd_npe.role_usage_code pd_code,"
+				+ "  pspec_npn.first_name pspec_first_name,"
+				+ "  pspec_npn.last_name pspec_last_name,"
+				+ "  bspec_npn.first_name bspec_first_name,"
+				+ "  bspec_npn.last_name bspec_last_name,"
+				+ "  pspec_npe.role_usage_code specialist_code,"
+				+ "  pgi.org_name,"
+				+ "  agt.ID action_id,"
+				+ "  CASE"
+				+ "    WHEN agt.ID IS NOT NULL"
+				+ "    THEN 'Y'"
+				+ "    ELSE 'N'"
+				+ "  END on_control_flag,"
+				+ "  pgi.activity_code,"
+				+ "  pgi.appl_type_code,"
+				+ "  aca.cay_code "
+				+ "FROM pv_grant_pi_t1 pgi,"
+				+ "  appl_gm_actions_t agt,"
+				+ "  forms_t frm,"
+				+ "  appl_forms_t afr,"
+				+ "  application_pds_t apd,"
+				+ "  appl_cancer_activities_t aca,"				
+				+ "  nci_people_t pd_npn,"
+				+ "  nci_person_org_roles_t pd_npe,"
+				+ "  nci_people_t pspec_npn,"
+				+ "  nci_person_org_roles_t pspec_npe,"
+				+ "  nci_people_t bspec_npn,"
+				+ "  nci_person_org_roles_t bspec_npe "
+				+ "WHERE afr.frm_id       = frm.ID(+)"				
+				+ "AND pgi.appl_id        = afr.appl_id(+) "
+				+ "AND pgi.appl_id        = agt.appl_id(+) "
+				+ "AND pgi.full_grant_num = agt.expected_grant_num(+) "
+				+ "AND pgi.appl_id        = apd.appl_id "
+				+ "AND apd.end_date IS NULL "				
+				+ "AND apd.npe_id         = pd_npe.ID "
+				+ "AND pd_npe.epn_id      = pd_npn.ID "
+				+ "AND agt.spec_npe_id    = pspec_npe.ID(+) "
+				+ "AND pspec_npe.epn_id   = pspec_npn.ID(+) "
+				+ "AND agt.spec_npe_id    = bspec_npe.ID(+) "
+				+ "AND bspec_npe.epn_id   = bspec_npn.ID(+) "
+				+ "AND pgi.appl_id = aca.appl_id "
+				+ "AND aca.end_date IS NULL ";
+		
+		if(actionId != null) {
+			completeQuery += "AND agt.ID = :actionId";
+		} else if(applId != null) {
+			completeQuery += "AND pgi.appl_id = :applId";
+		}
+
+		logger.debug("SQL: " + completeQuery);
+		Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        FormGrantProxy grantProxy = new FormGrantProxy(userId);
+        try{            
+            conn = DbConnectionHelper.getInstance().getConnection();
+            stmt = conn.prepareStatement(completeQuery);            
+            if(actionId != null) {
+            	logger.debug("actionId: " + actionId);
+            	stmt.setLong(1, actionId);
+    		} else if(applId != null) {
+            	logger.debug("applId: " + applId);
+            	stmt.setLong(1, applId);
+    		}
+            rs = stmt.executeQuery();
+            if (rs.next()) {            	
+            	grantProxy.setApplId(rs.getLong("APPL_ID"));
+            	grantProxy.setFullGrantNum(rs.getString("FULL_GRANT_NUM"));
+            	grantProxy.setPiLastName(rs.getString("PI_LAST_NAME"));
+            	grantProxy.setPiFirstName(rs.getString("PI_FIRST_NAME"));
+            	grantProxy.setPdLastName(rs.getString("PD_LAST_NAME"));
+            	grantProxy.setGmsFirstName(rs.getString("PSPEC_first_name"));
+            	grantProxy.setGmsLastName(rs.getString("PSPEC_LAST_NAME"));
+            	grantProxy.setBkupGmsFirstName(rs.getString("BSPEC_FIRST_NAME"));
+            	grantProxy.setBkupGmsLastName(rs.getString("BSPEC_LAST_NAME"));
+            	grantProxy.setPdFirstName(rs.getString("PD_FIRST_NAME"));
+            	grantProxy.setOrgName(rs.getString("ORG_NAME"));
+            	grantProxy.setRoleUsageCode(rs.getString("PD_CODE"));
+            	grantProxy.setGmsCode(rs.getString("SPECIALIST_CODE"));	
+            	grantProxy.setActionId(rs.getLong("ACTION_ID"));     
+            	grantProxy.setOnControl(rs.getString("ON_CONTROL_FLAG"));
+            	grantProxy.setCayCode(rs.getString("CAY_CODE"));
+            	if(formRoleCode.equals(Constants.REVISION_TYPE)) {
+                    grantProxy.setApplTypeCode("0");
+            		grantProxy.setActivityCode("000");		
+            	} else {
+            		grantProxy.setApplTypeCode(rs.getString("APPL_TYPE_CODE"));
+            		grantProxy.setActivityCode(rs.getString("ACTIVITY_CODE"));
+            	}
+        	}
+        } catch (Throwable ex) {
+            logger.error("Error occurred while retrieving grant info for GPMATS action ID: " + actionId);         
+        }
+        finally {
+            try{
+            if (rs != null) {
+                rs.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            DbConnectionHelper.getInstance().freeConnection(conn);
+            }catch(Exception e){
+            	logger.error(e.getMessage(), e);
+                e.printStackTrace();
+            }
+        }    
+		
+		return grantProxy;
+    }
 
 	public List findGrantsByPiLastName(String piLastName, String adminPhsOrgCode) {
 		// All grants whose PI Last names start with the user's search text.

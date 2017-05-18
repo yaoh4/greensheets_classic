@@ -258,10 +258,16 @@ public class GsPdfRenderer {
             groupType = "SPECIALIST";
         } else if (form.getGroupType().equals(GreensheetGroupType.DM)) {    //Abdul Latheef: Added for the GPMATS enhancements
             groupType = "DOCUMENT MANAGEMENT";
+        } else if (form.getGroupType().equals(GreensheetGroupType.REV)) {
+            groupType = "REVISION";
         }
 
-        formTitle.addText(groupType + " Greensheet Type:" + grant.getType()
-                + " Mechanism: " + grant.getMech());
+        if(groupType.equals("REVISION")){
+        	formTitle.addText(groupType + " Greensheet");
+        }
+        else {
+        	formTitle.addText(groupType + " Greensheet Type:" + grant.getType()+ " Mechanism: " + grant.getMech());
+        }
 
         Element formType = additionalInfoElm.addElement("FormType");
         formType.addText(groupType);

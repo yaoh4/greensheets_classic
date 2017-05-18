@@ -1,13 +1,5 @@
 package gov.nih.nci.iscs.numsix.greensheets.services;
 
-import gov.nih.nci.cbiit.atsc.dao.GrantDAO;
-import gov.nih.nci.cbiit.atsc.dao.GreensheetFormDAO;
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
-import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
-import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,6 +10,14 @@ import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+
+import gov.nih.nci.cbiit.atsc.dao.GrantDAO;
+import gov.nih.nci.cbiit.atsc.dao.GreensheetFormDAO;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
 public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsService {
 
@@ -129,6 +129,12 @@ public class GreensheetsFormGrantsServiceImpl implements GreensheetsFormGrantsSe
 
         return formGrants;
     }
+    
+    public FormGrantProxy findGSGrantInfo(Long actionId, Long applId, String grantNum, GsUser userId) {
+    	FormGrantProxy formGrantProxy = grantDAO.findGSGrantInfo(actionId, applId, grantNum, userId);
+
+        return formGrantProxy;
+   }
 
     private ArrayList<Calendar> determineBudgetDates(GsUser user) {
     	

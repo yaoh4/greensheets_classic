@@ -18,6 +18,7 @@ import org.apache.struts.action.ActionMapping;
 
 import gov.nih.nci.cbiit.atsc.dao.FormGrant;
 import gov.nih.nci.cbiit.atsc.dao.GreensheetForm;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsNoTemplateDefException;
@@ -27,8 +28,6 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.Greensheet
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
 import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
@@ -75,37 +74,28 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 		String mech = req.getParameter("MECH");
 		String module = req.getParameter("MODULE_NAME");
 
-		//System.out.println("Inside PreviewDraftGreensheetaction.java type is " +type);
-		//System.out.println("Inside PreviewDraftGreensheetaction.java mech is " +mech);
-		//System.out.println("Inside PreviewDraftGreensheetaction.java module is " +module);
 		String moduleName = null;
 		if (module.equalsIgnoreCase("Program Competing")){
 			moduleName = "PGM";
-		}
-		if (module.equalsIgnoreCase("Program Non Competing")){
+		} else if (module.equalsIgnoreCase("Program Non Competing")){
 			moduleName = "PGM";
-		}
-		if (module.equalsIgnoreCase("Specialist Competing")){
+		} else if (module.equalsIgnoreCase("Specialist Competing")){
 			moduleName = "SPEC";
-		}
-		if (module.equalsIgnoreCase("Specialist Non Competing")){
+		} else if (module.equalsIgnoreCase("Specialist Non Competing")){
 			moduleName = "SPEC";
+		} else if (module.equalsIgnoreCase("Revision")){
+			moduleName = Constants.REVISION_TYPE;
 		}
-		//System.out.println("Inside PreviewDraftGreensheetaction.java moduleName is " +moduleName);
-		GreensheetUserSession gus = GreensheetActionHelper
-		.getGreensheetUserSession(req);
+		
+		GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
 		String templateId = processNewQuestionDefsService.getGreensheetDraftTemplateId(type, mech, moduleName);
-		if (templateId !=null){
-			templateId = ("-".concat(templateId));
-		}
 		if (templateId == null) {
-
 			forward = "templatenotfound";
-		}else{
+		} 
+		else {
+			templateId = ("-".concat(templateId));
+			
 			FormGrantProxy grant = this.getGrant(req);
-			//System.out.println("Grant in execute method is " +grant);
-			// GsGrant grant = this.getGrant(req); //Abdul Latheef: Used new
-			// FormGrant instead of the old GsGrant.
 			GreensheetFormProxy gsform = null;
 			try {
 				gsform = this.getForm(req, grant, type, mech, moduleName, templateId);
@@ -115,9 +105,9 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 				req.setAttribute("MISSING_MECH", grant.getActivityCode());
 				return mapping.findForward("templatenotfound");
 			}
-			//System.out.println("Inside execute  method gsForm is  " +gsform);
+
 			if (gsform == null) {
-				//System.out.println("Inside execute  method gsForm is null " );
+				logger.error("Inside execute method gsForm is null.");
 				return mapping.findForward("error");
 			}
 
@@ -125,28 +115,11 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 			req.getSession().setAttribute(
 					GreensheetsKeys.KEY_CURRENT_USER_SESSION, gus);
 			String id = gus.addGreensheetFormSession(gfs);
-			//System.out.println("Inside PreviewDraftGreensheetaction id is " +id);
-			// if (gus == null) {
-			// req.getSession().setAttribute(GreensheetsKeys.USER_NOT_FOUND, "User Not Found");
-			// return mapping.findForward("changeUser");
-			// }
-
-			GsUser gsUser = gus.getUser();
-			GsUserRole gsUserRole = gsUser.getRole();
-			// GsGrant grant = this.getGrant(req); //Abdul Latheef: Used new
-			// FormGrant instead of the old GsGrant.
-
-			//System.out.println("Inside PreviewDraftGreensheetaction.java templateId is " +templateId);
-			//req.getSession().setAttribute("draftDisplay", "Yes");
-
+			logger.info("Inside PreviewDraftGreensheetaction id is: " + id);
 
 			logger.debug("execute() End");
 
-			//System.out.println("Inside PreviewDraftGreensheetaction gsform.getFtmId() is " +gsform.getFtmId());
-			
-				req.setAttribute(GreensheetsKeys.KEY_FORM_UID, id);
-			
-			
+			req.setAttribute(GreensheetsKeys.KEY_FORM_UID, id);
 			req.getSession().setAttribute("TEMPLATE_ID", templateId);
 
 			QuestionResponseData dummy = new QuestionResponseData();
@@ -173,27 +146,25 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 
 		logger.debug("getGrant() Begin");
 		String moduleName = null;
-		GreensheetUserSession gus = (GreensheetUserSession) req.getSession()
-		.getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
+		GreensheetUserSession gus = (GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
 		String type = req.getParameter("TYPE");
 		String mech = req.getParameter("MECH");
 		String module = req.getParameter("MODULE_NAME");
 		if (module.equalsIgnoreCase("Program Competing")){
 			moduleName = "PGM";
-		}
-		if (module.equalsIgnoreCase("Program Non Competing")){
+		} else if (module.equalsIgnoreCase("Program Non Competing")){
 			moduleName = "PGM";
-		}
-		if (module.equalsIgnoreCase("Specialist Competing")){
+		} else if (module.equalsIgnoreCase("Specialist Competing")){
 			moduleName = "SPEC";
-		}
-		if (module.equalsIgnoreCase("Specialist Non Competing")){
+		} else if (module.equalsIgnoreCase("Specialist Non Competing")){
 			moduleName = "SPEC";
+		} else if (module.equalsIgnoreCase("Revision")){
+			moduleName = Constants.REVISION_TYPE;
 		}
 		FormGrantProxy grant = null;
 
-		List formGrants = null;
-		List formGrantsProxies = null;
+		List<FormGrant> formGrants = null;
+		List<FormGrantProxy> formGrantsProxies = null;
 
 		// request from inside Greensheets or from eGrants
 		formGrants = processNewQuestionDefsService.retrieveDraftGrantsByFullGrantNum(type, mech,moduleName);
@@ -211,7 +182,9 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 
 	private GreensheetFormProxy getForm(HttpServletRequest req,
 			FormGrantProxy grant, String type, String mech, String moduleName, String templateId) throws Exception {
+		
 		logger.debug("getForm() Begin");
+		
 		GreensheetFormProxy form = null;
 		String group = moduleName;
 		form = this.getGreensheetForm(grant, group, templateId);
@@ -220,8 +193,9 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 
 		return form;
 	}
+	
 	public GreensheetFormProxy getGreensheetForm(FormGrantProxy formGrantProxy, String formRoleCode, String templateId) 
-	throws GreensheetBaseException {
+			throws GreensheetBaseException {
 		FormGrant formGrant = null;
 		String formStatus = "";
 		GreensheetForm greensheetForm = null;
@@ -233,7 +207,7 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 			return null;
 		}
 
-		//System.out.println("Inside getGreensheetForm method formGrant is  " +formGrant);
+		logger.info("Inside getGreensheetForm method formGrant is: " + formGrant);
 		greensheetForm = this.getGreensheetForm(formGrant, formRoleCode, templateId);
 		if (greensheetForm != null) {
 			greensheetFormProxy = new GreensheetFormProxy();
@@ -277,7 +251,9 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 				greensheetFormProxy.setGroupType(GreensheetGroupType.RMC);
 			} else if (formRoleCode.equalsIgnoreCase(GreensheetGroupType.DM.getName())) {
 				greensheetFormProxy.setGroupType(GreensheetGroupType.DM);
-			}			
+			} else if (formRoleCode.equalsIgnoreCase(GreensheetGroupType.REV.getName())) {
+				greensheetFormProxy.setGroupType(GreensheetGroupType.REV);	
+			}
 
 		} else {
 			return null;
@@ -288,17 +264,11 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 	}
 	public GreensheetForm getGreensheetForm(FormGrant grant, String formtype, String templateId) throws GreensheetBaseException {
 
-		//System.out.println("Inside getGreensheetForm 2 method formType is  " +formtype);
-		String formRoleCode = null;
+		logger.info("Inside getGreensheetForm 2 method formType is: " + formtype);
 		if ("SPEC".equalsIgnoreCase(formtype.trim())) {
-			formRoleCode = "SPEC";
 		} else if ("PGM".equalsIgnoreCase(formtype.trim())) {
-			formRoleCode = "PGM";
 		} else if ("DM".equalsIgnoreCase(formtype.trim())) {
-			formRoleCode = "DM";
 		}
-
-
 
 		GreensheetForm greensheetForm = new GreensheetForm();
 		greensheetForm.setId(1);
@@ -308,10 +278,6 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 		greensheetForm.setPoc("");
 		greensheetForm.setSubmittedUserId("");
 		greensheetForm.setCreateUserId("");
-		//	greensheetForm.setCreateDate(rs.getDate("CREATE_DATE"));
-		//greensheetForm.setLastChangeUserId(rs.getString("LAST_CHANGE_USER_ID"));
-		//	greensheetForm.setUpdateStamp(rs.getInt("UPDATE_STAMP"));
-		//	greensheetForm.setSubmittedDate(rs.getDate("SUBMITTED_DATE"));
 
 		List<GreensheetForm> greensheetForms = new ArrayList<GreensheetForm>();
 		greensheetForms.add(greensheetForm);
@@ -319,9 +285,6 @@ public class PreviewDraftGreensheetsAction extends GsBaseAction {
 			greensheetForm = (GreensheetForm) greensheetForms.get(0);
 		} 
 
-		//System.out.println("Inside getGreensheetForm 2 greensheetForm is  " +greensheetForm);
 		return greensheetForm;
 	}
-
-
 }

@@ -89,8 +89,10 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 	 * @see gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr#changeLock(GreensheetFormProxy,
 	 *      GsUser)
 	 */
-	public void changeLock(GreensheetFormProxy form, GsUser user)
+	public boolean changeLock(GreensheetFormProxy form, GsUser user)
 			throws GreensheetBaseException {
+		
+		boolean status = false;
 		logger.debug("changeLock() Begin");
 		GreensheetFormDataHelper dh = new GreensheetFormDataHelper();
 		GreensheetStatus newStatus = null;
@@ -99,8 +101,14 @@ public class GreensheetFormMgrImpl implements GreensheetFormMgr {
 		} else if (form.getStatus().equals(GreensheetStatus.UNSUBMITTED)) {
 			newStatus = GreensheetStatus.SUBMITTED;
 		}
-		dh.changeGreensheetFormStatus(form, newStatus, user);
+		if (newStatus != null) {
+			status = dh.changeGreensheetFormStatus(form, newStatus, user);
+		} else {
+			logger.info("Cannot change the lock for 'NOT STARTED' form status. Appl ID: " + form.getApplId());
+		}
 		logger.debug("changeLock() End");
+		
+		return status;
 	}
 
 	/**

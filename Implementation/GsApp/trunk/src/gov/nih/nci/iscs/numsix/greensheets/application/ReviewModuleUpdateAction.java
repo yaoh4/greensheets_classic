@@ -22,6 +22,7 @@ import org.apache.struts.action.ActionMapping;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
 import gov.nih.nci.iscs.numsix.greensheets.services.ProcessNewQuestionDefsService;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
 import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
@@ -67,8 +68,8 @@ public class ReviewModuleUpdateAction extends GsBaseAction {
 		ActionErrors errors = new ActionErrors();
 		String displayReviewPage = "success";
 
-		HashSet<String> addtionList = null;
-		HashSet<String> deletionList = null;
+		HashSet<String> addtionList = new HashSet<String>();
+		HashSet<String> deletionList = new HashSet<String>();
 		ArrayList<String> addDelMsg = new ArrayList<String>();
 		HashSet<String> inActiveMechTypeByModuleList = null;
 		List<String> additionSplitList = new ArrayList<String>();
@@ -119,8 +120,10 @@ public class ReviewModuleUpdateAction extends GsBaseAction {
 			roleCode = "SC";
 		} else if (moduleName.equalsIgnoreCase("Specialist Non Competing")) {
 			roleCode = "SNC";
+		} else if (moduleName.equalsIgnoreCase("Revision")) {
+			roleCode = Constants.REVISION_TYPE;
 		}
-
+		
 		processNewQuestionDefsService.setTypeMechList(roleCode);
 
 		inActiveMechTypeByModuleList = processNewQuestionDefsService.getInActiveMechTypeByModule(roleCode);

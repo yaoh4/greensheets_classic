@@ -195,6 +195,9 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 		}
 		if ((typeMechModuleSplit.contains("SNC"))){
 			moduleList.add("Specialist Non Competing");		
+		}		
+		if (typeMechModuleSplit.contains(Constants.REVISION_TYPE)){
+			moduleList.add("Revision");		
 		}
 		
 		if(isUpdate){
@@ -213,6 +216,9 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 			}
 			if ((allModuleList.contains("SNC"))){
 				moduleList.add("Specialist Non Competing");		
+			}
+			if (allModuleList.contains(Constants.REVISION_TYPE)){
+				moduleList.add("Revision");		
 			}
 		}
 		
@@ -283,17 +289,20 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 			}
 		}
 
-		if ((typeMechModuleSplit.contains("PC"))){
+		if (typeMechModuleSplit.contains("PC")){
 			moduleList.add("Program Competing");		
 		}
-		if ((typeMechModuleSplit.contains("PNC"))){
+		if (typeMechModuleSplit.contains("PNC")){
 			moduleList.add("Program Non Competing");		
 		}
-		if ((typeMechModuleSplit.contains("SC"))){
+		if (typeMechModuleSplit.contains("SC")){
 			moduleList.add("Specialist Competing");		
 		}
-		if ((typeMechModuleSplit.contains("SNC"))){
+		if (typeMechModuleSplit.contains("SNC")){
 			moduleList.add("Specialist Non Competing");		
+		}
+		if (typeMechModuleSplit.contains(Constants.REVISION_TYPE)){
+			moduleList.add("Revision");		
 		}
 		
 		if (isUpdate) {
@@ -313,6 +322,9 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 			if (allModuleList.contains("SNC") && !moduleList.contains("Specialist Non Competing")) {
 				moduleList.add("Specialist Non Competing");
 			}
+			if (allModuleList.contains(Constants.REVISION_TYPE) && !moduleList.contains("Revision")) {
+				moduleList.add("Revision");
+			}
 		}
 
 		for (int i=0; i<typeMechModuleSplit.size();i++){
@@ -328,6 +340,9 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 						typeList.add(typeMechModuleSplit.get(i+1));
 					}
 					if (moduleName.equalsIgnoreCase("Specialist Non Competing") && typeMechModuleSplit.get(i).equalsIgnoreCase("SNC")){
+						typeList.add(typeMechModuleSplit.get(i+1));
+					}
+					if (moduleName.equalsIgnoreCase("Revision") && typeMechModuleSplit.get(i).equalsIgnoreCase(Constants.REVISION_TYPE)){
 						typeList.add(typeMechModuleSplit.get(i+1));
 					}
 				} 
@@ -349,6 +364,10 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 				}
 				if (((moduleName.equalsIgnoreCase("Specialist Non Competing"))
 						&& (typeMechModuleSplit.get(i).equalsIgnoreCase("SNC")))) {
+					typeList.add(typeMechModuleSplit.get(i + 1));
+				}
+				if (((moduleName.equalsIgnoreCase("Revision"))
+						&& (typeMechModuleSplit.get(i).equalsIgnoreCase(Constants.REVISION_TYPE)))) {
 					typeList.add(typeMechModuleSplit.get(i + 1));
 				}
 				mechList.add(typeMechModuleSplit.get(i + 2));
@@ -386,10 +405,16 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 		if(showUpdateOnly){
 			updateDropList.add(Constants.UPDATE_DROP_DOWN_OPTION_UPDATE);
 		}
+
+		if(roleCode.equals(Constants.REVISION_TYPE)) {
+			typeList.set(typeList.indexOf("0") , "ALL");
+			dyanamicMechList.set(dyanamicMechList.indexOf("000") , "ALL");
+		}
+		
 		Collections.sort(moduleList);
 		Collections.sort(mechList);
 		Collections.sort(dyanamicMechList);
-		
+
 		req.setAttribute(Constants.DRAFT_MODULE_NAME, moduleList);
 		req.setAttribute(Constants.DRAFT_TYPE, typeList);
 		req.setAttribute(Constants.DRAFT_MECHANISM, dyanamicMechList);
@@ -462,6 +487,9 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 		if ((typeMechModuleSplit.contains("SNC"))&&(!roleCodeSelected.equalsIgnoreCase("SNC"))){
 			moduleList.add("Specialist Non Competing");		
 		}
+		if ((typeMechModuleSplit.contains(Constants.REVISION_TYPE))&&(!roleCodeSelected.equalsIgnoreCase(Constants.REVISION_TYPE))){
+			moduleList.add("Revision");		
+		}
 		if(isUpdate){
 			for(String module : processNewQuestionDefsService.getModuleListFromDB()) {
 				allModuleList.add(module);
@@ -478,7 +506,9 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 				if ((allModuleList.contains("SNC"))){
 					moduleList.add("Specialist Non Competing");		
 				}
-			}
+				if ((allModuleList.contains(Constants.REVISION_TYPE))){
+					moduleList.add("Revision");		
+				}			}
 		}
 		if (!moduleList.isEmpty()){
 			moduleName = moduleList.get(0).toString();
@@ -505,7 +535,9 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 						if (((moduleName.equalsIgnoreCase("Specialist Non Competing"))&&(typeMechModuleSplit.get(i).equalsIgnoreCase("SNC")))){
 							typeList.add(typeMechModuleSplit.get(i+1));
 						}
-					} 
+						if (((moduleName.equalsIgnoreCase("Revision"))&&(typeMechModuleSplit.get(i).equalsIgnoreCase(Constants.REVISION_TYPE)))){
+							typeList.add(typeMechModuleSplit.get(i+1));
+						}					} 
 					if (!mechList.contains(typeMechModuleSplit.get(i+2))){
 						mechList.add(typeMechModuleSplit.get(i+2));
 					}
@@ -517,6 +549,9 @@ public class ReviewDraftGreensheetsAction extends GsBaseDispatchAction  {
 						typeList.add(typeMechModuleSplit.get(i+1));
 					}
 					if (((moduleName.equalsIgnoreCase("Specialist Non Competing"))&&(typeMechModuleSplit.get(i).equalsIgnoreCase("SNC")))){
+						typeList.add(typeMechModuleSplit.get(i+1));
+					}
+					if (((moduleName.equalsIgnoreCase("Revision"))&&(typeMechModuleSplit.get(i).equalsIgnoreCase(Constants.REVISION_TYPE)))){
 						typeList.add(typeMechModuleSplit.get(i+1));
 					}
 					mechList.add(typeMechModuleSplit.get(i+2));

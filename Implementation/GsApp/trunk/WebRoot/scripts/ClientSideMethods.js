@@ -63,12 +63,8 @@ var attrInputTypeValue_CheckBox	=	"checkbox";
 
 
 function getGrantDetail(grantNum, applId, url){
-    var urlString = url + "=" + applId;
-    
-    //var urlString = "https://cii-server5.nci.nih.gov:6443/yourgrants/jsp/GrantDetails.jsp?applId=" + applId;
-    
-    //var urlString = "<%=((java.util.Property)gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties.getProperty("CONFIG_PROPERTIES")).getProperty("url.grantdetailviewer")%>=" + applId;
-    
+    var urlString = url + "=" + applId;   
+ 
     var toolbarDisplay = "toolbar=no";
     var statusbarDisplay = "status=yes";
     var scrollbarDisplay = "scrollbars=yes";
@@ -77,7 +73,6 @@ function getGrantDetail(grantNum, applId, url){
     var directoryDisplay = "directories=no";
     var showMaximizeButton = "resizable=yes";
     var windowName = "_blank";  // display a new unnamed window every time.
-
 
     var displayString = toolbarDisplay + "," + showMaximizeButton + "," + statusbarDisplay + "," + scrollbarDisplay + "," + locationbarDisplay + "," + menubarDisplay + "," + directoryDisplay;
     window.open(urlString, windowName , displayString);
@@ -115,49 +110,6 @@ var myOpenWindow = function(URL, windowName,displayString, message) {
     myOpenedWindow.focus();
 }
 
-/*
-function saveSubmitClose(selection)
-{
-    var pocCtrl = document.frmGrantInfo.pointOfContact;
-    if(pocCtrl != null){
-	    var poc = document.frmGrantInfo.pointOfContact.value;
-
-	    if(poc != "" && poc != null)
-	    {
-		    document.GreensheetForm.POC.value = poc;
-	    }
-	}
-	if(selection == "SAVE")
-	{
-        if(allDataFormatsValidated){
-		  document.GreensheetForm.method.value="save";
-		  document.GreensheetForm.submit();
-        }else{
-            alert("There are errors in the data format of one or more questions.");
-        }
-
-	}
-	if(selection == "SUBMIT")
-	{
-		document.GreensheetForm.method.value="submit";
-		var val = ValidateFormValues('GreensheetForm');
-		if (val){
-		    document.GreensheetForm.submit();
-		}else{
-		    alert("The form cannot be submitted because there are questions that require answers. The exclamation marks indicate questions that need answers"); 
-		}
-		return;
-	}
-	if(selection == "CLOSE")
-	{
-		var bool = confirm("You are leaving the current form. Unsaved changes will be lost. Click OK to continue");
-        if (bool){
-            document.GreensheetForm.method.value="close";
-    	    document.GreensheetForm.submit();
-   	    }
-	}
-}
-*/
 function disableAllLinks (){
 
 
@@ -279,6 +231,10 @@ function retreieveDraftGreensheet(){
 	var type = document.reviewDraftGreensheetsForm.type.value;
 	var mech = document.reviewDraftGreensheetsForm.mechanism.value;
 	var moduleName = document.reviewDraftGreensheetsForm.moduleName.value;
+	if(moduleName == "Revision") {
+		type = "0";
+		mech = "000"
+	}
     var params = "?TYPE="+ type + "&MECH=" + mech + "&MODULE_NAME=" + moduleName;   
     var url = "/greensheets/previewDraftGreensheets.do" + params
      //var toolbarDisplay = "width=900, height=500, toolbar=no";
@@ -302,6 +258,9 @@ function retreieveDraftGreensheet(){
 
 function printGreensheetForm(formUid, formName, grantNum)
 {
+	if (formName.indexOf("Revision") !== -1) {
+		formName = "Revision"
+	}
         var params = "?FORM_UID="+ formUid + "&GRANT_NUMBER=" + grantNum + "&FORM_TITLE=" + formName;     
         openNewWindow("/greensheets/pdfgeneration.do" + params);
 }

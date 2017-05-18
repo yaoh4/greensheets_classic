@@ -10,7 +10,7 @@
 	<xs:complexType name="ModuleType">
 		<xs:sequence>
 			<xs:element ref="gsf:gsForms"/>
-			<xs:element name="description" >
+			<xs:element name="description" minOccurs="0">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="200"/>
@@ -19,7 +19,7 @@
 			</xs:element>
 			<xs:element name="moduleName">
 				<xs:simpleType>
-	 				<xs:restriction base="xs:string">
+					<xs:restriction base="xs:string">
 						<xs:maxLength value="100"/>
 					</xs:restriction>
 				</xs:simpleType>

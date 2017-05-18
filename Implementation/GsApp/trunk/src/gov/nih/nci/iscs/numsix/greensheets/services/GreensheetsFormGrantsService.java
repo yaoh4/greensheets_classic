@@ -1,9 +1,9 @@
 package gov.nih.nci.iscs.numsix.greensheets.services;
 
+import java.util.List;
+
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
-
-import java.util.List;
 
 public interface GreensheetsFormGrantsService {
     public List findGrants(GsUser user,
@@ -30,6 +30,8 @@ public interface GreensheetsFormGrantsService {
     public List findGrantsByPiLastName(String piLastName, String adminPhsOrgCode);
 
     public List findGrantsByApplId(long applId);
+    
+    public FormGrantProxy findGSGrantInfo(Long actionId, Long applId, String grantNum, GsUser userId);
     
     public boolean checkActionStatusByApplId(String applId) throws GreensheetBaseException;
 

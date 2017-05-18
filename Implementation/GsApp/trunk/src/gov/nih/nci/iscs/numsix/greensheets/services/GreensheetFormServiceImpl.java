@@ -52,6 +52,7 @@ public class GreensheetFormServiceImpl implements GreensheetFormService {
 			greensheetFormProxy.setLastChangeDate(greensheetForm.getLastChangeDate());
 			greensheetFormProxy.setUpdateStamp(greensheetForm.getUpdateStamp());
 			greensheetFormProxy.setSubmittedDate(greensheetForm.getSubmittedDate());
+			greensheetFormProxy.setApplId(new Long(formGrant.getApplId()).intValue());
 			
 			//Set the form Status
 			formStatus = greensheetForm.getFormStatus();
@@ -77,7 +78,9 @@ public class GreensheetFormServiceImpl implements GreensheetFormService {
 				greensheetFormProxy.setGroupType(GreensheetGroupType.RMC);
 			} else if (formRoleCode.equalsIgnoreCase(GreensheetGroupType.DM.getName())) {
 				greensheetFormProxy.setGroupType(GreensheetGroupType.DM);
-			}			
+			} else if (formRoleCode.equalsIgnoreCase(GreensheetGroupType.REV.getName())) {
+				greensheetFormProxy.setGroupType(GreensheetGroupType.REV);
+			}
 			
 		} else {
 			return null;

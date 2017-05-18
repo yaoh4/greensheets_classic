@@ -80,4 +80,7 @@ public final class GreensheetsKeys {
 	public static final String KEY_STALEDATA_TIMESTAMP = "KEY_STALEDATA_TIMESTAMP";
 	
 	public static final String KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER = "KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER";
+	
+	public static final String KEY_AGT_ID = "AGT_ID";
+
 }

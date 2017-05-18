@@ -5,16 +5,6 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsDuplicateFormsException;
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsStaleDataException;
-import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
-import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
-import gov.nih.nci.iscs.numsix.greensheets.utils.DbConnectionHelper;
-import gov.nih.nci.iscs.numsix.greensheets.utils.DbUtils;
-import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
-
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,6 +24,17 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
 import org.apache.log4j.Logger;
+
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsDuplicateFormsException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsStaleDataException;
+import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
+import gov.nih.nci.iscs.numsix.greensheets.utils.DbConnectionHelper;
+import gov.nih.nci.iscs.numsix.greensheets.utils.DbUtils;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
 /**
  * Class handles database access operations for the GreensheetFormMgr
@@ -78,6 +79,8 @@ public class GreensheetFormDataHelper {
 	                form_role_code = "PGM";
 	            } else if (type.equals(GreensheetGroupType.DM)) { //Abdul Latheef: Added the condition for GPMATS
 	                form_role_code = "DM";
+	            } else if (type.equals(GreensheetGroupType.REV)) {
+	                form_role_code = Constants.REVISION_TYPE;
 	            }
             }
 
@@ -290,20 +293,24 @@ public class GreensheetFormDataHelper {
 
                 String applSql = null;
                 if (grant.isDummyGrant()) {
-                    applSql = "insert into appl_forms_t (id,frm_id,control_full_grant_num) values (?,?,?)";
+                    applSql = "insert into appl_forms_t (id,frm_id,control_full_grant_num,agt_id) values (?,?,?,?)";
 
                     pstmt = conn.prepareStatement(applSql);
                     pstmt.setInt(1, afrId);
                     pstmt.setInt(2, formId);
                     pstmt.setString(3, grant.getFullGrantNumber());
+                    pstmt.setLong(4, grant.getActionId());
+
                     logger.debug("grant.isDummyGrant() returns true." + "Full grant number passed to the SQL=" + grant.getFullGrantNumber()); // Abdul Latheef: For GPMATS
                 } else {
-                    applSql = "insert into appl_forms_t (id,frm_id,appl_id) values (?,?,?)";
+                    applSql = "insert into appl_forms_t (id,frm_id,appl_id,agt_id) values (?,?,?,?)";
 
                     pstmt = conn.prepareStatement(applSql);
                     pstmt.setInt(1, afrId);
                     pstmt.setInt(2, formId);
                     pstmt.setString(3, grant.getApplID()); //Abdul Latheef: Use getApplID() for time being instead of getApplId()
+                    pstmt.setLong(4, grant.getActionId());
+
                     logger.debug("grant.isDummyGrant() returns false." + "APPL ID passed to the SQL=" + grant.getApplId()); // Abdul Latheef: For GPMATS
                 }
 
@@ -389,7 +396,7 @@ public class GreensheetFormDataHelper {
         logger.debug("saveGreensheetFormData() End");
     }
 
-    void changeGreensheetFormStatus(GreensheetFormProxy form,
+    public boolean changeGreensheetFormStatus(GreensheetFormProxy form,
             GreensheetStatus newStatus, GsUser user)
             throws GreensheetBaseException {
         /*  TODO: it would be great to check for optimistic locking failure before changing form status as well,
@@ -401,6 +408,8 @@ public class GreensheetFormDataHelper {
          */
     	Connection conn = null;
         PreparedStatement pstmt = null;
+        boolean status = false;
+        
         try {
             conn = DbConnectionHelper.getInstance().getConnection(user.getOracleId());
             logger.debug("Using connection: " + conn);
@@ -418,7 +427,9 @@ public class GreensheetFormDataHelper {
                 pstmt.setDate(3, new java.sql.Date(utilDate.getTime()));
             }
             pstmt.setInt(4, form.getFormId());
-            pstmt.executeUpdate();
+            int updatedRow = pstmt.executeUpdate();
+            if(updatedRow > 0 ) status = true;
+
         } catch (SQLException se) { 
             throw new GreensheetBaseException("Problem changing Greensheet Status", se);
         } finally {
@@ -431,6 +442,7 @@ public class GreensheetFormDataHelper {
 
             DbConnectionHelper.getInstance().freeConnection(conn);
         }
+        return status;
     }
 
     /*
@@ -515,8 +527,7 @@ public class GreensheetFormDataHelper {
 
                     } else if (respDefId.indexOf("_NU_") > -1) {
                         qrd = new QuestionResponseData(fqaId);
-                        String value = Integer.toString(rs
-                                .getInt("number_value"));
+                        String value = Double.toString(rs.getDouble("number_value"));
                         qrd.setInputResponseData(questionDefId, respDefId,
                                 QuestionResponseData.NUMBER, value);
 
@@ -908,6 +919,10 @@ public class GreensheetFormDataHelper {
                 // bCreateRecord is true.
                 if (!isRDFile && !isRDCheckBox && bCreateRecord) {
                     int fqaId = DbUtils.getNewRowId(conn, "fqa_seq.nextval");
+                    string_value = (string_value != null && string_value.length() > 250) ? string_value.substring(0,249) : string_value;
+                   	number_value = Math.round(number_value * 100);
+                   	number_value = number_value/100;
+
                     String sqlInsert = "insert into form_question_answers_t "
                             + "(id, frm_id, extrnl_question_id, extrnl_resp_def_id,"
                             + "extrnl_selc_def_id,string_value,text_value,number_value,date_value,comment_value)"
@@ -1024,6 +1039,9 @@ public class GreensheetFormDataHelper {
                         + applId + "' and FORM_ROLE_CODE='" + type + "'";
             }
 
+            if(type.equals(Constants.REVISION_TYPE)){
+            	sql = sql + " and agt_id=" + g.getActionId();
+            }
             stmt = conn.createStatement();
             logger.debug("checkForDuplicateNewForms sql " + sql);
             rs = stmt.executeQuery(sql);

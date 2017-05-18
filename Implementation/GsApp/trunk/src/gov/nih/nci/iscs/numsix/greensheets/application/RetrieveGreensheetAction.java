@@ -101,18 +101,14 @@ public class RetrieveGreensheetAction extends GsBaseAction {
         	return mapping.findForward("grantTypeError");
         }
         
-        GreensheetUserSession gus = GreensheetActionHelper
-                    .getGreensheetUserSession(req);
-        // GsGrant grant = this.getGrant(req); //Abdul Latheef: Used new
-        // FormGrant instead of the old GsGrant.
+        GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
         FormGrantProxy grant = this.getGrant(req);
-
-        // if (grant == null) {
-        //return mapping.findForward("sessionTimeOut");
-        //}
 
         GreensheetFormProxy gsform = null;
         try {
+        	if(grant == null) {
+        		grant = new FormGrantProxy(gus.getUser());
+        	}        	
             gsform = this.getForm(req, grant);
         } catch (GsNoTemplateDefException noTmplE) {
             req.setAttribute("MISSING_TYPE", grant.getApplTypeCode());
@@ -134,7 +130,7 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             // instead of returning 0 items an exception is thrown, so we are now 
             // doing the same by caching the GsNoTemplateDefException exception, above 
             req.setAttribute("MISSING_TYPE", grant.getApplTypeCode());
-            req.setAttribute("MISSING_MECH", grant.getApplTypeCode());
+            req.setAttribute("MISSING_MECH", grant.getActivityCode());
             forward = "templatenotfound";
         } else {
             if (gsform.getStatus() == null) {
@@ -146,22 +142,15 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             if (gsform.getStatus().equals(GreensheetStatus.FROZEN) || gsform.getStatus().equals(GreensheetStatus.SUBMITTED)) {
                 if (gsform.getQuestionResponsDataMap().size() == 0) { // blank submitted/frozen GS
                     System.out.println("<<<< This SUBMITTED/FROZEN greensheet is empty");
-                  /*  String already = (String) req.getParameter("MA");
-                    if (already == null || !already.equals("true"))*/
-                        return (mapping.findForward("imcompletedGS"));
-
+                    return (mapping.findForward("imcompletedGS"));
                 } else if (grant.getApplID() != null) {
                     if ((grant.getApplId() == 8974582 || grant.getApplId() == 8735619) && gsform.getGroupType().getName().equalsIgnoreCase("PGM")) {// sepcial case for 3R01CA150980-04S1 appl_id 8974582 / 5U01CA155309-04 appl_id 8735619   
                         System.out.println("<<<< This SUBMITTED/FROZEN greensheet is imcompleted");
-                       /* String already = (String) req.getParameter("MA");
-                        if (already == null || !already.equals("true"))*/
-                            return (mapping.findForward("imcompletedGS"));
+                        return (mapping.findForward("imcompletedGS"));
                     } else if ((grant.getApplId() == 8760841 || grant.getApplId() == 8641323 || grant.getApplId() == 8530972)
                             && gsform.getGroupType().getName().equalsIgnoreCase("SPEC")) {// sepcial case for 1R01CA181368-01A1 appl_id 8760841 / 5T32CA009599-26 appl_id 8641323 /5K07CA137140-05 appl_id 8530972    
                         System.out.println("<<<< This SUBMITTED/FROZEN greensheet is imcompleted");
-                      /*  String already = (String) req.getParameter("MA");
-                        if (already == null || !already.equals("true"))*/
-                            return (mapping.findForward("imcompletedGS"));
+                        return (mapping.findForward("imcompletedGS"));
                     }
                 }
                 logger.debug("FROZEN GS");
@@ -191,7 +180,6 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                 if (e.getMessage().contains("sessionTimeOut"))
                     return mapping.findForward("sessionTimeOut");
             }
-            //    req.getSession().setAttribute("TEMPLATE_ID", "-1723");
             forward = "vmid";
         }
 
@@ -200,8 +188,6 @@ public class RetrieveGreensheetAction extends GsBaseAction {
         return (mapping.findForward(forward));
     }
 
-    // private GsGrant getGrant(HttpServletRequest req) throws Exception {
-    // //Abdul Latheef: Used new FormGrantProxy instead of the old GsGrant.
     private FormGrantProxy getGrant(HttpServletRequest req) throws Exception {
 
         // TODO: after the various combinations of request parameters and sources 
@@ -212,13 +198,12 @@ public class RetrieveGreensheetAction extends GsBaseAction {
         logger.debug("getGrant() Begin");
         boolean checkActionStatus = true;
 
-        GreensheetUserSession gus = (GreensheetUserSession) req.getSession()
-                .getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
-        String grantIdp = (String) req
-                .getParameter(GreensheetsKeys.KEY_GRANT_ID);
-        String grantIda = (String) req
-                .getAttribute(GreensheetsKeys.KEY_GRANT_ID);
+        GreensheetUserSession gus = (GreensheetUserSession) req.getSession().getAttribute(GreensheetsKeys.KEY_CURRENT_USER_SESSION);
+        String grantIdp = (String) req.getParameter(GreensheetsKeys.KEY_GRANT_ID);
+        String grantIda = (String) req.getAttribute(GreensheetsKeys.KEY_GRANT_ID);
         String applId = (String) req.getParameter(GreensheetsKeys.KEY_APPL_ID);
+        String actionId = (String) req.getParameter(GreensheetsKeys.KEY_AGT_ID);
+        
         if (applId == null || "".equals(applId)) {
             Object applIdObj = req.getAttribute(GreensheetsKeys.KEY_APPL_ID);
             if (applIdObj != null && applIdObj instanceof Long) {
@@ -227,244 +212,146 @@ public class RetrieveGreensheetAction extends GsBaseAction {
                 applId = (String) applIdObj;
             }
         }
+        
         String grantId = null;
-        // GsGrant grant = null; //Abdul Latheef: Used FormGrant instead of
-        // GsGrant.
         FormGrantProxy grant = null;
 
         // the grant Id can be on a parameter or an attribute check to see which
-        if (grantIdp == null && grantIda == null && applId == null) {
-            // throw new GreensheetBaseException("error.grantid");
+        if (grantIdp == null && grantIda == null && applId == null && actionId == null) {
             return null;
         } else if (grantIdp != null) {
             grantId = grantIdp;
         } else if (grantIda != null) {
             grantId = grantIda;
         }
-
-        // ApplicationContext context = new
-        // ClassPathXmlApplicationContext("applicationContext.xml");
-        // GreensheetsFormGrantsService greensheetsFormGrantsService =
-        // (GreensheetsFormGrantsService)
-        // context.getBean("greensheetsFormGrantsService");
+        
+        if (actionId == null || "".equals(actionId)) {
+            Object actionIdObj = req.getAttribute(GreensheetsKeys.KEY_AGT_ID);
+            if (actionIdObj != null && actionIdObj instanceof Long) {
+                actionId = ((Long) actionIdObj).toString();
+            } else if (actionIdObj != null && actionIdObj instanceof String) {
+                actionId = (String) actionIdObj;
+            }
+            if(actionId != null) grantId = null;
+        }
+        
         List<FormGrantProxy> formGrants = null;
         List formGrantsProxies = null;
 
-        if (gus != null) {
-            // GsGrant grant = gus.getGrantByGrantNumber(grantId);
-            // Abdul Latheef: Go to the DB until some workaround is devised or
-            // the DAO
-            // or the DAO is rewritten to return a Map instead of List.
+        String group = req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE);
+        if (group == null || "".equals(group)) {
+        	group = (String) req.getAttribute(GreensheetsKeys.KEY_GS_GROUP_TYPE);
         }
+        if (group != null) {
+        	group = group.trim();
+        }
+        if (group == null || "".equals(group)) {
+        	GreensheetBaseException newException = new GreensheetBaseException("The request to retrieve " +
+        			"a greensheet that you submitted does not specify what kind of greensheet (e.g., " +
+        			"Program or Specialist or OGA Document Management), and therefore it cannot be completed.");
+        	throw newException;
+        } else if (group.equalsIgnoreCase(GreensheetGroupType.DM.getName())) {
+        	/* *** Dealing with a request for a "DM checklist" greensheet *** */
+        	if (grantId != null && !"".equals(grantId)) {
+        		// Either (a) GPMATS determined that this is a dummy grant, formed the URL with grant 
+        		// number rather than appl_id, or (b) the request is from eGrants
+        		formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
+        		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
+        		if (formGrants != null && formGrants.size() > 1) {
+        			checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
+        		}                    
+        	} else if (applId != null && !"".equals(applId)) {
+        		// GPMATS determined that this is a real, non-dummy, grant and formed the URL with 
+        		// appl_id rather than grant number
+        		formGrants = greensheetsFormGrantsService.findGrantsByApplId(Long.parseLong(applId));
 
-        if (grant == null) {
-            //            // Abdul Latheef (For GPMATS): Retrieve the grant by the APPL ID
-            //            if ((applId != null) && !(applId.trim().equalsIgnoreCase(""))) {
-            //                formGrants = greensheetsFormGrantsService
-            //                        .findGrantsByApplId(Long.parseLong(applId));
-            //                formGrantsProxies = GreensheetActionHelper
-            //                        .getFormGrantProxyList(formGrants, gus.getUser());
-            //            }
-            //
-            //            // Next, try retrieving the grant by the Grant#
-            //            if (formGrantsProxies == null || formGrantsProxies.size() < 1
-            //                    || formGrantsProxies.size() > 1) {
-            //                if (grantId != null && (!"".equals(grantId.trim()))) {
-            //                    formGrants = greensheetsFormGrantsService
-            //                            .retrieveGrantsByFullGrantNum(grantId.trim());
-            //                    formGrantsProxies = GreensheetActionHelper
-            //                            .getFormGrantProxyList(formGrants, gus.getUser());
-            //                }
-            //            }
-            //
-            //            if (formGrantsProxies != null && formGrantsProxies.size() > 0) {
-            //                grant = (FormGrantProxy) formGrantsProxies.get(0);
-            //            } else {
-            //                grant = null;
-            //            }
-            String group = req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE);
-            if (group == null || "".equals(group)) {
-                group = (String) req.getAttribute(GreensheetsKeys.KEY_GS_GROUP_TYPE);
-            }
-            if (group != null) {
-                group = group.trim();
-            }
-            if (group == null || "".equals(group)) {
-                GreensheetBaseException newException = new GreensheetBaseException("The request to retrieve " +
-                        "a greensheet that you submitted does not specify what kind of greensheet (e.g., " +
-                        "Program or Specialist or OGA Document Management), and therefore it cannot be completed.");
-                throw newException;
-            } else if (group.equalsIgnoreCase(GreensheetGroupType.DM.getName())) {
-                /* *** Dealing with a request for a "DM checklist" greensheet *** */
-                if (grantId != null && !"".equals(grantId)) {
-                    // Either (a) GPMATS determined that this is a dummy grant, formed the URL with grant 
-                    // number rather than appl_id, or (b) the request is from eGrants
-                    formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
-                    formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
-                    if (formGrants != null && formGrants.size() > 1) {
-                        checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
-                    }
-                    /*
-                     *  This force-setting of the dummy flag was in place while I (Anatoli) had a mistaken belief
-                     *  that a request for a DM checklist can come only from GPMATS and if it includes a grant 
-                     *  number parameter rather than appl_id, GPMATS thinks it is dummy... but it turned out that 
-                     *  eGrants forms URLs to get DM checklists and includes both grant number and appl_id as 
-                     *  parameters, for real grants as well. 
-                    if (formGrants!=null && formGrants.size() > 0) {
-                    	for (Object oneGrant : formGrants) {
-                    		if ( ((FormGrant) oneGrant).isDummy() == false ) {
-                    			logger.error("Grant " + grantId + " should be dummy per the URL formed by GPMATS, " +
-                    					"but isn't dummy per the database. Greensheets will \"force\" treating it as dummy.");
-                    			((FormGrant) oneGrant).setDummy("Y");
-                    		}
-                    	}
-                    }
-                    */
-                } else if (applId != null && !"".equals(applId)) {
-                    // GPMATS determined that this is a real, non-dummy, grant and formed the URL with 
-                    // appl_id rather than grant number
-                    formGrants = greensheetsFormGrantsService.findGrantsByApplId(Long.parseLong(applId));
-
-                    if (formGrants != null && formGrants.size() > 0) {
-                        List nonDummyFormGrants = new ArrayList();
-                        for (Object oneGrant : formGrants) {
-                            if (((FormGrant) oneGrant).isDummy()) {
-                                logger.info("Grant with appl_id " + applId + " should be a \"real\" grant \n\t" +
-                                        "per the URL formed by GPMATS, but there is also a dummy grant with \n\t" +
-                                        "the same appl_id in the database. So we will NOT ADD it to the list \n\t" +
-                                        "of non-dummy grants that we will use as the utimate list.");
-                            } else {
-                                nonDummyFormGrants.add(oneGrant);
-                            }
-                        }
-                        formGrants = nonDummyFormGrants; // replacing the original list, which includes all 
-                        // entries with the same appl_id, with the "filtered" list that should only have 
-                        // one, non-dummy, grant. 
-                        if (formGrants != null && formGrants.size() > 1) {
-                            checkActionStatus = greensheetsFormGrantsService.checkActionStatusByApplId(applId);
-                        }
-                        nonDummyFormGrants = null;
-                    }
-                    formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
-                } else {
-                    GreensheetBaseException newException = new GreensheetBaseException("Your request to " +
-                            "retrieve a DM checklist provides invalid parameters and cannot be completed. " +
-                            "Please contact support.");
-                    throw newException;
-                }
-            } else if (group.equalsIgnoreCase(GreensheetGroupType.PGM.getName()) ||
-                    group.equalsIgnoreCase(GreensheetGroupType.SPEC.getName())) {
-                /* Request parameters include BOTH appl_id and grant number when request URLs are composed
+        		if (formGrants != null && formGrants.size() > 0) {
+        			List nonDummyFormGrants = new ArrayList();
+        			for (Object oneGrant : formGrants) {
+        				if (((FormGrant) oneGrant).isDummy()) {
+        					logger.info("Grant with appl_id " + applId + " should be a \"real\" grant \n\t" +
+        							"per the URL formed by GPMATS, but there is also a dummy grant with \n\t" +
+        							"the same appl_id in the database. So we will NOT ADD it to the list \n\t" +
+        							"of non-dummy grants that we will use as the utimate list.");
+        				} else {
+        					nonDummyFormGrants.add(oneGrant);
+        				}
+        			}
+        			formGrants = nonDummyFormGrants; // replacing the original list, which includes all 
+        			// entries with the same appl_id, with the "filtered" list that should only have 
+        			// one, non-dummy, grant. 
+        			if (formGrants != null && formGrants.size() > 1) {
+        				checkActionStatus = greensheetsFormGrantsService.checkActionStatusByApplId(applId);
+        			}
+        			nonDummyFormGrants = null;
+        		}
+        		formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
+        	} else {
+        		GreensheetBaseException newException = new GreensheetBaseException("Your request to " +
+        				"retrieve a DM checklist provides invalid parameters and cannot be completed. " +
+        				"Please contact support.");
+        		throw newException;
+        	}
+        } else if (group.equalsIgnoreCase(GreensheetGroupType.PGM.getName()) ||
+        		group.equalsIgnoreCase(GreensheetGroupType.SPEC.getName()) ||
+        		group.equalsIgnoreCase(GreensheetGroupType.REV.getName())) {
+        	/* Request parameters include BOTH appl_id and grant number when request URLs are composed
                    by Greensheets itself or by eGrants; because a query by appl_id might return two or even 
                    more grants (real plus dummy(ies)), we should always get the grant by the full grant number 
                    and disregard the appl_id when we can.
                    However, as it turns out, request URLs generated by YourGrants include appl_id only, so 
                    to deal with the possibility of multiple grants per appl_id we should probably limit the 
                    list to real grants and suppress the dummies.
-                */
-                if (grantId != null && !"".equals(grantId)) {
-                    // request from inside Greensheets or from eGrants
-                	formGrants = (List<FormGrantProxy>) req.getSession().getAttribute("GRANT_LIST");
-                	if(formGrants != null) {
-                		for(FormGrantProxy grantProxy : formGrants) {
-                			if(grantProxy.getFullGrantNum().equals(grantId)){
-                				grant = grantProxy;
-                				break;
-                			}
-                		}
-                	}
-                	else {
-                		formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId);
-                	}
-                	
-                    formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
-                    if (formGrants != null && formGrants.size() > 1) {
-                        checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
-                    }
-                } else if (applId != null && !"".equals(applId)) {
-                    // requested from YourGrants
-                    formGrants = greensheetsFormGrantsService.findGrantsByApplId(Long.parseLong(applId));
-                    if (formGrants != null && formGrants.size() > 0) {
-                        List nonDummyFormGrants = new ArrayList();
-                        for (Object oneGrant : formGrants) {
-                            if (((FormGrant) oneGrant).isDummy()) {
-                                logger.info("YourGrants requested a " + group + " greensheet for appl_id "
-                                        + applId + ", but in the database there is at least one dummy grant"
-                                        + "for this appl_id, too. So we will NOT ADD it to the list \n\t"
-                                        + "of non-dummy grants that we will use as the utimate list.");
-                            } else {
-                                nonDummyFormGrants.add(oneGrant);
-                            }
-                        }
-                        formGrants = nonDummyFormGrants; // replacing the original list, which includes all 
-                        // entries with the same appl_id, with the "filtered" list that should only have 
-                        // one, non-dummy, grant. 
-                        if (formGrants != null && formGrants.size() > 1) {
-                            checkActionStatus = greensheetsFormGrantsService.checkActionStatusByApplId(applId);
-                        }
-                        nonDummyFormGrants = null;
-                    }
-                    formGrantsProxies = GreensheetActionHelper.getFormGrantProxyList(formGrants, gus.getUser());
-                }
-            } else {
-                GreensheetBaseException newException = new GreensheetBaseException("The request to retrieve " +
-                        "a greensheet that you submitted specifies an invalid type of greensheet (it should be " +
-                        "Program or Specialist or OGA Document Management), and therefore it cannot be completed.");
-                throw newException;
-            }
-
-            if (formGrants != null && formGrants.size() > 1) {
-                /*
-                GreensheetBaseException newException = new GreensheetBaseException("Your request " +
-                		"to retrieve a " + group + " greensheet for " +
-                		grantId + " (appl_id " + applId + ") unexpectedly found more than one grant " +
-                		"with this grant number, which is invalid. Please contact support.");
-                throw newException;
-                */
-                logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                StringBuffer msgText = new StringBuffer();
-                msgText.append("In 'retrievegreensheet' action, method getGrant(), ").append(
-                        "with parameters \n\tappl_id = ").append(applId).append(", full grant number ");
-                msgText.append(grantId).append(
-                        ", \n\tgreensheet type = " + group + ", more than one grant met the criteria, likely ")
-                        .append("meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM \n\tor ")
-                        .append("there are dupliate greensheets caused by an unreconciled award.");
-                msgText.append("\n\tThis is not normal, and OGA probably should be contacted to delete the ")
-                        .append("extra action(s) \n\tor the duplicate greensheets should be de-duplicated. " +
-                                "However, the user of Greensheets is probably able to continue.");
-                logger.error("\t" + msgText);
-                logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                RedundantEmailPreventer redundantEmailPreventer = (RedundantEmailPreventer) req.getSession()
-                        .getServletContext().getAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER);
-                if (redundantEmailPreventer != null &&
-                        !redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId) &&
-                        !redundantEmailPreventer.applIdNotificationAlreadySent(applId)) {
-                    if (emailHelper != null && checkActionStatus) {
-                        emailHelper.sendTextToSupportEmail(msgText);
-                        System.out.println("############ Email sent.");
-                        redundantEmailPreventer.recordTheSending((FormGrantProxy) formGrantsProxies.get(0));
-                    }
-                }
-                //grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
-                // we should change the data model to support multiple GPMATS actions per the same 
-                // full grant number.  But that's not an especially quick undertaking.
-            } else if (formGrants != null && formGrants.size() == 1) {
-                grant = (FormGrantProxy) formGrantsProxies.get(0);
-            }
+        	 */
+        	if (actionId != null && !actionId.isEmpty()) {
+        		grant = greensheetsFormGrantsService.findGSGrantInfo(Long.parseLong(actionId), null, group, gus.getUser());	
+        		req.getSession().setAttribute(GreensheetsKeys.KEY_AGT_ID, actionId);
+        	} else if ((grantId != null && !grantId.isEmpty()) || (applId != null && !applId.isEmpty())) {
+        		// requested from YourGrants
+        		grant = greensheetsFormGrantsService.findGSGrantInfo(null, Long.parseLong(applId), group, gus.getUser());	        		
+        	}
+        } else {
+        	GreensheetBaseException newException = new GreensheetBaseException("The request to retrieve " +
+        			"a greensheet that you submitted specifies an invalid type of greensheet (it should be " +
+        			"Program or Specialist or OGA Document Management), and therefore it cannot be completed.");
+        	throw newException;
         }
-        //        String group = req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE);
-        //        if (group != null && "DM".equalsIgnoreCase(group.trim())) {
-        //            if ((applId != null) && !(applId.trim().equalsIgnoreCase(""))) {
-        //                grant.setDummy("N");
-        //            }
-        //        }
 
+        if (formGrants != null && formGrants.size() > 1) {
+        	logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        	StringBuffer msgText = new StringBuffer();
+        	msgText.append("In 'retrievegreensheet' action, method getGrant(), ").append(
+        			"with parameters \n\tappl_id = ").append(applId).append(", full grant number ");
+        	msgText.append(grantId).append(
+        			", \n\tgreensheet type = " + group + ", more than one grant met the criteria, likely ")
+        	.append("meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM \n\tor ")
+        	.append("there are dupliate greensheets caused by an unreconciled award.");
+        	msgText.append("\n\tThis is not normal, and OGA probably should be contacted to delete the ")
+        	.append("extra action(s) \n\tor the duplicate greensheets should be de-duplicated. " +
+        			"However, the user of Greensheets is probably able to continue.");
+        	logger.error("\t" + msgText);
+        	logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        	RedundantEmailPreventer redundantEmailPreventer = (RedundantEmailPreventer) req.getSession()
+        			.getServletContext().getAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER);
+        	if (redundantEmailPreventer != null &&
+        			!redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId) &&
+        			!redundantEmailPreventer.applIdNotificationAlreadySent(applId)) {
+        		if (emailHelper != null && checkActionStatus) {
+        			emailHelper.sendTextToSupportEmail(msgText);
+        			logger.info("############ Email sent.");
+        			redundantEmailPreventer.recordTheSending((FormGrantProxy) formGrantsProxies.get(0));
+        		}
+        	}
+        	grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
+        	// we should change the data model to support multiple GPMATS actions per the same 
+        	// full grant number.  But that's not an especially quick undertaking.
+        } else if (formGrants != null && formGrants.size() == 1) {
+        	grant = (FormGrantProxy) formGrantsProxies.get(0);
+        }
+        
         return grant;
     }
 
-    // private GreensheetFormProxy getForm(HttpServletRequest req, GsGrant
-    // grant) throws Exception { //Abdul Latheef: Used new FormGrantProxy
-    // instead of the old GsGrant.
     private GreensheetFormProxy getForm(HttpServletRequest req,
             FormGrantProxy grant) throws Exception {
         logger.debug("getForm() Begin");
@@ -485,37 +372,9 @@ public class RetrieveGreensheetAction extends GsBaseAction {
             group = groupa;
         }
 
-        // GreensheetFormMgr mgr = GreensheetMgrFactory //Abdul Latheef: Used
-        // new FormGrantProxy instead of the old GsGrant.
-        // .createGreensheetFormMgr(GreensheetMgrFactory.PROD);
-        // GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); //For time being
-        // -- Abdul Latheef
-        // ApplicationContext context = new
-        // ClassPathXmlApplicationContext("applicationContext.xml");
-        // GreensheetFormService greensheetFormService = (GreensheetFormService)
-        // context.getBean("greensheetFormService");
-
         logger.debug("About to retrieve form");
         form = greensheetFormService.getGreensheetForm(grant, group);
         logger.debug("form: " + form);
-
-        // if (group.equalsIgnoreCase(GreensheetGroupType.PGM.getName())) {
-        // form = mgr.findGreensheetForGrant(grant, GreensheetGroupType.PGM);
-        //
-        // } else if
-        // (group.equalsIgnoreCase(GreensheetGroupType.SPEC.getName())) {
-        // form = mgr.findGreensheetForGrant(grant, GreensheetGroupType.SPEC);
-        //
-        // } else if (group.equalsIgnoreCase(GreensheetGroupType.RMC.getName()))
-        // {
-        // form = mgr.findGreensheetForGrant(grant, GreensheetGroupType.RMC);
-        // // Abdul Latheef (for GPMATS enhancements)
-        // } else if (group.equalsIgnoreCase(GreensheetGroupType.DM.getName()))
-        // {
-        // form = mgr.findGreensheetForGrant(grant, GreensheetGroupType.DM);
-        // } else {
-        // throw new GreensheetBaseException("error.grouptype");
-        // }
         logger.debug("getForm() End");
 
         return form;

@@ -1,6 +1,7 @@
 package gov.nih.nci.iscs.numsix.greensheets.utils;
 
 import gov.nih.nci.cbiit.scimgmt.common.service.impl.EmailService;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -104,7 +105,9 @@ public class EmailNotification {
                     muduleName = "Specialist Competing";
                 if (module.trim().equalsIgnoreCase("SNC"))
                     muduleName = "Specialist Non Competing";
-
+                if (module.trim().equalsIgnoreCase(Constants.REVISION_TYPE))
+                    muduleName = "Revision";
+                
                 StringBuffer emailContent = new StringBuffer();
 
                 String envString = "[GS";

@@ -31,6 +31,7 @@ public class ProcessNewQuestionDefsDAOImpl implements ProcessNewQuestionDefsDAO 
 		put("PNC", "PGM"); 		
 		put("SC", "SPEC");
 		put("SNC", "SPEC");
+		put("REV", "REV");
     }};
     
     private final Map<String, String> moduleApplTypeCode = new HashMap<String, String>()
@@ -39,6 +40,7 @@ public class ProcessNewQuestionDefsDAOImpl implements ProcessNewQuestionDefsDAO 
 		put("PNC", "('5','8')"); 		
 		put("SC", "('1','2','3','6','7','9','4')");
 		put("SNC", "('5','8')");
+		put("REV", "('0')");
     }};
    
     private static SessionFactory sessionFactory;

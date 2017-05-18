@@ -5,22 +5,6 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
-import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
-import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFormGrantsService;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgr;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgrImpl;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormProxy;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
-import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
-import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
-import gov.nih.nci.iscs.numsix.greensheets.utils.RedundantEmailPreventer;
-
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,6 +13,19 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.DynaActionForm;
+
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsBaseAction;
+import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormService;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsFormGrantsService;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormMgrImpl;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormProxy;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
+import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
 /**
  * Action changes the lock on a greensheet thereby changing the state. Requires the following values to be passed in. <li>grantId: this is the full
@@ -39,15 +36,10 @@ import org.apache.struts.action.DynaActionForm;
  */
 public class ChangeGreensheetLockAction extends GsBaseAction {
 
-    private static final Logger logger = Logger
-            .getLogger(ChangeGreensheetLockAction.class);
-
-    private static EmailNotification emailHelper; // must be static or else, even though Spring injects it
-    // at web app startup, by the time execute() runs it is null because the instance of this Action 
-    // class when execute() runs is a different one, not the one that was created by Spring at startup...
-    // WHICH IS BECAUSE WE DON'T HAVE STRUTS1-SPRING INTEGRATION SET UP AT ALL!
-
+    private static final Logger logger = Logger.getLogger(ChangeGreensheetLockAction.class);
+   
     static GreensheetsFormGrantsService greensheetsFormGrantsService;
+    static GreensheetFormService greensheetFormService;
 
     public GreensheetsFormGrantsService getGreensheetsFormGrantsService() {
         return greensheetsFormGrantsService;
@@ -58,132 +50,107 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
         this.greensheetsFormGrantsService = greensheetsFormGrantsService;
     }
 
+    public GreensheetFormService getGreensheetFormService() {
+        return greensheetFormService;
+    }
+
+    public void setGreensheetFormService(
+            GreensheetFormService greensheetFormService) {
+        this.greensheetFormService = greensheetFormService;
+    }
+
     /**
      * @see org.apache.struts.action.Action#execute(ActionMapping, ActionForm, HttpServletRequest, HttpServletResponse)
      */
     public ActionForward execute(ActionMapping mapping, ActionForm aForm,
             HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    	
+    	String forward = null;
+        String groupType = (String) req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE);
+        resp.setStatus(Constants.BAD_REQUEST_STATUS); 
+        
+        if(groupType != null && groupType.equals(Constants.REVISION_TYPE)) {
+        	boolean status = changeLockExternally(req);
 
-        String forward = null;
-        boolean checkActionStatus = true;
-        boolean duplicateGs = false;
-
-        if (req.getSession().isNew()) {
-            forward = "sessionTimeOut";
-
-        } else {
-
-            GreensheetUserSession gus = GreensheetActionHelper
-                    .getGreensheetUserSession(req);
-            GsUser user = gus.getUser();
-
-            DynaActionForm form = (DynaActionForm) aForm;
-            String grantId = (String) form.get("grantId");
-            String groupType = (String) form.get("groupType");
-            FormGrantProxy grant = null;
-
-            // GsGrant grant = gus.getGrantByGrantNumber(grantId); //Abdul
-            // Latheef: Used new FormGrantProxy instead of the old GsGrant.
-            // GsGrant grant = gus.getGrantByGrantNumber(grantId);
-            // Abdul Latheef: Go to the DB until some workaround is devised or
-            // the DAO
-            // or the DAO is rewritten to return a Map instead of List.
-            // ApplicationContext context = new
-            // ClassPathXmlApplicationContext("applicationContext.xml");
-            // GreensheetsFormGrantsService greensheetsFormGrantsService =
-            // (GreensheetsFormGrantsService)
-            // context.getBean("greensheetsFormGrantsService");
-            List formGrants = null;
-            List formGrantsProxies = null;
-
-            if (grantId != null && (!"".equals(grantId.trim()))) {
-                formGrants = greensheetsFormGrantsService.retrieveGrantsByFullGrantNum(grantId.trim());
-
-                //                if(formGrants.size()>1){
-                //                    return mapping.findForward("duplicateGreensheetsError"); TODO: remove that mapping and JSP?
-                //                }
-                formGrantsProxies = GreensheetActionHelper
-                        .getFormGrantProxyList(formGrants, gus.getUser());
-
-                if (formGrants != null && formGrants.size() > 1) {
-                    checkActionStatus = greensheetsFormGrantsService.checkActionStatusByGrantId(grantId);
-                }
-
-            }
-            if (formGrantsProxies != null && formGrantsProxies.size() > 1) {
-
-                duplicateGs = true;
-
-                logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                StringBuffer msgText = new StringBuffer();
-                msgText.append("In 'changelock' action, method execute(), ").append(
-                        "with parameters \n\tfull grant number ");
-                msgText.append(grantId).append(
-                        ", \n\tgreensheet type = " + groupType + ", more than one grant met the criteria, likely ")
-                        .append("meaning there are two GPMATS actions with the same EXPECTED_GRANT_NUM.");
-                msgText.append("\n\tThis is not normal, and OGA probably should be contacted to delete the ")
-                        .append("extra action(s). However, the user of Greensheets is probably able to continue.");
-                logger.error("\t" + msgText);
-                logger.error("\n\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                RedundantEmailPreventer redundantEmailPreventer = (RedundantEmailPreventer) req.getSession()
-                        .getServletContext().getAttribute(GreensheetsKeys.KEY_DUPLGPMATSACTION_REDUND_EMAIL_PREVENTER);
-                if (redundantEmailPreventer != null &&
-                        !redundantEmailPreventer.grantNumberNotificationAlreadySent(grantId)) {
-                    if (emailHelper != null && checkActionStatus) {
-                        emailHelper.sendTextToSupportEmail(msgText);
-                        System.out.println("############ Email sent.");
-                        redundantEmailPreventer.recordTheSending((FormGrantProxy) formGrantsProxies.get(0));
-                    }
-                }
-                grant = (FormGrantProxy) formGrantsProxies.get(0); // TODO: BAD!!! - some time in the future 
-                // we should change the data model to support multiple GPMATS actions per the same 
-                // full grant number.  But that's not an especially quick undertaking.            	
-            } else if (formGrantsProxies != null && formGrantsProxies.size() == 1) {
-                grant = (FormGrantProxy) formGrantsProxies.get(0);
-            } else {
-                grant = null;
-            }
-
-            if (user.getRole().equals(GsUserRole.SPEC)) {
-
-                // GreensheetFormMgr mgr = GreensheetMgrFactory //Abdul Latheef:
-                // Used new FormGrantProxy instead of the old GsGrant.
-                // .createGreensheetFormMgr(GreensheetMgrFactory.PROD);
-
-                if (!duplicateGs) {
-                    GreensheetFormMgr mgr = new GreensheetFormMgrImpl(); // For time
-                                                                         // being
-                                                                         // --
-                                                                         // Abdul
-                                                                         // Latheef
-
-                    GreensheetFormProxy gForm = mgr.findGreensheetForGrant(grant,
-                            GreensheetGroupType.getGreensheetGroupType(groupType));
-
-                    mgr.changeLock(gForm, user);
-
-                    forward = "retrievegrants";
-                } else {
-                    forward = "duplicateGreensheetsError";
-                }
-            } else {
-                throw new GreensheetBaseException("The user "
-                        + user.getDisplayUserName()
-                        + " does not have permission to unlock this greensheet");
-            }
-
+        	if(status) resp.setStatus(Constants.OK_STATUS); 
         }
-
+        else {
+        	forward = changeLockInternally(req, aForm);
+        	resp.setStatus(Constants.OK_STATUS);
+        }
+        
         return mapping.findForward(forward);
-
     }
+    
+    private boolean changeLockExternally(HttpServletRequest req) {
+    	FormGrantProxy grant = null;
+    	boolean status = false;
 
-    public static EmailNotification getEmailHelper() {
-        return emailHelper;
+    	try {
+    		GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
+    		GsUser user = gus.getUser();
+
+    		if (user.getRole().equals(GsUserRole.SPEC)) {
+    			String groupType = (String) req.getParameter(GreensheetsKeys.KEY_GS_GROUP_TYPE);
+    			String actionId = (String) req.getParameter(GreensheetsKeys.KEY_AGT_ID);
+
+    			if(actionId != null && groupType != null && !actionId.isEmpty()) {
+    				grant = greensheetsFormGrantsService.findGSGrantInfo(Long.parseLong(actionId), null, groupType, gus.getUser());
+
+    				GreensheetFormProxy gForm = greensheetFormService.getGreensheetForm(grant, groupType);
+    				if(gForm != null) {
+    					status = new GreensheetFormMgrImpl().changeLock(gForm, user);
+    				}
+    				else {
+    					logger.error("There is no greensheet form for Grant: " + grant + ", Group: " + groupType);	    			
+    				}
+    			}
+    		}
+    	}
+    	catch(Exception e) {
+    		logger.error("There is a problem with lock/unlock functionality", e);
+    	}
+
+    	return status;
     }
+    
+    private String changeLockInternally(HttpServletRequest req, ActionForm aForm) throws Exception {
+    	String forward = null;
 
-    public void setEmailHelper(EmailNotification emailHelper) {
-        this.emailHelper = emailHelper;
+    	if (req.getSession().isNew()) {
+    		forward = "sessionTimeOut";
+
+    	} else {
+    		GreensheetUserSession gus = GreensheetActionHelper.getGreensheetUserSession(req);
+    		GsUser user = gus.getUser();
+
+    		if (user.getRole().equals(GsUserRole.SPEC)) {
+    			DynaActionForm form = (DynaActionForm) aForm;
+    			String groupType = (String) form.get("groupType");
+    			String applId = (String) form.get("applId");
+
+    			FormGrantProxy grant = null;
+
+    			if (applId != null && groupType != null) {
+    				grant = greensheetsFormGrantsService.findGSGrantInfo(null, Long.parseLong(applId), groupType, gus.getUser());	
+
+    				GreensheetFormProxy gForm = greensheetFormService.getGreensheetForm(grant, groupType);
+    				if(gForm != null) {
+    					new GreensheetFormMgrImpl().changeLock(gForm, user);  
+    					forward = "retrievegrants";
+    				}
+    				else {
+    					logger.error("There is no greensheet form for Grant: " + grant + ", Group: " + groupType);
+    	    			throw new GreensheetBaseException("There is no greensheet form for Grant: " + grant + ", Group: " + groupType);
+    				}
+    			}
+    		} else {            	 
+    			logger.error("The user " + user.getDisplayUserName() + " does not have permission to unlock this greensheet");                
+    			throw new GreensheetBaseException("The user " + user.getDisplayUserName() + " does not have permission to unlock this greensheet");
+    		}
+    	}
+
+    	return forward;
     }
 
 }

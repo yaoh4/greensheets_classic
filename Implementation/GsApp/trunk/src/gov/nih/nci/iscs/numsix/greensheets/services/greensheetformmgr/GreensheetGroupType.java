@@ -8,6 +8,8 @@ package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
 import org.apache.commons.lang.enums.ValuedEnum;
 
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
+
 /**
  * Enumeration of Greensheet Group Types. These represent the Program (PGM)
  * Specialist(SPEC), and RMC (RMC) groups that are the ones who workup the forms
@@ -25,6 +27,7 @@ public class GreensheetGroupType extends ValuedEnum {
 	public static final int DM_VALUE = 3; 	// Abdul Latheef (for GPMATS enhancements):
 											// Added fourth type for the DM Checklist. Do not
 											// disturb the RMC_VALUE class data & related code.
+	public static final int REV_VALUE = 4;
 
 	public static final GreensheetGroupType PGM = new GreensheetGroupType(
 			"PGM", PGM_VALUE);
@@ -34,6 +37,9 @@ public class GreensheetGroupType extends ValuedEnum {
 
 	public static final GreensheetGroupType RMC = new GreensheetGroupType(
 			"RMC", RMC_VALUE);
+	
+	public static final GreensheetGroupType REV = new GreensheetGroupType(
+			Constants.REVISION_TYPE, REV_VALUE);
 
 	// Abdul Latheef (for GPMATS enhancements):Added fourth type for the DM Checklist.
 	// Do not disturb the RMC_VALUE class data & related code.
@@ -59,6 +65,8 @@ public class GreensheetGroupType extends ValuedEnum {
 			return RMC;
 		} else if (val.equalsIgnoreCase(DM.getName())) {
 			return DM;
+		} else if (val.equalsIgnoreCase(REV.getName())) {
+			return REV;
 		} else {
 			return null;
 		}

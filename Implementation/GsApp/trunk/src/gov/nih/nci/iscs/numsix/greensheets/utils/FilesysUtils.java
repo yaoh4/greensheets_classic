@@ -1,6 +1,9 @@
 package gov.nih.nci.iscs.numsix.greensheets.utils;
 
 import java.util.Properties;
+
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
+
 import java.net.URL;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -131,6 +134,9 @@ public class FilesysUtils {
 		}
 		if (moduleName.equalsIgnoreCase("Specialist Non Competing")){
 			roleCode = "SNC";
+		}
+		if (moduleName.equalsIgnoreCase("Revision")){
+			roleCode = Constants.REVISION_TYPE;
 		}
 		return roleCode;
 	}

@@ -56,7 +56,9 @@ public class GreensheetFormSession implements Serializable {
 			grp = "Program";
 		} else if (form.getGroupType().equals(GreensheetGroupType.DM)) {	// Abdul Latheef: Added the condition for the GPMATS enhancements
 			grp = "Document Management";
-		} else {
+		} else if (form.getGroupType().equals(GreensheetGroupType.REV)) {	
+			grp = "Revision";
+		} else if (form.getGroupType().equals(GreensheetGroupType.SPEC)) {	
 			grp = "Specialist";
 		}
 

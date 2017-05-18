@@ -80,8 +80,8 @@ public interface Constants {
 	public static final String SELECTED_DRAFT_MECHANISM = "selectedMechanism";
 	public static final String UPDATE_DROP_DOWN_OPTION_ALL= "View All";
 	public static final String UPDATE_DROP_DOWN_OPTION_UPDATE = "Updated Only";
-	
-	
+	public static final String REVISION_TYPE = "REV";
+
 	public static final int OK_STATUS = 200;
 	public static final int VALIDATION_FAILED_STATUS = 301;
 	public static final int BAD_REQUEST_STATUS = 400;

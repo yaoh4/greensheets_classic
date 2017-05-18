@@ -52,7 +52,7 @@
 											</xs:simpleType>
 										</xs:element>
 									</xs:all>
-					 				<xs:attribute name="gsid" type="gsf:GsidType" use="required">
+									<xs:attribute name="gsid" type="gsf:GsidType" use="required">
 										<xs:annotation>
 											<xs:documentation>This is equivalent with SelectionDef identifier (SEL) in the old schema</xs:documentation>
 										</xs:annotation>
@@ -331,7 +331,7 @@
 		<xs:attribute name="grantType" use="required">
 			<xs:simpleType>
 				<xs:restriction base="xs:integer">
-					<xs:minInclusive value="1"/>
+					<xs:minInclusive value="0"/>
 					<xs:maxInclusive value="9"/>
 				</xs:restriction>
 			</xs:simpleType>

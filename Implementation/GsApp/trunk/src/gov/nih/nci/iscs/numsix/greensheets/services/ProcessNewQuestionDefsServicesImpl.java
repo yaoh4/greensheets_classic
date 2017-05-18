@@ -19,6 +19,7 @@ import org.w3c.dom.Node;
 
 import gov.nih.nci.cbiit.atsc.dao.FormGrant;
 import gov.nih.nci.cbiit.atsc.dao.ProcessNewQuestionDefsDAO;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
@@ -191,6 +192,8 @@ public class ProcessNewQuestionDefsServicesImpl implements ProcessNewQuestionDef
         		module = "PGM";
         	} else if (module.equalsIgnoreCase("SC") || module.equalsIgnoreCase("SNC")) {
         		module = "SPEC";
+        	} else if (module.equalsIgnoreCase(Constants.REVISION_TYPE)) {
+        		module = Constants.REVISION_TYPE;
         	}
         }
           

@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import gov.nih.nci.cbiit.scimgmt.gs.dao.PromoteModuleDAO;
 import gov.nih.nci.cbiit.scimgmt.gs.service.PromoteModuleService;
 import gov.nih.nci.iscs.numsix.greensheets.services.ProcessNewQuestionDefsService;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
 import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
 import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
 import gov.nih.nci.iscs.numsix.greensheets.utils.FilesysUtils;
@@ -107,18 +108,20 @@ public class PromoteModuleServiceImpl implements PromoteModuleService {
             promoteModuleDAO.promoteDraftGreensheets(module);
 
             module = FilesysUtils.getRoleCodeFromModuleName(module);   
-            HashSet<String> inActiveMechTypeByModule = processNewQuestionDefsService.getInActiveMechTypeByModule(module);
-            HashSet<String> deletions = processNewQuestionDefsService.getDeletionList(inActiveMechTypeByModule, module);            
-            HashSet<String> additions = processNewQuestionDefsService.getAdditionList(inActiveMechTypeByModule, module);            
+            if(!module.equals(GreensheetGroupType.REV.getName())) {
+            	HashSet<String> inActiveMechTypeByModule = processNewQuestionDefsService.getInActiveMechTypeByModule(module);
+            	HashSet<String> deletions = processNewQuestionDefsService.getDeletionList(inActiveMechTypeByModule, module);            
+            	HashSet<String> additions = processNewQuestionDefsService.getAdditionList(inActiveMechTypeByModule, module);            
             
-            if(!additions.isEmpty()){
-            	this.adjustAdditionList(additions, inActiveMechTypeByModule, module) ;
+            	if(!additions.isEmpty()){
+            		this.adjustAdditionList(additions, inActiveMechTypeByModule, module) ;
+            	}
+            
+            	if (!deletions.isEmpty()) {
+            		this.loadInactiveMechType(module, deletions);
+            	}
             }
             
-            if (!deletions.isEmpty()) {
-                this.loadInactiveMechType(module, deletions);
-            }
-
             logger.info("Confirmation of Successful Promotion of Draft Greensheets.");
             
             this.backupFile(new File(getQuestionXMLSourceFileName(module)));

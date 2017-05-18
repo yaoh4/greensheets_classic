@@ -21,7 +21,7 @@
 	</context-param>
 	<context-param>
 		<param-name>appVersion</param-name>
-		<param-value>3.4.1</param-value>
+		<param-value>3.5.0</param-value>
 	</context-param>
 	<context-param>
 		<param-name>appBuild</param-name>
@@ -168,7 +168,7 @@
 				to home page. Again, separate by semicolons.
 			</description>
 			<param-name>resources-to-preload-user-info-and-then-service</param-name>
-			<param-value>retrievegreensheet</param-value>
+			<param-value>retrievegreensheet;changelock</param-value>
 		</init-param>
 	</filter>
 

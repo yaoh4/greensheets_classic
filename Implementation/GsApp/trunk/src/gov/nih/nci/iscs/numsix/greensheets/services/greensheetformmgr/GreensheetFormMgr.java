@@ -65,7 +65,7 @@ public interface GreensheetFormMgr {
      * @param user
      * @throws GreensheetBaseException
      */
-    public void changeLock(GreensheetFormProxy form, GsUser user)
+    public boolean changeLock(GreensheetFormProxy form, GsUser user)
             throws GreensheetBaseException;
 
     /**

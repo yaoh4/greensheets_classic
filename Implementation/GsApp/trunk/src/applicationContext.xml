@@ -257,7 +257,7 @@
 	<bean name="/changelock"
 		class="gov.nih.nci.iscs.numsix.greensheets.application.ChangeGreensheetLockAction">
 		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />
-		<property name="emailHelper" ref="emailHelper" />
+		<property name="greensheetFormService" ref="greensheetFormService" />				
 	</bean>
 
 	<bean name="/status"

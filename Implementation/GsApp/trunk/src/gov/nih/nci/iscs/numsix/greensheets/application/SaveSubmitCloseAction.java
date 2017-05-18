@@ -178,7 +178,8 @@ public class SaveSubmitCloseAction extends DispatchAction {
             req.setAttribute("TEMPLATE_ID", Integer.toString(form
                     .getTemplateId()));
             req.setAttribute(GreensheetsKeys.KEY_FORM_UID, id);
-
+            req.setAttribute(GreensheetsKeys.KEY_AGT_ID, (grant.getActionId() == 0 ? null : grant.getActionId()));
+            
             forward = "retrievegreensheet";
         }
         logger.debug("save() End");

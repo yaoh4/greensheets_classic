@@ -14,11 +14,20 @@
 <%@ include file="/jsp/common/DialogHeader.jsp"%> 
 <!-- begin body content -->
 <h1>Greensheet Questionnaire Not Found</h1>
+<%
+String mech = (String) request.getAttribute("MISSING_MECH");
+if(mech != null){
+%>
 <p>
 	Greensheet questionnaire definition was not found for 
 	type <strong><%=request.getAttribute("MISSING_TYPE")%></strong>
 	<strong><%=request.getAttribute("MISSING_MECH")%></strong> grants.
 </p>
+<%} else {%>
+<p>
+	Greensheet questionnaire definition was not found for Revision action.
+</p>
+<%} %>
 <p>
     Please contact support if you feel that greensheet questionnaires for such grants should be defined.
 </p>

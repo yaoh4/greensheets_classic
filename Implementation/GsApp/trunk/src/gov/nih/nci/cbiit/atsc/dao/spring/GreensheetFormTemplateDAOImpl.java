@@ -62,8 +62,12 @@ public class GreensheetFormTemplateDAOImpl extends JdbcDaoSupport implements Gre
 			});
 		}
 		
-		greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Greensheet Type: [0-9]", "Greensheet Type: " + applTypeCode);
-		greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Mech: [A-Z0-9][A-Z0-9][A-Z0-9]", "Mech: " + activityCode);
+		if(activityCode.equals("000")){
+			greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Greensheet Type: 0 &amp; Mech: 000", "Greensheet");
+		} else {
+			greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Greensheet Type: [0-9]", "Greensheet Type: " + applTypeCode);
+			greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Mech: [A-Z0-9][A-Z0-9][A-Z0-9]", "Mech: " + activityCode);
+		}
 		
 		//Template caching is not implemented right now.
 		return greensheetFormTemplate;
@@ -104,8 +108,12 @@ public class GreensheetFormTemplateDAOImpl extends JdbcDaoSupport implements Gre
 			});
 		}
 		
-		greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Greensheet Type: [0-9]", "Greensheet Type: " + applTypeCode);
-		greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Mech: [A-Z0-9][A-Z0-9][A-Z0-9]", "Mech: " + activityCode);
+		if(activityCode.equals("000")){
+			greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Greensheet Type: 0 &amp; Mech: 000", "Greensheet");
+		} else {
+			greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Greensheet Type: [0-9]", "Greensheet Type: " + applTypeCode);
+			greensheetFormTemplate = greensheetFormTemplate.replaceFirst("Mech: [A-Z0-9][A-Z0-9][A-Z0-9]", "Mech: " + activityCode);
+		}
 		
 		//Template caching is not implemented right now.
 		return greensheetFormTemplate;

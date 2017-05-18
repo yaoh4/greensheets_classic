@@ -16,6 +16,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import gov.nih.nci.cbiit.atsc.dao.FormGrant;
 import gov.nih.nci.cbiit.atsc.dao.GreensheetForm;
 import gov.nih.nci.cbiit.atsc.dao.GreensheetFormDAO;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GsNoTemplateDefException;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
@@ -42,6 +43,8 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
 			formRoleCode = "PGM";
 		} else if ("DM".equalsIgnoreCase(formtype.trim())) {
 			formRoleCode = "DM";
+		}  else if (Constants.REVISION_TYPE.equalsIgnoreCase(formtype.trim())) {
+			formRoleCode = Constants.REVISION_TYPE;			
 		}
 
 		sqlParms.addValue("formRoleCode", formRoleCode);
@@ -64,14 +67,13 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
 		}
 		logger.debug("The Greensheet Form Template ID read from the DB is: " + formTemplateId);
 
-		String greensheetFormSql = "";
-		greensheetFormSql = "SELECT" + " aft.frm_id AS FRM_ID" + ", ft.ftm_id AS FTM_ID"
+		String greensheetFormSql = "SELECT" + " aft.frm_id AS FRM_ID" + ", ft.ftm_id AS FTM_ID"
 				+ ", ft.form_role_code AS FORM_ROLE_CODE" + ", ft.form_status AS FORM_STATUS" + ", ft.poc AS POC"
 				+ ", ft.submitted_user_id AS SUBMITTED_USER_ID" + ", ft.create_user_id AS CREATE_USER_ID"
 				+ ", ft.create_date AS CREATE_DATE" + ", ft.last_change_user_id AS LAST_CHANGE_USER_ID"
 				+ ", ft.last_change_date AS LAST_CHANGE_DATE" + ", ft.update_stamp AS UPDATE_STAMP"
 				+ ", ft.submitted_date AS SUBMITTED_DATE" + " FROM APPL_FORMS_T aft" + ", FORMS_T ft"
-				+ " WHERE aft.frm_id = ft.id" + " AND ft.form_role_code = :formRoleCode";
+				+ " WHERE aft.frm_id = ft.id" + " AND ft.form_role_code = :formRoleCode";		
 
 		if (grant.isDummy()) {
 			greensheetFormSql += " AND aft.control_full_grant_num = :fullGrantNum";
@@ -80,14 +82,15 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
 			greensheetFormSql += " AND aft.appl_id = :applId";
 			sqlParms.addValue("applId", grant.getApplId());
 		}
-
+			
+		if(formRoleCode.equals(Constants.REVISION_TYPE)) {
+			greensheetFormSql += "  AND aft.agt_id = :actionId";
+			sqlParms.addValue("actionId", grant.getActionId());
+		}
+		
 		logger.debug("SQL to read the Greensheet Form: " + greensheetFormSql);
-		// greensheetForm = (GreensheetForm)
-		// this.namedParameterJdbcTemplate.queryForObject(greensheetFormSql,
-		// sqlParms, new GreensheetFormRowMapper());
 
-		List greensheetForms = this.namedParameterJdbcTemplate.query(greensheetFormSql, sqlParms,
-				new GreensheetFormRowMapper());
+		List greensheetForms = this.namedParameterJdbcTemplate.query(greensheetFormSql, sqlParms, new GreensheetFormRowMapper());
 
 		if (greensheetForms != null && greensheetForms.size() == 1) {
 			greensheetForm = (GreensheetForm) greensheetForms.get(0);

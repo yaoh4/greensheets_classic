@@ -61,11 +61,12 @@ public class FormGrant implements Serializable {
     private String pgmFormStatus;
     private Date pgmFormSubmittedDate;
     private String specFormStatus;
-    private Date specFormSubmittedDate;
+    private Date specFormSubmittedDate;   
     private String dmFormStatus;
     private boolean minority;
     private String pgmGsReadyFlag;
     private String gpmatsDayCountNum;
+    private long actionId;
 
     public boolean isDummy() {
         return dummy;
@@ -519,7 +520,7 @@ public class FormGrant implements Serializable {
         this.specFormSubmittedDate = specFormSubmittedDate;
     }
 
-    public String getDmFormStatus() {
+	public String getDmFormStatus() {
         return dmFormStatus;
     }
 
@@ -555,7 +556,15 @@ public class FormGrant implements Serializable {
         this.gpmatsDayCountNum = gpmatsDayCountNum;
     }
 
-    public boolean equals(Object object) {
+    public long getActionId() {
+		return actionId;
+	}
+
+	public void setActionId(long actionId) {
+		this.actionId = actionId;
+	}
+
+	public boolean equals(Object object) {
         // TODO Auto-generated method stub
         return false;
     }

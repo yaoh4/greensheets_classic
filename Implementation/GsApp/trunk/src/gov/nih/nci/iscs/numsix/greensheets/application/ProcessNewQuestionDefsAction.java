@@ -81,6 +81,8 @@ public class ProcessNewQuestionDefsAction extends GsBaseAction {
 			roleCode = "PGM";
 		} else if ("SNC".equals(module) || "SC".equals(module)) {
 			roleCode = "SPEC";
+		} else if (Constants.REVISION_TYPE.equals(module)) {
+			roleCode = Constants.REVISION_TYPE;
 		} else {
 			logger.error("Wrong module parameter: " + module);
 			status = Constants.BAD_REQUEST_STATUS;
@@ -120,6 +122,8 @@ public class ProcessNewQuestionDefsAction extends GsBaseAction {
 	                moduleName = "Specialist Competing";
 	            if (module.trim().equalsIgnoreCase("SNC"))
 	                moduleName = "Specialist Non Competing";
+	    		if (module.equalsIgnoreCase(Constants.REVISION_TYPE))
+	    			moduleName = "Revision";
 	            
 				String subject = "Confirmation of Successful Import of Draft Greensheets";
 				String content = "Thank you for your request. The "

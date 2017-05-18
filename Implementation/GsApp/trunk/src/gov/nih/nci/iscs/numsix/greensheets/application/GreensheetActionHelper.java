@@ -5,21 +5,6 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.application;
 
-import gov.nih.nci.cbiit.atsc.dao.FormGrant;
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
-import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
-import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserPreferencesServices;
-import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserServices;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormProxy;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.DMChecklistUserPermission;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
-import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
-import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
-import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,6 +21,21 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import gov.nih.nci.cbiit.atsc.dao.FormGrant;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserPreferencesServices;
+import gov.nih.nci.iscs.numsix.greensheets.services.GreensheetsUserServices;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormProxy;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetGroupType;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetStatus;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.QuestionResponseData;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.DMChecklistUserPermission;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
+import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
 /**
  * Utility methods used by the action classes.
@@ -402,7 +402,7 @@ public class GreensheetActionHelper {
             break;
 
         case GsUserRole.SPEC_VALUE:
-            if (type.equals(GreensheetGroupType.SPEC)
+            if ((type.equals(GreensheetGroupType.SPEC) || type.equals(GreensheetGroupType.REV))
                     && !form.getStatus().equals(GreensheetStatus.SUBMITTED)
                     && !form.getStatus().equals(GreensheetStatus.FROZEN)) {
 
@@ -424,6 +424,8 @@ public class GreensheetActionHelper {
                                                           // the check for the
                                                           // DM Check list
             displayTypeString = "DOCUMENT MANAGEMENT";
+        } else if (type.equals(GreensheetGroupType.REV)) {
+            displayTypeString = "REVISION";
         }
 
         // Set the submit and save button
@@ -441,7 +443,7 @@ public class GreensheetActionHelper {
                     && user.getRole().equals(GsUserRole.PGM_ANL)) {
                 displaySave = true;
             }
-            if (type.equals(GreensheetGroupType.SPEC)
+            if (type.equals(GreensheetGroupType.SPEC) || type.equals(GreensheetGroupType.REV)
                     && user.getRole().equals(GsUserRole.SPEC)) {
                 displaySave = true;
                 if (grant.isGrantOnControl()) {
@@ -585,7 +587,7 @@ public class GreensheetActionHelper {
             }
         }
 
-        if (form.getGroupType().equals(GreensheetGroupType.SPEC)) {
+        if (form.getGroupType().equals(GreensheetGroupType.SPEC) || form.getGroupType().equals(GreensheetGroupType.REV)) {
             displayGmsAndPdCode = true;
         }
 
@@ -690,7 +692,7 @@ public class GreensheetActionHelper {
             break;
 
         case GsUserRole.SPEC_VALUE:
-            if (type.equals(GreensheetGroupType.SPEC)
+            if ((type.equals(GreensheetGroupType.SPEC) || type.equals(GreensheetGroupType.REV))
                     && !form.getStatus().equals(GreensheetStatus.SUBMITTED)
                     && !form.getStatus().equals(GreensheetStatus.FROZEN)) {
 
@@ -712,6 +714,8 @@ public class GreensheetActionHelper {
                                                           // the check for the
                                                           // DM Check list
             displayTypeString = "DOCUMENT MANAGEMENT";
+        } else if (type.equals(GreensheetGroupType.REV)) {
+            displayTypeString = "REVISION";
         }
 
         // Set the submit and save button
@@ -729,7 +733,7 @@ public class GreensheetActionHelper {
                     && user.getRole().equals(GsUserRole.PGM_ANL)) {
                 displaySave = true;
             }
-            if (type.equals(GreensheetGroupType.SPEC)
+            if (((type.equals(GreensheetGroupType.SPEC) || type.equals(GreensheetGroupType.REV)))
                     && user.getRole().equals(GsUserRole.SPEC)) {
                 displaySave = true;
                 if (grant.isGrantOnControl()) {
@@ -873,10 +877,10 @@ public class GreensheetActionHelper {
             }
         }
 
-        if (form.getGroupType().equals(GreensheetGroupType.SPEC)) {
+        if (form.getGroupType().equals(GreensheetGroupType.SPEC) || form.getGroupType().equals(GreensheetGroupType.REV)) {
             displayGmsAndPdCode = true;
         }
-
+        
         // Abdul Latheef (for GPMATS). Set the flag to indicate if the
         // application was electronically submitted.
         if (form.getGroupType().equals(GreensheetGroupType.DM)) {
@@ -1042,7 +1046,8 @@ public class GreensheetActionHelper {
             grantProxy.setMinority(formGrant.isMinority() ? "Y" : "N");
             grantProxy.setPgmGsReadyFlag(formGrant.getPgmGsReadyFlag());
             grantProxy.setGpmatsDayCountNum(formGrant.getGpmatsDayCountNum());
-
+            grantProxy.setActionId(formGrant.getActionId());
+            
             grantProxyList.add(grantProxy);
         }
 
