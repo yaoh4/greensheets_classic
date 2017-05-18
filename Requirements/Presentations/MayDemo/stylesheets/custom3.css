@@ -1697,3 +1697,8 @@ textarea {
    box-shadow: none;
     opacity: .65;
 }
+
+
+.fa-question-circle:before {
+    content: "\f059"; 
+}

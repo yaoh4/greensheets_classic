@@ -1513,3 +1513,7 @@ table.dataTable thead .sorting:after {
   display:inline;
 }
 
+.fa-question-circle:before {
+    content: "\f059"; 
+}
+
