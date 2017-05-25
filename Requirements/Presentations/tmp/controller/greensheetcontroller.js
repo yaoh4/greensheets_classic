@@ -27,38 +27,8 @@ function hideNode(childId) {
 
 $(document).ready(function(){
 
-   
-   $('.answered').attr("style", "display:table-row; color: #000");    
-
-
-  $('#comment1').change(function(){
-   if($.trim($('#comment1').val()) != ''){
-     $("#comment1image").attr("src", "images/comment.gif");
-    
-   }
-});
-
-
-    $('#comment3').change(function(){
-   if($.trim($('#comment3').val()) != ''){
-     $("#comment3image").attr("src", "images/comment.gif");
-    
-   }
-});
-
-        $('#comment11').change(function(){
-   if($.trim($('#comment11').val()) != ''){
-     $("#comment11image").attr("src", "images/comment.gif");
-    
-   }
-});
-
-
-
-
-     
-
-
+  
+//code for expand/collapse Grant Number box
 
   $('.panel-heading span.clickable').click (function(){
     var $this = $(this);
@@ -74,6 +44,10 @@ $(document).ready(function(){
   }
 });
 
+
+
+//initiate treeFy jsjlk
+
     $("#gsTable").treeFy({
             expanderExpandedClass: 'fa fa-minus-circle',
             expanderCollapsedClass: 'fa fa-plus-circle',
@@ -82,26 +56,7 @@ $(document).ready(function(){
         });
 
 
-//Submit & Validate Function 
 
-$(".submit").click(function(){
-
-
- $("#error").attr("style", "inline");
- $('#complete').attr('style', 'display:none;');
- $('html, body').animate({ scrollTop: 0 }, 0);
-
-
-    $("#1, #6-1, #8-1, #Textarea1, #Textarea6, #Textarea8, #12-2-1-1-1, #Textarea12-2-1-1-1, #12-2-1-1-2, #radio12-2-1-1-1, #sub12-2-1-1-3, #date, .warning1, #1-1text").addClass("has-error");
-    $(".warning1").attr('style', 'display: block');
-    $("#success").attr("style", "display: none");
-    $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1").removeClass("treetable-collapsed");
-     $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1" ).addClass("treetable-expanded");
-     $("#1sub, #6sub, #8sub, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-5, #sub12-2-6").attr('style','display: table-row');
-       $("#main1, #main6, #main8, #main12").find('span').toggleClass("fa-minus-circle fa-plus-circle");
- $("#sub12-2, #sub12-2-1, #sub12-2-1-1").find('.treetable-expander').toggleClass("fa-minus-circle fa-plus-circle"); 
-       
- });
 
 
 //Modal add attachments view previously saved
@@ -152,7 +107,12 @@ $("#completed").click(function () {
    
  });
 
+//initiate Datepicker (calendar in form) js
+
 $('.datepicker').datepicker();
+
+
+//Show & Hide Comment boxes 
 
     $(".allNotes").click(function(){
         $(".hiddenNotes").toggle();
@@ -190,8 +150,16 @@ var text_max = 4000;
     });
 });
 
+//Show Comment box when click on icon -- demo only
+$('.notes').click(function(e){
+     $(this).closest('tr').find('.hiddenNotes').toggle(); 
+       $("#sub11-1 span").removeClass("fa fa-minus-circle fa-plus-circle");
+     $("#main11 span").removeClass("fa fa-minus-circle fa-plus-circle");
 
-    //text box counter
+      e.preventDefault();
+});
+
+//text box counter
 
 $(function(){
 var text_max = 2000;
@@ -202,7 +170,7 @@ var text_max = 2000;
     });
 });
 
-//Expand All Function
+//Preview Mode that expands everything and makes everything gray
 
 
 $(".allSubs").click(function(){
@@ -257,51 +225,39 @@ return false;
 
     });
 
-$('.notes').click(function(e){
-     $(this).closest('tr').find('.hiddenNotes').toggle(); 
-       $("#sub11-1 span").removeClass("fa fa-minus-circle fa-plus-circle");
-     $("#main11 span").removeClass("fa fa-minus-circle fa-plus-circle");
-
-      e.preventDefault();
-});
 
 
 
-$('#infoBox').click(function(){
-     $(this).find('i').toggleClass("fa-minus-circle fa-plus-circle"); 
-});
-
-
-
-
-
-
- $('.form-select').change( function () {
-     window.console&&console.log("Selected " + $(this).val());
+$('.form-select').change( function () {
      var cval = $(this).val();
+     var match = false;
      for (i=0; i< qdata.length; i++) {
          if (qdata[i].answers) {
              for (j=0; j < qdata[i].answers.length; j++) {
                  if (cval === qdata[i].answers[j].aId) {
                      if (qdata[i].answers[j].children) {
+                        match = true;
                          for (k=0; k < qdata[i].answers[j].children.length; k++) {
                              showNode(qdata[i].answers[j].children[k]);
                          }
                      }
                  } else {
                      if (qdata[i].answers[j].children) {
+                      if (!match) {
                          for (k = 0; k < qdata[i].answers[j].children.length; k++) {
                              hideNode(qdata[i].answers[j].children[k]);
-                         }
+                         }                       
+                      }
+ 
                      }
                  }
-
+ 
              }
          }
-
+ 
      }
-     window.console&&console.log("QDATA size=" + qdata.length);
- });
+});
+ 
 
 
 
@@ -313,12 +269,7 @@ $('#infoBox').click(function(){
 
 
 
-
-
-
-
-
-
+// initiate tooltip js
 
 
      $('[data-toggle="tooltip"]').tooltip();   
