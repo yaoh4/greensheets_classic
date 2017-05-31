@@ -207,7 +207,7 @@ $(".allSubs").click(function(){
            $('.answered').attr("style", "display:table-row; color: #999"); 
  $('#gsTable tr').removeClass("preview");
      $(".allSubs").text("Preview All Sub Questions"); 
- $(".form-control, .allNotes, #print, #rs, .submit, #submit").attr('disabled', false);
+ $(".form-control, .allNotes, #print, #rs, .submit, #submit, .form-check-input").attr('disabled', false);
 $(".comms img").attr('src',"images/nocomment.gif");
 $(".notes img").attr('src',"images/nocomment.gif");
 $(".attachs img").attr('src',"images/attachment.gif");
@@ -235,7 +235,7 @@ $("#attachedFile").attr('src',"images/attachments.gif");
 $(".comms img, .notes img").attr('src',"images/commentDisabled.gif");
 $(".attachs img").attr('src',"images/Noattachment.gif");
 $("#attachedFile").attr('src',"images/Noattachment.gif");
-$(".form-control, .allNotes, #print, #rs, .submit, #submit").attr('disabled', true);
+$(".form-control, .allNotes, #print, #rs, .submit, #submit, .form-check-input").attr('disabled', true);
 return false;
 
   }

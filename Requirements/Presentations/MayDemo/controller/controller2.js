@@ -204,7 +204,7 @@ $(".allSubs").click(function(){
            $('.answered').attr("style", "display:table-row; color: #999"); 
  $('#gsTable tr, #gsTable select, #gsTable input').removeClass("preview");
      $(".allSubs").text("Preview All Sub Questions"); 
- $(".form-control, .allNotes, #print, #rs, .submit, #submit, #saveButton, .save, .rs, .print").attr('disabled', false);
+ $(".form-control, .allNotes, #print, #rs, .submit, #submit, #saveButton, .save, .rs, .print, .form-check-input").attr('disabled', false);
 $(".comms img").attr('src',"images/nocomment.gif");
 $(".notes img").attr('src',"images/nocomment.gif");
 $(".attachs img").attr('src',"images/attachment.gif");
@@ -230,7 +230,7 @@ $(".attachs img").attr('src',"images/attachment.gif");
      $(".treetable-expanded").attr('style', 'display:table-row');
 $(".comms img, .notes img").attr('src',"images/commentDisabled.gif");
 $(".attachs img").attr('src',"images/Noattachment.gif");
-$(".form-control, .allNotes, #print, #rs, .rs, .print, .submit, #submit, #saveButton, .save").attr('disabled', true);
+$(".form-control, .allNotes, #print, #rs, .rs, .print, .submit, #submit, #saveButton, .save, .form-check-input").attr('disabled', true);
 return false;
 
   }

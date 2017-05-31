@@ -229,7 +229,7 @@ var text_max = 2000;
            $('.answered').attr("style", "display:table-row; color: #999"); 
  $('#gsTable tr, #gsTable select, #gsTable input').removeClass("preview");
      $(".allSubs").text("Preview All Sub Questions"); 
- $(".form-control,  #print, #rs, .submit, #submit").attr('disabled', false);
+ $(".form-control,  #print, #rs, .submit, #submit, .form-check-input").attr('disabled', false);
 
 
     
@@ -250,7 +250,7 @@ var text_max = 2000;
       $('#grantBox, #collapse1').removeClass("treetable-expanded");
      $(".treetable-expanded").attr('style', 'display:table-row');
 
-$(".form-control, #print, #rs, .submit, #submit").attr('disabled', true);
+$(".form-control, #print, #rs, .submit, #submit, .form-check-input").attr('disabled', true);
 return false;
 
   }
