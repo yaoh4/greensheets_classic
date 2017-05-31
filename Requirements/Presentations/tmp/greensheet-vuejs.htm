@@ -1724,26 +1724,12 @@
 <!-- end Content -->
 œ
 <script>
-    var qdata = [
-        {
-            qId: 'PQNC_40',
-            answers: [
-                {
-                    aId: 'SEL_X_34',
-                },
-                {
-                    aId: 'SEL_90',
-                    children: [ 'PQNC_41' ]
-                },
-                {
-                    aId: 'SEL_92'
-                }
-            ]
-        },
-        {
-            qId: 'PQNC_41'
-        }
-    ];
+var jsonObject = '{"heading": "Arboretum", "author": "jlowe54", "votes": 896}';
+var jsonArray = '[{"Id":1,"Balance":233.82},{"Id":2,"Balance":1084.43},{"Id":3,"Balance":63096.50}]';
+console.log("Parsed jsonObject: ");
+console.log(JSON.parse(jsonObject));
+console.log("Parsed jsonArray: ");
+console.log(JSON.parse(jsonArray));
 </script>
 
 </body>
