@@ -280,6 +280,7 @@ $('#infoBox').click(function(){
       $('#1sub').addClass("expanded answered");
        $('#1sub').removeClass("preview");
             $("#1-1text").attr("disabled", false);
+          $("#main1 span").removeClass("fa fa-minus-circle fa-plus-circle");   
     
   
     }
@@ -292,6 +293,7 @@ $('#infoBox').click(function(){
           $('#1sub').removeClass("answered");
           $('#1sub').addClass("preview");
             $("#1-1text").attr("disabled", true);
+            $("#main1 span").addClass("fa  fa-plus-circle"); 
      
    
 
