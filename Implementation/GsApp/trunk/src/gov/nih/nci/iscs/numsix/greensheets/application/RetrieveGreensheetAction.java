@@ -306,9 +306,13 @@ public class RetrieveGreensheetAction extends GsBaseAction {
         	if (actionId != null && !actionId.isEmpty()) {
         		grant = greensheetsFormGrantsService.findGSGrantInfo(Long.parseLong(actionId), null, group, gus.getUser());	
         		req.getSession().setAttribute(GreensheetsKeys.KEY_AGT_ID, actionId);
-        	} else if ((grantId != null && !grantId.isEmpty()) || (applId != null && !applId.isEmpty())) {
+        	} else if (applId != null && !applId.isEmpty()) {
         		// requested from YourGrants
         		grant = greensheetsFormGrantsService.findGSGrantInfo(null, Long.parseLong(applId), group, gus.getUser());	        		
+        	} else {
+        		GreensheetBaseException newException = new GreensheetBaseException("Invalid request to retrieve a greensheet. "
+        				+ "The greensheet cannot be retrieved without an appl ID or action ID. (grant ID:" + grantId + ")");
+            	throw newException;
         	}
         } else {
         	GreensheetBaseException newException = new GreensheetBaseException("The request to retrieve " +

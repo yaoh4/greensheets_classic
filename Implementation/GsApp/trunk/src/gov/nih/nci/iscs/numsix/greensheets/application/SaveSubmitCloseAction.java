@@ -172,6 +172,7 @@ public class SaveSubmitCloseAction extends DispatchAction {
                 }
             }
 
+            req.setAttribute(GreensheetsKeys.KEY_APPL_ID, grant.getApplId());
             req.setAttribute(GreensheetsKeys.KEY_GS_GROUP_TYPE, form
                     .getGroupTypeAsString());
 

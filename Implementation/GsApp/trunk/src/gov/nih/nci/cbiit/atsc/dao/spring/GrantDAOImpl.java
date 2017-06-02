@@ -501,6 +501,7 @@ public class GrantDAOImpl implements GrantDAO {
 		}
 
 		if (grantMechanism != null && !("".equals(grantMechanism.trim()))) {
+			grantMechanism = grantMechanism.toUpperCase();
 			incrementalQuery += GrantDAOImpl.BLANK_SPACE + "AND ACTIVITY_CODE = :grantMechanism";
 			sqlParms.addValue("grantMechanism", grantMechanism.trim());
 		}
