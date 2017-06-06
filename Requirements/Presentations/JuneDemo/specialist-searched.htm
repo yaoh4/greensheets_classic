@@ -127,104 +127,72 @@
       <!--end panel header-->
     <div class="panel-body">
 
-              <div class="row col-xs-12" style="margin-top: 0px; margin-bottom: 10px;">
-  <div class"col-xs-4">
-   <label  style="float:left; display:inline; margin-top: 30px; margin-bottom: -5px;">
+              <div class="form-group row" style="margin-top: 0px; margin-bottom: 10px;">
+<div >
+   <label style="display:block; margin-left: 15px; margin-bottom: -5px;">
                 Grant Number 
                 </label>
-           <div class="col-xs-3 form-group" style="margin-top: 10px;">
-        <div style="display:inline-block;" >
+           <div class="col-xs-4 form-group" style="margin-top: 10px;">
+        <div style="display:inline-block;">
 
           <label class="grant-label" style="margin-left: 0px;">
                 Type
                 </label>
-          <input  maxlength="1" value=""  class="form-grant" type="text" style="width: 20px;">
+          <input  maxlength="1" value=""  class="form-grant" type="text" style="width: 22px;" placeholder="5">
         </div>
              <div style="display:inline-block;">
 
           <label class="grant-label">
                 Mech
                 </label>
-          <input  maxlength="3" value=""  class="form-grant" type="text" style="width: 40px;">
+          <input  maxlength="3" value=""  class="form-grant" type="text" style="width: 40px;" placeholder="R01">
         </div>
         <div style="display:inline-block;">
 
           <label class="grant-label">
                 IC
                 </label>
-          <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 35px;">
+          <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 36px;" placeholder="CA">
         </div>
           <div style="display:inline-block;">
 
           <label class="grant-label">
                 Serial #
                 </label>
-          <input  maxlength="6" value=""  class="form-grant" type="text" style="width: 60px;">
-        </div>    
+          <input  maxlength="6" value=""  class="form-grant" type="text" style="width: 60px;" placeholder="193829">
+          
+        </div> 
+        <div style="display:inline-block;">
+
+          <label class="grant-label" style="margin-left: 0px;">
+               &nbsp;
+                </label>
+          -&nbsp;
+        </div>   
                <div style="display:inline-block;">
 
           <label class="grant-label">
                 Year
                 </label>
-          <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 30px;">
+          <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 30px;" placeholder="03">
         </div>
-                     <div style="display:inline-block;">
+       <div style="display:inline-block;">
 
           <label class="grant-label">
                 Suffix
                 </label>
-          <input  maxlength="4" value=""  class="form-grant" type="text" style="width: 55px;">
+          <input  maxlength="4" value=""  class="form-grant" type="text" style="width: 55px;" placeholder="A1">
+        </div>
+        <div style="display:inline-block;">
+          &nbsp;Ex: 5R01CA193829-03A1
         </div>
       </div>
     </div>
             
-    <div class="col-xs-2" style="margin-left: 10px;">
-          <label for="selectFrom">Fiscal Year:</label> 
-          <select name="criteria.submissionFromId" class="c-select form-control">
-       <option value="2017">2017</option>
-    <option value="2018">2018</option>
- 
-    <option value="2016">2016</option>
-     <option value="2015">2015</option>
-      <option value="2014">2014</option>
-       <option value="2013">2013</option>
-        <option value="2012">2012</option>
-         <option value="2011">2011</option>
-          <option value="2010">2010</option>
-           <option value="2009">2009</option>
-           <option value="2008">2008</option>
-           <option value="2007">2007</option>
-           <option value="2006">2006</option>
-           <option value="2005">2005</option>
-           <option value="2009">2004</option>
-</select>
-       </div>
-    </div>
 
 
 
-
-    <div class="form-group row" style="margin-top: 10px;">
-
-              <div class="col-xs-4">
-
-          <label class="form-check-label">
-                PI Name 
-                </label>
-          <input  maxlength="120" value="Smith" id="searchCriteria" class="form-control" type="text" placeholder="Enter PI Name">
-        </div>
-
-        <div class="col-xs-4">
-
-          <label class="form-check-label">
-                PD Name 
-                </label>
-          <input  maxlength="120" value="" id="searchCriteria2" class="form-control" type="text" placeholder="Enter PD Name">
-        </div>
-
-       
-
-       <div class="col-xs-4">
+      <div class="col-xs-4">
           <label for="investigator">Cancer Activity(ies):</label>
           <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Cancer Activity(ies)" id="mech">
           <option value=""></option>
@@ -320,32 +288,71 @@
 
           
         </div>
-     
-
-   
-
-         
-
-
-         
-
-
-        <div class="col-xs-12 searchButton2" id="searchDiv" >
-        
-        <button type="button" class="btn btn-primary has-spinner" id="search-btn" style="float:right;">Search</button>
-        
-        <input id="search-form_navigateToSearch" value="Clear" onClick="window.location.reload()"  class="btn btn-default" type="submit" style="float: right;">
+                 
+    <div class="col-xs-2" >
+          <label for="selectFrom">Fiscal Year:</label> 
+          <select name="criteria.submissionFromId" class="c-select form-control">
+       <option value="2017">2017</option>
+    <option value="2018">2018</option>
+ 
+    <option value="2016">2016</option>
+     <option value="2015">2015</option>
+      <option value="2014">2014</option>
+       <option value="2013">2013</option>
+        <option value="2012">2012</option>
+         <option value="2011">2011</option>
+          <option value="2010">2010</option>
+           <option value="2009">2009</option>
+           <option value="2008">2008</option>
+           <option value="2007">2007</option>
+           <option value="2006">2006</option>
+           <option value="2005">2005</option>
+           <option value="2009">2004</option>
+</select>
+       </div>
     </div>
 
+
+
+
+    <div class="form-group row" style="margin-top: 10px;">
+
+              <div class="col-xs-4">
+
+          <label class="form-check-label">
+                PI Name 
+                </label>
+          <input  maxlength="120"  id="searchCriteria" class="form-control" type="text" value="Smith">
+        </div>
+
+        <div class="col-xs-4">
+
+          <label class="form-check-label">
+                PD Name 
+                </label>
+          <input  maxlength="120" value="" id="searchCriteria2" class="form-control" type="text" placeholder="Enter PD Name">
+        </div>
+
+       <div class="col-xs-4 searchButton2" id="searchDiv" >
+        
+        <button type="button" class="btn btn-primary has-spinner" id="search-btn">Search</button>
+        
+        <input id="search-form_navigateToSearch" value="Clear" onClick="window.location.reload()"  class="btn btn-default" type="submit">
+    </div>
    
 
 </div>
-</div>
 
+      <!--end form group-->
+     
+
+        
+</form>  
+    
   
-    <!--end panel body-->
-  </div>
- 
+
+</div>
+ </div>
 <br/>
 <div id="spSearch" >
        <!-- <div class="pheader"><h4>Search Results</h4></div> -->

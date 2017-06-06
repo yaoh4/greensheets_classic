@@ -1693,12 +1693,39 @@ textarea {
   color: #999;
 }
 
-.dibabled {
+.disabled {
    box-shadow: none;
     opacity: .65;
 }
+
+.fa-angle-double-down {
+  color: #337ab7;
+}
+
+.fa-angle-double-right {
+  color: #337ab7;
+}
+
 
 
 .fa-question-circle:before {
     content: "\f059"; 
 }
+
+.treetable-indent {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    opacity: 0;
+}
+
+.hideRow {
+  display: none;
+}
+
+.showRow {
+  display: table-row;
+}
+
+

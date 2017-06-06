@@ -135,7 +135,7 @@
                 <!--Main Action Buttons  -->
                 <div  style="padding-right: 0px; clear:both;">
                          <div style="float:left;  margin-left: 5px; margin-bottom: 10px;display:inline;">
-                    <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
+                    
                     <button type="button" class="btn btn-default allNotes">View All Comments</button>
                     <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button>
                     
@@ -277,20 +277,33 @@
                           <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Comments Added"><img src="images/commentDisabled.gif" height="20" width="20" alt="No Comments"></a></td>
                           <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Attachments Added"><img src="images/Noattachment.gif" height="20" width="20" alt="No Attachments"></a></td>
                         </tr>
-                        <!--- ROW 5 ---->
-                        <tr data-node="treetable-5">
-                          <td><div style="display:inline-block;" class="indentLine2">5. Are any inventions mentioned in the text of the progress report that are not noted on the face page of the progress report?</div></td>
-                          <td class="input"><div class="form-group">
-                            
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="optionsRadios15" id="optionsRadiosYes" value="Yes" disabled >
-                              &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios15" id="optionsRadiosNo" value="No" disabled checked >&nbsp; No
-                            </label>
-                            
-                          </div>
-                          <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Comments Added"><img src="images/commentDisabled.gif" height="20" width="20" alt="No Comments"></a></td>
+                        <!--- ROW 5 ---->    
+   <tr data-node="treetable-5" id="main5">
+          <td><div style="display:inline-block;" class="indentLine2">5. Are any inventions mentioned in the text of the progress report that are not noted on the face page of the progress report?</div></td>
+            <td class="input" id="optionsRadios5"><div class="form-group">
+              
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios5"  value="Yes" >
+                &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios5"  value="No" checked disabled>&nbsp; No
+                </label>
+              
+              </div>
+            <td  align="right"><a class="bottom" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Comments Added"><img src="images/commentDisabled.gif" height="20" width="20" alt="No Comments"></a></td>
                           <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Attachments Added"><img src="images/Noattachment.gif" height="20" width="20" alt="No Attachments"></a></td>
-                        </tr>
+        </tr>
+
+        <tr data-node="treetable-5.1" data-pnode="treetable-parent-5" class="lastSub" id="5sub">
+          <td><div style="display:inline-block;" class="indentLine2">5.1. Explain the actions that have been taken.<br/>
+<div class="instructions">(Explanation required.  Discuss with PI and report invention using <a href="https://dali.cc.nih.gov/erl/" target="_blank">IEdison Report Lite</a>. <strong>This link requires a password.</strong> Call 301-435-1986 for a password.)</div></div></td>
+            <td class="input"><div class="form-group">
+              
+               <textarea class="exampleTextarea form-control" rows="3"></textarea>
+    <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span>
+              
+            </div></td>
+            <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
+            <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
+        </tr>
                         
                         <!--- ROW 6 ---->
                <!--- ROW 6 ---->    
@@ -314,7 +327,7 @@
         </tr>
 
         <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="sub" id="6sub">
-          <td><div style="display:inline-block;" class="indentLine2" id="6-1e">6.1. Explanation Required: <div class="helperText">(If Answer to Q6 is "No")</div></div></td>
+          <td><div style="display:inline-block;" class="indentLine2" id="6-1e">6.1. Explanation Required: </div></td>
             <td class="input"><div class="form-group">
               
                <textarea class="exampleTextarea form-control" rows="3"></textarea>
@@ -326,7 +339,7 @@
         </tr>
 
                 <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub answered expanded" id="6sub-1">
-          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.1 Will this be the 5th or more award for the PI? <div class="helperText">(If Answer to Q6 is "Yes")</div></div></td>
+          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.1 Will this be the 5th or more award for the PI? </div></td>
             <td class="input"><div class="form-group" id="select6-1">
               
               <label class="form-check-label">
@@ -344,7 +357,7 @@
         </tr>
 
         <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub expanded answered" id="6sub-2">
-          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.2 Do any of the key personnel have mentored K support? <div class="helperText">(If Answer to Q6 is "Yes")</div></div></td>
+          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.2 Do any of the key personnel have mentored K support? </div></td>
             <td class="input"><div class="form-group" id="select6-1-2">
               
               <label class="form-check-label">
@@ -361,20 +374,21 @@
             <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Attachments Added"><img src="images/Noattachment.gif" height="20" width="20" alt="No Attachments"></a></td>
         </tr>
                           <!--- ROW 7 ---->
-                          <tr data-node="treetable-7">
-                            <td><div style="display:inline-block;" class="indentLine2">7. Any change in key personnel?<br>
-                              <div class="instructions">(All changes that have an impact or are not approved will require an explanation.)</div></div></td>
-                              <td class="input"><div class="form-group">
-                                
-                                <select class="form-control" id="exampleSelect7" disabled>
-                                  <option selected >No</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                                
-                              </div>
+                          <tr data-node="treetable-7" id="main7">
+          <td><div style="display:inline-block;" class="indentLine2">7. Any change in key personnel?<br>
+<div class="instructions">(All changes that have an impact or are not approved will require an explanation.)</div></div></td>
+            <td class="input"><div class="form-group">
+              
+              <select class="form-control" id="select7" disabled>
+                <option>Select an Option</option>
+               <option value="Yes Approved">Yes, Approved and has Impact</option>
+                 <option value="Yes Approved No Impact">Yes, Approved and has No Impact</option>
+                <option value="Not Approved">Yes, Not Approved and has Impact</option>
+                <option value="Not Approved No Impact">Yes, Not Approved and has No Impact</option>
+                 <option value="No" selected>No Changes</option>
+                </select>
+              
+              </div>
                               <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Comments Added"><img src="images/commentDisabled.gif" height="20" width="20" alt="No Comments"></a></td>
                               <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Attachments Added"><img src="images/Noattachment.gif" height="20" width="20" alt="No Attachments"></a></td>
                             </tr>
@@ -406,16 +420,17 @@
                                 <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Attachments Added"><img src="images/Noattachment.gif" height="20" width="20" alt="No Attachments"></a></td>
                               </tr>
                               <!--- ROW 9 ---->
-                              <tr data-node="treetable-9">
-                                <td><div style="display:inline-block;" class="indentLine2">9. Is there any scientific overlap?<br/>
-                                  <div class="instructions">(If Yes, explanation required.)</div></div></td>
-                                  <td class="input"><div class="form-group">
-                                    
-                                    <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="optionsRadios16" id="optionsRadiosYes" value="Yes" disabled  >
-                                      &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios16" id="optionsRadiosNo" value="No" disabled checked>&nbsp; No
+                              <tr data-node="treetable-9" id="main9">
+                              <td><div style="display:inline-block;" class="indentLine2">9. Is there any scientific overlap?<br/>
+                    <div class="instructions">(If Yes, explanation required.)</div></div></td>
+                                <td class="input"><div class="form-group">
+                                  
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optionsRadios16" id="optionsRadiosYes" value="Yes" disabled>
+                                    &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios16" id="optionsRadiosNo" value="No" disabled checked>&nbsp; No
                                     </label>
-                                    
+                                  
+                                  </div>
                                   </div>
                                   <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Comments Added"><img src="images/commentDisabled.gif" height="20" width="20" alt="No Comments"></a></td>
                                   <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Attachments Added"><img src="images/Noattachment.gif" height="20" width="20" alt="No Attachments"></a></td>
@@ -545,9 +560,9 @@
                                     <td><div style="display:inline-block;" class="indentLine2">12.1. Involvement of Human Subjects changed from last year?</div> </td>
                                     <td class="input"><div class="form-group">
                                       <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optionsRadios23" id="optionsRadiosYes4" value="Yes" disabled checked >
+                                        <input type="radio" class="form-check-input" name="optionsRadios23" id="optionsRadiosYes4" value="Yes" disabled  >
                                         &nbsp;Yes &nbsp; &nbsp; &nbsp;
-                                        <input type="radio" class="form-check-input" name="optionsRadios23" id="optionsRadiosNo4" value="No" disabled  >
+                                        <input type="radio" class="form-check-input" name="optionsRadios23" id="optionsRadiosNo4" value="No" disabled  checked>
                                       &nbsp; No </label>
                                     </div></td>
                                     <td  align="right"><a class="bottom" data-placement="left" data-toggle="tooltip" href="#" data-original-title="No Comments Added"><img src="images/commentDisabled.gif" height="20" width="20" alt="No Comments"></a></td>
@@ -777,7 +792,7 @@
                                             </tbody>
                                           </table>
                                                    <div style="float:left; margin-left: 5px; margin-bottom: 15px;">
-                                            <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
+                                         
                                             <button type="button" class="btn btn-default allNotes">View All Comments</button>
                                              <button type="button" class="btn btn-default allNotes"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button>
                                         

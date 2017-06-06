@@ -2,7 +2,7 @@
 $( window ).load(function() {
  
    $("#2sub, #3sub, #4sub, #5sub, #6sub, #7sub, #8sub,  #10sub, #sub11-1, #12sub, #sub12-2, #12-1-1sub, #12-1-1-1sub, #sub12-2-1-1").attr("style", "display:none");
-     $("#main1 span, #main2 span, #main3 span, #3sub span, #main4 span, #main5 span, #main6 span, #main7 span, #main8 span, #main9 span, #main10 span, #sub10 span, #main11 span,  #sub11-1 span, #main12 span, #12sub span, #sub12-2 span, #12-1-1sub span, #sub12-2-1-1 span, #sub12-2-6 span, #sub12-2-3 span, #sub12-2-2 span, #sub12-2-1 span, #sub12-2-3-1 span, #sub12-2-6-1 span, #10sub span").removeClass("fa-plus-circle");
+
   $("#sub1, #main1, #sub3-1, #main3, #sub4-1, #main4, #main6, #sub6, #6sub-1, #6sub-2, #sub8, #main8, #sub10, #sub10-1-1, #main11, #sub11-1, #sub11-1-1, #main12, #sub12-1, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-2, #sub12-2-1-3, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-3-1, #sub12-2-3-1-1, #sub12-2-5, #sub12-2-6, #sub12-2-6-1, #sub12-2-6-1-1").attr("style", "display:table-row");
     $("#main1, #main3, #main4, #main6, #6sub-1, #6sub-2, #main8, #sub10, #main11, #sub11-1, #main12, #sub12-1, #sub12-2-1, #sub12-2-3-1, #sub12-2-6, #sub12-2-6-1").removeClass("treetable-collapsed");
      $("#main1, #main3, #main4, #main6, #6sub-1, #6sub-2, #main8, #sub10, #main11, #sub11-1, #main12, #sub12-1, #sub12-2-1, #sub12-2-3-1, #sub12-2-6, #sub12-2-6-1").addClass("treetable-expanded");
@@ -59,12 +59,12 @@ $(document).ready(function(){
   }
 });
 
-    $("#gsTable").treeFy({
-            expanderExpandedClass: 'fa fa-minus-circle',
-            expanderCollapsedClass: 'fa fa-plus-circle',
+   $("#gsTable").treeFy({
+            expanderExpandedClass: 'fa fa-angle-double-down',
+            expanderCollapsedClass: 'fa fa-angle-double-right',
             treeColumn: 0
 
-        });
+         });
 
 
 //Submit & Validate Function 
@@ -83,8 +83,7 @@ $(".submit").click(function(){
     $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1").removeClass("treetable-collapsed");
      $("#main1, #main6, #main8, #main12, #sub12-2, #sub12-2-1, #sub12-2-1-1" ).addClass("treetable-expanded");
      $("#1sub, #6sub, #8sub, #sub12-2, #sub12-2-1, #sub12-2-1-1, #sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-5, #sub12-2-6").attr('style','display: table-row');
-       $("#main1, #main6, #main8, #main12").find('span').toggleClass("fa-minus-circle fa-plus-circle"); 
- $("#sub12-2, #sub12-2-1, #sub12-2-1-1").find('.treetable-expander').toggleClass("fa-minus-circle fa-plus-circle"); 
+
        
  });
 
@@ -257,367 +256,141 @@ $('#infoBox').click(function(){
      $(this).find('i').toggleClass("fa-minus-circle fa-plus-circle"); 
 });
 
-
+//controller for Q1
+   $("#main1 span").off('click');
+   
+   $( "#main1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $("#main1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#main1 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
 //controller for Q2
-  $("input[name$='optionsRadios2']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='Yes') {
-   $("#2sub").attr("style", "display:none");
-   $('#2sub').removeClass("expanded answered");
-     
-
-
- 
-  }
-  else {
-    $('#2sub').addClass("expanded answered");
-    $("#2sub").attr("style", "display:table-row");
-    
-
-
-  }
-  
-  });
+   $("#main2 span").off('click');
+   
+   $( "#main2 span").removeClass( "fa-angle-double-right" );
+        $( "#main2 span").addClass( "fa-angle-double-down" );
+ $("#main2 .fa-angle-double-down").attr("style", "color: #CCC");
 
 //controller for Q3
-  $("input[name$='optionsRadios3']").change(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#3sub").attr("style", "display:none");
- $("#3-1sub").attr("style", "display:none");
-  $('#3sub').removeClass("expanded answered");   
-     
- 
-  }
-  else {
-    $("#3sub").attr("style", "display:table-row");
-    $('#3sub').addClass("expanded answered");
-    
+   $("#main3 span").off('click');
+   
+   $( "#main3 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $( "#main3 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#main3 .fa-angle-double-down").attr("style", "color: #CCC");
 
-  }
+
   
-  });
-
-
-  //controller for Q3-1
-  $("input[name$='optionsRadios3-1']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='Yes') {
-   $("#3-1sub").attr("style", "display:none");
-   $('#3-1sub').removeClass("expanded answered"); 
-     
-    
-
-
- 
-  }
-  else {
-    $("#3-1sub").attr("style", "display:table-row");
-     $('#3-1sub').addClass("expanded answered"); 
-     
-
-
-  }
-  
-  });
 
 //controller for Q4
-  $("input[name$='optionsRadios4']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='Yes') {
-   $("#4sub").attr("style", "display:none");
-    $('#4sub').removeClass("expanded answered");
-     
-    
 
- 
-  }
-  else {
-    $('#4sub').addClass("expanded answered");
-    $("#4sub").attr("style", "display:table-row");
-     
 
-  }
+   $("#main4 span").off('click');
+   
+   $( "#main4 span").removeClass( "fa-angle-double-right" );
+        $( "#main4 span").addClass( "fa-angle-double-down" );
+ $("#main4 .fa-angle-double-down").attr("style", "color: #CCC");
+
   
-  });
 
     //controller for Q5
-  $("input[name$='optionsRadios5']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#5sub").attr("style", "display:none");
-   $('#5sub').removeClass("expanded answered");
-     
-    
-
- 
-  }
-  else {
-    $('#5sub').addClass("expanded answered");
-    $("#5sub").attr("style", "display:table-row");
-    
-
-
-  }
-  
-  });
+   $("#main5 span").off('click');
+   
+   $( "#main5 span").removeClass( "fa-angle-double-right" );
+        $( "#main5 span").addClass( "fa fa-angle-double-down" );
+ $("#main5 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
   //controller for Q6
- $("input[name$='optionsRadios6']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No'){
-      $("#6sub").attr("style", "display:table-row");
-      $('#6sub').addClass("expanded answered");
-         $('#6sub-1, #6sub-2').removeClass("expanded answered");
-      $("#6sub-1, #6sub-2").attr("style", "display:none");
-           $("#6sub .helperText").attr("style", "display:none")
+   $("#main6 span").off('click');
+   
+   $( "#main6 span").removeClass( "fa-angle-double-right" );
+        $( "#main6 span").addClass( "fa-angle-double-down" );
+ $("#main6 .fa-angle-double-down").attr("style", "color: #CCC");
 
-      $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
-     
-    }
-    else if(radio_value=='Yes'){
-      $('#6sub').removeClass("expanded answered");
-      $("#6sub").attr("style", "display:none");
-       $("#6sub-1, #6sub-2").attr("style", "display:table-row");
-      $('#6sub-1, #6sub-2').addClass("expanded answered");
-       $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:none")
+//controller for Q7
+   $("#main7 span").off('click');
+   
+   $( "#main7 span").removeClass( "fa-angle-double-right" );
+        $( "#main7 span").addClass( "fa fa-angle-double-down" );
+ $("#main7 .fa-angle-double-down").attr("style", "color: #CCC");
 
-      $("#6sub .helperText").attr("style", "display:block");
-    
-    }
-
-    else {
-
-      $("#6sub, #6sub-1, #6sub-2").attr("style", "display:none");
-
-      $("#6sub .helperText, #6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
-      $('#6sub, #6sub-1, #6sub-2').removeClass("expanded answered");
-     
-     
-
-    }
-
-});
 
 
   //controller for Q9
-  $("input[name$='optionsRadios16']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#9sub").attr("style", "display:none");
-   $('#9sub').removeClass("expanded answered");
-     
-     
-
- 
-  }
-  else {
-    $('#9sub').addClass("expanded answered");
-    $("#9sub").attr("style", "display:table-row");
-    
-
-
-  }
-  
-  });
+   $("#main9 span").off('click');
+   
+   $( "#main9 span").removeClass( "fa-angle-double-right" );
+        $( "#main9 span").addClass( "fa fa-angle-double-down" );
+ $("#main9 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
 
 
- //controller for Q7
- $('#select7').change(function(){ 
-    if($(this).val() == 'Not Approved' || $(this).val() == 'Yes Approved' || $(this).val() == 'Not Approved No Impact'){
-      $("#7sub").attr("style", "display:table-row");
-      $('#7sub').addClass("expanded answered");
-     
-    }
-    
-
-    else {
-
-      $("#7sub").attr("style", "display:none");
-      $('#7sub').removeClass("expanded answered");
-     
-     
-
-    }
-
-});
 
   //controller for Q8
- $('#select8').change(function(){ 
-    if($(this).val() == 'Not Approved'){
-      $("#8sub").attr("style", "display:table-row");
-      $('#8sub').addClass("expanded answered");
-    
-    }
+ 
+   $("#main8 span").off('click');
+   
+   $( "#main8 span").removeClass( "fa-angle-double-right" );
+        $( "#main8 span").addClass( "fa-angle-double-down" );
+ $("#main8 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
-    else {
 
-      $("#8sub").attr("style", "display:none");
-      $('#8sub').removeClass("expanded answered");
-     
-    
 
-    }
-
-});
 
 
 
  //controller for Q10
-  $("input[name$='optionsRadios10']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#10sub").attr("style", "display:none");
-   $('#10sub').removeClass("expanded answered");
-    $("#10sub1").attr("style", "display:none");
-     
-    
-
- 
-  }
-  else {
-    $("#10sub").attr("style", "display:table-row");
-    $('#10sub').addClass("expanded answered");
-
-      
-
-  }
-  
-  });
+   $("#main10 span").off('click');
+   
+   $( "#main10 span").removeClass( "fa-angle-double-right" );
+        $( "#main10 span").addClass( "fa-angle-double-down" );
+ $("#main10 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
   //controller for Q10-1
-  $("input[name$='optionsRadios10-1']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#10sub1").attr("style", "display:none");
 
-     $('#10sub1').removeClass("expanded answered");
-     
 
- 
-  }
-  else {
-    $("#10sub1").attr("style", "display:table-row");
-     $('#10sub1').addClass("expanded answered");
-     
-
-  }
-  
-  });
+     $('#sub10').removeClass("expanded answered");
+   $("#sub10 span").off('click');
+   
+   $( "#sub10 span").removeClass( "fa-angle-double-right" );
+        $( "#sub10 span").addClass( "fa-angle-double-down" );
+ $("#sub10 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
   //controller for Q11
-  $("input[name$='optionsRadios11']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#sub11-1").attr("style", "display:none");
-    $('#sub11-1').removeClass("expanded answered");
-    $("#sub11-1-1").attr("style", "display:none");
-
-     
-     
-  }
-  else {
-    $("#sub11-1").attr("style", "display:table-row");
-     $('#sub11-1').addClass("expanded answered");
+   $("#main11 span").off('click');
    
-     
-
-
-  }
-  
-  });
+   $( "#main11 span").removeClass( "fa-angle-double-right" );
+        $( "#main11 span").addClass( "fa-angle-double-down" );
+ $("#main11 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
   //controller for Q11-1
-  $("input[name$='optionsRadios11-1']").click(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#sub11-1-1").attr("style", "display:none");
-    $('#sub11-1-1').removeClass("expanded answered");
-     
-    
-
-
- 
-  }
-  else {
-    $("#sub11-1-1").attr("style", "display:table-row");
-      $('#sub11-1-1').addClass("expanded answered");
-    
-
-  }
-  
-  });
+   $("#sub11-1 span").off('click');
+   
+   $( "#sub11-1 span").removeClass( "fa-angle-double-right" );
+        $( "#sub11-1 span").addClass( "fa-angle-double-down" );
+ $("#sub11-1 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
 
   //controller for Q12
-  $("input[name$='optionsRadios12']").change(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#12sub").attr("style", "display:none");
-     $('#12sub').removeClass("expanded answered");
-    $("#sub12-2").attr("style", "display:none");
-      $("#12-1-1sub").attr("style", "display:none");
-        $("#12-1-1-1sub").attr("style", "display:none");
-      $("#sub12-2-1").attr("style", "display:none");
-   $("#sub12-2-2").attr("style", "display:none");
-     $("#sub12-2-3").attr("style", "display:none"); 
-      $("#sub12-2-4").attr("style", "display:none");
-       $("#sub12-2-5").attr("style", "display:none");
-        $("#sub12-2-6").attr("style", "display:none");
-        $("#sub12-2-1-1").attr("style", "display:none");
-          $("#sub12-2-1-1-1").attr("style", "display:none");
-   $("#sub12-2-1-1-2").attr("style", "display:none");
-    $("#sub12-2-1-1-3").attr("style", "display:none");
-       $("#sub12-2-3-1").attr("style", "display:none");
-     
-      $("input[name$='optionsRadios12-2']").prop('checked', false);
-         
-      $("input[name$='optionsRadios12-1']").prop('checked', false);
-
- 
-  }
-  else {
-    $("#12sub").attr("style", "display:table-row");
-    $('#12sub').addClass("expanded answered");
-      $("#sub12-2").attr("style", "display:table-row");
-    
-
-
-  }
-  
-  });
+   $("#main12 span").off('click');
+   
+   $( "#main12 span").removeClass( "fa-angle-double-right" );
+        $( "#main12 span").addClass( "fa-angle-double-down" );
+ $("#main12 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
   //controller for Q12-1
-  $("input[name$='optionsRadios12-1']").change(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-   $("#12-1-1sub").attr("style", "display:none");
-   $('#12-1-1sub').removeClass("expanded answered");
-     
-    
-
-
- 
-  }
-  else {
-    $("#12-1-1sub").attr("style", "display:table-row");
-      $('#12-1-1sub').addClass("expanded answered");
-     
-
-  }
-  
-  });
+   $("#sub12-1 span").off('click');
+   
+   $( "#sub12-1 span").removeClass( "fa-angle-double-right" );
+        $( "#sub12-1 span").addClass( "fa fa-angle-double-down" );
+ $("#sub12-1 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
 
@@ -645,159 +418,61 @@ $('#infoBox').click(function(){
 
 
    //controller for Q12-2
-  $("input[name$='optionsRadios12-2']").change(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='Yes') {
-   $("#sub12-2-1").attr("style", "display:none");
-   $('#sub12-2-1').removeClass("expanded answered");
-   $("#sub12-2-2").attr("style", "display:none");
-     $("#sub12-2-3").attr("style", "display:none"); 
-      $("#sub12-2-4").attr("style", "display:none");
-       $("#sub12-2-5").attr("style", "display:none");
-        $("#sub12-2-6").attr("style", "display:none");
-          $("#sub12-2-3-1").attr("style", "display:none");
-           $("#sub12-2-6-1").attr("style", "display:none");
-             $("#sub12-2-6-1-1").attr("style", "display:none");
-       
-     
-      $("input[name$='optionsRadios12-2-3']").prop('checked', false);
-      $("input[name$='optionsRadios12-2-6']").prop('checked', false);
 
-
- 
-  }
-  else {
-    $("#sub12-2-1").attr("style", "display:table-row");
-    $('#sub12-2-1').addClass("expanded answered");
-     $("#sub12-2-2").attr("style", "display:table-row");
-      $("#sub12-2-3").attr("style", "display:table-row");
-      $("#sub12-2-4").attr("style", "display:table-row");
-      $("#sub12-2-5").attr("style", "display:table-row");
-      $("#sub12-2-6").attr("style", "display:table-row");
-
-
-  }
-  
-  });
+   $("#sub12-2 span").off('click');
+   
+   $( "#sub12-2 span").removeClass( "fa-angle-double-right" );
+        $( "#sub12-2 span").addClass( "fa fa-angle-double-down" );
+ $("#sub12-2 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
 
      //controller for Q12-2-1
- $('#select12-2-1').change(function(){ 
-    if($(this).val() == 'Not Exempt'){
-      $("#sub12-2-1-1").attr("style", "display:table-row");
-      $('#sub12-2-1-1').addClass("expanded answered");
-     
+
+   $("#sub12-2-1 span").off('click');
+   
+   $( "#sub12-2-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $( "#sub12-2-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#sub12-2-1 .fa-angle-double-down").attr("style", "color: #CCC");
+
  
-    }
-
-
-    else {
-
-      $("#sub12-2-1-1").attr("style", "display:none");
-      $('#sub12-2-1-1').removeClass("expanded answered");
-     
-    
-
-           
-    }
-
-});
 
 
     //controller for Q12-2-1-1
-  $("input[name$='optionsRadios12-2-1-1']").change(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='Yes') {
-   $("#sub12-2-1-1-1").attr("style", "display:none");
-   $('#sub12-2-1-1-1').removeClass("expanded answered");
-   $("#sub12-2-1-1-2").attr("style", "display:none");
-    $("#sub12-2-1-1-3").attr("style", "display:none"); 
-     
-
-
- 
-  }
-  else {
-    $("#sub12-2-1-1-1").attr("style", "display:table-row");
-     $('#sub12-2-1-1-1').addClass("expanded answered");
-    $("#sub12-2-1-1-2").attr("style", "display:table-row");
-     $("#sub12-2-1-1-3").attr("style", "display:table-row");
-     
-
-  }
   
-  });
-
+$("#sub12-2-1-1 span").off('click');
+   
+   $( "#sub12-2-1-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $( "#sub12-2-1-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#sub12-2-1-1 .fa-angle-double-down").attr("style", "color: #CCC");
 
       //controller for Q12-2-3
-  $("input[name$='optionsRadios12-2-3']").change(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='No') {
-    $("#sub12-2-3-1").attr("style", "display:table-row");
-     $('#sub12-2-3-1').addClass("expanded answered");
-     
-
-
- 
-  }
-  else {
+  $("#sub12-2-3 span").off('click');
    
+   $( "#sub12-2-3  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $( "#sub12-2-3  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#sub12-2-3  .fa-angle-double-down").attr("style", "color: #CCC");
 
-      $("#sub12-2-3-1").attr("style", "display:none");
-        $('#sub12-2-3-1').removeClass("expanded answered");
-     $("#sub12-2-3-1").attr("style", "display:none");
-    
-
-  }
-  
-  });
+  //controller for Q12-2-3-1
+  $("#sub12-2-3-1 span").off('click');
+   
+   $( "#sub12-2-3-1  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $( "#sub12-2-3-1  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#sub12-2-3-1  .fa-angle-double-down").attr("style", "color: #CCC");
 
         //controller for Q12-2-6
-  $("input[name$='optionsRadios12-2-6']").change(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='Yes') {
-    $("#sub12-2-6-1").attr("style", "display:table-row");
-      $('#sub12-2-6-1').addClass("expanded answered");
-     
-        
-
-
- 
-  }
-  else {
+ $("#sub12-2-6 span").off('click');
    
-
-      $("#sub12-2-6-1").attr("style", "display:none");
-       $('#sub12-2-6-1').removeClass("expanded answered");
-     $("#sub12-2-6-1").attr("style", "display:none");
-    
-
-  }
-  
-  });
+   $( "#sub12-2-6 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $( "#sub12-2-6 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#sub12-2-6 .fa-angle-double-down").attr("style", "color: #CCC");
 
           //controller for Q12-2-6-1
-  $("input[name$='optionsRadios12-2-6-1']").change(function(){
-  var radio_value = $(this).val();
-  if(radio_value=='Yes') {
-    $("#sub12-2-6-1-1").attr("style", "display:table-row");
-     $('#sub12-2-6-1-1').addClass("expanded answered");
-     
-
- 
-  }
-  else {
+    $("#sub12-2-6-1 span").off('click');
    
-
-      $("#sub12-2-6-1-1").attr("style", "display:none");
-       $('#sub12-2-6-1-1').removeClass("expanded answered");
-     $("#sub12-2-6-1-1").attr("style", "display:none");
-     
-
-  }
-  
-  });
+   $( "#sub12-2-6-1  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $( "#sub12-2-6-1  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#sub12-2-6-1  .fa-angle-double-down").attr("style", "color: #CCC");
 
 
 

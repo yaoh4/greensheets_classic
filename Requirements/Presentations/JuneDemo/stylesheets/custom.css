@@ -1212,7 +1212,13 @@ ul.actionMessage {
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
 }
+
+.form-grant::-webkit-input-placeholder { color: #999; }
+.form-grant:-moz-placeholder { color: #999; }
+.form-grant::-moz-placeholder { color: #999; }
+.form-grant:-ms-input-placeholder { color: #999; }
 
 .grant-label {
   font-size: 12px;
@@ -1516,4 +1522,7 @@ table.dataTable thead .sorting:after {
 .fa-question-circle:before {
     content: "\f059"; 
 }
+
+
+
 
