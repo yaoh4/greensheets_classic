@@ -1,17 +1,16 @@
 
 $( window ).load(function() {
- 
 
 
 
     $(".question-row span").removeClass("fa-plus-circle");
-    window.console&&console.log('foo');
+    // window.console&&console.log('foo');
 
 });
 
 function showNode(childId) {
     var nodeId = "#" + childId;
-    window.console&&console.log("show Node = " + nodeId);
+    // window.console&&console.log("show Node = " + nodeId);
     $("#" + childId).attr("style", "display:table-row");
     $("#" + childId).addClass("expanded answered");
 
@@ -19,7 +18,7 @@ function showNode(childId) {
 
 function hideNode(childId) {
     var nodeId = "#" + childId;
-    window.console&&console.log("hide Node = " + nodeId);
+    // window.console&&console.log("hide Node = " + nodeId);
     $(nodeId).attr("style", "display:none");
     $(nodeId).removeClass("expanded answered");
 
@@ -27,7 +26,6 @@ function hideNode(childId) {
 
 $(document).ready(function(){
 
-  
 //code for expand/collapse Grant Number box
 
   $('.panel-heading span.clickable').click (function(){
@@ -225,49 +223,59 @@ return false;
 
     });
 
-
-
-
 $('.form-select').change( function () {
-     var cval = $(this).val();
-     var match = false;
-     for (i=0; i< qdata.length; i++) {
-         if (qdata[i].answers) {
-             for (j=0; j < qdata[i].answers.length; j++) {
-                 if (cval === qdata[i].answers[j].aId) {
-                     if (qdata[i].answers[j].children) {
-                        match = true;
-                         for (k=0; k < qdata[i].answers[j].children.length; k++) {
-                             showNode(qdata[i].answers[j].children[k]);
-                         }
-                     }
-                 } else {
-                     if (qdata[i].answers[j].children) {
-                      if (!match) {
-                         for (k = 0; k < qdata[i].answers[j].children.length; k++) {
-                             hideNode(qdata[i].answers[j].children[k]);
-                         }                       
-                      }
- 
-                     }
-                 }
- 
-             }
-         }
- 
-     }
+     var cval = $(this).val(); // get current value of select option //
+     var currentId = $(this.closest("tr")).context.id // get closest tr id which will be a particular question id //
+     for (question=0; question < qdata.length; question++) { // loop through questions //
+        if (qdata[question].answers) { // check is question has answers //
+          for (answer=0; answer<qdata[question].answers.length; answer++) { // loop through answers //
+            if (cval==qdata[question].answers[answer].aId) { // see if current select option value == an answer id //
+              if (qdata[question].answers[answer].children) { // loop through answer children //
+                for (answer_child=0; answer_child < qdata[question].answers[answer].children.length; answer_child++) {
+                  showNode(qdata[question].answers[answer].children[answer_child]); // show node if dropdown value matches an answer child //
+                };                
+              };
+            }
+
+            else { // if current selected option does not match an answer id //
+              if (qdata[question].answers[answer].children) { 
+                for (answer_child=0; answer_child < qdata[question].answers[answer].children.length; answer_child++) {
+                  if (currentId==qdata[question].qId) { // only hide if current tr id matches current question id //
+                    hideNode(qdata[question].answers[answer].children[answer_child])
+                  };
+                };
+              };
+            };        
+          };
+        };
+     };
 });
- 
 
+$('.rs').click(function() {
+  $(":input").not(":button, :submit, :reset").each(function(){
+  
+    if (this.type == 'radio') {
+      this.checked = false;
+    }
+    
+    if (this.type == 'checkbox') {
+      this.checked = false;
+    }  
+    
+    if (this.type == 'select-one') {
+      this.value = this.children[0].value;
+    }  
+    
+    
+    if (this.type == 'textarea') {
+      this.value = '';
+      var nodeId =this.parentElement.parentElement.parentElement.id; 
+        $("#"+nodeId).attr("style", "display:none");
+        $("#"+nodeId).removeClass("expanded answered");      
+    }    
 
-
-
-
-
-
-
-
-
+  });
+});
 
 // initiate tooltip js
 
