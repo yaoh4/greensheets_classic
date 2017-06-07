@@ -264,7 +264,8 @@ $('#infoBox').click(function(){
         $("#1-1text").attr("disabled", false);
         $( "#main1 span").removeClass( "fa-angle-double-right" );
         $( "#main1 span").addClass( "fa-angle-double-down" );
-        $("#main1 span").off('click');
+         $("#main1 span").closest(".treetable-expander").off('click');
+$("#main1 span").css('cursor', 'not-allowed')
   }
   
    
@@ -273,11 +274,12 @@ $('#infoBox').click(function(){
 
   $("#1sub").attr("style", "display:none");
          $('#1sub').removeClass("expanded answered"); 
-   $("#main1 span").off('click');
+
    $( "#main1 span").removeClass( "fa-angle-double-right" );
 $( "#main1 span").addClass( "fa-angle-double-down" );
 $("#main1 .fa-angle-double-down").attr("style", "color: #CCC");
-   
+$("#main1 span").closest(".treetable-expander").off('click');
+$("#main1 span").css('cursor', 'not-allowed')  
 
  }
 
@@ -331,6 +333,8 @@ $('#1sub').addClass("preview");
        $( "#main2 span").removeClass( "fa-angle-double-right" );
 $( "#main2 span").addClass( "fa-angle-double-down" );
 $("#main2  .fa-angle-double-down").attr("style", "color: #CCC");
+     $("#main2 span").closest(".treetable-expander").off('click');
+$("#main2 span").css('cursor', 'not-allowed')
     
 
 
@@ -340,11 +344,13 @@ $("#main2  .fa-angle-double-down").attr("style", "color: #CCC");
     $('#2sub').addClass("expanded answered");
     $('#2sub').removeClass("preview");
     $("#2sub").attr("style", "display:table-row");
-    $("#main2 span").off('click');
+    
    $( "#main2 span").removeClass( "fa-angle-double-right" );
 $( "#main2 span").addClass( "fa-angle-double-down" );
 $("#main2  .fa-angle-double-down").attr("style", "color: #CCC");
-$("#2-2text").attr("disabled", false);  
+$("#2-2text").attr("disabled", false); 
+     $("#main2 span").closest(".treetable-expander").off('click');
+$("#main2 span").css('cursor', 'not-allowed'); 
     
 
 
@@ -357,10 +363,15 @@ $("#2-2text").attr("disabled", false);
   $("input[name$='optionsRadios3']").change(function(){
   var radio_value = $(this).val();
   if(radio_value=='No') {
+
    $("#3sub").attr("style", "display:none");
  $("#3-1sub").attr("style", "display:none");
   $('#3sub').removeClass("expanded answered"); 
- 
+ $( "#main3 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+$( "#main3 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+$("#main3 .fa-angle-double-down").attr("style", "color: #CCC");
+$("#main3 span").off('click');
+$("#main3 span").css('cursor', 'not-allowed')
      
  
   }
@@ -381,11 +392,13 @@ $("#3sub .fa-angle-double-right").removeAttr("style", "color: #CCC");
     $('#3sub').removeClass("preview");
     $("#3-1-No").attr("disabled", false); 
     $("#3-1-Yes").attr("disabled", false); 
-       $("#main3 span").off('click');
+    $
    $( "#main3 span").removeClass( "fa-angle-double-right" );
 $( "#main3 span").addClass( "fa-angle-double-down" );
 $("#main3  .fa-angle-double-down").attr("style", "color: #CCC");
 $("#3-1-1Text").attr("disabled", false);  
+$("#main3 span").closest(".treetable-expander").off('click');
+$("#main3 span").css('cursor', 'not-allowed')
 
 $('#3sub span').on('click', function () {
      if(radio_value=='Yes') {
@@ -413,24 +426,26 @@ $('#3sub span').on('click', function () {
   if(radio_value=='Yes') {
    $("#3-1sub").attr("style", "display:none");
    $('#3-1sub').removeClass("expanded answered"); 
-   $("3sub span").off('click');
+   
           $( "#3sub span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
 $( "#3sub span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
 $("#3sub  .fa-angle-double-down").attr("style", "color: #CCC");  
-    
+      $("#3sub  span").closest(".treetable-expander").off('click');
+$("#3sub  span").css('cursor', 'not-allowed')   
 
 
  
   }
   else {
-       $( "#3sub span").closest(".treetable-expander").removeClass( "fa-angle-double-down");
-$( "#3sub span").closest(".treetable-expander").addClass( "fa-angle-double-right" );
-$("#3sub  .fa-angle-double-right").attr("style", "color: #CCC");
+       $( "#3sub span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#3sub span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+$("#3sub  .fa-angle-double-down").attr("style", "color: #CCC");
 $('#3-1sub').removeClass("preview"); 
     $("#3-1sub").attr("style", "display:table-row");
      $('#3-1sub').addClass("expanded answered"); 
      $("#3sub span").closest(".treetable-expander").off('click');
-   
+         $("#3sub  span").closest(".treetable-expander").off('click');
+$("#3sub  span").css('cursor', 'not-allowed') 
 
   }
   
@@ -446,7 +461,9 @@ $("input[name$='optionsRadios4']").change(function(){
           $( "#main4 span").removeClass( "fa-angle-double-right" );
 $( "#main4 span").addClass( "fa-angle-double-down" );
 $("#main4  .fa-angle-double-down").attr("style", "color: #CCC");  
- 
+ $("#main4 span").closest(".treetable-expander").off('click');
+$("#main4 span").css('cursor', 'not-allowed')
+
   }
 
 
@@ -465,11 +482,11 @@ $("#4sub .fa-angle-double-right").removeAttr("style", "color: #CCC");
     $('#4sub').addClass("expanded answered");
     $('#4sub').removeClass("preview");
   
-       $("#main4 span").off('click');
    $( "#main4 span").removeClass( "fa-angle-double-right" );
 $( "#main4 span").addClass( "fa-angle-double-down" );
 $("#main4  .fa-angle-double-down").attr("style", "color: #CCC");
- 
+ $("#main4 span").closest(".treetable-expander").off('click');
+$("#main4 span").css('cursor', 'not-allowed');
 
   }
   
@@ -592,7 +609,8 @@ $("#main4  .fa-angle-double-down").attr("style", "color: #CCC");
         $("#Textarea8").attr("disabled", false);
         $( "#main8 span").removeClass( "fa-angle-double-right" );
         $( "#main8 span").addClass( "fa-angle-double-down" );
-        $("#main8 span").off('click');
+             $("#main8 span").closest(".treetable-expander").off('click');
+$("#main8 span").css('cursor', 'not-allowed')
   }
   
    
@@ -601,11 +619,12 @@ $("#main4  .fa-angle-double-down").attr("style", "color: #CCC");
 
   $("#8sub").attr("style", "display:none");
          $('#8sub').removeClass("expanded answered"); 
-   $("#main8 span").off('click');
+  
    $( "#main8 span").removeClass( "fa-angle-double-down" );
 $( "#main8 span").addClass( "fa-angle-double-right" );
 $("#main8 .fa-angle-double-right").attr("style", "color: #CCC");
-   
+      $("#main8 span").closest(".treetable-expander").off('click');
+$("#main8 span").css('cursor', 'not-allowed')  
 
  }
 
@@ -749,7 +768,9 @@ $('#8sub').addClass("preview");
    $("#12sub").attr("style", "display:none");
  $("#12-1sub").attr("style", "display:none");
 $("#sub12-2").attr("style", "display:none");
-  $('#12sub').removeClass("expanded answered");   
+  $('#12sub').removeClass("expanded answered"); 
+        $("#main12  span").closest(".treetable-expander").off('click');
+$("#main12  span").css('cursor', 'not-allowed')   
      
  
   }
@@ -765,12 +786,13 @@ $("#sub12-2").attr("style", "display:none");
 
     $("#12-1-No").attr("disabled", false); 
     $("#12-1-Yes").attr("disabled", false); 
-       $("#main12 span").off('click');
+     
    $( "#main12 span").removeClass( "fa-angle-double-right" );
 $( "#main12 span").addClass( "fa-angle-double-down" );
 $("#main12  .fa-angle-double-down").attr("style", "color: #CCC");
 $("#select12-1-1").attr("disabled", false);  
-
+    $("#main12  span").closest(".treetable-expander").off('click');
+$("#main12  span").css('cursor', 'not-allowed') 
 
 $('#12sub span').on('click', function () {
    if(radio_value=='Yes') {
@@ -820,12 +842,12 @@ $('#sub12-2 span').on('click', function () {
   if(radio_value=='No') {
    $("#12-1-1sub").attr("style", "display:none");
    $('#12-1-1sub').removeClass("expanded answered"); 
-   $("#12sub span").closest(".treetable-expander").off('click');
+   
     $( "#12sub span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
 $( "#12sub span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
 $("#12sub  .fa-angle-double-down").attr("style", "color: #CCC");    
-    
-
+ $("#12sub span").closest(".treetable-expander").off('click');   
+$("#12sub span").closest(".treetable-expander").css('cursor', 'not-allowed') 
 
  
   }
@@ -841,6 +863,8 @@ $('#12-1-1sub').removeClass("preview");
      $("12-1sub span").closest(".treetable-expander").off('click');
    $("#select12-1-1").attr("disabled", false); 
 
+$("#12sub span").closest(".treetable-expander").off('click');   
+$("#12sub span").closest(".treetable-expander").css('cursor', 'not-allowed') 
 
 
   }
@@ -862,7 +886,8 @@ $('#12-1-1sub').removeClass("preview");
     $( "#sub12-2 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
 $( "#sub12-2 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
 $("#sub12-2  .fa-angle-double-down").attr("style", "color: #CCC");    
-    
+ $("#sub12-2 span").closest(".treetable-expander").off('click');   
+$("#sub12-2 span").closest(".treetable-expander").css('cursor', 'not-allowed')   
 
 
  
@@ -876,7 +901,8 @@ $('#sub12-2-1, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-5, #sub12-2-6').remo
     $("#sub12-2-1, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-5, #sub12-2-6").attr("style", "display:table-row");
      $('#sub12-2-1, #sub12-2-2, #sub12-2-3, #sub12-2-4, #sub12-2-5, #sub12-2-6').addClass("expanded answered"); 
      
-     $("#sub12-2 span").closest(".treetable-expander").off('click');
+     $("#sub12-2 span").closest(".treetable-expander").off('click');   
+$("#sub12-2 span").closest(".treetable-expander").css('cursor', 'not-allowed') 
    $("#select12-2-1, #select12-2-2, #12-2-3-Yes, #12-2-3-No, #12-2-4-Yes, #12-2-4-No, #12-2-5-Yes, #12-2-5-No, #12-2-6-Yes, #12-2-6-No").attr("disabled", false); 
 
 
@@ -892,13 +918,14 @@ $('#select12-1-1').change(function(){
 
 if ($(this).val() == 'Yes, in scope and Approved'){
 
-  $("12-1-1-1sub").attr("style", "display:none");
+  $("#12-1-1-1sub").attr("style", "display:none");
          $('#12-1-1-1sub').removeClass("expanded answered"); 
    $("#12-1-1sub span").closest(".treetable-expander").off('click');
    $( "#12-1-1sub span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
 $( "#12-1-1sub span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
 $("#12-1-1sub .fa-angle-double-down").attr("style", "color: #CCC");
-   
+  $("#12-1-1sub span").closest(".treetable-expander").off('click');   
+$("#12-1-1sub span").closest(".treetable-expander").css('cursor', 'not-allowed')   
 
  }
 
@@ -934,7 +961,8 @@ $('#12-1-1-1sub').addClass("preview");
         $("#12-1-1-1-text").attr("disabled", false);
         $( "#12-1-1sub span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#12-1-1sub span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
-        $("#12-1-1sub span").closest(".treetable-expander").off('click');
+          $("#12-1-1sub span").closest(".treetable-expander").off('click');   
+        $("#12-1-1sub span").closest(".treetable-expander").css('cursor', 'not-allowed'); 
 
        
     
@@ -943,6 +971,168 @@ $('#12-1-1-1sub').addClass("preview");
     }
 
 });
+
+
+
+  //controller for Q12-2-3
+
+
+
+
+  $("input[name$='optionsRadios12-2-3']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='Yes') {
+   $("#sub12-2-3-1").attr("style", "display:none");
+   $('#sub12-2-3-1').removeClass("expanded answered"); 
+   $("#sub12-2-3 span").closest(".treetable-expander").off('click');
+    $( "#sub12-2-3 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#sub12-2-3 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+$("#sub12-2-3  .fa-angle-double-down").attr("style", "color: #CCC");    
+ $("#sub12-2-3 span").closest(".treetable-expander").off('click');   
+$("#sub12-2-3 span").closest(".treetable-expander").css('cursor', 'not-allowed')   
+
+
+ 
+  }
+  else {
+
+       $( "#sub12-2-3 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#sub12-2-3 span").closest(".treetable-expander").addClass( "fa-angle-double-down " );
+$( "#sub12-2-3-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+$("#sub12-2-3  .fa-angle-double-down").attr("style", "color: #CCC");
+$('#sub12-2-3-1').removeClass("preview"); 
+    $("#sub12-2-3-1").attr("style", "display:table-row");
+     $('#sub12-2-3-1').addClass("expanded answered"); 
+  
+
+     $("#sub12-2-3 span").closest(".treetable-expander").off('click');   
+$("#sub12-2-3 span").closest(".treetable-expander").css('cursor', 'not-allowed') 
+   $("#12-2-3-1-Yes, #12-2-3-1-No").attr("disabled", false); 
+
+
+
+  }
+  
+  });
+
+
+  //controller for Q12-2-3-1
+
+
+
+
+  $("input[name$='optionsRadios12-2-3-1']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='Yes') {
+   $("#sub12-2-3-1-1").attr("style", "display:none");
+   $('#sub12-2-3-1-1').removeClass("expanded answered"); 
+ 
+    $( "#sub12-2-3-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#sub12-2-3-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+$("#sub12-2-3-1  .fa-angle-double-down").attr("style", "color: #CCC");    
+ $("#sub12-2-3-1 span").closest(".treetable-expander").off('click');   
+$("#sub12-2-3-1 span").closest(".treetable-expander").css('cursor', 'not-allowed')   
+
+
+ 
+  }
+  else {
+
+       $( "#sub12-2-3-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#sub12-2-3-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down " );
+$("#sub12-2-3-1  .fa-angle-double-down").attr("style", "color: #CCC");
+$('#sub12-2-3-1-1').removeClass("preview"); 
+    $("#sub12-2-3-1-1").attr("style", "display:table-row");
+     $('#sub12-2-3-1-1').addClass("expanded answered"); 
+     
+
+   $("#12-2-3-1-1-Yes, #12-2-3-1-1-No").attr("disabled", false); 
+
+
+
+  }
+  
+  });
+
+
+  //controller for Q12-2-6
+
+
+
+
+  $("input[name$='optionsRadios12-2-6']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#sub12-2-6-1").attr("style", "display:none");
+   $('#sub12-2-6-1').removeClass("expanded answered"); 
+    $( "#sub12-2-6 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#sub12-2-6 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+$("#sub12-2-6  .fa-angle-double-down").attr("style", "color: #CCC");    
+ $("#sub12-2-6 span").closest(".treetable-expander").off('click');   
+$("#sub12-2-6 span").closest(".treetable-expander").css('cursor', 'not-allowed')   
+
+
+ 
+  }
+  else {
+
+       $( "#sub12-2-6 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#sub12-2-6 span").closest(".treetable-expander").addClass( "fa-angle-double-down " );
+$("#sub12-2-6  .fa-angle-double-down").attr("style", "color: #CCC");
+$('#sub12-2-6-1').removeClass("preview"); 
+    $("#sub12-2-6-1").attr("style", "display:table-row");
+     $('#sub12-2-6-1').addClass("expanded answered"); 
+     
+     $("#sub12-2 span").closest(".treetable-expander").off('click');   
+$("#sub12-2 span").closest(".treetable-expander").css('cursor', 'not-allowed') 
+   $("#12-2-6-1-Yes, #12-2-6-1-No").attr("disabled", false); 
+ $("#sub12-2-6 span").closest(".treetable-expander").off('click');   
+$("#sub12-2-6 span").closest(".treetable-expander").css('cursor', 'not-allowed') 
+
+
+  }
+  
+  });
+
+
+  //controller for Q12-2-6-1
+
+
+
+
+  $("input[name$='optionsRadios12-2-6-1']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#sub12-2-6-1-1").attr("style", "display:none");
+   $('#sub12-2-6-1-1').removeClass("expanded answered"); 
+    $( "#sub12-2-6-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#sub12-2-6-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+$("#sub12-2-6-1  .fa-angle-double-down").attr("style", "color: #CCC");    
+ $("#sub12-2-6-1 span").closest(".treetable-expander").off('click');   
+$("#sub12-2-6-1 span").closest(".treetable-expander").css('cursor', 'not-allowed')   
+
+
+ 
+  }
+  else {
+
+       $( "#sub12-2-6-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
+$( "#sub12-2-6-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down " );
+$("#sub12-2-6-1  .fa-angle-double-down").attr("style", "color: #CCC");
+$('#sub12-2-6-1-1').removeClass("preview"); 
+    $("#sub12-2-6-1-1").attr("style", "display:table-row");
+     $('#sub12-2-6-1-1').addClass("expanded answered"); 
+     
+     $("#sub12-2-6 span").closest(".treetable-expander").off('click');   
+$("#sub12-2-6 span").closest(".treetable-expander").css('cursor', 'not-allowed') 
+   $("#12-2-6-1-1-check").attr("disabled", false); 
+ $("#sub12-2-6-1 span").closest(".treetable-expander").off('click');   
+$("#sub12-2-6-1 span").closest(".treetable-expander").css('cursor', 'not-allowed') 
+
+
+  }
+  
+  });
 
 
 //controller for Q12-2-1
@@ -960,7 +1150,7 @@ if ($(this).val() == 'Not Exempt'){
         $( "#sub12-2-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
         $("#sub12-2-1 span").closest(".treetable-expander").off('click');
-   
+        $("#sub12-2-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
  }
 
@@ -999,6 +1189,8 @@ $('#sub12-2-1-1').addClass("preview");
    $( "#sub12-2-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
 $( "#sub12-2-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
 $("#sub12-2-1 .fa-angle-double-down").attr("style", "color: #CCC");
+$("#sub12-2-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
     }
 
@@ -1013,11 +1205,11 @@ $("#sub12-2-1 .fa-angle-double-down").attr("style", "color: #CCC");
   if(radio_value=='Yes') {
    $("#sub12-2-1-1-1").attr("style", "display:none");
    $('#sub12-2-1-1-1').removeClass("expanded answered"); 
-   $("#sub12-2-1-1 span").closest(".treetable-expander").off('click');
     $( "#sub12-2-1-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right");
 $( "#sub12-2-1-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
 $("#sub12-2-1-1  .fa-angle-double-down").attr("style", "color: #CCC");    
-    
+ $("#sub12-2-1-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-1-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');   
 
 
  
@@ -1034,7 +1226,8 @@ $('#sub12-2-1-1-1, #sub12-2-1-1-2, #sub12-2-1-1-3').removeClass("preview");
      $("#sub12-2-1-1 span").closest(".treetable-expander").off('click');
    $("#Textarea12-2-1-1-1, #12-2-1-1-2-Yes, #12-2-1-1-2-No, #calendar").attr("disabled", false); 
 
-
+$("#sub12-2-1-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-1-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
   }
   

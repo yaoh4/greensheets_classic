@@ -260,150 +260,353 @@ $('#infoBox').click(function(){
 
 
 //controller for Q1
-   $("#main1 span").off('click');
-   
-   $( "#main1 span").removeClass( "fa fa-angle-double-right" );
-        $( "#main1 span").addClass( "fa fa-angle-double-down" );
+  
+   $( "#main1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $("#main1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#main1 .fa-angle-double-down").attr("style", "color: #CCC");
+ $("#main1 span").closest(".treetable-expander").off('click');
+        $("#main1 span").closest(".treetable-expander").css('cursor', 'not-allowed');   
 
 
 //controller for Q2
-   $("#main2 span").off('click');
+ 
    
    $( "#main2 span").removeClass( "fa-angle-double-right" );
         $( "#main2 span").addClass( "fa-angle-double-down" );
  $("#main2 .fa-angle-double-down").attr("style", "color: #CCC");
+ $("#main2 span").closest(".treetable-expander").off('click');
+        $("#main2 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 //controller for Q3
-   $("#main3 span").off('click');
-   
-   $( "#main3 span").removeClass( "fa-angle-double-right" );
-        $( "#main3 span").addClass( "fa-angle-double-down" );
- $("#main3 .fa-angle-double-down").attr("style", "color: #CCC");
 
-//controller for Q3-1
-   $("#3sub span").off('click');
    
-   $( "#3sub span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
-        $( "#3sub span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
- $("#3sub .fa-angle-double-down").attr("style", "color: #CCC");
+   $( "#main3 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
+        $( "#main3 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
+ $("#main3 .fa-angle-double-down").attr("style", "color: #CCC");
+$("#main3 span").closest(".treetable-expander").off('click');
+        $("#main3 span").closest(".treetable-expander").css('cursor', 'not-allowed');
+
   
 
 //controller for Q4
 
 
-   $("#main4 span").off('click');
+  
    
    $( "#main4 span").removeClass( "fa-angle-double-right" );
         $( "#main4 span").addClass( "fa-angle-double-down" );
  $("#main4 .fa-angle-double-down").attr("style", "color: #CCC");
 
-  
+  $("#main4 span").closest(".treetable-expander").off('click');
+        $("#main4 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
     //controller for Q5
-   $("#main5 span").off('click');
-   
-   $( "#main5 span").removeClass( "fa-angle-double-right" );
-        $( "#main5 span").addClass( "fa-angle-double-down" );
- $("#main5 .fa-angle-double-down").attr("style", "color: #CCC");
+  $("input[name$='optionsRadios5']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#5sub").attr("style", "display:none");
+   $('#5sub').removeClass("expanded answered");
+     
+    
+
+ 
+  }
+  else {
+    $('#5sub').addClass("expanded answered");
+    $("#5sub").attr("style", "display:table-row");
+    
 
 
+  }
+  
+  });
   //controller for Q6
-   $("#main6 span").off('click');
-   
-   $( "#main6 span").removeClass( "fa-angle-double-right" );
-        $( "#main6 span").addClass( "fa-angle-double-down" );
- $("#main6 .fa-angle-double-down").attr("style", "color: #CCC");
+ $("input[name$='optionsRadios6']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No'){
+      $("#6sub").attr("style", "display:table-row");
+      $('#6sub').addClass("expanded answered");
+         $('#6sub-1, #6sub-2').removeClass("expanded answered");
+      $("#6sub-1, #6sub-2").attr("style", "display:none");
+           $("#6sub .helperText").attr("style", "display:none")
 
-//controller for Q7
-   $("#main7 span").off('click');
-   
-   $( "#main7 span").removeClass( "fa-angle-double-right" );
-        $( "#main7 span").addClass( "fa fa-angle-double-down" );
- $("#main7 .fa-angle-double-down").attr("style", "color: #CCC");
+      $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
+     
+    }
+    else if(radio_value=='Yes'){
+      $('#6sub').removeClass("expanded answered");
+      $("#6sub").attr("style", "display:none");
+       $("#6sub-1, #6sub-2").attr("style", "display:table-row");
+      $('#6sub-1, #6sub-2').addClass("expanded answered");
+       $("#6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:none")
+
+      $("#6sub .helperText").attr("style", "display:block");
+    
+    }
+
+    else {
+
+      $("#6sub, #6sub-1, #6sub-2").attr("style", "display:none");
+
+      $("#6sub .helperText, #6sub-1 .helperText, #6sub-2 .helperText").attr("style", "display:block");
+      $('#6sub, #6sub-1, #6sub-2').removeClass("expanded answered");
+     
+     
+
+    }
+
+});
 
 
 
-  //controller for Q9
-   $("#main9 span").off('click');
-   
-   $( "#main9 span").removeClass( "fa-angle-double-right" );
-        $( "#main9 span").addClass( "fa fa-angle-double-down" );
- $("#main9 .fa-angle-double-down").attr("style", "color: #CCC");
 
 
+ //controller for Q7
+ $('#select7').change(function(){ 
+    if($(this).val() == 'Not Approved' || $(this).val() == 'Yes Approved' || $(this).val() == 'Not Approved No Impact'){
+      $("#7sub").attr("style", "display:table-row");
+      $('#7sub').addClass("expanded answered");
+     
+    }
+    
 
+    else {
 
+      $("#7sub").attr("style", "display:none");
+      $('#7sub').removeClass("expanded answered");
+     
+     
+
+    }
+
+});
 
   //controller for Q8
- 
-   $("#main8 span").off('click');
-   
-   $( "#main8 span").removeClass( "fa-angle-double-right" );
+ $('#select8').change(function(){
+
+
+    if($(this).val() == 'Changed and Not Approved'){
+     $("#main8 .fa-angle-double-right").attr("style", "color: #CCC");
+      $("#8sub").attr("style", "display:table-row");
+      $('#8sub').addClass("expanded answered");
+       $('#8sub').removeClass("preview");
+        $("#Textarea8").attr("disabled", false);
+        $( "#main8 span").removeClass( "fa-angle-double-right" );
         $( "#main8 span").addClass( "fa-angle-double-down" );
- $("#main8 .fa-angle-double-down").attr("style", "color: #CCC");
+             $("#main8 span").closest(".treetable-expander").off('click');
+$("#main8 span").css('cursor', 'not-allowed')
+  }
+  
+   
+
+ else if ($(this).val() == 'Changed and Approved'){
+
+  $("#8sub").attr("style", "display:none");
+         $('#8sub').removeClass("expanded answered"); 
+  
+   $( "#main8 span").removeClass( "fa-angle-double-down" );
+$( "#main8 span").addClass( "fa-angle-double-right" );
+$("#main8 .fa-angle-double-right").attr("style", "color: #CCC");
+      $("#main8 span").closest(".treetable-expander").off('click');
+$("#main8 span").css('cursor', 'not-allowed')  
+
+ }
+
+  else if ($(this).val() == 'Select an Option')
+  {
+  
+
+       $( "#main8 span").removeClass( "fa-angle-double-down" );
+$( "#main8 span").addClass( "fa-angle-double-right" );
+  $("#main8 .fa-angle-double-right").removeAttr("style", "color: #CCC");
+$("#8sub").attr("style", "display:none");
+$('#8sub').addClass("preview");
+      $('#8sub').removeClass("expanded answered"); 
+      $("#Textarea8").attr("disabled", true); 
+
+   
+    $('#main8 span').on('click', function (e) {
+        e.preventDefault();
+        var elem = $("#8sub")
+        elem.toggle('fast');
+        $( "#main8 span").toggleClass( "fa-angle-double-right  fa-angle-double-down" );
+    });
 
 
 
+  }       
 
+    else {
+     $("#main8 .fa-angle-double-right").removeAttr("style", "color: #CCC");
+     
+       $("#8sub").attr("style", "display:none");
+      $('#8sub').addClass("preview");
+      $('#8sub').removeClass("expanded answered"); 
+      $("#Textarea8").attr("disabled", true); 
+
+       
+    
+  
+
+    }
+
+});
+
+//controller for Q9
+  $("input[name$='optionsRadios16']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#9sub").attr("style", "display:none");
+   $('#9sub').removeClass("expanded answered");
+     
+     
+
+ 
+  }
+  else {
+    $('#9sub').addClass("expanded answered");
+    $("#9sub").attr("style", "display:table-row");
+    
+
+
+  }
+  
+  });
 
 
 
  //controller for Q10
-   $("#main10 span").off('click');
-   
-   $( "#main10 span").removeClass( "fa-angle-double-right" );
-        $( "#main10 span").addClass( "fa-angle-double-down" );
- $("#main10 .fa-angle-double-down").attr("style", "color: #CCC");
+  $("input[name$='optionsRadios10']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#10sub").attr("style", "display:none");
+   $('#10sub').removeClass("expanded answered");
+    $("#10sub1").attr("style", "display:none");
+     
+    
+
+ 
+  }
+  else {
+    $("#10sub").attr("style", "display:table-row");
+    $('#10sub').addClass("expanded answered");
+
+      
+
+  }
+  
+  });
 
 
   //controller for Q10-1
+  $("input[name$='optionsRadios10-1']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#10sub1").attr("style", "display:none");
 
+     $('#10sub1').removeClass("expanded answered");
+     
 
-     $('#sub10').removeClass("expanded answered");
-   $("#sub10 span").off('click');
-   
-   $( "#sub10 span").removeClass( "fa-angle-double-right" );
-        $( "#sub10 span").addClass( "fa-angle-double-down" );
- $("#sub10 .fa-angle-double-down").attr("style", "color: #CCC");
+ 
+  }
+  else {
+    $("#10sub1").attr("style", "display:table-row");
+     $('#10sub1').addClass("expanded answered");
+     
+
+  }
+  
+  });
 
 
   //controller for Q11
-   $("#main11 span").off('click');
+  $("input[name$='optionsRadios11']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#sub11-1").attr("style", "display:none");
+    $('#sub11-1').removeClass("expanded answered");
+    $("#sub11-1-1").attr("style", "display:none");
+
+     
+     
+  }
+  else {
+    $("#sub11-1").attr("style", "display:table-row");
+     $('#sub11-1').addClass("expanded answered");
    
-   $( "#main11 span").removeClass( "fa-angle-double-right" );
-        $( "#main11 span").addClass( "fa-angle-double-down" );
- $("#main11 .fa-angle-double-down").attr("style", "color: #CCC");
+     
+
+
+  }
+  
+  });
 
 
   //controller for Q11-1
-   $("#sub11-1 span").off('click');
-   
+  $("input[name$='optionsRadios11-1']").click(function(){
+  var radio_value = $(this).val();
+  if(radio_value=='No') {
+   $("#sub11-1-1").attr("style", "display:none");
+    $('#sub11-1-1').removeClass("expanded answered");
+     
+    
+
+
+ 
+  }
+  else {
+    $("#sub11-1-1").attr("style", "display:table-row");
+      $('#sub11-1-1').addClass("expanded answered");
+    
+
+  }
+  
+  });
+
+
+  //controller for Q11-1
+
    $( "#sub11-1 span").removeClass( "fa-angle-double-right" );
         $( "#sub11-1 span").addClass( "fa-angle-double-down" );
  $("#sub11-1 .fa-angle-double-down").attr("style", "color: #CCC");
+$("#sub11-1 span").closest(".treetable-expander").off('click');
+        $("#sub11-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
+
 
 
 
   //controller for Q12
-   $("#main12 span").off('click');
    
    $( "#main12 span").removeClass( "fa-angle-double-right" );
         $( "#main12 span").addClass( "fa-angle-double-down" );
  $("#main12 .fa-angle-double-down").attr("style", "color: #CCC");
+$("#main12 span").closest(".treetable-expander").off('click');
+        $("#main12 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
+//controller for Q12sub
+
+   
+   $( "#12sub span").removeClass( "fa-angle-double-right" );
+        $( "#12sub span").addClass( "fa fa-angle-double-down" );
+ $("#12sub .fa-angle-double-down").attr("style", "color: #CCC");
+$("#12sub span").closest(".treetable-expander").off('click');
+        $("#12sub span").closest(".treetable-expander").css('cursor', 'not-allowed');
   //controller for Q12-1
-   $("#sub12-1 span").off('click');
+
    
    $( "#sub12-1 span").removeClass( "fa-angle-double-right" );
         $( "#sub12-1 span").addClass( "fa fa-angle-double-down" );
  $("#sub12-1 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
    //controller for Q12-1-1
  $('#select12-1-1').change(function(){ 
+  $("#sub12-1-1-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-1-1-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
+
     if($(this).val() == 'Not Approved' || $(this).val() == 'No'){
       $("#12-1-1-1sub").attr("style", "display:table-row");
         $('#12-1-1-1sub').addClass("expanded answered");
@@ -427,61 +630,67 @@ $('#infoBox').click(function(){
 
    //controller for Q12-2
 
-   $("#sub12-2 span").off('click');
+ 
    
    $( "#sub12-2 span").removeClass( "fa-angle-double-right" );
         $( "#sub12-2 span").addClass( "fa fa-angle-double-down" );
  $("#sub12-2 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-2 span").closest(".treetable-expander").off('click');
+        $("#sub12-2 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
      //controller for Q12-2-1
 
-   $("#sub12-2-1 span").off('click');
+  
    
    $( "#sub12-2-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-1 .fa-angle-double-down").attr("style", "color: #CCC");
 
- 
+ $("#sub12-2-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
     //controller for Q12-2-1-1
-  
-$("#sub12-2-1-1 span").off('click');
+
    
    $( "#sub12-2-1-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-1-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-1-1 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-2-1-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-1-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
+     
       //controller for Q12-2-3
-  $("#sub12-2-3 span").off('click');
    
    $( "#sub12-2-3  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-3  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-3  .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-2-3 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-3 span").closest(".treetable-expander").css('cursor', 'not-allowed');
+  
   //controller for Q12-2-3-1
-  $("#sub12-2-3-1 span").off('click');
    
    $( "#sub12-2-3-1  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-3-1  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-3-1  .fa-angle-double-down").attr("style", "color: #CCC");
+$("#sub12-2-3-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-3-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
+        
 
         //controller for Q12-2-6
- $("#sub12-2-6 span").off('click');
-   
    $( "#sub12-2-6 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-6 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-6 .fa-angle-double-down").attr("style", "color: #CCC");
+$("#sub12-2-6 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-6 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
           //controller for Q12-2-6-1
-    $("#sub12-2-6-1 span").off('click');
    
    $( "#sub12-2-6-1  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-6-1  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-6-1  .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-2-6-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-6-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
 

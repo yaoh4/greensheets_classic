@@ -257,84 +257,94 @@ $('#infoBox').click(function(){
 });
 
 //controller for Q1
-   $("#main1 span").off('click');
-   
+  
    $( "#main1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $("#main1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#main1 .fa-angle-double-down").attr("style", "color: #CCC");
+ $("#main1 span").closest(".treetable-expander").off('click');
+        $("#main1 span").closest(".treetable-expander").css('cursor', 'not-allowed');   
 
 
 //controller for Q2
-   $("#main2 span").off('click');
+ 
    
    $( "#main2 span").removeClass( "fa-angle-double-right" );
         $( "#main2 span").addClass( "fa-angle-double-down" );
  $("#main2 .fa-angle-double-down").attr("style", "color: #CCC");
+ $("#main2 span").closest(".treetable-expander").off('click');
+        $("#main2 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 //controller for Q3
-   $("#main3 span").off('click');
+
    
    $( "#main3 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#main3 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#main3 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#main3 span").closest(".treetable-expander").off('click');
+        $("#main3 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
   
 
 //controller for Q4
 
 
-   $("#main4 span").off('click');
+  
    
    $( "#main4 span").removeClass( "fa-angle-double-right" );
         $( "#main4 span").addClass( "fa-angle-double-down" );
  $("#main4 .fa-angle-double-down").attr("style", "color: #CCC");
 
-  
+  $("#main4 span").closest(".treetable-expander").off('click');
+        $("#main4 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
     //controller for Q5
-   $("#main5 span").off('click');
+  
    
    $( "#main5 span").removeClass( "fa-angle-double-right" );
         $( "#main5 span").addClass( "fa fa-angle-double-down" );
  $("#main5 .fa-angle-double-down").attr("style", "color: #CCC");
 
+$("#main5 span").closest(".treetable-expander").off('click');
+        $("#main5 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
   //controller for Q6
-   $("#main6 span").off('click');
+  
    
    $( "#main6 span").removeClass( "fa-angle-double-right" );
         $( "#main6 span").addClass( "fa-angle-double-down" );
  $("#main6 .fa-angle-double-down").attr("style", "color: #CCC");
+$("#main6 span").closest(".treetable-expander").off('click');
+        $("#main6 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 //controller for Q7
-   $("#main7 span").off('click');
+  
    
    $( "#main7 span").removeClass( "fa-angle-double-right" );
         $( "#main7 span").addClass( "fa fa-angle-double-down" );
  $("#main7 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#main7 span").closest(".treetable-expander").off('click');
+        $("#main7 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
   //controller for Q9
-   $("#main9 span").off('click');
+  
    
    $( "#main9 span").removeClass( "fa-angle-double-right" );
         $( "#main9 span").addClass( "fa fa-angle-double-down" );
  $("#main9 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#main9 span").closest(".treetable-expander").off('click');
+        $("#main9 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
 
 
   //controller for Q8
- 
-   $("#main8 span").off('click');
    
    $( "#main8 span").removeClass( "fa-angle-double-right" );
         $( "#main8 span").addClass( "fa-angle-double-down" );
  $("#main8 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#main8 span").closest(".treetable-expander").off('click');
+        $("#main8 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
 
@@ -342,23 +352,24 @@ $('#infoBox').click(function(){
 
 
  //controller for Q10
-   $("#main10 span").off('click');
    
    $( "#main10 span").removeClass( "fa-angle-double-right" );
         $( "#main10 span").addClass( "fa-angle-double-down" );
  $("#main10 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#main10 span").closest(".treetable-expander").off('click');
+        $("#main10 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
   //controller for Q10-1
 
 
      $('#sub10').removeClass("expanded answered");
-   $("#sub10 span").off('click');
+
    
    $( "#sub10 span").removeClass( "fa-angle-double-right" );
         $( "#sub10 span").addClass( "fa-angle-double-down" );
  $("#sub10 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub10 span").closest(".treetable-expander").off('click');
+        $("#sub10 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
   //controller for Q11
    $("#main11 span").off('click');
@@ -366,32 +377,34 @@ $('#infoBox').click(function(){
    $( "#main11 span").removeClass( "fa-angle-double-right" );
         $( "#main11 span").addClass( "fa-angle-double-down" );
  $("#main11 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#main11 span").closest(".treetable-expander").off('click');
+        $("#main11 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
   //controller for Q11-1
-   $("#sub11-1 span").off('click');
-   
+
    $( "#sub11-1 span").removeClass( "fa-angle-double-right" );
         $( "#sub11-1 span").addClass( "fa-angle-double-down" );
  $("#sub11-1 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub11-1 span").closest(".treetable-expander").off('click');
+        $("#sub11-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
   //controller for Q12
-   $("#main12 span").off('click');
    
    $( "#main12 span").removeClass( "fa-angle-double-right" );
         $( "#main12 span").addClass( "fa-angle-double-down" );
  $("#main12 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#main12 span").closest(".treetable-expander").off('click');
+        $("#main12 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
   //controller for Q12-1
-   $("#sub12-1 span").off('click');
+
    
    $( "#sub12-1 span").removeClass( "fa-angle-double-right" );
         $( "#sub12-1 span").addClass( "fa fa-angle-double-down" );
  $("#sub12-1 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-1 span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
    //controller for Q12-1-1
@@ -419,61 +432,62 @@ $('#infoBox').click(function(){
 
    //controller for Q12-2
 
-   $("#sub12-2 span").off('click');
    
    $( "#sub12-2 span").removeClass( "fa-angle-double-right" );
         $( "#sub12-2 span").addClass( "fa fa-angle-double-down" );
  $("#sub12-2 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-2 span").closest(".treetable-expander").off('click');
+        $("#sub12-2  span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
      //controller for Q12-2-1
 
-   $("#sub12-2-1 span").off('click');
-   
    $( "#sub12-2-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-1 .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-2-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-1  span").closest(".treetable-expander").css('cursor', 'not-allowed');
  
 
 
     //controller for Q12-2-1-1
   
-$("#sub12-2-1-1 span").off('click');
    
    $( "#sub12-2-1-1 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-1-1 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-1-1 .fa-angle-double-down").attr("style", "color: #CCC");
+ $("#sub12-2-1-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-1-1  span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
       //controller for Q12-2-3
-  $("#sub12-2-3 span").off('click');
    
    $( "#sub12-2-3  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-3  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-3  .fa-angle-double-down").attr("style", "color: #CCC");
+ $("#sub12-2-3 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-3  span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
   //controller for Q12-2-3-1
-  $("#sub12-2-3-1 span").off('click');
-   
    $( "#sub12-2-3-1  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-3-1  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-3-1  .fa-angle-double-down").attr("style", "color: #CCC");
+ $("#sub12-2-3-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-3-1  span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
-        //controller for Q12-2-6
- $("#sub12-2-6 span").off('click');
-   
+        //controller for Q12-2-6 
    $( "#sub12-2-6 span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-6 span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-6 .fa-angle-double-down").attr("style", "color: #CCC");
+ $("#sub12-2-6 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-6  span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
           //controller for Q12-2-6-1
-    $("#sub12-2-6-1 span").off('click');
    
    $( "#sub12-2-6-1  span").closest(".treetable-expander").removeClass( "fa-angle-double-right" );
         $( "#sub12-2-6-1  span").closest(".treetable-expander").addClass( "fa-angle-double-down" );
  $("#sub12-2-6-1  .fa-angle-double-down").attr("style", "color: #CCC");
-
+$("#sub12-2-6-1 span").closest(".treetable-expander").off('click');
+        $("#sub12-2-6-1  span").closest(".treetable-expander").css('cursor', 'not-allowed');
 
 
 
