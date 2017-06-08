@@ -12,6 +12,10 @@ $( window ).load(function() {
 
 $(document).ready(function(){
 
+    $(".rs").click(function(){
+        $("#clearModal").modal();
+    });   
+   
    
    $('.answered').attr("style", "display:table-row; color: #000");    
 

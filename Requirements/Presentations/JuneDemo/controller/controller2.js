@@ -11,7 +11,9 @@ $( window ).load(function() {
 $(document).ready(function(){
 
    
-     
+   $(".rs").click(function(){
+        $("#clearModal").modal();
+    });   
 
 
   $('#comment1').change(function(){
