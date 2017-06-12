@@ -1,0 +1,682 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>Greensheets</title>
+<script src="scripts/jquery-1.12.3.min.js"></script>
+<script src="scripts/bootstrap-3.3.6.min.js"></script>
+<script src="scripts/bootbox-4.4.0.min.js"></script>
+<script src="scripts/bootstrap-datepicker.js"></script>
+<script src="scripts/bootstrapValidator.js"></script>
+
+<script src="scripts/jquery.validate-1.15.0.min.js"></script>
+<script src="scripts/jquery.are-you-sure-1.9.0.js"></script>
+<script src="scripts/theme2.js"></script>
+<script src="controller/draftController.js"></script>
+<script src="validator.js"></script>
+<script src="dropzone.js"></script>
+<script src="scripts/moment.js"></script>
+<link href="stylesheets/dropzone.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/datatables-1.10.12.min.css" rel="stylesheet" type="text/css" media="screen">
+<link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,700,700italic,900,900italic,400italic" rel="stylesheet" type="text/css">
+<link href="stylesheets/custom5.css" rel="stylesheet" type="text/css" media="screen">
+
+
+
+</head>
+
+<body style="background-color: #fff;">
+  <!-- Header -->
+
+
+
+
+<div id="wrap"> 
+  <div class="navbar ">
+    <div class="row header">
+      <div style="height: 50px; margin-top: -1px;">
+        <div id="logo" class="logoImage" style="padding-top: 5px;">
+            <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
+            <div style="float: right; margin-right: 15px;">
+              <br>  
+            
+           
+           </div>
+            
+        </div>
+      </div>
+      <!-- Fixed navbar -->
+      <div class="stickyDiv">
+      
+
+
+
+
+
+    
+     
+
+        <!--Page Header -->
+        
+        
+          
+            <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| <a href="search.htm">Greensheets</a></h3></div></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
+                  Welcome:
+                <div id="loginID" class="login">
+                  
+                    Janene Nusraty
+                  
+                </div><div style="display:inline-block;"><i id="vrip" class="fa fa-book fa-1x" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i></div>
+              </div>
+          
+           </div>
+  </div> 
+          
+         
+<div id="secNav" class="row">
+
+
+<!-- Navigation bar -->
+    <div id="main_navbar">
+      <nav class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-header">
+          <!-- Responsive navigation bar on mobile devices -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="glyphicon glyphicon-align-justify"></span><!-- Responsive button icon -->
+          </button>
+        </div>
+
+        <nav class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+            <li>
+              <a href="about.html" id="aboutnav">Search Greensheets</a>
+                          
+            </li>
+            <li class="current">
+              <a href="review.htm" id="menunav" style="color: #004581;">Admin</a>
+            </li>
+
+            
+         
+
+
+          </ul>
+        </nav>
+      </nav>
+    </div>
+</div>
+
+          
+      
+ 
+  </div>
+
+
+  <!-- end Header -->
+
+  <!-- end Header -->
+
+	
+
+	<!-- Content start -->
+
+		
+
+
+	
+	    
+
+    
+     
+      
+      <!-- Begin Panel -->
+        <div class="col-md-12">
+       
+            <br\>
+            <div><h3>Review & Test Draft Module</h3></div>
+      <br\>
+       
+<!--success alert box -->
+    <div  style="margin-top: 15px; display:none;" id="rejected">    
+   <div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Successfully Rejected.</strong> The Program Competing Module has been rejected.
+</div>
+</div>
+
+    <div style="display:none; margin-top: 10px;" id="promoted">    
+   <div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Successfully Promoted.</strong> The Program Competing Module has been promoted.
+</div>
+</div>
+
+<div id="exTab2"> 
+<ul class="nav nav-tabs">
+      <li class="active" id="content1">
+        <a  href="#1" data-toggle="tab" id="programCompeting">Program Competing</a>
+      </li>
+      <li id="content2"><a href="#2" data-toggle="tab" id="programNonCompeting">Program Non-competing</a>
+      </li>
+      <li><a href="#3" data-toggle="tab">Revision</a>
+      </li>
+    </ul>
+
+
+
+      <div class="tab-content ">
+<div class="tab-pane active" id="1">
+          <div class="row">
+            
+
+          <div style="float: right; display:block; margin-top: 15px; margin-bottom: 10px;"><button class="btn btn-default" type="button" data-toggle="modal" data-target="#rejectModal">Reject Module</button><button class="btn btn-primary " type="button" data-toggle="modal" data-target="#promoteModal">Promote Module</button></div>
+        <div >
+    <div class="panel panel-default" style="margin-top: 10px; clear:both;">
+                <div class="panel-heading">
+                   <span class="clickable"><i class="fa fa-minus-circle"></i></span> <h4>New & Existing Type/Mechanism Combinations Added/Changed</h4>
+                    
+                </div>
+                <div class="panel-body">
+
+                  <button class="btn btn-primary" type="button" onclick="window.location.href='mailto:?subject=Request%20to%20test%20the%20new%20Greensheet%20form(s)&body=Please%20click%3A%0D%0ATo%20test%20the%20form%20PC%20Mentored%20Career%20%E2%80%93%20(Program)%20for%201%2FK21%2C%202%2FK23%0D%0ATo%20test%20PC%20Education%20-%20(Program)%20for%202%2FT18%0D%0Aand%20provide%20a%20feedback%20in%20a%20separate%20email%20to%20eugenia.chester%40nih.gov%20.'">Send Email to Testers</button><br/>&nbsp;
+
+                    <table class="table table-bordered table-striped">
+                        <th><input type="checkbox" id="checkAll"></th>
+                        <th>Related type/mechanism</th>
+                        <th>Sent for Testing</th>
+                        <th>Form Name</th>
+                        <th>Test Completed By:</th>
+                        <tr class="info"><td colspan="5">New Type Mechanism Combinations Added</td></tr>
+                      
+                            <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>1/K21, 2/K23</td>
+                            <td><div class="sentBack"></div></td>
+                            <td><a href="greensheet-draft.htm">PC Mentored Career</a></td>
+                        
+                            <td><a href="mailto:">Doe, John</a></td>
+
+                                </tr>
+
+                            <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>2/T18</td>
+                            <td><div class="sentBack"></div></td>
+                            <td><a href="greensheet-draft.htm">PC Education</a></td>
+                        
+                            <td></td>
+
+                                </tr>
+                                <tr class="info"><td colspan="5">Existing Type Mechanism Combinations Where Questionnaire is Updated</td></tr>
+                                     <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>1/R21; 3/U15</td>
+                            <td></td>
+                            <td><a href="greensheet-draft.htm">form name 3</a></td>
+                        
+                            <td></td>
+
+                                </tr>
+                                             <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>2/R44</td>
+                            <td></td>
+                            <td><a href="greensheet-draft.htm">form name 4</a></td>
+                        
+                            <td><a href="mailto:"></a><br/>
+                                <a href="mailto:"></a></td>
+
+                                </tr>
+                                    
+                             
+
+  
+</table>
+
+
+<button class="btn btn-primary" type="button" onclick="window.location.href='mailto:?subject=Request%20to%20test%20the%20new%20Greensheet%20form(s)&body=Please%20click%3A%0D%0ATo%20test%20the%20form%20PC%20Mentored%20Career%20%E2%80%93%20(Program)%20for%201%2FK21%2C%202%2FK23%0D%0ATo%20test%20PC%20Education%20-%20(Program)%20for%202%2FT18%0D%0Aand%20provide%20a%20feedback%20in%20a%20separate%20email%20to%20eugenia.chester%40nih.gov%20.'">Send Email to Testers</button>
+
+                </div><!-- end panel body -->
+            </div><!-- end panel -->
+
+
+
+
+             <div class="panel panel-default" style="margin-top: 10px;">
+                <div class="panel-heading">
+                   <span class="clickable"><i class="fa fa-minus-circle"></i></span> <h4>Existing Type/Mechanism Deleted</h4>
+                    
+                </div>
+                <div class="panel-body">
+
+                 
+
+                    <table class="table table-bordered table-striped">
+                       
+                        <th>Related type/mechanism</th>
+                          
+                      
+                            <tr>
+                             
+                            <td>3/T24; 3/T28</td>
+                        
+                            
+                                </tr>                            
+                      </table>
+
+
+                </div><!-- end panel body -->
+            </div><!-- end panel -->
+
+
+
+                         <div class="panel panel-default" style="margin-top: 10px;">
+                <div class="panel-heading">
+                   <span class="clickable panel-collapsed"><i class="fa fa-plus-circle"></i></span> <h4>Existing Type/Mechanism Combinations With No Changes</h4>
+                    
+                </div>
+                <div class="panel-body" style="display:none;">
+
+                 
+
+                    <table class="table table-bordered table-striped">
+                       
+                        <th>Related type/mechanism</th>
+                         <th>Form Name</th>
+                                <tr>
+                             
+                            <td>1/R01; 1/R02; 1/R03; 1/R04; 1/R05 1/R06; 1/R07; 1/R08; 1/R09; 1/R10; 1/R11; 1/R12; 1/R13; 1/R18; 2/R21</td>
+                        <td><a href="#">Form XYZ</a></td>
+
+                                </tr>
+                      
+                            <tr>
+                             
+                            <td>3/T18; 3/T21</td>
+                        <td><a href="greensheet-draftCDB.htm">Form CDB</a></td>
+
+                                </tr>
+                                  <tr>
+                             
+                            <td>1/U08; 2/U22</td>
+                        <td><a href="#">Form QRS</a></td>
+
+                                </tr>
+                            
+
+                            
+</table>
+
+
+                </div><!-- end panel body -->
+            </div><!-- end panel -->
+
+             <div style="float: right; display:block; margin-bottom: 15px;"><button class="btn btn-default" type="button" data-toggle="modal" data-target="#rejectModal">Reject Module</button><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#promoteModal">Promote Module</button></div>
+        </div>
+
+
+    </div> <!-- end row -->
+        </div><!--end tab 1 -->
+
+
+
+
+
+
+
+
+        <div class="tab-pane" id="2">
+                    <div class="row">
+                        <div style="float: right; display:block; margin-top: 15px; margin-bottom: 10px;"><button class="btn btn-default" type="button" data-toggle="modal" data-target="#rejectModal">Reject Module</button><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#promoteModal">Promote Module</button></div>
+        <div >
+    <div class="panel panel-default" style="margin-top: 10px; clear:both;">
+                <div class="panel-heading">
+                   <span class="clickable"><i class="fa fa-minus-circle"></i></span> <h4>New & Existing Type/Mechanism Combinations Added/Changed</h4>
+                    
+                </div>
+                <div class="panel-body">
+
+                  <button class="btn btn-primary" type="button" onclick="window.location.href='mailto:?subject=Request%20to%20test%20the%20new%20Greensheet%20form(s)&body=Please%20click%3A%0D%0ATo%20test%20the%20form%20PC%20Mentored%20Career%20%E2%80%93%20(Program)%20for%201%2FK21%2C%202%2FK23%0D%0ATo%20test%20PC%20Education%20-%20(Program)%20for%202%2FT18%0D%0Aand%20provide%20a%20feedback%20in%20a%20separate%20email%20to%20eugenia.chester%40nih.gov%20.'">Send Email to Testers</button><br/>&nbsp;
+
+                    <table class="table table-bordered table-striped">
+                        <th><input type="checkbox" id="checkAll"></th>
+                        <th>Related type/mechanism</th>
+                        <th>Sent for Testing</th>
+                        <th>Form Name</th>
+                        <th>Test Completed By:</th>
+                        <tr class="info"><td colspan="5">New Type Mechanism Combinations Added</td></tr>
+                      
+                            <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>1/K21, 2/K23</td>
+                            <td>10/20/2016</td>
+                            <td><a href="greensheet-draft.htm">Form 123</a></td>
+                        
+                            <td><a href="mailto:">Hunt, Yvone</a><br/>
+                                <a href="mailto:">Smith, John</a></td>
+
+                                </tr>
+
+                            <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>2/T18</td>
+                            <td>01/28/2017</td>
+                            <td><a href="greensheet-draft.htm">Form 456</a></td>
+                        
+                            <td><a href="mailto:">Chow, Joy</a><br/>
+                                <a href="mailto:">Stein, Lisa</a></td>
+
+                                </tr>
+                                <tr class="info"><td colspan="5">Existing Type Mechanism Combinations Where Questionnaire is Updated</td></tr>
+                                     <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>1/R21; 3/U15</td>
+                            <td>02/08/2017</td>
+                            <td><a href="greensheet-draft.htm">form name 3</a></td>
+                        
+                            <td><a href="mailto:">Martell, Ron</a><br/>
+                                <a href="mailto:">Patel, Radikka</a></td>
+
+                                </tr>
+                                             <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>2/R44</td>
+                            <td></td>
+                            <td><a href="greensheet-draft.htm">form name 4</a></td>
+                        
+                            <td><a href="mailto:"></a><br/>
+                                <a href="mailto:"></a></td>
+
+                                </tr>
+                                    
+                             
+
+  
+</table>
+
+
+<button class="btn btn-primary" type="button" onclick="window.location.href='mailto:?subject=Request%20to%20test%20the%20new%20Greensheet%20form(s)&body=Please%20click%3A%0D%0ATo%20test%20the%20form%20PC%20Mentored%20Career%20%E2%80%93%20(Program)%20for%201%2FK21%2C%202%2FK23%0D%0ATo%20test%20PC%20Education%20-%20(Program)%20for%202%2FT18%0D%0Aand%20provide%20a%20feedback%20in%20a%20separate%20email%20to%20eugenia.chester%40nih.gov%20.'">Send Email to Testers</button>
+
+                </div><!-- end panel body -->
+            </div><!-- end panel -->
+
+
+
+
+             <div class="panel panel-default" style="margin-top: 10px;">
+                <div class="panel-heading">
+                   <span class="clickable"><i class="fa fa-minus-circle"></i></span> <h4>Existing Type/Mechanism Deleted</h4>
+                    
+                </div>
+                <div class="panel-body">
+
+                 
+
+                    <table class="table table-bordered table-striped">
+                       
+                        <th>Related type/mechanism</th>
+                          
+                      
+                            <tr>
+                             
+                            <td>3/T24; 3/T28</td>
+                        
+                            
+                                </tr>                            
+                      </table>
+
+
+                </div><!-- end panel body -->
+            </div><!-- end panel -->
+
+
+
+                         <div class="panel panel-default" style="margin-top: 10px;">
+                <div class="panel-heading">
+                   <span class="clickable panel-collapsed"><i class="fa fa-plus-circle"></i></span> <h4 class="panel-title">Existing Type/Mechanism Combinations With No Changes</h4>
+                    
+                </div>
+                <div class="panel-body" style="display:none;">
+
+                 
+
+                    <table class="table table-bordered table-striped">
+                       
+                        <th>Related type/mechanism</th>
+                         <th>Form Name</th>
+                                <tr>
+                             
+                            <td>1/R01; 1/R02; 1/R03; 1/R04; 1/R05 1/R06; 1/R07; 1/R08; 1/R09; 1/R10; 1/R11; 1/R12; 1/R13; 1/R18; 2/R21</td>
+                        <td><a href="#">Form XYZ</a></td>
+
+                                </tr>
+                      
+                            <tr>
+                             
+                            <td>3/T18; 3/T21</td>
+                        <td><a href="#">Form CDB</a></td>
+
+                                </tr>
+                                  <tr>
+                             
+                            <td>1/U08; 2/U22</td>
+                        <td><a href="#">Form QRS</a></td>
+
+                                </tr>
+                            
+
+                            
+</table>
+
+
+                </div><!-- end panel body -->
+            </div><!-- end panel -->
+
+             <div style="float: right; display:block; margin-bottom: 15px;"><button class="btn btn-default" type="button" data-toggle="modal" data-target="#rejectModal">Reject Module</button><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#promoteModal">Promote Module</button></div>
+        </div>
+
+
+    </div> <!-- end row -->
+        </div><!--end tab 2 -->
+        
+
+
+
+
+        <div class="tab-pane" id="3">
+
+
+ <div class="row">
+  <div style="float: right; display:block; margin-top: 15px; margin-bottom: 10px;"><button class="btn btn-default" type="button">Reject Module</button><button class="btn btn-primary" type="button">Promote Module</button></div>
+        <div >
+
+
+    <div class="panel panel-default" style="margin-top: 10px; clear:both;">
+                <div class="panel-heading">
+                   <h3 class="panel-title">Revision Greesheet Form</h3>
+                    
+                </div>
+                <div class="panel-body">
+
+                 
+
+                    <table class="table table-bordered table-striped">
+                        <th></th>
+                        <th>Related type/mechanism</th>
+                        <th>Sent for Testing</th>
+                        <th>Form Name</th>
+                        <th>Test Completed By:</th>
+
+                      
+                            <tr>
+                                <td><input type="checkbox" id="checkItem"></td>
+                            <td>All/All</td>
+                            <td>10/20/2016</td>
+                            <td><a href="greensheet-draft.htm">Revision Form</a></td>
+                        
+                            <td><a href="mailto:">Thompson, Lydia</a><br/>
+                                <a href="mailto:">Hood, John</a></td>
+
+                                </tr>
+
+                            
+                                    
+                             
+
+  
+</table>
+
+
+<button class="btn btn-primary" type="button" onclick="window.location.href='mailto:?subject=Request%20to%20test%20the%20new%20Greensheet%20form(s)&body=Please%20click%3A%0D%0Alink%20to%20test%20%3CNew%20form%20name%201%3E%20-%20%3Cform%20type%3E%20for%20%3Clist%20of%20related%20type%2Fmech%20combination(s)%3E%20%0D%0Alink%20to%20test%20%3CNew%20form%20name%20M%3E%20-%20%3Cform%20type%3E%20for%20%3Clist%20of%20related%20type%2Fmech%20combination(s)%3E%0D%0A%20and%20provide%20a%20feedback%20in%20a%20separate%20email%20to%20%3Cemail%20of%20OGA%20user%3E'">Send Email to Testers</button>
+
+                </div><!-- end panel body -->
+            </div><!-- end panel -->
+ <div style="float: right;"><button class="btn btn-default" type="button">Reject Module</button><button class="btn btn-primary" type="button">Promote Module</button><br/>&nbsp;</div>
+</div><!--end row -->
+</div>
+
+
+
+        </div><!--end tab 3 -->
+      </div>
+
+
+
+
+
+        
+
+
+     
+</div><!-- end  -->
+
+
+      <!--end form group-->
+     
+
+        
+
+
+    
+  	
+
+
+ 
+</div>
+
+<!-- Modal for Reject Module -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="rejectModal">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header alert-warning">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title ">Reject Module</h4>
+      </div>
+      <div class="modal-body">
+      <table>
+        <tr><td style="padding: 5px; vertical-align: top; padding-top: 15px;">
+        <span style="font-size: 25px;"><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i></span></td><td style="padding: 5px;"><p>Are you sure you want to proceed? <br/>You are about to REJECT the Module for all Types and Mechanicisms.</p></td>
+      </tr>
+    </table>
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-default" id="rejectProgram">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal for Promote Module -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="promoteModal">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header alert-warning">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title ">Promote Module</h4>
+      </div>
+      <div class="modal-body">
+      <table>
+        <tr><td style="padding: 5px; vertical-align: top; padding-top: 15px;">
+        <span style="font-size: 25px;"><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i></span></td><td style="padding: 5px;"><p>Are you sure you want to proceed? <br/>You are about to PROMOTE the Module for all Types and Mechanicisms.</p></td>
+      </tr>
+    </table>
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-default has-spinner" id="promoteProgram">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->	
+
+<!-- Footer -->
+	
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container" style="margin-top: 15px;">
+    
+        <div class="row footerText">
+          <div>
+            <ul>
+              <li><a  href="http://inside.era.nih.gov/" target="_blank">IMPAC II Applications</a></li>
+            </ul>
+            <ul>
+              <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li>
+              <li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li>
+
+            </ul>
+            <ul>
+              <li><a href="http://www.hhs.gov" target="_blank">U.S. Department of
+                  Health and Human Services</a>&nbsp;|</li>
+              <li><a href="http://www.nih.gov" target="_blank">National Institutes of
+                  Health</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a>&nbsp;|</li>
+              <li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        </div>
+        <!--back to top arrow-->
+        <a href="#" class="back-to-top" style="display: none;">TOP</a>
+      </footer></div>
+    
+
+<!-- end Footer -->
+	</div>
+
+
+
+
+
+<!-- /container -->
+
+
+	<!-- end Content -->
+
+
+
+
+
+
+
+
+
+	
+
+
+
+</body></html>
