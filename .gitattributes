@@ -7163,6 +7163,7 @@ Requirements/Presentations/tmp/images/nocomment.gif -text
 Requirements/Presentations/tmp/images/note.gif -text
 Requirements/Presentations/tmp/images/over-attachment.gif -text
 Requirements/Presentations/tmp/images/over-note.gif -text
+Requirements/Presentations/tmp/images/tempate-bg-blue.png -text
 Requirements/Presentations/tmp/images/thumbsup.gif -text
 Requirements/Presentations/tmp/images/version-divider.gif -text
 Requirements/Presentations/tmp/review.htm -text
@@ -7242,6 +7243,7 @@ Requirements/Presentations/tmp/scripts/validator/uuid.js -text
 Requirements/Presentations/tmp/scripts/validator/vat.js -text
 Requirements/Presentations/tmp/scripts/validator/vin.js -text
 Requirements/Presentations/tmp/scripts/validator/zipCode.js -text
+Requirements/Presentations/tmp/stylesheets/I2E-template.css -text
 Requirements/Presentations/tmp/stylesheets/bootstrap-3.3.6.min.css -text
 Requirements/Presentations/tmp/stylesheets/bootstrap-datepicker-1.6.1.min.css -text
 Requirements/Presentations/tmp/stylesheets/bootstrap-datepicker.css -text
