@@ -16,6 +16,11 @@
   
 }
 
+/** panel header customization **/
+.panel-default>.panel-heading {
+    background-color: #e3e3e3;
+}
+
 /************Uploader******/
 .upload {
   display: inline;
@@ -69,6 +74,14 @@ table {
     background-color: #FFF;
 }
 
+/*** for spacing of main body content ***/
+
+.content {
+margin-top: 50px; 
+margin-left: 15px; 
+margin-right: 15px;
+}
+
 /**************** Draft review page ***********/
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
     color: #555;
@@ -87,11 +100,10 @@ table {
     margin-right: 5px;
 }/****** Panel Styles  *******/
 
-.pheader h4 {
+h4 {
     color: #000;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
 }
-
 
 
 
@@ -100,6 +112,10 @@ table {
 .grant-label {
     font-size: 12px;
     margin-left: 3px;
+       display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .form-grant {
@@ -128,78 +144,26 @@ table {
     margin-top: 24px;
 }
 
+.searchLabel {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+
+
 
 /******** Data Tables Styles ***********************************************/
+   
 
-.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
-    border-top: 0;
-  
-    background-color: #e3e3e3;
-}
-
-.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
-    border: 1px solid #ccc;
-}
-
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    padding: 5px;
-    line-height: 1.42857143;
-}
-
-.secondH {
-    background-color: #e3e3e3;
-}
-
-table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    display: block;
-    font-family: 'Glyphicons Halflings';
-    opacity: 1;
-    color: #2e6a9f;
-}
-
-table.dataTable thead .sorting:after {
-    opacity: 0.5;
-    content: "\e150";
-}
-
-/**** Search Box Styles ********/
-
-.grant-label {
-    font-size: 12px;
-    margin-left: 3px;
-}
-
-.form-grant {
-    display: block;
-    margin-left: 0;
-    /* height: 34px; */
-    padding: 3px 6px;
-    font-size: 14px;
-    /* line-height: 1.42857143; */
-    color: #555;
-    background-color: #fff;
+table.dataTable thead .sorting_desc {
     background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -moz-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-
-.searchButton2 {
-    margin-top: 24px;
+table.dataTable thead .sorting {
+    background-image: none;
 }
-
-
-/******** Data Tables Styles ***********************************************/
 
 .table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
     border-top: 0;
@@ -233,5 +197,17 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, 
 table.dataTable thead .sorting:after {
     opacity: 0.5;
     content: "\e150";
+}
+
+.dataTables_length {
+    display: inline;
+}
+.dataTables_info {
+    display: inline;
+}
+
+.dataTables_paginate {
+  display:inline;
+  float: right;
 }
 

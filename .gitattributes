@@ -7129,6 +7129,7 @@ Requirements/Presentations/template/stylesheets/styles.css -text
 Requirements/Presentations/template/template.htm -text
 Requirements/Presentations/tmp/controller/greensheetcontroller.js -text
 Requirements/Presentations/tmp/controller/greensheetcontroller_vuejs.js -text
+Requirements/Presentations/tmp/controller/specialistcontroller.js -text
 Requirements/Presentations/tmp/fonts/FontAwesome.otf -text
 Requirements/Presentations/tmp/fonts/fontawesome-webfont.eot -text
 Requirements/Presentations/tmp/fonts/fontawesome-webfont.svg -text
@@ -7243,6 +7244,7 @@ Requirements/Presentations/tmp/scripts/validator/uuid.js -text
 Requirements/Presentations/tmp/scripts/validator/vat.js -text
 Requirements/Presentations/tmp/scripts/validator/vin.js -text
 Requirements/Presentations/tmp/scripts/validator/zipCode.js -text
+Requirements/Presentations/tmp/specialist.htm -text
 Requirements/Presentations/tmp/stylesheets/I2E-template.css -text
 Requirements/Presentations/tmp/stylesheets/bootstrap-3.3.6.min.css -text
 Requirements/Presentations/tmp/stylesheets/bootstrap-datepicker-1.6.1.min.css -text

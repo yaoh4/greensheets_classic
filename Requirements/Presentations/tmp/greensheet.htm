@@ -1,65 +1,65 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
-	<title>Greensheets</title>
-	<script src="scripts/jquery-1.12.3.min.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>Greensheets</title>
+  <script src="scripts/jquery-1.12.3.min.js"></script>
     <script src="scripts/jquery-1.12.4.js"></script>
-	<script src="scripts/bootstrap-3.3.6.min.js"></script><!-- main Bootstrap file -->
-	<script src="scripts/bootbox-4.4.0.min.js"></script> <!-- for modals on GS page -->
-	<script src="scripts/bootstrap-datepicker.js"></script> <!-- for calendar on GS page -->
-	<script src="scripts/bootstrapValidator.js"></script> <!-- for validation on GS page -->
+  <script src="scripts/bootstrap-3.3.6.min.js"></script><!-- main Bootstrap file -->
+  <script src="scripts/bootbox-4.4.0.min.js"></script> <!-- for modals on GS page -->
+  <script src="scripts/bootstrap-datepicker.js"></script> <!-- for calendar on GS page -->
+  <script src="scripts/bootstrapValidator.js"></script> <!-- for validation on GS page -->
 
-	
-
-	<script src="scripts/chosen.jquery.js"></script> <!-- for dropdown pick list on GS search pages -->
-	<script src="scripts/theme.js"></script> <!-- contains back to top buttton applied to all pages -->
   
-	 <script src="scripts/bootstrap-treefy.js"></script> <!-- treefly js for expand rows -->
-	  <script src="controller/greensheetcontroller.js"></script> <!-- contains js actions specific to the specialist search page -->
-	<!-- all for datatables displayed on Search pages -->
-	<script src="scripts/jquery.dataTables.min.js"></script>
-	<script src="scripts/dataTables.bootstrap.min.js"></script>
-    <script src="scripts/alt-dtables.js"></script>
-	
-	
-		<link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen"> <!-- main Bootstrap CSS file -->
-	<link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">  <!-- for validation on GS page -->
-	<link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen"><!-- for calendar on GS page -->
 
-	<link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen"> <!-- for icons applied to all pages -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,700,700italic,900,900italic,400italic" rel="stylesheet" type="text/css">
-	    <link rel="stylesheet" href="stylesheets/bootstrap-treefy.css"> <!-- treefly css for GS layout -->
-	<link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen"> <!-- applies Bootstrap style to dataTables -->
+  <script src="scripts/chosen.jquery.js"></script> <!-- for dropdown pick list on GS search pages -->
+  <script src="scripts/theme.js"></script> <!-- contains back to top buttton applied to all pages -->
+  
+   <script src="scripts/bootstrap-treefy.js"></script> <!-- treefly js for expand rows -->
+    <script src="controller/greensheetcontroller.js"></script> <!-- contains js actions specific to the specialist search page -->
+  <!-- all for datatables displayed on Search pages -->
+  <script src="scripts/jquery.dataTables.min.js"></script>
+  <script src="scripts/dataTables.bootstrap.min.js"></script>
+    <script src="scripts/alt-dtables.js"></script>
+  
+  
+    <link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen"> <!-- main Bootstrap CSS file -->
+  <link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">  <!-- for validation on GS page -->
+  <link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen"><!-- for calendar on GS page -->
+
+  <link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen"> <!-- for icons applied to all pages -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,700,700italic,900,900italic,400italic" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="stylesheets/bootstrap-treefy.css"> <!-- treefly css for GS layout -->
+  <link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen"> <!-- applies Bootstrap style to dataTables -->
 <link href="stylesheets/I2E-template.css" rel="stylesheet" type="text/css" media="screen">
-	<link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
-	<link href="stylesheets/gs.css" rel="stylesheet" type="text/css" media="screen"> 
+  <link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
+  <link href="stylesheets/gs.css" rel="stylesheet" type="text/css" media="screen"> 
     
-	<link href="stylesheets/chosen.css" rel="stylesheet" type="text/css" media="screen"> <!-- for dropdown pick list on GS search pages -->
+  <link href="stylesheets/chosen.css" rel="stylesheet" type="text/css" media="screen"> <!-- for dropdown pick list on GS search pages -->
 </head>
 <body>
-	<!-- Header -->
-	<div class="row">
-		<div class="navbar ">
-			<div class="row header headerbg">
-				<div class="brandwrap">
-					
-					<div id="logo" class="logoImage">
-						<img src="images/logo.png" width="275px;" alt="National Cancer Institute">
+  <!-- Header -->
+  <div class="row">
+    <div class="navbar ">
+      <div class="row header headerbg">
+        <div class="brandwrap">
+          
+          <div id="logo" class="logoImage">
+            <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
             <div class="versionControlLabels3" style="float: right; ">
               Development | V1.101 | 2017-06-17 | 12:10pm 
           </div>
-					</div>
+          </div>
 
-				</div>
-				
-				<!--Page Header -->
-				<div  style="border-bottom: 7px solid #4cb471; margin-top: -1px;">
-						
-					
-				    <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| Greensheets</h3></div></div></div>
+        </div>
+        
+        <!--Page Header -->
+        <div  style="border-bottom: 7px solid #4cb471; margin-top: -1px;">
+            
+          
+            <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| Greensheets</h3></div></div></div>
 
-          			<div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
+                <div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
                   
                 <div id="loginID" class="login">
                   
@@ -67,17 +67,24 @@
                   
                 </div>
 
-                	<div style="display:inline-block;"><i id="vrip" class="fa fa-book fa-1x" aria-hidden="true" alt="User Guide"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-question-circle" aria-hidden="true" alt="Help"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-user" aria-hidden="true"></i>&nbsp; Change User</span></div>
+                  <div style="display:inline-block;"><i id="vrip" class="fa fa-book fa-1x" aria-hidden="true" alt="User Guide"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-question-circle" aria-hidden="true" alt="Help"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-user" aria-hidden="true"></i>&nbsp; Change User</span></div>
 
-             		</div>
-             	</div><!-- end page header-->
+                </div>
+              </div><!-- end page header-->
           
-			</div><!-- end row/header -->
-			  
-		</div><!--end nav bar-->	
-<!-- Body Content start -->	
-	<div class="col-md-12">
-				<br/>
+      </div><!-- end row/header -->
+      
+
+
+
+          
+      
+ 
+  
+<!-- Body Content start --> 
+  <div class="main">  
+  <div class="col-md-12">
+    <br/>  
 <!--success alert box -->
     <div class="col-md-12" style="display:none;" id="success">    
    <div class="alert alert-success alert-dismissible" role="alert">
@@ -95,7 +102,7 @@
 
 <!--Grant Details box -->
   <div  style="width: 600px; font-size: 14px; margin-left: 5px;  margin-bottom: 20px; display:inline; float:left;">
-    <div >
+    <div>
     <table width="100%">
       <tr id="grantBox"><td width="18px;"><a data-toggle="collapse" href="#collapse1" id="infoBox"><i class="fa fa-plus-circle details" aria-hidden="true" ></i></a></td>
     <td>
@@ -162,7 +169,7 @@
     data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">   
        
 
-  <!--- ROW 1 ---->  
+  <!-- ROW 1 -->  
 <tr data-node="treetable-PQNC_40" id="PQNC_40" class="question-row">
                     <td>
                         <div style="display:inline-block;" class="indentLine2">1. Research objectives/goals/scope
@@ -191,7 +198,7 @@
                                           data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/comment.gif"height="20" width="20" id="comment1image"></a>
                     </td>
                     <td align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip"
-                                         href="#" data-original-title="Add Atachment" src="images/attachment.gif" height="20" width="20" alt="attachment"></a></a></td>
+                                         href="#" data-original-title="Add Atachment" src="images/attachment.gif" height="20" width="20" alt="attachment"></a></td>
 
                 </tr>
                 <tr data-node="treetable-PQNC_41" data-pnode="treetable-parent-PQNC_40" class="lastSub question-row" id="PQNC_41">
@@ -207,13 +214,12 @@
                         </div>
                     </td>
                     <td align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip"
-                                         href="#" data-original-title="Add Comments"><img src="images/nocomment.gif"
-                                                                                          >
+                                         href="#" data-original-title="Add Comments"><img src="images/nocomment.gif"></a></td>
                     <td width="31" align="right"><a class="bottom attachs" data-placement="left" data-toggle="tooltip"
                                                     href="#" data-original-title="Add Attachments"><img
                             src="images/attachment.gif" height="20" width="20" alt="attachment"></a></td>
                 </tr>
-<!--- ROW 2 ---->        
+<!-- ROW 2 -->        
         <tr data-node="treetable-qPNCQ_60" id="qPNCQ_60" class="question-row">
             
             <td><div style="display:inline-block;" class="indentLine2">2. Progress satisfactory for continued funding?<br/>
@@ -239,14 +245,15 @@
             <td  align="right"><a class="bottom attachs" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Attachment"><img src="images/attachment.gif" height="20" width="20" alt="attachments"></a></td>
         </tr>
 
-<!--- ROW 3 ---->    
+<!-- ROW 3 -->    
    <tr data-node="treetable-3" id="main3" class="question-row">
-          <td><div style="display:inline-block;" class="indentLine2">3. Diversity supplement involved?
+    <td><div style="display:inline-block;" class="indentLine2">3. Diversity supplement involved?
 <div style="display:none" class="hiddenNotes">
   <div class="form-group">
    <label>Comments</label>
     <textarea class="exampleTextarea form-control" rows="3" id="comment3"></textarea>
     <span class="pull-right comments">( <span class="count_message2">4000</span> characters remaining)</span>
+</div>
 </div>
 </div>
 </td>
@@ -289,7 +296,7 @@
 
 
 
-<!--- ROW 4 ---->    
+<!-- ROW 4 -->    
    <tr data-node="treetable-4" id="main4" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2">4. Are all publications compliant with NIH Public Access Policy?</div></td>
             <td class="input"><div class="form-group">
@@ -319,7 +326,7 @@
         </tr>
 
 
-        <!--- ROW 5 ---->    
+        <!-- ROW 5 -->    
    <tr data-node="treetable-5" id="main5" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2">5. Are any inventions mentioned in the text of the progress report that are not noted on the face page of the progress report?</div></td>
             <td class="input" id="optionsRadios5"><div class="form-group">
@@ -347,7 +354,7 @@
             <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
         </tr>
 
-<!--- ROW 6 ---->    
+<!-- ROW 6 -->    
    <tr data-node="treetable-6" id="main6" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2" >6. Is other support for key personnel acceptable?<br/>
 <div class="instructions">(<em>If No, explanation required.</em>)</div></div></td>
@@ -368,7 +375,9 @@
         </tr>
 
          <tr data-node="treetable-6.1" data-pnode="treetable-parent-6" class="lastSub" id="6sub-1">
-          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.1 Will this be the 5th or more award for the PI? </div></td>
+          <td><div style="display:inline-block;" class="indentLine2" id="6-1">6.1 Will this be the 5th or more award for the PI? 
+          </div>
+          </td>
             <td class="input"><div class="form-group" id="select6-1">
               
               <label class="form-check-label">
@@ -377,10 +386,7 @@
                 </label>
               
               </div>
-              
-               
-              
-            </div></td>
+            </td>
             <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
             <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
         </tr>
@@ -395,12 +401,8 @@
                 <input type="radio" class="form-check-input" name="optionsRadios6-2"  value="Yes" >
                 &nbsp;Yes &nbsp; &nbsp; &nbsp;<input type="radio" class="form-check-input" name="optionsRadios6-2"  value="No" >&nbsp; No
                 </label>
-              
               </div>
-              
-               
-              
-            </div></td>
+            </td>
             <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>  
             <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
         </tr>
@@ -419,7 +421,7 @@
             <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
         </tr>
 
-<!--- ROW 7 ---->    
+<!-- ROW 7 -->    
    <tr data-node="treetable-qPNCQ_62" id="qPNCQ_62" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2">7. Any change in key personnel?<br>
 <div class="instructions">(All changes that have an impact or are not approved will require an explanation.)</div></div></td>
@@ -464,7 +466,7 @@
             <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
         </tr>
 
-<!--- ROW 8 ---->    
+<!-- ROW 8 -->    
    <tr data-node="treetable-8" id="main8" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2" id="8">8. Other support:<br/>
 <div class="instructions">(If not approved, explanation required.)</div></div></td>
@@ -496,7 +498,7 @@
             <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
         </tr>
 
-<!--- ROW 9 ---->    
+<!-- ROW 9 -->    
    <tr data-node="treetable-9" id="main9" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2">9. Is there any scientific overlap?<br/>
 <div class="instructions">(If Yes, explanation required.)</div></div></td>
@@ -524,7 +526,7 @@
             <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
         </tr>
 
-         <!--- Row 10 -------->
+         <!-- Row 10 -->
         <tr data-node="treetable-10" id="main10" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2">10. Is this a multiple-PI application?</div></td>
           <td class="input"><div class="form-group">
@@ -592,7 +594,7 @@
           <td  align="right" class="attachs"><img src="images/attachment.gif" alt="attachment" width="20" height="20"></td>
         </tr>
 
-        <!--- Row 11 -------->
+        <!-- Row 11 -->
         <tr data-node="treetable-11" id="main11" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2" >11. Are there any changes in the leadership plan? <br/><div class="instructions"></div></div></td>
           <td class="input"><div class="form-group">
@@ -634,7 +636,7 @@
           <td  align="right" class="attachs"><img src="images/attachment.gif" height="20" width="20" alt="attachment"></td>
         </tr>
 
-<!--- ROW 12 ---->    
+<!-- ROW 12 -->    
    <tr data-node="treetable-PNCQ_1" id="PNCQ_1" class="question-row">
           <td><div style="display:inline-block;" class="indentLine2">12. Human Subjects Involved?</div></td>
             <td class="input"><div class="form-group">
@@ -887,7 +889,7 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
         </tr>
 
 
-        <!--- Row 13 -------->
+        <!-- Row 13  -->
         <tr data-node="treetable-13" class="question-row">
           <td style="boder-bottom: 1px solid #CCC;"><div style="display:inline-block;" class="indentLine2">13. Indicate the number of years funding is approved on the expemption form <br/></div></td>
           <td class="input" ><div class="form-group">
@@ -913,9 +915,10 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
         </tr>
         
 
-
+<p></p>
     </tbody>
 </table>
+
 
 <div style="float:left; margin-bottom: 15px; margin-left: 5px;">
 <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
@@ -934,11 +937,12 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
               
              
 </div>
-                                            </div>
+</div>
 
 
 </div>
 </form>
+
 
 <!-- Modal for Reset Greensheet Answers -->
 
@@ -980,10 +984,12 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
       <div class="modal-body" style="max-height: 900px">
         
   <form class="form-inline" style="width: 100%;">
+  
   <div class="form-group">
     <label for="fileUpload"><strong>Upload File:</strong></label>
     <input type="text" class="form-control" id="exampleInputEmail2" style="width: 500px;" placeholder="Choose File to Add Attachment">
   </div>
+
   <button type="submit" class="btn btn-primary" style="margin-top: 3px;">Choose File</button>
 </form>
 
@@ -1009,27 +1015,36 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
   </tbody></table>
 </div>
 
-
-         
-
-
       <div class="modal-footer">
          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary saveAttach" data-dismiss="modal">Save</button>
-       
       </div>
+
      </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-</div>
+
+
+
+
+
+
+        
+
+
+     
+
+
+
 
 </div><!--end body content -->
-</div> <!-- end wrap -->
-					
-					
-				
+</div>
+      
+
+      
 <!-- Footer -->
-	<footer class="site-footer">
+</div>
+  <footer class="site-footer">
   <div style="margin-top: 15px;">
     <div id="content">
      <div class="columns">
@@ -1049,248 +1064,12 @@ Inclusion data record(s) available in the Inclusion Management System (IMS)?</di
      </div>
 </div>
 
-		</div> <!-- end footer container -->
-		
-			<!--back to top arrow-->
-			<a href="#" class="back-to-top" style="display: none;">TOP</a>
-	</footer>
+    </div> <!-- end footer container -->
+    
+      <!--back to top arrow-->
+      <a href="#" class="back-to-top" style="display: none;">TOP</a>
+  </footer>
 
 <!-- end Footer -->
-
-
-<script>
-  var qdata = [  {
- 
-// Question 1 //
-  qId : "PQNC_40",
-  order : "1.",
-  answers : [ 
-    {
-    order : "1",
-    aId : "SEL_X_34"
-    }, 
-
-    {
-    order : "3",
-    aId : "SEL_91",
-    children : [ "PQNC_41" ]
-    },
-  
-    {
-    order : "2",
-    aId : "SEL_90",
-    
-    }
-   ]
- 
-}, 
-
-
-
-// Question 7 //
-{
-
-  qId : "qPNCQ_62",
-  order : "7.",
-  answers : [ 
-  {
-    order : "1",
-    aId: 'SEL_X_37',
-                },
-
-   {
-    order : "2",
-    aId: 'SEL_118' ,
-    children: [ 'qPNCQ_63' ]
-                },
-
-    {
-     order : "3", 
-     aId: 'SEL_119'
-                },             
-   {
-    order : "4", 
-    aId:  'SEL_121',
-   children: [ 'qPNCQ_64' ]
-                  }, 
-
-{
-     order : "5", 
-     aId: 'SEL_122'
-                },
-                  ]
-
- 
-}, {
-  qId : "qPNCQ_63",
-  order : "7.1."
-},
- {
-  qId : "qPNCQ_64",
-  order : "7.1."
-},
-
-
-// Question 12 //
-
-{
-  qId : "PNCQ_1",
-  order : "12.",
-  answers : [ {
-    order : "1",
-    aId : "SEL_2",
-    children : [ "PNCQ_2", "PNCQ_6" ]
-  }, {
-    order : "2",
-    aId : "SEL_1"
-  } ]
- 
-}, {
-// Question 12.1 //
-   qId : "PNCQ_2",
-  order : "12.1.",
-  answers : [ {
-    order : "2",
-    aId : "SEL_8"
-  }, {
-    order : "1",
-    aId : "SEL_3",
-    children : [ "SCQ_37", "SCQ_42" ]
-  }, {
-    order : "3",
-    aId : "SEL_58"
-  }, {
-    order : "4",
-    aId : "SEL_57"
-  }, {
-    order : "5",
-    aId : "SEL_56"
-  }, {
-    order : "6",
-    aId : "SEL_55"
-  }, {
-    order : "7",
-    aId : "SEL_54"
-  }, {
-    order : "8",
-    aId : "SEL_53"
-  } ],
- 
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_70"
-  }, {
-    order : "2",
-    aId : "SEL_71"
-  } ],
-  qId : "SCQ_37",
-  order : "11.1.1."
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_67522670006751039"
-  }, {
-    order : "2",
-    aId : "SEL_80",
-    children : [ "SCQ_39" ]
-  }, {
-    order : "3",
-    aId : "SEL_81"
-  }, {
-    order : "4",
-    aId : "SEL_67522310006751039",
-    children : [ "SCQ_6751318" ]
-  } ],
-  qId : "SCQ_42",
-  order : "11.1.2."
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_67522320006751318"
-  } ],
-  qId : "SCQ_6751318",
-  order : "11.1.2.1."
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_74",
-    children : [ "SCQ_40" ]
-  }, {
-    order : "2",
-    aId : "SEL_75"
-  } ],
-  qId : "SCQ_39",
-  order : "11.1.2.2."
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_76"
-  }, {
-    order : "2",
-    aId : "SEL_77",
-    children : [ "SCQ_41" ]
-  } ],
-  qId : "SCQ_40",
-  order : "11.1.2.2.1."
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_78"
-  }, {
-    order : "2",
-    aId : "SEL_79"
-  } ],
-  qId : "SCQ_41",
-  order : "11.1.2.2.1.1."
-}, {
-  qId : "PNCQ_6",
-  order : "12.2.",
-  answers : [ {
-    order : "1",
-    aId : "SEL_72"
-  }, {
-    order : "2",
-    aId : "SEL_73"
-  } ]
-  
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_82",
-    children : [ "SCQ_44" ]
-  }, {
-    order : "2",
-    aId : "SEL_83"
-  } ],
-  qId : "SCQ_43",
-  order : "11.3."
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_84"
-  }, {
-    order : "2",
-    aId : "SEL_85",
-    children : [ "SCQ_45" ]
-  } ],
-  qId : "SCQ_44",
-  order : "11.3.1."
-}, {
-  answers : [ {
-    order : "1",
-    aId : "SEL_113"
-  } ],
-  qId : "SCQ_45",
-  order : "11.3.1.1."
-},
- ];
- 
-</script>
-
-
-
-
-</script>
-			
-		</body></html>
+      
+    </body></html>
