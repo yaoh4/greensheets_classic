@@ -1,0 +1,628 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>Greensheets</title>
+  <script src="scripts/jquery-1.12.3.min.js"></script>
+  <script src="scripts/jquery-1.12.4.js"></script>
+  <script src="scripts/bootstrap-3.3.6.min.js"></script><!-- main Bootstrap file -->
+  <script src="scripts/bootbox-4.4.0.min.js"></script> <!-- for modals on GS page -->
+  <script src="scripts/bootstrap-datepicker.js"></script> <!-- for calendar on GS page -->
+  <script src="scripts/bootstrapValidator.js"></script> <!-- for validation on GS page -->
+  
+  <script src="scripts/chosen.jquery.js"></script> <!-- for dropdown pick list on GS search pages -->
+  <script src="scripts/theme.js"></script> <!-- contains back to top buttton applied to all pages -->
+  
+  <script src="scripts/bootstrap-treefy.js"></script> <!-- treefly js for expand rows -->
+  <script src="controller/searchcontroller.js"></script> <!-- contains js actions specific to the specialist search page -->
+  <!-- all for datatables displayed on Search pages -->
+  <script src="scripts/jquery.dataTables.min.js"></script>
+  <script src="scripts/dataTables.bootstrap.min.js"></script>
+  <script src="scripts/alt-dtables.js"></script>
+  
+  
+  <link href="stylesheets/bootstrap-3.3.6.min.css" rel="stylesheet" type="text/css" media="screen"> <!-- main Bootstrap CSS file -->
+  <link href="stylesheets/bootstrapValidator.css" rel="stylesheet" type="text/css" media="screen">  <!-- for validation on GS page -->
+  <link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css" media="screen"><!-- for calendar on GS page -->
+  <link href="stylesheets/font-awesome-4.6.3.min.css" rel="stylesheet" type="text/css" media="screen"> <!-- for icons applied to all pages -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600italic,700,700italic,900,900italic,400italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="stylesheets/bootstrap-treefy.css"> <!-- treefly css for GS layout -->
+  <link href="stylesheets/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen"> <!-- applies Bootstrap style to dataTables -->
+  <link href="stylesheets/I2E-template.css" rel="stylesheet" type="text/css" media="screen">
+  <link href="stylesheets/custom.css" rel="stylesheet" type="text/css" media="screen">
+  
+  
+  <link href="stylesheets/chosen.css" rel="stylesheet" type="text/css" media="screen"> <!-- for dropdown pick list on GS search pages -->
+</head>
+<body>
+  <!-- Header -->
+  <div class="row">
+    <div class="navbar ">
+      <div class="row header headerbg">
+        <div class="brandwrap" style="">
+          <div id="logo" class="logoImage">
+            <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
+            <div class="versionControlLabels3" style="float: right; ">
+              Development | V1.101 | 2017-05-17 | 12:10pm
+            </div>        </div>
+          </div>
+          <!-- Fixed navbar -->
+          <div class="stickyDiv">
+            <!--Page Header -->
+            <div  style="border-bottom: 7px solid #4cb471; margin-top: -1px;">
+              <div class="pageHeader" id="pageHeader" >
+                <div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench&nbsp;&nbsp;|</a><!-- | &nbsp;<a  href="http://inside.era.nih.gov/">IMPAC II Applications</a>&nbsp; <h3>--><h3> <a href="search.htm">&nbsp;&nbsp;Greensheets</a></h3></div></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
+                
+                <div id="loginID" class="login">
+                  
+                  <span class="changeUser"> Welcome:</span> John Doe
+                  
+                  </div><div style="display:inline-block;"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<span class="changeUser"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Change User</span></div>
+                </div>
+                
+                
+                </div> <!-- end header -->
+                </div><!-- end navbar -->
+                </div>   <!--end header row -->
+                
+                
+                
+                <!-- Body Content start -->
+                <div>
+                  <div class="col-md-12">
+                  
+                    <br/>&nbsp;
+                    <!-- Begin Panel -->
+                    <form>
+                      <div class="panel panel-default" style="margin-right: 15px; margin-left: 15px;">
+                        
+                        <div class="panel-heading">
+                          <span class="clickable"><i class="fa fa-minus-circle" aria-hidden="true"></i></span>
+                          <div class="pheader" style="display:inline;"><h4>Search Criteria</h4></div>
+                          </div><!--end panel header-->
+                          
+                          <div class="panel-body">
+                            
+                            <div class="row form-group" style="margin-top: 0px; margin-bottom: 10px;">
+                              
+                              <div class="col-xs-4">
+                                <label for="selectFrom">Grants from:</label>
+                                <select name="criteria.submissionFromId"  class="c-select form-control" id="selectFrom">
+                                  <option value="portfolio" selected="selected">My Portfolio</option>
+                                  <option value="myActivities">My Cancer Activity (AC, BE, DI)</option>
+                                  <option value="all" >All NCI Grants</option>
+                                </select>
+                                
+                                <div class="checkbox" style="margin-top: 3px; margin-left: 0px; padding-left: 0px; clear:both;">
+                                  <label>
+                                    <input type="checkbox" checked=""> Competing Grants within the Payline
+                                  </label> </div>
+
+                                </div>
+                                
+                                <div class="col-xs-4" id="AllCA">
+                                  <label for="investigator">Cancer Activity(ies):</label>
+                                  <select class="form-control chosen-select2"  multiple="true" data-placeholder="Select Cancer Activity(ies)" id="myselect1">
+                                    <option value=""></option>
+                                    <option value="">AC</option>
+                                    <option value="AI" >AI</option>
+                                    <option value="">AM</option>
+                                    <option value="">AR</option>
+                                    <option value="">BB</option>
+                                    <option value="">BC</option>
+                                    <option value="">BD</option>
+                                    <option value="">BE</option>
+                                    <option value="">BG</option>
+                                    <option value="">BH</option>
+                                    <option value="">BI</option>
+                                    <option value="">BP</option>
+                                    <option value="">BR</option>
+                                    <option value="">BS</option>
+                                    <option value="">BT</option>
+                                    <option value="">CB</option>
+                                    <option value="">CD</option>
+                                    <option value="">CE</option>
+                                    <option value="">CG</option>
+                                    <option value="">CH</option>
+                                    <option value="">CI</option>
+                                    <option value="">CL</option>
+                                    <option value="">CM</option>
+                                    <option value="">CR</option>
+                                    <option value="">CT</option>
+                                    
+                                    <option value="">DC</option>
+                                    <option value="">DF</option>
+                                    <option value=""> DI</option>
+                                    <option value="">DR</option>
+                                    
+                                    <option value="">ED</option>
+                                    <option value="">EF</option>
+                                    <option value="">EM</option>
+                                    <option value="">EP</option>
+                                    <option value="">ER</option>
+                                    <option value="">ET</option>
+                                    
+                                    <option value="">GH</option>
+                                    <option value="">GN</option>
+                                    <option value="">HE</option>
+                                    <option value="">HP</option>
+                                    <option value="">IM</option>
+                                    <option value="">NC</option>
+                                    <option value="">NP</option>
+                                    <option value="">NT</option>
+                                    
+                                    <option value="">MB</option>
+                                    <option value="">MD</option>
+                                    <option value="">OS</option>
+                                    <option value="">OR</option>
+                                    <option value="">PC</option>
+                                    <option value="">PO</option>
+                                    <option value="">RA</option>
+                                    <option value="">RD</option>
+                                    <option value="">RF</option>
+                                    
+                                    <option value="">SB</option>
+                                    <option value="">SC</option>
+                                    <option value="">SD</option>
+                                    <option value="">SO</option>
+                                    <option value="">ST</option>
+                                    
+                                    
+                                    <option value="">SU</option>
+                                    
+                                    <option value="">TB</option>
+                                    <option value="">TD</option>
+                                    
+                                    <option value="">TC</option>
+                                    <option value="">TM</option>
+                                    <option value="">TR</option>
+                                    <option value="">TS</option> 
+                                  </select><br/>
+                                </div>
+                                
+                                <div class="col-xs-4">
+                                  <label for="investigator">Mechanism:</label>
+                                  <select class="form-control chosen-select"  multiple="true" data-placeholder="Select Mechanism(s)" id="mech">
+                                    <option value=""></option>
+                                    <option value="">D43</option>
+                                    <option value="">DP1</option>
+                                    <option value="">DP2</option>
+                                    <option value="">F30</option>
+                                    <option value="">F31</option>
+                                    <option value="">F32</option>
+                                    <option value="">F33</option>
+                                    <option value="">F99</option>
+                                    <option value="">K01</option>
+                                    <option value="">K05</option>
+                                    <option value="">K07</option>
+                                    <option value="">K08</option>
+                                    <option value="">K12</option>
+                                    <option value="">K18</option>
+                                    <option value="">K22</option>
+                                    <option value="">K23</option>
+                                    <option value="">K24</option>
+                                    <option value="">K25</option>
+                                    <option value="">K99</option>
+                                    <option value="">KL1</option>
+                                    <option value="">KM1</option>
+                                    <option value="">P01</option>
+                                  </select><br/>
+                                  <span style="color:#999; font-weight:bold; font-size: 11px;">&nbsp;&nbsp;<i>Leaving Mechanism blank will return all Mechanisms</i></span>
+                                </div>
+                               
+                              </div><!--end form group row -->
+                                
+                                
+                              <div class="form-group row" style="margin-top: 0px; margin-bottom: 10px;">
+                                  
+                                  <div> <!-- for extra Grant heading -->
+                                    <label style="display:block; margin-left: 15px; margin-bottom: -5px;">
+                                      Grant Number
+                                    </label>
+
+                                    <div class="col-xs-4 form-group" style="margin-top: 10px;">
+                                      <div style="display:inline-block;">
+                                        <label class="grant-label" style="margin-left: 0px;">
+                                          Type
+                                        </label>
+                                        <input  maxlength="1" value=""  class="form-grant" type="text" style="width: 22px;" placeholder="1">
+                                      </div>
+
+                                      <div style="display:inline-block;">
+                                        <label class="grant-label">
+                                          Mech
+                                        </label>
+                                        <input  maxlength="3" value=""  class="form-grant" type="text" style="width: 40px;" placeholder="R01">
+                                      </div>
+
+                                      <div style="display:inline-block;">
+                                        <label class="grant-label">
+                                          IC
+                                        </label>
+                                        <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 36px;" placeholder="CA">
+                                      </div>
+
+                                      <div style="display:inline-block;">
+                                        <label class="grant-label">
+                                          Serial #
+                                        </label>
+                                        <input  maxlength="6" value=""  class="form-grant" type="text" style="width: 60px;" placeholder="123456">
+                                      </div>
+
+                                      <div style="display:inline-block;">
+                                        <label class="grant-label" style="margin-left: 0px;">
+                                          &nbsp;
+                                        </label>
+                                        -&nbsp;
+                                      </div>
+
+                                      <div style="display:inline-block;">
+                                        <label class="grant-label">
+                                          Year
+                                        </label>
+                                        <input  maxlength="2" value=""  class="form-grant" type="text" style="width: 30px;" placeholder="03">
+                                      </div>
+
+                                      <div style="display:inline-block;">
+                                        <label class="grant-label">
+                                          Suffix
+                                        </label>
+                                        <input  maxlength="4" value=""  class="form-grant" type="text" style="width: 55px;" placeholder="A1">
+                                      </div>
+                                      
+                                    </div> <!-- end the section -->
+
+                                  </div> <!-- end container that has extra grant heading -->
+                                  
+                                  
+                                  <div class="col-xs-2" >
+                                    <label for="selectFrom">Fiscal Year:</label>
+                                    <select name="criteria.submissionFromId" class="c-select form-control">
+                                      <option value="2017">2017</option>
+                                      <option value="2018">2018</option>
+                                      
+                                      <option value="2016">2016</option>
+                                      <option value="2015">2015</option>
+                                      <option value="2014">2014</option>
+                                      <option value="2013">2013</option>
+                                      <option value="2012">2012</option>
+                                      <option value="2011">2011</option>
+                                      <option value="2010">2010</option>
+                                      <option value="2009">2009</option>
+                                      <option value="2008">2008</option>
+                                      <option value="2007">2007</option>
+                                      <option value="2006">2006</option>
+                                      <option value="2005">2005</option>
+                                      <option value="2009">2004</option>
+                                    </select>
+                                  </div>
+
+                                </div><!--end form group row -->
+                                
+                                <div class="form-group row" style="margin-top: 10px;">
+                                  
+                                  
+                                  <div class="col-xs-4">
+                                    <label class="form-check-label">
+                                      PI Name
+                                    </label>
+                                    <input  maxlength="120" value="" id="searchCriteria" class="form-control" type="text" placeholder="Enter PI Name">
+                                  </div>
+                                  <div class="col-xs-4">
+                                    <label class="form-check-label">
+                                      PD Name
+                                    </label>
+                                    <input  maxlength="120" value="" id="pdName" class="form-control" type="text" placeholder="Enter PD Name">
+                                  </div>
+                                  
+                                  <div class="col-xs-4 searchButton" id="searchDiv"  style="margin-right: -15px; margin-bottom: 0px;">
+                                    
+                                    <button type="button" class="btn btn-primary has-spinner" id="search-btn" style="float:right; margin-top: 20px;">Search</button>
+                                    
+                                    <button id="clearSearch" class="btn btn-default" type="submit" style="float: right; margin-top: 20px;">Clear</button>
+                                  </div>
+                                  
+                                </div><!--end form group row -->
+                              
+                              </div><!-- end panel body -->
+                            </div><!--end panel -->
+                         
+                          </form>
+                         
+
+<! -- BEGIN SEARCH RESULTS -->
+
+  <div id="pSearch"  class="col-md-12" style="display:none;">
+
+        <table>
+      <tr><td colspan="2" style="padding: 3px;"><strong>Legend:<strong></td>
+    
+        <td style="padding: 3px;"><img src="images/thumbsup.gif" alt="OGA is waiting for Submission" name="thumbs" height="18" border="0" width="24"></td><td style="font-size: 12px;">OGA is waiting for Submission</td>
+      
+      
+        <td style="padding: 3px;"><img src="images/asterisk.gif" alt="Can be Submitted"  name="asterisk" height="18" border="0" width="24"></td><td style="font-size: 12px;">Can be Submitted</td>
+     
+    
+             </tr>
+    </table>
+  <br/>&nbsp;
+
+ <a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export Results</a>
+       
+
+<table id="searchResults" class="table table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th >Pgm GS</th>
+      <th width="10%">Pgm GS<br/> Status</th>
+      
+      <th># of&nbsp;Days<br/>with&nbsp;OGA</th>
+      <th>Grant Number</th>
+      <th>CA</th>
+      <th>Budget<br/>Start&nbsp;Date</th>
+      <th >PD</th>
+      <th >PI</th>
+      
+      <th>PriScr</th>
+      <th>Pctl</th>
+      <th>NCAB</th>
+      <th class="no-sort">GMS GS</th>
+      <th >GMS GS<br/>Status</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td><a href="greensheet.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/thumbsup.gif" alt="Can be Submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="OGA is waiting for Submission" data-placement="right" name="thumbs"></td>
+      <td><span class="saved">Saved</span></td>
+      
+      <td>10</td>
+      <td><a href="#">5R01CA195654-04</a></td>
+      <td>TB</td>
+      <td>01/01/2017</td>
+      <td><a href="mailto:">Greene, Jack</a></td>
+      
+      <td><a href="mailto:">Smith, Meghan</a></td>
+      
+      <td>16</td>
+      <td>0.0%</td>
+      <td>Mar 2017</td>
+      <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+      <td><span class="saved">Saved</span></td>
+    </tr>
+    <tr>
+      <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+      <td><span>Not Started</span></td>
+      
+      <td>21</td>
+      <td><a href="#">5R01CA193829-03</a></td>
+      <td>TB</td>
+      <td>12/01/2017</td>
+      <td><a href="mailto:">Sathyamoorthy, Neeraja</a></td>
+      
+      <td><a href="mailto:">Smith, Gary</a></td>
+      
+      <td>20</td>
+      <td>0.0%</td>
+      <td></td>
+      <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+      <td><span>Not Started</span></td>
+    </tr>
+    <tr>
+      <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+      <td><span>Not Started</span> </td>
+      
+      <td>10</td>
+      <td><a href="#">5F31CA213985-02</a></td>
+      <td>MB</td>
+      <td>09/30/2017</td>
+      <td><a href="mailto:">McNeil, Nicole</a></td>
+      
+      <td><a href="mailto:">Smith, Aleisha</a></td>
+      
+      <td>12</td>
+      <td>0.0%</td>
+      <td></td>
+      <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+      <td><span>Not Started</span></td>
+    </tr>
+    <tr>
+      <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+      <td><span class="saved">Saved</span></td>
+      
+      <td></td>
+      <td><a href="#">1R03CA212935-01</a></td>
+      <td>NC</td>
+      <td>12/01/2016</td>
+      <td style="white-space:nowrap;"><a href="mailto:">Carruthers, Renee</a></td>
+      
+      <td style="white-space:nowrap;"><a href="mailto:">Smith, Roberto</a></td>
+      
+      <td>0</td>
+      <td>5.0%</td>
+      <td></td>
+      <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+      <td><span>Not Started</span></td>
+      <tr>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="frozen">Frozen</span></td>
+        
+        <td>28</td>
+        <td><a href="#">5R01CA193829-02</a></td>
+        <td>NC</td>
+        <td>12/01/2016</td>
+        <td><a href="mailto:">Sathyamoorthy, Neeraja</a></td>
+        
+        <td><a href="mailto:">Smith, Gary</a></td>
+        
+        <td>14</td>
+        <td>0.0%</td>
+        <td></td>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="saved">Saved</span></td>
+      </tr>
+      <tr>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/thumbsup.gif" alt="Can be Submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="OGA is waiting for Submission" data-placement="right" name="thumbs"></td>
+        <td><span class="saved">Saved</span></td>
+        
+        <td>10</td>
+        <td><a href="#">1R50CA211428-01</a></td>
+        <td>DC</td>
+        <td>09/30/2016</td>
+        <td><a href="mailto:">Sharman, Anu</a></td>
+        
+        <td><a href="mailto:">Smith, Edwin</a></td>
+        
+        <td>0</td>
+        <td>0.0%</td>
+        <td></td>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="saved">Saved</span></td>
+      </tr>
+      <tr>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="frozen">Frozen</span></td>
+        
+        <td>19</td>
+        <td><a href="#">4F31CA174316-05</a></td>
+        <td>MB</td>
+        <td>09/12/2016</td>
+        <td><a href="mailto:">McNeil, Nicole</a></td>
+        
+        <td><a href="mailto:">Smith, Iris</a></td>
+        
+        <td>23</td>
+        <td>9.0%</td>
+        <td></td>
+        <td><a href=""><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="frozen">Frozen</span></td>
+      </tr>
+      <tr>
+        <td><a href="programGS-submitted.htm"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="submitted">Submitted</span></td>
+        
+        <td>19</td>
+        <td><a href="#">4K24CA121990-10</a></td>
+        <td>TR</td>
+        <td>08/01/2016</td>
+        <td><a href="mailto:">Radaev, Sergey</a></td>
+        
+        <td><a href="mailto:">Smith, David</a></td>
+        
+        <td>10</td>
+        <td>0.0%</td>
+        <td>May 2017</td>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="submitted">Submitted</span></td>
+      </tr>
+      <tr>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/asterisk.gif" alt="Greensheets In Control" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Can be Submitted" data-placement="right" name="asterisk"><img src="images/thumbsup.gif" alt="Can be Submitted" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="OGA is waiting for Submission" data-placement="right" name="thumbs"></td>
+        <td><span class="saved">Saved</span></td>
+        
+        <td>209</td>
+        <td><a href="#">4R01CA116352-10</a></td>
+        <td>DC</td>
+        <td>07/01/2016</td>
+        <td><a href="mailto:">Witkin, Keren</a></td>
+        
+        <td><a href="mailto:">Smith, Bethany</a></td>
+        
+        <td>25</td>
+        <td>3.0%</td>
+        <td></td>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="saved">Saved</span></td>
+      </tr>
+      <tr>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/asterisk.gif" alt="Greensheets In Control" height="18" border="0" width="24" data-toggle="tooltip"  data-original-title="Can be Submitted" data-placement="right" name="asterisk"></td>
+        <td><span class="saved">Saved</span></td>
+        
+        <td>99</td>
+        <td><a href="#">4R01CA116352-10</a></td>
+        <td>DC</td>
+        <td>06/01/2016</td>
+        <td><a href="mailto:">Witkin, Keren</a></td>
+        
+        <td style="white-space:nowrap;"><a href="mailto:">Smith, Bethany</a></td>
+        
+        <td>20</td>
+        <td>0.0%</td>
+        <td></td>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="saved">Saved</span></td>
+      </tr>
+      <tr>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="saved">Saved</span></td>
+        
+        <td>88</td>
+        <td><a href="#">1R01CA212138-01</a></td>
+        <td>DI</td>
+        <td>09/01/2016</td>
+        <td><a href="mailto:">Henderson, Lori</a></td>
+        
+        <td style="white-space:nowrap;"><a href="mailto:">Smith, Barbara</a></td>
+        
+        <td>19</td>
+        <td>0.0%</td>
+        <td></td>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="saved">Saved</span></td>
+      </tr>
+      <tr>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a></td>
+        <td><span class="submitted">Submitted</span></td>
+        
+        <td>72</td>
+        <td><a href="#">4R01CA116352-10</a></td>
+        <td>RA</td>
+        <td>05/01/2016</td>
+        <td><a href="mailto:">Nguyen, Long</a></td>
+        
+        <td style="white-space:nowrap;"><a href="mailto:">Smith, Jacek</a></td>
+        
+        <td>16</td>
+        <td>5.0%</td>
+        <td></td>
+        <td><a href="#"><img src="images/IconGreensheets.gif" alt="Greensheets" height="18" border="0" width="15"></a><img src="images/locked.gif" alt="submitted" height="18" border="0" width="24" data-toggle="tooltip" data-original-title="Submitted" data-placement="right"></td>
+        <td><span class="submitted">Submitted</span></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export Results</a>
+</div>
+                          
+                    
+                        
+                      </div> <!-- end column 12 -- >
+                      </div> <!-- end main content -->
+                      <!-- commenting out footer so it doesn't get in the way     -->
+                      <!-- Footer -->
+                      <!-- <footer class="site-footer"> -->
+                      <!-- <div style="margin-top: 15px;"> -->
+                      <!-- <div id="content"> -->
+                      <!-- <div class="columns"> -->
+                      <!-- <ul><li><a href="https://inside.era.nih.gov/index.htm" target="_blank">eRA/IMPACII </a>&nbsp;|</li> -->
+                      <!-- <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li> -->
+                      <!-- <li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li> -->
+                      <!-- <li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li> -->
+                      <!-- <li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li><br> -->
+                      <!-- <li><a href="http://www.hhs.gov" target="_blank">U.S. Department of -->
+                      <!-- Health and Human Services</a>&nbsp;|</li> -->
+                      <!-- <li><a href="http://www.nih.gov" target="_blank">National Institutes of -->
+                      <!-- Health</a>&nbsp;|</li> -->
+                      <!-- <li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a>&nbsp;|</li> -->
+                      <!-- <li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li><br><br> -->
+                      <!-- <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Version 1.101</a></li> -->
+                      <!-- </ul>          -->
+                      <!-- </div> -->
+                      <!-- </div> -->
+                      <!-- end footer container -->
+                      
+                      <!--back to top arrow-->
+                      <!-- <a href="#" class="back-to-top" style="display: none;">TOP</a> -->
+                      <!-- </footer> -->
+                      <!-- end Footer -->
+                      
+                    </body></html>
