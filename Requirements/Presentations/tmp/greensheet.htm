@@ -141,17 +141,15 @@
     <!--Main Action Buttons  -->
 <div  style="padding-right: 0px;clear:both">
   <div style="float:left;  margin-left: 5px; margin-bottom: 10px;display:inline;">
-                                                <button type="button" class="btn btn-default allSubs">Preview All Sub Questions</button>
-                                                 <button type="button" class="btn btn-default allNotes">View All Comments</button> 
-                                                 <button type="button" class="btn btn-default print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
-                                                     
-             
-            </div>
+    <button type="submit" class="btn btn-default allSubs">Preview All Sub Questions</button>
+    <button type="submit" class="btn btn-default allNotes">View All Comments</button> 
+    <button type="submit" class="btn btn-default print"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print</button> 
+  </div>
   <div style="float:right;  margin-bottom: 10px;display:inline;">
                                                 
-                                                     <button type="button" class="btn btn-default rs"> <a data-toggle="modal" href="#clearModal" style="color:black; text-decoration:none;">Reset Greensheet</button></a> 
-              <button type="button" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
-              <button type="button" class="btn btn-default submit">Submit</button> 
+   <button type="submit" class="btn btn-default rs" data-toggle="modal" href="#clearModal">Reset Greensheet</button> 
+    <button type="submit" class="btn btn-primary has-spinner" id="saveButton"><i class="fa fa-spinner fa-spin"></i> Save</button> 
+    <button type="submit" class="btn btn-default submit">Submit</button> 
              
             </div>
           </div>
@@ -178,7 +176,7 @@
                             <div class="hiddenNotes">
                                 <div class="form-group">
                                     <label>Comments</label>
-                                    <textarea class="exampleTextarea form-control" rows="3" id="PNCQ_40_RD_CM_122">Example text goes here.</textarea>
+                                    <textarea class="commentsTextarea form-control" rows="3" id="PNCQ_40_RD_CM_122">Example text goes here.</textarea>
                                     <span class="pull-right comments">( <span>3974</span> characters remaining)</span>
                                 </div>
                             </div>
@@ -251,7 +249,7 @@
 <div style="display:none" class="hiddenNotes">
   <div class="form-group">
    <label>Comments</label>
-    <textarea class="exampleTextarea form-control" rows="3" id="comment3"></textarea>
+    <textarea class="commentsTextarea form-control" rows="3" id="comment3"></textarea>
     <span class="pull-right comments">( <span class="count_message2">4000</span> characters remaining)</span>
 </div>
 </div>
@@ -624,7 +622,7 @@
           <div style="display:none" class="hiddenNotes">
   <div class="form-group">
    <label>Comments</label>
-    <textarea class="form-control exampleTextarea" rows="3" id="comment11"></textarea>
+    <textarea class="form-control commentsTextarea" rows="3" id="comment11" maxlength="4000"></textarea>
     <span class="pull-right comments">( <span class="count_message2">4000</span> characters remaining)</span>
   </div>
 </div></div></td>
@@ -733,7 +731,7 @@
         <tr data-node="treetable-12.2.1.1.1" data-pnode="treetable-parent-12.2.1.1" class="lastSub" id="sub12-2-1-1-1">
           <td><div style="display:inline-block;" class="indentLine2" id="12-2-1-1-1">12.2.1.1.1. Name of site(s) needing assurance:</div></td>
           <td class="input"><div class="form-group">
-             <textarea class="exampleTextarea form-control" id="Textarea12-2-1-1-1" rows="3"></textarea>
+             <textarea class="exampleTextarea form-control" id="Textarea12-2-1-1-1" rows="3" maxlength="2000" ></textarea>
     <span class="pull-right textBox">( <span class="count_message">2000</span> characters remaining)</span><div style="display:none;" class="warning1">Response is required</div>
           </div></td>
           <td  align="right"><a class="bottom comms" title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Add Comments"><img src="images/nocomment.gif" height="20" width="20" alt="comments"></a></td>
