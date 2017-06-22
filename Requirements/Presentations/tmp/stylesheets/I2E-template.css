@@ -292,7 +292,7 @@ margin: 0 -15px;
 /**********************Site Footer **********************************************/
 
 .site-footer {
-    position: absolute;
+    position: relative;
    bottom: 0;
     margin: 0 auto !important;
     text-align: center !important;
@@ -382,16 +382,7 @@ Pseudo ::after element
     list-style-type: none;
 }
 
-.site-footer {
-    position: absolute;
-   /* bottom: 0;*/
-    margin: 0 auto !important;
-    text-align: center !important;
-    width: 100% !important;
-    height: 80;
-    /*background-color: #e9e9e9;
-        border-top: 2px solid #e5e5e5;*/
-}
+
 
 .site-footer li {
     display: inline-block;
