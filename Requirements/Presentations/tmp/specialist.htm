@@ -41,41 +41,44 @@
 </head>
 <body>
   <!-- Header -->
-    <div class="row">
-  <div class="navbar ">
-    <div class="row header headerbg">
-      <div class="brandwrap" style="">
-        <div id="logo" class="logoImage">
+<div class="row">
+    <div class="navbar ">
+      <div class="row header headerbg">
+        <div class="brandwrap">
+          
+          <div id="logo" class="logoImage">
             <img src="images/logo.png" width="275px;" alt="National Cancer Institute">
             <div class="versionControlLabels3" style="float: right; ">
-              Development | V1.101 | 2017-05-17 | 12:10pm 
-          </div>        </div>
-      </div>
-      <!-- Fixed navbar -->
-      <div class="stickyDiv">
+              Development | V1.101 | 2017-06-17 | 12:10pm 
+          </div>
+          </div>
+
+        </div>
         <!--Page Header -->
-           <div  style="border-bottom: 7px solid #4cb471; margin-top: -1px;">
-            <div class="pageHeader" id="pageHeader" >
-                <div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench&nbsp;&nbsp;|</a><!-- | &nbsp;<a  href="http://inside.era.nih.gov/">IMPAC II Applications</a>&nbsp; <h3>--><h3> <a href="search.htm">&nbsp;&nbsp;Greensheets</a></h3></div></div></div><div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
+        <div  style="border-bottom: 7px solid #4cb471; margin-top: -1px;">
+            
+          
+            <div class="pageHeader" id="pageHeader" ><div style="display:inline-block; margin-left: 15px;"><div class="titleWrapper mainLinks" style="margin-left: -3px; display:inline-block;"><a href="https://i2e.nci.nih.gov/workbench/WorkBench">Workbench</a>  <h3>| Greensheets</h3></div></div></div>
+
+                <div class="login" style="display:inline-block; float: right; margin-right: 15px; margin-top: -32px;">
                   
                 <div id="loginID" class="login">
                   
-                   <span class="changeUser"> Welcome:</span> John Doe 
+                   <span class="changeUser"> Welcome:&nbsp;</span> John Doe 
                   
-                </div><div style="display:inline-block;"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;<span class="changeUser"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Change User</span></div>
-              </div>
-  
+                </div>
 
-      
+                  <div style="display:inline-block;"><i id="vrip" class="fa fa-book fa-1x" aria-hidden="true" alt="User Guide"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-question-circle" aria-hidden="true" alt="Help"></i>&nbsp; &nbsp; &nbsp;<i class="fa fa-user" aria-hidden="true"></i>&nbsp; Change User</span></div>
 
-  </div> <!-- end header -->
-  </div><!-- end navbar -->
-  </div>   <!--end header row --> 
+                </div>
+              </div><!-- end page header-->
+          
+      </div><!-- header -->
       
  
   
 <!-- Body Content start --> 
-  <div>  
+   <div class="main">  
   <div class="col-md-12">
     <br/>  
 
@@ -92,6 +95,7 @@
 
       <!--end panel header-->
     <div class="panel-body">
+      <form id="regexpForm" data-toggle="validator">
 <div class="form-group row" style="margin-top: 0px; margin-bottom: 10px;">
 <div >
    <label style="display:block; margin-left: 15px; margin-bottom: -5px;" class="searchLabel">
@@ -103,7 +107,7 @@
           <label class="grant-label" style="margin-left: 0px;">
                 Type
                 </label>
-          <input  maxlength="1" value=""  class="form-grant" type="text" style="width: 22px;" placeholder="1">
+          <input  maxlength="1" value=""  class="form-grant" type="text" style="width: 22px;" placeholder="1" >
         </div>
              <div style="display:inline-block;">
 
@@ -285,7 +289,7 @@
           <label class="form-check-label searchLabel">
                 PI Name 
                 </label>
-          <input  maxlength="120" value="" id="searchCriteria" class="form-control" type="text" placeholder="Enter PI Name">
+          <input  maxlength="120" value="" id="searchCriteria" class="form-control name" type="text" placeholder="Enter PI Name" name="fullName">
         </div>
 
         <div class="col-xs-4">
@@ -549,46 +553,42 @@
     <p>&nbsp;</p> 
       
 
-  </div>
-                 
 
 
-</div> <!-- end column 12 -- >
+</div> <!-- end column 12 -->
 </div> <!-- end main content -->
 
+</div>
 
 
 
 
-
- <!-- commenting out footer so it doesn't get in the way     --> 
 <!-- Footer -->
-
-  <!-- <footer class="site-footer"> -->
-  <!-- <div style="margin-top: 15px;"> -->
-    <!-- <div id="content"> -->
-     <!-- <div class="columns"> -->
-         <!-- <ul><li><a href="https://inside.era.nih.gov/index.htm" target="_blank">eRA/IMPACII </a>&nbsp;|</li> -->
-             <!-- <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li> -->
-              <!-- <li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li> -->
-              <!-- <li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li> -->
-              <!-- <li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li><br> -->
-             <!-- <li><a href="http://www.hhs.gov" target="_blank">U.S. Department of -->
-                  <!-- Health and Human Services</a>&nbsp;|</li> -->
-              <!-- <li><a href="http://www.nih.gov" target="_blank">National Institutes of -->
-                  <!-- Health</a>&nbsp;|</li> -->
-              <!-- <li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a>&nbsp;|</li> -->
-              <!-- <li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li><br><br> -->
-             <!-- <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Version 1.101</a></li> -->
-           <!-- </ul>          -->
-     <!-- </div> -->
-<!-- </div> -->
-
-   <!-- end footer container -->
-    
+</div>
+<footer class="site-footer">
+  <div style="margin-top: 15px;">
+    <div id="content">
+     <div class="columns">
+         <ul><li><a href="https://inside.era.nih.gov/index.htm" target="_blank">eRA/IMPACII </a>&nbsp;|</li>
+             <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li>
+              <li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li><br>
+             <li><a href="http://www.hhs.gov" target="_blank">U.S. Department of
+                  Health and Human Services</a>&nbsp;|</li>
+              <li><a href="http://www.nih.gov" target="_blank">National Institutes of
+                  Health</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a>&nbsp;|</li>
+              <li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li><br><br>
+             <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Version 1.101</a></li>
+           </ul>         
+     </div>
+</div>
+ </div> <!-- end footer container -->
+  
       <!--back to top arrow-->
-      <!-- <a href="#" class="back-to-top" style="display: none;">TOP</a> -->
-  <!-- </footer> -->
+      <a href="#" class="back-to-top" style="display: none;">TOP</a>
+  </footer>
 
 <!-- end Footer -->
       

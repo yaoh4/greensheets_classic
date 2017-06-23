@@ -82,6 +82,12 @@ margin-left: 15px;
 margin-right: 15px;
 }
 
+.content2 {
+margin-top: 20px; 
+margin-left: 15px; 
+margin-right: 15px;
+}
+
 /**************** Draft review page ***********/
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
     color: #555;
@@ -210,4 +216,6 @@ table.dataTable thead .sorting:after {
   display:inline;
   float: right;
 }
+
+
 

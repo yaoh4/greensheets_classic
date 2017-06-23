@@ -16,7 +16,7 @@
   <script src="scripts/theme.js"></script> <!-- contains back to top buttton applied to all pages -->
   
    <script src="scripts/bootstrap-treefy.js"></script> <!-- treefly js for expand rows -->
-    <script src="controller/greensheetcontroller.js"></script> <!-- contains js actions specific to the specialist search page -->
+    <script src="controller/draftController.js"></script> <!-- contains js actions specific to the specialist search page -->
   <!-- all for datatables displayed on Search pages -->
   <script src="scripts/jquery.dataTables.min.js"></script>
   <script src="scripts/dataTables.bootstrap.min.js"></script>
@@ -104,7 +104,7 @@
  
   
 <!-- Body Content start --> 
-  <div class="content">  
+  <div class="main">  
   <div class="col-md-12">
     <br/>  
 
@@ -133,6 +133,7 @@
 
     <div class="tab-pane active" id="1">
       <div class="row">
+        
         <div style="float: right; display:block; margin-top: 15px; margin-bottom: 10px;">
           <button class="btn btn-default" data-target="#rejectModal" data-toggle="modal" type="button">Reject Module</button><button class="btn btn-primary" data-target="#promoteModal" data-toggle="modal" type="button">Promote Module</button>
         </div>
@@ -611,18 +612,20 @@
       
       </div><!-- end row -->
     </div><!--end tab 3 -->
-  </div> <!-- end tab content -- >
+  </div> <!-- end tab content -->
+   
    </div><!-- end tab ex -->
 
 
-</div> <!-- end column 12 -- >
-</div> <!-- end main content -->
+</div> <!-- end column 12 -->
+</div> <!-- end main -->
+</div>
 
 
 
 <!-- Modal for Reject Module -->
 
-<div class="modal fade" tabindex="-1" role="dialog" id="rejectModal">
+<div class="modal " tabindex="-1" role="dialog" id="rejectModal">
   <div class="modal-dialog " role="document">
     <div class="modal-content">
       <div class="modal-header alert-warning">
@@ -646,7 +649,7 @@
 
 <!-- Modal for Promote Module -->
 
-<div class="modal fade" tabindex="-1" role="dialog" id="promoteModal">
+<div class="modal " tabindex="-1" role="dialog" id="promoteModal">
   <div class="modal-dialog " role="document">
     <div class="modal-content">
       <div class="modal-header alert-warning">
@@ -669,34 +672,33 @@
 </div><!-- /.modal -->  
 
 
- <!-- commenting out footer so it doesn't get in the way     --> 
 <!-- Footer -->
 
-  <!-- <footer class="site-footer"> -->
-  <!-- <div style="margin-top: 15px;"> -->
-    <!-- <div id="content"> -->
-     <!-- <div class="columns"> -->
-         <!-- <ul><li><a href="https://inside.era.nih.gov/index.htm" target="_blank">eRA/IMPACII </a>&nbsp;|</li> -->
-             <!-- <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li> -->
-              <!-- <li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li> -->
-              <!-- <li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li> -->
-              <!-- <li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li><br> -->
-             <!-- <li><a href="http://www.hhs.gov" target="_blank">U.S. Department of -->
-                  <!-- Health and Human Services</a>&nbsp;|</li> -->
-              <!-- <li><a href="http://www.nih.gov" target="_blank">National Institutes of -->
-                  <!-- Health</a>&nbsp;|</li> -->
-              <!-- <li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a>&nbsp;|</li> -->
-              <!-- <li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li><br><br> -->
-             <!-- <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Version 1.101</a></li> -->
-           <!-- </ul>          -->
-     <!-- </div> -->
-<!-- </div> -->
+  <footer class="site-footer">
+  <div style="margin-top: 15px;">
+    <div id="content">
+     <div class="columns">
+         <ul><li><a href="https://inside.era.nih.gov/index.htm" target="_blank">eRA/IMPACII </a>&nbsp;|</li>
+             <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Accessibility</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/policies/disclaimer" target="_blank">Disclaimer</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/policies/foia" target="_blank">FOIA</a>&nbsp;|</li>
+              <li class="last"><a href="http://www.cancer.gov/policies/privacy-security" target="_blank">Privacy &amp; Security</a></li><br>
+             <li><a href="http://www.hhs.gov" target="_blank">U.S. Department of
+                  Health and Human Services</a>&nbsp;|</li>
+              <li><a href="http://www.nih.gov" target="_blank">National Institutes of
+                  Health</a>&nbsp;|</li>
+              <li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a>&nbsp;|</li>
+              <li class="last"><a href="http://usa.gov" target="_blank">USA.gov</a></li><br><br>
+             <li><a href="http://www.cancer.gov/policies/accessibility" target="_blank">Version 1.101</a></li>
+           </ul>         
+     </div>
+</div>
 
    <!-- end footer container -->
     
       <!--back to top arrow-->
-      <!-- <a href="#" class="back-to-top" style="display: none;">TOP</a> -->
-  <!-- </footer> -->
+      <a href="#" class="back-to-top" style="display: none;">TOP</a>
+  </footer>
 
 <!-- end Footer -->
       

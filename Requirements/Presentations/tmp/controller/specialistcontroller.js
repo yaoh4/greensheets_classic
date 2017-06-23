@@ -32,18 +32,18 @@ var table = $('#example').dataTable( {
     } );
 
 
-var $regexname=/^([a-zA-Z]{3,16})$/;
-    $('.name').on('keypress keydown keyup',function(){
-             if (!$(this).val().match($regexname)) {
+//var $regexname=/^([a-zA-Z]{3,16})$/;
+  //  $('.name').on('keypress keydown keyup',function(){
+          //   if (!$(this).val().match($regexname)) {
               // there is a mismatch, hence show the error message
-                 $('.emsg').removeClass('hidden');
-                 $('.emsg').show();
-             }
-           else{
+                 // $('.emsg').removeClass('hidden');
+                 // $('.emsg').show();
+             // }
+           // else{
                 // else, do not display message
-                $('.emsg').addClass('hidden');
-               }
-         });
+                // $('.emsg').addClass('hidden');
+               // }
+         // });
 
 
 
