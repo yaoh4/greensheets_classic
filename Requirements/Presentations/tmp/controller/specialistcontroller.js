@@ -52,8 +52,53 @@ var table = $('#example').dataTable( {
 $('[data-toggle="tooltip"]').tooltip();    //tooltip on icons    
 
 
+var $inputs = $("#GrantNumber input"); // grab inputs from grant number input boxes //
+    maxlengthArray = []; // array to store max lengths of all input boxes in grant row //
 
+    $($inputs).each(function(index) { // loop through each input and push max length of input to maxLengthArray //
+        maxlengthArray.push($inputs[index].maxLength)
+    });
+
+    $("#GrantNumber input#first").on("paste", function() { 
+        $inputs.attr("maxlength", 19);
+        var $this = $(this);
+
+        $this.one("input.fromPaste", function(){
+            $currentInputBox = $(this); // grab pasted value //
+            pastedValue = $currentInputBox.val().replace("-","");
+            // set regular expression here //
+            if ((pastedValue.length >=15 && pastedValue.length <= 19)) {
+                console.log(pastedValue.length)
+                setMaxValues();
+                var counter = 0;
+                $(maxlengthArray).each(function(index) {
+                   $inputs[index].value = pastedValue.slice(counter,counter+maxlengthArray[index]);
+                   counter += maxlengthArray[index];
+                });
+            }
+            else {
+                $(maxlengthArray).each(function(index) {
+                    $inputs[index].value = "";
+                });
+            };
+
+            function setMaxValues() {
+                $(maxlengthArray).each(function(index) {
+                    $inputs[index].maxLength = maxlengthArray[index];
+                });
+            };
+
+
+        });
+
+
+    });
  
+
+
+
+
+
 
 
  });  
