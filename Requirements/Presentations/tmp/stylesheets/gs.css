@@ -214,3 +214,7 @@ label.form-radio-input {
     padding-top: 3px;
     padding-bottom: 3px;
 }
+
+.grantAlign td {
+  vertical-align: top;
+}
