@@ -1,3 +1,32 @@
+/*** I2E Template customization ***/
+.mainLinks h3 {
+    color: #FFF;
+}
+
+.container.main {
+    width: 100%;
+    padding: 0px;
+    box-shadow: none;
+    background: #fff;
+    margin: 0px;
+}
+
+.site-footer {
+    height: auto;
+    clear: both;
+    background: #eeeeee;
+    padding: 1em 0;
+}
+
+.headerbg {
+    border-bottom: 7px solid #4cb471;
+}
+
+.col-md-12 {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
 /**********Alert boxes ****************************/
 
 .alert-danger, .alert-error {
@@ -216,6 +245,4 @@ table.dataTable thead .sorting:after {
   display:inline;
   float: right;
 }
-
-
 

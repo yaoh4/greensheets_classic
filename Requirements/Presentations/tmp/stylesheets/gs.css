@@ -183,6 +183,7 @@ text-align: right;
 .input {
 
   width: 35%;
+  vertical-align: middle !important;
 }
 
 .table-responsive td {
@@ -193,17 +194,23 @@ text-align: right;
   padding: 5px;
 }
 
-input[type=radio] {
-  margin-right: 5px;
-}
 
-label.form-radio-input {
-    min-width: 40px;
-    margin-right: 5px;
-}
- 
-}
 .fa-angle-double-right, .fa-angle-double-down {
     color: #337ab7;
 }
 
+input[type=radio] {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 6px;
+}
+
+label.form-radio-input {
+       min-width: 40px;
+    max-width: 300px;
+    vertical-align: top;
+    margin-top: 2px;
+   
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
