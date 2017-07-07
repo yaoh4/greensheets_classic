@@ -2,7 +2,6 @@
 .mainLinks h3 {
     color: #FFF;
 }
-
 .container.main {
     width: 100%;
     padding: 0px;
@@ -246,3 +245,12 @@ table.dataTable thead .sorting:after {
   float: right;
 }
 
+::-webkit-input-placeholder { 
+    color: #CCC;
+}
+:-moz-placeholder { 
+    color: #CCC;
+}
+::-moz-placeholder { 
+    color: #CCC;
+}
