@@ -47,11 +47,23 @@ var table = $('#example').dataTable( {
 
 
 
- 
+//function for making year blank when serial number is entered
+
+$('#serial').on('keypress change', function() {
+if($('#serial').val().length > 0) {
+  $('#year').removeAttr('placeholder');
+}
+else {
+ $('#year').attr('placeholder', '01');
+}
+
+});
+
+
 
 $('[data-toggle="tooltip"]').tooltip();    //tooltip on icons    
 
-
+//function for copy and paste Grant Number
 var $inputs = $("#GrantNumber input"); // grab inputs from grant number input boxes //
     maxlengthArray = []; // array to store max lengths of all input boxes in grant row //
 
@@ -62,6 +74,8 @@ var $inputs = $("#GrantNumber input"); // grab inputs from grant number input bo
     $("#GrantNumber input#first").on("paste", function() { 
         $inputs.attr("maxlength", 19);
         var $this = $(this);
+
+        $('#CA').removeAttr("disabled");
 
         $this.one("input.fromPaste", function(){
             $currentInputBox = $(this); // grab pasted value //
