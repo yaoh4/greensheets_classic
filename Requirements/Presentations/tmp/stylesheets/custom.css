@@ -254,3 +254,20 @@ table.dataTable thead .sorting:after {
 ::-moz-placeholder { 
     color: #CCC;
 }
+
+
+/*processing message on search results*/
+div.dataTables_wrapper div.dataTables_processing {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    width: 300px;
+    margin-left: -200px;
+    margin-top: -26px;
+    text-align: center;
+    padding: 1em 0;
+    background-color: rgba(253, 245, 162, 0.85);
+    font-weight: bold;
+}
+
+
