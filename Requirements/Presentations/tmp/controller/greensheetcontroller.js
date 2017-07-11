@@ -26,6 +26,11 @@ function hideNode(childId) {
 
 $(document).ready(function(){
 
+
+  $(function() {
+    $('.tooltip-wrapper').tooltip({position: "bottom"});
+});
+
 //code for expand/collapse Grant Number box
 
   $('.panel-heading span.clickable').click (function(){
@@ -159,7 +164,7 @@ $(".commentsTextarea").bind("input", function() {
   var $this = $(this);
   var showMessage = false;
   var text_remaining = text_max2-$this.val().length;
-  if (text_remaining--0) { text_remaining = 0 }
+  if (text_remaining==0) { text_remaining = 0 }
 
   var message = "<div style='display: inline-block' class='warning2 has-error'>Maximum characters reached!</div>";
   
@@ -320,11 +325,14 @@ $('.rs').click(function() {
 
 
 
+ $('#saveGreensheet_saveAndSubmitGreensheet')
+.tooltip()
+   .click(function(e) { 
+       e.preventDefault(); 
+       $(this).focus(); 
+   });
     
 });
-
-
-
 
 
 
