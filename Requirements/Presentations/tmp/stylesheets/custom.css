@@ -255,6 +255,10 @@ table.dataTable thead .sorting:after {
     color: #CCC;
 }
 
+:-ms-input-placeholder { /* IE 10+ */
+   color: #CCC;
+}
+
 
 /*processing message on search results*/
 div.dataTables_wrapper div.dataTables_processing {
