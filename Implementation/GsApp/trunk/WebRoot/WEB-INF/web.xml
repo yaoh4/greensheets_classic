@@ -168,7 +168,7 @@
 				to home page. Again, separate by semicolons.
 			</description>
 			<param-name>resources-to-preload-user-info-and-then-service</param-name>
-			<param-value>retrievegreensheet;changelock</param-value>
+			<param-value>retrievegreensheet;changelock;pdfUpload</param-value>
 		</init-param>
 	</filter>
 

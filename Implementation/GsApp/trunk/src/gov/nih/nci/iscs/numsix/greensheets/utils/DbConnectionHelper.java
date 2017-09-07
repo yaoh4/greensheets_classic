@@ -13,9 +13,9 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.apache.struts.action.ActionServlet;
 import org.springframework.jdbc.datasource.DataSourceUtils;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
 
@@ -42,8 +42,6 @@ public class DbConnectionHelper {
 	 * Constructor for DbConnectionHelper.
 	 */
 	private DbConnectionHelper() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		dc = (DataSource) context.getBean("dataSource");
 	}
 
 	/**
@@ -73,11 +71,12 @@ public class DbConnectionHelper {
 	 *             properties are then stored and the DbConnectionHelper
 	 *             Singleton maintains them throughout the life of the object.
 	 */
-	public void initConfigFile(Properties properties) throws GreensheetBaseException {
+	public void initConfigFile(Properties properties, ActionServlet serv) throws GreensheetBaseException {
 
 		if (initPool == false) {
 			props = properties;
 		}
+		dc = (DataSource) WebApplicationContextUtils.getWebApplicationContext(serv.getServletContext()).getBean("dataSource");
 	}
 
 	/**

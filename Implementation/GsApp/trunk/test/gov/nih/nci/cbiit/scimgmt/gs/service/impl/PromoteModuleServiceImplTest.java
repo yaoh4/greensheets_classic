@@ -18,15 +18,13 @@ import gov.nih.nci.cbiit.atsc.dao.ProcessNewQuestionDefsDAO;
 import gov.nih.nci.cbiit.scimgmt.gs.dao.PromoteModuleDAO;
 import gov.nih.nci.cbiit.scimgmt.gs.service.PromoteModuleService;
 import gov.nih.nci.iscs.numsix.greensheets.services.ProcessNewQuestionDefsService;
+import gov.nih.nci.iscs.numsix.greensheets.services.ProcessNewQuestionDefsServicesImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PromoteModuleServiceImplTest {
 	
-	@Mock
-	private static PromoteModuleDAO promoteModuleDAO;
-	
-	@Mock
-	private static ProcessNewQuestionDefsDAO processNewQuestionDefsDAO;
+	private PromoteModuleDAO promoteModuleDAO;
+	private ProcessNewQuestionDefsDAO processNewQuestionDefsDAO;
 	
 	private HashSet<String> inActiveMechTypeList = new HashSet<String>();
 	private String moduleName;
@@ -35,12 +33,22 @@ public class PromoteModuleServiceImplTest {
 	@InjectMocks
 	private static PromoteModuleService promoteModuleService = new PromoteModuleServiceImpl();
 	
-	@InjectMocks
-	private static ProcessNewQuestionDefsService processNewQuestionDefsService = mock(ProcessNewQuestionDefsService.class);
+	private ProcessNewQuestionDefsServicesImpl processNewQuestionDefsServiceImpl = new ProcessNewQuestionDefsServicesImpl();
+	private PromoteModuleServiceImpl promoteModuleServiceImpl = new PromoteModuleServiceImpl();
+	
+	@Mock
+	private static ProcessNewQuestionDefsService processNewQuestionDefsService;
+	
 	
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
+		
+		promoteModuleDAO = mock(PromoteModuleDAO.class);
+		processNewQuestionDefsDAO = mock(ProcessNewQuestionDefsDAO.class);
+		
+		promoteModuleServiceImpl.setPromoteModuleDAO(promoteModuleDAO);
+		processNewQuestionDefsServiceImpl.setProcessNewQuestionDefsDAO(processNewQuestionDefsDAO);
 		
 		inActiveMechTypeList.add("R01,1");
 		inActiveMechTypeList.add("R02,2");

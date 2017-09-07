@@ -24,8 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="YEAR"/>
  *     &lt;enumeration value="MONTH_YEAR"/>
  *     &lt;enumeration value="DATE"/>
- *     &lt;enumeration value="TEXT_AREA"/>
- *     &lt;enumeration value="CHECK_MARK"/>
+ *     &lt;enumeration value="TEXT"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
@@ -46,8 +45,7 @@ public enum GsAnswerType {
     YEAR,
     MONTH_YEAR,
     DATE,
-    TEXT_AREA,
-    CHECK_MARK;
+    TEXT;
 
     public String value() {
         return name();

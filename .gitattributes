@@ -764,8 +764,10 @@ Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/atsc/dao/spring/ProcessNewQuest
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/atsc/dao/spring/SpringDAOUtil.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/atsc/dao/spring/UserRoleDataDAOImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/dao/FormUtilDAO.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/dao/PdfUploadDAO.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/dao/PromoteModuleDAO.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/dao/impl/FormUtilDAOImpl.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/dao/impl/PdfUploadDAOImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/dao/impl/PromoteModuleDAOImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/domain/gsfb/ContentElementType.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/domain/gsfb/FormElementType.java -text
@@ -833,8 +835,11 @@ Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/For
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/Forms.hbm.xml -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/domain/hibernate/Forms.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/service/DraftModuleService.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/service/PdfUploadService.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/service/PdfUploadTask.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/service/PromoteModuleService.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/service/impl/DraftModuleServiceImpl.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/service/impl/PdfUploadServiceImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/cbiit/scimgmt/gs/service/impl/PromoteModuleServiceImpl.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/GreensheetResourceManager.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/i2e/greensheets/GreensheetsResourceException.java -text
@@ -852,6 +857,7 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/G
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GreensheetPreferencesAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/GreensheetUserSession.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/NoOpAction.java -text
+Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/PdfUploadAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/PreviewDraftGreensheetsAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/ProcessNewQuestionDefsAction.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/application/ProgramPreferencesForm.java -text
@@ -932,6 +938,7 @@ Implementation/GsApp/trunk/src/gov/nih/nci/iscs/numsix/greensheets/utils/Redunda
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/velocity/tools/view/servlet/VelocityViewIdServlet.java -text
 Implementation/GsApp/trunk/src/gov/nih/nci/iscs/velocity/tools/view/servlet/VelocityViewIdServletDraft.java -text
 Implementation/GsApp/trunk/test/gov/nih/nci/cbiit/scimgmt/gs/dao/FormUtilDAOTest.java -text
+Implementation/GsApp/trunk/test/gov/nih/nci/cbiit/scimgmt/gs/service/impl/PdfUploadServiceImplTest.java -text
 Implementation/GsApp/trunk/test/gov/nih/nci/cbiit/scimgmt/gs/service/impl/PromoteModuleServiceImplTest.java -text
 Implementation/GsDocChecker/trunk/build/RunDocChecker_LINUX.txt -text
 Implementation/GsDocChecker/trunk/build/RunDocChecker_Win.txt -text

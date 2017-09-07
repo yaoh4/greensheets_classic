@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.sql.DataSource;
@@ -562,6 +564,7 @@ public class GrantDAOImpl implements GrantDAO {
 		return formGrantsList;
 	}
 
+	
 	private static final String FORM_GRANT_VW_SELECT_COLS = "DUMMY_FLAG" + ", ON_CONTROL_FLAG"
 			+ ", ELECTRONIC_SUBMISSION_FLAG" + ", APPL_ID" + ", FULL_GRANT_NUM" + ", RFA_PA_NUMBER"
 			+ ", COUNCIL_MEETING_DATE" + ", FIRST_NAME" + ", MI_NAME" + ", LAST_NAME" + ", PI_NAME"

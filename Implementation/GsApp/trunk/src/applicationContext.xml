@@ -13,8 +13,9 @@
             http://www.springframework.org/schema/task
             http://www.springframework.org/schema/task/spring-task.xsd">
             
-	<context:component-scan base-package="gov.nih.nci.cbiit.scimgmt.gs" />
-
+	<task:annotation-driven/>
+    <context:component-scan base-package="gov.nih.nci.cbiit.scimgmt.gs" />
+	
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
@@ -134,6 +135,10 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="pdfUploadDAO" class="gov.nih.nci.cbiit.scimgmt.gs.dao.impl.PdfUploadDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
 	<bean id="formUtilDAO" class="gov.nih.nci.cbiit.scimgmt.gs.dao.impl.FormUtilDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -201,8 +206,14 @@
 		class="gov.nih.nci.iscs.numsix.greensheets.services.GreensheetFormServiceImpl">
 		<property name="greensheetFormDAO" ref="greensheetFormDAO" />
 	</bean>
-
-
+	
+	<bean id="pdfUploadService"
+		class="gov.nih.nci.cbiit.scimgmt.gs.service.impl.PdfUploadServiceImpl">		
+		<property name="pdfUploadDAO" ref="pdfUploadDAO" />
+		<property name="grantDAO" ref="grantDAO" />
+		<property name="greensheetFormService" ref="greensheetFormService" />
+	</bean>
+	
 	<bean id="processNewQuestionDefsService"
 		class="gov.nih.nci.iscs.numsix.greensheets.services.ProcessNewQuestionDefsServicesImpl">
 		<property name="processNewQuestionDefsDAO" ref="processNewQuestionDefsDAO" />
@@ -227,9 +238,14 @@
 		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />
 	</bean>
 
+	<bean name="/pdfUpload"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.PdfUploadAction">
+		<property name="pdfUploadService" ref="pdfUploadService" />
+	</bean>	
+
 	<bean name="/searchprogramgrants"
 		class="gov.nih.nci.iscs.numsix.greensheets.application.SearchProgramGrantsAction">
-		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />
+		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />		
 	</bean>
 
 	<bean name="/editprogrampreferences"
@@ -343,6 +359,5 @@
 			<ref bean="mailSender" />
 		</property>
 	</bean>
-
 
 </beans>

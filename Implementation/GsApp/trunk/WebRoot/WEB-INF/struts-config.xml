@@ -106,6 +106,7 @@
 		<forward name="imcompletedGS" path="/jsp/imcompletedGS.jsp" />
 		<forward name="invalidI2EAccount" path="/jsp/InvalidI2EAccount.jsp" />
 		<forward name="grantTypeError" path="/jsp/grantTypeError.jsp" />
+		<forward name="pdfUpload" path="/pdfUpload.do" />
 	</global-forwards>
 
 	<!-- ========== Action Mapping Definitions ========== -->
@@ -279,6 +280,10 @@
 			<forward name="image_reject.x" path="/rejectDraftGreensheets.do" />
 			<forward name="image_view.x" path="/reviewDraftGreensheets.do?method=reviewDraft" />
 		</action>
+
+		<action path="/pdfUpload"
+			type="gov.nih.nci.iscs.numsix.greensheets.application.PdfUploadAction"
+			scope="request" />
 
 	</action-mappings>
 

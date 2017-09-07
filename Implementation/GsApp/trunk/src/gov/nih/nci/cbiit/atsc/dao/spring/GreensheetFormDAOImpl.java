@@ -52,6 +52,7 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
 		sqlParms.addValue("grantMech", grant.getActivityCode()); // Mech
 
 		logger.debug("SQL: " + formGrantMatrixSql);
+		logger.debug("formRoleCode:" + formRoleCode + " grantType:" + grant.getApplTypeCode() + "grantMech:" + grant.getActivityCode());
 		int formTemplateId = 0;
 		try {
 			logger.debug("About to retrieve formTemplateId");

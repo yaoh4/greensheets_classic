@@ -56,7 +56,7 @@ public class GreensheetsInitPlugIn implements PlugIn {
 			// Abdul: Tomcat/Java 5 migration. Add runtime-platform specific path separator.
 			AppConfigLoader.loadQuestionsXmlSrc(serv.getServletContext().getRealPath("WEB-INF") + File.separator); 
 
-			DbConnectionHelper.getInstance().initConfigFile((Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_DB_PROPERTIES));
+			DbConnectionHelper.getInstance().initConfigFile((Properties) AppConfigProperties.getInstance().getProperty(GreensheetsKeys.KEY_DB_PROPERTIES), serv);
 
 			System.out.println("\n<<<<<<<<<< Database configuration complete >>>>>>>>\n");
 

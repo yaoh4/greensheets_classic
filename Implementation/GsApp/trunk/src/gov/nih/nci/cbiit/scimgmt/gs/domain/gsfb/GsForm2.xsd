@@ -286,8 +286,7 @@
 			<xs:enumeration value="YEAR"/>
 			<xs:enumeration value="MONTH_YEAR"/>
 			<xs:enumeration value="DATE"/>
-			<xs:enumeration value="TEXT_AREA"/>
-			<xs:enumeration value="CHECK_MARK"/>
+			<xs:enumeration value="TEXT"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="SkipRuleType">
