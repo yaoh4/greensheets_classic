@@ -52,7 +52,7 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
 		sqlParms.addValue("grantMech", grant.getActivityCode()); // Mech
 
 		logger.debug("SQL: " + formGrantMatrixSql);
-		logger.debug("formRoleCode:" + formRoleCode + " grantType:" + grant.getApplTypeCode() + "grantMech:" + grant.getActivityCode());
+		logger.debug("fromRoleCode: " + formRoleCode + ", grantType: " + grant.getApplTypeCode() + ", grantMech: " + grant.getActivityCode());
 		int formTemplateId = 0;
 		try {
 			logger.debug("About to retrieve formTemplateId");
@@ -63,7 +63,7 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
 			GsNoTemplateDefException noTmplExcp = new GsNoTemplateDefException(
 					"Greensheet questionnaires " + "for this kind of grant have not been defined.");
 			noTmplExcp.initCause(e);
-			logger.error("Oops", e);
+			logger.error("Greensheet questionnaire for type: " + grant.getApplTypeCode() + " and mech: " + grant.getActivityCode() + " is not found.", e);
 			throw noTmplExcp;
 		}
 		logger.debug("The Greensheet Form Template ID read from the DB is: " + formTemplateId);
@@ -90,7 +90,7 @@ public class GreensheetFormDAOImpl implements GreensheetFormDAO {
 		}
 		
 		logger.debug("SQL to read the Greensheet Form: " + greensheetFormSql);
-
+		logger.debug("fullGrantNum: " + grant.getFullGrantNum() + ", applId" + grant.getApplId() + ", actionId" + grant.getActionId());
 		List greensheetForms = this.namedParameterJdbcTemplate.query(greensheetFormSql, sqlParms, new GreensheetFormRowMapper());
 
 		if (greensheetForms != null && greensheetForms.size() == 1) {

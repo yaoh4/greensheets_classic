@@ -5,12 +5,6 @@
 
 package gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr;
 
-import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
-import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
-import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
-import gov.nih.nci.iscs.numsix.greensheets.utils.DbUtils;
-import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -30,6 +24,13 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.Constants;
+import gov.nih.nci.iscs.numsix.greensheets.fwrk.GreensheetBaseException;
+import gov.nih.nci.iscs.numsix.greensheets.services.FormGrantProxy;
+import gov.nih.nci.iscs.numsix.greensheets.utils.AppConfigProperties;
+import gov.nih.nci.iscs.numsix.greensheets.utils.DbUtils;
+import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
 /**
  * Helper class for working with question file attachments
@@ -223,9 +224,18 @@ class AttachmentHelper {
                 .getProperty(GreensheetsKeys.KEY_CONFIG_PROPERTIES);
         String repositoryPath = p.getProperty("attachemts.repository.path");
 
-        String subDir = grant.getFullGrantNumber() + File.separator
-                + form.getGroupTypeAsString() + File.separator
-                + qrd.getQuestionDefId();
+        String subDir = "";
+        if(form.getGroupTypeAsString().equals(Constants.REVISION_TYPE)) {
+        	subDir = grant.getFullGrantNumber() + File.separator
+        			+ form.getGroupTypeAsString() + File.separator
+        			+ grant.getActionId() + File.separator
+                    + qrd.getQuestionDefId();
+        } else {
+        	subDir = grant.getFullGrantNumber() + File.separator
+        			+ form.getGroupTypeAsString() + File.separator
+                    + qrd.getQuestionDefId();
+        }
+                
         String rootDir = repositoryPath + File.separator + subDir;
 
         PreparedStatement pstmt = null;

@@ -24,7 +24,6 @@ import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.Greensheet
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetformmgr.GreensheetFormProxy;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUser;
 import gov.nih.nci.iscs.numsix.greensheets.services.greensheetusermgr.GsUserRole;
-import gov.nih.nci.iscs.numsix.greensheets.utils.EmailNotification;
 import gov.nih.nci.iscs.numsix.greensheets.utils.GreensheetsKeys;
 
 /**
@@ -131,7 +130,7 @@ public class ChangeGreensheetLockAction extends GsBaseAction {
 
     			FormGrantProxy grant = null;
 
-    			if (applId != null && groupType != null) {
+    			if (applId != null && !applId.isEmpty() && groupType != null && !groupType.isEmpty()) {
     				grant = greensheetsFormGrantsService.findGSGrantInfo(null, Long.parseLong(applId), groupType, gus.getUser());	
 
     				GreensheetFormProxy gForm = greensheetFormService.getGreensheetForm(grant, groupType);

@@ -247,7 +247,7 @@ public class GrantDAOImpl implements GrantDAO {
 				+ "AND pd_npe.epn_id      = pd_npn.ID "
 				+ "AND agt.spec_npe_id    = pspec_npe.ID(+) "
 				+ "AND pspec_npe.epn_id   = pspec_npn.ID(+) "
-				+ "AND agt.spec_npe_id    = bspec_npe.ID(+) "
+				+ "AND agt.bkup_spec_npe_id = bspec_npe.ID(+) "
 				+ "AND bspec_npe.epn_id   = bspec_npn.ID(+) "
 				+ "AND pgi.appl_id = aca.appl_id "
 				+ "AND aca.end_date IS NULL ";
