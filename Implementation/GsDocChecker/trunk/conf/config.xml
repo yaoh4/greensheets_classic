@@ -61,7 +61,7 @@
 	</report>
 	
 	<report-recipients>
-		<sender>nciweb@mail.nih.gov</sender>
+		<sender>NCI-NOW-L@list.nih.gov</sender>
 		<subscribers-email>zhaos3@mail.nih.gov</subscribers-email>
 		<subject>Greensheets Attachments Reconciliation Report</subject>
 		<!-- 
