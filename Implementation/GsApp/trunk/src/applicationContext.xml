@@ -243,6 +243,12 @@
 		<property name="pdfUploadService" ref="pdfUploadService" />
 	</bean>	
 
+	<bean name="/displayPdf"
+		class="gov.nih.nci.iscs.numsix.greensheets.application.DisplayPdfAction">
+		<property name="greensheetFormService" ref="greensheetFormService" />		
+		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />	
+	</bean>	
+	
 	<bean name="/searchprogramgrants"
 		class="gov.nih.nci.iscs.numsix.greensheets.application.SearchProgramGrantsAction">
 		<property name="greensheetsFormGrantsService" ref="greensheetsFormGrantsService" />		
